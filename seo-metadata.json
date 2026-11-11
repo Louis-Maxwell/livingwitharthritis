@@ -7,11 +7,11 @@
   "routes": {
     "/": {
       "title": "Living With Arthritis \u2014 Free Exercises, Diet & Support",
-      "description": "Free, expert-reviewed guides on managing arthritis: exercises, diet, pain relief and UK benefits. A non-profit founded by someone living with it."
+      "description": "Free, expert-reviewed guides on managing arthritis: exercises, diet, pain relief and UK benefits, from a registered charity (1218461)."
     },
     "/about-us": {
       "title": "About Living With Arthritis | Our Story & Mission",
-      "description": "How a 2020 osteoarthritis diagnosis with no management plan led to a UK non-profit providing free arthritis guidance. Meet our team and our mission."
+      "description": "Registered charity 1218461 providing free, clinically reviewed arthritis guidance across the UK. Meet our team and our mission."
     },
     "/accessibility": {
       "title": "Accessibility Statement | Living With Arthritis",

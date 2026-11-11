@@ -11,7 +11,7 @@
 | Requested section | Status | Primary existing route(s) | Notes |
 |---|---|---|---|
 | Home | Exists | `/` | Redesign hierarchy — see 03 |
-| About | Exists | `/about`, `/governance`, `/trust`, `/editorial-standards`, `/authors`, `/reviewers` | Keep founder story on About, not competing with Home hero |
+| About | Exists | `/about`, `/governance`, `/trust`, `/editorial-standards`, `/authors`, `/reviewers` | Keep the charity's “why we exist” story on About (no founder named), not competing with Home hero |
 | Conditions | Exists | `/conditions/*`, `/library/arthritis-types-hub`, `/library/osteoarthritis-hub`, `/library/rheumatoid-arthritis-hub` | Canonicalise condition vs library hub overlap |
 | Treatment Hub | Exists (partial) | `/library/treatments-hub`, `/treatments/drug-guide`, `/treatments/surgery-options`, `/treatments/complementary-therapies`, `/guides/painkillers-and-nsaids` | Propose nav label **Treatment Hub** → `/library/treatments-hub` |
 | Exercise Library | Exists | `/exercises`, `/library/exercise-hub`, joint exercise routes | Prefer `/exercises` as public entry |

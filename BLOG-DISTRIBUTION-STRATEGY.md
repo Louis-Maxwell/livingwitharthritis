@@ -490,7 +490,7 @@ export default function ArthritisExercisesKneeBlog() {
 | Email newsletter | You or VA (automation) |
 | Publish to website | You |
 | Reddit/community | Louis (authenticity) |
-| Media pitching | David Williams (founder); Louis (Operations Director, clinical comment) |
+| Media pitching | Living With Arthritis press office (info@); Louis (Operations Director, clinical comment) |
 
 ---
 

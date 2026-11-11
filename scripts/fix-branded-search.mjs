@@ -75,7 +75,7 @@ function generateFaqSchema() {
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'Living With Arthritis is an independent UK registered charity (1218461) founded by David Williams, with clinical review by Louis Maxwell, an HCPC-registered First Contact Practitioner. We provide free virtual physiotherapy, NICE-aligned exercises, and peer support. We are separate from and independent of Arthritis UK.',
+            'Living With Arthritis is an independent UK registered charity (1218461), governed by its board of trustees, with clinical review by Louis Maxwell, an HCPC-registered First Contact Practitioner. We provide free virtual physiotherapy, NICE-aligned exercises, and peer support. We are separate from and independent of Arthritis UK.',
         },
       },
       {
@@ -93,7 +93,7 @@ function generateFaqSchema() {
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'Living With Arthritis was founded by David Williams. Clinical review is led by Louis Maxwell, Operations Director and an HCPC-registered First Contact Practitioner (registration PH128483). We combine clinical expertise with peer support.',
+            'Living With Arthritis is a registered charity (1218461) governed by its board of trustees. Clinical review is led by Louis Maxwell, Operations Director and an HCPC-registered First Contact Practitioner (registration PH128483). We combine clinical expertise with peer support.',
         },
       },
     ],
@@ -265,10 +265,10 @@ export default function NotArthritisUk() {
               </tr>
               <tr>
                 <td className="border border-gray-300 p-4">
-                  <strong>Founder</strong>
+                  <strong>Governance</strong>
                 </td>
                 <td className="border border-gray-300 p-4">
-                  Louis Maxwell (HCPC First Contact Practitioner, PH128483)
+                  Board of trustees; clinical review by Louis Maxwell (HCPC First Contact Practitioner, PH128483)
                 </td>
                 <td className="border border-gray-300 p-4">Multiple trustees</td>
               </tr>
@@ -319,7 +319,7 @@ export default function NotArthritisUk() {
           </p>
 
           <p>
-            Living With Arthritis was founded by David Williams to provide direct physiotherapy support
+            Living With Arthritis exists to provide direct physiotherapy support
             and community-led peer care — complementing the excellent advocacy work Arthritis UK does.
           </p>
         </div>

@@ -2,10 +2,10 @@ import { memo } from "react";
 import { Heart, Stethoscope } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const FounderStoryBand = memo(() => {
+const OurStoryBand = memo(() => {
   return (
     <section
-      aria-labelledby="founder-story-heading"
+      aria-labelledby="our-story-heading"
       className="py-16 md:py-24 bg-gradient-to-b from-primary/5 via-transparent to-transparent"
     >
       <div className="container mx-auto px-6 lg:px-16">
@@ -18,18 +18,17 @@ const FounderStoryBand = memo(() => {
 
           {/* Heading */}
           <h2
-            id="founder-story-heading"
+            id="our-story-heading"
             className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6"
           >
-            Shaped by a clinician who lived the lonely bit too
+            Why we exist: closing the lonely gap
           </h2>
 
           {/* Body copy */}
           <div className="prose prose-sm md:prose-base max-w-none text-foreground/80 space-y-4 mb-8">
             <p>
-              Louis Maxwell is a First Contact Practitioner in UK primary care (HCPC PH128483).
-              When he was diagnosed with lumbar spine degeneration at just 28, he expected clear
-              guidance. Instead, his GP handed him a sheet of home exercises — nothing else.
+              Too many people are diagnosed with arthritis or a long-term joint condition, expect
+              clear guidance, and leave with a sheet of home exercises — nothing else.
             </p>
 
             <p>
@@ -38,16 +37,17 @@ const FounderStoryBand = memo(() => {
             </p>
 
             <p>
-              You are not alone in that gap. It became the mission of
+              You are not alone in that gap. Closing it is the mission of
               <strong className="text-foreground"> Living With Arthritis</strong>. We exist to give
-              people what Louis did not get: clinically honest, emotionally kind guidance — and a
-              human reply when you need one.
+              people clinically honest, emotionally kind guidance — and a human reply when you
+              need one.
             </p>
 
             <p>
               We are a young charity (registered 15 June 2026, no.&nbsp;1218461), serving people across the UK
-              and independent of Arthritis UK, founded by David Williams. We will not invent a large clinical board. Louis
-              reviews our content. Motion is lotion — and we are building this with you.
+              and independent of Arthritis UK, governed by our board of trustees. We will not invent a large clinical
+              board. Our Operations Director, Louis Maxwell (HCPC PH128483), reviews our clinical content. Motion is
+              lotion — and we are building this with you.
             </p>
 
             <p>
@@ -62,7 +62,7 @@ const FounderStoryBand = memo(() => {
               className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/95 transition-colors shadow-lg shadow-primary/20"
             >
               <Stethoscope className="w-5 h-5 mr-2" aria-hidden="true" />
-              Meet Louis
+              Meet our team
             </a>
             <Link
               to="/editorial-standards"
@@ -77,5 +77,5 @@ const FounderStoryBand = memo(() => {
   );
 });
 
-FounderStoryBand.displayName = "FounderStoryBand";
-export default FounderStoryBand;
+OurStoryBand.displayName = "OurStoryBand";
+export default OurStoryBand;

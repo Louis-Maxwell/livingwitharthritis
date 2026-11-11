@@ -7,7 +7,7 @@
 - 20k organic social followers (Facebook + Instagram)
 - Strong content foundation (100+ blog posts)
 - Independent charity positioning
-- HCPC-registered physiotherapist founder
+- HCPC-registered physiotherapist clinical reviewer
 - Free resources (exercises, nutrition, community)
 
 **Target:** 10x monthly traffic within 12 months (50k → 500k+ monthly visits)
@@ -143,7 +143,7 @@ Email template (personalize for each):
 "Hi [contact],
 
 Living With Arthritis (UK charity 1218461) provides free NICE-aligned 
-physiotherapy guides for people with arthritis. Our founder is HCPC-registered.
+physiotherapy guides for people with arthritis. Our clinical content is reviewed by an HCPC-registered physiotherapist.
 
 We'd love to be a resource for your [audience/patients]. Would you consider 
 linking to [relevant page] from your [relevant section]?
@@ -411,7 +411,7 @@ Track these in Google Analytics + Search Console:
 1. **SEO first** — Organic traffic is free, repeating, and compounds
 2. **Community moat** — Hard for competitors to copy
 3. **Local focus** — You're the only independent UK charity doing this depth
-4. **Clinical authority** — Louis's HCPC credentials (Operations Director, clinical reviewer) + personal story = trust; founder is David Williams
+4. **Clinical authority** — Louis's HCPC credentials (Operations Director, clinical reviewer) = trust; no founder is named publicly
 5. **Content at scale** — 200 → 500 guides = "best damn arthritis site on the web"
 6. **Direct traffic** — Email + social followers = predictable, owned audience
 

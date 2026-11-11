@@ -9,7 +9,7 @@ On-site Phase 1–2 (titles, About entity block, Organization JSON-LD, `sameAs`)
 - Charity number (England & Wales): **1218461**
 - Website: **https://livingwitharthritis.org.uk**
 - Independent of Arthritis UK
-- Founder: David Williams
+- Founder: not named publicly (organisation-led, like Arthritis UK); describe governance as the board of trustees
 - Operations Director / clinical reviewer: Louis Maxwell, HCPC PH128483
 - Phone: 07760 512 084 (+44 7760 512084)
 - Email: info@livingwitharthritis.org.uk

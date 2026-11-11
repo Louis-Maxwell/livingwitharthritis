@@ -7,7 +7,6 @@
 | **Organisation** | Living With Arthritis (registered charity no. **1218461**, registered 15 June 2026) |
 | **Website** | [livingwitharthritis.org.uk](https://livingwitharthritis.org.uk) |
 | **Tagline** | Motion is Lotion |
-| **Founder** | David Williams |
 | **Operations Director / clinical reviewer** | Louis Maxwell — FCP, HCPC PH128483, CSP member |
 | **Contact** | info@livingwitharthritis.org.uk · 07760 512 084 |
 | **Status** | Early-stage UK charity — not a mature national brand |
@@ -149,7 +148,7 @@ Assumptions: Scenario A **plus** funded content ops (refresh 505 + ~500 new), gr
 
 **Community partnerships** — Waiting-room poster packs, social prescribing link-outs, physio clinic resource lists (Section 7).
 
-**PR** — Earned first: founder FCP angle, research fund story (£5k→£50k), patient-centred “honest charity” narrative (Section brand + Top 20 PR).
+**PR** — Earned first: clinician-reviewed FCP angle, research fund story (£5k→£50k), patient-centred “honest charity” narrative (Section brand + Top 20 PR).
 
 **Referral** — UTM-tagged partner landing pages; HCP PDF one-pagers; pharmacy shelf cards (no Oswestry address).
 
@@ -593,7 +592,7 @@ Prioritisation key: **Impact / Budget / Team / Likelihood** scored H·M·L.
 
 | Must-do | Pri | Impact | Budget | Team | Likelihood |
 |---|---|---|---|---|---|
-| Earned PR push (founder FCP + honest charity story) | P0 | H | L | M | M |
+| Earned PR push (clinician-reviewed FCP + honest charity story) | P0 | H | L | M | M |
 | North East / deprivation-aware content & outreach | P0 | M | L | M | H |
 | Care home + pharmacy pack pilots | P1 | M | L | M | M |
 | CRO pass on donate + checker | P0 | H | L | M | H |
@@ -919,7 +918,7 @@ Critical path: **claims + governance → fundable → capacity → content/SEO �
 ## Top 20 PR opportunities
 
 1. “New UK charity, clinician-led, honest metrics” launch feature  
-2. Founder FCP / HCPC credibility profile  
+2. Clinical reviewer FCP / HCPC credibility profile  
 3. Research fund £5k→£50k human story  
 4. Motion is Lotion campaign week  
 5. Flare-season public health tips (winter/spring)  
@@ -932,7 +931,7 @@ Critical path: **claims + governance → fundable → capacity → content/SEO �
 12. Accessibility / fatigue-friendly web redesign story  
 13. Volunteer ambassador recruitment call  
 14. Podcast tour (physio/MSK shows)  
-15. LinkedIn founder essays (syndicated)  
+15. LinkedIn charity essays (syndicated)  
 16. Local radio health slots  
 17. Response commentary to State of MSK-type reports (independent voice)  
 18. Myth-busting series vs miracle cures (safety angle)  

@@ -490,7 +490,7 @@ Yes 80%+ user satisfaction
 - Become #1 in "arthritis exercises UK"
 
 ### **5. Visible Leadership** (Month 5-10)
-- Put the founder front and center
+- Put the charity and its clinical reviewer front and center (no founder named)
 - Media appearances
 - Speaking engagements
 - Research publication

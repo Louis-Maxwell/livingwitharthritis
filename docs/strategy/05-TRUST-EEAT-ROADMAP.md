@@ -1,6 +1,6 @@
 # 05 — Trust & E-E-A-T roadmap
 
-**Context:** Google YMYL health content rewards experience, expertise, authoritativeness, and trust. LWA’s strongest asset is a real clinician-founder. Do not invent co-authors or patient quotes.
+**Context:** Google YMYL health content rewards experience, expertise, authoritativeness, and trust. LWA’s strongest asset is a real HCPC-registered clinical reviewer (no founder is named publicly). Do not invent co-authors or patient quotes.
 
 ---
 

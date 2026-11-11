@@ -172,7 +172,7 @@
 | Factor | Living With Arthritis | Arthritis UK | Patient.info |
 |--------|----------------------|-------------|-------------|
 | **Independence** | Yes Independent, peer-led | No Large org | No Corporate |
-| **Founder Authority** | Yes HCPC Physio |  Multiple trustees | No Journalists |
+| **Clinical Authority** | Yes HCPC Physio reviewer |  Multiple trustees | No Journalists |
 | **Direct Support** | Yes Virtual physio + community | No Advocacy-focused | No Info only |
 | **Free Resources** | Yes No paywalls | Yes Free |  Premium content |
 | **Speed** | Yes Nimble startup | No Bureaucratic |  Moderate |
@@ -254,7 +254,7 @@ All documents on GitHub:
 You have:
 - Yes 20k organic social followers (real audience)
 - Yes Independent charity credibility (1218461)
-- Yes Founded by David Williams; HCPC-registered clinical reviewer (Louis Maxwell, Operations Director, PH128483)
+- Yes HCPC-registered clinical reviewer (Louis Maxwell, Operations Director, PH128483)
 - Yes Free resources (exercises, guides, community)
 - Yes Grant funding (active grant writer)
 

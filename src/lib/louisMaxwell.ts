@@ -47,7 +47,7 @@ export const LOUIS_MAXWELL_PERSON = {
   sameAs: [] as string[],
 } as Record<string, unknown>;
 
-/** Charity node attached on the profile page. Founder is David Williams (no invented credentials). */
+/** Charity node attached on the profile page. No founder is named publicly (organisation-led, like other national charities). */
 export const LIVING_WITH_ARTHRITIS_ORG = {
   "@context": "https://schema.org",
   "@type": "NGO",
@@ -58,10 +58,6 @@ export const LIVING_WITH_ARTHRITIS_ORG = {
     "@type": "PropertyValue",
     propertyID: "Charity Commission for England and Wales",
     value: "1218461",
-  },
-  founder: {
-    "@type": "Person",
-    name: "David Williams",
   },
   employee: { "@id": LOUIS_MAXWELL_ID },
 };

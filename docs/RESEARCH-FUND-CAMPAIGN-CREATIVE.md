@@ -44,10 +44,10 @@ Do **not** invent reach, follower, or visitor metrics. Report only from GA4 / na
 **Body:** Living With Arthritis is a young charity (1218461) building practical guides and future research support for people with joint pain. Our research fund sits at about £5,000 on the way to £50,000. Every gift moves the dial — honestly, without hype.  
 **CTA:** Donate → `/donate`
 
-### B — Founder FCP angle
+### B — Clinical reviewer FCP angle
 
 **Headline:** Built by a First Contact Practitioner. Funded by people who care.  
-**Body:** Founded by David Williams, with clinical review by Operations Director Louis Maxwell (HCPC PH128483, First Contact Practitioner), Living With Arthritis exists so people get clear, UK-centred education — not jargon and not false promises. We’re raising a research fund from ~£5k toward £50k. If you believe in clinician-led charity work, chip in.  
+**Body:** With clinical review by Operations Director Louis Maxwell (HCPC PH128483, First Contact Practitioner), Living With Arthritis exists so people get clear, UK-centred education — not jargon and not false promises. We’re raising a research fund from ~£5k toward £50k. If you believe in clinician-led charity work, chip in.  
 **CTA:** Donate → `/donate`
 
 ### C — Honest small-charity
@@ -111,10 +111,10 @@ Use the SOP template: Hook → Value → Clinical honesty → CTA + UTM → Iden
 ### LinkedIn (HCP)
 
 1. **Hook:** Clinician-founded arthritis education charity seeking research-fund support.  
-2. **Value:** FCP founder; UK guides; clinic pack available.  
+2. **Value:** FCP clinical reviewer; UK guides; clinic pack available.  
 3. **Honesty:** Educational not diagnostic; no unverifiable traffic claims.  
 4. **CTA:** `/donate` or clinic pack + UTM (`utm_content=li-hcp`).  
-5. **Identity:** Charity 1218461 · HCPC PH128483 referenced only for founder credential, not as a personal endorsement of a product  
+5. **Identity:** Charity 1218461 · HCPC PH128483 referenced only for the clinical reviewer’s credential, not as a personal endorsement of a product  
 
 ---
 
