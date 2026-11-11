@@ -15,16 +15,19 @@ import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox"
 import FaqAccordion from "@/components/faq/FaqAccordion";
 
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
-import { FIN_DIR_FAQS, FIN_DIR_HTML } from "@/data/benefitsGuides/financialHelpDirectoryContent";
+import { FIN_DIR_HTML } from "@/data/benefitsGuides/financialHelpDirectoryContent";
 import ArticleCitations from "@/components/blog/ArticleCitations";
-import { CITATIONS_DISABILITY_PIP } from "@/data/clinical/ukCitations";
+import { CITATIONS_PIP_CLAIM } from "@/data/clinical/ukCitations";
+import { pipGuideVisibleFaqs } from "@/data/benefitsGuides/pipGuideHead";
 import {
   PIP_GUIDE_DESCRIPTION,
-  PIP_GUIDE_FAQS,
   PIP_GUIDE_HTML,
   PIP_GUIDE_META_TITLE,
+  PIP_GUIDE_ANSWER,
+  PIP_GUIDE_CHECKED,
   PIP_GUIDE_QUICK_ANSWER,
   PIP_GUIDE_TITLE,
+  PIP_HOWTO_STEPS,
 } from "@/data/benefitsGuides/pipGuideContent";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
@@ -57,13 +60,7 @@ const CONTENT = `${PIP_GUIDE_HTML}
 ${DIRECTORY_HTML}
 ${RELATED_GUIDES_HTML}`;
 
-const seenQuestions = new Set<string>();
-const ALL_FAQS = [...PIP_GUIDE_FAQS, ...FIN_DIR_FAQS].filter((f) => {
-  const key = f.question.trim().toLowerCase();
-  if (seenQuestions.has(key)) return false;
-  seenQuestions.add(key);
-  return true;
-});
+const ALL_FAQS = pipGuideVisibleFaqs();
 
 export default function BenefitsPIPGuide() {
   const html = addHeadingIds(CONTENT);
@@ -118,6 +115,21 @@ export default function BenefitsPIPGuide() {
       })}</script>
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
+        "@type": "HowTo",
+        "@id": "https://livingwitharthritis.org.uk/guides/benefits-pip#howto",
+        "name": "How to claim PIP for arthritis",
+        "description": PIP_GUIDE_ANSWER,
+        "inLanguage": "en-GB",
+        "step": PIP_HOWTO_STEPS.map((st, i) => ({
+          "@type": "HowToStep",
+          "position": i + 1,
+          "name": st.name,
+          "text": st.text,
+          "url": `https://livingwitharthritis.org.uk/guides/benefits-pip#${st.id}`,
+        })),
+      })}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
@@ -134,15 +146,15 @@ export default function BenefitsPIPGuide() {
       <PageBreadcrumb segments={[{ label: "Guides", href: "/guides" }, { label: "PIP and benefits" }]} />
       <main id="main-content" className="min-h-screen bg-background">
         <PageHero
-          title="Complete PIP guide for arthritis"
-          subtitle="Who can claim, 2026/27 rates, how the points work, the form, the assessment and how to challenge a decision. Facts checked on GOV.UK on 10 October 2026."
+          title="How to claim PIP for arthritis: complete UK guide"
+          subtitle={`The phone call, the PIP2 form, the assessment, the decision and how to challenge it, with 2026/27 rates and how the points work. Last checked against GOV.UK on ${PIP_GUIDE_CHECKED}.`}
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/benefits-pip" />
           <TopicClusterNav path="/guides/benefits-pip" />
           <p className="speakable-intro text-muted-foreground text-base leading-relaxed mb-8">
-            <strong>Quick answer:</strong> {PIP_GUIDE_QUICK_ANSWER}
+            <strong>How the points work:</strong> {PIP_GUIDE_QUICK_ANSWER}
           </p>
           <div className="mb-10 rounded-2xl border border-primary/25 bg-primary/5 p-5 sm:p-6 print:hidden">
             <p className="text-sm font-semibold text-foreground m-0 mb-2">Free tool: printable PIP evidence diary</p>
@@ -184,7 +196,7 @@ export default function BenefitsPIPGuide() {
       </main>
 
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
-        <ArticleCitations citations={CITATIONS_DISABILITY_PIP} />
+        <ArticleCitations citations={CITATIONS_PIP_CLAIM} />
         <EducationalDisclaimerBox lastReviewed="2026-10-23" />
       </div>
 <GuideOnwardJourney currentPath="/guides/benefits-pip" />

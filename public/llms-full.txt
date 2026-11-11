@@ -91,14 +91,14 @@ Sources: [NHS: Arthritis](https://www.nhs.uk/conditions/arthritis/); [NICE NG226
 Canonical: https://livingwitharthritis.org.uk/guides/benefits-pip
 Clinically reviewed by Louis Maxwell, Physiotherapist, HCPC PH128483.
 
-In England and Wales, start a PIP claim by calling 0800 917 2222. DWP then sends the How your disability affects you form: describe typical and flare days, time taken, pain, aids and help, and send evidence such as a symptom diary. PIP is not means-tested and you can claim while working. In Scotland, claim Adult Disability Payment instead.
+To claim PIP in England or Wales, call the DWP PIP new claims line on 0800 917 2222 (Monday to Friday, 8am to 5pm). DWP sends the PIP2 "How your disability affects you" form: return it within 1 month with evidence. You may have an assessment before the decision. If you disagree, ask for mandatory reconsideration within 1 month, then appeal to a tribunal.
 
 - PIP depends on how arthritis affects daily living and mobility, not on the diagnosis alone.
 - Daily living and mobility are scored separately: 8 to 11 points gives the standard rate and 12 or more the enhanced rate.
 - PIP is not means-tested and you can claim while working.
-- In England and Wales call the PIP new claims line on 0800 917 2222; in Scotland claim Adult Disability Payment.
+- Return the PIP2 form within 1 month; challenge a decision with mandatory reconsideration within 1 month, then a tribunal appeal.
 
-Sources: [GOV.UK: Personal Independence Payment](https://www.gov.uk/pip); [GOV.UK: How to claim PIP](https://www.gov.uk/pip/how-to-claim); [GOV.UK: PIP eligibility](https://www.gov.uk/pip/eligibility); [mygov.scot: Adult Disability Payment](https://www.mygov.scot/adult-disability-payment)
+Sources: [GOV.UK: Personal Independence Payment (PIP)](https://www.gov.uk/pip); [GOV.UK: How to claim PIP](https://www.gov.uk/pip/how-to-claim); [Department for Work and Pensions: PIP assessment guide part 1: the assessment process](https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-1-the-assessment-process); [Department for Work and Pensions: PIP assessment guide part 2: the assessment criteria](https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-2-the-assessment-criteria); [GOV.UK: Challenge a benefit decision (mandatory reconsideration)](https://www.gov.uk/mandatory-reconsideration); [GOV.UK: Appeal a benefit decision](https://www.gov.uk/appeal-benefit-decision); [Citizens Advice: Check how to fill in your PIP claim form](https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/help-with-your-claim/fill-in-form-pip/); [Citizens Advice: Getting evidence to support your PIP claim](https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/help-with-your-claim/your-supporting-evidence/)
 
 ## Living With Arthritis | Evidence-Based Health Guides
 URL: https://livingwitharthritis.org.uk/
@@ -108,8 +108,19 @@ A: Living With Arthritis is a registered charity in England and Wales (no. 12184
 
 ## About Living With Arthritis | Registered charity 1218461
 URL: https://livingwitharthritis.org.uk/about
+Last updated: 2026-11-11
 Q: Who is Living With Arthritis?
-A: Living With Arthritis is a Charitable Incorporated Organisation registered in England and Wales (no. 1218461). We publish free, clinically reviewed guidance on exercise, diet, pain management and UK benefits for people living with arthritis. We are independent of Arthritis UK and the US Arthritis Foundation. Clinical review is led by Maxwell, a First Contact Practitioner registered with the HCPC (PH128483).
+A: Living With Arthritis is a UK charity registered in England and Wales (no. 1218461), founded by David Williams and independent of Arthritis UK. Everything we offer is free: arthritis guides, a PIP claim guide and evidence diary, a flare action plan, home exercise routines, a symptom and flare tracker and a community hub, for adults with arthritis and their carers.
+Q: What does Living With Arthritis offer for free?
+A: Free arthritis guides, a step-by-step PIP claim guide, a printable PIP evidence diary, a flare action plan, home exercise routines, a printable symptom and flare tracker and a community hub. Everything is free to read, with no sign-up needed.
+Q: Who is Living With Arthritis for?
+A: Adults in the UK living with arthritis or joint pain, and the family members and carers who support them. Our guidance is educational and does not replace advice from your GP, pharmacist or rheumatology team.
+Q: Who runs Living With Arthritis?
+A: Living With Arthritis was founded by David Williams. Louis Maxwell, a physiotherapist and First Contact Practitioner registered with the HCPC (PH128483), is Operations Director and reviews our clinical content.
+Q: What is the charity number?
+A: 1218461 (England and Wales).
+Q: Where is the charity based?
+A: We are a UK charity (England and Wales, no. 1218461) serving people across the United Kingdom online. A new registered office address will be published when confirmed — contact info@livingwitharthritis.org.uk or 07760 512 084.
 
 ## Editorial claims policy | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/about/editorial-claims-policy
@@ -1195,19 +1206,43 @@ A: Both respond to graded exercise, sleep hygiene and CBT — different medicati
 
 ## How to Claim PIP for Arthritis: Step-by-Step Guide (2026)
 URL: https://livingwitharthritis.org.uk/guides/benefits-pip
-Last updated: 2026-10-23
+Last updated: 2026-11-11
 Q: How do I claim PIP for arthritis in the UK?
-A: In England and Wales, start a PIP claim by calling 0800 917 2222. DWP then sends the How your disability affects you form: describe typical and flare days, time taken, pain, aids and help, and send evidence such as a symptom diary. PIP is not means-tested and you can claim while working. In Scotland, claim Adult Disability Payment instead.
-Q: Can I get PIP for arthritis in the UK?
-A: PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It depends on how your condition affects daily living and mobility, not on the diagnosis. It is not means-tested and you can claim while working.
+A: To claim PIP in England or Wales, call the DWP PIP new claims line on 0800 917 2222 (Monday to Friday, 8am to 5pm). DWP sends the PIP2 "How your disability affects you" form: return it within 1 month with evidence. You may have an assessment before the decision. If you disagree, ask for mandatory reconsideration within 1 month, then appeal to a tribunal.
+Q: Can I get PIP for arthritis?
+A: Yes, if arthritis makes everyday tasks or getting around difficult on most days and you expect this to last at least 12 months from when it started. PIP is based on how your condition affects you, not the diagnosis itself. Check the current rules on GOV.UK.
+Q: What is the PIP new claims phone number?
+A: In England and Wales, call the DWP PIP new claims line on 0800 917 2222 (Relay UK: 18001 then 0800 917 2222), Monday to Friday, 8am to 5pm. You can also start a claim by writing to Freepost DWP PIP 1. Checked on GOV.UK on 11 November 2026.
+Q: What is the PIP2 form?
+A: PIP2 is the "How your disability affects you" form. DWP sends it after you start your claim, as an online link or by post (usually within 2 weeks). You should return it within 1 month; contact the PIP enquiry line if you need more time.
 Q: How many points do I need for PIP?
-A: Daily living and mobility are scored separately. In each part, 8 to 11 points gives the standard rate and 12 or more gives the enhanced rate.
-Q: How do I start a PIP claim?
-A: In England and Wales call the PIP new claims line on 0800 917 2222. DWP then sends the How your disability affects you form, which you usually return within one month.
-Q: What evidence helps a PIP claim for arthritis?
-A: Describe typical and flare days, how long tasks take, pain, aids and help you need, and send supporting evidence such as a symptom diary.
-Q: Can I claim PIP if I live in Scotland?
-A: New claims in Scotland go to Adult Disability Payment instead of PIP.
+A: Daily living and mobility are scored separately. In each part, 8 to 11 points gives the standard rate and 12 or more gives the enhanced rate, according to the DWP PIP assessment guide.
+Q: How much PIP could I get in 2026/27?
+A: The daily living part is £76.70 a week (standard) or £114.60 (enhanced). The mobility part is £30.30 (standard) or £80 (enhanced). These figures were checked on GOV.UK on 11 November 2026.
+Q: Will I need a PIP assessment?
+A: Not always. GOV.UK says you might be invited to an assessment if DWP needs more information. It can be at an assessment centre, at home, by phone or by video call, usually takes about 1 hour, and you can bring someone with you.
+Q: Can I work and claim PIP?
+A: Yes. PIP is not means-tested and is not an out-of-work benefit, so you can claim whether or not you work. Your income and savings do not affect it.
+Q: How do I show that my arthritis flares?
+A: Describe a typical week and month: how many bad days you have, what you cannot do on them and how long flares last. PIP looks at which descriptor applies on more than half of days, so a diary covering several weeks is very helpful.
+Q: How long do I have to challenge a PIP decision?
+A: You usually need to ask for mandatory reconsideration within one month of the date on your decision letter, and appeal to the tribunal within one month of your mandatory reconsideration notice.
+Q: What if I live in Scotland?
+A: Working-age adults in Scotland apply for Adult Disability Payment from Social Security Scotland instead of PIP. It has daily living and mobility parts at the same 2026/27 rates.
+Q: Is PIP means-tested?
+A: No. PIP (and Adult Disability Payment in Scotland) is not affected by your income or savings, and you can claim while working.
+Q: What can I get if I am over State Pension age?
+A: You cannot make a new PIP claim, but you can claim Attendance Allowance (Pension Age Disability Payment in Scotland) if you need help with personal care. Also check Pension Credit, which can unlock other help.
+Q: Can I get a grant to adapt my home?
+A: In England, Wales and Northern Ireland, you can apply to your council for a Disabled Facilities Grant. Scotland does not have Disabled Facilities Grants but has its own support for adaptations through councils.
+Q: Are prescriptions free for arthritis?
+A: Prescriptions are free for everyone in Scotland, Wales and Northern Ireland. In England, arthritis does not give you a medical exemption, but a prescription prepayment certificate can cut costs if you need regular medicines.
+Q: Do I have to pay VAT on mobility aids?
+A: Not usually, if you are disabled or have a long-term illness and the product is designed or adapted for your personal use. You need to confirm this in writing to the supplier.
+Q: Will claiming one benefit affect another?
+A: It can. For example, Carer's Allowance can affect the benefits of the person you care for. Use a benefits calculator or get free advice before you claim.
+Q: Where can I get free help with forms?
+A: Citizens Advice, local welfare rights services, Turn2us, Scope and Disability Rights UK provide free information. You should not need to pay for help with benefit forms.
 
 ## Blue Badge vs Disability Parking Concessions
 URL: https://livingwitharthritis.org.uk/guides/blue-badge-vs-disability-parking

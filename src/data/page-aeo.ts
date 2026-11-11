@@ -362,14 +362,14 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     ],
   }),
   "/guides/benefits-pip": withDefaults({
-    question: "Can I get PIP for arthritis in the UK?",
+    question: "How do I claim PIP for arthritis in the UK?",
     answer:
-      "PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. Daily living and mobility are scored separately. In each part, 8 to 11 points is the standard rate and 12 or more is the enhanced rate. In Scotland you claim Adult Disability Payment instead.",
+      "To claim PIP in England or Wales, call the DWP PIP new claims line on 0800 917 2222 (Monday to Friday, 8am to 5pm). DWP sends the PIP2 \"How your disability affects you\" form: return it within 1 month with evidence. You may have an assessment before the decision. If you disagree, ask for mandatory reconsideration within 1 month, then appeal to a tribunal.",
     takeaways: [
       "PIP depends on how arthritis affects daily living and mobility, not on the diagnosis alone.",
       "Daily living and mobility are scored separately: 8 to 11 points gives the standard rate and 12 or more the enhanced rate.",
       "PIP is not means-tested and you can claim while working.",
-      "In England and Wales call the PIP new claims line on 0800 917 2222; in Scotland claim Adult Disability Payment."
+      "Return the PIP2 form within 1 month; challenge a decision with mandatory reconsideration within 1 month, then a tribunal appeal."
     ],
   }),
   "/diet/mediterranean-diet-for-arthritis": withDefaults({
@@ -425,10 +425,13 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/about": withDefaults({
     question: "Who is Living With Arthritis?",
     answer:
-      "Living With Arthritis is a Charitable Incorporated Organisation registered in England and Wales on 15 June 2026 (charity no. 1218461). We publish free UK arthritis guidance online and are independent of Arthritis UK.",
+      "Living With Arthritis is a UK charity registered in England and Wales (no. 1218461), founded by David Williams and independent of Arthritis UK. Everything we offer is free: arthritis guides, a PIP claim guide and evidence diary, a flare action plan, home exercise routines, a symptom and flare tracker and a community hub, for adults with arthritis and their carers.",
     faqs: [
-      { q: "Where is the charity based?", a: "We are a UK charity (England and Wales, no. 1218461) serving people across the United Kingdom online. A new registered office address will be published when confirmed — contact info@livingwitharthritis.org.uk or 07760 512 084." },
+      { q: "What does Living With Arthritis offer for free?", a: "Free arthritis guides, a step-by-step PIP claim guide, a printable PIP evidence diary, a flare action plan, home exercise routines, a printable symptom and flare tracker and a community hub. Everything is free to read, with no sign-up needed." },
+      { q: "Who is Living With Arthritis for?", a: "Adults in the UK living with arthritis or joint pain, and the family members and carers who support them. Our guidance is educational and does not replace advice from your GP, pharmacist or rheumatology team." },
+      { q: "Who runs Living With Arthritis?", a: "Living With Arthritis was founded by David Williams. Louis Maxwell, a physiotherapist and First Contact Practitioner registered with the HCPC (PH128483), is Operations Director and reviews our clinical content." },
       { q: "What is the charity number?", a: "1218461 (England and Wales)." },
+      { q: "Where is the charity based?", a: "We are a UK charity (England and Wales, no. 1218461) serving people across the United Kingdom online. A new registered office address will be published when confirmed — contact info@livingwitharthritis.org.uk or 07760 512 084." },
     ],
   }),
   "/guides/diet": withDefaults({

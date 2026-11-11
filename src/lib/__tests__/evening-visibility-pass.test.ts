@@ -97,7 +97,8 @@ describe("evening visibility pass — unique heads", () => {
       // Diet batch 4 (10 Oct 2026) refreshed the Mediterranean page content;
       // /benefits-pip gained its financial help directory in Benefits batch 3 (2026-10-10).
       // /benefits-pip merged into /guides/benefits-pip on 2026-10-31 (guide reviewed 2026-10-23).
-      expect(["2026-09-20", "2026-09-29", "2026-10-10", "2026-10-23", "2026-11-04"]).toContain(head!.updatedAt);
+      // /guides/benefits-pip claim steps + HowTo rechecked against GOV.UK on 2026-11-11.
+      expect(["2026-09-20", "2026-09-29", "2026-10-10", "2026-10-23", "2026-11-04", "2026-11-11"]).toContain(head!.updatedAt);
     });
   }
 
@@ -140,7 +141,7 @@ describe("evening visibility pass — crawl + AI discovery", () => {
         window.includes("<lastmod>2026-09-20</lastmod>") ||
         window.includes("<lastmod>2026-09-28</lastmod>") ||
         window.includes("<lastmod>2026-09-29</lastmod>") ||
-        window.includes("<lastmod>2026-10-10</lastmod>") ||        window.includes("<lastmod>2026-10-23</lastmod>") || window.includes("<lastmod>2026-11-04</lastmod>") || window.includes("<lastmod>2026-11-05</lastmod>");
+        window.includes("<lastmod>2026-10-10</lastmod>") ||        window.includes("<lastmod>2026-10-23</lastmod>") || window.includes("<lastmod>2026-11-04</lastmod>") || window.includes("<lastmod>2026-11-05</lastmod>") || window.includes("<lastmod>2026-11-11</lastmod>");
       expect(hasLastmod).toBe(true);
     });
   }
