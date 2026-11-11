@@ -601,7 +601,7 @@ export function buildJsonLd(route, url, d) {
   //    Organization/WebSite nodes already present in the static head.
   graphs.push({
     "@context": "https://schema.org",
-    "@type": medical ? "MedicalWebPage" : "WebPage",
+    "@type": d.pageType || (medical ? "MedicalWebPage" : "WebPage"),
     "@id": `${url}#webpage`,
     url,
     name: d.title,
@@ -619,6 +619,7 @@ export function buildJsonLd(route, url, d) {
       ...(reviewer && article.last_reviewed ? { lastReviewed: article.last_reviewed } : {}) } : {}),
     ...(pageReviewer ? { reviewedBy: pageReviewer, ...(d.lastReviewed ? { lastReviewed: d.lastReviewed } : {}) } : {}),
     ...(pageCitations.length ? { citation: pageCitations } : {}),
+    ...(d.organization ? { mainEntity: { "@id": d.organization["@id"] } } : {}),
     speakable: d.answer
       ? { "@type": "SpeakableSpecification", cssSelector: ["h1", ".answer-box"] }
       : undefined,
@@ -662,6 +663,12 @@ export function buildJsonLd(route, url, d) {
     });
   }
 
+  // Organization — the About page restates the charity entity (founder,
+  // Operations Director, charity number, free offer) as its main entity.
+  if (d.organization && d.organization["@id"]) {
+    graphs.push({ "@context": "https://schema.org", ...d.organization });
+  }
+
   // HowTo — only for routes whose head data carries a howTo that mirrors
   // visible numbered steps on the page (e.g. the knee exercise routine).
   if (d.howTo && Array.isArray(d.howTo.steps) && d.howTo.steps.length > 0) {
@@ -678,7 +685,7 @@ export function buildJsonLd(route, url, d) {
         position: i + 1,
         name: st.name,
         text: st.text,
-        url: `${url}#ex-${i + 1}`,
+        url: `${url}#${st.id || `ex-${i + 1}`}`,
       })),
     });
   }

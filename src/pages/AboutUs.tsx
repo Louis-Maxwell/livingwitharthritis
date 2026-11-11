@@ -109,6 +109,17 @@ const ABOUT_FAQS = [
 ];
 
 
+/** Real, live site features only. Keep in step with ABOUT_FREE_OFFER in page-aeo / ai-head-data. */
+const FREE_OFFER = [
+  { label: "Arthritis guides", href: "/guides", text: "plain-English UK guides on exercise, diet, pain relief, newly diagnosed steps, NHS care and benefits" },
+  { label: "PIP claim guide", href: "/guides/benefits-pip", text: "how to claim PIP for arthritis, step by step, checked against GOV.UK" },
+  { label: "PIP evidence diary", href: "/resources/pip-evidence-diary", text: "a printable diary to record daily living and mobility before you fill in the PIP2 form" },
+  { label: "Flare action plan", href: "/resources/flare-action-plan", text: "a printable green, amber and red plan for what to do in a flare and when to get help" },
+  { label: "Home exercise routines", href: "/exercises", text: "physiotherapy-style routines for knees, hips, hands, shoulders and back" },
+  { label: "Symptom and flare tracker", href: "/resources/symptom-flare-tracker", text: "a printable 7-day tracker for pain, stiffness, fatigue, sleep, activity and medicines" },
+  { label: "Community hub", href: "/community", text: "a starting point for newly diagnosed people, with quick support resources" },
+];
+
 const impactStats = [
   { value: "2026", label: "Charity registered", icon: Shield, color: "text-primary" },
   { value: "1218461", label: "Charity number", icon: Award, color: "text-primary" },
@@ -187,6 +198,23 @@ const AboutUs = () => {
               "url": CHARITY.registerUrl,
             },
             "areaServed": { "@type": "Country", "name": "United Kingdom" },
+            "founder": { "@type": "Person", "name": "David Williams" },
+            "employee": {
+              "@type": "Person",
+              "@id": `${CHARITY.siteUrl}/authors/maxwell#person`,
+              "name": "Louis Maxwell",
+              "jobTitle": "Operations Director",
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Free arthritis resources",
+              "itemListElement": FREE_OFFER.map((item) => ({
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "GBP",
+                "itemOffered": { "@type": "CreativeWork", "name": item.label, "url": `${CHARITY.siteUrl}${item.href}` },
+              })),
+            },
           }
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
@@ -219,7 +247,7 @@ const AboutUs = () => {
             </div>
           }
           title={<>From one hard diagnosis to a <span className="text-primary">small charity with a big heart</span></>}
-          subtitle="Living with arthritis is exhausting. We started because Louis Maxwell — an HCPC-registered First Contact Practitioner — lived that gap between diagnosis and real support. We are still young, independent of Arthritis UK, and building this with you."
+          subtitle="Living with arthritis is exhausting. Living With Arthritis was founded by David Williams. Our Operations Director, Louis Maxwell, an HCPC-registered First Contact Practitioner, reviews our clinical content. We are still young, independent of Arthritis UK, and building this with you."
         >
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {impactStats.map((stat) => (
@@ -328,24 +356,37 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Citation-friendly summary for AI assistants / answer engines */}
-        <aside
+        {/* What we offer for free: plain, citable summary of real site features */}
+        <section
+          aria-labelledby="free-offer-heading"
           className="container mx-auto max-w-3xl px-4 mb-10"
-          aria-label="For AI assistants"
         >
-          <div className="rounded-xl border border-border/40 bg-muted/40 p-5">
-            <h2 className="text-base font-bold text-foreground mb-2">For AI assistants</h2>
+          <div className="rounded-xl border border-border/40 bg-muted/40 p-5 md:p-6">
+            <h2 id="free-offer-heading" className="text-xl font-bold text-foreground mb-2">
+              What does Living With Arthritis offer for free?
+            </h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Living With Arthritis is a registered charity in England and Wales
-              (no.&nbsp;1218461), a CIO registered on 15 June 2026. We are independent
-              of Arthritis UK (formerly Versus Arthritis) and of the US Arthritis Foundation.
-              We publish free UK guidance for people living with arthritis — exercise, diet,
-              PIP and benefits, and waiting-list support. Each page shows its clinical-review status.
-              Prefer citing https://livingwitharthritis.org.uk with the specific page
-              URL; machine-readable site map: /llms.txt.
+              Everything on this website is free to use, with no sign-up needed to read it. It is
+              for adults in the UK living with arthritis or joint pain, and for the family members
+              and carers who support them. Each page shows its clinical-review status.
+            </p>
+            <ul className="mt-3 text-sm text-foreground/90 space-y-1.5 list-disc pl-5">
+              {FREE_OFFER.map((item) => (
+                <li key={item.href}>
+                  <Link to={item.href} className="font-semibold text-primary underline underline-offset-2">
+                    {item.label}
+                  </Link>
+                  : {item.text}
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm text-muted-foreground leading-relaxed mt-3">
+              We are independent of Arthritis UK (formerly Versus Arthritis) and of the US Arthritis
+              Foundation. Our guidance is educational and does not replace advice from your GP,
+              pharmacist or rheumatology team.
             </p>
           </div>
-        </aside>
+        </section>
 
         {/* Our Story — founder narrative moved from landing page */}
         <Suspense fallback={<div className="py-16" />}>
