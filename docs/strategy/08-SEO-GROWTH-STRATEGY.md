@@ -81,7 +81,7 @@ Do not try to out-encyclopedia Cleveland Clinic on pathophysiology in Year 1.
 | Charity Commission / directories | Ensure listings accurate |
 | Local/regional MSK & VCSE partners | Resource sharing, talks |
 | University / student physio societies | Guest education pages |
-| Podcasts / local radio | Founder clinician story |
+| Podcasts / local radio | Clinician story |
 | Helpful tools | Free PDFs (flare plan, PIP diary) cited by forums |
 | Digital PR | Data-backed explainers (use only real analyses) |
 

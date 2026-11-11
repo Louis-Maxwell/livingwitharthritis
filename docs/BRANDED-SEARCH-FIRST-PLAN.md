@@ -39,7 +39,7 @@ Honest open-web snapshot from this run (no GSC export; **Ahrefs GSC/SERP APIs un
 - Homepage and About already ship **Organization JSON-LD** with GB-CHC **1218461** (`#root-organization-jsonld` in `index.html`, refreshed by `src/lib/rootOrganizationSchema.ts` / `<RootOrganizationSchema />`).
 - `sameAs` must be **only** `getSchemaOrgSameAs()` from `src/config/social-media.ts` plus Charity Commission, Find that Charity, and NGO Explorer. No invented social URLs.
 - Confirmed owned profiles: Facebook `61583723925315`, Instagram `livingwitharthritisorg`, LinkedIn `112596569`, YouTube `@livingwitharthritisuk`.
-- Founder in schema: Louis Maxwell, HCPC **PH128483**.
+- Clinical reviewer in schema: Louis Maxwell, HCPC **PH128483**.
 - **Oswestry registered address stays off the public site** (footer, schema, About, `llms.txt` / `ai.txt`). Charity Commission / Find that Charity may still list Oswestry East — that is a portal field for Louis, not copy we restore on the website. A 2026-09-20 web snapshot of live `/about` still mentioned Oswestry; that is a **stale publish**, not a reason to put the street back.
 
 **Still to do in GSC / Bing (Louis)** — see `docs/BRANDED-ENTITY-OFFSITE-CHECKLIST.md`.
@@ -118,7 +118,7 @@ Earn links from: local NHS trust patient pages, ARMA-style directories, universi
 ### Social & PR
 
 - Regular posts that use the full name.
-- Local/national stories: founder FCP, Motions is Lotion, free guides — always with site URL.
+- Local/national stories: FCP clinical lead, Motions is Lotion, free guides — always with site URL.
 
 **Success:** Brand query → our site in organic *and/or* paid position 1; competitors cannot cheaply squat the name.
 

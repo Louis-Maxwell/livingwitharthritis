@@ -6641,7 +6641,7 @@
     "title": "About Living With Arthritis | Registered charity 1218461",
     "description": "Meet Living With Arthritis, registered charity 1218461. Learn about our team, clinical review process and free guides on pain, exercise, diet and benefits.",
     "question": "Who is Living With Arthritis?",
-    "answer": "Living With Arthritis is a UK charity registered in England and Wales (no. 1218461), founded by David Williams and independent of Arthritis UK. Everything we offer is free: arthritis guides, a PIP claim guide and evidence diary, a flare action plan, home exercise routines, a symptom and flare tracker and a community hub, for adults with arthritis and their carers.",
+    "answer": "Living With Arthritis is a UK charity registered in England and Wales (no. 1218461) and independent of Arthritis UK. Everything we offer is free: arthritis guides, a PIP claim guide and evidence diary, a flare action plan, home exercise routines, a symptom and flare tracker and a community hub, for adults with arthritis and their carers.",
     "breadcrumb": "About us",
     "faqs": [
       {
@@ -6654,7 +6654,7 @@
       },
       {
         "q": "Who runs Living With Arthritis?",
-        "a": "Living With Arthritis was founded by David Williams. Louis Maxwell, a physiotherapist and First Contact Practitioner registered with the HCPC (PH128483), is Operations Director and reviews our clinical content."
+        "a": "Living With Arthritis is run by its trustees. Louis Maxwell, a physiotherapist and First Contact Practitioner registered with the HCPC (PH128483), is Operations Director and reviews our clinical content."
       },
       {
         "q": "What is the charity number?",
@@ -6676,10 +6676,6 @@
       "name": "Living With Arthritis",
       "url": "https://livingwitharthritis.org.uk",
       "foundingDate": "2026-06-15",
-      "founder": {
-        "@type": "Person",
-        "name": "David Williams"
-      },
       "employee": {
         "@type": "Person",
         "@id": "https://livingwitharthritis.org.uk/authors/maxwell#person",

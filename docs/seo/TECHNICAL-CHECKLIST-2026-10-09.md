@@ -74,7 +74,7 @@ The live sitemap contains 1,006 URL elements; the regenerated sitemap has 1,010 
 | URL inspection/indexing request | Critical | U | Account operation outstanding; prioritise changed URLs, not indiscriminate requests. |
 | Consistent organisation name | Critical | 2 | Central charity configuration/schema present. External account consistency unverified. |
 | Organisation address | Critical | 0 | Central address fields are empty. Publish only a confirmed appropriate public address. |
-| Logo/description/founder/email | Critical | 2 | Existing central identity values; external identity verification outstanding. |
+| Logo/description/email | Critical | 2 | Existing central identity values; external identity verification outstanding. |
 | Social-profile identity links | Critical | 1 | sameAs configuration exists; ownership/current validity not verified across platforms. |
 | About mission/history | Critical | 2 | Existing About source and live unique page. No arbitrary 1,000-word padding. |
 | Charity registration/governance/trustees | Critical | 1 | Existing dedicated pages and registration claims; current regulator/trustee verification outstanding. |

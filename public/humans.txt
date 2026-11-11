@@ -1,5 +1,4 @@
 /* TEAM */
-Founder: David Williams
 Operations Director / clinical reviewer: Louis Maxwell (Maxwell)
 Role: First Contact Practitioner
 HCPC: PH128483

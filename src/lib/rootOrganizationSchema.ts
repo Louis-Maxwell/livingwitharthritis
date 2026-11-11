@@ -33,10 +33,6 @@ export const ORGANIZATION_PAYLOAD = {
   disambiguatingDescription:
     "UK charity 1218461 providing free arthritis guidance, with clinical-review status shown on each page — not Arthritis UK (formerly Versus Arthritis).",
   foundingDate: "2026-06-15",
-  founder: {
-    "@type": "Person",
-    name: "David Williams",
-  },
   description:
     "Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, publishing free educational guidance about arthritis, exercise, diet, benefits and self-management for people across the United Kingdom.",
   keywords:
