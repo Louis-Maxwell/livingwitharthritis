@@ -37,7 +37,6 @@ vi.mock("@/components/Footer", () => ({ default: () => <div data-testid="footer"
 vi.mock("@/components/BlogComments", () => ({ default: () => <div data-testid="comments" /> }));
 vi.mock("@/components/BlogHelpfulness", () => ({ default: () => <div data-testid="helpfulness" /> }));
 vi.mock("@/components/RelatedArticles", () => ({ default: () => <div data-testid="related" /> }));
-vi.mock("@/components/ScrollProgress", () => ({ default: () => null }));
 vi.mock("@/components/ContinueReadingBar", () => ({ default: () => null }));
 vi.mock("@/components/article/InlineRelatedStrip", () => ({ default: () => null }));
 vi.mock("@/components/article/MidArticleNextSteps", () => ({ default: () => null }));
