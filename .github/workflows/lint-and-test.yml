@@ -54,7 +54,7 @@ jobs:
           bun-version: latest
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium || npx playwright install chromium  # fall back to the runner image's preinstalled browser deps when apt mirrors are unreachable
 
       # The suite used to run against a dev server that was never started and
       # was marked continue-on-error, so it could not fail. It now runs every
@@ -112,7 +112,7 @@ jobs:
         run: npm ci
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium || npx playwright install chromium  # fall back to the runner image's preinstalled browser deps when apt mirrors are unreachable
 
       - name: Build
         run: npm run build
