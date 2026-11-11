@@ -14,9 +14,9 @@ import { CITATIONS_SUPPLEMENTS } from "@/data/clinical/ukCitations";
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/supplements`;
 
-const META_TITLE = "Arthritis Supplements: What Works (UK Guide)";
+const META_TITLE = "Arthritis Supplements UK: What Works and What to Check";
 const META_DESC =
-  "UK hub for arthritis supplements: glucosamine, MSM, turmeric, omega-3, collagen, ginger and vitamin D. What the evidence and NICE say, and what to check first.";
+  "UK hub for arthritis supplements: glucosamine, MSM, turmeric, omega-3, collagen, ginger and vitamin D. What the evidence and NICE say, and what to check.";
 
 const SUPPLEMENTS = [
   {
@@ -132,7 +132,7 @@ export default function SupplementsHub() {
   return (
     <>
       <Helmet>
-        <title>{`${META_TITLE} | Living With Arthritis`}</title>
+        <title>{META_TITLE}</title>
         <meta name="description" content={META_DESC} />
         <meta
           name="keywords"

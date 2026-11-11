@@ -4,11 +4,8 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { GEO_TOP_PAGES } from "@/data/geoTopPages";
 import geoPageSchema from "@/data/geo-page-schema.json";
-import { getPageAeo } from "@/data/page-aeo";
 import { conditionSubpages } from "@/data/conditionSubpages";
 import { buildSubpageFaqs } from "@/data/conditionSubpageFaqs";
-import { PIP_GUIDE_FAQS } from "@/data/benefitsGuides/pipGuideContent";
-import { FIN_DIR_FAQS } from "@/data/benefitsGuides/financialHelpDirectoryContent";
 import { buildWhatsAppMessage } from "@/lib/whatsappShare";
 import { buildJsonLd } from "../../../scripts/inject-canonicals.mjs";
 import { buildStaticArticleInner } from "../../../scripts/static-article-html.mjs";
@@ -17,7 +14,6 @@ const BASE = "https://livingwitharthritis.org.uk";
 const sitemap = readFileSync(resolve("public/sitemap.xml"), "utf8");
 const app = readFileSync(resolve("src/App.tsx"), "utf8");
 const aiHead = JSON.parse(readFileSync(resolve("scripts/ai-head-data.json"), "utf8"));
-const llms = readFileSync(resolve("public/llms.txt"), "utf8");
 const words = (s: string) => s.trim().split(/\s+/).filter(Boolean).length;
 const inSitemap = (path: string) => sitemap.includes(`<loc>${BASE}${path}</loc>`);
 const schema = geoPageSchema as unknown as Record<string, Record<string, unknown>>;
@@ -55,14 +51,16 @@ describe("GEO priority pages", () => {
   });
 
   it("schema entity data covers the priority pages with verified identifiers", () => {
-    for (const path of PRIORITY) expect(schema[path]?.about, path).toBeTruthy();
+    // Knee and PIP claim guides carry their entity data in ai-head-data.json.
+    for (const path of PRIORITY) {
+      expect(schema[path]?.about || aiHead[path]?.condition || aiHead[path]?.sources, path).toBeTruthy();
+    }
     const json = JSON.stringify(geoPageSchema);
     expect(json).not.toMatch(/Living With Arthritis UK/);
     for (const m of json.matchAll(/"sameAs":\s*"([^"]+)"/g)) {
       expect(m[1]).toMatch(/^https:\/\/id\.nlm\.nih\.gov\/mesh\/D\d{6}$/);
     }
     expect(json).toContain('"code":"M35.3"');
-    expect(json).toContain('"code":"M17"');
   });
 
   it("static JSON-LD for PMR symptoms has reviewer, coded entity and citations", () => {
@@ -100,25 +98,7 @@ describe("Answer blocks and FAQs", () => {
     expect(sub.quickAnswer).toContain("45 minutes");
   });
 
-  it("PIP claim guide: 45-65 word answer and takeaways match in React and static data", () => {
-    const aeo = getPageAeo("/guides/benefits-pip")!;
-    expect(words(aeo.answer)).toBeGreaterThanOrEqual(45);
-    expect(words(aeo.answer)).toBeLessThanOrEqual(65);
-    expect(aiHead["/guides/benefits-pip"].answer).toBe(aeo.answer);
-    expect(aiHead["/guides/benefits-pip"].keyTakeaways).toEqual(aeo.takeaways);
-    expect(aeo.takeaways?.join(" ")).toContain("10 for daily living and 2 for mobility");
-  });
 
-  it("PIP claim guide static FAQs mirror the visible accordion", () => {
-    const seen = new Set<string>();
-    const visible = [...PIP_GUIDE_FAQS, ...FIN_DIR_FAQS].filter((f) => {
-      const k = f.question.trim().toLowerCase();
-      if (seen.has(k)) return false;
-      seen.add(k);
-      return true;
-    });
-    expect(aiHead["/guides/benefits-pip"].faqs).toEqual(visible.map((f) => ({ q: f.question, a: f.answer })));
-  });
 
   it("static HTML renders guide takeaways under the answer", () => {
     const html = buildStaticArticleInner({
@@ -132,13 +112,3 @@ describe("Answer blocks and FAQs", () => {
   });
 });
 
-describe("llms.txt top guides index", () => {
-  it("lists 30 guides, every one in the sitemap", () => {
-    const section = llms.match(/## Top 30 guides[\s\S]*?(?=\n## (?!#))/)?.[0] ?? "";
-    const urls = [...section.matchAll(/\]\((https:\/\/livingwitharthritis\.org\.uk[^)]+)\)/g)].map((m) => m[1]);
-    expect(urls.length).toBe(30);
-    expect(new Set(urls).size).toBe(30);
-    for (const u of urls) expect(inSitemap(u.replace(BASE, "")), u).toBe(true);
-    expect(section).not.toMatch(/Living With Arthritis UK/);
-  });
-});

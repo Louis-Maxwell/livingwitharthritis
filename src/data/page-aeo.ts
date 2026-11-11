@@ -33,8 +33,14 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/conditions/osteoarthritis": withDefaults({
     question: "What is osteoarthritis?",
     answer:
-      "Osteoarthritis (OA) is the most common arthritis in the UK. It involves changes in the cartilage that cushions bone ends and in other joint tissues, most often in knees, hips, hands and spine. Pain is usually worse with use, morning stiffness is typically under 30 minutes, and NICE NG226 recommends therapeutic exercise, weight management where relevant, and information and support as core care. Educational only — not a diagnosis.",
+      "Osteoarthritis (OA) is the most common arthritis in the UK. It involves changes in the cartilage that cushions bone ends and in other joint tissues, most often in knees, hips, hands and spine. Pain is usually worse with use, morning stiffness is typically under 30 minutes, and NICE NG226 recommends therapeutic exercise, weight management where relevant, and information and support as core care.",
     updatedAt: "2026-11-05",
+    takeaways: [
+      "There is no cure that reverses osteoarthritis, but exercise, pacing, weight advice where relevant and the right pain relief help many people.",
+      "NICE recommends therapeutic exercise, including muscle strengthening and general fitness, as core care.",
+      "Osteoarthritis can usually be diagnosed without an X-ray; imaging is for unclear cases, red flags or surgical planning.",
+      "A suddenly hot, red, swollen joint with fever needs same-day help from NHS 111 or your GP."
+    ],
     faqs: [
       { q: "Can osteoarthritis be cured?", a: "There is no cure that reverses osteoarthritis, but many people manage symptoms with exercise, pacing, weight advice where relevant and the right pain relief. Severe symptoms may lead to a discussion about joint surgery." },
       { q: "What's the best exercise for osteoarthritis?", a: "NICE recommends therapeutic exercise including muscle strengthening and general fitness. Walking, swimming, cycling, seated strength and tai chi are common starting points — start small and build up." },
@@ -46,6 +52,12 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     question: "What is rheumatoid arthritis?",
     answer:
       "Rheumatoid arthritis (RA) is an autoimmune condition where the immune system attacks the joint lining, causing pain, swelling and stiffness, usually first in the small joints of the hands and feet (NHS). If you are newly diagnosed, NICE NG100 says you should be offered a DMARD such as methotrexate as soon as possible, ideally within 3 months of persistent symptoms.",
+    takeaways: [
+      "Rheumatoid arthritis is an autoimmune condition: the immune system attacks the joint lining, causing pain, swelling and stiffness.",
+      "NICE NG100 recommends starting a DMARD such as methotrexate as soon as possible, ideally within 3 months of persistent symptoms.",
+      "Treatment aims for remission or low disease activity, checked with regular blood tests and disease activity scores.",
+      "Ask for your rheumatology advice line number so you can get rapid help with flares."
+    ],
   }),
   "/conditions/psoriatic-arthritis": withDefaults({
     question: "What is psoriatic arthritis?",
@@ -337,28 +349,30 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/arthritis-flare-ups": withDefaults({
     question: "What should I do during an arthritis flare-up?",
     answer:
-      "Pace activity, use heat or cold as appropriate, take only medicines advised by your GP or pharmacist, and track triggers. Seek urgent care for a single hot joint with fever or sudden inability to weight-bear. This is educational guidance, not personal medical advice.",
+      "During a flare, pace activity and keep gently moving within comfort, use heat or cold as appropriate, take only medicines advised by your GP or pharmacist, and note possible triggers. Seek urgent care for a single hot, swollen joint with fever or sudden inability to weight-bear. This is educational guidance, not personal medical advice.",
+    takeaways: [
+      "Pace activity and avoid boom-and-bust; keep gentle range-of-motion movement unless advised otherwise.",
+      "Use heat or cold for comfort and take only medicines your GP or pharmacist has advised.",
+      "Many osteoarthritis flares settle over days to a couple of weeks; inflammatory flares vary, so follow your rheumatology care plan.",
+      "A single hot, swollen joint with fever, or sudden inability to bear weight, needs urgent care."
+    ],
     faqs: [
       { q: "How long do arthritis flares last?", a: "Many OA flares settle over days to a couple of weeks with pacing and usual treatments. Inflammatory disease flares vary — contact your rheumatology team if your care plan says to." },
       { q: "Should I stop all exercise in a flare?", a: "Avoid boom-and-bust. Keep gentle range-of-motion unless advised otherwise; rebuild load gradually as pain settles." },
       { q: "Where is the printable flare plan?", a: "Use our free printable flare action plan under Resources, then read the full flare-ups guide for detail." },
+      { q: "When is a flare an emergency?", a: "Seek urgent care for a single hot, swollen joint with fever or a sudden inability to bear weight." },
     ],
   }),
-  // Checked 10 Nov 2026: GOV.UK PIP + how to claim; PIP Regulations 2013
-  // reg 4(2A) (safely, acceptable standard, repeatedly, reasonable time),
-  // reg 7 (over 50% of days) and Schedule 1 (10 daily living + 2 mobility).
   "/guides/benefits-pip": withDefaults({
-    question: "How do I claim PIP for arthritis in the UK?",
+    question: "Can I get PIP for arthritis in the UK?",
     answer:
-      "In England and Wales, call the PIP new claims line on 0800 917 2222. You will then be sent the How your disability affects you form, which you should return within 1 month. Describe your typical and worse days, how long tasks take and the help you need, and send evidence such as a symptom diary. In Scotland, claim Adult Disability Payment instead.",
+      "PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. Daily living and mobility are scored separately. In each part, 8 to 11 points is the standard rate and 12 or more is the enhanced rate. In Scotland you claim Adult Disability Payment instead.",
     takeaways: [
-      "PIP is not means-tested. You can get it even if you are working or have savings.",
-      "It is scored on 12 activities: 10 for daily living and 2 for mobility. In each part, 8 to 11 points gives the standard rate and 12 or more the enhanced rate.",
-      "A descriptor applies to you if it fits on more than half of the days in the period assessed, so describe your worse days as well as your better ones.",
-      "You should only be counted as able to do an activity if you can do it safely, to an acceptable standard, repeatedly and in a reasonable time.",
+      "PIP depends on how arthritis affects daily living and mobility, not on the diagnosis alone.",
+      "Daily living and mobility are scored separately: 8 to 11 points gives the standard rate and 12 or more the enhanced rate.",
+      "PIP is not means-tested and you can claim while working.",
+      "In England and Wales call the PIP new claims line on 0800 917 2222; in Scotland claim Adult Disability Payment."
     ],
-    takeawaysHeading: "Key takeaways",
-    updatedAt: "2026-11-10",
   }),
   "/diet/mediterranean-diet-for-arthritis": withDefaults({
     question: "Does the Mediterranean diet help arthritis?",
@@ -423,6 +437,12 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     question: "What is the best diet for arthritis?",
     answer:
       "The NHS advises a healthy, balanced diet and keeping to a healthy weight, because extra weight strains your joints. NICE NG226 says any weight loss helps people with osteoarthritis who are overweight, and NICE NG100 encourages people with rheumatoid arthritis to follow Mediterranean diet principles: more fruit, vegetables, fish and plant oils, less meat. No diet cures arthritis.",
+    takeaways: [
+      "No diet cures arthritis; a balanced diet supports exercise, medicines and your other treatment.",
+      "If you have osteoarthritis and are overweight, any weight loss helps, and losing 10% of body weight is likely better than 5% (NICE NG226).",
+      "NICE NG100 encourages Mediterranean diet principles for rheumatoid arthritis: more fruit, vegetables, fish and plant oils, less meat.",
+      "Don't drink too much alcohol, and follow your rheumatology team's limits if you take methotrexate."
+    ],
     faqs: [
       { q: "Can diet cure arthritis?", a: "No. The NHS says there is currently no cure for arthritis, and NICE NG100 says there is no strong evidence that changing your diet will improve rheumatoid arthritis. A balanced diet supports exercise, medicines and the other treatment your clinical team recommends." },
       { q: "How much weight should I lose for knee or hip osteoarthritis?", a: "NICE NG226 says any amount of weight loss is likely to help if you are overweight, and losing 10% of your body weight is likely to be better than 5%. Ask your GP about local NHS weight management support." },

@@ -259,12 +259,12 @@ const BlogHub = () => {
       numberOfItems: 8,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Living with arthritis", url: `${SITE}/living-with-arthritis` },
-        { "@type": "ListItem", position: 2, name: "Arthritis diet and nutrition", url: `${SITE}/diet` },
+        { "@type": "ListItem", position: 2, name: "Arthritis diet and nutrition", url: `${SITE}/guides/diet` },
         { "@type": "ListItem", position: 3, name: "Arthritis exercises", url: `${SITE}/exercises` },
         { "@type": "ListItem", position: 4, name: "Arthritis flare-ups and daily living", url: `${SITE}/arthritis-flare-ups` },
         { "@type": "ListItem", position: 5, name: "Arthritis treatment and pain relief", url: `${SITE}/blog/category/treatments` },
         { "@type": "ListItem", position: 6, name: "Arthritis conditions", url: `${SITE}/conditions/arthritis` },
-        { "@type": "ListItem", position: 7, name: "Benefits, PIP and work", url: `${SITE}/benefits-pip` },
+        { "@type": "ListItem", position: 7, name: "Benefits, PIP and work", url: `${SITE}/guides/benefits-pip` },
         { "@type": "ListItem", position: 8, name: "Frailty and carer support", url: `${SITE}/guides/frailty-management-hub` },
       ],
     };

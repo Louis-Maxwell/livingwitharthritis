@@ -118,10 +118,16 @@ const impactStats = [
 
 const teamMembers = [
   {
+    name: "David Williams",
+    role: "Founder",
+    credentials: "Living With Arthritis, charity 1218461",
+    bio: "Founder of Living With Arthritis, a registered charity in England and Wales (no. 1218461).",
+  },
+  {
     name: "Louis Maxwell",
-    role: "Founder · First Contact Practitioner",
+    role: "Operations Director · First Contact Practitioner",
     credentials: "HCPC PH128483 · Chartered Society of Physiotherapy",
-    bio: "Founded Living With Arthritis after his own diagnosis at 28 left him with a photocopied exercise sheet and little else. He reviews our clinical content and replies to many of the messages that come in — we are still a small charity, building this with you.",
+    bio: "After his own diagnosis at 28 left him with a photocopied exercise sheet and little else, he now serves as Operations Director. He reviews our clinical content and replies to many of the messages that come in — we are still a small charity, building this with you.",
   },
 ];
 
@@ -389,7 +395,7 @@ const AboutUs = () => {
               </p>
             </motion.div>
 
-            <div className="grid sm:grid-cols-1 max-w-xl mx-auto gap-5">
+            <div className="grid sm:grid-cols-2 max-w-3xl mx-auto gap-5">
               {teamMembers.map((member, i) => (
                 <motion.div
                   key={member.name}
@@ -586,14 +592,14 @@ const AboutUs = () => {
               <div className="border border-border rounded-lg p-6 bg-background">
                 <h3 className="text-xl font-bold mb-1">Louis Maxwell</h3>
                 <p className="text-primary font-semibold mb-3 text-sm">
-                  Founder · First Contact Practitioner · HCPC PH128483 · CSP Member
+                  Operations Director · First Contact Practitioner · HCPC PH128483 · CSP Member
                 </p>
                 <p className="text-sm text-muted-foreground mb-4">
                   Clinical review &amp; a human reply when you write in
                 </p>
                 <p className="leading-relaxed mb-4">
-                  Louis founded Living With Arthritis after living the gap between a
-                  diagnosis and real support. He leads clinical review for our guides
+                  Louis is Operations Director. After living the gap between a
+                  diagnosis and real support, he leads clinical review for our guides
                   and often answers messages himself. We will not invent extra clinicians
                   to look bigger than we are.
                 </p>

@@ -13,6 +13,10 @@ import {
 } from "../src/data/conditionSubpages";
 import { conditionBySlug } from "../src/data/exerciseConditionRecommendations";
 import { buildSubpageFaqs } from "../src/data/conditionSubpageFaqs";
+import {
+  conditionSubpageTitle,
+  conditionSubpageDescription,
+} from "../src/data/conditionSubpageMeta";
 
 const OUT = resolve("scripts/condition-head-data.json");
 
@@ -24,24 +28,11 @@ function esc(value: string): string {
 }
 
 function pageTitle(name: string, subpage: SubpageSlug): string {
-  const titles: Record<SubpageSlug, string> = {
-    symptoms: `${name} Symptoms: Early Signs, Causes & UK Diagnosis Guide`,
-    treatment: `${name} Treatment in the UK: UK healthcare Options, Medication & Self-Care`,
-    exercises: `Best Exercises for ${name}: Safe UK Physio-Aligned Routines`,
-    diet: `Best Diet for ${name}: Anti-Inflammatory Foods to Eat & Avoid (UK)`,
-  };
-  return titles[subpage];
+  return conditionSubpageTitle(name, subpage);
 }
 
 function pageDescription(name: string, subpage: SubpageSlug): string {
-  const lc = name.toLowerCase();
-  const descriptions: Record<SubpageSlug, string> = {
-    symptoms: `Recognise the early signs of ${lc}, common flare-up symptoms, and when to see your GP. Plain-English UK guidance aligned with UK healthcare and NICE.`,
-    treatment: `Evidence-based ${lc} treatment in the UK — UK healthcare pathways, medication options, pain relief and self-management strategies that actually work.`,
-    exercises: `Safe, effective ${lc} exercises aligned with UK physiotherapy guidance. Movements to try, exercises to avoid, and how to build a weekly routine.`,
-    diet: `What to eat — and what to limit — with ${lc}. UK-aligned anti-inflammatory diet guidance, food triggers, and the supplements with the best evidence.`,
-  };
-  return descriptions[subpage].slice(0, 158);
+  return conditionSubpageDescription(name, subpage);
 }
 
 function extraSectionsHtml(
