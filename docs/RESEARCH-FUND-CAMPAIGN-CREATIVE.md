@@ -29,7 +29,7 @@ Primary landing: `/donate` with campaign UTM
 | Segment | Where | Motivation | Tone | Primary CTA |
 |---|---|---|---|---|
 | **Individual donors / community** | Facebook, Instagram, email, site | Empathy, peer support, “small charity that listens” | Warm, plain English | Donate to research fund |
-| **HCP / LinkedIn** | LinkedIn, clinic pack QR | Clinician-led trust (FCP, HCPC PH128483) | Evidence-aware, professional | Donate or share clinic pack |
+| **HCP / LinkedIn** | LinkedIn, clinic pack QR | Clinician-founded trust (FCP, HCPC PH128483) | Evidence-aware, professional | Donate or share clinic pack |
 | **Community partners** | Outreach, local groups | Shared local impact, workshops, peer support | Collaborative, modest | Partner pack + soft donate ask |
 
 Do **not** invent reach, follower, or visitor metrics. Report only from GA4 / native analytics after Louis exports.
@@ -44,10 +44,10 @@ Do **not** invent reach, follower, or visitor metrics. Report only from GA4 / na
 **Body:** Living With Arthritis is a young charity (1218461) building practical guides and future research support for people with joint pain. Our research fund sits at about £5,000 on the way to £50,000. Every gift moves the dial — honestly, without hype.  
 **CTA:** Donate → `/donate`
 
-### B — FCP clinical lead angle
+### B — Founder FCP angle
 
 **Headline:** Built by a First Contact Practitioner. Funded by people who care.  
-**Body:** Operations Director Louis Maxwell (HCPC PH128483, First Contact Practitioner) reviews Living With Arthritis content so people get clear, UK-centred education — not jargon and not false promises. We’re raising a research fund from ~£5k toward £50k. If you believe in clinician-led charity work, chip in.  
+**Body:** Founder Louis Maxwell (HCPC PH128483, First Contact Practitioner) started Living With Arthritis so people get clear, UK-centred education — not jargon and not false promises. We’re raising a research fund from ~£5k toward £50k. If you believe in clinician-led charity work, chip in.  
 **CTA:** Donate → `/donate`
 
 ### C — Honest small-charity
@@ -110,11 +110,11 @@ Use the SOP template: Hook → Value → Clinical honesty → CTA + UTM → Iden
 
 ### LinkedIn (HCP)
 
-1. **Hook:** Clinician-led arthritis education charity seeking research-fund support.  
-2. **Value:** FCP clinical lead; UK guides; clinic pack available.  
+1. **Hook:** Clinician-founded arthritis education charity seeking research-fund support.  
+2. **Value:** FCP founder; UK guides; clinic pack available.  
 3. **Honesty:** Educational not diagnostic; no unverifiable traffic claims.  
 4. **CTA:** `/donate` or clinic pack + UTM (`utm_content=li-hcp`).  
-5. **Identity:** Charity 1218461 · HCPC PH128483 referenced only for the clinical reviewer credential, not as a personal endorsement of a product  
+5. **Identity:** Charity 1218461 · HCPC PH128483 referenced only for founder credential, not as a personal endorsement of a product  
 
 ---
 

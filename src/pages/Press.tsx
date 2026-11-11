@@ -19,6 +19,11 @@ const keyFacts = [
 
 const spokespeople = [
   {
+    name: "David Williams",
+    role: "Founder",
+    bio: "Founder of Living With Arthritis, registered charity 1218461.",
+  },
+  {
     name: "Louis Maxwell",
     role: "Operations Director · First Contact Practitioner",
     bio: "HCPC-registered physiotherapist (PH128483) specialising in osteoarthritis, rheumatoid arthritis and joint rehabilitation. Available for expert commentary on exercise-based management of arthritis.",

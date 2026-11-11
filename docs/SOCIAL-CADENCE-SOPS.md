@@ -1,6 +1,6 @@
 # Social cadence SOPs — Facebook, Instagram, LinkedIn
 
-**Owner:** Louis Maxwell (Operations Director) + GTM digital support  
+**Owner:** Louis Maxwell (founder) + GTM digital support  
 **Charity:** Living With Arthritis · 1218461  
 **Tagline:** Motion is Lotion  
 **Horizon:** Month 2 operating pack (brought forward 14 Sep 2026)  
@@ -26,7 +26,7 @@ Do **not** invent follower or reach numbers. Report only from native analytics a
 
 | Day | Facebook | Instagram | LinkedIn |
 |---|---|---|---|
-| Mon | Tip of the week (pain / pacing) | Carousel: 5–7 slides on one champion topic | Clinical insight (HCPC PH128483) |
+| Mon | Tip of the week (pain / pacing) | Carousel: 5–7 slides on one champion topic | Founder clinical insight (HCPC PH128483) |
 | Tue | — | Reel / short: chair or joint exercise (edu disclaimer on-screen) | — |
 | Wed | Community question + link to hub | Story poll → swipe-up/link in bio to hub | Partner / HCP resource offer |
 | Thu | — | Static myth vs fact | — |
@@ -51,7 +51,7 @@ Do **not** invent follower or reach numbers. Report only from native analytics a
 
 ## 4. Content pillars (rotate)
 
-1. Pain & flares · 2. Exercise (safe / chair) · 3. Diet (Mediterranean / myths) · 4. Benefits & PIP (signpost) · 5. NHS pathways / waiting lists · 6. FCP / clinical trust · 7. Donate & research fund (honest)
+1. Pain & flares · 2. Exercise (safe / chair) · 3. Diet (Mediterranean / myths) · 4. Benefits & PIP (signpost) · 5. NHS pathways / waiting lists · 6. Founder / FCP trust · 7. Donate & research fund (honest)
 
 Link posts to SEO champions where possible (`docs/SEO-90-DAY-VISIBILITY-PLAN.md` §4).
 
