@@ -6,14 +6,12 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import SiteLogo from "@/components/SiteLogo";
-import ErrorBoundary from "@/components/ErrorBoundary";
 
 
 const SHOP_URL = "https://shop.brandangels.co.uk/living-with-arthritis";
 
 const ResourceLibraryDrawer = lazyWithRetry(() => import("@/components/ResourceLibraryDrawer"));
 const SiteSearch = lazyWithRetry(() => import("@/components/SiteSearch"));
-const DonationQuickBar = lazyWithRetry(() => import("@/components/DonationQuickBar"));
 import { useExclusiveOverlay } from "@/hooks/useExclusiveOverlay";
 import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 
@@ -312,19 +310,6 @@ const Header = () => {
 
         <aside aria-label="Clinical review information" className="w-full border-b border-primary/20 bg-accent text-foreground">
           <p className="container mx-auto max-w-7xl px-4 py-2 text-center text-xs leading-relaxed sm:px-6 sm:text-sm">Clinical review status and review dates are shown on each guide. We update content when relevant evidence or guidance changes.</p>
-        </aside>
-
-        {/* Donation Quick Bar — top of sticky header */}
-        {/* Placeholder reserves the bar's real (flex-wrapped) height per
-            viewport width so the lazy bar mounting doesn't shift the page
-            (was a fixed 52px → CLS ~0.12 on phones). See
-            .donation-quickbar-placeholder in index.css. */}
-        <aside aria-label="Support the charity">
-          <ErrorBoundary fallback={null} resetKey={pathname}>
-            <Suspense fallback={<div className="bg-primary donation-quickbar-placeholder" aria-hidden="true" />}>
-              <DonationQuickBar />
-            </Suspense>
-          </ErrorBoundary>
         </aside>
 
         {/* Logo Bar */}
