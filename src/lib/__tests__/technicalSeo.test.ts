@@ -21,6 +21,19 @@ describe('technical SEO rules', () => {
     expect(title).not.toBe(headline);
     expect(title.length).toBeLessThanOrEqual(60);
   });
+  it('does not drop words to force a | Guide suffix', () => {
+    const headline = 'Rheumatoid Arthritis Diet: Foods, Meal Ideas and Limits';
+    const title = distinctSeoTitle(headline, headline);
+    expect(title).toBe(headline);
+    expect(title).not.toMatch(/and \| Guide$/);
+    expect(title.length).toBeLessThanOrEqual(60);
+  });
+  it('still appends | Guide when the full suffix fits in 60 characters', () => {
+    const headline = 'TENS for Arthritis: Does It Help?';
+    expect(distinctSeoTitle(headline, headline)).toBe(
+      'TENS for Arthritis: Does It Help? | Guide',
+    );
+  });
   it('provides the six requested sharing actions including separate copy control', () => {
     expect(buildShareLinks('/guides/benefits-pip?utm_source=x', 'PIP guide')
       .map((link) => link.label)).toEqual(['Facebook', 'WhatsApp', 'Pinterest', 'LinkedIn', 'X']);
