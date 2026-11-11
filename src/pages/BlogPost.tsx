@@ -46,6 +46,7 @@ import {
 import type { Citation } from "@/components/blog/ArticleCitations";
 import AnswerBox from "@/components/seo/AnswerBox";
 import KeyTakeaways from "@/components/article/KeyTakeaways";
+import GeoPageActions from "@/components/geo/GeoPageActions";
 import ArticleVoiceover from "@/components/article/ArticleVoiceover";
 import { renderCallouts } from "@/components/article/Callouts";
 import { markVisited } from "@/lib/visitedArticles";
@@ -719,6 +720,7 @@ const BlogPost = () => {
             )}
           </section>
 
+          {slug && <GeoPageActions path={`/blog/${slug}`} title={article.title} />}
           <ArticleFaqSection faqs={faqs} />
           {slug && (
             <RecommendedNextStep path={`/blog/${slug}`} context={`${article.title} ${article.keywords ?? ""}`} placement="end" />

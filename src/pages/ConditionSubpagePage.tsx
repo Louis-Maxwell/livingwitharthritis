@@ -19,6 +19,11 @@ import {
 } from "@/data/conditionSubpages";
 import { conditionBySlug } from "@/data/exerciseConditionRecommendations";
 import { buildSubpageFaqs } from "@/data/conditionSubpageFaqs";
+import geoPageSchema from "@/data/geo-page-schema.json";
+import AnswerBox from "@/components/seo/AnswerBox";
+import KeyTakeaways from "@/components/article/KeyTakeaways";
+import GeoPageActions from "@/components/geo/GeoPageActions";
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 import {
   Activity,
   Stethoscope,
@@ -31,6 +36,15 @@ import {
 } from "lucide-react";
 
 const BASE = "https://livingwitharthritis.org.uk";
+
+type GeoSchemaEntry = {
+  about?: Record<string, unknown> | Record<string, unknown>[];
+  reviewedBy?: string;
+  lastReviewed?: string;
+  dateModified?: string;
+  citations?: { name: string; url: string }[];
+};
+const GEO_SCHEMA = geoPageSchema as unknown as Record<string, GeoSchemaEntry>;
 
 const isSubpage = (v: string | undefined): v is SubpageSlug =>
   !!v && (subpageSlugs as readonly string[]).includes(v);
@@ -71,7 +85,7 @@ const ConditionSubpagePage = () => {
     const subLabel = subpageLabel[subpage];
     const title = subpageTitle(cond.name, subpage);
     const description = subpageDescription(cond.name, subpage);
-    const faqs = buildSubpageFaqs(cond.name, cond.shortName, subpage, cond.slug);
+    const geo = GEO_SCHEMA[path];
 
     const medicalLd = {
       "@context": "https://schema.org",
@@ -80,7 +94,7 @@ const ConditionSubpagePage = () => {
       description,
       url,
       inLanguage: "en-GB",
-      about: {
+      about: geo?.about ?? {
         "@type": "MedicalCondition",
         name: cond.name,
         url: cond.hasConditionPage ? `${BASE}/conditions/${cond.slug}` : undefined,
@@ -90,7 +104,14 @@ const ConditionSubpagePage = () => {
         audienceType: "Patient",
         geographicArea: { "@type": "Country", name: "United Kingdom" },
       },
-      dateModified: new Date().toISOString().slice(0, 10),
+      // Only real dates: never stamp "today" as the modified date.
+      dateModified: geo?.dateModified,
+      ...(geo?.reviewedBy === "maxwell"
+        ? { reviewedBy: LOUIS_MAXWELL_REF, ...(geo.lastReviewed ? { lastReviewed: geo.lastReviewed } : {}) }
+        : {}),
+      ...(geo?.citations?.length
+        ? { citation: geo.citations.map((c) => ({ "@type": "CreativeWork", name: c.name, url: c.url })) }
+        : {}),
     };
     // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
     // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
@@ -152,12 +173,21 @@ const ConditionSubpagePage = () => {
           <p className="text-lg text-muted-foreground leading-relaxed">{sub.intro}</p>
         </header>
 
+        {"quickAnswer" in sub && sub.quickAnswer && (
+          <AnswerBox question={`What is ${lcName} and what are the main symptoms?`}>
+            <p>{sub.quickAnswer}</p>
+          </AnswerBox>
+        )}
+        {"keyTakeaways" in sub && (sub.keyTakeaways?.length ?? 0) >= 3 && (
+          <KeyTakeaways html="" title={sub.headline} items={sub.keyTakeaways} heading="Key takeaways" />
+        )}
+
         {/* Subpage-specific content */}
         {subpage === "symptoms" && (
           <>
             <section className="mb-10">
               <h2 className="text-xl font-semibold text-foreground mb-4">
-                Common symptoms of {cond.name.toLowerCase()}
+                {(sub as typeof content.symptoms).symptomsHeading ?? `Common symptoms of ${cond.name.toLowerCase()}`}
               </h2>
               <ul className="space-y-2">
                 {(sub as typeof content.symptoms).commonSymptoms.map((s, i) => (
@@ -168,10 +198,41 @@ const ConditionSubpagePage = () => {
                 ))}
               </ul>
             </section>
+            {(sub as typeof content.symptoms).table && (
+              <section className="mb-10">
+                <div className="overflow-x-auto rounded-xl border border-border">
+                  <table className="w-full text-sm text-left">
+                    <caption className="caption-top px-4 py-3 text-left font-semibold text-foreground">
+                      {(sub as typeof content.symptoms).table!.caption}
+                    </caption>
+                    <thead className="bg-muted/50">
+                      <tr>
+                        {(sub as typeof content.symptoms).table!.headers.map((h) => (
+                          <th key={h} scope="col" className="px-4 py-3 font-semibold text-foreground">{h}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {(sub as typeof content.symptoms).table!.rows.map((row) => (
+                        <tr key={row[0]} className="border-t border-border align-top">
+                          {row.map((cell, ci) =>
+                            ci === 0 ? (
+                              <th key={ci} scope="row" className="px-4 py-3 font-medium text-foreground">{cell}</th>
+                            ) : (
+                              <td key={ci} className="px-4 py-3 text-foreground/85">{cell}</td>
+                            ),
+                          )}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            )}
             <section className="mb-10 bg-destructive/5 border border-destructive/20 rounded-xl p-5 flex gap-3">
               <AlertTriangle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
               <div>
-                <h2 className="font-semibold text-foreground mb-1">When to see your GP</h2>
+                <h2 className="font-semibold text-foreground mb-1">{(sub as typeof content.symptoms).gpHeading ?? "When to see your GP"}</h2>
                 <p className="text-sm text-foreground">{(sub as typeof content.symptoms).whenToSeeGP}</p>
               </div>
             </section>
@@ -266,6 +327,8 @@ const ConditionSubpagePage = () => {
               )}
             </section>
           ))}
+
+        <GeoPageActions path={path} title={sub.headline} />
 
         {/* People also ask — long-tail question keywords + FAQPage schema */}
         <section className="mb-10">

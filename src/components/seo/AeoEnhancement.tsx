@@ -75,7 +75,7 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
         </AnswerBox>
       )}
       {question && answer && takeaways.length >= 3 && (
-        <KeyTakeaways html="" title={question} items={takeaways} heading="Key clinical takeaways" />
+        <KeyTakeaways html="" title={question} items={takeaways} heading={configured?.takeawaysHeading ?? "Key clinical takeaways"} />
       )}
 
       <div className="flex flex-wrap items-center gap-2 text-xs">

@@ -13,6 +13,7 @@ import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
+import GeoPageActions from "@/components/geo/GeoPageActions";
 
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 import { FIN_DIR_HTML } from "@/data/benefitsGuides/financialHelpDirectoryContent";
@@ -170,6 +171,7 @@ export default function BenefitsPIPGuide() {
           </div>
           <TableOfContents html={html} />
           <ArticleHtmlWithNextStep html={html} path="/guides/benefits-pip" className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" />
+          <GeoPageActions path="/guides/benefits-pip" title="How to claim PIP for arthritis: step-by-step guide" />
           <section id="benefits-pip-faq" className="mt-16 pt-8 border-t border-border/30">
             <h2 className="font-display font-bold text-2xl mb-6">Frequently asked questions</h2>
             <FaqAccordion

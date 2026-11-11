@@ -15,3 +15,14 @@ describe('analytics URLs', () => {
     expect(analyticsUrl('/contact/test%40example.org')).toBe('https://livingwitharthritis.org.uk/');
   });
 });
+
+describe('campaign tags', () => {
+  it('keeps plain UTM tags so GA4 can attribute WhatsApp shares', () => {
+    expect(analyticsUrl('https://livingwitharthritis.org.uk/guides/benefits-pip?utm_source=whatsapp&utm_medium=social_share&utm_campaign=guide_action_card&q=pain#faq'))
+      .toBe('https://livingwitharthritis.org.uk/guides/benefits-pip?utm_source=whatsapp&utm_medium=social_share&utm_campaign=guide_action_card');
+  });
+  it('drops UTM values that could carry contact details or free text', () => {
+    expect(analyticsUrl('/guides/benefits-pip?utm_source=me@example.org&utm_campaign=my%20knee%20pain&utm_medium=email'))
+      .toBe('https://livingwitharthritis.org.uk/guides/benefits-pip?utm_medium=email');
+  });
+});

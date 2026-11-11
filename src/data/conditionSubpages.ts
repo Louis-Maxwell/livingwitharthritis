@@ -19,10 +19,26 @@ export interface ExtraSection {
   bullets?: string[];
 }
 
+export interface SummaryTable {
+  caption: string;
+  headers: string[];
+  rows: string[][];
+}
+
 export interface SymptomsContent {
   headline: string;
   intro: string;
+  /** Optional 45–65 word plain answer shown straight under the H1. */
+  quickAnswer?: string;
+  /** Optional 3–4 factual takeaways shown under the quick answer. */
+  keyTakeaways?: string[];
+  /** Optional question-style heading for the symptom list. */
+  symptomsHeading?: string;
+  /** Optional question-style heading for the GP advice section. */
+  gpHeading?: string;
   commonSymptoms: string[];
+  /** Optional at-a-glance table rendered after the symptom list. */
+  table?: SummaryTable;
   whenToSeeGP: string;
   extraSections?: ExtraSection[];
 }
@@ -864,21 +880,43 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     },
   },
 
+  // PMR symptoms checked 10 Nov 2026 against NHS (overview, diagnosis,
+  // temporal arteritis) and NICE CKS: polymyalgia rheumatica.
   "polymyalgia-rheumatica": {
     symptoms: {
       headline: "Polymyalgia rheumatica symptoms",
       intro:
-        "Polymyalgia rheumatica (PMR) is an inflammatory condition causing pain and stiffness in the shoulders, neck, and hips. It almost always starts after age 50 and affects women more often than men.",
-      commonSymptoms: [
-        "Bilateral shoulder and hip-girdle stiffness, worst in the morning",
-        "Morning stiffness lasting more than 45 minutes",
-        "Difficulty getting out of bed, rising from a chair, or raising arms",
-        "Aching across the upper arms, thighs, and buttocks",
-        "Tiredness, low mood, and a general feeling of being unwell",
-        "Possible mild fever or weight loss in some cases",
+        "Polymyalgia rheumatica (PMR) is an inflammatory condition causing pain and stiffness in the muscles around the shoulders, neck and hips. It is very rare before the age of 50, most people diagnosed are over 65, and it is more common in women than men.",
+      quickAnswer:
+        "Polymyalgia rheumatica (PMR) causes pain and stiffness in the muscles around the shoulders, neck and hips. The main symptom is morning stiffness that lasts longer than 45 minutes. It is very rare before 50 and most people diagnosed are over 65. A GP looks at your symptoms, blood tests for inflammation and rules out other conditions. Prednisolone, a steroid, is the main treatment.",
+      keyTakeaways: [
+        "The main symptom is muscle stiffness in the morning that lasts longer than 45 minutes, usually around both shoulders, the neck and the hips.",
+        "See a GP if pain and stiffness last more than a week. There is no single test, so diagnosis uses symptoms, blood tests and ruling out other conditions.",
+        "Up to 1 in 5 people with PMR develop temporal arteritis. A new headache, jaw pain when eating or sight problems need an urgent GP appointment or NHS 111.",
+        "Prednisolone usually eases symptoms quickly. Most people need it for 12 months to 2 years, with the dose reduced gradually.",
       ],
+      symptomsHeading: "What are the symptoms of polymyalgia rheumatica?",
+      gpHeading: "When should I see a GP about PMR symptoms?",
+      commonSymptoms: [
+        "Pain and stiffness around both shoulders, the neck and the hips, worst in the morning",
+        "Morning stiffness lasting longer than 45 minutes",
+        "Difficulty getting out of bed, rising from a chair, dressing or raising your arms",
+        "Extreme tiredness, low mood and a general feeling of being unwell",
+        "Loss of appetite and weight loss",
+        "A mild fever in some people",
+      ],
+      table: {
+        caption: "Polymyalgia rheumatica at a glance: what is typical and what to do",
+        headers: ["Symptom or sign", "What is typical in PMR", "What to do"],
+        rows: [
+          ["Morning stiffness", "Lasts longer than 45 minutes, around the shoulders, neck and hips", "See a GP if pain and stiffness last more than a week"],
+          ["How you feel generally", "Extreme tiredness, loss of appetite, weight loss or low mood; sometimes a mild fever", "Mention all of these to your GP, not just the joint pain"],
+          ["Headache, scalp or temple tenderness, jaw pain when chewing, or sight problems", "Possible temporal arteritis (giant cell arteritis), which affects up to 1 in 5 people with PMR", "Ask for an urgent GP appointment or contact NHS 111"],
+          ["Response to steroid tablets", "Many symptoms ease within a few days of starting prednisolone", "Tell your GP if you do not feel clearly better within a week"],
+        ],
+      },
       whenToSeeGP:
-        "See your GP promptly if you're over 50 and develop new bilateral shoulder and hip stiffness lasting more than two weeks. Urgent review is needed if you also have new severe headache or vision changes (possible giant cell arteritis).",
+        "See a GP if you have pain and stiffness for more than a week, especially if you are over 50 and it affects both shoulders or hips. Ask for an urgent GP appointment or contact NHS 111 if you also have a new headache, tenderness at your temples or scalp, jaw pain when eating or talking, or problems with your sight, as these can be signs of temporal arteritis (giant cell arteritis).",
     },
     treatment: {
       headline: "Polymyalgia rheumatica treatment",

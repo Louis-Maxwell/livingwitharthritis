@@ -13,6 +13,8 @@ export interface AeoPage {
   faqs?: { q: string; a: string }[];
   /** Optional 3-4 "Key clinical takeaways" shown under the answer. */
   takeaways?: string[];
+  /** Heading for the takeaways box (default "Key clinical takeaways"). */
+  takeawaysHeading?: string;
   reviewer?: string;
   updatedAt?: string; // ISO YYYY-MM-DD
 }
@@ -230,8 +232,8 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   
     faqs: [
       { q: "How is polymyalgia rheumatica diagnosed in the UK?", a: "Your GP will check your symptoms, examine your shoulders and hips, and arrange blood tests (CRP and ESR) to look for inflammation. A dramatic improvement within a few days of starting prednisolone helps confirm the diagnosis." },
-      { q: "How long does polymyalgia rheumatica last?", a: "Most people need steroid treatment for 1 to 3 years. Around half of those affected have one or more flares during the taper, but the condition usually goes into long-term remission." },
-      { q: "Is polymyalgia rheumatica an autoimmune disease?", a: "Yes — PMR is driven by an overactive immune response that inflames the lining of joints and bursae, particularly in the shoulders and hips. It is not contagious and is not caused by anything you have done." },
+      { q: "How long does polymyalgia rheumatica last?", a: "Most people need prednisolone for 12 months to 2 years, with the dose reduced slowly, and some need a low dose for several years. Relapses are common while the dose is being reduced, but they usually respond to restarting or increasing the dose." },
+      { q: "Is polymyalgia rheumatica an autoimmune disease?", a: "The cause is not fully understood. The NHS says a combination of genetic and environmental factors is thought to be responsible. PMR is an inflammatory condition. It is not contagious and is not caused by anything you have done." },
       { q: "What is the link with giant cell arteritis?", a: "Around 1 in 5 people with PMR also develop giant cell arteritis (GCA), which inflames blood vessels in the head. New headaches, scalp tenderness, jaw pain when chewing, or any change in vision need urgent medical attention." },
       { q: "Can I exercise with polymyalgia rheumatica?", a: "Yes, and you should. Gentle walking, shoulder and hip mobility work, and light resistance training protect muscle and bone during long-term steroid use. Start slowly and build up." },
       { q: "Are there natural alternatives to steroids for PMR?", a: "There is no proven natural alternative to steroids for PMR — untreated inflammation can damage tissue and increase the risk of GCA. A Mediterranean diet, exercise and bone-protection medicines support steroid treatment rather than replace it." },

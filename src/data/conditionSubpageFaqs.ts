@@ -69,6 +69,37 @@ const UNIQUE_SUBPAGE_FAQS: Record<
       },
     ],
   },
+  // Checked 10 Nov 2026 against NHS (polymyalgia rheumatica, diagnosis,
+  // temporal arteritis) and NICE CKS: polymyalgia rheumatica.
+  "polymyalgia-rheumatica": {
+    symptoms: [
+      {
+        question: "What are the first signs of polymyalgia rheumatica?",
+        answer:
+          "Pain and stiffness in the muscles around both shoulders, the neck and the hips, often worst first thing in the morning. The NHS says the main symptom is morning stiffness that lasts longer than 45 minutes. Some people also feel extremely tired, lose their appetite or weight, or feel low. See a GP if pain and stiffness last more than a week.",
+      },
+      {
+        question: "How long does morning stiffness last with polymyalgia rheumatica?",
+        answer:
+          "Longer than 45 minutes, and often much longer, which can make it hard to get out of bed, dress or lift your arms. By comparison, NICE describes osteoarthritis as having no morning stiffness or stiffness that lasts no longer than 30 minutes.",
+      },
+      {
+        question: "How is polymyalgia rheumatica diagnosed?",
+        answer:
+          "There is no single test. A GP asks about your symptoms, examines you and usually arranges blood tests for inflammation (ESR and CRP), plus tests to rule out conditions such as rheumatoid arthritis. NICE CKS says a good response to steroid tablets within a week supports the diagnosis. If the picture is unclear, your GP may refer you to a rheumatologist.",
+      },
+      {
+        question: "Is polymyalgia rheumatica a type of arthritis?",
+        answer:
+          "It is an inflammatory condition, but it mainly affects the muscles and tissues around the shoulders and hips rather than wearing joints the way osteoarthritis does. Its symptoms overlap with rheumatoid arthritis, which is why doctors rule that out first. Treatment is different, so an accurate diagnosis matters.",
+      },
+      {
+        question: "When is polymyalgia rheumatica an emergency?",
+        answer:
+          "Up to 1 in 5 people with PMR develop temporal arteritis (giant cell arteritis). Ask for an urgent GP appointment or contact NHS 111 if you have a new or frequent headache, tenderness at your temples or scalp, jaw pain when eating or talking, or sight problems such as double vision. Without quick treatment it can lead to stroke or loss of sight.",
+      },
+    ],
+  },
   "reactive-arthritis": {
     symptoms: [
       {
