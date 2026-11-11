@@ -29,7 +29,7 @@ const pageLd = {
 
 export default function SymptomFlareTracker() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title="Symptom and flare tracker PDF"
         description="Free printable 7-day arthritis symptom and flare tracker: pain, stiffness, fatigue, sleep, activity and medicines to take to your GP or physio."

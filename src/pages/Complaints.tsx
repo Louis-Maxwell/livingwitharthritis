@@ -27,7 +27,7 @@ export default function Complaints() {
       <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
     </Helmet>
       <Header />
-      <main id="main-content" className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-dvh bg-background">
         <div className="container mx-auto px-6 md:px-10 py-16 max-w-3xl">
           <div className="flex items-center gap-3 mb-8">
             <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">

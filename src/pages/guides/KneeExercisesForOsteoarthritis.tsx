@@ -314,7 +314,7 @@ export default function KneeExercisesForOsteoarthritis() {
         idPrefix="knee-oa-exercises"
       />
       <Header />
-      <main id="main-content" className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-dvh bg-background">
         <PageHero
           title="Free knee exercises for osteoarthritis UK"
           subtitle="An 8-move NICE-aligned home routine — warm-up, weekly plan, 4/10 pain rule and clear red flags. Free from Living With Arthritis (charity 1218461)."

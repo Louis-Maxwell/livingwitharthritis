@@ -39,7 +39,7 @@ function ExerciseCircuit500() {
         <meta name="twitter:image" content={`${SITE_URL}/og/landing-share.png`} />
       </Helmet>
 
-      <div className="min-h-screen bg-background text-foreground">
+      <div className="min-h-dvh bg-background text-foreground">
         <Header />
         <main id="main-content" role="main" tabIndex={-1}>
           <Suspense fallback={<div className="h-96 bg-muted" />}>

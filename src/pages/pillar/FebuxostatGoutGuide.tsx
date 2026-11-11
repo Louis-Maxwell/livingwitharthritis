@@ -140,7 +140,7 @@ export default function FebuxostatGoutGuide() {
         idPrefix="febuxostat-guide"
       />
       <Header />
-      <main id="main-content" className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-dvh bg-background">
         <PageHero
           title="Febuxostat for Gout"
           subtitle="A plain-English UK guide to dosing, monitoring, side effects and how febuxostat compares with allopurinol."

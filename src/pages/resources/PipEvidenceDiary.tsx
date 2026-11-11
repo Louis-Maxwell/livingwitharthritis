@@ -61,7 +61,7 @@ export default function PipEvidenceDiary() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title={PIP_DIARY_META_TITLE}
         description={PIP_DIARY_DESCRIPTION}
