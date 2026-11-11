@@ -9,6 +9,7 @@ import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import ArticleHtmlWithNextStep from "@/components/ArticleHtmlWithNextStep";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import JointVisualizer from "@/components/exercises/JointVisualizer";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import ArticleCitations from "@/components/blog/ArticleCitations";
@@ -48,6 +49,21 @@ const FAQS = [
     question: "Can exercise delay a hip replacement?",
     answer:
       "Exercise can improve pain and function for many people, and NICE recommends it before considering surgery. It cannot reverse joint damage, and some people still need a replacement. If you do need surgery, being stronger and fitter beforehand can help your recovery.",
+  },
+  {
+    question: "Can I exercise during a hip flare?",
+    answer:
+      "Yes, gently. Keep moving with smaller, easier movements and reduce how much you do, then build back up as the flare settles. Avoid anything that causes sharp pain, and seek advice if a flare is not settling or you feel unwell.",
+  },
+  {
+    question: "Should I stretch a painful arthritic hip?",
+    answer:
+      "Gentle stretches for the front of the hip and the back of the thigh can ease stiffness. Move slowly and stay within comfort. Stop a stretch that causes sharp or pinching pain in the groin, and ask a physiotherapist for alternatives.",
+  },
+  {
+    question: "Do I need a gym for hip exercises?",
+    answer:
+      "No. Bridges, clamshells, side-lying leg lifts and sit-to-stands can all be done at home with a chair and a mat. A physiotherapist can tailor the routine and help you progress.",
   },
 ];
 
@@ -235,6 +251,7 @@ export default function HipExercisesForOsteoarthritis() {
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/hip-exercises-for-osteoarthritis" />
+          <JointVisualizer joint="hip" />
           <ArticleCitations citations={CITATIONS_HIP_EXERCISES} />
           <EducationalDisclaimerBox lastReviewed="2026-10-23" />
           <TopicClusterNav path="/guides/hip-exercises-for-osteoarthritis" />

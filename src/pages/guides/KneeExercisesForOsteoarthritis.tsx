@@ -8,6 +8,7 @@ import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import JointVisualizer from "@/components/exercises/JointVisualizer";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import ArticleCitations from "@/components/blog/ArticleCitations";
@@ -130,6 +131,11 @@ const FAQS = [
     question: "Should I use a knee brace or support for exercise?",
     answer:
       "Braces and insoles are not needed by everyone with osteoarthritis, but they can help some people, particularly if the knee feels unstable. A physiotherapist can advise whether a support is likely to help you. A brace should not replace strengthening exercises.",
+  },
+  {
+    question: "How long do knee exercises take to help?",
+    answer:
+      "It varies from person to person. NICE says joint pain may increase when you first start, and that sticking with regular, consistent exercise over the long term reduces pain and improves function and quality of life. Build up gradually, and ask a GP or physiotherapist to review your plan if things are not improving.",
   },
 ];
 
@@ -316,6 +322,7 @@ export default function KneeExercisesForOsteoarthritis() {
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/knee-exercises-for-osteoarthritis" />
+          <JointVisualizer joint="knee" />
           <ArticleCitations citations={CITATIONS_KNEE_EXERCISES} />
           <EducationalDisclaimerBox lastReviewed="2026-10-23" />
           <TopicClusterNav path="/guides/knee-exercises-for-osteoarthritis" />
