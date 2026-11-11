@@ -130,7 +130,7 @@ M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a 
 | Pain pillar gold-standard pass | **done** (4 Nov) | `/guides/arthritis-pain-relief` customer-first rewrite; Vitest `pain-pillar-m3-04-nov.test.ts`; PR #390 |
 | OA pillar gold-standard pass | **done** (5 Nov) | `/conditions/osteoarthritis` customer-first rewrite; dates aligned 2026-11-05; Vitest `oa-pillar-m3-05-nov.test.ts` |
 | Exercise pillar gold-standard pass | **done** (10 Nov) | `/exercises` hub customer-first pass (start today, red flags, pain rule, starting points, flare days, GP/physio, carers); unsourced stat counters and effectiveness charts removed; `/guides/exercise` claims cleaned; Vitest `exercise-pillar-m3-10-nov.test.ts` |
-| PIP pillar gold-standard pass | **pending** | Next digital action (`/guides/benefits-pip`, `src/pages/pillar/BenefitsPIPGuide.tsx`) |
+| PIP pillar gold-standard pass | **done** (11 Nov) | `/guides/benefits-pip`: claim-path content, HowTo, 12-activity table and GOV.UK checks in #439; this run added the Louis Maxwell review layer (badge, LastReviewed, MedicalWebPage `reviewedBy` / `dateModified` 2026-11-11) and a "Start here: where are you with PIP?" router; Vitest `pip-pillar-m3-11-nov.test.ts`. **All 4 M3 pillars now gold** |
 | First M3 linkable asset PDF | **scoped** (5 Nov) | PIP evidence checklist PDF complementary to `/resources/pip-evidence-diary` — `docs/M3-LINKABLE-ASSET-PDF-SCOPE.md` (not shipped) |
 | Google Ad Grants live | **blocked-on-Louis** | Pack ready (`docs/GOOGLE-AD-GRANTS-PACK.md`); apply via Google for Nonprofits |
 | Community / partner pilot | **blocked-on-Louis** | First 15 outreaches + NHS/clinic intros still unsent |
@@ -158,6 +158,25 @@ No fresh GSC/GA4 export has been recorded in this repo since B₁, so **no traff
 - **Technical / trust (6–9 Nov, other runs):** Semrush site-audit fixes (#396), AI crawler discovery and regression gate (#397, #413), AEO/GEO strategy doc (#399), edge-protection doc (#403), technical SEO + prerender parity + sitemap integrity gates (#409–#411), priority guide metadata (#412), PIP/hip guides complete in first HTML (#418), GSC snippets and short answers (#419, #420), social previews (#421), CSP hardening and no inline scripts (#422, #423), CLS fixes (#424), new pain-management blog (#425), November magazine (#393, #394).
 - **Distribution (behind plan, Louis-owned):** first 15 partner outreaches, Ad Grants application, Fundraising Regulator + Gift Aid, live social posting and HCP clinic-pack sends are still not recorded as done.
 - **Honest read:** M2 Scenario A content and governance floors are met; the traffic, partnership and revenue KPIs cannot be scored without the export and the Louis-owned sends. M3 priorities: PIP pillar (last of 4), PIP checklist PDF after Louis review, Ad Grants, first outreaches.
+
+## Daily log — 11 Nov 2026 (M3 day 1, weekday run)
+
+**Programme month:** M3 (11 Nov – ~11 Dec 2026). Tracker next-3 from 10 Nov: (1) PIP pillar gold (2) GSC indexing for the pillar URLs (3) PIP checklist PDF after Louis review. #439 (merged 11 Nov 09:26) had already rewritten the PIP claim content, so this run closed the pillar with the trust and routing layer only. No new URLs, no redirects, no invented figures, no Lovable credits / CloudAgent. Reviewed by Louis Maxwell (HCPC PH128483). Auto-publishes from `main` when CI passes.
+
+### Shipped
+- **PIP pillar gold (`/guides/benefits-pip`):** MedicalReviewBadge + LastReviewed (Louis Maxwell, HCPC PH128483, November 2026); MedicalWebPage `author` / `reviewedBy` `LOUIS_MAXWELL_REF`, `dateModified` / `lastReviewed` **2026-11-11**; disclaimer date 2026-11-11.
+- **"Start here: where are you with PIP?"** customer-job router: thinking about claiming (eligibility, points, evidence diary, Scotland → Adult Disability Payment), ready to claim, assessment coming up, turned down (challenge + time limits), over State Pension age (Attendance Allowance guide), carers (Carer's Allowance + free independent help). Not-benefits-advice line.
+- **Tests:** new `src/lib/__tests__/pip-pillar-m3-11-nov.test.ts`; three older PIP review-date gates accept 2026-11-11. 1002 tests pass locally.
+
+### Still blocked on Louis
+- Fresh GSC Pages/Queries + GA4 export for the M2 window (M2 close-out KPIs stay TBD until then)
+- Review of `docs/M3-LINKABLE-ASSET-PDF-SCOPE.md` before the PIP evidence checklist PDF is built
+- Google Ad Grants / Google for Nonprofits; Fundraising Regulator + Gift Aid; first 15 partner outreaches; NHS / HCP clinic-pack intros; live social posts
+
+### Next 3 digital actions (GTM)
+1. GSC indexing requests for the 4 gold pillars (`/guides/benefits-pip`, `/exercises`, `/conditions/osteoarthritis`, `/guides/arthritis-pain-relief`) once deployed
+2. Build the PIP evidence checklist PDF once Louis approves the scope doc
+3. M3 community/partner pilot prep: one-page partner pack linking the 4 gold pillars + clinic pack (sends stay Louis-owned)
 
 ## Daily log — 10 Nov 2026 (M2 last weekday; M3 starts 11 Nov)
 
