@@ -125,7 +125,7 @@ describe("visibility sprint: customer-job hub polish", () => {
     expect(pip).toMatch(/lastReviewed="2026-(09-20|09-28|10-23)"/);
     expect(pip).toContain("/guides/benefits-pip");
     // /benefits-pip merged into the pillar guide (2026-10-31); canonical comes from PageSchema.
-    expect(pip).toContain("Complete PIP guide for arthritis");
+    expect(pip).toContain("How to claim PIP for arthritis: complete UK guide");
     expect(pip).toContain("PageSchema");
   });
 });

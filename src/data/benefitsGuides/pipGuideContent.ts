@@ -1,7 +1,8 @@
 /**
  * Complete PIP guide for arthritis: eligibility, points, claiming and challenges (UK)
  * Content for /guides/benefits-pip (Benefits & UK Support batch 3, Oct 2026).
- * Facts checked on GOV.UK / official sources on 10 October 2026. Clinically reviewed by Louis Maxwell (HCPC PH128483).
+ * Facts checked on GOV.UK / official sources on 11 November 2026 (phone line, form, timescales,
+ * 8/12 point thresholds from the DWP PIP assessment guide part 1). Clinically reviewed by Louis Maxwell (HCPC PH128483).
  */
 
 export const PIP_GUIDE_TITLE = "Complete PIP guide for arthritis: eligibility, points, claiming and challenges (UK)";
@@ -10,11 +11,88 @@ export const PIP_GUIDE_META_TITLE = "How to Claim PIP for Arthritis: Step-by-Ste
 
 export const PIP_GUIDE_DESCRIPTION = "Claim PIP for arthritis step by step: call 0800 917 2222, fill in the form, send evidence, prepare for the assessment and appeal if you are refused.";
 
-export const PIP_GUIDE_QUICK_ANSWER = "How do you claim PIP for arthritis? In England and Wales, call the PIP new claims line on 0800 917 2222 (Mon to Fri, 8am to 5pm), then fill in the How your disability affects you form within one month, describing your typical and flare days, and send supporting evidence. Can you claim while working? Yes. PIP is not means-tested or an out-of-work benefit. Eligibility depends on how a long-term condition affects daily living or mobility. Daily living and mobility are scored separately. In each part, 8 to 11 points is the standard rate and 12 or more is the enhanced rate. In Scotland you claim Adult Disability Payment instead.";
+export const PIP_GUIDE_QUICK_ANSWER = "Daily living and mobility are scored separately across 12 activities. In each part, 8 to 11 points gives the standard rate and 12 or more the enhanced rate. PIP is not means-tested and you can claim while working. In Scotland you claim Adult Disability Payment instead.";
 
-export const PIP_GUIDE_CHECKED = "10 October 2026";
+export const PIP_GUIDE_ANSWER =
+  "To claim PIP in England or Wales, call the DWP PIP new claims line on 0800 917 2222 (Monday to Friday, 8am to 5pm). DWP sends the PIP2 \"How your disability affects you\" form: return it within 1 month with evidence. You may have an assessment before the decision. If you disagree, ask for mandatory reconsideration within 1 month, then appeal to a tribunal.";
 
-export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Checked on 10 October 2026</strong> against <a href="https://www.gov.uk/pip" rel="noopener">GOV.UK: Personal Independence Payment</a> and the DWP <a href="https://www.gov.uk/government/publications/benefit-and-pension-rates-2026-to-2027" rel="noopener">benefit and pension rates 2026 to 2027</a>. Benefit rules can change, so always check the official pages before you claim.</p>
+export const PIP_GUIDE_CHECKED = "11 November 2026";
+
+/** Numbered claim steps: rendered as the visible <ol> and as HowTo JSON-LD. */
+export const PIP_HOWTO_STEPS: { id: string; name: string; text: string }[] = [
+  {
+    id: "step-1",
+    name: "Check you can claim",
+    text: "You must be 16 or over, usually under State Pension age for a new claim, and have difficulty with everyday tasks or getting around that you expect to last at least 12 months from when it started. In Scotland, apply for Adult Disability Payment instead.",
+  },
+  {
+    id: "step-2",
+    name: "Call the PIP new claims line",
+    text: "In England and Wales, call the DWP PIP new claims line on 0800 917 2222 (Relay UK: 18001 then 0800 917 2222), Monday to Friday, 8am to 5pm, or write to Freepost DWP PIP 1. Have your National Insurance number, bank details and your GP or health worker's details ready. In some areas you can apply fully online.",
+  },
+  {
+    id: "step-3",
+    name: "Fill in the PIP2 \"How your disability affects you\" form",
+    text: "DWP emails you a link if you applied by phone, or posts the form, usually within 2 weeks. Return it within 1 month, or contact the PIP enquiry line if you need more time. For each activity, say whether you can do it safely, to an acceptable standard, repeatedly and in a reasonable time, on typical and flare days.",
+  },
+  {
+    id: "step-4",
+    name: "Send supporting evidence",
+    text: "Include what you already have, such as prescription lists, care plans, clinic letters, physiotherapy or occupational therapy reports, and a symptom diary. Do not miss the form deadline while waiting for new evidence.",
+  },
+  {
+    id: "step-5",
+    name: "Go to the assessment if you are invited",
+    text: "If DWP needs more information, a health professional assesses you at a centre, at home, by phone or by video call. It usually takes about 1 hour, the audio is recorded and you can bring someone with you.",
+  },
+  {
+    id: "step-6",
+    name: "Read your decision letter",
+    text: "Daily living and mobility are scored separately: 8 to 11 points gives the standard rate and 12 or more the enhanced rate of that part. The letter gives your award, first payment date and when it will be reviewed. A first award lasts between 9 months and 10 years.",
+  },
+  {
+    id: "step-7",
+    name: "Ask for mandatory reconsideration if you disagree",
+    text: "Ask DWP to look at the decision again, usually within 1 month of the date on your decision letter. It is free. Explain which activities you think were scored wrongly and send any new evidence.",
+  },
+  {
+    id: "step-8",
+    name: "Appeal to a tribunal",
+    text: "If you still disagree, appeal to the Social Security and Child Support Tribunal within 1 month of the date of your mandatory reconsideration notice. It is free and independent of DWP.",
+  },
+];
+
+const escHtml = (v: string) => v.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+const PIP_HOWTO_HTML = `<ol class="pip-howto">
+${PIP_HOWTO_STEPS.map((s, i) => `<li id="${s.id}"><strong>${i + 1}. ${escHtml(s.name)}.</strong> ${escHtml(s.text)}</li>`).join("\n")}
+</ol>`;
+
+/** The 12 PIP activities (DWP PIP assessment guide part 2) with arthritis examples. */
+export const PIP_ACTIVITY_ROWS: { activity: string; part: "Daily living" | "Mobility"; arthritis: string }[] = [
+  { activity: "1. Preparing food", part: "Daily living", arthritis: "Gripping and lifting pans, chopping, opening jars and packets, standing at the cooker; needing a perching stool or relying on a microwave." },
+  { activity: "2. Taking nutrition (eating and drinking)", part: "Daily living", arthritis: "Cutting up food or lifting a cup with painful, stiff hands; needing adapted cutlery." },
+  { activity: "3. Managing therapy or monitoring a health condition", part: "Daily living", arthritis: "Help with injections such as methotrexate or biologics, opening blister packs, applying creams or doing prescribed exercises." },
+  { activity: "4. Washing and bathing", part: "Daily living", arthritis: "Getting in and out of the bath or shower, reaching feet, back and hair; needing a shower seat, bath board or someone nearby." },
+  { activity: "5. Managing toilet needs or incontinence", part: "Daily living", arthritis: "Getting on and off the toilet and wiping; needing a raised seat, frame or rails." },
+  { activity: "6. Dressing and undressing", part: "Daily living", arthritis: "Buttons, zips, socks, shoes and bras; how long it takes, and whether you need aids or another person's help." },
+  { activity: "7. Communicating verbally", part: "Daily living", arthritis: "Arthritis does not usually affect this directly. Mention it if another condition affects speaking, hearing or understanding." },
+  { activity: "8. Reading and understanding signs, symbols and words", part: "Daily living", arthritis: "Arthritis does not usually affect this directly. Mention eye conditions linked to inflammatory arthritis, such as uveitis, if they affect reading." },
+  { activity: "9. Engaging with other people face to face", part: "Daily living", arthritis: "Scored for mental health or cognitive difficulties. Mention it if pain-related anxiety or depression means you need support to be with people." },
+  { activity: "10. Making budgeting decisions", part: "Daily living", arthritis: "Scored for cognitive or mental health difficulties, not physical ones. Mention it only if this applies to you." },
+  { activity: "11. Planning and following journeys", part: "Mobility", arthritis: "Scored for mental health, cognitive or sensory difficulties, such as overwhelming anxiety about going out. Physical walking problems belong under moving around." },
+  { activity: "12. Moving around", part: "Mobility", arthritis: "How far you can walk reliably and repeatedly, at what pace, with what aid, and how you feel afterwards. More than 200 metres scores 0; 50 to 200 metres scores 4; 20 to 50 metres scores 8 unaided or 10 with an aid; 20 metres or less scores 12." },
+];
+
+const PIP_ACTIVITY_TABLE_HTML = `<table>
+<caption>The 12 PIP activities and how arthritis can affect them</caption>
+<thead><tr><th scope="col">PIP activity</th><th scope="col">Part</th><th scope="col">How arthritis can affect it: what to describe</th></tr></thead>
+<tbody>
+${PIP_ACTIVITY_ROWS.map((r) => `<tr><th scope="row">${escHtml(r.activity)}</th><td>${r.part}</td><td>${escHtml(r.arthritis)}</td></tr>`).join("\n")}
+</tbody>
+</table>`;
+
+export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Last checked: 11 November 2026</strong> against <a href="https://www.gov.uk/pip" rel="noopener">GOV.UK: Personal Independence Payment</a>, <a href="https://www.gov.uk/pip/how-to-claim" rel="noopener">GOV.UK: How to claim PIP</a>, the <a href="https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-1-the-assessment-process" rel="noopener">DWP PIP assessment guide</a> and the DWP <a href="https://www.gov.uk/government/publications/benefit-and-pension-rates-2026-to-2027" rel="noopener">benefit and pension rates 2026 to 2027</a>. Benefit rules can change, so always check the official pages before you claim.</p>
 
 <p><strong>Before you apply:</strong> if you are still deciding whether arthritis may qualify, read <a href="/blog/pip-for-arthritis-uk">Can you get PIP for arthritis?</a> That page is about eligibility, including rates checked against GOV.UK. This page is the claim itself. Use the <a href="/resources/pip-evidence-diary">Printable PIP evidence diary</a> to record daily living and mobility for two to four weeks before you fill in the form.</p>
 
@@ -42,7 +120,7 @@ export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Checked on 10 Oct
 <tr><td>Mobility</td><td>£30.30</td><td>£80.00</td></tr>
 </tbody>
 </table>
-<p>Source: <a href="https://www.gov.uk/pip" rel="noopener">GOV.UK PIP guide</a> and the DWP rates publication for 2026 to 2027, checked on 10 October 2026. Adult Disability Payment in Scotland is paid at the same rates for 2026/27, according to <a href="https://www.mygov.scot/adult-disability-payment" rel="noopener">mygov.scot</a>.</p>
+<p>Source: <a href="https://www.gov.uk/pip" rel="noopener">GOV.UK PIP guide</a> and the DWP rates publication for 2026 to 2027, checked on 11 November 2026. Adult Disability Payment in Scotland is paid at the same rates for 2026/27, according to <a href="https://www.mygov.scot/adult-disability-payment" rel="noopener">mygov.scot</a>.</p>
 
 <h2 id="eligibility">Who can claim PIP?</h2>
 <p>According to GOV.UK, you can get PIP if all of the following apply:</p>
@@ -67,7 +145,7 @@ export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Checked on 10 Oct
 <p>If you move between Scotland and England or Wales, GOV.UK says you must tell the relevant agency and make a new claim for the other benefit. For example, if you move from England or Wales to Scotland, your PIP stops 13 weeks after you move, so apply for ADP as soon as possible.</p>
 
 <h2 id="points">How does the PIP points system work?</h2>
-<p>PIP is assessed against 12 activities: 10 daily living activities and 2 mobility activities. Each activity has a list of statements (called descriptors) worth different points. The PIP regulations set the thresholds:</p>
+<p>PIP is assessed against 12 activities: 10 daily living activities and 2 mobility activities. Each activity has a list of statements (called descriptors) worth different points. The PIP regulations set the thresholds, and the DWP assessment guide confirms them: 8 points for the standard rate and 12 points for the enhanced rate of each part.</p>
 <ul>
 <li><strong>8 to 11 points</strong> in the daily living activities = standard rate of the daily living part</li>
 <li><strong>12 points or more</strong> in the daily living activities = enhanced rate</li>
@@ -96,27 +174,12 @@ export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Checked on 10 Oct
 <h3 id="medicines-aids">Painkillers, aids and timing</h3>
 <p>The assessment guide also says assessors should consider whether you can do an activity when you need to. If painkillers let you get washed and dressed soon after waking, you may not score; if you have to wait a couple of hours for them to work, a scoring descriptor may apply. Using aids such as a perching stool, long-handled sponge, grab rails or a walking stick can score points if you need them to complete an activity reliably.</p>
 
-<h2 id="arthritis-examples">Examples of how arthritis can affect each activity</h2>
-<table>
-<thead><tr><th>Activity</th><th>Things to describe</th></tr></thead>
-<tbody>
-<tr><td>Preparing food</td><td>Lifting pans, chopping, opening packets and jars, standing at the cooker, using a perching stool, relying on a microwave</td></tr>
-<tr><td>Managing treatments</td><td>Help with injections such as methotrexate or biologics, opening blister packs, remembering doses</td></tr>
-<tr><td>Washing and bathing</td><td>Getting in and out of the bath, reaching feet and back, needing a shower seat or someone nearby</td></tr>
-<tr><td>Toilet needs</td><td>Getting on and off the toilet, wiping, needing a raised seat or rails</td></tr>
-<tr><td>Dressing</td><td>Buttons, zips, socks, shoes, bras, how long it takes, help from another person</td></tr>
-<tr><td>Moving around</td><td>How far you can walk reliably and repeatedly, at what pace, with what aid, and how you feel afterwards</td></tr>
-</tbody>
-</table>
+<h2 id="arthritis-examples">How can arthritis affect each PIP activity?</h2>
+<p>PIP scores 12 activities. This table lists each one, as named in the DWP assessment guide, with examples of what people with arthritis often need to describe. Only include what is true for you.</p>
+${PIP_ACTIVITY_TABLE_HTML}
 
-<h2 id="claim">How do I claim PIP, step by step?</h2>
-<ol>
-<li><strong>Start the claim.</strong> In England and Wales, call the PIP new claims line on 0800 917 2222 (Relay UK: 18001 then 0800 917 2222), Monday to Friday, 8am to 5pm. Or write to <em>Freepost DWP PIP 1</em> asking to start a claim. In some areas you can now apply fully online; GOV.UK lets you check by postcode. Have your National Insurance number, bank details and your GP or health worker's details ready.</li>
-<li><strong>Complete the "How your disability affects you" form.</strong> You will be sent it by post (usually within 2 weeks) or emailed a link if you applied by phone. GOV.UK says you should return it within 1 month; contact the PIP enquiry line if you need more time.</li>
-<li><strong>Send supporting evidence</strong> with the form, such as prescription lists, care plans, clinic letters and information from people involved in your care.</li>
-<li><strong>Attend an assessment</strong> if one is needed.</li>
-<li><strong>Get a decision letter.</strong></li>
-</ol>
+<h2 id="claim">How do I claim PIP for arthritis, step by step?</h2>
+${PIP_HOWTO_HTML}
 <p>You can ask for someone to join your call or to call on your behalf (you need to be with them). You may also be able to get a home visit from a DWP officer to help with your claim; ask when you call.</p>
 
 <h2 id="form">Filling in the form: practical tips</h2>
@@ -183,17 +246,26 @@ export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Checked on 10 Oct
 <li><a href="https://www.gov.uk/government/publications/benefit-and-pension-rates-2026-to-2027" rel="noopener">DWP: Benefit and pension rates 2026 to 2027</a></li>
 <li><a href="https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-2-the-assessment-criteria" rel="noopener">DWP: PIP assessment guide part 2 – the assessment criteria</a></li>
 <li><a href="https://www.legislation.gov.uk/uksi/2013/377/regulation/5" rel="noopener">The Social Security (Personal Independence Payment) Regulations 2013, regulations 5–7</a></li>
+<li><a href="https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-1-the-assessment-process" rel="noopener">DWP: PIP assessment guide part 1 – the assessment process (8 and 12 point thresholds)</a></li>
+<li><a href="https://www.gov.uk/government/publications/example-pip2-how-your-disability-affects-you" rel="noopener">GOV.UK: Example PIP2 – How your disability affects you</a></li>
 <li><a href="https://www.gov.uk/mandatory-reconsideration" rel="noopener">GOV.UK: Challenge a benefit decision (mandatory reconsideration)</a></li>
+<li><a href="https://www.gov.uk/appeal-benefit-decision" rel="noopener">GOV.UK: Appeal a benefit decision</a></li>
+<li><a href="https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/before-claiming/check-you-are-eligible/" rel="noopener">Citizens Advice: Check if you're eligible for PIP</a></li>
+<li><a href="https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/help-with-your-claim/fill-in-form-pip/" rel="noopener">Citizens Advice: Check how to fill in your claim form</a></li>
+<li><a href="https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/help-with-your-claim/your-supporting-evidence/" rel="noopener">Citizens Advice: Getting evidence to support your PIP claim</a></li>
 <li><a href="https://www.mygov.scot/adult-disability-payment" rel="noopener">mygov.scot: Adult Disability Payment</a></li>
 <li><a href="https://www.nidirect.gov.uk/articles/personal-independence-payment-pip" rel="noopener">nidirect: Personal Independence Payment (Northern Ireland)</a></li>
 </ul>`;
 
 export const PIP_GUIDE_FAQS: { question: string; answer: string }[] = [
   { question: "Can I get PIP for arthritis?", answer: "Yes, if arthritis makes everyday tasks or getting around difficult on most days and you expect this to last at least 12 months from when it started. PIP is based on how your condition affects you, not the diagnosis itself. Check the current rules on GOV.UK." },
-  { question: "How much is PIP in 2026/27?", answer: "The daily living part is £76.70 a week (standard) or £114.60 (enhanced). The mobility part is £30.30 (standard) or £80 (enhanced). These figures were checked on GOV.UK on 10 October 2026." },
-  { question: "How many points do I need for PIP?", answer: "Daily living and mobility are scored separately. For daily living, 8 to 11 points is the standard rate and 12 or more is the enhanced rate. Mobility uses the same thresholds on its own points total." },
+  { question: "What is the PIP new claims phone number?", answer: "In England and Wales, call the DWP PIP new claims line on 0800 917 2222 (Relay UK: 18001 then 0800 917 2222), Monday to Friday, 8am to 5pm. You can also start a claim by writing to Freepost DWP PIP 1. Checked on GOV.UK on 11 November 2026." },
+  { question: "What is the PIP2 form?", answer: "PIP2 is the \"How your disability affects you\" form. DWP sends it after you start your claim, as an online link or by post (usually within 2 weeks). You should return it within 1 month; contact the PIP enquiry line if you need more time." },
+  { question: "How many points do I need for PIP?", answer: "Daily living and mobility are scored separately. In each part, 8 to 11 points gives the standard rate and 12 or more gives the enhanced rate, according to the DWP PIP assessment guide." },
+  { question: "How much PIP could I get in 2026/27?", answer: "The daily living part is £76.70 a week (standard) or £114.60 (enhanced). The mobility part is £30.30 (standard) or £80 (enhanced). These figures were checked on GOV.UK on 11 November 2026." },
+  { question: "Will I need a PIP assessment?", answer: "Not always. GOV.UK says you might be invited to an assessment if DWP needs more information. It can be at an assessment centre, at home, by phone or by video call, usually takes about 1 hour, and you can bring someone with you." },
   { question: "Can I work and claim PIP?", answer: "Yes. PIP is not means-tested and is not an out-of-work benefit, so you can claim whether or not you work. Your income and savings do not affect it." },
   { question: "How do I show that my arthritis flares?", answer: "Describe a typical week and month: how many bad days you have, what you cannot do on them and how long flares last. PIP looks at which descriptor applies on more than half of days, so a diary covering several weeks is very helpful." },
-  { question: "What if I live in Scotland?", answer: "Working-age adults in Scotland apply for Adult Disability Payment from Social Security Scotland instead of PIP. It has daily living and mobility parts at the same 2026/27 rates." },
   { question: "How long do I have to challenge a PIP decision?", answer: "You usually need to ask for mandatory reconsideration within one month of the date on your decision letter, and appeal to the tribunal within one month of your mandatory reconsideration notice." },
+  { question: "What if I live in Scotland?", answer: "Working-age adults in Scotland apply for Adult Disability Payment from Social Security Scotland instead of PIP. It has daily living and mobility parts at the same 2026/27 rates." },
 ];
