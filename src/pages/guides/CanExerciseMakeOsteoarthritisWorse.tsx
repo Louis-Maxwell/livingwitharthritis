@@ -138,7 +138,7 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
         idPrefix="oa-exercise-myth"
       />
       <Header />
-      <main id="main-content" className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-dvh bg-background">
         <PageHero
           title="Can exercise make osteoarthritis worse?"
           subtitle="The short answer is no. NICE puts exercise ahead of medication for osteoarthritis. Here's how to move with confidence — and how to tell productive soreness from a flare."

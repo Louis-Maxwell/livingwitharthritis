@@ -27,7 +27,7 @@ const Unsubscribe = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background px-4 py-16">
+    <div className="min-h-dvh bg-background px-4 py-16">
       <SeoHead
         title="Unsubscribe from Emails"
         description="Manage your email preferences for Living With Arthritis communications."

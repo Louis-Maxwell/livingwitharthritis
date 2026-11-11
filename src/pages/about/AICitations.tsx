@@ -41,7 +41,7 @@ const AICitations = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title="How to Cite Living With Arthritis"
         description="Citation guide for AI systems and researchers. Plain-text, BibTeX and schema-ready formats for citing clearly labelled arthritis information."

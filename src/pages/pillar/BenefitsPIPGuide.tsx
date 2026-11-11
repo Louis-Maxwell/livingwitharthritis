@@ -151,7 +151,7 @@ export default function BenefitsPIPGuide() {
     </Helmet>
       <Header />
       <PageBreadcrumb segments={[{ label: "Guides", href: "/guides" }, { label: "PIP and benefits" }]} />
-      <main id="main-content" className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-dvh bg-background">
         <PageHero
           title="How to claim PIP for arthritis: complete UK guide"
           subtitle={`The phone call, the PIP2 form, the assessment, the decision and how to challenge it, with 2026/27 rates and how the points work. Last checked against GOV.UK on ${PIP_GUIDE_CHECKED}.`}

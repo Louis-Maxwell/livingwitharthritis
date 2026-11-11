@@ -83,7 +83,7 @@ export default function AuthorsIndex({ variant }: AuthorsIndexProps) {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="min-h-dvh bg-white flex flex-col">
       <SeoHead title={title} includeSiteName={false} description={description} path={`/${prefix}`} />
       <script
         type="application/ld+json"

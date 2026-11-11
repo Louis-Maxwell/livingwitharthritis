@@ -179,7 +179,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
         <meta name="twitter:description" content={pageDescription} />
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <Header />
         <PageBreadcrumb
           segments={[{ label: "Conditions", href: "/#conditions" }, { label: data.name }]}

@@ -227,7 +227,7 @@ const AboutUs = () => {
         })}</script>
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <Header />
         <PageHero
           gradient="from-primary/8 via-background to-primary/5"

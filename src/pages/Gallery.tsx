@@ -24,7 +24,7 @@ const Gallery = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title="Arthritis Image Gallery"
         description="A curated gallery of 50 Creative Commons images covering arthritis, joint health, exercise, nutrition and community — sourced from Wikimedia Commons."

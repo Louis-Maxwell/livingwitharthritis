@@ -162,7 +162,7 @@ export default function SupplementsHub() {
         idPrefix="supplements-hub"
       />
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <Header />
         <PageBreadcrumb segments={[{ label: "Supplements" }]} />
 

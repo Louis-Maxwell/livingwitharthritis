@@ -230,7 +230,7 @@ const BlogPost = () => {
 
   if (isLoading || (article && !markdownReady)) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <Header />
         <main id="main-content" role="main" tabIndex={-1} className="container mx-auto px-6 md:px-10 py-24 max-w-[860px] outline-none">
           <Skeleton className="h-8 w-3/4 mb-4" />
@@ -439,7 +439,7 @@ const BlogPost = () => {
           })}</script>
         )}
       </Helmet>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <div className="no-print print:hidden"><Header /></div>
 
         <main id="main-content" tabIndex={-1} className="outline-none">
