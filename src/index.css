@@ -1752,3 +1752,12 @@
   outline: 3px solid hsl(var(--ring));
   outline-offset: 3px;
 }
+
+/* Touch: give stand-alone text links in lists (sources, related links,
+   contact details) a 44px-tall hit area. Vertical padding on an inline box
+   does not change line layout, so nothing moves. */
+@media (pointer: coarse) {
+  :is(li, dd, p, h3) > a:only-child:not([class*="flex"]):not([class*="block"]):not([class*="grid"]) {
+    padding-block: 0.75rem;
+  }
+}

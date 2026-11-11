@@ -29,7 +29,7 @@ export default function RelatedGuidesBlock({
         <h2 className="mb-6 text-2xl font-semibold text-foreground">
           {heading}
         </h2>
-        <ul className="grid gap-4 md:grid-cols-3">
+        <ul className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {related.map((guide) => (
             <li key={guide.path}>
               <Link

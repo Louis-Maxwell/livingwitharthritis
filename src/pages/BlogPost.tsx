@@ -468,12 +468,12 @@ const BlogPost = () => {
                 topicKey ? (
                   <Link
                     to={`/blog/category/${topicKey}`}
-                    className="mb-3 inline-flex min-h-8 items-center rounded-full bg-primary/[0.07] px-3 text-xs font-semibold text-primary hover:bg-primary/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:bg-primary/15 no-print print:hidden"
+                    className="mb-3 inline-flex min-h-11 items-center rounded-full bg-primary/[0.07] px-3 text-xs font-semibold text-primary hover:bg-primary/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:bg-primary/15 no-print print:hidden"
                   >
                     {article.category}
                   </Link>
                 ) : (
-                  <span className="mb-3 inline-flex min-h-8 items-center rounded-full bg-primary/[0.07] px-3 text-xs font-semibold text-primary">
+                  <span className="mb-3 inline-flex min-h-11 items-center rounded-full bg-primary/[0.07] px-3 text-xs font-semibold text-primary">
                     {article.category}
                   </span>
                 )

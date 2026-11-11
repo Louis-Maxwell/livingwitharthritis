@@ -641,9 +641,9 @@ export default function ArticleVoiceover({ slug, className, text }: ArticleVoice
                 aria-valuemax={duration || 0}
                 aria-valuenow={Math.round(currentTime)}
                 aria-valuetext={`${formatTime(currentTime)} of ${formatTime(duration)}`}
-                className="h-2 w-full min-w-0 cursor-pointer appearance-none rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-primary [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-primary"
+                className="h-11 w-full min-w-0 cursor-pointer appearance-none rounded-full bg-clip-content py-[18px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-primary [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-primary"
                 style={{
-                  background: `linear-gradient(to right, hsl(var(--primary)) ${progressPct}%, hsl(var(--border)) ${progressPct}%)`,
+                  backgroundImage: `linear-gradient(to right, hsl(var(--primary)) ${progressPct}%, hsl(var(--border)) ${progressPct}%)`,
                 }}
               />
               <span className="w-10 shrink-0 text-right text-xs tabular-nums text-muted-foreground">
@@ -657,7 +657,7 @@ export default function ArticleVoiceover({ slug, className, text }: ArticleVoice
             <select
               value={speed}
               onChange={(e) => handleSpeedChange(Number(e.target.value))}
-              className="h-8 rounded-full border-0 bg-primary/10 px-2.5 text-xs font-semibold text-primary ring-1 ring-primary/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="h-11 rounded-full border-0 bg-primary/10 px-3 text-xs font-semibold text-primary ring-1 ring-primary/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               {SPEEDS.map((s) => (
                 <option key={s} value={s}>

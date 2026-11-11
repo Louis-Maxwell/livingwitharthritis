@@ -326,7 +326,7 @@ export default function Donate() {
               </a>
             </Button>
 
-            <p className="text-[11px] text-muted-foreground text-center mt-4">
+            <p className="text-xs text-muted-foreground text-center mt-4">
               Your selected amount and frequency are for planning only; GoFundMe handles the actual amount and any recurring option. This page does not take card payments.
             </p>
           </div>
@@ -348,7 +348,7 @@ export default function Donate() {
               </div>
             ))}
           </div>
-          <p className="text-[10px] text-muted-foreground text-center mt-4">Illustrative units of care based on typical session and programme costs. Not a guarantee of a named recipient.</p>
+          <p className="text-xs text-muted-foreground text-center mt-4">Illustrative units of care based on typical session and programme costs. Not a guarantee of a named recipient.</p>
         </section>
 
         {/* Ways to Give */}
@@ -356,7 +356,7 @@ export default function Donate() {
           <div className="container mx-auto px-6 md:px-10 py-16 max-w-5xl">
             <h2 className="text-2xl font-bold text-foreground text-center mb-3">Ways to Give</h2>
             <p className="text-muted-foreground text-center mb-10 max-w-lg mx-auto">Whether it's a one-off gift, regular giving, or your time — every contribution makes a difference.</p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {WAYS_TO_GIVE.map((way) => {
                 const Icon = way.icon;
                 return (
@@ -367,7 +367,7 @@ export default function Donate() {
                     <h3 className="font-semibold text-foreground mb-1">{way.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed mb-4">{way.desc}</p>
                     {way.external ? (
-                      <Button asChild variant="outline" size="sm" className="rounded-full text-xs font-semibold">
+                      <Button asChild variant="outline" size="sm" className="h-auto min-h-11 whitespace-normal rounded-full text-xs font-semibold">
                         <a href={way.href} target="_blank" rel="noopener noreferrer">
                           {way.action}
                           <span className="sr-only"> (opens in a new tab)</span>
@@ -378,7 +378,7 @@ export default function Donate() {
                         variant="outline"
                         size="sm"
                         onClick={() => navigate(way.href)}
-                        className="rounded-full text-xs font-semibold"
+                        className="h-auto min-h-11 whitespace-normal rounded-full text-xs font-semibold"
                       >
                         {way.action}
                         <ArrowRight className="w-3 h-3 ml-1.5" />

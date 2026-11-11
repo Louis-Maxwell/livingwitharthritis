@@ -147,7 +147,7 @@ const Footer = () => {
           {columns.map((col) => (
             <nav key={col.title} aria-label={col.title}>
               <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-5">{col.title}</h3>
-              <ul className="space-y-2.5">
+              <ul className="lg:space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
                     {link.href.startsWith("http") ? (
@@ -155,21 +155,21 @@ const Footer = () => {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-foreground/85 hover:text-primary transition-colors duration-200 text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
+                        className="inline-flex min-h-11 items-center text-xs text-foreground/85 hover:text-primary transition-colors duration-200 lg:min-h-0 lg:text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
                       >
                         {link.label}
                       </a>
                     ) : link.href.startsWith("#") ? (
                       <a
                         href={link.href}
-                        className="text-foreground/85 hover:text-primary transition-colors duration-200 text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
+                        className="inline-flex min-h-11 items-center text-xs text-foreground/85 hover:text-primary transition-colors duration-200 lg:min-h-0 lg:text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
                       >
                         {link.label}
                       </a>
                     ) : (
                       <Link
                         to={link.href}
-                        className="text-foreground/85 hover:text-primary transition-colors duration-200 text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
+                        className="inline-flex min-h-11 items-center text-xs text-foreground/85 hover:text-primary transition-colors duration-200 lg:min-h-0 lg:text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
                       >
                         {link.label}
                       </Link>
@@ -187,7 +187,7 @@ const Footer = () => {
               context="footer"
               size="md"
               orientation="vertical"
-              linkClassName="text-foreground/85 hover:text-primary transition-colors duration-200 text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm flex items-center gap-2"
+              linkClassName="min-h-11 text-xs lg:min-h-0 lg:text-[13px] text-foreground/85 hover:text-primary transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm flex items-center gap-2"
               showLabels={true}
             />
           </nav>
@@ -196,7 +196,7 @@ const Footer = () => {
 
       <div className="border-t border-border/15">
         <div className="container mx-auto px-6 md:px-12 py-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
-          <div className="text-[11px] text-muted-foreground tracking-wide">
+          <div className="text-xs lg:text-[11px] text-muted-foreground tracking-wide">
             <p>
               © {new Date().getFullYear()} {CHARITY.legalName}™ ·{" "}
               <a
