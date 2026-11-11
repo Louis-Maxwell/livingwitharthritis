@@ -7,7 +7,8 @@
 | **Organisation** | Living With Arthritis (registered charity no. **1218461**, registered 15 June 2026) |
 | **Website** | [livingwitharthritis.org.uk](https://livingwitharthritis.org.uk) |
 | **Tagline** | Motion is Lotion |
-| **Operations Director / clinical lead** | Louis Maxwell — FCP, HCPC PH128483, CSP member |
+| **Founder** | David Williams |
+| **Operations Director / clinical reviewer** | Louis Maxwell — FCP, HCPC PH128483, CSP member |
 | **Contact** | info@livingwitharthritis.org.uk · 07760 512 084 |
 | **Status** | Early-stage UK charity — not a mature national brand |
 | **Independence** | Independent of Versus Arthritis / Arthritis UK branding and Arthritis Foundation (US) |
@@ -148,7 +149,7 @@ Assumptions: Scenario A **plus** funded content ops (refresh 505 + ~500 new), gr
 
 **Community partnerships** — Waiting-room poster packs, social prescribing link-outs, physio clinic resource lists (Section 7).
 
-**PR** — Earned first: FCP clinical lead angle, research fund story (£5k→£50k), patient-centred “honest charity” narrative (Section brand + Top 20 PR).
+**PR** — Earned first: founder FCP angle, research fund story (£5k→£50k), patient-centred “honest charity” narrative (Section brand + Top 20 PR).
 
 **Referral** — UTM-tagged partner landing pages; HCP PDF one-pagers; pharmacy shelf cards (no Oswestry address).
 
@@ -592,7 +593,7 @@ Prioritisation key: **Impact / Budget / Team / Likelihood** scored H·M·L.
 
 | Must-do | Pri | Impact | Budget | Team | Likelihood |
 |---|---|---|---|---|---|
-| Earned PR push (FCP clinical lead + honest charity story) | P0 | H | L | M | M |
+| Earned PR push (founder FCP + honest charity story) | P0 | H | L | M | M |
 | North East / deprivation-aware content & outreach | P0 | M | L | M | H |
 | Care home + pharmacy pack pilots | P1 | M | L | M | M |
 | CRO pass on donate + checker | P0 | H | L | M | H |
@@ -671,7 +672,7 @@ Aligned under Year 1 of `BOARD-3-YEAR-TRANSFORMATION-STRATEGY.md` (Y1 Foundation
 
 | Role | M1–M3 | M4–M6 | M7–M10 |
 |---|---:|---:|---:|
-| Operations Director / clinical lead (Louis) | 0.6–0.8 | 0.5–0.7 | 0.5–0.7 |
+| Operations Director / clinical reviewer (Louis) | 0.6–0.8 | 0.5–0.7 | 0.5–0.7 |
 | Digital/SEO eng (GitHub) | 0.3–0.5 | 0.4–0.6 | 0.3–0.5 |
 | Content writer/editor | 0.2–0.4 | 0.5–1.0 (B) | 0.5–1.0 (B) |
 | Community / social | 0.2 | 0.3–0.5 | 0.4–0.6 |
@@ -918,7 +919,7 @@ Critical path: **claims + governance → fundable → capacity → content/SEO �
 ## Top 20 PR opportunities
 
 1. “New UK charity, clinician-led, honest metrics” launch feature  
-2. FCP clinical lead / HCPC credibility profile  
+2. Founder FCP / HCPC credibility profile  
 3. Research fund £5k→£50k human story  
 4. Motion is Lotion campaign week  
 5. Flare-season public health tips (winter/spring)  
@@ -931,7 +932,7 @@ Critical path: **claims + governance → fundable → capacity → content/SEO �
 12. Accessibility / fatigue-friendly web redesign story  
 13. Volunteer ambassador recruitment call  
 14. Podcast tour (physio/MSK shows)  
-15. LinkedIn clinician essays (syndicated)  
+15. LinkedIn founder essays (syndicated)  
 16. Local radio health slots  
 17. Response commentary to State of MSK-type reports (independent voice)  
 18. Myth-busting series vs miracle cures (safety angle)  

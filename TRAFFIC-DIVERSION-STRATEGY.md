@@ -7,7 +7,7 @@
 - 20k organic social followers (Facebook + Instagram)
 - Strong content foundation (100+ blog posts)
 - Independent charity positioning
-- HCPC-registered physiotherapist as Operations Director
+- HCPC-registered physiotherapist founder
 - Free resources (exercises, nutrition, community)
 
 **Target:** 10x monthly traffic within 12 months (50k → 500k+ monthly visits)
@@ -72,7 +72,7 @@
 **Instagram/Facebook:**
 - Weekly "5-min exercise" carousel posts → link to full guide
 - "DM for free physio chat" CTA → funnel to chatbot
-- Behind-the-scenes with Louis (Operations Director) → humanize brand
+- Behind-the-scenes with Louis (Operations Director, clinical reviewer) → humanize brand
 - Patient stories/testimonials → social proof
 - "Trending in arthritis" trend-jacking posts
 - Carousel: "5 mistakes people make with arthritis"
@@ -143,7 +143,7 @@ Email template (personalize for each):
 "Hi [contact],
 
 Living With Arthritis (UK charity 1218461) provides free NICE-aligned 
-physiotherapy guides for people with arthritis. Our clinical reviewer is HCPC-registered.
+physiotherapy guides for people with arthritis. Our founder is HCPC-registered.
 
 We'd love to be a resource for your [audience/patients]. Would you consider 
 linking to [relevant page] from your [relevant section]?
@@ -215,7 +215,7 @@ Best,
    - Target: 50k subscribers in 6 months
 
 2. **Community chat/forum** (medium effort)
-   - Live chat with Louis (Operations Director) — 1x/week
+   - Live chat with Louis (Operations Director, clinical reviewer) — 1x/week
    - Forum for peer support (self-moderated)
    - "Ask a Physio" office hours
    - Target: 1000+ active members
@@ -411,7 +411,7 @@ Track these in Google Analytics + Search Console:
 1. **SEO first** — Organic traffic is free, repeating, and compounds
 2. **Community moat** — Hard for competitors to copy
 3. **Local focus** — You're the only independent UK charity doing this depth
-4. **Clinical authority** — Louis's HCPC credentials + personal story = trust
+4. **Clinical authority** — Louis's HCPC credentials (Operations Director, clinical reviewer) + personal story = trust; founder is David Williams
 5. **Content at scale** — 200 → 500 guides = "best damn arthritis site on the web"
 6. **Direct traffic** — Email + social followers = predictable, owned audience
 

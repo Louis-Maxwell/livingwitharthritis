@@ -435,11 +435,11 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/about": withDefaults({
     question: "Who is Living With Arthritis?",
     answer:
-      "Living With Arthritis is a UK charity registered in England and Wales (no. 1218461) and independent of Arthritis UK. Everything we offer is free: arthritis guides, a PIP claim guide and evidence diary, a flare action plan, home exercise routines, a symptom and flare tracker and a community hub, for adults with arthritis and their carers.",
+      "Living With Arthritis is a UK charity registered in England and Wales (no. 1218461), founded by David Williams and independent of Arthritis UK. Everything we offer is free: arthritis guides, a PIP claim guide and evidence diary, a flare action plan, home exercise routines, a symptom and flare tracker and a community hub, for adults with arthritis and their carers.",
     faqs: [
       { q: "What does Living With Arthritis offer for free?", a: "Free arthritis guides, a step-by-step PIP claim guide, a printable PIP evidence diary, a flare action plan, home exercise routines, a printable symptom and flare tracker and a community hub. Everything is free to read, with no sign-up needed." },
       { q: "Who is Living With Arthritis for?", a: "Adults in the UK living with arthritis or joint pain, and the family members and carers who support them. Our guidance is educational and does not replace advice from your GP, pharmacist or rheumatology team." },
-      { q: "Who runs Living With Arthritis?", a: "Living With Arthritis is run by its trustees. Louis Maxwell, a physiotherapist and First Contact Practitioner registered with the HCPC (PH128483), is Operations Director and reviews our clinical content." },
+      { q: "Who runs Living With Arthritis?", a: "Living With Arthritis was founded by David Williams. Louis Maxwell, a physiotherapist and First Contact Practitioner registered with the HCPC (PH128483), is Operations Director and reviews our clinical content." },
       { q: "What is the charity number?", a: "1218461 (England and Wales)." },
       { q: "Where is the charity based?", a: "We are a UK charity (England and Wales, no. 1218461) serving people across the United Kingdom online. A new registered office address will be published when confirmed — contact info@livingwitharthritis.org.uk or 07760 512 084." },
     ],

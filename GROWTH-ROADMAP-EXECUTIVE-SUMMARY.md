@@ -149,7 +149,7 @@
 1. **Consistency over perfection** — 3 posts/week beats 1 perfect post/month
 2. **Quality + quantity** — 500 good guides beats 50 great ones
 3. **Community as moat** — Forum/email keeps people coming back
-4. **Clinical authority** — Louis's HCPC credentials are your edge; use them
+4. **Clinical authority** — Louis's HCPC credentials (Operations Director, clinical reviewer) are your edge; use them
 5. **Data-driven** — Track rankings, conversions, donations weekly
 6. **SEO first, ads second** — Organic scales cheaper and compounds
 
@@ -172,7 +172,7 @@
 | Factor | Living With Arthritis | Arthritis UK | Patient.info |
 |--------|----------------------|-------------|-------------|
 | **Independence** | Yes Independent, peer-led | No Large org | No Corporate |
-| **Clinical Authority** | Yes HCPC Physio |  Multiple trustees | No Journalists |
+| **Founder Authority** | Yes HCPC Physio |  Multiple trustees | No Journalists |
 | **Direct Support** | Yes Virtual physio + community | No Advocacy-focused | No Info only |
 | **Free Resources** | Yes No paywalls | Yes Free |  Premium content |
 | **Speed** | Yes Nimble startup | No Bureaucratic |  Moderate |
@@ -254,7 +254,7 @@ All documents on GitHub:
 You have:
 - Yes 20k organic social followers (real audience)
 - Yes Independent charity credibility (1218461)
-- Yes HCPC-registered Operations Director (Louis Maxwell, PH128483)
+- Yes Founded by David Williams; HCPC-registered clinical reviewer (Louis Maxwell, Operations Director, PH128483)
 - Yes Free resources (exercises, guides, community)
 - Yes Grant funding (active grant writer)
 

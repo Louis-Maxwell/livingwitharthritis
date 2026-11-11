@@ -14,7 +14,7 @@ Scoring: **1 = weak / missing**, **5 = category-leading**. Scores are qualitativ
 | Dimension | LWA | Arthritis Foundation (US) | Arthritis UK | Arthritis Action | NHS MSK/arthritis | Mayo / Cleveland pattern |
 |---|---|---|---|---|---|---|
 | **IA clarity** | 3 — rich mega-nav; some overlap (library/blog/guides) | 5 — deep, campaign + condition trees | 5 — condition + living + research | 3 — simpler charity site; membership-led | 5 — predictable condition templates | 5 — TOC encyclopedia |
-| **Trust / E-E-A-T** | 3 — clinical lead HCPC strong; board depth thin | 5 — brand + research stats + helpline | 5 — national brand + research provenance | 4 — membership + clinical network claims | 5 — statutory NHS trust | 5 — medical review + citations |
+| **Trust / E-E-A-T** | 3 — founder HCPC strong; board depth thin | 5 — brand + research stats + helpline | 5 — national brand + research provenance | 4 — membership + clinical network claims | 5 — statutory NHS trust | 5 — medical review + citations |
 | **Community** | 2–3 — Connect/Buddy/events surfaces; forum not mature | 5 — Connect Groups, helpline, JA programmes | 4 — events, fundraising communities | 4 — online groups + membership pathway | 1 — not a community product | 1 — care funnel, not peer community |
 | **Content depth** | 4 — volume high for age; uneven cornerstone quality | 5 — decades of assets | 5 — extensive UK library | 3 — practical self-management focus | 4 — authoritative but thinner lifestyle depth | 5 — structured clinical depth |
 | **SEO / distribution** | 2–3 — building; prerender/SPA constraints; Champions work underway | 5 — global domain authority | 5 — UK SERP default alongside NHS | 3 — niche UK charity SEO | 5 — .nhs.uk privilege | 5 — encyclopedia + citations |
@@ -47,11 +47,11 @@ Scoring: **1 = weak / missing**, **5 = category-leading**. Scores are qualitativ
 | Arthritis Foundation impact stats ($ millions, 55 groups) | LWA must not invent comparable stats |
 | Mayo/Cleveland “see our specialists / book” | LWA is education + charity, not a hospital |
 | Arthritis Action paid membership clinical network | Requires regulated delivery capacity LWA does not yet have |
-| Versus Arthritis “future free from arthritis” research brand | Different endowment and history; LWA differentiates on *living with* + clinician reviewer |
+| Versus Arthritis “future free from arthritis” research brand | Different endowment and history; LWA differentiates on *living with* + clinician founder |
 
 ## Differentiating wedge (defend this)
 
-1. **Clinician with lived experience** (Louis Maxwell) — rare honest clinician story when not over-claimed.  
+1. **Clinician with lived experience** (Louis Maxwell) — rare honest clinician story when not over-claimed (founder is David Williams; Louis is Operations Director / clinical reviewer).  
 2. **UK practical pathways** — PIP, FCP, MSK self-referral, waiting-list help.  
 3. **Motion-is-lotion exercise productisation** — joint picker + exercise library.  
 4. **Independence** — clearly *not* Arthritis UK / US Foundation.  

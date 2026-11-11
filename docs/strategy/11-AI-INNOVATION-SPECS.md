@@ -42,7 +42,7 @@
 - LWA is **not** a regulated medical device manufacturer by default; avoid presenting the assistant as a medical device or diagnostic CE/UKCA product.  
 - If future features look like clinical decision support, obtain appropriate regulatory advice **before** launch.  
 - Align with MHRA/NICE digital guidance at the time of build; document intended use as **general health information**.  
-- Keep clinical lead HCPC accountability for clinical content policy; AI does not replace reviewer sign-off on source articles.
+- Keep founder HCPC accountability for clinical content policy; AI does not replace reviewer sign-off on source articles.
 
 ---
 
