@@ -22,7 +22,11 @@ export function finalizeTechnicalHead(html, route, data = {}, base) {
     'og:image': image, 'og:image:secure_url': image,
     'og:type': data.article ? 'article' : 'website',
     'og:site_name': 'Living With Arthritis', 'og:locale': 'en_GB',
-    'twitter:card': 'summary_large_image', 'twitter:title': title,
+    ...(data.ogImageWidth ? { 'og:image:width': String(data.ogImageWidth),
+      'og:image:height': String(data.ogImageHeight) } : {}),
+    ...(data.ogImageAlt ? { 'og:image:alt': data.ogImageAlt,
+      'twitter:image:alt': data.ogImageAlt } : {}),
+    'twitter:card': data.twitterCard || 'summary_large_image', 'twitter:title': title,
     'twitter:description': description, 'twitter:image': image,
   };
   const tags = Object.entries(fields).map(([key, value]) =>

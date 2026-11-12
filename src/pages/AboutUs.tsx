@@ -21,6 +21,14 @@ import { CONTACT_PHONE, CONTACT_PHONE_E164 } from "@/config/contact";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 
+const ABOUT_LOGO = `${CHARITY.siteUrl}/brand/lwa-logo-square-720.png`;
+const ABOUT_LOGO_OBJECT = {
+  '@type': 'ImageObject',
+  url: ABOUT_LOGO,
+  width: 720,
+  height: 720,
+};
+
 const FounderStoryBand = lazyWithRetry(() => import("@/components/landing/FounderStoryBand"));
 
 
@@ -168,15 +176,16 @@ const AboutUs = () => {
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:site_name" content={CHARITY.shortName} />
-        <meta property="og:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content={`About Us — ${CHARITY.shortName}`} />
-        <meta name="twitter:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:image" content={ABOUT_LOGO} />
+        <meta property="og:image:secure_url" content={ABOUT_LOGO} />
+        <meta property="og:image:width" content="720" />
+        <meta property="og:image:height" content="720" />
+        <meta property="og:image:alt" content="Living With Arthritis logo" />
+        <meta name="twitter:image" content={ABOUT_LOGO} />
+        <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="About Living With Arthritis | Registered charity 1218461" />
         <meta name="twitter:description" content="Meet Living With Arthritis, registered charity 1218461. Learn about our team, clinical review process and free guides on pain, exercise, diet and benefits." />
-        <meta name="twitter:image:alt" content={`About Us — ${CHARITY.shortName}`} />
+        <meta name="twitter:image:alt" content="Living With Arthritis logo" />
         <meta name="geo.region" content="GB" />
         <link rel="alternate" hrefLang="en-GB" href={`${CHARITY.siteUrl}/about`} />
         <script type="application/ld+json">{JSON.stringify({
@@ -185,6 +194,8 @@ const AboutUs = () => {
           "name": `About ${CHARITY.legalName}`,
           "url": `${CHARITY.siteUrl}/about`,
           "inLanguage": "en-GB",
+          "image": ABOUT_LOGO_OBJECT,
+          "primaryImageOfPage": ABOUT_LOGO_OBJECT,
           "mainEntity": {
             "@id": `${CHARITY.siteUrl}/#organization`,
             "@type": "NGO",

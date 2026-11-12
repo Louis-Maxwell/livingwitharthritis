@@ -624,6 +624,11 @@ export function buildJsonLd(route, url, d) {
     ...(pageReviewer ? { reviewedBy: pageReviewer, ...(d.lastReviewed ? { lastReviewed: d.lastReviewed } : {}) } : {}),
     ...(pageCitations.length ? { citation: pageCitations } : {}),
     ...(d.organization ? { mainEntity: { "@id": d.organization["@id"] } } : {}),
+    ...(d.pageType === "AboutPage" && d.ogImage ? (() => {
+      const img = { "@type": "ImageObject", url: d.ogImage,
+        width: d.ogImageWidth, height: d.ogImageHeight };
+      return { image: img, primaryImageOfPage: img };
+    })() : {}),
     speakable: d.answer
       ? { "@type": "SpeakableSpecification", cssSelector: ["h1", ".answer-box"] }
       : undefined,
