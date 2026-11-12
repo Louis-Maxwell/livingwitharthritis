@@ -29,6 +29,7 @@ const CLINIC_LINKS = [
 const SHAREABLE = [
   { title: "Newly diagnosed checklist", href: "/guides/newly-diagnosed" },
   { title: "Exercise hub", href: "/exercises" },
+  { title: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
   { title: "Diet hub", href: "/guides/diet" },
   { title: "Benefits & PIP hub", href: "/guides/benefits-pip" },
   { title: "Symptom checker (educational)", href: "/symptom-checker" },
