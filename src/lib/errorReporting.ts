@@ -50,9 +50,9 @@ const seen = new Set<string>();
 export function isBenignBrowserError(error: unknown, source = ""): boolean {
   const message = describe(error);
   return /ResizeObserver loop (limit exceeded|completed with undelivered notifications)/i.test(message)
-    || /^(Script error\\.?|NetworkError when attempting to fetch a resource\\.?)$/i.test(message.trim())
-    || /(?:chrome-extension|moz-extension|safari-web-extension|extensions\\/)/i.test(source)
-    || /(?:chrome-extension|moz-extension|safari-web-extension):\\/\\//i.test(message);
+    || /^(Script error\.?|NetworkError when attempting to fetch a resource\.?)$/i.test(message.trim())
+    || /(?:chrome-extension|moz-extension|safari-web-extension|extensions\/)/i.test(source)
+    || /(?:chrome-extension|moz-extension|safari-web-extension):\/\//i.test(message);
 }
 
 function errorIdentity(error: unknown, description: string): string {
