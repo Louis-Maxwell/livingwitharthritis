@@ -257,7 +257,7 @@ function baseHeadDataFor(route, override) {
   const catMatch = /^\/blog\/category\/([^/]+)$/.exec(route);
   if (catMatch) {
     return BLOG_CATEGORY_META[catMatch[1]]
-      ? blogCategoryHeadData(catMatch[1]]
+      ? blogCategoryHeadData(catMatch[1])
       : NOT_FOUND_HEAD;
   }
   // Soft-404: /blog/:slug not in the published catalog must not ship
