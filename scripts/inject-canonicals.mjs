@@ -255,7 +255,11 @@ function baseHeadDataFor(route, override) {
   if (override) return override;
   if (route === "/blog/archive") return blogArchiveHeadData();
   const catMatch = /^\/blog\/category\/([^/]+)$/.exec(route);
-  if (catMatch && BLOG_CATEGORY_META[catMatch[1]]) return blogCategoryHeadData(catMatch[1]);
+  if (catMatch) {
+    return BLOG_CATEGORY_META[catMatch[1]]
+      ? blogCategoryHeadData(catMatch[1]]
+      : NOT_FOUND_HEAD;
+  }
   // Soft-404: /blog/:slug not in the published catalog must not ship
   // homepage OG or a fabricated article title.
   const blogMatch = /^\/blog\/([^/]+)$/.exec(route);
