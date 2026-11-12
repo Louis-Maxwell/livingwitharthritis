@@ -11,9 +11,20 @@ import {
 } from "../../../scripts/seo-redirect-map.mjs";
 import { writeRedirectHtml } from "../../../scripts/write-redirect-html.mjs";
 import { hostRedirectsDrift } from "../../../scripts/sync-host-redirects.mjs";
-import { collectRoutes, rewriteHead } from "../../../scripts/inject-canonicals.mjs";
+import { collectRoutes, rewriteHead, headDataFor } from "../../../scripts/inject-canonicals.mjs";
 
 describe("host + client SEO redirects", () => {
+  it("marks unknown blog and category slugs as not found and noindex", () => {
+    for (const path of [
+      "/blog/this-article-does-not-exist-12345",
+      "/blog/category/not-a-real-category-12345",
+    ]) {
+      const head = headDataFor(path);
+      expect(head?.noindex).toBe(true);
+      expect(head?.title).toContain("Page not found");
+    }
+  });
+
   it("maps the live GSC soft-404s onto real pages", () => {
     expect(resolveSeoRedirect("/arthritis-support/stockport")).toBe(
       "/arthritis-support/manchester",
