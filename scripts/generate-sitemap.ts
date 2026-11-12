@@ -570,9 +570,8 @@ async function main() {
       if (entry) entry.lastmod = maxIsoDate(entry.lastmod, newestPost);
     }
   }
-  if (blogInventory.source === "checked-in-fallback") {
-    for (const path of previousBlogCategoryPaths()) entries.push({ path });
-  }
+  // A checked-in fallback may contain retired or empty category URLs.
+  // Only categories backed by the current published post inventory are indexable.
 
   // Programmatic SEO: glossary, comparison guides, city hubs & pet articles.
   // These come from generated data files so the sitemap stays in sync.
