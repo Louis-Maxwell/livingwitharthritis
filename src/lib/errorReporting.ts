@@ -40,11 +40,26 @@ export interface ErrorReport {
 
 type Gtag = (command: "event", name: string, params: Record<string, unknown>) => void;
 
-const MAX_REPORTS_PER_PAGE = 20;
+const MAX_REPORTS_PER_PAGE = 10;
 const GA4_VALUE_LIMIT = 100;
 
 let sentCount = 0;
 const seen = new Set<string>();
+
+/** Ignore browser/extension noise that does not indicate a site failure. */
+export function isBenignBrowserError(error: unknown, source = ""): boolean {
+  const message = describe(error);
+  return /ResizeObserver loop (limit exceeded|completed with undelivered notifications)/i.test(message)
+    || /^(Script error\\.?|NetworkError when attempting to fetch a resource\\.?)$/i.test(message.trim())
+    || /(?:chrome-extension|moz-extension|safari-web-extension|extensions\\/)/i.test(source)
+    || /(?:chrome-extension|moz-extension|safari-web-extension):\\/\\//i.test(message);
+}
+
+function errorIdentity(error: unknown, description: string): string {
+  // One thrown Error can surface via a boundary, window.error and a rejected import.
+  // Deduplicate across event kinds and sources, rather than just within each kind.
+  return isChunkLoadError(error) ? "chunk:" + description : description;
+}
 
 /** Removes things that could identify a person before anything leaves the browser. */
 export function scrub(text: string): string {
@@ -86,9 +101,12 @@ export function reportError(
 ): void {
   try {
     if (typeof window === "undefined") return;
-    const description = scrub(describe(error)) || kind;
-    const key = `${kind}|${description}|${options.source ?? ""}`;
+    if (isBenignBrowserError(error, options.source)) return;
+    const description = scrub(describe(error)).slice(0, GA4_VALUE_LIMIT) || kind;
+    const key = errorIdentity(error, description);
     if (seen.has(key) || sentCount >= MAX_REPORTS_PER_PAGE) return;
+    // Do not consume the reporting budget before the visitor grants consent.
+    if (typeof (window as Window & { gtag?: Gtag }).gtag !== "function") return;
     seen.add(key);
     sentCount++;
     const report: ErrorReport = {
@@ -126,6 +144,9 @@ function shouldReportRequest(method: string, url: URL | null): boolean {
   // HEAD requests are existence probes (e.g. optional audio files); a miss is expected.
   if (method === "HEAD") return false;
   if (url && IGNORED_HOSTS.test(url.hostname)) return false;
+  // External endpoints (including FormSubmit) have their own explicit failure
+  // reporting; do not count expected API rejections twice.
+  if (!url || url.origin !== window.location.origin) return false;
   return true;
 }
 
@@ -153,12 +174,14 @@ export function installErrorReporting(): void {
   });
 
   window.addEventListener("unhandledrejection", (event) => {
-    if (isAbort(event.reason)) return;
+    if (isAbort(event.reason) || isBenignBrowserError(event.reason)) return;
     reportError(isChunkLoadError(event.reason) ? "chunk_load" : "unhandled_rejection", event.reason);
   });
 
   window.addEventListener("vite:preloadError", (event) => {
-    reportError("chunk_load", (event as Event & { payload?: unknown }).payload ?? "preload failed");
+    const payload = (event as Event & { payload?: unknown }).payload;
+    // Only genuine chunk failures, not arbitrary Vite preload warnings.
+    if (isChunkLoadError(payload)) reportError("chunk_load", payload);
   });
 
   if (typeof window.fetch !== "function") return;
@@ -168,7 +191,9 @@ export function installErrorReporting(): void {
     const target = url ? `${method} ${url.host}${url.pathname}` : method;
     try {
       const response = await originalFetch(input, init);
-      if (!response.ok && shouldReportRequest(method, url)) {
+      // 4xx responses are often expected (missing optional files, validation).
+      // Only unexpected same-origin server failures warrant an exception.
+      if (response.status >= 500 && shouldReportRequest(method, url)) {
         reportError("fetch_failed", `HTTP ${response.status} ${target}`, { source: url?.host });
       }
       return response;
