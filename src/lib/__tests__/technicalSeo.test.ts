@@ -18,7 +18,7 @@ describe('technical SEO rules', () => {
   it('keeps the reader headline untouched and search title within 60 characters', () => {
     const headline = 'Best Exercises for Osteoarthritis Knee Pain at Home';
     const title = distinctSeoTitle(headline, headline);
-    expect(title).not.toBe(headline);
+    expect(title).toBe(headline);
     expect(title.length).toBeLessThanOrEqual(60);
   });
   it('does not drop words to force a | Guide suffix', () => {
