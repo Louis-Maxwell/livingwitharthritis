@@ -117,7 +117,11 @@ function authorHeadData() {
         title: `${record.name} — ${label}: ${record.title} | Living With Arthritis`.slice(0, 115),
         description: `${role}: ${record.name}, ${record.title}${credential ? ` (${credential})` : ""}. ${bio}`
           .replace(/\s+/g, " ")
-          .slice(0, 158),
+          .trim()
+          .replace(/^/, "")
+          .slice(0) && trimDescription(
+            `${role}: ${record.name}, ${record.title}${credential ? ` (${credential})` : ""}. ${bio}`.replace(/\s+/g, " "),
+          ),
         question: `${record.name} — ${label.toLowerCase()} profile`,
         answer: [
           prefix === "reviewers"
@@ -166,6 +170,26 @@ export function mergeHeadLayers(...layers) {
   return out;
 }
 
+
+// Optional per-route image size, alt and card type (e.g. /about uses a
+// square logo with a "summary" card). Only applied when the entry sets them.
+function patchImageExtras(html, d) {
+  let out = html;
+  const setMeta = (attr, key, value) => {
+    const re = new RegExp(`<meta\\s+${attr}="${key}"\\s+content="[^"]*"\\s*\\/?>`, "i");
+    const tag = `<meta ${attr}="${key}" content="${escAttr(String(value))}" />`;
+    out = re.test(out) ? out.replace(re, tag) : out.replace(/<\/head>/i, `${tag}\n</head>`);
+  };
+  if (d.ogImageWidth) setMeta("property", "og:image:width", d.ogImageWidth);
+  if (d.ogImageHeight) setMeta("property", "og:image:height", d.ogImageHeight);
+  if (d.ogImageAlt) {
+    setMeta("property", "og:image:alt", d.ogImageAlt);
+    setMeta("name", "twitter:image:alt", d.ogImageAlt);
+  }
+  if (d.twitterCard) setMeta("name", "twitter:card", d.twitterCard);
+  return out;
+}
+
 // Curated entries win over auto-generated blog/author entries; all of them
 // win over the slug-derived fallback applied in headDataFor().
 const AI_DATA = mergeHeadLayers(
@@ -175,6 +199,7 @@ const AI_DATA = mergeHeadLayers(
   readJson(HUB_GUIDE_DATA_PATH),
   readJson(resolve("scripts/editorial-head-data.json")),
   authorHeadData(),
+  readJson(resolve("scripts/route-head-curated.json")),
   readJson(AI_DATA_PATH),
 );
 
@@ -548,6 +573,7 @@ export function patchShareMeta(html, d) {
       /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/i,
       `<meta name="twitter:image" content="${escAttr(d.ogImage)}" />`,
     );
+    out = patchImageExtras(out, d);
   }
   return d.article?.slug ? ensureArticleJsonLd(out, `${BASE}/blog/${d.article.slug}`, d) : out;
 }
@@ -772,6 +798,7 @@ function enrichHead(html, route, url, override) {
       /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/i,
       `<meta name="twitter:image" content="${escAttr(d.ogImage)}" />`,
     );
+    out = patchImageExtras(out, d);
   }
 
   // Inject per-route JSON-LD just before </head>, after the sitewide
