@@ -9,6 +9,23 @@ import { buildCityHubHtml } from '../write-city-hub-html.mjs';
 import { CITY_HUBS } from '../seo-redirect-map.mjs';
 const BASE = 'https://livingwitharthritis.org.uk';
 const template = readFileSync('index.html', 'utf8');
+
+function jsonLdNodes(html) {
+  const nodes = [];
+  const lower = html.toLowerCase();
+  let from = 0;
+  while (from < html.length) {
+    const open = lower.indexOf('<script', from);
+    if (open < 0) break;
+    const start = html.indexOf('>', open);
+    const close = lower.indexOf('</script>', start);
+    if (start < 0 || close < 0) break;
+    const raw = html.slice(start + 1, close).trim();
+    if (raw.startsWith('{')) nodes.push(JSON.parse(raw));
+    from = close + '</script>'.length;
+  }
+  return nodes;
+}
 test('every static route has its own complete, singular social metadata', () => {
   for (const route of collectRoutes().filter((r) => !/\.[a-z]+$/.test(r))) {
     const html = rewriteHead(template, route);
@@ -48,8 +65,7 @@ test('about prerendered head uses the square logo, not the landscape share image
     title: 'About', description: 'About the charity.', ogImage: `${BASE}/og/landing-share.png`,
   }, BASE);
   assert.equal(forced.match(/property="og:image" content="([^"]*)"/)?.[1], logo);
-  const page = [...buildJsonLd('/about', `${BASE}/about`, headDataFor('/about')).matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)]
-    .map((m) => JSON.parse(m[1]))
+  const page = jsonLdNodes(buildJsonLd('/about', `${BASE}/about`, headDataFor('/about')))
     .find((node) => node['@type'] === 'AboutPage');
   assert.equal(page.image.url, logo);
   assert.equal(page.image.width, 720);
@@ -68,16 +84,15 @@ test('fallback heads do not claim what people most often ask', () => {
 
 test('chat, blog hub, library and sources have page-specific heads', () => {
   const expected = {
-    '/chat': /Help (&amp;|&) Support Chat/,
+    '/chat': /Help &amp; Support Chat/,
     '/blog-hub': /Advice Hub/,
     '/library': /Health Library/,
-    '/sources': /Clinical Sources & Evidence/,
+    '/sources': /Clinical Sources &amp; Evidence/,
   };
   for (const [route, title] of Object.entries(expected)) {
     const html = rewriteHead(template, route);
-    const decode = (value) => value.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
-    const pageTitle = decode(html.match(/<title>([^<]*)<\/title>/)?.[1] || '');
-    const description = decode(html.match(/name="description" content="([^"]*)"/)?.[1] || '');
+    const pageTitle = html.match(/<title>([^<]*)<\/title>/)?.[1] || '';
+    const description = html.match(/name="description" content="([^"]*)"/)?.[1] || '';
     assert.match(pageTitle, title, route);
     assert.doesNotMatch(pageTitle, /\| Guide$/);
     assert.doesNotMatch(description, /most often ask about/i);
