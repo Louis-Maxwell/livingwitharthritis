@@ -58,7 +58,7 @@ export default function SeoHead({
       <meta name="description" content={safeDescription} />
       {keywords && <meta name="keywords" content={keywords} />}
       {noindex ? (
-        <meta name="robots" content="noindex,nofollow" />
+        <meta name="robots" content="noindex,follow" />
       ) : (
         <meta
           name="robots"
