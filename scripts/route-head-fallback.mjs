@@ -66,6 +66,34 @@ const LANG_LABELS = {
   pt: { label: 'Português', suffix: 'em português' },
 };
 
+const JOINERS = new Set(['and', 'with', 'for', 'of', 'the', 'to']);
+
+/**
+ * Trim a description to <= max characters without cutting mid-word.
+ * Prefers the last sentence end after ~90 characters; otherwise the last
+ * word boundary, dropping trailing punctuation and joining words.
+ */
+export function trimDescription(text, max = 155) {
+  const value = String(text || '').replace(/\s+/g, ' ').trim();
+  if (value.length <= max) return value;
+  const head = value.slice(0, max + 1);
+  let sentenceEnd = -1;
+  for (const m of head.matchAll(/[.!?](?= )/g)) {
+    // Skip abbreviations such as "no." so we never stop at "(no."
+    if (!/\bno$/i.test(head.slice(0, m.index))) sentenceEnd = m.index;
+  }
+  if (sentenceEnd >= 90) return value.slice(0, sentenceEnd + 1);
+  const words = value.slice(0, max + 1).split(' ');
+  if (value[max] !== ' ' && value.length > max) words.pop();
+  while (words.length) {
+    const last = words[words.length - 1].replace(/[\s,;:—–\-.!?]+$/, '');
+    if (!last || JOINERS.has(last.toLowerCase())) { words.pop(); continue; }
+    words[words.length - 1] = last;
+    break;
+  }
+  return words.join(' ');
+}
+
 /**
  * @param {string} route e.g. "/conditions/knee-arthritis/symptoms"
  * @returns {{title:string, description:string, question:string, answer:string, breadcrumb:string}|null}
@@ -80,7 +108,7 @@ export function deriveHeadData(route) {
     const meta = LANG_LABELS[lang];
     return {
       title: `Living With Arthritis — ${meta.label}`,
-      description: `Guías sobre la artritis / arthrite / Arthritis ${meta.suffix} de Living With Arthritis, una organización benéfica registrada (nº 1218461).`.slice(0, 158),
+      description: trimDescription(`Guías sobre la artritis / arthrite / Arthritis ${meta.suffix} de Living With Arthritis, una organización benéfica registrada (nº 1218461).`),
       question: `Living With Arthritis — ${meta.label}`,
       answer: `This is the ${meta.label} entry point for Living With Arthritis. Our clinically reviewed arthritis guides are published ${meta.suffix}.`,
       breadcrumb: meta.label,
@@ -106,17 +134,11 @@ export function deriveHeadData(route) {
 
   // A unique opening paragraph per route: without it every fallback page
   // shipped the same static body copy and read as duplicate content.
-  const answer = [
-    `${subject}:`,
-    section
-      ? `this ${section.toLowerCase()} covers what people in the UK most often ask about ${base.toLowerCase()}.`
-      : `this page covers what people in the UK most often ask about ${base.toLowerCase()}.`,
-    'Check this page for its sources and clinical-review status.',
-  ].join(' ');
+  const answer = `${subject}: an educational page from Living With Arthritis, a UK registered charity (no. 1218461).`;
 
   return {
     title: heading.length > 115 ? `${subject.slice(0, 90)} | Living With Arthritis` : heading,
-    description: description.slice(0, 158),
+    description: trimDescription(description),
     question: subject,
     answer,
     breadcrumb: last,

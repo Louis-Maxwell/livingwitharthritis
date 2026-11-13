@@ -6774,7 +6774,12 @@
           }
         ]
       }
-    }
+    },
+    "ogImage": "https://livingwitharthritis.org.uk/brand/lwa-logo-square-720.png",
+    "ogImageWidth": 720,
+    "ogImageHeight": 720,
+    "ogImageAlt": "Living With Arthritis logo",
+    "twitterCard": "summary"
   },
   "/guides/exercise": {
     "title": "Arthritis Exercises at Home: Free Knee, Hip & Hand Routines",

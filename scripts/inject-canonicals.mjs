@@ -26,6 +26,7 @@
 // and re-running this script refreshes crawler meta without a full vite build.
 
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
+import { trimDescription } from "./route-head-fallback.mjs";
 import { patchEnglishAlternates } from "./lib/english-alternates.mjs";
 import { finalizeTechnicalHead } from './lib/technical-head.mjs';
 import { canonicalPath, cleanJsonLd } from '../src/lib/technicalSeo.mjs';
@@ -115,9 +116,10 @@ function authorHeadData() {
           : `Author profile`;
       out[`/${prefix}/${record.slug}`] = {
         title: `${record.name} — ${label}: ${record.title} | Living With Arthritis`.slice(0, 115),
-        description: `${role}: ${record.name}, ${record.title}${credential ? ` (${credential})` : ""}. ${bio}`
-          .replace(/\s+/g, " ")
-          .slice(0, 158),
+        description: trimDescription(
+          `${role}: ${record.name}, ${record.title}${credential ? ` (${credential})` : ""}. ${bio}`
+            .replace(/\s+/g, " "),
+        ),
         question: `${record.name} — ${label.toLowerCase()} profile`,
         answer: [
           prefix === "reviewers"
@@ -166,6 +168,7 @@ export function mergeHeadLayers(...layers) {
   return out;
 }
 
+
 // Curated entries win over auto-generated blog/author entries; all of them
 // win over the slug-derived fallback applied in headDataFor().
 const AI_DATA = mergeHeadLayers(
@@ -175,6 +178,7 @@ const AI_DATA = mergeHeadLayers(
   readJson(HUB_GUIDE_DATA_PATH),
   readJson(resolve("scripts/editorial-head-data.json")),
   authorHeadData(),
+  readJson(resolve("scripts/route-head-curated.json")),
   readJson(AI_DATA_PATH),
 );
 

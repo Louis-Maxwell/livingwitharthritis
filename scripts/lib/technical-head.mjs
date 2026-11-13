@@ -22,9 +22,17 @@ export function finalizeTechnicalHead(html, route, data = {}, base) {
     'og:image': image, 'og:image:secure_url': image,
     'og:type': data.article ? 'article' : 'website',
     'og:site_name': 'Living With Arthritis', 'og:locale': 'en_GB',
-    'twitter:card': 'summary_large_image', 'twitter:title': title,
+    'twitter:card': data.twitterCard || 'summary_large_image',
+    'twitter:title': title,
     'twitter:description': description, 'twitter:image': image,
   };
+  // Optional per-route image details (e.g. /about's square logo).
+  if (data.ogImage && data.ogImageWidth) fields['og:image:width'] = data.ogImageWidth;
+  if (data.ogImage && data.ogImageHeight) fields['og:image:height'] = data.ogImageHeight;
+  if (data.ogImage && data.ogImageAlt) {
+    fields['og:image:alt'] = data.ogImageAlt;
+    fields['twitter:image:alt'] = data.ogImageAlt;
+  }
   const tags = Object.entries(fields).map(([key, value]) =>
     `<meta ${key.startsWith('og:') ? 'property' : 'name'}="${key}" content="${escape(value)}" />`);
   out = out.replace(/<\/head>/i, `<title>${escape(title)}</title>\n<meta name="description" content="${escape(description)}" />\n<link rel="canonical" href="${url}" />\n${tags.join('\n')}\n</head>`);

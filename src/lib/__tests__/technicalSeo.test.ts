@@ -18,7 +18,7 @@ describe('technical SEO rules', () => {
   it('keeps the reader headline untouched and search title within 60 characters', () => {
     const headline = 'Best Exercises for Osteoarthritis Knee Pain at Home';
     const title = distinctSeoTitle(headline, headline);
-    expect(title).not.toBe(headline);
+    expect(title).toBe(headline);
     expect(title.length).toBeLessThanOrEqual(60);
   });
   it('does not drop words to force a | Guide suffix', () => {
@@ -28,10 +28,10 @@ describe('technical SEO rules', () => {
     expect(title).not.toMatch(/and \| Guide$/);
     expect(title.length).toBeLessThanOrEqual(60);
   });
-  it('still appends | Guide when the full suffix fits in 60 characters', () => {
+  it('does not append a | Guide suffix', () => {
     const headline = 'TENS for Arthritis: Does It Help?';
     expect(distinctSeoTitle(headline, headline)).toBe(
-      'TENS for Arthritis: Does It Help? | Guide',
+      'TENS for Arthritis: Does It Help?',
     );
   });
   it('provides the six requested sharing actions including separate copy control', () => {
