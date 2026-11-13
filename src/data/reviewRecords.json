@@ -1,0 +1,20 @@
+{
+  "reviewer": "Louis Maxwell, HCPC PH128483",
+  "pages": {
+    "/conditions/osteoarthritis": "2026-11-05",
+    "/conditions/arthritis": "2026-09-16",
+    "/conditions/shoulder-arthritis": "2026-09-16",
+    "/conditions/foot-and-ankle-arthritis": "2026-09-21",
+    "/exercises": "2026-11-10",
+    "/exercises/tai-chi-for-arthritis": "2026-10-23",
+    "/exercises/ankle-arthritis-exercises": "2026-10-23",
+    "/library": "2026-09-18",
+    "/faq": "2026-09-21"
+  },
+  "conditionSubpage": "2026-09-17",
+  "faqArticleFallback": "2026-09-16",
+  "faqArticles": {
+    "arthritis-disability-benefits-uk": "2026-09-24"
+  },
+  "librarySitewide": "2026-10-23"
+}

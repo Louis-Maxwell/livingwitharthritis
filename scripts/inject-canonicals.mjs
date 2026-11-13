@@ -27,6 +27,7 @@
 
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
 import { trimDescription } from "./route-head-fallback.mjs";
+import { withReviewRecord } from "./lib/review-records.mjs";
 import { patchEnglishAlternates } from "./lib/english-alternates.mjs";
 import { finalizeTechnicalHead } from './lib/technical-head.mjs';
 import { canonicalPath, cleanJsonLd } from '../src/lib/technicalSeo.mjs';
@@ -385,6 +386,9 @@ function withLinkedSummaries(route, data) {
 }
 export { withRenderedBody };
 function headDataFor(route, override) {
+  return withReviewRecord(route, headDataForInner(route, override));
+}
+function headDataForInner(route, override) {
   const data = withRenderedBody(route, baseHeadDataFor(route, override));
   if (override || !data || data.noindex || route.startsWith('/blog/')) return data;
   const children = SITEMAP_PATHS.filter((path) =>

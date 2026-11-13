@@ -1,9 +1,10 @@
+import { inlineReviewRecords } from "@/test/inlineReviewRecords";
 import { describe, it, expect } from "vitest";
 import { readFileSync } from "fs";
 import { resolve } from "path";
 import { CITATIONS_EXERCISE_HUB } from "@/data/clinical/ukCitations";
 
-const hub = readFileSync(resolve(__dirname, "../../pages/ExerciseHub.tsx"), "utf8");
+const hub = inlineReviewRecords(readFileSync(resolve(__dirname, "../../pages/ExerciseHub.tsx"), "utf8"));
 const guide = readFileSync(resolve(__dirname, "../../pages/pillar/ExerciseGuide.tsx"), "utf8");
 
 describe("Month 3 exercise pillar (10 Nov)", () => {

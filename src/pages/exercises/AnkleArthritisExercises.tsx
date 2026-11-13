@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -109,7 +110,7 @@ export default function AnkleArthritisExercises() {
             </p>
           </aside>
 
-          <EducationalDisclaimerBox lastReviewed="2026-10-23" />
+          <EducationalDisclaimerBox lastReviewed={REVIEW_RECORDS.pages["/exercises/ankle-arthritis-exercises"]} />
 
           <div className={PROSE} dangerouslySetInnerHTML={{ __html: sanitizeHtml(FOOT_ANKLE_BEFORE_HTML) }} />
 

@@ -3,6 +3,7 @@
  * "Living With Arthritis" pillar page. Each entry powers a static
  * route at /faq/:slug rendered by src/pages/FaqArticle.tsx.
  */
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 export interface FaqSection {
   heading: string;
   content: string;
@@ -85,7 +86,7 @@ export const faqArticles: FaqArticle[] = [
     seoTitle: 'Is Arthritis a Disability in the UK? PIP & Rights',
     metaDescription:
       'It can be under the Equality Act if it has a long-term effect on daily life. How PIP works for adults, who DLA is for, and your rights at work.',
-    lastReviewed: '2026-09-24',
+    lastReviewed: REVIEW_RECORDS.faqArticles['arthritis-disability-benefits-uk'],
     quickAnswer:
       'Arthritis is not automatically a disability. Under the Equality Act 2010 it can be, if a physical impairment has a substantial and long-term adverse effect on normal day-to-day activities. PIP is not awarded from the diagnosis alone. This is educational orientation, not legal advice.',
     citations: [
