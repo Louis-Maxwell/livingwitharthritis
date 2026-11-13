@@ -106,11 +106,12 @@ export function deriveHeadData(route) {
 
   // A unique opening paragraph per route: without it every fallback page
   // shipped the same static body copy and read as duplicate content.
+  // Do not claim what people "most often ask" — that sentence was boilerplate.
   const answer = [
-    `${subject}:`,
+    `${subject}.`,
     section
-      ? `this ${section.toLowerCase()} covers what people in the UK most often ask about ${base.toLowerCase()}.`
-      : `this page covers what people in the UK most often ask about ${base.toLowerCase()}.`,
+      ? `This ${section.toLowerCase()} is published by Living With Arthritis, a UK registered charity (no. 1218461).`
+      : `This page is published by Living With Arthritis, a UK registered charity (no. 1218461).`,
     'Check this page for its sources and clinical-review status.',
   ].join(' ');
 
