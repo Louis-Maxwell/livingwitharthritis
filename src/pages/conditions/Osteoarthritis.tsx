@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -39,7 +40,7 @@ const jsonLd = {
   "inLanguage": "en-GB",
   "datePublished": "2025-06-01",
   "dateModified": "2026-11-05",
-  "lastReviewed": "2026-11-05",
+  "lastReviewed": REVIEW_RECORDS.pages["/conditions/osteoarthritis"],
   "author": LOUIS_MAXWELL_REF,
   "reviewedBy": LOUIS_MAXWELL_REF,
   "publisher": {
@@ -731,7 +732,7 @@ const Osteoarthritis = () => (
       </nav>
       <ArticleCitations citations={CITATIONS_OA} />
       <UrgentHelpAndSources path="/conditions/osteoarthritis" />
-      <EducationalDisclaimerBox lastReviewed="2026-11-05" />
+      <EducationalDisclaimerBox lastReviewed={REVIEW_RECORDS.pages["/conditions/osteoarthritis"]} />
       <TopicClusterNav path="/conditions/osteoarthritis" />
       <Footer />
     </div>

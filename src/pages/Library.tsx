@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
@@ -176,7 +177,7 @@ const Library = () => {
             </div>
           )}
           <div className="mt-14 space-y-6 max-w-3xl">
-            <EducationalDisclaimerBox lastReviewed="2026-09-18" />
+            <EducationalDisclaimerBox lastReviewed={REVIEW_RECORDS.pages["/library"]} />
             <TopicClusterNav path="/library" />
             <nav
               aria-label="Related arthritis pillars"

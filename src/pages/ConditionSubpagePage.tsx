@@ -1,4 +1,5 @@
 ﻿import { useParams, Navigate, Link } from "react-router-dom";
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
@@ -340,7 +341,7 @@ const ConditionSubpagePage = () => {
         <SocialShareButtons title={title} slug={`conditions/${cond.slug}/${subpage}`} />
 
         <div className="mt-8 space-y-6">
-          <EducationalDisclaimerBox lastReviewed="2026-09-17" />
+          <EducationalDisclaimerBox lastReviewed={REVIEW_RECORDS.conditionSubpage} />
           <TopicClusterNav path={path} />
           <MedicalDisclaimerStrip variant="short" />
         </div>
