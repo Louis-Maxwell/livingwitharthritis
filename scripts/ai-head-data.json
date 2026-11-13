@@ -29,6 +29,34 @@
     "breadcrumb": "Blog",
     "about": "Arthritis"
   },
+  "/chat": {
+    "title": "Arthritis Help & Support Chat | Living With Arthritis",
+    "description": "Free arthritis help and support. Ask the online chat about joint pain, exercises, diet and UK support, or call 07760 512 084. This is not a diagnosis.",
+    "question": "How can I get arthritis help and support?",
+    "answer": "Ask the Living With Arthritis help chat about joint pain, exercises, diet and UK support. You can also message on WhatsApp or call 07760 512 084. This is educational information, not a diagnosis.",
+    "breadcrumb": "Help and support"
+  },
+  "/blog-hub": {
+    "title": "Arthritis Advice Hub | Living With Arthritis",
+    "description": "Browse UK arthritis guidance by condition, treatment, exercise, diet, benefits, work, frailty and daily living, with clear routes to related articles.",
+    "question": "Where do I start with UK arthritis guidance?",
+    "answer": "The advice hub groups Living With Arthritis guides by condition, treatment, exercise, diet, benefits, work, frailty and daily living, and links each topic to its related articles.",
+    "breadcrumb": "Advice hub"
+  },
+  "/library": {
+    "title": "Arthritis Health Library UK | Pain, Exercise & PIP",
+    "description": "Explore the free UK arthritis health library: conditions, medicines, supplements and treatments, with links to exercise, pain relief and benefits guides.",
+    "question": "What is in the arthritis health library?",
+    "answer": "The health library lists plain-English notes on arthritis conditions, medicines, supplements and treatments, and links onward to exercise, pain relief and benefits guides.",
+    "breadcrumb": "Health library"
+  },
+  "/sources": {
+    "title": "Clinical Sources & Evidence | Living With Arthritis",
+    "description": "Clinical sources and evidence used across Living With Arthritis: NICE guidelines, Cochrane reviews, and the bibliography behind our educational guides.",
+    "question": "Which sources does Living With Arthritis use?",
+    "answer": "This page lists the clinical sources, guidelines and evidence used across Living With Arthritis, including NICE guidance, Cochrane reviews and the bibliography behind the educational guides.",
+    "breadcrumb": "Sources"
+  },
   "/conditions/osteoarthritis": {
     "title": "Osteoarthritis: Symptoms, Treatment & Exercises (UK)",
     "description": "UK osteoarthritis guide: what to do now, red flags, NICE NG226 diagnosis and core treatments, safe pain relief, exercise, aids, flares and when to see your GP.",
@@ -6667,6 +6695,11 @@
     ],
     "updatedAt": "2026-11-11",
     "pageType": "AboutPage",
+    "ogImage": "https://livingwitharthritis.org.uk/brand/lwa-logo-square-720.png",
+    "ogImageWidth": 720,
+    "ogImageHeight": 720,
+    "ogImageAlt": "Living With Arthritis logo",
+    "twitterCard": "summary",
     "organization": {
       "@type": [
         "NGO",

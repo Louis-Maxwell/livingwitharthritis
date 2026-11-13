@@ -27,7 +27,7 @@
 
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
 import { patchEnglishAlternates } from "./lib/english-alternates.mjs";
-import { finalizeTechnicalHead } from './lib/technical-head.mjs';
+import { aboutShareMeta, finalizeTechnicalHead } from './lib/technical-head.mjs';
 import { canonicalPath, cleanJsonLd, isHealthAdviceGuide } from '../src/lib/technicalSeo.mjs';
 import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
 import { normalizeStaticMeta } from "./lib/meta-lengths.mjs";
@@ -625,6 +625,11 @@ export function buildJsonLd(route, url, d) {
     ...(pageReviewer ? { reviewedBy: pageReviewer, ...(d.lastReviewed ? { lastReviewed: d.lastReviewed } : {}) } : {}),
     ...(pageCitations.length ? { citation: pageCitations } : {}),
     ...(d.organization ? { mainEntity: { "@id": d.organization["@id"] } } : {}),
+    ...((d.pageType === "AboutPage" || canonicalPath(route) === "/about") ? (() => {
+      const share = aboutShareMeta(BASE);
+      const img = { "@type": "ImageObject", url: share.ogImage, width: share.ogImageWidth, height: share.ogImageHeight };
+      return { image: img, primaryImageOfPage: img };
+    })() : {}),
     speakable: d.answer
       ? { "@type": "SpeakableSpecification", cssSelector: ["h1", ".answer-box"] }
       : undefined,
