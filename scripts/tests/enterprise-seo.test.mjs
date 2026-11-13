@@ -58,6 +58,46 @@ test('first-response Article schema names the real reviewer and links real autho
   assert.doesNotMatch(ordinary, /"@type":"MedicalCondition"/);
 });
 
+test('health advice guides are MedicalWebPage and keep recorded review fields', () => {
+  const origin = 'https://livingwitharthritis.org.uk';
+  const graphsFor = (route) => nodes(
+    buildJsonLd(route, origin + route, headDataFor(route)),
+    'script',
+  ).map((n) => JSON.parse(n.childNodes[0].value));
+
+  const hipData = headDataFor('/guides/hip-exercises-for-osteoarthritis');
+  const hipGraphs = graphsFor('/guides/hip-exercises-for-osteoarthritis');
+  const hip = hipGraphs.find((g) => g['@type'] === 'MedicalWebPage');
+  assert.ok(hip, 'hip exercises guide is a MedicalWebPage');
+  assert.equal(hip.dateModified, hipData.updatedAt);
+  assert.equal(hip.reviewedBy, undefined);
+  assert.ok(hipGraphs.some((g) => g['@type'] === 'BreadcrumbList'));
+
+  const kneeData = headDataFor('/guides/knee-exercises-for-osteoarthritis');
+  const knee = graphsFor('/guides/knee-exercises-for-osteoarthritis').find((g) => g['@type'] === 'MedicalWebPage');
+  assert.equal(knee.reviewedBy.name, 'Louis Maxwell');
+  assert.equal(knee.lastReviewed, kneeData.lastReviewed);
+
+  const flare = graphsFor('/guides/fall-prevention-older-adults').find((g) => g['@type'] === 'MedicalWebPage');
+  assert.ok(flare);
+  const drug = graphsFor('/treatments/drug-guide').find((g) => g['@type'] === 'MedicalWebPage');
+  assert.equal(drug.about.name, headDataFor('/treatments/drug-guide').about);
+
+  const parking = buildJsonLd(
+    '/guides/blue-badge-vs-disability-parking',
+    origin + '/guides/blue-badge-vs-disability-parking',
+    { title: 'Blue Badge', description: 'Parking comparison.' },
+  );
+  assert.match(parking, /"@type":"WebPage"/);
+  assert.doesNotMatch(parking, /MedicalWebPage/);
+
+  const about = buildJsonLd('/about', origin + '/about', {
+    title: 'About', description: 'The charity.', pageType: 'AboutPage',
+  });
+  assert.match(about, /"@type":"AboutPage"/);
+  assert.doesNotMatch(about, /MedicalWebPage/);
+});
+
 test('FAQ markup reuses the existing visible question instead of duplicating it', () => {
   const html = buildStaticArticleInner(data);
   assert.equal((html.match(/How can I start\?/g) || []).length, 1);

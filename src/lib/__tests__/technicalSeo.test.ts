@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { canonicalPath, cleanBrand, cleanJsonLd, distinctSeoTitle,
-  buildShareLinks } from '../technicalSeo.mjs';
+  buildShareLinks, isHealthAdviceGuide } from '../technicalSeo.mjs';
 import { resolveSeoRedirect } from '../seoRedirects';
 
 describe('technical SEO rules', () => {
@@ -41,6 +41,18 @@ describe('technical SEO rules', () => {
       expect(decodeURIComponent(link.href)).toContain('https://livingwitharthritis.org.uk/guides/benefits-pip');
       expect(link.href).not.toContain('utm_source');
     }
+  });
+  it('marks exercise, condition and self-management guides as health advice', () => {
+    expect(isHealthAdviceGuide('/guides/hip-exercises-for-osteoarthritis')).toBe(true);
+    expect(isHealthAdviceGuide('/guides/knee-exercises-for-osteoarthritis')).toBe(true);
+    expect(isHealthAdviceGuide('/guides/newly-diagnosed')).toBe(true);
+    expect(isHealthAdviceGuide('/guides/heat-vs-cold-arthritis-pain')).toBe(true);
+    expect(isHealthAdviceGuide('/treatments/drug-guide')).toBe(true);
+    expect(isHealthAdviceGuide('/guides/benefits-pip')).toBe(false);
+    expect(isHealthAdviceGuide('/guides/blue-badge-vs-disability-parking')).toBe(false);
+    expect(isHealthAdviceGuide('/guides')).toBe(false);
+    expect(isHealthAdviceGuide('/about')).toBe(false);
+    expect(isHealthAdviceGuide('/donate')).toBe(false);
   });
   it.each([
     ['/pip', '/guides/benefits-pip'],

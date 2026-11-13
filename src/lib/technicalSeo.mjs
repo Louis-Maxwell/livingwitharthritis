@@ -11,6 +11,31 @@ export function canonicalPath(value) {
     .replace(/\/$/, '') || '/';
 }
 
+/**
+ * Benefits, parking, insurance and service-access pages. They stay ordinary
+ * WebPages unless their own head data already records a review or condition.
+ */
+const NON_HEALTH_GUIDE_PATHS = new Set([
+  '/guides',
+  '/guides/benefits-pip',
+  '/guides/pip-vs-attendance-allowance',
+  '/guides/blue-badge-vs-disability-parking',
+  '/guides/insurance-coverage',
+  '/guides/work-with-arthritis',
+  '/guides/disability-support',
+  '/guides/free-arthritis-resources-uk',
+  '/guides/health-services',
+  '/guides/nhs-vs-private-rheumatology',
+  '/guides/physio-self-referral-vs-gp-referral',
+]);
+
+/** Exercise, condition and self-management guides that give health advice. */
+export function isHealthAdviceGuide(route) {
+  const path = canonicalPath(route);
+  if (NON_HEALTH_GUIDE_PATHS.has(path)) return false;
+  return path.startsWith('/guides/') || path.startsWith('/treatments/');
+}
+
 /** Preserve the reader headline; differentiate only the search title.
 
  * Append " | Guide" only when the full suffix fits in 60 characters.
