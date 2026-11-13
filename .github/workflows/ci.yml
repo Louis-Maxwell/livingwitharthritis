@@ -55,7 +55,7 @@ jobs:
         run: npm ci --prefer-offline --no-audit --no-fund
 
       - name: Technical SEO regression checks
-        run: node --test scripts/tests/technical-seo.test.mjs scripts/tests/growth-seo.test.mjs scripts/tests/built-site-audit.test.mjs
+        run: node --test scripts/tests/technical-seo.test.mjs scripts/tests/growth-seo.test.mjs scripts/tests/built-site-audit.test.mjs scripts/tests/built-status.test.mjs
 
       # The root tsconfig.json has "files": [] (project references only), so a
       # bare `tsc --noEmit` checked nothing. Check both real projects; this also
@@ -87,6 +87,11 @@ jobs:
       # so it is what the meta/indexing checks below must audit.
       - name: Build (prerendered)
         run: npm run build:prerender
+
+      # serve -s answers every path with HTTP 200. This check uses the
+      # Vercel rule order instead: redirects, then files, then 404.html.
+      - name: Unknown route is HTTP 404 and /shop is a 301
+        run: npm run seo:built-status
 
       # Fails if any built page still ships the generic homepage
       # title/description, or a noindex robots tag.
