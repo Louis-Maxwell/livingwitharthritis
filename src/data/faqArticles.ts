@@ -3,6 +3,7 @@
  * "Living With Arthritis" pillar page. Each entry powers a static
  * route at /faq/:slug rendered by src/pages/FaqArticle.tsx.
  */
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 export interface FaqSection {
   heading: string;
   content: string;
