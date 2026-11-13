@@ -399,8 +399,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
               Need more support?
             </h2>
             <p className="text-muted-foreground mb-5">
-              Start a chat, browse the Advice Hub or book a virtual physiotherapy
-              consultation — all free.
+              Read the free guides, or call 07760 512 084, Monday to Friday, 9am to 5pm.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link

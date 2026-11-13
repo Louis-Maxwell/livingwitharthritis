@@ -16,7 +16,7 @@ const TOP_ARTICLES = [
   {
     to: "/guides/exercise",
     title: "Best exercises for arthritis",
-    blurb: "Low-impact routines for knees, hips and hands, clinically reviewed.",
+    blurb: "Low-impact routines for knees, hips and hands, written in plain English.",
   },
   {
     to: "/guides/diet",

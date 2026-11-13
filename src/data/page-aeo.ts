@@ -250,7 +250,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/newly-diagnosed": withDefaults({
     question: "I've just been diagnosed with arthritis — what should I do?",
     answer:
-      "Book a rheumatology follow-up if not already arranged, start gentle daily movement, and read up on your specific type. NICE recommends beginning exercise and joint protection within weeks of diagnosis for best long-term outcomes. Track symptoms, ask your GP about pain relief options, and consider our free virtual physiotherapy triage.",
+      "Book a rheumatology follow-up if not already arranged, start gentle daily movement, and read up on your specific type. NICE recommends beginning exercise and joint protection within weeks of diagnosis for best long-term outcomes. Track symptoms, ask your GP about pain relief options, and use our free written guides or weekday phone line.",
     faqs: [
       { q: "What should I ask at my first rheumatology appointment?", a: "Ask about your arthritis type, medicines, flare plan, work adjustments, and when to seek urgent help. Bring a written symptom diary and medication list." },
       { q: "Should I rest completely after diagnosis?", a: "No — short rests during flares help, but daily gentle movement usually protects joints better than bed rest. Check specific advice with your clinical team." },
