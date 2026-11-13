@@ -77,8 +77,12 @@ export function trimDescription(text, max = 155) {
   const value = String(text || '').replace(/\s+/g, ' ').trim();
   if (value.length <= max) return value;
   const head = value.slice(0, max + 1);
-  const sentenceEnd = Math.max(head.lastIndexOf('. '), head.lastIndexOf('? '), head.lastIndexOf('! '));
-  if (sentenceEnd >= 90 && sentenceEnd < max) return value.slice(0, sentenceEnd + 1);
+  let sentenceEnd = -1;
+  for (const m of head.matchAll(/[.!?](?= )/g)) {
+    // Skip abbreviations such as "no." so we never stop at "(no."
+    if (!/\bno$/i.test(head.slice(0, m.index))) sentenceEnd = m.index;
+  }
+  if (sentenceEnd >= 90) return value.slice(0, sentenceEnd + 1);
   const words = value.slice(0, max + 1).split(' ');
   if (value[max] !== ' ' && value.length > max) words.pop();
   while (words.length) {
