@@ -3,6 +3,7 @@
 // shell or a homepage-duplicate fallback. Used by inject-canonicals.mjs.
 
 import { marked } from "marked";
+import { resolveInternalHref } from "./lib/internal-href.mjs";
 import { keywordRelatedLinks } from "./keyword-related-links.mjs";
 import { conditionTopicLinks } from "./condition-topic-links.mjs";
 import { recommendedNextStepsHtml } from "../src/lib/recommendedNextSteps.mjs";
@@ -160,7 +161,10 @@ export function buildStaticArticleInner(data) {
     .filter((c) => /^https?:\/\//i.test(c.url) && c.label);
   const references = citations.length
     ? `<section aria-label="Sources and references"><h2>Sources and references</h2><ol>${citations.map((c) => `<li><a href="${escText(c.url).replace(/"/g, "&quot;")}">${escText(c.label)}</a></li>`).join("")}</ol></section>` : "";
-  const links = (data?.relatedLinks || []).filter((link) => /^\/(?!\/)/.test(link.path) && link.title);
+  const seenLinks = new Set();
+  const links = (data?.relatedLinks || []).filter((link) => /^\/(?!\/)/.test(link.path) && link.title)
+    .map((link) => ({ ...link, path: resolveInternalHref(link.path) }))
+    .filter((link) => !seenLinks.has(link.path) && seenLinks.add(link.path));
   const related = links.length
     ? `<nav aria-label="Related guides"><h2>Related guides</h2><ul>${links.map((link) => `<li><a href="${escText(link.path).replace(/"/g, "&quot;")}">${escText(link.title)}</a></li>`).join("")}</ul></nav>` : "";
 
