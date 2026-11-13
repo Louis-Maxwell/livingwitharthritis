@@ -26,7 +26,11 @@ export function aboutShareMeta(base) {
 export function finalizeTechnicalHead(html, route, data = {}, base) {
   const path = canonicalPath(route);
   const url = `${base}${path}`;
-  const title = distinctSeoTitle(data.title || '', data.article?.title || data.question || '');
+  const title = distinctSeoTitle(
+    data.title || '',
+    data.article?.title || data.question || '',
+    { route: path, breadcrumb: data.breadcrumb },
+  );
   const description = cleanBrand(data.description);
   const about = path === '/about' ? aboutShareMeta(base) : null;
   const image = about?.ogImage || data.ogImage || `${base}/og/landing-share.png`;

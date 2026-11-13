@@ -132,7 +132,7 @@ const Section = ({
 
 export default function ConditionPageTemplate({ data }: { data: ConditionPageData }) {
   const url = `${BASE}/conditions/${data.slug}`;
-  const pageTitle = enforceTitle(distinctSeoTitle(data.metaTitle, data.name), { includeSiteName: true, route: `/conditions/${data.slug}` });
+  const pageTitle = enforceTitle(distinctSeoTitle(data.metaTitle, data.name, { route: `/conditions/${data.slug}` }), { includeSiteName: true, route: `/conditions/${data.slug}` });
   const pageDescription = enforceDescription(data.metaDescription, `/conditions/${data.slug}`);
   const ogImage = resolveOgImage(data.slug, data.ogImage);
 

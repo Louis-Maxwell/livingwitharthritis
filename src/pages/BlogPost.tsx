@@ -278,7 +278,7 @@ const BlogPost = () => {
   const metaTitle = distinctSeoTitle(enforceTitle(article.meta_title || article.title, {
     includeSiteName: false,
     route: `/blog/${slug}`,
-  }), article.title);
+  }), article.title, { route: `/blog/${slug}` });
   const metaDesc = enforceDescription(
     article.meta_description || article.excerpt || "",
     `/blog/${slug}`,

@@ -96,6 +96,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
         ? `${record.name} — Clinical reviewer`
         : `${record.name} — ${badgeLabel}`,
       h1,
+      { route: `/${prefix}/${slug}` },
     ),
     { includeSiteName: true, route: `/${prefix}/${slug}` },
   );
