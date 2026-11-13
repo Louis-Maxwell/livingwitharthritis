@@ -1,6 +1,7 @@
 /// <reference types="node" />
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { inlineReviewRecords } from "@/test/inlineReviewRecords";
 import { describe, expect, it } from "vitest";
 import { TOPIC_CLUSTERS, getClusterForPath } from "@/data/topicClusters";
 
@@ -45,18 +46,18 @@ const PIP_LINKS = [
 ];
 
 describe("GSC Champions 47–48 (28 Sep): early M3 pillar deepen (pain / OA / exercise / PIP)", () => {
-  const oa = readFileSync(
+  const oa = inlineReviewRecords(readFileSync(
     resolve(process.cwd(), "src/pages/conditions/Osteoarthritis.tsx"),
     "utf8",
-  );
+  ));
   const pain = readFileSync(
     resolve(process.cwd(), "src/pages/guides/ArthritisPainRelief.tsx"),
     "utf8",
   );
-  const exercise = readFileSync(
+  const exercise = inlineReviewRecords(readFileSync(
     resolve(process.cwd(), "src/pages/ExerciseHub.tsx"),
     "utf8",
-  );
+  ));
   const pip = readFileSync(
     resolve(process.cwd(), "src/pages/pillar/BenefitsPIPGuide.tsx"),
     "utf8",
