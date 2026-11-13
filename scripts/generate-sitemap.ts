@@ -16,6 +16,8 @@ import { writeFileSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { assertSafeBlogInventory } from "../src/lib/seoBuildSafety";
 import { exactRedirectPathSet } from "./seo-redirect-map.mjs";
+// @ts-expect-error plain .mjs helper
+import { reviewRecordFor } from "./lib/review-records.mjs";
 import { readBlogCatalog } from "./lib/blog-posts.mjs";
 import {
   BLOG_CATEGORY_KEYS,
@@ -169,9 +171,11 @@ function maxIsoDate(...dates: Array<string | undefined>): string | undefined {
 function headDataLastmods(file: string): Map<string, string> {
   const out = new Map<string, string>();
   try {
-    const data = JSON.parse(read(file)) as Record<string, { updatedAt?: string }>;
+    type Row = { updatedAt?: string; lastReviewed?: string; dateModified?: string };
+    const data = JSON.parse(read(file)) as Record<string, Row>;
     for (const [path, row] of Object.entries(data)) {
-      const d = asIsoDate(row?.updatedAt);
+      // Recorded content-update or clinical-review dates for this exact route.
+      const d = maxIsoDate(asIsoDate(row?.updatedAt), asIsoDate(row?.lastReviewed), asIsoDate(row?.dateModified));
       if (path.startsWith("/") && d) out.set(path, d);
     }
   } catch {
@@ -459,6 +463,9 @@ async function main() {
   // Hub guides store updatedAt in a separate file. Same rule: real dates only.
   const hubDates = headDataLastmods("scripts/hub-guide-head-data.json");
   const pageDates = pageSourceLastmods();
+  // Other generated head-data files, read with the same real-dates-only rule.
+  const extraHeadDates = ["scripts/condition-head-data.json", "scripts/library-head-data.json",
+    "scripts/editorial-head-data.json"].map(headDataLastmods);
   // Keep dates already published in sitemap.xml. A fresh run must not drop a
   // real lastmod just because this pass did not re-discover its source.
   const priorDates = new Map<string, string>();
@@ -476,7 +483,9 @@ async function main() {
   }
 
   function lastmodFor(path: string, extra?: string): string | undefined {
-    return maxIsoDate(extra, aiDates.get(path), hubDates.get(path), pageDates.get(path), priorDates.get(path));
+    const review = (reviewRecordFor(path) as { lastReviewed?: string } | null)?.lastReviewed;
+    return maxIsoDate(extra, aiDates.get(path), hubDates.get(path), pageDates.get(path), priorDates.get(path),
+      review, ...extraHeadDates.map((m) => m.get(path)));
   }
 
   for (const p of parseStaticRoutes()) {
