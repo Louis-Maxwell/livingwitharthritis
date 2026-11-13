@@ -65,13 +65,14 @@ export function withReviewRecord(route, data) {
   if (!rec) return data;
   const line = reviewLineHtml(rec);
   const body = String(data.bodyHtml || "");
-  const inBody = OLD_LINE.test(body);
+  const hasCurrent = body.includes(line);
+  const inBody = hasCurrent || OLD_LINE.test(body);
   return {
     ...data,
     reviewedBy: "Louis Maxwell",
     reviewerCredentials: "HCPC PH128483",
     lastReviewed: rec.lastReviewed,
-    ...(inBody ? { bodyHtml: body.replace(OLD_LINE, line) } : {}),
+    ...(inBody && !hasCurrent ? { bodyHtml: body.replace(OLD_LINE, line) } : {}),
     reviewLine: inBody ? "body" : line,
   };
 }
