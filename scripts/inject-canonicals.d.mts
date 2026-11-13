@@ -1,4 +1,6 @@
 export declare function rewriteHead(html: string, route: string, ...args: unknown[]): string;
+export declare function articleCoverPath(data: Record<string, unknown> | null | undefined): string;
+export declare function withArticleImagePreload(html: string, route: string, data: Record<string, unknown> | null | undefined): string;
 export declare function patchShareMeta(html: string, data: Record<string, unknown> | null | undefined): string;
 export declare function collectRoutes(...args: unknown[]): string[];
 export declare function buildJsonLd(route: string, url: string, data: Record<string, unknown>): string;

@@ -843,7 +843,40 @@ export function rewriteHead(html, route, dataOverride) {
 
   // AI-visibility enrichment (title, description, JSON-LD) for curated routes.
   out = enrichHead(out, route, url, dataOverride);
-  return finalizeTechnicalHead(out, route, normalizeStaticMeta(headMeta), BASE);
+  return withArticleImagePreload(
+    finalizeTechnicalHead(out, route, normalizeStaticMeta(headMeta), BASE),
+    route,
+    headMeta,
+  );
+}
+
+/** Same-origin cover path for a blog article, or "" when there is nothing to preload. */
+export function articleCoverPath(data) {
+  const fromCover = data?.article?.cover ? `/openverse/${String(data.article.cover).replace(/^\//, "")}` : "";
+  const raw = data?.article?.image_url || fromCover || data?.ogImage || "";
+  if (!raw || /landing-share\.png/.test(raw)) return "";
+  let path = String(raw);
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    try { path = new URL(path).pathname; } catch { return ""; }
+  }
+  if (!path.startsWith("/")) return "";
+  if (path.startsWith("/openverse/") || path.startsWith("/images/") || path.startsWith("/hero/")) return path;
+  return "";
+}
+
+/** Discover the blog hero in the first HTML byte. Homepage and other routes are left alone. */
+export function withArticleImagePreload(html, route, data) {
+  const href = articleCoverPath(data);
+  if (!href || !/^\/blog\/[^/]+$/.test(canonicalPath(route))) return html;
+  if (String(html).includes('rel="preload" as="image"')) return html;
+  const small = href.includes("/openverse/") && !href.includes("/openverse/w800/")
+    ? href.replace("/openverse/", "/openverse/w800/")
+    : href;
+  const srcset = small === href ? "" : ` imagesrcset="${escAttr(small)} 800w, ${escAttr(href)} 1280w" imagesizes="(min-width: 800px) 760px, 100vw"`;
+  return String(html).replace(
+    /<\/head>/i,
+    `<link rel="preload" as="image" href="${escAttr(small)}"${srcset} fetchpriority="high" />\n</head>`,
+  );
 }
 
 function isDirectRun() {
@@ -901,6 +934,7 @@ function writeRouteFiles() {
         if (isNoindexRoute(route) || data?.noindex) {
           patched = applyNoindexMeta(patched);
         }
+        patched = withArticleImagePreload(patched, route, data);
         if (patched !== existing) {
           writeFileAtomicSync(file, patched);
           headPatched++;

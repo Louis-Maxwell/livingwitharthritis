@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { PRERENDER_ROUTES } from "../../../scripts/prerender-routes.mjs";
-import { patchShareMeta, rewriteHead } from "../../../scripts/inject-canonicals.mjs";
+import { articleCoverPath, patchShareMeta, rewriteHead, withArticleImagePreload } from "../../../scripts/inject-canonicals.mjs";
 import {
   HOME_SHELL_HEADING,
   buildStaticArticleInner,
@@ -79,6 +79,19 @@ const WORK_HEAD = {
 };
 
 describe("static blog HTML for Soft 404s", () => {
+  it("preloads a blog cover and leaves the homepage without an image preload", () => {
+    const cover = "/openverse/nutrition-11-bowl-of-fresh-fruit-unsplash.webp";
+    const data = { ...WORK_HEAD, ogImage: `https://livingwitharthritis.org.uk${cover}`, article: { ...WORK_ARTICLE, image_url: cover, cover: "nutrition-11-bowl-of-fresh-fruit-unsplash.webp" } };
+    expect(articleCoverPath(data)).toBe(cover);
+    const blog = rewriteHead(TEMPLATE, "/blog/anti-inflammatory-diet", data);
+    expect(blog).toContain('rel="preload" as="image"');
+    expect(blog).toContain("/openverse/w800/nutrition-11-bowl-of-fresh-fruit-unsplash.webp 800w");
+    expect(blog).toContain('fetchpriority="high"');
+    expect(blog.match(/rel="preload" as="image"/g)).toHaveLength(1);
+    const home = withArticleImagePreload(TEMPLATE, "/", { ogImage: "https://livingwitharthritis.org.uk/og/landing-share.png" });
+    expect(home).not.toContain('rel="preload" as="image"');
+  });
+
   it("replaces an inherited secure social image in fresh and retained HTML", () => {
     const template = TEMPLATE.replace("</head>", '<meta property="og:image:secure_url" content="https://example.com/home.png" /></head>');
     const data = { ...WORK_HEAD, ogImage: "https://example.com/work.png" };
