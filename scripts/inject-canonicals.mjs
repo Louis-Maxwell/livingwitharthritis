@@ -26,6 +26,7 @@
 // and re-running this script refreshes crawler meta without a full vite build.
 
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
+import { trimDescription } from "./route-head-fallback.mjs";
 import { patchEnglishAlternates } from "./lib/english-alternates.mjs";
 import { finalizeTechnicalHead } from './lib/technical-head.mjs';
 import { canonicalPath, cleanJsonLd } from '../src/lib/technicalSeo.mjs';
@@ -115,13 +116,10 @@ function authorHeadData() {
           : `Author profile`;
       out[`/${prefix}/${record.slug}`] = {
         title: `${record.name} — ${label}: ${record.title} | Living With Arthritis`.slice(0, 115),
-        description: `${role}: ${record.name}, ${record.title}${credential ? ` (${credential})` : ""}. ${bio}`
-          .replace(/\s+/g, " ")
-          .trim()
-          .replace(/^/, "")
-          .slice(0) && trimDescription(
-            `${role}: ${record.name}, ${record.title}${credential ? ` (${credential})` : ""}. ${bio}`.replace(/\s+/g, " "),
-          ),
+        description: trimDescription(
+          `${role}: ${record.name}, ${record.title}${credential ? ` (${credential})` : ""}. ${bio}`
+            .replace(/\s+/g, " "),
+        ),
         question: `${record.name} — ${label.toLowerCase()} profile`,
         answer: [
           prefix === "reviewers"

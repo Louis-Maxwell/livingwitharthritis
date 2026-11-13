@@ -11,20 +11,9 @@ export function canonicalPath(value) {
     .replace(/\/$/, '') || '/';
 }
 
-/** Preserve the reader headline; differentiate only the search title.
-
- * Append " | Guide" only when the full suffix fits in 60 characters.
- * Do not drop words to force the suffix — that produced ungrammatical
- * titles such as "Rheumatoid Arthritis Diet: Foods, Meal Ideas and | Guide".
- */
-export function distinctSeoTitle(title, headline) {
-  const value = cleanBrand(title).trim();
-  if (value.toLowerCase() !== cleanBrand(headline).trim().toLowerCase()) {
-    return value;
-  }
-  const suffix = ' | Guide';
-  if (value.length + suffix.length <= 60) return value + suffix;
-  return value;
+/** Return the cleaned search title (brand-normalised); no suffix is added. */
+export function distinctSeoTitle(title, _headline) {
+  return cleanBrand(title).trim();
 }
 
 /** Remove invalid/retired sitewide properties, never infer review evidence. */
