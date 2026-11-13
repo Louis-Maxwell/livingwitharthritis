@@ -1,7 +1,10 @@
 /**
- * Site-wide GA4 key events wired by event delegation, so every real
- * tel:/mailto: link, downloadable file, share link and <video> is covered
- * without each component remembering to call a tracker.
+ * Site-wide GA4 engagement events wired by event delegation, so real
+ * tel:/mailto: clicks, downloadable files, share links and <video> events
+ * are covered without each component remembering to call a tracker.
+ *
+ * A click is an engagement signal, not proof that a lead was completed.
+ * Completed leads are tracked by successful form submission handlers.
  *
  * Privacy: never sends the phone number, email address or query strings.
  */
@@ -20,18 +23,12 @@ export function classifyLink(a: Pick<HTMLAnchorElement, "getAttribute" | "textCo
   const label = (a.getAttribute("aria-label") || a.textContent || "").trim().slice(0, 80);
   const lower = raw.toLowerCase();
   if (lower.startsWith("tel:")) {
-    return [
-      { name: "phone_click", params: { link_text: label, method: "phone" } },
-      { name: "generate_lead", params: { method: "phone" } },
-    ];
+    return [{ name: "phone_click", params: { link_text: label, method: "phone" } }];
   }
   if (lower.startsWith("mailto:")) {
     // mailto:?subject=… with no recipient is the e-mail share button.
     if (/^mailto:\?/.test(lower)) return [{ name: "social_share", params: { method: "email", link_text: label } }];
-    return [
-      { name: "email_click", params: { link_text: label, method: "email" } },
-      { name: "generate_lead", params: { method: "email" } },
-    ];
+    return [{ name: "email_click", params: { link_text: label, method: "email" } }];
   }
   if (SHARE_RE.test(raw)) {
     const host = new URL(raw, origin).hostname.replace(/^www\./, "");
