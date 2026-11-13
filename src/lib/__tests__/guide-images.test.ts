@@ -6,7 +6,7 @@ import { getBlogCatalog } from "@/lib/blog/catalog";
 import { checkGuideImages } from "@/lib/blog/imagePolicy";
 import { coverImage, LOCAL_COVER_FALLBACK } from "@/lib/articleImages";
 import { GUIDE_IMAGE_FALLBACK } from "@/lib/coverFallback";
-import { swapToFallback, withImageDefaults } from "@/lib/imageFallback";
+import { openverseSrcSet, swapToFallback, withImageDefaults } from "@/lib/imageFallback";
 
 const root = path.resolve(__dirname, "../../..");
 const exists = (p: string) => fs.existsSync(path.join(root, "public", `.${decodeURI(p)}`));
@@ -47,6 +47,11 @@ describe("guide images", () => {
   it("adds lazy loading, alt and intrinsic size to body images", () => {
     const out = withImageDefaults('<p>x</p><img src="/a.webp" class="w-full">');
     expect(out).toContain('loading="lazy"');
+    expect(out).toContain('fetchpriority="low"');
+    expect(openverseSrcSet("/openverse/fruit.webp", true)).toBe(
+      "/openverse/w800/fruit.webp 800w, /openverse/fruit.webp 1280w",
+    );
+    expect(openverseSrcSet("/openverse/fruit.webp", false)).toBeUndefined();
     expect(out).toContain('alt=""');
     expect(out).toContain('width="1200"');
     expect(withImageDefaults('<img src="/a.webp" alt="A" loading="eager" width="10" height="5" />')).toBe(

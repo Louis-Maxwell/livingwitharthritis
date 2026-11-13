@@ -20,7 +20,7 @@ import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import { BookOpen, ChevronRight, Download, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
-import { withImageDefaults } from "@/lib/imageFallback";
+import { openverseSrcSet, withImageDefaults } from "@/lib/imageFallback";
 import { htmlToPlainText } from "@/lib/sanitize";
 
 import { useBlogArticle } from "@/hooks/useBlogArticle";
@@ -513,6 +513,25 @@ const BlogPost = () => {
                 {article.title}
               </h1>
 
+              <figure className="mt-2 mb-5">
+                <img
+                  src={safeCoverSrc(cover.src)}
+                  srcSet={openverseSrcSet(safeCoverSrc(cover.src))}
+                  alt={cover.alt}
+                  onError={onCoverImgError}
+                  width={1200}
+                  height={675}
+                  sizes="(min-width: 800px) 760px, 100vw"
+                  loading="eager"
+                  decoding="async"
+                  {...({ fetchpriority: "high" } as Record<string, string>)}
+                  className="w-full h-auto rounded-xl shadow-sm object-cover aspect-[16/9]"
+                />
+                <figcaption className="text-xs text-muted-foreground mt-1.5">
+                  {cover.credit}
+                </figcaption>
+              </figure>
+
               <p className="text-lg text-muted-foreground leading-relaxed mb-5 max-w-[65ch] text-pretty">
                 {metaDesc}
               </p>
@@ -562,23 +581,6 @@ const BlogPost = () => {
                 </div>
               )}
 
-              <figure className="mt-4 mb-0">
-                <img
-                  src={safeCoverSrc(cover.src)}
-                  alt={cover.alt}
-                  onError={onCoverImgError}
-                  width={1600}
-                  height={900}
-                  sizes="(min-width: 800px) 760px, 100vw"
-                  loading="eager"
-                  decoding="async"
-                  {...({ fetchpriority: "high" } as Record<string, string>)}
-                  className="w-full h-auto rounded-xl shadow-sm object-cover aspect-[16/9]"
-                />
-                <figcaption className="text-xs text-muted-foreground mt-1.5">
-                  {cover.credit}
-                </figcaption>
-              </figure>
             </div>
           </div>
           </div>
@@ -665,12 +667,15 @@ const BlogPost = () => {
               <figure className="not-prose my-8">
                 <img
                   src={safeCoverSrc(relatedImages[0].src)}
+                  srcSet={openverseSrcSet(safeCoverSrc(relatedImages[0].src))}
                   alt={relatedImages[0].alt}
                   onError={onCoverImgError}
                   width={1200}
                   height={800}
+                  sizes="(min-width: 800px) 680px, 100vw"
                   loading="lazy"
                   decoding="async"
+                  {...({ fetchpriority: "low" } as Record<string, string>)}
                   className="w-full h-auto rounded-xl shadow-sm object-cover aspect-[3/2]"
                 />
                 <figcaption className="text-xs text-muted-foreground/70 mt-2">
@@ -702,12 +707,15 @@ const BlogPost = () => {
               <figure className="not-prose my-8">
                 <img
                   src={safeCoverSrc(relatedImages[1].src)}
+                  srcSet={openverseSrcSet(safeCoverSrc(relatedImages[1].src))}
                   alt={relatedImages[1].alt}
                   onError={onCoverImgError}
                   width={1200}
                   height={800}
+                  sizes="(min-width: 800px) 680px, 100vw"
                   loading="lazy"
                   decoding="async"
+                  {...({ fetchpriority: "low" } as Record<string, string>)}
                   className="w-full h-auto rounded-xl shadow-sm object-cover aspect-[3/2]"
                 />
                 <figcaption className="text-xs text-muted-foreground/70 mt-2">

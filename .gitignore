@@ -33,6 +33,9 @@ dist-ssr
 # Claude Code personal/local overrides
 .claude/settings.local.json
 
+# Mobile srcset copies, rebuilt by scripts/write-image-variants.mjs
+public/openverse/w800/
+
 .lighthouseci/
 .lighthouseci-desktop/
 .preflight-reports/
