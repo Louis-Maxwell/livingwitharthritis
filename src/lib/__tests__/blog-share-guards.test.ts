@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import blogSlugs from "@/data/blog-slugs.generated.json";
 import blogCoverMap from "@/data/blog-cover-map.generated.json";
-import catalogJson from "@/content/blog/catalog.generated.json";
+import { getBlogCatalog } from "@/lib/blog/catalog";
 import { PUBLISHED_BLOG_POSTS } from "@/test/blogPosts";
 
 const SITE = "https://livingwitharthritis.org.uk";
@@ -19,8 +19,7 @@ describe("blog share / cover regression guards", () => {
     string,
     { title?: string; ogImage?: string }
   >;
-  // Full index, including slugs that listings hide because they redirect.
-  const catalog = catalogJson as { slug: string; image_url?: string }[];
+  const catalog = getBlogCatalog();
 
   it("maps every slug to a cover-map entry and on-disk openverse file", () => {
     expect(slugs.length).toBeGreaterThan(400);
