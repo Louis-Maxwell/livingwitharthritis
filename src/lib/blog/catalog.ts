@@ -24,11 +24,13 @@ export type BlogListItem = BlogMeta & { tags?: string[] | null };
 const CATALOG: readonly BlogListItem[] = catalogJson as BlogListItem[];
 const BY_SLUG = new Map(CATALOG.map((row) => [row.slug, row]));
 
-/** Listings omit slugs that redirect elsewhere, so they never look live. */
-const LISTED: readonly BlogListItem[] = CATALOG.filter((row) => !resolveSeoRedirect(`/blog/${row.slug}`));
-
 export function getBlogCatalog(): BlogListItem[] {
-  return LISTED as BlogListItem[];
+  return CATALOG as BlogListItem[];
+}
+
+/** Listings omit slugs that redirect elsewhere, so they never look live. */
+export function getListedBlogCatalog(): BlogListItem[] {
+  return CATALOG.filter((row) => !resolveSeoRedirect(`/blog/${row.slug}`));
 }
 
 export function getBlogMeta(slug: string | undefined | null): BlogListItem | undefined {
