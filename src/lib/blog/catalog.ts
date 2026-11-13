@@ -12,6 +12,7 @@
  */
 import catalogJson from "@/content/blog/catalog.generated.json";
 import { canonicalBlogCategoryKey, blogCategoryAliases } from "@/data/blogCategories";
+import { resolveSeoRedirect } from "@/lib/seoRedirects";
 import type { BlogCitation, BlogMeta, BlogPost } from "./schema";
 
 export type { BlogCitation, BlogMeta, BlogPost } from "./schema";
@@ -25,6 +26,11 @@ const BY_SLUG = new Map(CATALOG.map((row) => [row.slug, row]));
 
 export function getBlogCatalog(): BlogListItem[] {
   return CATALOG as BlogListItem[];
+}
+
+/** Listings omit slugs that redirect elsewhere, so they never look live. */
+export function getListedBlogCatalog(): BlogListItem[] {
+  return CATALOG.filter((row) => !resolveSeoRedirect(`/blog/${row.slug}`));
 }
 
 export function getBlogMeta(slug: string | undefined | null): BlogListItem | undefined {

@@ -28,6 +28,7 @@
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { readPublishedBlogPosts } from './lib/blog-posts.mjs';
+import { resolveInternalHref } from './lib/internal-href.mjs';
 import { stripTags } from './lib/strip-tags.mjs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -268,6 +269,10 @@ async function main() {
         : [{ path: '/blog/archive', title: 'Browse all arthritis guides' },
         ...(topic ? [{ path: `/blog/category/${topic}`, title: `${row.category} guides` }] : []),
         ...peers.map(({ post }) => ({ path: `/blog/${post.slug}`, title: post.title }))];
+      const seenPaths = new Set();
+      entry.relatedLinks = entry.relatedLinks
+        .map((link) => ({ ...link, path: resolveInternalHref(link.path) }))
+        .filter((link) => !seenPaths.has(link.path) && seenPaths.add(link.path));
       data[`/blog/${row.slug}`] = entry;
     }
   }
