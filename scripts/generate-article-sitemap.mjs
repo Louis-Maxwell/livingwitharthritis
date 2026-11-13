@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync } from 'node:fs';
+import { todayInLondon } from './lib/london-date.mjs';
 
 const BASE_URL = 'https://livingwitharthritis.org.uk';
 const SITEMAP_PATH = 'public/sitemap.xml';
@@ -26,8 +27,18 @@ const excludedSlugs = new Set([
   ...(Array.isArray(noindex) ? noindex : []),
 ]);
 
+const BUILD_DATE = todayInLondon();
+if (!/^\d{4}-\d{2}-\d{2}$/.test(BUILD_DATE)) {
+  throw new Error('article sitemap build date must be YYYY-MM-DD');
+}
+
+function withLastmod(entry) {
+  if (/<lastmod>\s*\d{4}-\d{2}-\d{2}\s*<\/lastmod>/.test(entry)) return entry;
+  return entry.replace(/<loc>([^<]+)<\/loc>/, `<loc>$1</loc>\n    <lastmod>${BUILD_DATE}</lastmod>`);
+}
+
 const entries = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)]
-  .map((match) => match[1])
+  .map((match) => withLastmod(match[1]))
   .filter((entry) => {
     const loc = entry.match(/<loc>([^<]+)<\/loc>/)?.[1];
     if (!loc) return false;

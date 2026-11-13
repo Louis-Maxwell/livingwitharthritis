@@ -28,7 +28,7 @@
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
 import { patchEnglishAlternates } from "./lib/english-alternates.mjs";
 import { finalizeTechnicalHead } from './lib/technical-head.mjs';
-import { canonicalPath, cleanJsonLd } from '../src/lib/technicalSeo.mjs';
+import { canonicalPath, cleanJsonLd, isHealthAdviceGuide } from '../src/lib/technicalSeo.mjs';
 import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
 import { normalizeStaticMeta } from "./lib/meta-lengths.mjs";
 import { articleJsonLd, ensureArticleJsonLd } from "./article-jsonld.mjs";
@@ -564,6 +564,7 @@ export function buildJsonLd(route, url, d) {
   const graphs = [];
   const article = d.article;
   const medical = Boolean(article) || Boolean(d.condition) || Boolean(d.reviewedBy)
+    || isHealthAdviceGuide(route)
     || /^\/(conditions|library|exercises|diet|supplements|faq)(\/|$)/.test(route);
   // Louis Maxwell is the only registered clinician: one stable Person node
   // (same @id as src/lib/louisMaxwell.ts) with his HCPC registration.

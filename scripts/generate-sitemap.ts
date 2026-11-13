@@ -5,9 +5,12 @@
 // Growth-lever policy (not SEO theatre):
 //   - List indexable visitor-job URLs Google should crawl.
 //   - Omit thin/utility shells (search UI, AI meta pages, product SKUs, etc.).
-//   - Emit <lastmod> only from real content dates (blog JSON, ai-head-data
-//     updatedAt, or literal dateModified/lastReviewed in page sources).
-//   - Do NOT invent today's date. Prefer omitting lastmod over faking it.
+//   - Emit <lastmod> on every URL, in W3C date form (YYYY-MM-DD).
+//   - Prefer a real content date: blog JSON, head-data updatedAt /
+//     lastReviewed / dateModified, a literal date in the page source, or a
+//     shared review date the template actually renders.
+//   - When none of those exist, use the build date. Do not replace a real
+//     content date with the build date.
 //   - Omit <priority> and <changefreq> — Google ignores them.
 //
 // Run manually:  bun scripts/generate-sitemap.ts
@@ -17,11 +20,14 @@ import { resolve } from "node:path";
 import { assertSafeBlogInventory } from "../src/lib/seoBuildSafety";
 import { exactRedirectPathSet } from "./seo-redirect-map.mjs";
 import { readBlogCatalog } from "./lib/blog-posts.mjs";
+import { todayInLondon } from "./lib/london-date.mjs";
 import {
   BLOG_CATEGORY_KEYS,
   canonicalBlogCategoryKey,
 } from "../src/data/blogCategories";
 const BASE_URL = "https://livingwitharthritis.org.uk";
+/** W3C date (YYYY-MM-DD) for URLs with no content date. Stable for this run. */
+const BUILD_DATE = todayInLondon();
 
 interface SitemapEntry {
   path: string;
@@ -165,13 +171,21 @@ function maxIsoDate(...dates: Array<string | undefined>): string | undefined {
   return ok.sort().at(-1);
 }
 
-/** Real content dates from a head-data JSON file (`updatedAt` only). */
+/** Real content dates from a head-data JSON file. */
 function headDataLastmods(file: string): Map<string, string> {
   const out = new Map<string, string>();
   try {
-    const data = JSON.parse(read(file)) as Record<string, { updatedAt?: string }>;
+    const data = JSON.parse(read(file)) as Record<
+      string,
+      { updatedAt?: string; lastReviewed?: string; dateModified?: string; datePublished?: string }
+    >;
     for (const [path, row] of Object.entries(data)) {
-      const d = asIsoDate(row?.updatedAt);
+      const d = maxIsoDate(
+        asIsoDate(row?.updatedAt),
+        asIsoDate(row?.lastReviewed),
+        asIsoDate(row?.dateModified),
+        asIsoDate(row?.datePublished),
+      );
       if (path.startsWith("/") && d) out.set(path, d);
     }
   } catch {
@@ -226,6 +240,70 @@ function pageSourceLastmods(): Map<string, string> {
       // Missing file — skip.
     }
   }
+  return out;
+}
+
+/**
+ * Dates that dynamic templates render, which pageSourceLastmods cannot see
+ * because those routes are not one file per URL.
+ */
+function contentLastmods(): Map<string, string> {
+  const out = new Map<string, string>();
+  const put = (path: string, date: string | undefined) => {
+    if (date) out.set(path, maxIsoDate(out.get(path), date)!);
+  };
+
+  const faqSrc = read("src/data/faqArticles.ts");
+  const faqFallback = asIsoDate(
+    read("src/pages/FaqArticle.tsx").match(/lastReviewed=\{article\.lastReviewed \?\? "(\d{4}-\d{2}-\d{2})"\}/)?.[1],
+  );
+  for (const block of faqSrc.split(/\n {2}\{/)) {
+    const slug = block.match(/\bslug:\s*['"]([a-z0-9-]+)['"]/)?.[1];
+    if (!slug) continue;
+    put(
+      `/faq/${slug}`,
+      asIsoDate(block.match(/\blastReviewed:\s*['"](\d{4}-\d{2}-\d{2})['"]/)?.[1]) || faqFallback,
+    );
+  }
+
+  const libraryStatus = JSON.parse(read("src/data/libraryReviewStatus.json")) as Record<
+    string,
+    { reviewStatus?: string; lastReviewed?: string }
+  >;
+  const librarySitewide = asIsoDate(
+    read("src/data/libraryReview.ts").match(/LIBRARY_SITEWIDE_REVIEW_DATE = "(\d{4}-\d{2}-\d{2})"/)?.[1],
+  );
+  for (const slug of libraryTopicSlugs()) {
+    const entry = libraryStatus[slug];
+    if (entry?.reviewStatus === "pending") continue;
+    put(`/library/${slug}`, asIsoDate(entry?.lastReviewed) || librarySitewide);
+  }
+
+  const subpageDate = asIsoDate(
+    read("src/pages/ConditionSubpagePage.tsx").match(/lastReviewed="(\d{4}-\d{2}-\d{2})"/)?.[1],
+  );
+  if (subpageDate) {
+    for (const condition of conditionSubpageSlugs()) {
+      for (const sub of ["symptoms", "treatment", "exercises", "diet"]) {
+        put(`/conditions/${condition}/${sub}`, subpageDate);
+      }
+    }
+  }
+
+  const cityDate = asIsoDate(
+    read("src/pages/CityArthritisPage.tsx").match(/const LAST_REVIEWED_ISO = "(\d{4}-\d{2}-\d{2})"/)?.[1],
+  );
+  if (cityDate) for (const city of citySlugs()) put(`/arthritis-support/${city}`, cityDate);
+
+  const comparisonDate = asIsoDate(
+    read("src/pages/ComparisonPage.tsx").match(/const LAST_REVIEWED_ISO = "(\d{4}-\d{2}-\d{2})"/)?.[1],
+  );
+  if (comparisonDate) {
+    for (const path of extractAll(/"(\/guides\/[^"]+)"/g, read("src/data/comparison-routes.generated.ts"))) {
+      put(path, comparisonDate);
+    }
+  }
+
   return out;
 }
 
@@ -435,12 +513,16 @@ function build(entries: SitemapEntry[]): string {
     seen.add(e.path);
     return true;
   });
-  // loc + optional real lastmod only. Google ignores priority/changefreq.
+  // Every URL has a W3C lastmod. Google ignores priority/changefreq.
   const urls = unique.map((e) => {
+    const lastmod = e.lastmod ?? BUILD_DATE;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(lastmod)) {
+      throw new Error(`[sitemap] invalid lastmod for ${e.path}: ${lastmod}`);
+    }
     return [
       "  <url>",
       `    <loc>${BASE_URL}${e.path}</loc>`,
-      ...(e.lastmod ? [`    <lastmod>${e.lastmod}</lastmod>`] : []),
+      `    <lastmod>${lastmod}</lastmod>`,
       "  </url>",
     ].join("\n");
   });
@@ -459,6 +541,7 @@ async function main() {
   // Hub guides store updatedAt in a separate file. Same rule: real dates only.
   const hubDates = headDataLastmods("scripts/hub-guide-head-data.json");
   const pageDates = pageSourceLastmods();
+  const contentDates = contentLastmods();
   // Keep dates already published in sitemap.xml. A fresh run must not drop a
   // real lastmod just because this pass did not re-discover its source.
   const priorDates = new Map<string, string>();
@@ -475,8 +558,17 @@ async function main() {
     // First run, or sitemap not written yet.
   }
 
-  function lastmodFor(path: string, extra?: string): string | undefined {
-    return maxIsoDate(extra, aiDates.get(path), hubDates.get(path), pageDates.get(path), priorDates.get(path));
+  function lastmodFor(path: string, extra?: string): string {
+    return (
+      maxIsoDate(
+        extra,
+        aiDates.get(path),
+        hubDates.get(path),
+        pageDates.get(path),
+        contentDates.get(path),
+        priorDates.get(path),
+      ) ?? BUILD_DATE
+    );
   }
 
   for (const p of parseStaticRoutes()) {
@@ -544,7 +636,7 @@ async function main() {
   let newestPost: string | undefined;
   for (const p of posts) {
     const postDate = asIsoDate(p.lastmod);
-    entries.push({ path: `/blog/${p.slug}`, lastmod: postDate });
+    entries.push({ path: `/blog/${p.slug}`, lastmod: postDate ?? BUILD_DATE });
     newestPost = maxIsoDate(newestPost, postDate);
     if (p.category) {
       const category = canonicalBlogCategoryKey(p.category);
@@ -639,18 +731,23 @@ async function main() {
       !blogNoindex.has(e.path),
   );
 
+  for (const entry of cleaned) {
+    if (!entry.lastmod) entry.lastmod = BUILD_DATE;
+  }
+
   const xml = build(cleaned);
   writeFileSync(resolve("public/sitemap.xml"), xml);
   console.log(
     `[sitemap] wrote ${cleaned.length} entries (dropped ${entries.length - cleaned.length} locale/redirect URLs) -> public/sitemap.xml`,
   );
 
-  // Honest single-child index (no fake locale sitemaps). lastmod = newest real URL date.
+  // Honest index (no fake locale sitemaps). lastmod = newest URL date.
+  // Keep the image and article sitemaps registered here so a regen cannot drop them.
   const newest = cleaned
     .map((e) => e.lastmod)
     .filter((d): d is string => Boolean(d))
     .sort()
-    .at(-1);
+    .at(-1) ?? BUILD_DATE;
   const indexXml = [
     `<?xml version="1.0" encoding="UTF-8"?>`,
     `<!-- Locale sitemaps removed: /es, /fr, /de and /pt were empty stubs that`,
@@ -658,8 +755,10 @@ async function main() {
     `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
     `  <sitemap>`,
     `    <loc>${BASE_URL}/sitemap.xml</loc>`,
-    ...(newest ? [`    <lastmod>${newest}</lastmod>`] : []),
+    `    <lastmod>${newest}</lastmod>`,
     `  </sitemap>`,
+    `  <sitemap><loc>${BASE_URL}/sitemap-images.xml</loc></sitemap>`,
+    `  <sitemap><loc>${BASE_URL}/sitemap-articles.xml</loc></sitemap>`,
     `</sitemapindex>`,
     "",
   ].join("\n");
