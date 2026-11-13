@@ -60,16 +60,19 @@ export interface FAQItem {
   answer: string;
 }
 
-export const buildBreadcrumb = (items: BreadcrumbItem[]) => ({
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: items.map((item, idx) => ({
-    '@type': 'ListItem',
-    position: idx + 1,
-    name: item.name,
-    item: `${SITE_URL}${item.path}`,
-  })),
-});
+export const buildBreadcrumb = (items: BreadcrumbItem[]) => {
+  const validItems = items.filter((item) => item.name.trim() && item.path.trim());
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: validItems.map((item, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      name: item.name.trim(),
+      item: item.path.startsWith('http') ? item.path : `${SITE_URL}${item.path.startsWith("/") ? item.path : `/${item.path}`}`,
+    })),
+  };
+};
 
 export const buildFAQPage = (items: FAQItem[]) => ({
   '@context': 'https://schema.org',
@@ -200,11 +203,13 @@ export interface HowToInput {
   steps: HowToStepInput[];
 }
 
-export const buildHowTo = (input: HowToInput) => ({
+export const buildHowTo = (input: HowToInput) => {
+  const validSteps = input.steps.filter((step) => step.name.trim() && step.text.trim());
+  return {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
-  name: input.name,
-  description: input.description,
+  name: input.name.trim(),
+  description: input.description.trim(),
   inLanguage: 'en-GB',
   ...(input.totalTime ? { totalTime: input.totalTime } : {}),
   ...(input.image ? { image: input.image } : {}),
@@ -214,7 +219,7 @@ export const buildHowTo = (input: HowToInput) => ({
   ...(input.tool && input.tool.length
     ? { tool: input.tool.map((t) => ({ '@type': 'HowToTool', name: t })) }
     : {}),
-  step: input.steps.map((s, i) => ({
+  step: validSteps.map((s, i) => ({
     '@type': 'HowToStep',
     position: i + 1,
     name: s.name,
@@ -222,7 +227,8 @@ export const buildHowTo = (input: HowToInput) => ({
     ...(s.url ? { url: s.url.startsWith('http') ? s.url : `${SITE_URL}${s.url}` } : {}),
     ...(s.image ? { image: s.image } : {}),
   })),
-});
+  };
+};
 
 
 /**
