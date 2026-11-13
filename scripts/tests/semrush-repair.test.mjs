@@ -78,8 +78,19 @@ test('fallback heads do not claim what people most often ask', () => {
     const data = deriveHeadData(route);
     assert.ok(data, route);
     assert.doesNotMatch(`${data.title} ${data.description} ${data.answer}`, /most often ask about/i);
+    assert.doesNotMatch(`${data.description} ${data.answer}`, /From Living With Arthritis, a UK registered charity \(no\. 1218461\)/);
     assert.doesNotMatch(data.title, /\| Guide$/);
   }
+  const utility = ['/contact','/privacy','/cookies','/disclaimer','/safeguarding','/complaints','/terms','/helpline','/events','/services','/volunteer','/research','/governance','/magazine','/community'];
+  const descriptions = utility.map((route) => {
+    const data = deriveHeadData(route);
+    assert.ok(data.description.length >= 120 && data.description.length <= 160, `${route} ${data.description.length}`);
+    assert.doesNotMatch(`${data.description} ${data.answer}`, /most often ask about|From Living With Arthritis, a UK registered charity/i);
+    return data.description;
+  });
+  assert.equal(new Set(descriptions).size, descriptions.length);
+  assert.match(deriveHeadData('/governance').answer, /Ena Dulom/);
+  assert.equal(deriveHeadData('/magazine').noindex, true);
 });
 
 test('chat, blog hub, library and sources have page-specific heads', () => {

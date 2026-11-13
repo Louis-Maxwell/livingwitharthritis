@@ -13,7 +13,7 @@ const CookiesPolicy = () => (
   <>
     <Helmet>
       <title>Cookies Policy | Living With Arthritis</title>
-      <meta name="description" content="How Living With Arthritis uses essential, functional, analytics and payment cookies — plus how to manage your cookie preferences." />
+      <meta name="description" content="Which cookies this website uses, which are strictly necessary, and how to refuse analytics cookies. Analytics stays off until you accept it." />
       <meta property="og:title" content="Cookies Policy | Living With Arthritis" />
       <meta property="og:description" content="Learn how Living With Arthritis uses cookies to improve your experience. Manage your cookie preferences easily." />
       <meta property="og:type" content="website" />

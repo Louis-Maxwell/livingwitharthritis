@@ -150,20 +150,20 @@ export const ConnectGroupsStub = () => (
 );
 
 const EVENTS_FAQS: StubPageFAQ[] = [
-  { q: "What kinds of events do you run?", a: "Monthly online webinars with clinicians and researchers, condition-specific Q&As, exercise demonstrations, family workshops, and occasional in-person community days across the UK." },
-  { q: "Are events free?", a: "Yes — all our educational events are free. Some specialist workshops invite a voluntary donation to cover speaker costs, but this is never a condition of attendance." },
-  { q: "Can I watch recordings?", a: "Yes. All webinars are recorded and added to our on-demand library within a week, so you can catch up at any time." },
-  { q: "How do I find an event near me?", a: "Use the filter at the top of the events page to see online-only, in-person, or both. In-person events list the city, accessibility details and travel notes." },
-  { q: "Will events be accessible?", a: "We provide live captions on all online events and select wheelchair-accessible venues for in-person events. Email us in advance if you need British Sign Language interpretation or other adjustments." },
-  { q: "Can my carer attend with me?", a: "Yes — carers, partners and family are welcome at all our community events at no extra cost." },
+  { q: "Do you run events?", a: "Not at the moment. There is no public webinar series, exercise class or community day to book." },
+  { q: "What can I use instead?", a: "The free written guides, and the phone line on 07760 512 084, Monday to Friday, 9am to 5pm." },
+  { q: "Will you record events?", a: "There are no events to record. We will only say there is a recording when one exists." },
+  { q: "Can I ask for an event in my area?", a: "You can email info@livingwitharthritis.org.uk. That is a suggestion, not a booking." },
+  { q: "Is there a cost?", a: "There is nothing to buy on this page. The guides and the weekday phone line are free." },
+  { q: "Where should I go for urgent help?", a: "This page is not an emergency service. Call 999 if someone is in immediate danger, or NHS 111 if you need urgent health advice." },
 ];
 
 export const EventsStub = () => (
   <StubPage
     slug="events"
-    title="Events & Webinars: Living With Arthritis"
-    description="Monthly online webinars, condition Q&As, exercise demos and UK community days — all free, captioned, and led by clinicians and people living with arthritis."
-    answer="We run monthly online webinars with clinicians and researchers, condition-specific Q&As, exercise classes and UK community days. Events are free, recorded, captioned, and open to everyone — including carers and family."
+    title="Events"
+    description="Living With Arthritis does not currently run public events or webinars. Free written guides and a weekday phone line are what the charity offers now."
+    answer="There is no public events programme at the moment. Please use the free written guides or the weekday phone line instead of waiting for a webinar."
     breadcrumbs={[home, communityCrumb, { label: "Events", href: "/events" }]}
     faqs={EVENTS_FAQS}
     relatedLinks={[
@@ -202,20 +202,20 @@ export const PodcastsStub = () => (
 );
 
 const HELPLINE_FAQS: StubPageFAQ[] = [
-  { q: "How do I contact the helpline?", a: "Email info@livingwitharthritis.org.uk, call 07760 512 084 (Mon–Fri, 9am–5pm), or message us on WhatsApp. A real person — not a chatbot — responds within 2 working days." },
+  { q: "How do I contact the helpline?", a: "Email info@livingwitharthritis.org.uk or call 07760 512 084, Monday to Friday, 9am to 5pm. We aim to reply within two working days. This is not a 24-hour service." },
   { q: "What can the helpline help with?", a: "Signposting to UK services, understanding your diagnosis, questions about medications, support during a flare, accessing benefits and equipment, and general emotional support. We don't replace your clinical team but help you navigate the system." },
   { q: "Is the helpline confidential?", a: "Yes. Conversations are private and only shared if there's a safeguarding concern. We don't share your contact details with third parties." },
   { q: "Can you give me medical advice?", a: "No — we can't diagnose, prescribe or recommend specific treatments. We can explain what your clinician has told you, suggest questions to ask, and signpost evidence-based resources." },
-  { q: "How quickly will I get a reply?", a: "Email and WhatsApp: within 2 working days. Phone: within office hours, or leave a voicemail and we'll call back. Complex queries that need research may take longer — we'll let you know." },
+  { q: "How quickly will I get a reply?", a: "We aim to reply to email within two working days. The phone line is staffed Monday to Friday, 9am to 5pm. A complicated question may take longer, and we will say so." },
   { q: "Is there a cost?", a: "No — all our support is free. We're funded by donations and grants, never by selling your data or by advertising." },
 ];
 
 export const HelplineStub = () => (
   <StubPage
     slug="helpline"
-    title="Support & Helpline: Talk to a Real Person"
-    description="Free UK arthritis helpline — email, call or WhatsApp. A real person responds within 2 working days for signposting, emotional support and help navigating services."
-    answer="Our free helpline is staffed by trained people, not a chatbot. Email info@livingwitharthritis.org.uk, call 07760 512 084 (Mon–Fri 9–5), or message us on WhatsApp. We respond within 2 working days for signposting, emotional support and help understanding your diagnosis."
+    title="Helpline"
+    description="Call 07760 512 084, Monday to Friday, 9am to 5pm, or email us. We aim to reply within two working days. We do not give personal medical advice."
+    answer="The phone line is open Monday to Friday, 9am to 5pm, on 07760 512 084. Email info@livingwitharthritis.org.uk if you prefer. We aim to reply within two working days. We cannot diagnose or prescribe."
     breadcrumbs={[home, communityCrumb, { label: "Helpline", href: "/helpline" }]}
     faqs={HELPLINE_FAQS}
     relatedLinks={[
@@ -230,20 +230,20 @@ export const HelplineStub = () => (
 // â”€â”€â”€â”€â”€ Get Involved â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const VOLUNTEER_FAQS: StubPageFAQ[] = [
-  { q: "What volunteer roles are available?", a: "Connect-group facilitators, helpline responders, content reviewers (lived-experience), event hosts, social media volunteers, and translation/accessibility reviewers. Most roles can be done remotely from anywhere in the UK." },
-  { q: "Do I need experience?", a: "No prior experience is needed — only lived experience of arthritis (your own or a loved one's) and a few hours a month. We provide training, supervision and a peer-volunteer community." },
-  { q: "How much time does it take?", a: "Most roles are 2–4 hours per month, with full flexibility around flares, treatment days and life events. We never expect a fixed schedule." },
-  { q: "Will I be reimbursed for expenses?", a: "Yes — reasonable out-of-pocket expenses (travel, equipment, accessibility costs) are reimbursed. Volunteering should never cost you money." },
-  { q: "Will it affect my benefits?", a: "Volunteering doesn't affect most UK disability or sickness benefits provided you continue to meet the eligibility criteria. If you're unsure, ask the DWP or your Job Centre before starting." },
-  { q: "How do I apply?", a: "Express interest through our contact form. We'll send an information pack and arrange an informal chat to find the role that fits you best." },
+  { q: "What volunteer roles are available?", a: "None are advertised here. Email info@livingwitharthritis.org.uk and we will say whether anything is open." },
+  { q: "Do I need experience?", a: "We cannot say until there is a real role. Please do not assume a vacancy, training or a regular commitment." },
+  { q: "How much time does it take?", a: "There is no standing rota. If a role is offered later, the time needed would be agreed then." },
+  { q: "Will I be reimbursed for expenses?", a: "We do not ask anyone to spend money while there is no role. Any future expenses would be agreed in writing first." },
+  { q: "Will it affect my benefits?", a: "We cannot advise on benefits. If you are offered a role, check with the DWP or an advice agency before you start." },
+  { q: "How do I ask?", a: "Email info@livingwitharthritis.org.uk. A reply means we have read your message, not that a role exists." },
 ];
 
 export const VolunteerStub = () => (
   <StubPage
     slug="volunteer"
-    title="Volunteer With Living With Arthritis"
-    description="Flexible UK volunteer roles for people living with arthritis — facilitate groups, support our helpline, review content. Training provided, expenses paid, no fixed hours."
-    answer="We offer flexible UK volunteer roles around lived experience: connect-group facilitators, helpline support, content reviewers, event hosts and social media volunteers. Most roles take 2–4 hours a month, can be done remotely, and don't affect most benefits."
+    title="Volunteer"
+    description="There is no open volunteer vacancy list. Email the charity if you want to help, and we will say whether anything is available."
+    answer="We do not advertise a standing list of volunteer roles. If you would like to help, email info@livingwitharthritis.org.uk and we will reply with what, if anything, is open."
     breadcrumbs={[home, involvedCrumb, { label: "Volunteer", href: "/volunteer" }]}
     faqs={VOLUNTEER_FAQS}
     relatedLinks={[
@@ -313,20 +313,20 @@ export const AdvocacyStub = () => (
 // â”€â”€â”€â”€â”€ Research â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const RESEARCH_FAQS: StubPageFAQ[] = [
-  { q: "What research does Living With Arthritis support?", a: "We focus on patient-priority research: real-world outcomes from existing treatments, self-management interventions, exercise and diet programmes, mental health and arthritis, and equity of access to UK musculoskeletal care." },
-  { q: "Do you fund research directly?", a: "We provide small seed grants and patient-and-public-involvement (PPI) support for early-stage UK research, partnering with academic institutions and established UK funders for larger studies." },
-  { q: "Can I take part in a study?", a: "Yes — see our clinical trials page for active UK studies recruiting people with arthritis. We highlight studies with ethical approval and clear, plain-English participant information." },
-  { q: "How are research priorities decided?", a: "Through structured priority-setting partnerships with patients, clinicians and researchers — using established methods (e.g., the James Lind Alliance framework) to ensure patient voice drives the agenda." },
-  { q: "Is the research independent?", a: "Yes. We have no commercial ties to pharmaceutical or device companies. Funding sources for any project we promote are disclosed transparently." },
-  { q: "How can researchers apply for support?", a: "Apply through the grants page for seed funding, or contact us about patient-involvement partnerships, dissemination support, or co-design workshops." },
+  { q: "Do you fund research?", a: "No. This website does not award grants or commission studies." },
+  { q: "Can I join a trial here?", a: "No. We do not recruit to clinical trials. Ask your own clinician or look at NHS and university trial listings." },
+  { q: "Do you set research priorities with the James Lind Alliance?", a: "No. We have not run a priority-setting partnership." },
+  { q: "What does the charity publish instead?", a: "Free written guides, and a phone line on weekdays. Those are information, not a research programme." },
+  { q: "Can a researcher contact you?", a: "Yes, by email. A reply is not an offer of funding or a partnership." },
+  { q: "Is this medical advice?", a: "No. Nothing on this page is a diagnosis or a personal treatment plan." },
 ];
 
 export const ResearchStub = () => (
   <StubPage
     slug="research"
-    title="Arthritis Research at Living With Arthritis"
-    description="Patient-priority arthritis research — seed grants, patient-and-public-involvement, UK clinical trials and transparent reporting, independent of commercial interests."
-    answer="Our research work supports patient-priority studies in UK arthritis care: seed grants, patient-and-public-involvement, clinical-trials listings and dissemination. We're independent of pharmaceutical and device companies, with priorities set through structured patient–clinician–researcher partnerships."
+    title="Research"
+    description="This page does not award research grants or list trials. The charity publishes free guides and can be contacted on the weekday phone line."
+    answer="Living With Arthritis does not award research grants from this website and does not run a trials service. Read the published guides, or contact us on weekdays."
     breadcrumbs={[home, researchCrumb]}
     faqs={RESEARCH_FAQS}
     relatedLinks={[
@@ -365,20 +365,20 @@ export const ClinicalTrialsStub = () => (
 );
 
 const GRANTS_FAQS: StubPageFAQ[] = [
-  { q: "What grants do you offer?", a: "Small seed grants (typically £1,000–£5,000) for early-stage UK arthritis research, with a strong patient-priority and patient-and-public-involvement focus. Funding rounds open periodically — register for alerts to be notified." },
-  { q: "Who can apply?", a: "UK-based researchers (academic or clinical) and patient organisations partnering with research teams. Lived-experience co-applicants are encouraged on every application." },
-  { q: "What's the application process?", a: "A short expression of interest followed (if shortlisted) by a longer proposal. Reviewers include patients, clinicians and academics. Decisions are typically announced within 12 weeks of the deadline." },
-  { q: "What do you not fund?", a: "We don't fund commercial product development, lobbying activity, or projects without meaningful patient involvement. Animal research and high-risk first-in-human trials sit outside our scope." },
-  { q: "Are there reporting requirements?", a: "Yes — funded projects submit a brief mid-point update and a plain-English final report. We share results publicly with appropriate accessibility (transcripts, summaries) so patients can benefit from what's learned." },
-  { q: "Can I co-apply as a patient?", a: "Yes, and we encourage it. Patient co-applicants share equal status with academic co-applicants in our review process, with paid time recognised in the budget." },
+  { q: "What grants do you offer?", a: "None. This website does not award research grants." },
+  { q: "Who can apply?", a: "There is no application round. Please do not send a proposal expecting funding." },
+  { q: "Will that change?", a: "If the charity ever offers a grant, it will say so on this page with a real deadline and a real amount. Until then, there is nothing to apply for." },
+  { q: "Where else can researchers look?", a: "UK funders such as the National Institute for Health and Care Research publish their own schemes. We do not run one of those schemes." },
+  { q: "Can I still contact you?", a: "Yes, by email. A reply is not an offer of money." },
+  { q: "Is this medical advice?", a: "No. This page is about funding, and there is no funding programme here." },
 ];
 
 export const GrantsStub = () => (
   <StubPage
     slug="research/grants"
-    title="Arthritis Research Grant Opportunities"
-    description="UK seed grants (£1k–£5k) for early-stage arthritis research with strong patient involvement — open to academic, clinical and patient-organisation co-applicants."
-    answer="We award small seed grants (typically £1,000–£5,000) for early-stage UK arthritis research that includes meaningful patient-and-public-involvement. Funding rounds open periodically; lived-experience co-applicants are encouraged on every application."
+    title="Research grants"
+    description="Living With Arthritis does not offer research grants on this website. There is no funding round and no sum of money to apply for."
+    answer="This page does not offer research grants. There is no funding round to apply to."
     breadcrumbs={[home, researchCrumb, { label: "Grants", href: "/research/grants" }]}
     faqs={GRANTS_FAQS}
     relatedLinks={[

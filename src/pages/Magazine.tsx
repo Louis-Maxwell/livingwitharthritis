@@ -28,9 +28,9 @@ import {
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 const PAGE_PATH = "/magazine";
-const PAGE_TITLE = "Monthly Magazine";
+const PAGE_TITLE = "Magazine";
 const PAGE_DESCRIPTION =
-  "Download the free Living With Arthritis monthly magazine. Practical pain tips, home exercises, benefits and PIP guidance, and community stories — no sign-up.";
+  "There is no regular magazine to subscribe to. This page is not included in the search index. Read the free guides instead.";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -167,11 +167,11 @@ const Magazine = () => {
 
   return (
     <>
-      <SeoHead title={PAGE_TITLE} description={PAGE_DESCRIPTION} path={PAGE_PATH} />
+      <SeoHead title={PAGE_TITLE} description="There is no regular magazine to subscribe to. This page is not included in the search index. Read the free guides instead." path={PAGE_PATH} noindex />
       <Header />
       <main id="main-content" className="min-h-dvh bg-background">
         <div className="container mx-auto px-4 pt-6 max-w-6xl">
-          <PageBreadcrumb segments={[{ label: "Monthly magazine" }]} />
+          <PageBreadcrumb segments={[{ label: "Magazine" }]} />
         </div>
 
         <section className="relative bg-gradient-to-br from-primary/10 via-background to-accent/10 py-16 md:py-24">
@@ -179,13 +179,13 @@ const Magazine = () => {
             <motion.div initial="hidden" animate="visible" variants={fadeUp}>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
                 <BookMarked className="h-4 w-4" aria-hidden="true" />
-                Monthly magazine
+                Not a regular magazine
               </span>
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
-                Monthly magazine
+                Magazine
               </h1>
               <p className="speakable-intro text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                A free magazine from Living With Arthritis for people living with arthritis and the people who care for them. Each issue is a downloadable PDF — no account and no paywall.
+                There is no magazine to subscribe to, and this page is not included in the search index. Any PDF linked below is a one-off file, not a monthly issue.
               </p>
             </motion.div>
           </div>

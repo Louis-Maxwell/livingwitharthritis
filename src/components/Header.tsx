@@ -1,7 +1,7 @@
 ﻿import { useState, useEffect, useRef, useCallback, Suspense, type MouseEvent, type KeyboardEvent } from "react";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, BookOpen, BookMarked, ChevronDown, Stethoscope, Activity, Newspaper, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search, ShoppingBag } from "lucide-react";
+import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search, ShoppingBag } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { createPortal } from "react-dom";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -176,7 +176,6 @@ const Header = () => {
         { label: "Patient Stories", desc: "Lived experience from real people", icon: Heart, href: "/stories", action: () => navigate("/stories"), color: "text-primary bg-primary/10" },
         { label: "Guides Hub", desc: "PIP, exercise, diet & pain relief", icon: BookOpen, href: "/guides", action: () => navigate("/guides"), color: "text-primary bg-primary/10" },
         { label: "Resource Centre", desc: "Guides, tools, PIP, exercise & chat", icon: BookOpen, href: "/resource-centre", action: () => navigate("/resource-centre"), color: "text-primary bg-primary/10" },
-        { label: "Monthly Magazine", desc: "Free NGO magazine to download", icon: BookMarked, href: "/magazine", action: () => navigate("/magazine"), color: "text-primary bg-primary/10" },
         { label: "Healthcare Professionals", desc: "Clinic pack & shareable patient pages", icon: Stethoscope, href: "/healthcare-professionals", action: () => navigate("/healthcare-professionals"), color: "text-primary bg-primary/10" },
         { label: "Search articles", desc: "Filter by topic and length", icon: Search, href: "/search", action: () => navigate("/search"), color: "text-primary bg-primary/10" },
         { label: "Blog & Library", desc: "100+ evidence-based articles", icon: BookOpen, href: "/blog", action: () => navigate("/blog"), color: "text-primary bg-primary/10" },

@@ -13,7 +13,7 @@ const Chat = () => {
       <Helmet>
         <title>Arthritis Help & Support Chat | Living With Arthritis</title>
         <meta name="description" content="Free arthritis help & support: chat on WhatsApp, call 07760 512 084, or ask our online help chat for guidance and information." />
-        <meta name="keywords" content="arthritis chat UK, virtual physiotherapy, arthritis help, joint pain advice UK, arthritis support, arthritis questions" />
+        <meta name="keywords" content="arthritis chat UK, arthritis help, joint pain advice UK, arthritis support, arthritis questions" />
         <meta property="og:title" content="Arthritis Help & Support Chat | Living With Arthritis" />
         <meta property="og:description" content="Educational arthritis help chat for UK readers. Ask about joint pain, exercises, diet and support — not a diagnosis." />
         <meta property="og:locale" content="en_GB" />
