@@ -70,6 +70,7 @@ const CityArthritisPage = () => {
   const pageTitle = distinctSeoTitle(
     `Arthritis Support in ${cityData.name}`,
     h1,
+    { route: `/arthritis-support/${cityData.slug}`, city: cityData.name },
   );
 
   return (

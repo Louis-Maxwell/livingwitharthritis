@@ -36,20 +36,44 @@ export function isHealthAdviceGuide(route) {
   return path.startsWith('/guides/') || path.startsWith('/treatments/');
 }
 
-/** Preserve the reader headline; differentiate only the search title.
+const MAX_SEO_TITLE = 60;
 
- * Append " | Guide" only when the full suffix fits in 60 characters.
- * Do not drop words to force the suffix — that produced ungrammatical
- * titles such as "Rheumatoid Arthritis Diet: Foods, Meal Ideas and | Guide".
- */
-export function distinctSeoTitle(title, headline) {
-  const value = cleanBrand(title).trim();
-  if (value.toLowerCase() !== cleanBrand(headline).trim().toLowerCase()) {
-    return value;
+/** A short token already on the page, used only to separate a search title from its H1. */
+function seoTitleQualifier(title, context) {
+  const ctx = typeof context === 'string' ? { route: context } : (context || {});
+  const hay = title.toLowerCase();
+  const missing = (label) => {
+    const text = String(label || '').trim();
+    return text && !hay.includes(text.toLowerCase()) ? text : '';
+  };
+  const parts = String(ctx.route || '').split('/').filter(Boolean);
+  const slug = parts[1] || '';
+  const joint = slug.match(/(?:^|-)for-([a-z]+)-arthritis$/)?.[1]
+    || slug.match(/^([a-z]+)-arthritis-exercises$/)?.[1];
+  if (joint) {
+    const label = missing(joint.charAt(0).toUpperCase() + joint.slice(1));
+    if (label) return label;
   }
-  const suffix = ' | Guide';
-  if (value.length + suffix.length <= 60) return value + suffix;
-  return value;
+  if (parts[0] === 'arthritis-support') {
+    const city = missing(ctx.breadcrumb || ctx.city);
+    if (city && city.length <= 28) return city;
+  }
+  if (!/\bUK\b/i.test(title)) return 'UK';
+  return '';
+}
+
+/** Search title. When it repeats the H1 exactly, add a joint, city or "UK"
+ * from the page when that word is not already in the title and the result
+ * stays within 60 characters. Never append "| Guide".
+ */
+export function distinctSeoTitle(title, headline, context) {
+  const value = cleanBrand(title).trim();
+  const head = cleanBrand(headline ?? '').trim();
+  if (!value || !head || value.toLowerCase() !== head.toLowerCase()) return value;
+  const qualifier = seoTitleQualifier(value, context);
+  if (!qualifier) return value;
+  const next = `${value} ${qualifier}`;
+  return next.length <= MAX_SEO_TITLE ? next : value;
 }
 
 /** Remove invalid/retired sitewide properties, never infer review evidence. */

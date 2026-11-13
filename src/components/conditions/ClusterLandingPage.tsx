@@ -52,7 +52,7 @@ export default function ClusterLandingPage({ data }: { data: ClusterLandingData 
 
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">
-      <SeoHead title={distinctSeoTitle(data.title, data.h1)} includeSiteName={false} description={data.description} path={data.path} type="article" />
+      <SeoHead title={distinctSeoTitle(data.title, data.h1, { route: data.path })} includeSiteName={false} description={data.description} path={data.path} type="article" />
       <h1 className="text-3xl md:text-4xl font-bold mb-4">{data.h1}</h1>
       <LastReviewed date={REVIEWED} className="mb-6" />
       <AnswerBox question={data.question} reviewed={REVIEWED}>{data.answer}</AnswerBox>

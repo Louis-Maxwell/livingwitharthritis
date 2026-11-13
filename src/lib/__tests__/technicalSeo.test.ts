@@ -21,18 +21,22 @@ describe('technical SEO rules', () => {
     expect(title).not.toBe(headline);
     expect(title.length).toBeLessThanOrEqual(60);
   });
-  it('does not drop words to force a | Guide suffix', () => {
-    const headline = 'Rheumatoid Arthritis Diet: Foods, Meal Ideas and Limits';
-    const title = distinctSeoTitle(headline, headline);
-    expect(title).toBe(headline);
-    expect(title).not.toMatch(/and \| Guide$/);
-    expect(title.length).toBeLessThanOrEqual(60);
+  it('adds UK only when the repeated headline still fits in 60 characters', () => {
+    const fits = 'Rheumatoid Arthritis Diet: Foods, Meal Ideas and Limits';
+    expect(distinctSeoTitle(fits, fits)).toBe(`${fits} UK`);
+    expect(`${fits} UK`.endsWith('| Guide')).toBe(false);
+    expect(`${fits} UK`.length).toBeLessThanOrEqual(60);
+    const full = 'A'.repeat(58);
+    expect(distinctSeoTitle(full, full)).toBe(full);
   });
-  it('still appends | Guide when the full suffix fits in 60 characters', () => {
-    const headline = 'TENS for Arthritis: Does It Help?';
-    expect(distinctSeoTitle(headline, headline)).toBe(
-      'TENS for Arthritis: Does It Help? | Guide',
-    );
+  it('separates a repeated headline with UK, or with the joint named by the route', () => {
+    expect(distinctSeoTitle('TENS for Arthritis: Does It Help?', 'TENS for Arthritis: Does It Help?'))
+      .toBe('TENS for Arthritis: Does It Help? UK');
+    expect(distinctSeoTitle('Seated strength routine', 'Seated strength routine', {
+      route: '/exercises/bands-for-knee-arthritis',
+    })).toBe('Seated strength routine Knee');
+    expect(distinctSeoTitle('Knee pain UK', 'Knee pain UK')).toBe('Knee pain UK');
+    expect(distinctSeoTitle('Already different', 'The visible headline')).toBe('Already different');
   });
   it('provides the six requested sharing actions including separate copy control', () => {
     expect(buildShareLinks('/guides/benefits-pip?utm_source=x', 'PIP guide')
