@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { inlineReviewRecords } from "@/test/inlineReviewRecords";
 import { describe, expect, it } from "vitest";
 
 const pages = [
@@ -12,7 +13,7 @@ const pages = [
 
 describe("Champions 26–30 gold pass", () => {
   it.each(pages)("%s includes disclaimer, cluster nav, review date and citations", (rel) => {
-    const src = readFileSync(resolve(process.cwd(), rel), "utf8");
+    const src = inlineReviewRecords(readFileSync(resolve(process.cwd(), rel), "utf8"));
     expect(src).toContain("EducationalDisclaimerBox");
     expect(src).toContain("TopicClusterNav");
     // PIP hub: 20 Sep sprint / 28 Sep pillar deepen; FAQ + symptom checker: 21 Sep CRO; others 2026-09-16.

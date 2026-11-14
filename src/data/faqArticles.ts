@@ -3,6 +3,7 @@
  * "Living With Arthritis" pillar page. Each entry powers a static
  * route at /faq/:slug rendered by src/pages/FaqArticle.tsx.
  */
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 export interface FaqSection {
   heading: string;
   content: string;
@@ -85,7 +86,7 @@ export const faqArticles: FaqArticle[] = [
     seoTitle: 'What Benefits Can You Claim for Arthritis? UK Guide',
     metaDescription:
       'PIP, Attendance Allowance, DLA for children and Access to Work: what you can claim for arthritis or osteoarthritis, who qualifies and how to apply.',
-    lastReviewed: '2026-09-24',
+    lastReviewed: REVIEW_RECORDS.faqArticles['arthritis-disability-benefits-uk'],
     quickAnswer:
       'Arthritis is not automatically a disability. Under the Equality Act 2010 it can be, if a physical impairment has a substantial and long-term adverse effect on normal day-to-day activities. PIP is not awarded from the diagnosis alone. This is educational orientation, not legal advice.',
     citations: [

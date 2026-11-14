@@ -26,6 +26,8 @@
 // and re-running this script refreshes crawler meta without a full vite build.
 
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
+import { trimDescription } from "./route-head-fallback.mjs";
+import { withReviewRecord } from "./lib/review-records.mjs";
 import { patchEnglishAlternates } from "./lib/english-alternates.mjs";
 import { aboutShareMeta, finalizeTechnicalHead } from './lib/technical-head.mjs';
 import { canonicalPath, cleanJsonLd, isHealthAdviceGuide } from '../src/lib/technicalSeo.mjs';
@@ -44,6 +46,7 @@ import {
   replaceSeoFallback,
   stripToText,
 } from "./static-article-html.mjs";
+import { isRedirectedPath, rewriteRedirectedHrefs } from "./lib/internal-href.mjs";
 import { exactRedirectPathSet, CITY_HUBS, CITY_SLUGS } from "./seo-redirect-map.mjs";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -115,9 +118,10 @@ function authorHeadData() {
           : `Author profile`;
       out[`/${prefix}/${record.slug}`] = {
         title: `${record.name} — ${label}: ${record.title} | Living With Arthritis`.slice(0, 115),
-        description: `${role}: ${record.name}, ${record.title}${credential ? ` (${credential})` : ""}. ${bio}`
-          .replace(/\s+/g, " ")
-          .slice(0, 158),
+        description: trimDescription(
+          `${role}: ${record.name}, ${record.title}${credential ? ` (${credential})` : ""}. ${bio}`
+            .replace(/\s+/g, " "),
+        ),
         question: `${record.name} — ${label.toLowerCase()} profile`,
         answer: [
           prefix === "reviewers"
@@ -166,6 +170,7 @@ export function mergeHeadLayers(...layers) {
   return out;
 }
 
+
 // Curated entries win over auto-generated blog/author entries; all of them
 // win over the slug-derived fallback applied in headDataFor().
 const AI_DATA = mergeHeadLayers(
@@ -175,6 +180,7 @@ const AI_DATA = mergeHeadLayers(
   readJson(HUB_GUIDE_DATA_PATH),
   readJson(resolve("scripts/editorial-head-data.json")),
   authorHeadData(),
+  readJson(resolve("scripts/route-head-curated.json")),
   readJson(AI_DATA_PATH),
 );
 
@@ -187,7 +193,7 @@ const STATIC_APP_ROUTES = new Set(appRoutes());
 function blogArchiveHeadData() {
   const posts = readJson(resolve("src/content/blog/catalog.generated.json"));
   const guides = (Array.isArray(posts) ? posts : [])
-    .filter((post) => BLOG_SLUGS.has(post.slug))
+    .filter((post) => BLOG_SLUGS.has(post.slug) && !isRedirectedPath(`/blog/${post.slug}`))
     .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
   return {
     title: "Arthritis blog archive — browse by date and topic | Living With Arthritis",
@@ -232,7 +238,8 @@ function blogCategoryHeadData(key) {
   if (!meta) return null;
   const posts = readJson(resolve("src/content/blog/catalog.generated.json"));
   const guides = (Array.isArray(posts) ? posts : []).filter(
-    (post) => BLOG_SLUGS.has(post.slug) && BLOG_CATEGORY_LABEL_TO_KEY[post.category] === key,
+    (post) => BLOG_SLUGS.has(post.slug) && !isRedirectedPath(`/blog/${post.slug}`)
+      && BLOG_CATEGORY_LABEL_TO_KEY[post.category] === key,
   );
   const label = Object.entries(BLOG_CATEGORY_LABEL_TO_KEY).find(([, k]) => k === key)?.[0] ?? key;
   const others = Object.entries(BLOG_CATEGORY_LABEL_TO_KEY).filter(([, k]) => k !== key);
@@ -381,6 +388,9 @@ function withLinkedSummaries(route, data) {
 }
 export { withRenderedBody };
 function headDataFor(route, override) {
+  return withReviewRecord(route, headDataForInner(route, override));
+}
+function headDataForInner(route, override) {
   const data = withRenderedBody(route, baseHeadDataFor(route, override));
   if (override || !data || data.noindex || route.startsWith('/blog/')) return data;
   const children = SITEMAP_PATHS.filter((path) =>
@@ -560,12 +570,63 @@ function compact(obj) {
   );
 }
 
+// Health /guides routes that are medical information pages (MedicalWebPage).
+// Benefits, admin and pet guides deliberately stay WebPage.
+export const MEDICAL_GUIDE_ROUTES = new Set([
+  "/guides/hip-exercises-for-osteoarthritis",
+  "/guides/frailty-management-hub",
+  "/guides/sarcopenia-muscle-loss",
+  "/guides/preventative-msk-health",
+  "/guides/bone-density-osteoporosis",
+  "/guides/fall-prevention-older-adults",
+  "/guides/musculoskeletal-health",
+  "/guides/uk-arthritis",
+  "/guides/exercise",
+  "/guides/arthritis-pain-relief",
+  "/guides/understanding-pain",
+  "/guides/can-exercise-make-osteoarthritis-worse",
+  "/guides/shoulder-pain-relief",
+  "/guides/knee-replacement-surgery",
+  "/guides/steroids-for-arthritis",
+  "/guides/azathioprine-for-arthritis",
+  "/guides/febuxostat-for-gout",
+  "/guides/painkillers-and-nsaids",
+  "/guides/newly-diagnosed",
+  "/guides/febuxostat-vs-allopurinol",
+  "/guides/paracetamol-vs-ibuprofen-for-arthritis",
+  "/guides/topical-nsaid-vs-oral-nsaid-arthritis",
+  "/guides/physiotherapy-vs-surgery-knee-arthritis",
+  "/guides/swimming-vs-walking-arthritis",
+  "/guides/yoga-vs-pilates-arthritis",
+  "/guides/glucosamine-vs-turmeric-arthritis",
+  "/guides/heat-vs-cold-arthritis-pain",
+  "/guides/walking-stick-vs-crutch-arthritis",
+  "/guides/rollator-vs-walking-frame",
+  "/guides/dmards-vs-biologics",
+  "/guides/steroid-injection-vs-hyaluronic-acid",
+  "/guides/gout-vs-pseudogout",
+  "/guides/osteoarthritis-vs-rheumatoid-arthritis",
+  "/guides/arthritis-vs-fibromyalgia",
+  "/guides/tendonitis-vs-arthritis",
+  "/guides/bursitis-vs-arthritis",
+  "/guides/sciatica-vs-hip-arthritis",
+  "/guides/wet-vs-dry-heat-therapy",
+  "/guides/resistance-bands-vs-weights",
+  "/guides/mediterranean-diet-vs-anti-inflammatory-diet",
+  "/guides/magnesium-vs-vitamin-d",
+  "/guides/chair-yoga-vs-tai-chi",
+  "/guides/meditation-vs-cbt-arthritis-pain",
+  "/guides/cold-plunge-vs-warm-bath-arthritis",
+  "/guides/collagen-vs-glucosamine",
+]);
+
 export function buildJsonLd(route, url, d) {
   const graphs = [];
   const article = d.article;
   const medical = Boolean(article) || Boolean(d.condition) || Boolean(d.reviewedBy)
     || isHealthAdviceGuide(route)
-    || /^\/(conditions|library|exercises|diet|supplements|faq)(\/|$)/.test(route);
+    || /^\/(conditions|library|exercises|diet|supplements|faq)(\/|$)/.test(route)
+    || MEDICAL_GUIDE_ROUTES.has(route);
   // Louis Maxwell is the only registered clinician: one stable Person node
   // (same @id as src/lib/louisMaxwell.ts) with his HCPC registration.
   const person = (name) => name && !/placeholder/i.test(name)
@@ -901,6 +962,7 @@ function writeRouteFiles() {
         if (isNoindexRoute(route) || data?.noindex) {
           patched = applyNoindexMeta(patched);
         }
+        patched = rewriteRedirectedHrefs(patched);
         if (patched !== existing) {
           writeFileAtomicSync(file, patched);
           headPatched++;
@@ -911,7 +973,7 @@ function writeRouteFiles() {
       rebuilt++;
     }
     mkdirSync(dirname(file), { recursive: true });
-    writeFileAtomicSync(file, rewriteHead(template, route));
+    writeFileAtomicSync(file, rewriteRedirectedHrefs(rewriteHead(template, route)));
     written++;
     if (data) enriched++;
   }

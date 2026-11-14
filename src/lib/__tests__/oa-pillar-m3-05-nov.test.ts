@@ -1,9 +1,10 @@
+import { inlineReviewRecords } from "@/test/inlineReviewRecords";
 import { describe, it, expect } from "vitest";
 import { readFileSync } from "fs";
 import { resolve } from "path";
 import { TOPIC_CLUSTERS, getClusterForPath } from "@/data/topicClusters";
 
-const oa = readFileSync(resolve(__dirname, "../../pages/conditions/Osteoarthritis.tsx"), "utf8");
+const oa = inlineReviewRecords(readFileSync(resolve(__dirname, "../../pages/conditions/Osteoarthritis.tsx"), "utf8"));
 const scope = readFileSync(resolve(__dirname, "../../../docs/M3-LINKABLE-ASSET-PDF-SCOPE.md"), "utf8");
 const tracker = readFileSync(resolve(__dirname, "../../../docs/GROWTH-5-MONTH-EXECUTION-TRACKER.md"), "utf8");
 

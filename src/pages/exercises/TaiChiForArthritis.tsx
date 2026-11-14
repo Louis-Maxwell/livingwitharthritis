@@ -1,4 +1,5 @@
 ﻿import { useEffect } from "react";
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { Link } from "react-router-dom";
 import { CheckCircle2, ArrowRight, Activity, Heart, Shield, Sparkles, MapPin, PlayCircle, Library } from "lucide-react";
 import Header from "@/components/Header";
@@ -165,7 +166,7 @@ export default function TaiChiForArthritis() {
           <p className="quick-answer p-5 rounded-xl bg-muted/40 leading-relaxed">
             <strong>Quick answer:</strong> {TAI_CHI_QUICK_ANSWER}
           </p>
-          <EducationalDisclaimerBox lastReviewed="2026-10-23" />
+          <EducationalDisclaimerBox lastReviewed={REVIEW_RECORDS.pages["/exercises/tai-chi-for-arthritis"]} />
         </div>
       </section>
 

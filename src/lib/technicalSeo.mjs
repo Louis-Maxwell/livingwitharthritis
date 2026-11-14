@@ -11,6 +11,7 @@ export function canonicalPath(value) {
     .replace(/\/$/, '') || '/';
 }
 
+<<<<<<< HEAD
 /**
  * Benefits, parking, insurance and service-access pages. They stay ordinary
  * WebPages unless their own head data already records a review or condition.
@@ -50,6 +51,11 @@ export function distinctSeoTitle(title, headline) {
   const suffix = ' | Guide';
   if (value.length + suffix.length <= 60) return value + suffix;
   return value;
+=======
+/** Return the cleaned search title (brand-normalised); no suffix is added. */
+export function distinctSeoTitle(title, _headline) {
+  return cleanBrand(title).trim();
+>>>>>>> origin/lovable-sync-1794599218
 }
 
 /** Remove invalid/retired sitewide properties, never infer review evidence. */
