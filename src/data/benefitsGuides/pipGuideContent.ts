@@ -7,15 +7,14 @@
 
 export const PIP_GUIDE_TITLE = "Complete PIP guide for arthritis: eligibility, points, claiming and challenges (UK)";
 
-export const PIP_GUIDE_META_TITLE = "How to Claim PIP for Arthritis: Step-by-Step Guide (2026)";
+export const PIP_GUIDE_META_TITLE = "Can You Claim PIP for Arthritis? Step-by-Step (2026)";
 
-export const PIP_GUIDE_DESCRIPTION = "Claim PIP for arthritis step by step: call 0800 917 2222, fill in the form, send evidence, prepare for the assessment and appeal if you are refused.";
+export const PIP_GUIDE_DESCRIPTION = "PIP depends on how arthritis affects your daily living and mobility, not the diagnosis. How to claim, the points you need, evidence and appeals.";
 
 export const PIP_GUIDE_QUICK_ANSWER = "Daily living and mobility are scored separately across 12 activities. In each part, 8 to 11 points gives the standard rate and 12 or more the enhanced rate. PIP is not means-tested and you can claim while working. In Scotland you claim Adult Disability Payment instead.";
 
 export const PIP_GUIDE_ANSWER =
-  "To claim PIP in England or Wales, call the DWP PIP new claims line on 0800 917 2222 (Monday to Friday, 8am to 5pm). DWP sends the PIP2 \"How your disability affects you\" form: return it within 1 month with evidence. You may have an assessment before the decision. If you disagree, ask for mandatory reconsideration within 1 month, then appeal to a tribunal.";
-
+  "PIP eligibility depends on how arthritis affects your daily living and mobility, not the diagnosis alone. In England and Wales, call the DWP PIP new claims line on 0800 917 2222 (Mon-Fri, 8am-5pm), then return the PIP2 form within 1 month with evidence. You may have an assessment. If you disagree, ask for mandatory reconsideration within 1 month, then appeal to a tribunal.";
 export const PIP_GUIDE_CHECKED = "11 November 2026";
 
 /** Numbered claim steps: rendered as the visible <ol> and as HowTo JSON-LD. */

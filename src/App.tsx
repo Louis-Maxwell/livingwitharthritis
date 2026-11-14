@@ -293,7 +293,7 @@ function AnimatedRoutes() {
         page_location,
         page_referrer: analyticsUrl(document.referrer) || "",
         page_title: document.title,
-        send_to: "G-ZLLSD3PXZ9",
+        send_to: "G-X8GTW05JJS",
       });
     };
     sendPageView();

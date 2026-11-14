@@ -91,7 +91,7 @@ Sources: [NHS: Arthritis](https://www.nhs.uk/conditions/arthritis/); [NICE NG226
 Canonical: https://livingwitharthritis.org.uk/guides/benefits-pip
 Clinically reviewed by Louis Maxwell, Physiotherapist, HCPC PH128483.
 
-To claim PIP in England or Wales, call the DWP PIP new claims line on 0800 917 2222 (Monday to Friday, 8am to 5pm). DWP sends the PIP2 "How your disability affects you" form: return it within 1 month with evidence. You may have an assessment before the decision. If you disagree, ask for mandatory reconsideration within 1 month, then appeal to a tribunal.
+PIP eligibility depends on how arthritis affects your daily living and mobility, not the diagnosis alone. In England and Wales, call the DWP PIP new claims line on 0800 917 2222 (Mon-Fri, 8am-5pm), then return the PIP2 form within 1 month with evidence. You may have an assessment. If you disagree, ask for mandatory reconsideration within 1 month, then appeal to a tribunal.
 
 - PIP depends on how arthritis affects daily living and mobility, not on the diagnosis alone.
 - Daily living and mobility are scored separately: 8 to 11 points gives the standard rate and 12 or more the enhanced rate.
@@ -177,6 +177,11 @@ URL: https://livingwitharthritis.org.uk/blog
 Q: Where can I read UK arthritis guides on exercise, diet and PIP?
 A: The Living With Arthritis blog collects UK guides with individual clinical-review status on arthritis exercise, anti-inflammatory diet, PIP and benefits claims, treatments and managing flare-ups. Browse by topic hub or read the featured guides on knee exercises, turmeric, omega-3 and PIP applications.
 
+## Arthritis Advice Hub | Living With Arthritis
+URL: https://livingwitharthritis.org.uk/blog-hub
+Q: Where do I start with UK arthritis guidance?
+A: The advice hub groups Living With Arthritis guides by condition, treatment, exercise, diet, benefits, work, frailty and daily living, and links each topic to its related articles.
+
 ## Arthritis Exercise Articles & Guides | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/blog/category/exercise
 Last updated: 2026-09-19
@@ -192,6 +197,11 @@ A: Follow your team’s dose and timing. Folic acid often reduces some side effe
 URL: https://livingwitharthritis.org.uk/blog/working-with-arthritis-uk-rights
 Q: What workplace rights do people with arthritis have in the UK?
 A: Arthritis can count as a disability under the Equality Act 2010 when effects are substantial and long-term, which can trigger reasonable adjustments. Access to Work may fund equipment or support. Speak to your employer or Acas for next steps.
+
+## Arthritis Help & Support Chat | Living With Arthritis
+URL: https://livingwitharthritis.org.uk/chat
+Q: How can I get arthritis help and support?
+A: Ask the Living With Arthritis help chat about joint pain, exercises, diet and UK support. You can also message on WhatsApp or call 07760 512 084. This is educational information, not a diagnosis.
 
 ## Ankylosing Spondylitis (axSpA): Signs & Treatment (UK)
 URL: https://livingwitharthritis.org.uk/conditions/ankylosing-spondylitis
@@ -1204,11 +1214,11 @@ A: Widespread body pain; tenderness on touch; fatigue; sleep issues; 'fibro fog'
 Q: What should I be careful about?
 A: Both respond to graded exercise, sleep hygiene and CBT — different medications from your GP.
 
-## How to Claim PIP for Arthritis: Step-by-Step Guide (2026)
+## Can You Claim PIP for Arthritis? Step-by-Step (2026)
 URL: https://livingwitharthritis.org.uk/guides/benefits-pip
 Last updated: 2026-11-11
 Q: How do I claim PIP for arthritis in the UK?
-A: To claim PIP in England or Wales, call the DWP PIP new claims line on 0800 917 2222 (Monday to Friday, 8am to 5pm). DWP sends the PIP2 "How your disability affects you" form: return it within 1 month with evidence. You may have an assessment before the decision. If you disagree, ask for mandatory reconsideration within 1 month, then appeal to a tribunal.
+A: PIP eligibility depends on how arthritis affects your daily living and mobility, not the diagnosis alone. In England and Wales, call the DWP PIP new claims line on 0800 917 2222 (Mon-Fri, 8am-5pm), then return the PIP2 form within 1 month with evidence. You may have an assessment. If you disagree, ask for mandatory reconsideration within 1 month, then appeal to a tribunal.
 Q: Can I get PIP for arthritis?
 A: Yes, if arthritis makes everyday tasks or getting around difficult on most days and you expect this to last at least 12 months from when it started. PIP is based on how your condition affects you, not the diagnosis itself. Check the current rules on GOV.UK.
 Q: What is the PIP new claims phone number?
@@ -1732,6 +1742,11 @@ A: Stiffness; stress and mood benefits; balance work; enjoy mindfulness.
 Q: What should I be careful about?
 A: Skip any class that pushes 'no pain no gain' — arthritis-friendly practice should never sharply hurt.
 
+## Arthritis Health Library UK | Pain, Exercise & PIP
+URL: https://livingwitharthritis.org.uk/library
+Q: What is in the arthritis health library?
+A: The health library lists plain-English notes on arthritis conditions, medicines, supplements and treatments, and links onward to exercise, pain relief and benefits guides.
+
 ## Living with arthritis: a daily guide | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/living-with-arthritis
 Last updated: 2026-11-10
@@ -1767,6 +1782,11 @@ A: Our clinical content is reviewed by Louis Maxwell (Maxwell), a First Contact 
 URL: https://livingwitharthritis.org.uk/search
 Q: How do I search Living With Arthritis?
 A: Use the site search page to filter blogs and hub pages by keyword, topic and approximate word count. Results update in your browser without needing an account.
+
+## Clinical Sources & Evidence | Living With Arthritis
+URL: https://livingwitharthritis.org.uk/sources
+Q: Which sources does Living With Arthritis use?
+A: This page lists the clinical sources, guidelines and evidence used across Living With Arthritis, including NICE guidance, Cochrane reviews and the bibliography behind the educational guides.
 
 ## Share Your Arthritis Story | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/stories
@@ -6704,7 +6724,7 @@ Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Can You Get PIP for Arthritis? UK Points & Evidence
-A: PIP is not awarded for a diagnosis alone; it depends on how daily living and mobility are affected. Describe what you can do reliably, how often difficulties occur, and your better and worse days. Use the claim guide for application steps and the evidence diary to organise examples.
+A: PIP is not awarded for a diagnosis alone; it depends on how daily living and mobility are affected. Describe what you can do reliably, how often difficulties occur, and your better and worse days. You can claim whether or not you work. Use the claim guide for application steps and the evidence diary to organise examples.
 Key clinical takeaway: PIP depends on how arthritis affects daily living and mobility, not on the diagnosis alone.
 Key clinical takeaway: Daily living and mobility are scored separately: 8 to 11 points gives the standard rate and 12 or more the enhanced rate.
 Key clinical takeaway: Describe whether you can do each activity safely, repeatedly, to an acceptable standard and in a reasonable time, on better and worse days.

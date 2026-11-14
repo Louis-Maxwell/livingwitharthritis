@@ -42,4 +42,24 @@ describe("internal links skip legacy redirect stubs", () => {
     }
     expect(bad).toEqual([]);
   });
+
+  it("related-reading and reader-journey lists link to final URLs", () => {
+    const bad: string[] = [];
+    for (const f of [
+      "src/data/keywordRelatedLinks.generated.json",
+      "src/data/readerJourneyLinks.json",
+    ]) {
+      const data = JSON.parse(readFileSync(join(ROOT, f), "utf8")) as Record<
+        string,
+        { href: string }[]
+      >;
+      for (const [path, rows] of Object.entries(data)) {
+        for (const row of rows) {
+          const p = (row.href || "").replace(/\/$/, "") || "/";
+          if (sources.has(p)) bad.push(`${f} ${path}: ${row.href}`);
+        }
+      }
+    }
+    expect(bad).toEqual([]);
+  });
 });
