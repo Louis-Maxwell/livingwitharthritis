@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -272,7 +273,7 @@ const FootAndAnkleArthritis = () => (
           </ul>
         </Section>
 
-        <EducationalDisclaimerBox lastReviewed="2026-09-21" />
+        <EducationalDisclaimerBox lastReviewed={REVIEW_RECORDS.pages["/conditions/foot-and-ankle-arthritis"]} />
 
         <ArticleFaqSection
           faqs={faqLd.mainEntity.map((f) => ({

@@ -19,6 +19,8 @@ import { writeFileSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { assertSafeBlogInventory } from "../src/lib/seoBuildSafety";
 import { exactRedirectPathSet } from "./seo-redirect-map.mjs";
+// @ts-expect-error plain .mjs helper
+import { reviewRecordFor } from "./lib/review-records.mjs";
 import { readBlogCatalog } from "./lib/blog-posts.mjs";
 import { todayInLondon } from "./lib/london-date.mjs";
 import {
@@ -542,6 +544,9 @@ async function main() {
   const hubDates = headDataLastmods("scripts/hub-guide-head-data.json");
   const pageDates = pageSourceLastmods();
   const contentDates = contentLastmods();
+  // Other generated head-data files, read with the same real-dates-only rule.
+  const extraHeadDates = ["scripts/condition-head-data.json", "scripts/library-head-data.json",
+    "scripts/editorial-head-data.json"].map(headDataLastmods);
   // Keep dates already published in sitemap.xml. A fresh run must not drop a
   // real lastmod just because this pass did not re-discover its source.
   const priorDates = new Map<string, string>();
@@ -559,6 +564,7 @@ async function main() {
   }
 
   function lastmodFor(path: string, extra?: string): string {
+    const review = (reviewRecordFor(path) as { lastReviewed?: string } | null)?.lastReviewed;
     return (
       maxIsoDate(
         extra,
@@ -567,6 +573,8 @@ async function main() {
         pageDates.get(path),
         contentDates.get(path),
         priorDates.get(path),
+        review,
+        ...extraHeadDates.map((m) => m.get(path)),
       ) ?? BUILD_DATE
     );
   }

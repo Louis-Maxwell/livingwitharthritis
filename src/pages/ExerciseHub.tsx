@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NextReadStrip from "@/components/NextReadStrip";
@@ -173,7 +174,7 @@ const ExerciseHub = () => {
     url: "https://livingwitharthritis.org.uk/exercises",
     inLanguage: "en-GB",
     dateModified: "2026-11-10",
-    lastReviewed: "2026-11-10",
+    lastReviewed: REVIEW_RECORDS.pages["/exercises"],
     author: LOUIS_MAXWELL_REF,
     reviewedBy: LOUIS_MAXWELL_REF,
     areaServed: { "@type": "Country", name: "United Kingdom" },
@@ -804,7 +805,7 @@ const ExerciseHub = () => {
       </nav>
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-8">
         <ArticleCitations citations={CITATIONS_EXERCISE_HUB} />
-        <EducationalDisclaimerBox lastReviewed="2026-11-10" />
+        <EducationalDisclaimerBox lastReviewed={REVIEW_RECORDS.pages["/exercises"]} />
         <TopicClusterNav path="/exercises" />
       </div>
       </main>

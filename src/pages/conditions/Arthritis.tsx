@@ -1,4 +1,5 @@
 import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
@@ -57,7 +58,7 @@ export default function Arthritis() {
       publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis' },
       datePublished: '2026-06-22', dateModified: new Date().toISOString().slice(0, 10),
       reviewedBy: LOUIS_MAXWELL_REF,
-      lastReviewed: '2026-09-16',
+      lastReviewed: REVIEW_RECORDS.pages["/conditions/arthritis"],
       mainEntityOfPage: 'https://livingwitharthritis.org.uk/conditions/arthritis',
     };
     const faq = {
@@ -245,7 +246,7 @@ export default function Arthritis() {
       </section>
 
       <UrgentHelpAndSources path="/conditions/arthritis" />
-      <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+      <EducationalDisclaimerBox lastReviewed={REVIEW_RECORDS.pages["/conditions/arthritis"]} />
       <TopicClusterNav path="/conditions/arthritis" />
     </article>
   );
