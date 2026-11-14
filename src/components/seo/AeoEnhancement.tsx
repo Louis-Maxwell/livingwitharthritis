@@ -13,6 +13,7 @@ interface AeoEnhancementProps {
   question?: string;
   answer?: string;
   faqs?: { q: string; a: string }[];
+  synonyms?: { term: string; variants: string }[];
   reviewer?: string;
   updatedAt?: string;
 }
@@ -35,6 +36,7 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
   const faqs = useMemo(() => props.faqs ?? configured?.faqs ?? [], [props.faqs, configured?.faqs]);
   const reviewer = props.reviewer ?? configured?.reviewer;
   const takeaways = configured?.takeaways ?? [];
+  const synonyms = props.synonyms ?? configured?.synonyms ?? [];
   const updatedAt = props.updatedAt ?? configured?.updatedAt ?? "2026-07-01";
 
   // Inject FAQPage JSON-LD when FAQs are present
@@ -65,7 +67,7 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
     };
   }, [props.route, faqs]);
 
-  if (!question && !answer && !faqs.length) return null;
+  if (!question && !answer && !faqs.length && !synonyms.length) return null;
 
   return (
     <section className="my-8 space-y-6" aria-label="Key information">
@@ -76,6 +78,20 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
       )}
       {question && answer && takeaways.length >= 3 && (
         <KeyTakeaways html="" title={question} items={takeaways} heading="Key clinical takeaways" />
+      )}
+
+      {synonyms.length > 0 && (
+        <div className="rounded-xl bg-white p-6">
+          <h2 className="text-xl font-bold text-foreground mb-3">Also known as</h2>
+          <dl className="space-y-2 text-sm">
+            {synonyms.map((item, i) => (
+              <div key={i} className="flex flex-col gap-0.5">
+                <dt className="font-semibold text-foreground">{item.term}</dt>
+                <dd className="text-muted-foreground">{item.variants}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       )}
 
       <div className="flex flex-wrap items-center gap-2 text-xs">
