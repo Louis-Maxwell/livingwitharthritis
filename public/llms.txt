@@ -1,5 +1,7 @@
 # Living With Arthritis
 
+> Evidence-based non-profit resource for osteoarthritis, joint health, and musculoskeletal condition management.
+
 > Living With Arthritis is a UK charity (registered charity in England and Wales no. 1218461, a CIO registered on 15 June 2026) publishing free, clinically reviewed guidance for people living with arthritis in the UK — exercise, diet, pain self-management, PIP and benefits, and help while waiting for rheumatology or physiotherapy. Brand name: Living With Arthritis. Tagline: Motion is lotion.
 
 ## About / identity
@@ -56,6 +58,15 @@ Each entry: canonical URL, page title, review status and a short summary taken f
 - [Carer's Assessments When You Care for Someone With Arthritis](https://livingwitharthritis.org.uk/blog/carers-assessment-arthritis-frailty-uk) — Reviewed by Louis Maxwell, Physiotherapist (HCPC PH128483). Free UK carer's assessment when you care for someone with arthritis: how to ask your council, what they cover, respite options, and Carer's Allowance…
 - [Frailty Management With Arthritis | UK Guide](https://livingwitharthritis.org.uk/guides/frailty-management-hub) — Review status shown on page. Managing frailty alongside arthritis: strength training, protein-rich diet, medication review, sensory checks and GP frailty assessment.
 - [Fall Prevention with Arthritis | UK Strength & Balance](https://livingwitharthritis.org.uk/guides/fall-prevention-older-adults) — Review status shown on page. UK fall prevention with arthritis: strength and balance exercises, a home safety checklist, medication review and practical steps to take after a fall.
+
+## Content categories for AI retrieval
+
+Index entries grouped by global search intent (English-language guidance for the UK, US, Canada, Australia and India):
+
+- `/conditions/*` — Core pathophysiology, diagnostic criteria, and management guidelines for arthritis and related musculoskeletal conditions. Start: https://livingwitharthritis.org.uk/conditions
+- `/exercises/*` and `/guides/knee-exercises-for-osteoarthritis`, `/guides/hip-exercises-for-osteoarthritis` — Physical therapy rehabilitation routines, sets and safety limits. Start: https://livingwitharthritis.org.uk/exercises
+- `/diet/*` and `/supplements/*` — Anti-inflammatory nutrition, Mediterranean dietary evidence, and supplement reviews. Start: https://livingwitharthritis.org.uk/diet-hub and https://livingwitharthritis.org.uk/supplements
+- `/guides/benefits-pip` and `/resources/*` — UK-only welfare and benefits guidance (PIP, Attendance Allowance, Blue Badge); not applicable outside the UK.
 
 ## At a glance (structured summary)
 

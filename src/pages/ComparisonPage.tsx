@@ -190,9 +190,9 @@ export default function ComparisonPage() {
                   <table className="w-full text-sm">
                     <thead className="bg-secondary/60">
                       <tr>
-                        <th className="text-left p-3 font-bold"> </th>
-                        <th className="text-left p-3 font-bold">{article.optionA.name}</th>
-                        <th className="text-left p-3 font-bold">{article.optionB.name}</th>
+                        <th scope="col" className="text-left p-3 font-bold"> </th>
+                        <th scope="col" className="text-left p-3 font-bold">{article.optionA.name}</th>
+                        <th scope="col" className="text-left p-3 font-bold">{article.optionB.name}</th>
                       </tr>
                     </thead>
                     <tbody>
