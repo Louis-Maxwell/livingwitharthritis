@@ -374,7 +374,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/benefits-pip": withDefaults({
     question: "How do I claim PIP for arthritis in the UK?",
     answer:
-      "To claim PIP in England or Wales, call the DWP PIP new claims line on 0800 917 2222 (Monday to Friday, 8am to 5pm). DWP sends the PIP2 \"How your disability affects you\" form: return it within 1 month with evidence. You may have an assessment before the decision. If you disagree, ask for mandatory reconsideration within 1 month, then appeal to a tribunal.",
+      "PIP eligibility depends on how arthritis affects your daily living and mobility, not the diagnosis alone. In England and Wales, call the DWP PIP new claims line on 0800 917 2222 (Mon-Fri, 8am-5pm), then return the PIP2 form within 1 month with evidence. You may have an assessment. If you disagree, ask for mandatory reconsideration within 1 month, then appeal to a tribunal.",
     takeaways: [
       "PIP depends on how arthritis affects daily living and mobility, not on the diagnosis alone.",
       "Daily living and mobility are scored separately: 8 to 11 points gives the standard rate and 12 or more the enhanced rate.",
