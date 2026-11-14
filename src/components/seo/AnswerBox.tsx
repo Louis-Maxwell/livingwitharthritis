@@ -28,7 +28,9 @@ export default function AnswerBox({
 }: AnswerBoxProps) {
   return (
     <aside
-      className="speakable-intro my-8 pl-5 border-l-4 border-primary bg-white"
+      role="region"
+      aria-label="Quick Answer"
+      className="direct-answer-capsule speakable-intro my-8 pl-5 border-l-4 border-primary bg-white"
       itemScope
       itemType="https://schema.org/Question"
     >

@@ -122,7 +122,7 @@ export function buildStaticArticleInner(data) {
   // The template owns H1. Keep all existing heading words as subordinate H2s.
   const bodyHtml = composeArticleBody(data);
   const answer = data?.answer && !bodyHtml.includes(data.answer)
-    ? `<p class="answer-box"><strong>${escText(data.answer)}</strong></p>`
+    ? `<aside role="region" aria-label="Quick Answer" class="direct-answer-capsule answer-box"><p><strong>${escText(data.answer)}</strong></p></aside>`
     : "";
   const takeawaySource = Array.isArray(data?.article?.key_takeaways) ? data.article.key_takeaways
     : Array.isArray(data?.keyTakeaways) ? data.keyTakeaways : [];

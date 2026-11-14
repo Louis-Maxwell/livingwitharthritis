@@ -413,6 +413,12 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
     question: "Does the Mediterranean diet help arthritis?",
     answer:
       "A Mediterranean-style diet, rich in vegetables, fruit, beans, wholegrains, fish and olive or rapeseed oil, may modestly help some people with arthritis, especially rheumatoid arthritis, and is good for heart health. NICE says there is no strong evidence diet changes benefit RA, but people can be encouraged to follow Mediterranean principles. It is not a cure and does not replace medicines.",
+    takeaways: [
+      "NICE NG100 says adults with rheumatoid arthritis can be encouraged to follow Mediterranean diet principles, while explaining there is no strong evidence their arthritis will benefit.",
+      "A Mediterranean-style diet is rich in vegetables, fruit, beans, wholegrains, fish and olive or rapeseed oil, and supports heart health.",
+      "No diet cures arthritis, and no diet replaces prescribed medicines.",
+      "Vegans need reliable sources of vitamin B12, iodine and calcium; ask a pharmacist or dietitian if you are unsure your diet is balanced."
+    ],
     faqs: [
       { q: "Does the Mediterranean diet help arthritis?", a: "It may help some people, particularly with rheumatoid arthritis, but the evidence is limited. A small 12-week trial found modest improvements in disease activity and physical function, and NICE says adults with RA can be encouraged to follow Mediterranean diet principles, while explaining there is no strong evidence their arthritis will benefit. It is not a cure and does not replace medicines." },
       { q: "Is the Mediterranean diet good for osteoarthritis?", a: "There is only limited research in osteoarthritis. The main dietary step NICE recommends for osteoarthritis is weight management if you are living with overweight or obesity. A Mediterranean-style pattern can be a sustainable way to support weight loss and heart health." },
@@ -434,6 +440,11 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
     question: "What's the best diet for arthritis?",
     answer:
       "A Mediterranean diet — oily fish twice a week, olive oil, nuts, wholegrains, plenty of vegetables and fruit — consistently reduces inflammation markers and joint pain in trials. Cut ultra-processed foods, sugary drinks and excess red meat. Weight loss of 5-10% substantially reduces knee OA pain.",
+    takeaways: [
+      "The NHS advises a healthy, balanced diet and keeping to a healthy weight, because extra weight strains your joints.",
+      "If you have osteoarthritis and are living with overweight, NICE NG226 says any weight loss is likely to help, and losing 10% of body weight is likely better than 5%.",
+      "No diet cures arthritis; a balanced diet supports exercise, medicines and the rest of your treatment."
+    ],
   }),
   "/exercises": withDefaults({
     question: "What are good free physiotherapy exercises for arthritis at home?",
