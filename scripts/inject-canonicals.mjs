@@ -310,6 +310,20 @@ const SITEMAP_PATHS = existsSync(resolve('public/sitemap.xml'))
       .map((m) => new URL(m[1]).pathname) : [];
 // Rendered-body snapshots (scripts/snapshot-rendered-bodies.mjs): each page's
 // own rendered content, used when its static data body is thin (soft-404 fix).
+// Cross-market terminology blocks (src/data/page-aeo.ts synonyms, exported by
+// scripts/generate-aeo-synonyms.ts in prebuild). Static <dl> so answer engines
+// and no-JS readers see the regional equivalents without hydration.
+const AEO_SYNONYMS = existsSync(resolve('scripts/aeo-synonyms.json'))
+  ? JSON.parse(readFileSync(resolve('scripts/aeo-synonyms.json'), 'utf8')) : {};
+function withSynonyms(route, data) {
+  const rows = AEO_SYNONYMS[route];
+  if (!data || !Array.isArray(rows) || !rows.length) return data;
+  const items = rows
+    .filter((row) => row?.term && row?.variants)
+    .map((row) => `<dt>${escText(row.term)}</dt><dd>${escText(row.variants)}</dd>`);
+  if (!items.length) return data;
+  return { ...data, bodyHtml: `${data.bodyHtml || ''}<h2>Also known as</h2><dl>${items.join('')}</dl>` };
+}
 const RENDERED_BODIES = existsSync(resolve('scripts/data/rendered-bodies.json'))
   ? JSON.parse(readFileSync(resolve('scripts/data/rendered-bodies.json'), 'utf8')) : {};
 // Same counting rule as scripts/lib/route-words.mjs (the word gate).
@@ -321,7 +335,7 @@ function withRenderedBody(route, data) {
   if (snap && !(textWords(data.bodyHtml) + textWords(data.answer) >= 300 && textWords(data.bodyHtml) >= textWords(snap))) {
     out = { ...data, bodyHtml: unwrapUnknownLinks(snap) };
   }
-  return withHubSpotlight(route, withLinkedSummaries(route, withIntentLinks(route, out)));
+  return withSynonyms(route, withHubSpotlight(route, withLinkedSummaries(route, withIntentLinks(route, out))));
 }
 // Strong hubs link to related guides Google had discovered but never crawled
 // (src/data/hub-spotlight.json, also rendered by <HubSpotlight /> in React).

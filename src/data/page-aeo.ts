@@ -13,6 +13,8 @@ export interface AeoPage {
   faqs?: { q: string; a: string }[];
   /** Optional 3-4 "Key clinical takeaways" shown under the answer. */
   takeaways?: string[];
+  /** Cross-market terminology equivalents (no new clinical claims). */
+  synonyms?: { term: string; variants: string }[];
   reviewer?: string;
   updatedAt?: string; // ISO YYYY-MM-DD
 }
@@ -29,7 +31,11 @@ const withDefaults = (p: Omit<AeoPage, "reviewer" | "updatedAt"> & Partial<Pick<
 export const PAGE_AEO: Record<string, AeoPage> = {
   // â”€â”€ Conditions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   "/conditions/osteoarthritis": withDefaults({
-    question: "What is osteoarthritis?",
+        synonyms: [
+      { term: "Wear-and-tear arthritis", variants: "Common informal name for osteoarthritis." },
+      { term: "Degenerative joint disease", variants: "Older medical term for osteoarthritis." },
+    ],
+question: "What is osteoarthritis?",
     answer:
       "Osteoarthritis (OA) is the most common arthritis in the UK. It involves changes in the cartilage that cushions bone ends and in other joint tissues, most often in knees, hips, hands and spine. Pain is usually worse with use, morning stiffness is typically under 30 minutes, and NICE NG226 recommends therapeutic exercise, weight management where relevant, and information and support as core care.",
     updatedAt: "2026-11-11",
@@ -48,7 +54,10 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     ],
   }),
   "/conditions/rheumatoid-arthritis": withDefaults({
-    question: "What is rheumatoid arthritis?",
+        synonyms: [
+      { term: "RA", variants: "Common abbreviation for rheumatoid arthritis." },
+    ],
+question: "What is rheumatoid arthritis?",
     answer:
       "Rheumatoid arthritis (RA) is an autoimmune condition where the immune system attacks the joint lining, causing pain, swelling and stiffness, usually first in the small joints of the hands and feet (NHS). If you are newly diagnosed, NICE NG100 says you should be offered a DMARD such as methotrexate as soon as possible, ideally within 3 months of persistent symptoms.",
     takeaways: [
@@ -82,7 +91,10 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     ],
   }),
   "/conditions/gout": withDefaults({
-    question: "What is gout?",
+        synonyms: [
+      { term: "Gouty arthritis", variants: "Older term for gout." },
+    ],
+question: "What is gout?",
     answer:
       "Gout is a type of inflammatory arthritis caused by high uric acid crystallising inside joints — usually the big toe — triggering sudden severe pain, redness and swelling. UK guidelines recommend urate-lowering therapy (allopurinol) after a second attack to prevent joint damage. Diet and alcohol adjustments help.",
   
@@ -123,7 +135,11 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     ],
   }),
   "/conditions/knee-arthritis": withDefaults({
-    question: "What is knee arthritis?",
+        synonyms: [
+      { term: "Genu varum", variants: "Clinical term for bow-legs, often linked to inner-knee (medial) osteoarthritis." },
+      { term: "Total knee arthroplasty (TKA)", variants: "Medical name for a total knee replacement." },
+    ],
+question: "What is knee arthritis?",
     answer:
       "Knee arthritis is most often osteoarthritis. It typically causes knee pain with activity such as walking or stairs, stiffness after rest and sometimes swelling. NICE guideline NG226 recommends therapeutic exercise and, if you are living with overweight, weight loss as core treatment, with a topical NSAID as the first medicine to offer for knee osteoarthritis.",
     updatedAt: "2026-11-11",
@@ -248,7 +264,10 @@ export const PAGE_AEO: Record<string, AeoPage> = {
 
   // â”€â”€ Guides â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   "/guides/newly-diagnosed": withDefaults({
-    question: "I've just been diagnosed with arthritis — what should I do?",
+        synonyms: [
+      { term: "GP and NHS consultant", variants: "UK route to specialist care; in the US and Canada the equivalent is a primary care physician referring to a rheumatologist." },
+    ],
+question: "I've just been diagnosed with arthritis — what should I do?",
     answer:
       "Book a rheumatology follow-up if not already arranged, start gentle daily movement, and read up on your specific type. NICE recommends beginning exercise and joint protection within weeks of diagnosis for best long-term outcomes. Track symptoms, ask your GP about pain relief options, and consider our free virtual physiotherapy triage.",
     faqs: [
@@ -268,7 +287,11 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     ],
   }),
   "/guides/arthritis-pain-relief": withDefaults({
-    question: "How do I relieve arthritis pain?",
+        synonyms: [
+      { term: "Paracetamol", variants: "Called acetaminophen in the US and Canada; Tylenol is a common US and Canada brand name." },
+      { term: "GP", variants: "Family doctor in the UK and Australia; called a primary care physician in the US and Canada." },
+    ],
+question: "How do I relieve arthritis pain?",
     answer:
       "Use heat for stiff joints or a wrapped cold pack for hot, swollen ones, keep moving gently and build up exercise, which NICE recommends as a core treatment for osteoarthritis. For knee osteoarthritis NICE advises trying an NSAID gel first; NSAID tablets may be added at the lowest dose for the shortest time. NICE says paracetamol and weak opioids should not be offered routinely for osteoarthritis. Inflammatory arthritis needs specialist treatment. Check with a pharmacist or GP what is safe for you.",
     faqs: [
@@ -290,7 +313,11 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     updatedAt: "2026-11-11",
   }),
   "/guides/knee-exercises-for-osteoarthritis": withDefaults({
-    question: "What are the best free knee exercises for osteoarthritis in the UK?",
+        synonyms: [
+      { term: "Genu varum", variants: "Clinical term for bow-legs, often linked to inner-knee (medial) osteoarthritis." },
+      { term: "Total knee arthroplasty (TKA)", variants: "Medical name for a total knee replacement." },
+    ],
+question: "What are the best free knee exercises for osteoarthritis in the UK?",
     answer:
       "NICE guideline NG226 recommends therapeutic exercise, including local muscle strengthening and general aerobic fitness, as a core treatment for knee osteoarthritis. This free 8-move home routine strengthens the thigh, hip and calf muscles that support the knee. Pain may increase at first; NICE says regular, consistent exercise is still beneficial, so build up gradually.",
     takeaways: [
