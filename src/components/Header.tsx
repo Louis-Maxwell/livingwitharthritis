@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useRef, useCallback, Suspense, type MouseEvent, type KeyboardEvent } from "react";
+﻿import { useState, useEffect, useRef, useCallback, useMemo, Suspense, type MouseEvent, type KeyboardEvent } from "react";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, BookOpen, BookMarked, ChevronDown, Stethoscope, Activity, Newspaper, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search, ShoppingBag } from "lucide-react";
@@ -78,21 +78,7 @@ const Header = () => {
     return () => observer.disconnect();
   }, [pathname]);
 
-  /* Determine if a top-level nav link is active (route OR hash match,
-     including any of its sub-items routes). */
-  const isLinkActive = useCallback(
-    (link: NavLink): boolean => {
-      const matchHref = (href: string) => {
-        if (!href) return false;
-        if (href.startsWith("#")) return activeHash === href;
-        if (href === "/") return pathname === "/";
-        return pathname === href || pathname.startsWith(`${href}/`);
-      };
-      if (matchHref(link.href)) return true;
-      return Boolean(link.subs?.some((s) => matchHref(s.href)));
-    },
-    [pathname, activeHash]
-  );
+
 
   const handleScroll = useCallback(() => {
     const currentY = window.scrollY;
@@ -213,6 +199,36 @@ const Header = () => {
     },
     { label: "Resources", href: "#resources", action: () => setResourceDrawerOpen(true) },
   ];
+
+  /* Exactly one top-level nav item shows active at a time. Dropdowns share
+     destinations (e.g. "Guides Hub" lives under both Guides and Community &
+     Support), so per-item matching highlighted several items on most pages.
+     Score every item and let the single best match win: an exact route match
+     beats a prefix match, a longer href beats a shorter one, and ties go to
+     the earliest item in nav order. Everything else stays neutral. Dropdown
+     membership and routes are unchanged. */
+  const activeNavLabel = useMemo(() => {
+    const score = (href: string): number => {
+      if (!href) return 0;
+      if (href.startsWith("#")) return activeHash === href ? 1 : 0;
+      if (href === "/") return pathname === "/" ? 1 : 0;
+      if (pathname === href) return 1000 + href.length;
+      if (pathname.startsWith(`${href}/`)) return href.length;
+      return 0;
+    };
+    let winner: string | null = null;
+    let best = 0;
+    for (const link of navLinks) {
+      let s = score(link.href);
+      for (const sub of link.subs ?? []) s = Math.max(s, score(sub.href));
+      if (s > best) {
+        best = s;
+        winner = link.label;
+      }
+    }
+    return winner;
+    // navLinks is a stable per-render literal; pathname/activeHash drive the result.
+  }, [pathname, activeHash]);
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
@@ -412,7 +428,7 @@ const Header = () => {
               {/* Desktop nav */}
               <nav className="hidden lg:flex items-center gap-0.5 mx-auto" aria-label="Main navigation">
                 {navLinks.map((link) => {
-                  const active = isLinkActive(link);
+                  const active = link.label === activeNavLabel;
                   const open = activeDropdown === link.label;
                   const isHash = link.href.startsWith("#");
                   const isExternal = /^https?:\/\//.test(link.href);
