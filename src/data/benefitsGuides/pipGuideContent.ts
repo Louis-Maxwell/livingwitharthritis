@@ -7,14 +7,14 @@
 
 export const PIP_GUIDE_TITLE = "Complete PIP guide for arthritis: eligibility, points, claiming and challenges (UK)";
 
-export const PIP_GUIDE_META_TITLE = "Can You Claim PIP for Arthritis? Step-by-Step (2026)";
+export const PIP_GUIDE_META_TITLE = "Claiming PIP for Arthritis: UK Guide | Living With Arthritis";
 
-export const PIP_GUIDE_DESCRIPTION = "PIP depends on how arthritis affects your daily living and mobility, not the diagnosis. How to claim, the points you need, evidence and appeals.";
+export const PIP_GUIDE_DESCRIPTION = "Learn how to claim PIP for arthritis in the UK. Understand daily living and mobility descriptors, points scoring, and medical evidence needed to succeed.";
 
 export const PIP_GUIDE_QUICK_ANSWER = "Daily living and mobility are scored separately across 12 activities. In each part, 8 to 11 points gives the standard rate and 12 or more the enhanced rate. PIP is not means-tested and you can claim while working. In Scotland you claim Adult Disability Payment instead.";
 
 export const PIP_GUIDE_ANSWER =
-  "PIP eligibility depends on how arthritis affects your daily living and mobility, not the diagnosis alone. In England and Wales, call the DWP PIP new claims line on 0800 917 2222 (Mon-Fri, 8am-5pm), then return the PIP2 form within 1 month with evidence. You may have an assessment. If you disagree, ask for mandatory reconsideration within 1 month, then appeal to a tribunal.";
+  "Yes, you can claim Personal Independence Payment (PIP) for arthritis if joint pain, stiffness, or fatigue limits your daily living or mobility. Eligibility depends entirely on how arthritis impairs functional activities—such as washing, dressing, cooking, and walking—not on diagnosis alone. Claims require medical evidence and completing the DWP PIP2 questionnaire.";
 export const PIP_GUIDE_CHECKED = "11 November 2026";
 
 /** Numbered claim steps: rendered as the visible <ol> and as HowTo JSON-LD. */
