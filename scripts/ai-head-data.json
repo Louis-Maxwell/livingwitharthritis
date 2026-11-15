@@ -656,12 +656,12 @@
     ]
   },
   "/conditions/polymyalgia-rheumatica": {
-    "title": "Polymyalgia Rheumatica (PMR) | UK Guide",
-    "description": "UK guide to polymyalgia rheumatica: sudden shoulder and hip stiffness over 50, low-dose steroid treatment and what recovery looks like.",
+    "title": "Polymyalgia Rheumatica: Symptoms & Treatment | Living With Arthritis",
+    "description": "Polymyalgia rheumatica (PMR): sudden shoulder and hip stiffness over 50, low-dose steroid treatment, and what recovery looks like.",
     "about": "Polymyalgia rheumatica",
     "question": "What is polymyalgia rheumatica?",
     "answer": "Polymyalgia rheumatica (PMR) causes sudden shoulder and hip stiffness and pain, mainly in adults over 50. Low-dose steroids (prednisolone 15 mg) usually give dramatic relief within days. Treatment typically continues for 1-2 years.",
-    "updatedAt": "2026-07-01",
+    "updatedAt": "2026-11-15",
     "sources": [
       {
         "name": "NHS: Polymyalgia rheumatica",
