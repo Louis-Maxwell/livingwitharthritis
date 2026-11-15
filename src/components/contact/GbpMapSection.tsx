@@ -85,9 +85,8 @@ export default function GbpMapSection({ embedUrl: override }: GbpMapSectionProps
             className="rounded-xl border border-dashed border-border bg-card/60 px-4 py-6 text-sm text-muted-foreground"
             data-testid="gbp-map-placeholder"
           >
-            Map goes live once Google Business Profile is verified. Until then,
-            use the email and phone above — we serve the whole UK, not a single
-            shopfront.
+            We serve the whole UK, not a single shopfront — use the email and
+            phone above and we will point you to the right support.
           </p>
         )}
       </div>
