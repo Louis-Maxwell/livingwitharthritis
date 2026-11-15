@@ -166,8 +166,8 @@ export default function SeoDefaults() {
       {bingVerify && (
         <meta name="msvalidate.01" content={bingVerify} />
       )}
-      <meta name="twitter:site" content="@ArthritisOrg" />
-      <meta name="twitter:creator" content="@ArthritisOrg" />
+      <meta name="twitter:site" content="@ArthritisOrgHQ" />
+      <meta name="twitter:creator" content="@ArthritisOrgHQ" />
       {/* Exactly one self-referencing canonical per page. Emitted here so
           every route gets one, including pages that use raw Helmet rather
           than <SeoHead />. The static index.html canonical is pruned above
