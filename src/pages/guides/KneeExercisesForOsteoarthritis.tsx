@@ -402,6 +402,17 @@ export default function KneeExercisesForOsteoarthritis() {
                 </p>
               </Link>
               <Link
+                to="/conditions/knee-arthritis"
+                className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5"
+              >
+                <p className="text-xs text-primary font-bold mb-1">
+                  Condition guide →
+                </p>
+                <p className="font-bold text-foreground">
+                  Knee arthritis: symptoms, best exercises &amp; treatment
+                </p>
+              </Link>
+              <Link
                 to="/guides/free-arthritis-resources-uk"
                 className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5"
               >
