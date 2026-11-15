@@ -376,6 +376,13 @@ const Osteoarthritis = () => (
             </Link>
             , and see your GP. Painkillers alone are not enough for inflammatory arthritis.
           </p>
+          <p>
+            In depth:{" "}
+            <Link to="/conditions/osteoarthritis/symptoms" className="text-primary underline">
+              osteoarthritis symptoms and what to look for
+            </Link>
+            .
+          </p>
         </Section>
 
         <Section icon={Stethoscope} title="3. Diagnosis: GP first, imaging not always first">
@@ -448,6 +455,17 @@ const Osteoarthritis = () => (
           </ul>
           <p>
             Some aching when you start is normal and should settle; pain that lasts into the next day means do a bit less next time.
+          </p>
+          <p>
+            In depth:{" "}
+            <Link to="/conditions/osteoarthritis/exercises" className="text-primary underline">
+              best exercises for osteoarthritis
+            </Link>{" "}
+            and{" "}
+            <Link to="/conditions/osteoarthritis/treatment" className="text-primary underline">
+              osteoarthritis treatment options
+            </Link>
+            .
           </p>
         </Section>
 
@@ -554,6 +572,13 @@ const Osteoarthritis = () => (
               diet hub
             </Link>
             . Supplements such as glucosamine are not recommended by NICE for osteoarthritis; check any supplement with a pharmacist.
+          </p>
+          <p>
+            In depth:{" "}
+            <Link to="/conditions/osteoarthritis/diet" className="text-primary underline">
+              diet for osteoarthritis
+            </Link>
+            .
           </p>
         </Section>
 
