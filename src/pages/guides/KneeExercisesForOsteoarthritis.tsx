@@ -9,6 +9,7 @@ import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import RoutineBuilder from "@/components/tools/RoutineBuilder";
 import WhatsAppShare from "@/components/share/WhatsAppShare";
 import JointVisualizer from "@/components/exercises/JointVisualizer";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
@@ -325,6 +326,7 @@ export default function KneeExercisesForOsteoarthritis() {
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/knee-exercises-for-osteoarthritis" />
           <GpPrepSheet />
+          <RoutineBuilder />
           <WhatsAppShare path="/guides/knee-exercises-for-osteoarthritis" title="Knee osteoarthritis exercises: 8-move home routine" />
           <JointVisualizer joint="knee" />
           <ArticleCitations citations={CITATIONS_KNEE_EXERCISES} />
