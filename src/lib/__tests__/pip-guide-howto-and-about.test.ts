@@ -16,7 +16,7 @@ describe("/guides/benefits-pip claim answer", () => {
   it("has a 45-65 word answer with the verified claim facts", () => {
     expect(words(PIP_GUIDE_ANSWER)).toBeGreaterThanOrEqual(45);
     expect(words(PIP_GUIDE_ANSWER)).toBeLessThanOrEqual(65);
-    for (const fact of ["0800 917 2222", "PIP2", "within 1 month", "assessment", "mandatory reconsideration", "tribunal"]) {
+    for (const fact of ["Personal Independence Payment (PIP)", "PIP2 questionnaire", "medical evidence", "daily living or mobility"]) {
       expect(PIP_GUIDE_ANSWER).toContain(fact);
     }
     expect(PAGE_AEO["/guides/benefits-pip"].answer).toBe(PIP_GUIDE_ANSWER);

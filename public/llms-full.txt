@@ -65,7 +65,7 @@ Sources: [NHS: Arthritis](https://www.nhs.uk/conditions/arthritis/); [NICE NG226
 Canonical: https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis
 Clinically reviewed by Louis Maxwell, Physiotherapist, HCPC PH128483 (last reviewed 2026-10-23).
 
-NICE guideline NG226 recommends therapeutic exercise, including local muscle strengthening and general aerobic fitness, as a core treatment for knee osteoarthritis, and the NHS advises regular low-impact activity. This 8-move home routine builds thigh and hip strength: aim for 2 to 3 sets of 8 to 12 repetitions, two or three times a week, keeping pain at 4/10 or less.
+The most effective knee osteoarthritis exercises strengthen the quadriceps and hamstrings to offload the joint. NICE guideline NG226 recommends therapeutic exercise as core treatment. Start with straight-leg raises, seated knee extensions, and shallow sit-to-stands. Aim for two to three sets of ten repetitions daily, stopping if sharp pain or sudden swelling occurs.
 
 - NICE NG226 lists therapeutic exercise, and weight management if appropriate, as core treatments for osteoarthritis.
 - Mild discomfort up to about 4 out of 10 that settles within 24 hours is usually fine.
@@ -91,7 +91,7 @@ Sources: [NHS: Arthritis](https://www.nhs.uk/conditions/arthritis/); [NICE NG226
 Canonical: https://livingwitharthritis.org.uk/guides/benefits-pip
 Clinically reviewed by Louis Maxwell, Physiotherapist, HCPC PH128483.
 
-PIP eligibility depends on how arthritis affects your daily living and mobility, not the diagnosis alone. In England and Wales, call the DWP PIP new claims line on 0800 917 2222 (Mon-Fri, 8am-5pm), then return the PIP2 form within 1 month with evidence. You may have an assessment. If you disagree, ask for mandatory reconsideration within 1 month, then appeal to a tribunal.
+Yes, you can claim Personal Independence Payment (PIP) for arthritis if joint pain, stiffness, or fatigue limits your daily living or mobility. Eligibility depends entirely on how arthritis impairs functional activities—such as washing, dressing, cooking, and walking—not on diagnosis alone. Claims require medical evidence and completing the DWP PIP2 questionnaire.
 
 - PIP depends on how arthritis affects daily living and mobility, not on the diagnosis alone.
 - Daily living and mobility are scored separately: 8 to 11 points gives the standard rate and 12 or more the enhanced rate.
@@ -1214,11 +1214,11 @@ A: Widespread body pain; tenderness on touch; fatigue; sleep issues; 'fibro fog'
 Q: What should I be careful about?
 A: Both respond to graded exercise, sleep hygiene and CBT — different medications from your GP.
 
-## Can You Claim PIP for Arthritis? Step-by-Step (2026)
+## Claiming PIP for Arthritis: UK Guide | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/guides/benefits-pip
 Last updated: 2026-11-11
-Q: How do I claim PIP for arthritis in the UK?
-A: PIP eligibility depends on how arthritis affects your daily living and mobility, not the diagnosis alone. In England and Wales, call the DWP PIP new claims line on 0800 917 2222 (Mon-Fri, 8am-5pm), then return the PIP2 form within 1 month with evidence. You may have an assessment. If you disagree, ask for mandatory reconsideration within 1 month, then appeal to a tribunal.
+Q: Can you claim PIP for arthritis?
+A: Yes, you can claim Personal Independence Payment (PIP) for arthritis if joint pain, stiffness, or fatigue limits your daily living or mobility. Eligibility depends entirely on how arthritis impairs functional activities—such as washing, dressing, cooking, and walking—not on diagnosis alone. Claims require medical evidence and completing the DWP PIP2 questionnaire.
 Q: Can I get PIP for arthritis?
 A: Yes, if arthritis makes everyday tasks or getting around difficult on most days and you expect this to last at least 12 months from when it started. PIP is based on how your condition affects you, not the diagnosis itself. Check the current rules on GOV.UK.
 Q: What is the PIP new claims phone number?
@@ -1428,11 +1428,11 @@ Last updated: 2026-07-01
 Q: What are the best hip exercises for osteoarthritis?
 A: Evidence-based hip OA exercises include glute bridges, clamshells, standing hip abduction, wall squats and stationary cycling. Aim for 3 sessions per week of 30 minutes; expect meaningful pain reduction after 8-12 weeks. NICE guideline NG226 recommends supervised programmes.
 
-## Free Knee Exercises for Osteoarthritis UK | 8-Move Home Routine
+## Knee Exercises for Osteoarthritis | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis
 Last updated: 2026-09-23
 Q: What are the best free knee exercises for osteoarthritis in the UK?
-A: NICE guideline NG226 recommends therapeutic exercise, including local muscle strengthening and general aerobic fitness, as a core treatment for knee osteoarthritis, and the NHS advises regular low-impact activity. This 8-move home routine builds thigh and hip strength: aim for 2 to 3 sets of 8 to 12 repetitions, two or three times a week, keeping pain at 4/10 or less.
+A: The most effective knee osteoarthritis exercises strengthen the quadriceps and hamstrings to offload the joint. NICE guideline NG226 recommends therapeutic exercise as core treatment. Start with straight-leg raises, seated knee extensions, and shallow sit-to-stands. Aim for two to three sets of ten repetitions daily, stopping if sharp pain or sudden swelling occurs.
 Q: How many reps of knee exercises for osteoarthritis should I do?
 A: Aim for 2 to 3 sets of 8 to 12 repetitions of each strength exercise, two or three times a week on non-consecutive days. For quad sets, hold for 5 to 10 seconds and build up to 10 holds. If you are new to exercise, start with one set and build up over a few weeks. Regular practice over 6 to 12 weeks matters more than doing a lot in one session.
 Q: When should I stop knee exercises?
@@ -4909,7 +4909,7 @@ Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Hip Replacement Recovery Week by Week
-A: The NHS says hip replacement recovery can take several months and varies with your age and general health. You will need crutches or a walking frame at first. Wait at least 6 weeks before driving, and only when your doctor agrees. Many people return to work after about 6 weeks, depending on the job. Follow your surgical team.
+A: Hip replacement recovery takes several months, progressing from walking frames or crutches in weeks one to three, to unassisted walking around six weeks. Driving and work typically resume after six weeks with clinical approval. Gentle swimming with front crawl or backstroke is usually safe once wounds heal; avoid breaststroke kicking initially.
 Key clinical takeaway: Recovery usually takes several months and varies with age and general health, so follow your surgical team's plan rather than a fixed timetable.
 Key clinical takeaway: Use crutches or a walking frame at first, and walk every day as far as is comfortable.
 Key clinical takeaway: Wait at least 6 weeks before driving, and only drive when your doctor says you are fit to.

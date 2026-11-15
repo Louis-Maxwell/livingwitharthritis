@@ -319,7 +319,7 @@ question: "How do I relieve arthritis pain?",
     ],
 question: "What are the best free knee exercises for osteoarthritis in the UK?",
     answer:
-      "NICE guideline NG226 recommends therapeutic exercise, including local muscle strengthening and general aerobic fitness, as a core treatment for knee osteoarthritis. This free 8-move home routine strengthens the thigh, hip and calf muscles that support the knee. Pain may increase at first; NICE says regular, consistent exercise is still beneficial, so build up gradually.",
+      "The most effective knee osteoarthritis exercises strengthen the quadriceps and hamstrings to offload the joint. NICE guideline NG226 recommends therapeutic exercise as core treatment. Start with straight-leg raises, seated knee extensions, and shallow sit-to-stands. Aim for two to three sets of ten repetitions daily, stopping if sharp pain or sudden swelling occurs.",
     takeaways: [
       "NICE NG226 lists therapeutic exercise, and weight management if appropriate, as core treatments for osteoarthritis.",
       "Long-term, regular exercise increases the benefits, reducing pain and improving function and quality of life (NICE NG226).",
@@ -399,9 +399,9 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
     ],
   }),
   "/guides/benefits-pip": withDefaults({
-    question: "How do I claim PIP for arthritis in the UK?",
+    question: "Can you claim PIP for arthritis?",
     answer:
-      "PIP eligibility depends on how arthritis affects your daily living and mobility, not the diagnosis alone. In England and Wales, call the DWP PIP new claims line on 0800 917 2222 (Mon-Fri, 8am-5pm), then return the PIP2 form within 1 month with evidence. You may have an assessment. If you disagree, ask for mandatory reconsideration within 1 month, then appeal to a tribunal.",
+      "Yes, you can claim Personal Independence Payment (PIP) for arthritis if joint pain, stiffness, or fatigue limits your daily living or mobility. Eligibility depends entirely on how arthritis impairs functional activities—such as washing, dressing, cooking, and walking—not on diagnosis alone. Claims require medical evidence and completing the DWP PIP2 questionnaire.",
     takeaways: [
       "PIP depends on how arthritis affects daily living and mobility, not on the diagnosis alone.",
       "Daily living and mobility are scored separately: 8 to 11 points gives the standard rate and 12 or more the enhanced rate.",
