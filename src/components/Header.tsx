@@ -207,7 +207,9 @@ const Header = () => {
      beats a prefix match, a longer href beats a shorter one, and ties go to
      the earliest item in nav order. Everything else stays neutral. Dropdown
      membership and routes are unchanged. */
-  const activeNavLabel = useMemo(() => {
+  // Computed inline each render: navLinks is a per-render literal anyway,
+  // so memoizing would add hook-deps noise without saving work.
+  const activeNavLabel = (() => {
     const score = (href: string): number => {
       if (!href) return 0;
       if (href.startsWith("#")) return activeHash === href ? 1 : 0;
@@ -227,8 +229,7 @@ const Header = () => {
       }
     }
     return winner;
-    // navLinks is a stable per-render literal; pathname/activeHash drive the result.
-  }, [pathname, activeHash]);
+  })();
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
