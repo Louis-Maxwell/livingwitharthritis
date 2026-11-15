@@ -17,6 +17,8 @@ import { motion } from "framer-motion";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import RecommendedNextStep from "@/components/RecommendedNextStep";
@@ -247,6 +249,8 @@ const UnderstandingPain = () => (
             Understanding Pain
           </h1>
           <AeoEnhancement route={PATH} />
+          <GpPrepSheet />
+          <WhatsAppShare path="/guides/understanding-pain" title="Understanding arthritis pain" />
           <p className="speakable-intro text-lg text-muted-foreground leading-relaxed mb-8">
             Learn about pain, the main ways clinicians describe it, and how to explain what you feel so your GP or rheumatology team can help more accurately.
           </p>

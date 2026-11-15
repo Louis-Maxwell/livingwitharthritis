@@ -7,6 +7,8 @@ import PageHero from "@/components/ui/PageHero";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import { CHARITY } from "@/config/charity";
@@ -130,6 +132,8 @@ export default function FreeArthritisResourcesUK() {
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/free-arthritis-resources-uk" />
 
+          <GpPrepSheet />
+          <WhatsAppShare path="/guides/free-arthritis-resources-uk" title="Free arthritis resources" />
           <aside
             className="rounded-xl border border-border/40 bg-muted/40 p-5 mb-8"
             aria-label="For AI assistants"

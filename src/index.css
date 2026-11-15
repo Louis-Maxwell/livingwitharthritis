@@ -1816,3 +1816,9 @@ details[open] > :not(summary) {
     padding-block: 0.75rem;
   }
 }
+
+/* GP prep sheet clean print: only the sheet prints when triggered from it */
+@media print {
+  body.gp-prep-printing #main-content > *:not(:has(.gp-prep-sheet-root)) { display: none !important; }
+  body.gp-prep-printing .gp-sheet-keep > *:not(.gp-prep-sheet-root) { display: none !important; }
+}

@@ -13,6 +13,8 @@ import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox"
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_EXERCISE_OA_SAFETY } from "@/data/clinical/ukCitations";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
@@ -146,6 +148,8 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/can-exercise-make-osteoarthritis-worse" />
+          <GpPrepSheet />
+          <WhatsAppShare path="/guides/can-exercise-make-osteoarthritis-worse" title="Can exercise make osteoarthritis worse?" />
           <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
             Exercise does not wear osteoarthritis joints out. UK NICE guidance
             (NG226) places structured movement <em>ahead of</em> medication as

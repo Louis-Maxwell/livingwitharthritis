@@ -9,6 +9,8 @@ import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import ArticleHtmlWithNextStep from "@/components/ArticleHtmlWithNextStep";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
 import JointVisualizer from "@/components/exercises/JointVisualizer";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
@@ -251,6 +253,8 @@ export default function HipExercisesForOsteoarthritis() {
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/hip-exercises-for-osteoarthritis" />
+          <GpPrepSheet />
+          <WhatsAppShare path="/guides/hip-exercises-for-osteoarthritis" title="Hip osteoarthritis exercises" />
           <JointVisualizer joint="hip" />
           <ArticleCitations citations={CITATIONS_HIP_EXERCISES} />
           <EducationalDisclaimerBox lastReviewed="2026-10-23" />

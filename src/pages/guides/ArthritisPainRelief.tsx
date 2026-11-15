@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import ArticleCitations from "@/components/blog/ArticleCitations";
@@ -106,6 +108,8 @@ const ArthritisPainRelief = () => (
             Arthritis pain relief: start here when joints hurt
           </h1>
             <AeoEnhancement route="/guides/arthritis-pain-relief" />
+            <GpPrepSheet />
+            <WhatsAppShare path="/guides/arthritis-pain-relief" title="Arthritis pain relief guide" />
           <p className="speakable-intro text-lg text-muted-foreground leading-relaxed">
             If your joints hurt today: use heat on stiff joints or a wrapped cold pack on hot, swollen ones, keep moving gently rather than resting completely, and use a pain relief option your pharmacist or GP has said is right for you. Then build a plan for flares, sleep and exercise so pain is easier to manage over time. This guide follows NHS and NICE advice and tells you when to get help.
           </p>
