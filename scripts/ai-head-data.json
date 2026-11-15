@@ -6807,12 +6807,7 @@
           }
         ]
       }
-    },
-    "ogImage": "https://livingwitharthritis.org.uk/brand/lwa-logo-square-720.png",
-    "ogImageWidth": 720,
-    "ogImageHeight": 720,
-    "ogImageAlt": "Living With Arthritis logo",
-    "twitterCard": "summary"
+    }
   },
   "/guides/exercise": {
     "title": "Arthritis Exercises at Home: Free Knee, Hip & Hand Routines",
@@ -7751,5 +7746,141 @@
       }
     ],
     "updatedAt": "2026-11-10"
+  },
+  "/supplements/glucosamine": {
+    "title": "Glucosamine for Arthritis: Does It Work? UK Guide | Living With Arthritis",
+    "description": "UK guide to glucosamine for arthritis — what the evidence really says, glucosamine sulfate vs HCl, dosage, side effects and how it compares to chondroitin, MSM and collagen.",
+    "question": "Does glucosamine work for arthritis?",
+    "answer": "Glucosamine is a supplement sold for joint pain, usually derived from shellfish or made by corn fermentation. Evidence is mixed: some studies report small benefits for osteoarthritis while others do not, and NICE advises healthcare professionals not to offer it. There is no good evidence it regrows cartilage.",
+    "updatedAt": "2026-11-15",
+    "breadcrumb": "Glucosamine",
+    "faqs": [
+      {
+        "q": "Does glucosamine actually work for arthritis?",
+        "a": "Evidence is mixed and NICE advises healthcare professionals not to offer glucosamine for osteoarthritis. Some studies report small benefits, while others do not. It is not a cure and there is no good evidence that it regrows cartilage."
+      },
+      {
+        "q": "Is glucosamine sulfate better than glucosamine HCl?",
+        "a": "Research has used different formulations, which is one reason results are difficult to compare. Some positive studies used glucosamine sulfate, but NICE does not recommend offering glucosamine for osteoarthritis."
+      },
+      {
+        "q": "How long until glucosamine works?",
+        "a": "There is no reliable timeframe because evidence of benefit is inconsistent. If you choose to try it, discuss the product and a sensible review point with a pharmacist or GP rather than continuing indefinitely without benefit."
+      },
+      {
+        "q": "What's the right glucosamine dosage?",
+        "a": "There is no NHS-recommended dose for treating arthritis. Trial doses and retail products vary. Follow the product directions and ask a pharmacist before use, particularly if you take other medicines."
+      },
+      {
+        "q": "What are the side effects of glucosamine?",
+        "a": "Side effects can include stomach upset, heartburn, nausea or headache. Ask a pharmacist or GP before taking it if you use warfarin, have allergies, are pregnant or breastfeeding, or have another health condition."
+      },
+      {
+        "q": "Glucosamine vs chondroitin — which is better?",
+        "a": "Evidence for both products, alone or together, is inconsistent. Neither should replace exercise, weight management where appropriate, or treatment recommended by your healthcare professional."
+      }
+    ]
+  },
+  "/supplements/msm": {
+    "title": "MSM Supplement for Joint Pain: UK Guide & Evidence | Living With Arthritis",
+    "description": "What is MSM (methylsulfonylmethane)? Honest UK guide to the evidence for joint pain and arthritis, dosage, side effects and whether MSM is worth combining with glucosamine.",
+    "question": "Does MSM work for arthritis and joint pain?",
+    "answer": "MSM (methylsulfonylmethane) is a sulphur compound sold as a supplement for joint pain and stiffness. Small-to-medium trials of 1,500 to 6,000 mg a day show modest reductions in knee osteoarthritis pain over 12 weeks. It is well tolerated; check with your GP or pharmacist before starting it.",
+    "updatedAt": "2026-11-15",
+    "breadcrumb": "MSM",
+    "faqs": [
+      {
+        "q": "What is MSM?",
+        "a": "MSM stands for methylsulfonylmethane — an organic sulfur compound found naturally in plants, animals and humans. As a supplement it's sold for joint pain, stiffness and inflammation, usually as a white odourless powder or tablet."
+      },
+      {
+        "q": "Does MSM work for arthritis and joint pain?",
+        "a": "Small-to-medium trials of MSM (1,500–6,000 mg/day) show modest reductions in knee osteoarthritis pain and stiffness over 12 weeks. Evidence is less strong than for glucosamine sulfate or curcumin, but MSM is well tolerated and often combined with glucosamine."
+      },
+      {
+        "q": "What is the correct MSM dosage?",
+        "a": "Most trials use 1,500–3,000 mg per day, split into two or three doses with food. Higher doses have been studied only briefly and show no clear extra benefit. Check with your GP or pharmacist before starting it."
+      },
+      {
+        "q": "How long does MSM take to work?",
+        "a": "Allow 8–12 weeks of daily use. If you feel no improvement in pain or stiffness by 3 months, stop."
+      },
+      {
+        "q": "Are there any side effects of MSM?",
+        "a": "MSM is one of the better-tolerated joint supplements. Mild bloating, diarrhoea, nausea, headache or skin rash are the most common issues. Avoid if you are pregnant, breastfeeding, or take blood thinners — and speak to your GP first if you take regular medication."
+      },
+      {
+        "q": "MSM vs glucosamine — which is better?",
+        "a": "They work differently. Glucosamine supports cartilage structure; MSM appears to reduce inflammation and oxidative stress in the joint. The combination is more studied than MSM alone and tends to be the formulation most UK brands sell."
+      }
+    ]
+  },
+  "/supplements/collagen": {
+    "title": "Collagen for Arthritis: Does It Work? UK Evidence Guide",
+    "description": "Collagen supplements may slightly help pain or stiffness for some people with osteoarthritis, but results are inconsistent and many studies are small or industry-funded. There is no good evidence collagen rebuilds cartilage, and NICE and the NHS do not recommend it. It is generally safe, but check combination products with a pharmacist and never use it instead of prescribed treatment.",
+    "question": "Do collagen supplements help arthritis?",
+    "answer": "Collagen supplements may slightly help pain or stiffness for some people with osteoarthritis, but results are inconsistent and many studies are small or industry-funded. There is no good evidence collagen rebuilds cartilage, and NICE and the NHS do not recommend it. It is generally safe, but check combination products with a pharmacist and never use it instead of prescribed treatment.",
+    "updatedAt": "2026-11-15",
+    "breadcrumb": "Collagen",
+    "faqs": [
+      {
+        "q": "Does collagen help arthritis?",
+        "a": "Possibly a little for some people with osteoarthritis, but the evidence is mixed. Some trials and reviews report small improvements in pain or stiffness, while others do not, and products and doses vary. Arthritis UK says there is not enough evidence to recommend collagen as a routine treatment, and the NHS does not recommend it."
+      },
+      {
+        "q": "Can collagen rebuild cartilage?",
+        "a": "No. There is no good evidence that collagen supplements can rebuild cartilage that has already been damaged by arthritis. Be cautious of any product that claims to."
+      },
+      {
+        "q": "Which type of collagen is used for joints?",
+        "a": "The two forms studied most are hydrolysed collagen (collagen peptides, mainly types I and III, from cow, pig or fish) and undenatured type II collagen (often sold as UC-II, from chicken cartilage). They work differently, so results for one do not apply to the other."
+      },
+      {
+        "q": "Does collagen interact with arthritis medicines?",
+        "a": "Arthritis UK says there are no well-known interactions between collagen and arthritis medicines. However, many joint products also contain ingredients such as turmeric, fish oil or glucosamine, which can matter if you take warfarin, other blood thinners, NSAIDs or methotrexate. Ask a pharmacist to check the full ingredients."
+      },
+      {
+        "q": "Is collagen available on the NHS?",
+        "a": "No. Collagen is a food supplement, not a licensed medicine, and it is not recommended by NICE or the NHS for arthritis. It is not available on prescription."
+      },
+      {
+        "q": "Is there vegan collagen?",
+        "a": "Real collagen only comes from animals or fish. Products sold as vegan or plant-based collagen contain ingredients meant to help your body make its own collagen, and there is very little research on whether they help joints."
+      }
+    ]
+  },
+  "/supplements/collagen-alternatives": {
+    "title": "Collagen Alternatives for Joints: UK Evidence Guide | Living With Arthritis",
+    "description": "Vegan, halal and allergy-safe alternatives to collagen for arthritis — turmeric, glucosamine, MSM, omega-3, vitamin C and D. Doses, evidence strength and honest caveats.",
+    "question": "What are the alternatives to collagen supplements?",
+    "answer": "Collagen is always animal-derived, so products sold as vegan collagen are actually collagen builders: vitamin C, amino acids, zinc and plant extracts. For joint pain, turmeric (around 1,000 mg a day of curcumin) has the strongest evidence of the common alternatives. Check interactions with your GP or pharmacist.",
+    "updatedAt": "2026-11-15",
+    "breadcrumb": "Collagen alternatives",
+    "faqs": [
+      {
+        "q": "Is there a vegan collagen supplement?",
+        "a": "No. All collagen is animal-derived — bovine hide, chicken sternum or fish skin. Products sold as \"vegan collagen\" contain no collagen at all: they are collagen builders, usually vitamin C, amino acids such as glycine and proline, zinc and plant extracts, intended to support your own collagen production."
+      },
+      {
+        "q": "What is the best alternative to collagen for joint pain?",
+        "a": "Turmeric (around 1,000 mg/day of curcumin with piperine or a high-absorption formulation) has the strongest anti-inflammatory evidence of the common joint supplements, and has performed comparably to ibuprofen in knee osteoarthritis trials. It is also plant-based, so it suits vegan, halal, kosher and fish-allergy diets."
+      },
+      {
+        "q": "Which joint supplements are halal or kosher?",
+        "a": "Turmeric/curcumin, MSM, vitamin C, vitamin D (choose a lichen-derived D3 or D2), and algal omega-3 are all plant or mineral based and generally suitable. Glucosamine is usually shellfish-derived, though vegetarian corn-fermented glucosamine exists. Collagen and most fish oils are not."
+      },
+      {
+        "q": "What can I take instead of collagen if I have a fish allergy?",
+        "a": "Avoid marine collagen and standard fish oil. Safe alternatives include turmeric/curcumin, MSM, algal omega-3 (grown from algae, not fish), vitamin D and vitamin C. Glucosamine is commonly made from shellfish shells, so check the label if you have a shellfish allergy too."
+      },
+      {
+        "q": "What should I take instead of collagen for knee osteoarthritis?",
+        "a": "For knees specifically, some trials have looked at curcumin, glucosamine sulfate and MSM. Effects are modest at best, and NICE advises against glucosamine on the NHS. Check with your GP or pharmacist before starting any of them. A progressive quadriceps and glute strengthening programme reliably outperforms any of them."
+      },
+      {
+        "q": "Can diet replace a collagen supplement?",
+        "a": "Largely, yes. Your body builds its own collagen from amino acids and vitamin C, so adequate protein (roughly 1.0–1.2 g per kg of body weight a day for older adults) plus fruit and vegetables covers the raw materials. A Mediterranean-style anti-inflammatory pattern also helps with weight and inflammation, which matter more than any capsule."
+      }
+    ]
   }
 }
