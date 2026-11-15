@@ -10,6 +10,7 @@ import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import ArticleHtmlWithNextStep from "@/components/ArticleHtmlWithNextStep";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import RoutineBuilder from "@/components/tools/RoutineBuilder";
 import WhatsAppShare from "@/components/share/WhatsAppShare";
 import JointVisualizer from "@/components/exercises/JointVisualizer";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
@@ -254,6 +255,7 @@ export default function HipExercisesForOsteoarthritis() {
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/hip-exercises-for-osteoarthritis" />
           <GpPrepSheet />
+          <RoutineBuilder />
           <WhatsAppShare path="/guides/hip-exercises-for-osteoarthritis" title="Hip osteoarthritis exercises" />
           <JointVisualizer joint="hip" />
           <ArticleCitations citations={CITATIONS_HIP_EXERCISES} />
