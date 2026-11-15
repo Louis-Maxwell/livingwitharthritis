@@ -55,7 +55,7 @@ describe("public SEO / AEO identity", () => {
     expect(CONTACT_EMAILS.info).toBe("info@livingwitharthritis.org.uk");
     expect(CONTACT_PHONE).toBe("07760 512 084");
     expect(CONTACT_PHONE_E164).toBe("+447760512084");
-    expect(FACEBOOK_PAGE_ID).toBe("61583723925315");
+    expect(FACEBOOK_PAGE_ID).toBe("862105853655104");
     expect(ORGANIZATION_PAYLOAD.founder.name).toBe("David Williams");
     expect(ORGANIZATION_PAYLOAD.contactPoint[0].telephone.replace(/\D/g, "")).toBe(
       "447760512084",
