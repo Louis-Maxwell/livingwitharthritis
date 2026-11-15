@@ -111,6 +111,13 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
 
   const { data: blogPosts = [], isLoading } = useBlogArticlesList();
   const { data: editorPicks = [] } = useFeaturedArticles(6);
+  // One visible article count everywhere on the page: the live list the
+  // visitor can actually browse, falling back to the build-time inventory
+  // only while the list is still loading.
+  const articleCount =
+    blogPosts.length > 0
+      ? String(blogPosts.length)
+      : formatInventoryCount(CONTENT_INVENTORY.blogArticles);
 
   useEffect(() => {
     setBookmarkSlugs([...getBookmarks()]);
@@ -356,7 +363,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             <div className="flex items-center gap-3">
               <Badge className="bg-background text-primary border-0 text-xs font-bold px-3 py-1.5">
                 <Newspaper className="w-3 h-3 mr-1.5" aria-hidden="true" />
-                {blogPosts.length} Articles
+                {articleCount} Articles
               </Badge>
               <Badge className="bg-background text-primary border-0 text-xs font-bold px-3 py-1.5">
                 <Sparkles className="w-3 h-3 mr-1.5" aria-hidden="true" />
@@ -373,7 +380,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           }
           subtitle={
             heroSubtitle ??
-            `${formatInventoryCount(CONTENT_INVENTORY.blogArticles)} articles for UK readers; clinical-review status is shown on each guide — practical help when living with arthritis feels exhausting. You are not alone.`
+            `${articleCount} articles for UK readers; clinical-review status is shown on each guide — practical help when living with arthritis feels exhausting. You are not alone.`
           }
         />
 
