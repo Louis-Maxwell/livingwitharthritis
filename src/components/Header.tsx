@@ -309,7 +309,7 @@ const Header = () => {
     <>
       {/* Scrolls away with the page so the sticky bar stays short on phones. */}
       <aside aria-label="Clinical review information" className="w-full border-b border-primary/20 bg-accent text-foreground">
-        <p className="container mx-auto max-w-7xl px-4 py-2 text-center text-xs leading-relaxed sm:px-6 sm:text-sm">Clinical review status and review dates are shown on each guide. We update content when relevant evidence or guidance changes.</p>
+        <p className="container mx-auto max-w-7xl px-3 py-1.5 text-center text-[11px] leading-snug sm:px-6 sm:py-2 sm:text-sm sm:leading-relaxed">Clinical review status and review dates are shown on each guide. We update content when relevant evidence or guidance changes.</p>
       </aside>
       {/* â”€â”€ STICKY WRAPPER — entire header block sticks together â”€â”€ */}
       <div
