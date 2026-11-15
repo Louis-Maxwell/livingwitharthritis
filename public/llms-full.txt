@@ -1988,7 +1988,7 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Rheumatoid Arthritis Diet: Foods, Meal Ideas and Limits
 URL: https://livingwitharthritis.org.uk/blog/anti-inflammatory-diet-rheumatoid-arthritis
-Last updated: 2026-10-10
+Last updated: 2026-11-15
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
@@ -3819,7 +3819,7 @@ Reference: GOV.UK: Apply for a needs assessment by social services — https://w
 
 ## Driving With Arthritis in the UK: DVLA Rules, Medicines and Help
 URL: https://livingwitharthritis.org.uk/blog/driving-with-arthritis-uk
-Last updated: 2026-10-10
+Last updated: 2026-11-15
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
@@ -4536,7 +4536,7 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Glucosamine vs Collagen: Which Is Better for Joints?
 URL: https://livingwitharthritis.org.uk/blog/glucosamine-vs-collagen
-Last updated: 2026-09-05
+Last updated: 2026-11-15
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
@@ -6139,7 +6139,7 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Medication and Supplement Interactions: DMARD, Biologic and NSAID Safety
 URL: https://livingwitharthritis.org.uk/blog/medication-supplement-interactions-arthritis
-Last updated: 2026-09-25
+Last updated: 2026-11-15
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23

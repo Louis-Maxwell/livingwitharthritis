@@ -83,9 +83,9 @@ export const faqArticles: FaqArticle[] = [
     slug: 'arthritis-disability-benefits-uk',
     title: 'Arthritis and Disability Benefits in the UK',
     question: 'Is arthritis a disability? UK PIP and claim guide',
-    seoTitle: 'What Benefits Can You Claim for Arthritis? UK Guide',
+    seoTitle: 'Can You Claim Disability Benefits for Arthritis? (UK)',
     metaDescription:
-      'PIP, Attendance Allowance, DLA for children and Access to Work: what you can claim for arthritis or osteoarthritis, who qualifies and how to apply.',
+      'Yes: arthritis can qualify for PIP, Attendance Allowance, DLA for children and Access to Work. Check who qualifies and how to apply step by step.',
     lastReviewed: REVIEW_RECORDS.faqArticles['arthritis-disability-benefits-uk'],
     quickAnswer:
       'Arthritis is not automatically a disability. Under the Equality Act 2010 it can be, if a physical impairment has a substantial and long-term adverse effect on normal day-to-day activities. PIP is not awarded from the diagnosis alone. This is educational orientation, not legal advice.',
