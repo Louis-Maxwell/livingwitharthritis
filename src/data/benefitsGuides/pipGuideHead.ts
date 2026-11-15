@@ -32,7 +32,7 @@ export function buildPipGuideHead() {
     answer: PIP_GUIDE_ANSWER,
     keyTakeaways: aeo.takeaways ?? [],
     bodyHtml,
-    updatedAt: "2026-11-11",
+    updatedAt: "2026-11-15",
     howTo: {
       name: "How to claim PIP for arthritis",
       description: PIP_GUIDE_ANSWER,

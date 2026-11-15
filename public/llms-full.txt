@@ -1216,7 +1216,7 @@ A: Both respond to graded exercise, sleep hygiene and CBT — different medicati
 
 ## Claiming PIP for Arthritis: UK Guide | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/guides/benefits-pip
-Last updated: 2026-11-11
+Last updated: 2026-11-15
 Q: Can you claim PIP for arthritis?
 A: Yes, you can claim Personal Independence Payment (PIP) for arthritis if joint pain, stiffness, or fatigue limits your daily living or mobility. Eligibility depends entirely on how arthritis impairs functional activities—such as washing, dressing, cooking, and walking—not on diagnosis alone. Claims require medical evidence and completing the DWP PIP2 questionnaire.
 Q: Can I get PIP for arthritis?
@@ -1430,7 +1430,7 @@ A: Evidence-based hip OA exercises include glute bridges, clamshells, standing h
 
 ## Knee Exercises for Osteoarthritis | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis
-Last updated: 2026-09-23
+Last updated: 2026-11-15
 Q: What are the best free knee exercises for osteoarthritis in the UK?
 A: The most effective knee osteoarthritis exercises strengthen the quadriceps and hamstrings to offload the joint. NICE guideline NG226 recommends therapeutic exercise as core treatment. Start with straight-leg raises, seated knee extensions, and shallow sit-to-stands. Aim for two to three sets of ten repetitions daily, stopping if sharp pain or sudden swelling occurs.
 Q: How many reps of knee exercises for osteoarthritis should I do?
@@ -4904,7 +4904,7 @@ Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/gu
 
 ## Hip Replacement Recovery Week by Week
 URL: https://livingwitharthritis.org.uk/blog/hip-replacement-recovery-week-by-week
-Last updated: 2026-11-10
+Last updated: 2026-11-15
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
