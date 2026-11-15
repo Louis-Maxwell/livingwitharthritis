@@ -69,6 +69,9 @@ export function looksTruncatedMeta(meta, title) {
   const t = String(title ?? '').trim();
   if (!m) return true;
   if (!t) return false;
+  // A meta_title carrying the full brand suffix is intentionally complete,
+  // never a mid-phrase clip.
+  if (m.endsWith(` | ${BRAND}`)) return false;
   // meta is a strict shorter prefix of the full title (common DB / CMS clip)
   if (t.startsWith(m) && t.length > m.length + 3) return true;
   // Suspiciously short vs title, no terminal punctuation

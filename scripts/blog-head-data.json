@@ -563,13 +563,13 @@
     ]
   },
   "/blog/anti-inflammatory-diet": {
-    "title": "Anti-Inflammatory Diet for Arthritis: What the Evidence Says and How…",
-    "description": "Which foods may help arthritis? A UK anti-inflammatory food list, what to cut back on, a sample day of meals and what the evidence really shows.",
+    "title": "Anti-Inflammatory Diet for Arthritis | Living With Arthritis",
+    "description": "An anti-inflammatory diet for arthritis: Mediterranean-style food list, what to cut back on, a sample day of meals, and what the evidence shows.",
     "question": "Anti-Inflammatory Diet for Arthritis: What the Evidence Says and How to Eat (UK Guide)",
-    "answer": "An anti-inflammatory diet for arthritis usually means a Mediterranean-style way of eating: plenty of vegetables, fruit, wholegrains, beans, nuts and olive or rapeseed oil, oily fish twice a week, and less red and processed meat, sugar and highly processed food. It will not replace your treatment, but it supports heart health, a healthy weight and overall wellbeing, which all matter with arthritis.",
-    "breadcrumb": "Anti-Inflammatory Diet for Arthritis: What the Evidence Says and How to Eat (UK Guide)",
+    "answer": "An anti-inflammatory diet for arthritis usually means a Mediterranean-style way of eating: plenty of vegetables, fruit, wholegrains, beans, nuts and olive or rapeseed oil, plus oily fish twice a week. Cut back on red and processed meat, sugar and highly processed food. Diet supports heart health, a healthy weight and wellbeing; it does not replace treatment.",
+    "breadcrumb": "Anti-Inflammatory Diet for Arthritis | Living With Arthritis",
     "about": "Diet & lifestyle",
-    "updatedAt": "2026-10-10",
+    "updatedAt": "2026-11-15",
     "ogImage": "https://livingwitharthritis.org.uk/openverse/nutrition-11-bowl-of-fresh-fruit-unsplash.webp",
     "article": {
       "slug": "anti-inflammatory-diet",
@@ -580,8 +580,8 @@
       "category": "Diet & lifestyle",
       "image_url": "/openverse/nutrition-11-bowl-of-fresh-fruit-unsplash.webp",
       "cover": "nutrition-11-bowl-of-fresh-fruit-unsplash.webp",
-      "meta_title": "Anti-Inflammatory Diet for Arthritis: UK Food List",
-      "meta_description": "Which foods may help arthritis? A UK anti-inflammatory food list, what to cut back on, a sample day of meals and what the evidence really shows.",
+      "meta_title": "Anti-Inflammatory Diet for Arthritis | Living With Arthritis",
+      "meta_description": "An anti-inflammatory diet for arthritis: Mediterranean-style food list, what to cut back on, a sample day of meals, and what the evidence shows.",
       "keywords": "anti-inflammatory diet arthritis, anti inflammatory foods uk, mediterranean diet arthritis, diet for joint pain, eatwell guide arthritis",
       "author": "Louis Maxwell",
       "author_credentials": "First Contact Practitioner, HCPC PH128483",
@@ -589,9 +589,9 @@
       "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
       "is_published": true,
       "display_order": 1006,
-      "updated_at": "2026-10-10T09:00:00.000Z",
+      "updated_at": "2026-11-15T09:00:00.000Z",
       "last_reviewed": "2026-10-23",
-      "direct_answer": "An anti-inflammatory diet for arthritis usually means a Mediterranean-style way of eating: plenty of vegetables, fruit, wholegrains, beans, nuts and olive or rapeseed oil, oily fish twice a week, and less red and processed meat, sugar and highly processed food. It will not replace your treatment, but it supports heart health, a healthy weight and overall wellbeing, which all matter with arthritis.",
+      "direct_answer": "An anti-inflammatory diet for arthritis usually means a Mediterranean-style way of eating: plenty of vegetables, fruit, wholegrains, beans, nuts and olive or rapeseed oil, plus oily fish twice a week. Cut back on red and processed meat, sugar and highly processed food. Diet supports heart health, a healthy weight and wellbeing; it does not replace treatment.",
       "citations": [
         {
           "label": "NHS: The Eatwell Guide",
@@ -16475,13 +16475,13 @@
     ]
   },
   "/blog/hand-exercises-for-arthritis": {
-    "title": "Hand Exercises for Arthritis: 10 Safe Moves (UK Guide)",
+    "title": "Hand Exercises for Arthritis | Living With Arthritis",
     "description": "10 gentle hand exercises for arthritis in fingers, thumbs and wrists: sets and reps, warm-ups, flare-day changes, stop rules and when to get help.",
     "question": "Hand Exercises for Arthritis: 10 Moves for Fingers, Thumbs and Wrists (UK)",
     "answer": "Gentle hand exercises for arthritis include finger bends, making a fist, thumb bends and opposition, finger spreads, tendon glides, wrist bends and light grip work. Do them slowly, once or twice a day, 5 to 10 repetitions each, after warming your hands. Mild stretching is fine; sharp pain, new swelling or numbness means stop and get advice.",
-    "breadcrumb": "Hand Exercises for Arthritis: 10 Safe Moves (UK Guide)",
+    "breadcrumb": "Hand Exercises for Arthritis | Living With Arthritis",
     "about": "Exercise & movement",
-    "updatedAt": "2026-10-10",
+    "updatedAt": "2026-11-15",
     "ogImage": "https://livingwitharthritis.org.uk/openverse/commons-hand-exercises-for-arthritis-79ba42.webp",
     "article": {
       "slug": "hand-exercises-for-arthritis",
@@ -16492,7 +16492,7 @@
       "category": "Exercise & movement",
       "image_url": "/openverse/commons-hand-exercises-for-arthritis-79ba42.webp",
       "cover": "commons-hand-exercises-for-arthritis-79ba42.webp",
-      "meta_title": "Hand Exercises for Arthritis: 10 Safe Moves (UK Guide)",
+      "meta_title": "Hand Exercises for Arthritis | Living With Arthritis",
       "meta_description": "10 gentle hand exercises for arthritis in fingers, thumbs and wrists: sets and reps, warm-ups, flare-day changes, stop rules and when to get help.",
       "keywords": "hand exercises for arthritis, finger exercises arthritis, thumb arthritis exercises, wrist arthritis exercises, hand osteoarthritis exercises, rheumatoid arthritis hand exercises UK",
       "author": "Louis Maxwell",
@@ -16501,7 +16501,7 @@
       "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
       "is_published": true,
       "display_order": 973,
-      "updated_at": "2026-10-10T09:00:00.000Z",
+      "updated_at": "2026-11-15T09:00:00.000Z",
       "last_reviewed": "2026-10-23",
       "direct_answer": "Gentle hand exercises for arthritis include finger bends, making a fist, thumb bends and opposition, finger spreads, tendon glides, wrist bends and light grip work. Do them slowly, once or twice a day, 5 to 10 repetitions each, after warming your hands. Mild stretching is fine; sharp pain, new swelling or numbness means stop and get advice.",
       "citations": [

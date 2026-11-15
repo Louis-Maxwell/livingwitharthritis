@@ -381,9 +381,9 @@ A: Often no. NICE says osteoarthritis can usually be diagnosed clinically; imagi
 Q: When should I see a GP?
 A: If joint pain is not improving after a few weeks, wakes you most nights, comes with swelling or morning stiffness over 30 minutes, or limits daily life. A suddenly hot, red, swollen joint with fever needs same-day help from NHS 111 or your GP.
 
-## Polymyalgia Rheumatica (PMR) | UK Guide
+## Polymyalgia Rheumatica: Symptoms & Treatment | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/conditions/polymyalgia-rheumatica
-Last updated: 2026-07-01
+Last updated: 2026-11-15
 Q: What is polymyalgia rheumatica?
 A: Polymyalgia rheumatica (PMR) causes sudden shoulder and hip stiffness and pain, mainly in adults over 50. Low-dose steroids (prednisolone 15 mg) usually give dramatic relief within days. Treatment typically continues for 1-2 years.
 Q: How is polymyalgia rheumatica diagnosed in the UK?
@@ -2002,12 +2002,12 @@ Reference: RA: dietary changes and treatment — https://www.nhs.uk/conditions/r
 
 ## Anti-Inflammatory Diet for Arthritis: What the Evidence Says and How to Eat (UK Guide)
 URL: https://livingwitharthritis.org.uk/blog/anti-inflammatory-diet
-Last updated: 2026-10-10
+Last updated: 2026-11-15
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Anti-Inflammatory Diet for Arthritis: What the Evidence Says and How to Eat (UK Guide)
-A: An anti-inflammatory diet for arthritis usually means a Mediterranean-style way of eating: plenty of vegetables, fruit, wholegrains, beans, nuts and olive or rapeseed oil, oily fish twice a week, and less red and processed meat, sugar and highly processed food. It will not replace your treatment, but it supports heart health, a healthy weight and overall wellbeing, which all matter with arthritis.
+A: An anti-inflammatory diet for arthritis usually means a Mediterranean-style way of eating: plenty of vegetables, fruit, wholegrains, beans, nuts and olive or rapeseed oil, plus oily fish twice a week. Cut back on red and processed meat, sugar and highly processed food. Diet supports heart health, a healthy weight and wellbeing; it does not replace treatment.
 Reference: NHS: The Eatwell Guide — https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/the-eatwell-guide/
 Reference: NICE NG100: Rheumatoid arthritis in adults – recommendation 1.8.8 (diet) — https://www.nice.org.uk/guidance/ng100/chapter/Recommendations
 Reference: NICE NG226: Osteoarthritis in over 16s – weight management — https://www.nice.org.uk/guidance/ng226/chapter/Recommendations
@@ -4695,7 +4695,7 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Hand Exercises for Arthritis: 10 Moves for Fingers, Thumbs and Wrists (UK)
 URL: https://livingwitharthritis.org.uk/blog/hand-exercises-for-arthritis
-Last updated: 2026-10-10
+Last updated: 2026-11-15
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
