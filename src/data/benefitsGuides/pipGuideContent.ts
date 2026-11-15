@@ -7,9 +7,9 @@
 
 export const PIP_GUIDE_TITLE = "Complete PIP guide for arthritis: eligibility, points, claiming and challenges (UK)";
 
-export const PIP_GUIDE_META_TITLE = "Claiming PIP for Arthritis: UK Guide | Living With Arthritis";
+export const PIP_GUIDE_META_TITLE = "Can You Claim PIP for Arthritis? | Living With Arthritis";
 
-export const PIP_GUIDE_DESCRIPTION = "Learn how to claim PIP for arthritis in the UK. Understand daily living and mobility descriptors, points scoring, and medical evidence needed to succeed.";
+export const PIP_GUIDE_DESCRIPTION = "Yes, you can claim PIP with arthritis, working or not. Points, 2026/27 rates, the PIP2 form, the assessment and how to challenge a decision.";
 
 export const PIP_GUIDE_QUICK_ANSWER = "Daily living and mobility are scored separately across 12 activities. In each part, 8 to 11 points gives the standard rate and 12 or more the enhanced rate. PIP is not means-tested and you can claim while working. In Scotland you claim Adult Disability Payment instead.";
 
