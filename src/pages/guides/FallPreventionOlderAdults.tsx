@@ -5,6 +5,8 @@ import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
 import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const FAQS = [
@@ -72,6 +74,8 @@ export default function FallPreventionOlderAdults() {
       <h1 className="text-4xl md:text-5xl font-bold mb-6">Fall Prevention for Older Adults with Arthritis</h1>
             <AeoEnhancement route="/guides/fall-prevention-older-adults" />
 
+            <GpPrepSheet />
+            <WhatsAppShare path="/guides/fall-prevention-older-adults" title="Fall prevention for older adults" />
       <AnswerBox question="How can older adults with arthritis prevent falls?">
         Fall prevention usually combines strength and balance exercise, a
         medication and vision review, suitable footwear, and changes to hazards

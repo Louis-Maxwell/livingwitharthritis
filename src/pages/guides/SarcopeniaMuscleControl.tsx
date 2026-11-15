@@ -5,6 +5,8 @@ import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
 import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const FAQS = [
@@ -70,6 +72,8 @@ export default function SarcopeniaMuscleControl() {
       <h1 className="text-4xl md:text-5xl font-bold mb-6">Sarcopenia &amp; Arthritis: How to Prevent Muscle Loss</h1>
             <AeoEnhancement route="/guides/sarcopenia-muscle-loss" />
 
+            <GpPrepSheet />
+            <WhatsAppShare path="/guides/sarcopenia-muscle-loss" title="Sarcopenia and muscle loss" />
       <AnswerBox question="What is sarcopenia and how is it linked to arthritis?" reviewed="2026-06-21">
         Sarcopenia is age-related loss of muscle mass and strength. Arthritis accelerates it because joint pain reduces activity and chronic inflammation breaks down muscle. Prevention combines 1.0–1.2 g/kg/day protein, twice-weekly resistance training, vitamin D, and treating pain so movement stays possible.
       </AnswerBox>
