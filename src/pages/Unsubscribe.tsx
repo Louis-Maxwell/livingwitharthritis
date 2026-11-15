@@ -107,7 +107,7 @@ const Unsubscribe = () => {
           </h2>
           <p className="text-muted-foreground leading-relaxed">
             Unsubscribing only stops the emails — your account, saved
-            exercise plans and chat history with the virtual physiotherapy
+            exercise plans and chat history with the information assistant
             assistant stay exactly where you left them. You can return any
             time from your phone or laptop without giving up an inbox slot.
           </p>

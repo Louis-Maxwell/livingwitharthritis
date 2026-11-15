@@ -50,7 +50,7 @@ export default function Safeguarding() {
             <section>
               <h2 className="text-xl font-semibold text-foreground">2. Scope</h2>
               <p className="text-muted-foreground leading-relaxed">
-                This policy applies to all trustees, staff, volunteers, and anyone working on behalf of Living With Arthritis, including those providing services through our website, community forums, and virtual physiotherapy sessions.
+                This policy applies to all trustees, staff, volunteers, and anyone working on behalf of Living With Arthritis, including through the website and the weekday phone line.
               </p>
             </section>
 

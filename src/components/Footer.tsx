@@ -17,7 +17,7 @@ const columns = [
     title: "Get Help",
     links: [
       { label: "Our Services", href: "/services" },
-      { label: "Virtual Physiotherapy", href: "/chat" },
+      { label: "Information chat", href: "/chat" },
       { label: "Exercise Hub", href: "/exercises" },
       { label: "Diet & Nutrition Hub", href: "/guides/diet" },
       { label: "Supplements Guide", href: "/supplements" },
@@ -27,7 +27,6 @@ const columns = [
       { label: "PIP Evidence Diary", href: "/resources/pip-evidence-diary" },
       { label: "Clinic Pack", href: "/resources/clinic-pack" },
       { label: "Resource Centre", href: "/resource-centre" },
-      { label: "Monthly Magazine", href: "/magazine" },
       { label: "Healthcare Professionals", href: "/healthcare-professionals" },
       { label: "Contact Us", href: "/contact" },
       { label: "FAQ", href: "/faq" },

@@ -90,7 +90,6 @@ This constitution may be amended by a resolution agreed by not less than two-thi
 (b) Assets may not be distributed to trustees or members.
 
 Adopted on 15 June 2026.
-Amended on 1 January 2024.
 
 Regulated by the Charity Commission for England and Wales.
     `.trim();
@@ -160,7 +159,7 @@ Regulated by the Charity Commission for England and Wales.
       />
       <div className="container mx-auto px-6 md:px-10 max-w-5xl -mt-4 mb-6">
         <p className="text-xs text-muted-foreground flex items-center gap-1.5">
-          <Clock className="w-3 h-3" /> Last updated: March 2026
+          <Clock className="w-3 h-3" /> Last updated: 13 November 2026
         </p>
       </div>
 
@@ -299,11 +298,22 @@ Regulated by the Charity Commission for England and Wales.
               </div>
             </div>
 
-            <div className="border border-dashed border-border rounded-lg p-6 bg-muted/30 text-center">
-              <p className="text-muted-foreground text-sm">
-                Trustee names and biographies will be published here once confirmed.
-              </p>
-            </div>
+            <ul className="grid sm:grid-cols-3 gap-4">
+              {["Ena Dulom", "Tina Dulom", "Jaibee Jacob"].map((name) => (
+                <li key={name}>
+                  <Card className="border border-border/40 h-full">
+                    <CardContent className="p-5">
+                      <h3 className="font-semibold text-foreground">{name}</h3>
+                      <p className="text-sm text-muted-foreground mt-1">Trustee</p>
+                    </CardContent>
+                  </Card>
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm text-muted-foreground mt-4">
+              These are the trustees named on the Charity Commission register for charity 1218461.
+              Short biographies are not published on this page.
+            </p>
           </div>
         </section>
 

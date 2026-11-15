@@ -40,7 +40,7 @@ const communityFeatures = [
   {
     icon: MessageCircle,
     title: "Help chat",
-    description: "Use the local information assistant for general signposting. It does not diagnose or provide a personal treatment plan.",
+    description: "An on-site assistant for general signposting. It is not a helpline and it is not available 24 hours a day.",
     color: "text-primary bg-primary/10",
     href: "/chat",
   },
@@ -50,7 +50,7 @@ const newlyDiagnosedSteps = [
   { step: "1", title: "Learn About Your Condition", desc: "Start with our condition guides for osteoarthritis, RA or PsA.", href: "#conditions" },
   { step: "2", title: "Try Gentle Exercises", desc: "Visit the Exercise Hub for knee, hand and chair-based routines.", href: "/exercises" },
   { step: "3", title: "Plan Everyday Habits", desc: "Use our diet, pacing and symptom-tracking guides to plan manageable changes.", href: "/guides/diet" },
-  { step: "4", title: "Start a Chat", desc: "Use the general information assistant for UK signposting and relevant guides.", href: "/chat" },
+  { step: "4", title: "Phone the helpline", desc: "Call 07760 512 084, Monday to Friday, 9am to 5pm, or email us. We aim to reply within two working days.", href: "/helpline" },
   { step: "5", title: "Connect with Community", desc: "Browse practical resources for common day-to-day situations.", href: "#community-features" },
 ];
 
@@ -73,11 +73,11 @@ const CommunityHub = () => {
     <>
       <Helmet>
         <title>Arthritis Community & Support UK | Living With Arthritis</title>
-        <meta name="description" content="Free UK arthritis guides, printable resources and general information tools for everyday self-management of arthritis at home." />
+        <meta name="description" content="Free written arthritis guides and a weekday phone line. We do not publish outcome percentages or a round-the-clock help chat." />
         <meta name="keywords" content="arthritis information UK, newly diagnosed arthritis, arthritis self-management, arthritis exercise guides, arthritis printable resources" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/community" />
         <meta property="og:title" content="Arthritis Community & Support UK" />
-        <meta property="og:description" content="Free UK arthritis guides, printable resources and general information tools for everyday self-management of arthritis at home." />
+        <meta property="og:description" content="Free written arthritis guides and a weekday phone line. We do not publish outcome percentages or a round-the-clock help chat." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/community" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -89,7 +89,7 @@ const CommunityHub = () => {
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Arthritis Community & Support UK" />
-        <meta name="twitter:description" content="Free UK arthritis guides, printable resources and general information tools for everyday self-management of arthritis at home." />
+        <meta name="twitter:description" content="Free written arthritis guides and a weekday phone line. We do not publish outcome percentages or a round-the-clock help chat." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -109,11 +109,10 @@ const CommunityHub = () => {
         <section className="py-12 lg:py-16 bg-tint-rose">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <p className="section-label text-primary mb-6">Information at a glance</p>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              <StatCounter value="10M+" label="People with arthritis in the UK" icon={<Users className="w-6 h-6" />} color="primary" />
-              <StatCounter value="24/7" label="help chat availability" icon={<MessageCircle className="w-6 h-6" />} color="sky" />
-              <StatCounter value={formatInventoryCount(CONTENT_INVENTORY.pillarGuides)} label="Free written guides" icon={<BookOpen className="w-6 h-6" />} color="emerald" />
-              <StatCounter value={formatInventoryCount(CONTENT_INVENTORY.downloadablePdfs)} label="Starter PDF you can download" icon={<Download className="w-6 h-6" />} color="amber" />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <StatCounter value={formatInventoryCount(CONTENT_INVENTORY.pillarGuides)} label="Guides in the guides section" icon={<BookOpen className="w-6 h-6" />} color="emerald" />
+              <StatCounter value={formatInventoryCount(CONTENT_INVENTORY.blogArticles)} label="Articles on this website" icon={<BookOpen className="w-6 h-6" />} color="primary" />
+              <StatCounter value="Mon–Fri" label="Helpline, 9am to 5pm" icon={<MessageCircle className="w-6 h-6" />} color="sky" />
             </div>
           </div>
         </section>

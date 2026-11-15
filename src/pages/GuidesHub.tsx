@@ -44,12 +44,12 @@ const GuidesHub = () => {
         <title>Arthritis Guides Hub | Living With Arthritis</title>
         <meta
           name="description"
-          content="Browse clinician-written UK arthritis guides: PIP and benefits, exercise, diet, pain relief, newly diagnosed steps, and navigating NHS care."
+          content="UK guides on PIP, exercise, diet and pain. Louis Maxwell (HCPC PH128483) writes and reviews them: a disclosed self-review, not an independent clinical review."
         />
         <meta property="og:title" content="Arthritis Guides Hub | Living With Arthritis" />
         <meta
           property="og:description"
-          content="Browse clinician-written UK arthritis guides covering benefits, movement, diet, medication and support."
+          content="UK guides on PIP, exercise, diet and pain. Louis Maxwell (HCPC PH128483) writes and reviews them: a disclosed self-review, not an independent clinical review."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/guides" />
@@ -125,7 +125,7 @@ const GuidesHub = () => {
               Popular guides
             </h2>
             <p className="text-sm text-muted-foreground mb-4 max-w-2xl">
-              Free starting points most UK readers ask for — clinically reviewed, no sign-up.
+              Free starting points. Louis Maxwell writes and reviews these guides: a disclosed self-review by the author, not an independent clinical review.
             </p>
             <div className="grid gap-3 sm:grid-cols-2">
               <Link

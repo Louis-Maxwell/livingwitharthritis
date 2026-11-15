@@ -124,7 +124,6 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Health Tools", href: "/health-tools" },
   { label: "Impact Stories", href: "/impact" },
   { label: "Library", href: "/library" },
-  { label: "Monthly Magazine", href: "/magazine" },
   { label: "Lived Experiences", href: "/stories" },
   { label: "Partners", href: "/partners" },
   { label: "Pedometer", href: "/pedometer" },

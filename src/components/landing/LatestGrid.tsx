@@ -35,8 +35,9 @@ export default function LatestGrid() {
               Latest
             </h2>
             <p className="mt-4 text-base md:text-lg text-foreground/90 leading-relaxed max-w-2xl">
-              New guides, eyewitness research summaries, and updates from our
-              clinical reviewers.
+              New guides. Louis Maxwell, Operations Director and an HCPC-registered
+              physiotherapist (PH128483), writes and reviews them. That is a
+              disclosed self-review, not an independent clinical review.
             </p>
           </div>
           <Link

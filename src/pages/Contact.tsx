@@ -14,9 +14,9 @@ const Contact = () => (
   <>
     <Helmet>
       <title>Contact Us | Living With Arthritis</title>
-      <meta name="description" content="Contact Living With Arthritis: Get in touch with our team. WhatsApp, email & helpline support for arthritis questions & guidance." />
+      <meta name="description" content="Email info@livingwitharthritis.org.uk or call 07760 512 084, Monday to Friday, 9am to 5pm. We aim to reply within two working days." />
       <meta property="og:title" content="Contact Us | Living With Arthritis" />
-      <meta property="og:description" content="Contact Living With Arthritis: Get in touch with our team. WhatsApp, email & helpline support for arthritis questions & guidance." />
+      <meta property="og:description" content="Email info@livingwitharthritis.org.uk or call 07760 512 084, Monday to Friday, 9am to 5pm. We aim to reply within two working days." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/contact" />
       <meta property="og:site_name" content="Living With Arthritis" />
@@ -27,7 +27,7 @@ const Contact = () => (
         <meta property="og:image:alt" content="Contact Us | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Contact Us | Living With Arthritis" />
-      <meta name="twitter:description" content="Contact Living With Arthritis: Get in touch with our team. WhatsApp, email & helpline support for arthritis questions & guidance." />
+      <meta name="twitter:description" content="Email info@livingwitharthritis.org.uk or call 07760 512 084, Monday to Friday, 9am to 5pm. We aim to reply within two working days." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",

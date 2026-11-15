@@ -22,7 +22,7 @@ export default function MedicalDisclaimer() {
         <title>Medical Disclaimer | {CHARITY.shortName}</title>
         <meta
           name="description"
-          content="Educational medical disclaimer for Living With Arthritis: not a diagnosis, not personal advice. Seek NHS care when needed."
+          content="Guides on this website are general UK information, not a diagnosis or a personal treatment plan. They are not a substitute for your own clinician."
         />
         <meta property="og:title" content={`Medical Disclaimer | ${CHARITY.shortName}`} />
         <meta property="og:url" content={URL} />

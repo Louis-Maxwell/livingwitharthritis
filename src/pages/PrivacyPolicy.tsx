@@ -14,9 +14,9 @@ const PrivacyPolicy = () => (
   <>
     <Helmet>
       <title>Privacy Policy | {CHARITY.shortName}</title>
-      <meta name="description" content="Privacy policy & data protection: How we protect your data. GDPR compliant, no third-party selling. Your privacy matters to us." />
+      <meta name="description" content="How Living With Arthritis uses personal information under UK GDPR: enquiries, the weekday phone line, donations and analytics. No virtual physiotherapy." />
       <meta property="og:title" content={`Privacy Policy | ${CHARITY.shortName}`} />
-      <meta property="og:description" content="Privacy policy & data protection: How we protect your data. GDPR compliant, no third-party selling. Your privacy matters to us." />
+      <meta property="og:description" content="How Living With Arthritis uses personal information under UK GDPR: enquiries, the weekday phone line, donations and analytics. No virtual physiotherapy." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`${CHARITY.siteUrl}/privacy`} />
       <meta property="og:locale" content="en_GB" />
@@ -32,7 +32,7 @@ const PrivacyPolicy = () => (
       })}</script>
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={`Privacy Policy – UK GDPR Data Protection | ${CHARITY.shortName}`} />
-      <meta name="twitter:description" content="Privacy policy & data protection: How we protect your data. GDPR compliant, no third-party selling. Your privacy matters to us." />
+      <meta name="twitter:description" content="How Living With Arthritis uses personal information under UK GDPR: enquiries, the weekday phone line, donations and analytics. No virtual physiotherapy." />
       <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
         <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
         <meta property="og:image:width" content="1200" />
@@ -76,7 +76,7 @@ const PrivacyPolicy = () => (
             <h2 className="text-xl font-bold text-foreground mt-8 mb-3">3. How We Use Your Information</h2>
             <p>We use your personal data to:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
-              <li>Provide our services, including virtual physiotherapy guidance, self-help tools and online assistance.</li>
+              <li>Publish free written guides and respond to enquiries, including the weekday phone line.</li>
               <li>Respond to enquiries you send us.</li>
               <li>Process and acknowledge donations. Gift Aid reclaim will only apply after HMRC Gift Aid registration is live; we will update this policy when that happens.</li>
               <li>Improve our website, services and user experience through anonymised analytics.</li>
