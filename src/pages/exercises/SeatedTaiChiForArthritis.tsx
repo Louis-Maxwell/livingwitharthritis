@@ -1,4 +1,5 @@
-﻿import { useEffect } from "react";
+import { STANDALONE_ANSWER_CAPSULES } from "@/data/standaloneAnswerCapsules";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CheckCircle2, ArrowRight, Clock, Accessibility, Heart, Shield } from "lucide-react";
 import Header from "@/components/Header";
@@ -134,7 +135,7 @@ export default function SeatedTaiChiForArthritis() {
       <PageHero
         badge={<Badge variant="secondary" className="bg-background text-primary border-0">Chair-based Â· No equipment</Badge>}
         title="Seated Tai Chi for Arthritis"
-        subtitle="A 13-minute chair routine adapted from the NICE-recommended Sun-style 'Tai Chi for Arthritis' programme. For severe knee or hip OA, post-surgery recovery, and anyone unsteady on their feet."
+        subtitle={STANDALONE_ANSWER_CAPSULES["/exercises/seated-tai-chi-for-arthritis"]}
       >
         <div className="flex flex-wrap gap-3">
           <Button asChild size="lg"><a href="#routine">Start the routine <ArrowRight className="ml-2 h-4 w-4" /></a></Button>
