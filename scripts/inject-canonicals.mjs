@@ -179,6 +179,8 @@ export function mergeHeadLayers(...layers) {
 // Empty fields are omitted so richer build-side data (e.g. a page's own
 // visible FAQ set mirrored in ai-head-data.json) is never wiped.
 import { PAGE_AEO } from "../src/data/page-aeo.ts";
+import { ROUTE_TITLE_OVERRIDES } from "../src/data/routeTitleOverrides.ts";
+const EDITORIAL_TITLE_LAYER = Object.fromEntries(Object.entries(ROUTE_TITLE_OVERRIDES).map(([route, title]) => [route, { title }]));
 import { exerciseJointPages } from "../src/data/exerciseJointMatrix.ts";
 import { EXERCISE_URGENT_ADVICE, EXERCISE_EMERGENCY_ADVICE, EXERCISE_ROUTINE_ADVICE } from "../src/data/exerciseSafety.ts";
 const EXERCISE_JOINT_BY_ROUTE = new Map(exerciseJointPages.map((page) => [`/exercises/${page.slug}`, page]));
@@ -204,6 +206,7 @@ const AI_DATA = mergeHeadLayers(
   readJson(AI_DATA_PATH),
   PAGE_AEO_LAYER,
   EXERCISE_ANSWER_LAYER,
+  EDITORIAL_TITLE_LAYER,
 );
 
 const BLOG_SLUGS_PATH = resolve("src/data/blog-slugs.generated.json");
@@ -1033,4 +1036,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-  }
+                                                                             }
