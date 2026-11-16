@@ -182,6 +182,7 @@ export function buildEntry(row, extractFaqs, coverMap) {
       keywords: row.keywords ?? null,
       author: row.author ?? null,
       author_credentials: row.author_credentials ?? null,
+      ...(row.editorial_review_note ? { editorial_review_note: row.editorial_review_note } : {}),
       reviewed_by: row.reviewed_by ?? null,
       reviewer_credentials: row.reviewer_credentials ?? null,
       is_published: true,

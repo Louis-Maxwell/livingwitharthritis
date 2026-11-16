@@ -46,6 +46,8 @@ export const blogPostSchema = z
     cover: z.string().regex(/^[\w.-]+\.(?:webp|jpe?g|png|avif)$/i, "cover must be a file name in public/openverse/"),
     author: nullableText,
     author_credentials: nullableText,
+    /** Editorial revision disclosure; not a new clinical sign-off. */
+    editorial_review_note: z.string().optional(),
     reviewed_by: nullableText,
     reviewer_credentials: nullableText,
     keywords: nullableText,

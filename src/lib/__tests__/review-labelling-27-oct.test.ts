@@ -26,13 +26,13 @@ const walk = (dir: string, out: string[] = []): string[] => {
   return out;
 };
 
-type Post = { slug: string; is_published?: boolean; reviewed_by?: string | null; reviewer_credentials?: string | null; reviewStatus?: string; review_status?: string };
+type Post = { slug: string; is_published?: boolean; reviewed_by?: string | null; reviewer_credentials?: string | null; reviewStatus?: string; review_status?: string; editorial_review_note?: string };
 
 const postsDir = resolve(root, "src/content/blog/posts");
 const published = readdirSync(postsDir)
   .filter((f) => f.endsWith(".json"))
   .map((f) => JSON.parse(readFileSync(join(postsDir, f), "utf8")) as Post)
-  .filter((p) => p.is_published !== false);
+  .filter((p) => p.is_published !== false && !p.editorial_review_note);
 
 describe("Review labelling gate (27 Oct 2026)", () => {
   it('no app source, content or public crawler file says "pending clinical review"', () => {
@@ -72,7 +72,7 @@ describe("Review labelling gate (27 Oct 2026)", () => {
   it("the article page derives the badge from isVerifiedMaxwellReviewer with the full name, never an exact \"Maxwell\" compare", () => {
     const page = readFileSync(resolve(root, "src/pages/BlogPost.tsx"), "utf8");
     expect(page).toMatch(/const MAXWELL_NAME = "Louis Maxwell"/);
-    expect(page).toMatch(/const hasVerifiedReviewer = isVerifiedMaxwellReviewer\(reviewerName, reviewerCreds\)/);
+    expect(page).toMatch(/const hasVerifiedReviewer = isVerifiedMaxwellReviewer\(reviewerName, reviewerCreds\) && !editorialReviewNote/);
     expect(page).not.toMatch(/===\s*["']Maxwell["']/);
     expect(page).not.toMatch(/isPendingReview/);
   });

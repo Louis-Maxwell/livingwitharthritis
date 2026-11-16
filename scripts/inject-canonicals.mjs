@@ -387,6 +387,10 @@ function withRenderedBody(route, data) {
   if (snap && !(textWords(data.bodyHtml) + textWords(data.answer) >= 300 && textWords(data.bodyHtml) >= textWords(snap))) {
     out = { ...data, bodyHtml: unwrapUnknownLinks(snap) };
   }
+  if (route === "/guides/knee-exercises-for-osteoarthritis") {
+    const supplement = readJson(resolve("src/data/kneeEditorialEnhancement.json"));
+    out = { ...out, bodyHtml: `${out.bodyHtml || ""}<section id="knee-editorial-supplement"><h2>${escText(supplement.title)}</h2><p>${escText(supplement.note)}</p>${supplement.html || ""}</section>` };
+  }
   return withSynonyms(route, withHubSpotlight(route, withLinkedSummaries(route, withIntentLinks(route, out))));
 }
 // Strong hubs link to related guides Google had discovered but never crawled
@@ -454,7 +458,12 @@ function withLinkedSummaries(route, data) {
 }
 export { withRenderedBody };
 function headDataFor(route, override) {
-  return withReviewRecord(route, headDataForInner(route, override));
+  const data = withReviewRecord(route, headDataForInner(route, override));
+  if (route === "/guides/knee-exercises-for-osteoarthritis" && data) {
+    const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
+    return editorial;
+  }
+  return data;
 }
 function headDataForInner(route, override) {
   const data = withRenderedBody(route, baseHeadDataFor(route, override));
@@ -709,7 +718,7 @@ export function buildJsonLd(route, url, d) {
       : { "@type": "Organization", name }
     : undefined;
   const author = person(article?.author);
-  const reviewer = person(article?.reviewed_by);
+  const reviewer = article?.editorial_review_note ? undefined : person(article?.reviewed_by);
   const citations = (article?.citations || []).filter((c) => /^https?:\/\//i.test(c.url) && c.label)
     .map((c) => ({ "@type": "CreativeWork", name: c.label, url: c.url }));
   // Non-article guides: reviewer only when the page itself states the review
@@ -1051,4 +1060,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-                                        }
+    }
