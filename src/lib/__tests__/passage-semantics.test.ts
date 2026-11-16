@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import { EXERCISE_URGENT_ADVICE, EXERCISE_EMERGENCY_ADVICE } from "@/data/exerciseSafety";
 import { exerciseJointPages } from "@/data/exerciseJointMatrix";
 import { headDataFor } from "../../../scripts/inject-canonicals.mjs";
 import { labelArticleSections, buildStaticArticleInner } from "../../../scripts/static-article-html.mjs";
@@ -12,6 +13,8 @@ describe("crawler passage semantics", () => {
       expect(words).toBeLessThanOrEqual(52);
       const head = headDataFor(`/exercises/${page.slug}`);
       expect(head.answer).toBe(page.intro);
+      expect(String(head.bodyHtml)).toContain(EXERCISE_URGENT_ADVICE);
+      expect(String(head.bodyHtml)).toContain(EXERCISE_EMERGENCY_ADVICE.replace(/&/g, "&amp;"));
       expect(String(head.bodyHtml)).toContain(page.intro);
       expect(String(head.bodyHtml)).not.toContain("is one of the most recommended activities");
     }
