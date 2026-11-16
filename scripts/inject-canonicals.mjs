@@ -709,7 +709,7 @@ export function buildJsonLd(route, url, d) {
       : { "@type": "Organization", name }
     : undefined;
   const author = person(article?.author);
-  const reviewer = person(article?.reviewed_by);
+  const reviewer = article?.editorial_review_note ? undefined : person(article?.reviewed_by);
   const citations = (article?.citations || []).filter((c) => /^https?:\/\//i.test(c.url) && c.label)
     .map((c) => ({ "@type": "CreativeWork", name: c.label, url: c.url }));
   // Non-article guides: reviewer only when the page itself states the review
@@ -1051,4 +1051,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-                                        }
+}
