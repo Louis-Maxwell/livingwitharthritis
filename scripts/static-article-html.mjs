@@ -117,12 +117,45 @@ export function composeArticleBody(data) {
   return fromArticle + extra;
 }
 
+// Stable passage boundaries for both authored and captured crawler HTML.
+// Preserve existing section structure and never change the heading/copy itself.
+export function labelArticleSections(html) {
+  const root = window.document.createElement("div");
+  root.innerHTML = html;
+  const used = new Set([...root.querySelectorAll("[id]")].map((el) => el.id));
+  for (const h of root.querySelectorAll("h2")) {
+    if (!h.id) {
+      const base = `passage-${h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "section"}`;
+      let id = base;
+      let n = 2;
+      while (used.has(id)) id = `${base}-${n++}`;
+      h.id = id;
+      used.add(id);
+    }
+    const parent = h.parentElement;
+    if (parent.tagName === "SECTION" && parent.querySelector("h2") === h) {
+      parent.setAttribute("aria-labelledby", h.id);
+      continue;
+    }
+    const section = window.document.createElement("section");
+    section.setAttribute("aria-labelledby", h.id);
+    parent.insertBefore(section, h);
+    let node = h;
+    while (node && !(node !== h && node.nodeType === 1 && node.tagName === "H2")) {
+      const next = node.nextSibling;
+      section.appendChild(node);
+      node = next;
+    }
+  }
+  return root.innerHTML;
+}
+
 export function buildStaticArticleInner(data) {
   const heading = data?.article?.title || data?.question || data?.title || "";
   // The template owns H1. Keep all existing heading words as subordinate H2s.
-  const bodyHtml = composeArticleBody(data);
+  const bodyHtml = labelArticleSections(composeArticleBody(data));
   const answer = data?.answer && !bodyHtml.includes(data.answer)
-    ? `<aside role="region" aria-label="Quick Answer" class="direct-answer-capsule answer-box"><p><strong>${escText(data.answer)}</strong></p></aside>`
+    ? `<aside role="region" aria-label="Quick Answer" class="direct-answer-capsule answer-box"><blockquote><p>[!NOTE]</p><p><strong>${escText(data.answer)}</strong></p></blockquote></aside>`
     : "";
   const takeawaySource = Array.isArray(data?.article?.key_takeaways) ? data.article.key_takeaways
     : Array.isArray(data?.keyTakeaways) ? data.keyTakeaways : [];
