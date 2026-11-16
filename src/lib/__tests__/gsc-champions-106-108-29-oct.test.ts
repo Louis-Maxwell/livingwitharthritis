@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 import { getClusterForPath, TOPIC_CLUSTERS } from "@/data/topicClusters";
 
 type Post = {
+  editorial_review_note?: string;
   title: string;
   last_reviewed?: string;
   reviewStatus?: string;
