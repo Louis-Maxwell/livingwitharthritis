@@ -132,8 +132,8 @@ const LibraryTopic = () => {
 
           <div className="space-y-10">
             {topic.sections.map((section, i) => (
-              <section key={i}>
-                <h2 className="font-serif text-2xl font-semibold text-primary mb-4">
+              <section key={i} aria-labelledby={`library-section-${i}`}>
+                <h2 id={`library-section-${i}`} className="font-serif text-2xl font-semibold text-primary mb-4">
                   {section.heading}
                 </h2>
                 {section.body &&
@@ -143,6 +143,8 @@ const LibraryTopic = () => {
                     </p>
                   ))}
                 {section.bullets && section.bullets.length > 0 && (
+                  <blockquote className="border-l-4 border-primary pl-5">
+                  <p className="font-semibold mb-3">[!NOTE]</p>
                   <ul className="list-disc ps-6 space-y-2">
                     {section.bullets.map((b, bi) => (
                       <li key={bi} className="leading-relaxed">
@@ -150,12 +152,13 @@ const LibraryTopic = () => {
                       </li>
                     ))}
                   </ul>
+                  </blockquote>
                 )}
               </section>
             ))}
             {seo?.extraSections?.map((section, i) => (
-              <section key={`seo-extra-${i}`}>
-                <h2 className="font-serif text-2xl font-semibold text-primary mb-4">
+              <section key={`seo-extra-${i}`} aria-labelledby={`library-extra-${i}`}>
+                <h2 id={`library-extra-${i}`} className="font-serif text-2xl font-semibold text-primary mb-4">
                   {section.heading}
                 </h2>
                 {section.body &&
@@ -165,6 +168,8 @@ const LibraryTopic = () => {
                     </p>
                   ))}
                 {section.bullets && section.bullets.length > 0 && (
+                  <blockquote className="border-l-4 border-primary pl-5">
+                  <p className="font-semibold mb-3">[!NOTE]</p>
                   <ul className="list-disc ps-6 space-y-2">
                     {section.bullets.map((b, bi) => (
                       <li key={bi} className="leading-relaxed">
@@ -172,6 +177,7 @@ const LibraryTopic = () => {
                       </li>
                     ))}
                   </ul>
+                  </blockquote>
                 )}
               </section>
             ))}
