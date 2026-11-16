@@ -143,8 +143,8 @@ const LibraryTopic = () => {
                     </p>
                   ))}
                 {section.bullets && section.bullets.length > 0 && (
-                  <blockquote className="border-l-4 border-primary pl-5">
-                  <p className="font-semibold mb-3">[!NOTE]</p>
+                  <blockquote data-callout="note" className="border-l-4 border-primary pl-5">
+                  <p className="font-semibold mb-3">Note</p>
                   <ul className="list-disc ps-6 space-y-2">
                     {section.bullets.map((b, bi) => (
                       <li key={bi} className="leading-relaxed">
@@ -168,8 +168,8 @@ const LibraryTopic = () => {
                     </p>
                   ))}
                 {section.bullets && section.bullets.length > 0 && (
-                  <blockquote className="border-l-4 border-primary pl-5">
-                  <p className="font-semibold mb-3">[!NOTE]</p>
+                  <blockquote data-callout="note" className="border-l-4 border-primary pl-5">
+                  <p className="font-semibold mb-3">Note</p>
                   <ul className="list-disc ps-6 space-y-2">
                     {section.bullets.map((b, bi) => (
                       <li key={bi} className="leading-relaxed">
