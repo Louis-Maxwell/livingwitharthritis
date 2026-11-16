@@ -299,7 +299,8 @@ const BlogPost = () => {
   const reviewerName = isPlaceholderReviewer ? MAXWELL_NAME : rawReviewerName;
   const reviewerCreds = isPlaceholderReviewer ? MAXWELL_CREDS : rawReviewerCreds;
   // Every published guide has been clinically reviewed by Louis Maxwell (Oct 2026).
-  const hasVerifiedReviewer = isVerifiedMaxwellReviewer(reviewerName, reviewerCreds);
+  const editorialReviewNote = article.editorial_review_note;
+  const hasVerifiedReviewer = isVerifiedMaxwellReviewer(reviewerName, reviewerCreds) && !editorialReviewNote;
   const selfReview = isDisclosedSelfReview(authorName, reviewerName);
   const citations = Array.isArray(article.citations)
     ? article.citations.filter(
@@ -309,7 +310,7 @@ const BlogPost = () => {
     : [];
   const dateModifiedIso = updatedAtRaw || article.date;
   // Only an explicitly recorded date establishes when clinical review occurred.
-  const blogLastReviewed =
+  const blogLastReviewed = editorialReviewNote ? undefined :
     (article as { last_reviewed?: string }).last_reviewed || getBlogReviewMeta(slug)?.last_reviewed;
   const topicKey = canonicalBlogCategoryKey(article.category || "");
 
@@ -627,6 +628,7 @@ const BlogPost = () => {
             </Button>
           </div>
 
+          {editorialReviewNote && <aside className="my-6 rounded-xl border border-amber-500/30 p-5 text-sm" aria-label="Editorial revision and clinical review">{editorialReviewNote}</aside>}
           {hasVerifiedReviewer && (
             <MedicalReviewBadge
               reviewer={reviewerName}
@@ -781,7 +783,7 @@ const BlogPost = () => {
               html={htmlContent}
               slug={slug ?? "article"}
               label="Download this guide (PDF)"
-              dateLine={`Last reviewed: ${blogLastReviewed || dateModifiedIso || article.date} · Downloaded: ${new Date().toLocaleDateString("en-GB")}`}
+              dateLine={`${editorialReviewNote || `Last reviewed: ${blogLastReviewed || dateModifiedIso || article.date}`} · Downloaded: ${new Date().toLocaleDateString("en-GB")}`}
             />
           </section>
 
@@ -847,7 +849,8 @@ const BlogPost = () => {
             <UrgentHelpAndSources path={`/blog/${slug}`} />
             <EducationalDisclaimerBox
               lastReviewed={blogLastReviewed}
-              reviewStatus="reviewed"
+              reviewStatus={editorialReviewNote ? "pending" : "reviewed"}
+              pendingText={editorialReviewNote}
             />
             {getClusterForPath(`/blog/${slug}`) && (
               <ViewportSection>
