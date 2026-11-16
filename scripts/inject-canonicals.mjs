@@ -180,6 +180,7 @@ export function mergeHeadLayers(...layers) {
 // visible FAQ set mirrored in ai-head-data.json) is never wiped.
 import { PAGE_AEO } from "../src/data/page-aeo.ts";
 import { exerciseJointPages } from "../src/data/exerciseJointMatrix.ts";
+import { EXERCISE_URGENT_ADVICE, EXERCISE_EMERGENCY_ADVICE, EXERCISE_ROUTINE_ADVICE } from "../src/data/exerciseSafety.ts";
 const EXERCISE_JOINT_BY_ROUTE = new Map(exerciseJointPages.map((page) => [`/exercises/${page.slug}`, page]));
 const EXERCISE_ANSWER_LAYER = Object.fromEntries([...EXERCISE_JOINT_BY_ROUTE].map(([route, page]) => [route, { answer: page.intro }]));
 const PAGE_AEO_LAYER = Object.fromEntries(
@@ -361,8 +362,8 @@ function withRenderedBody(route, data) {
   // Keep the captured exercise body while replacing its stale opening copy
   // with the same answer now rendered by the React matrix page.
   const snap = captured && exercisePage
-    ? captured.replace(/<p>[\s\S]*?<\/p>/, `<p>${escText(exercisePage.intro)}</p><blockquote data-callout="note"><p><strong>Note</strong></p><p>Repetitions are examples, not a personal prescription. Start with comfortable movement and ask your physiotherapist how to adapt the programme. If activity makes a joint warm and swollen or causes severe pain, stop and rest.</p></blockquote>`)
-      .replace("During an active flare — rest and let it settle first", "During a flare with a hot, swollen joint, pause strenuous activity and seek advice about comfortable movement") : captured;
+    ? captured.replace(/<p>[\s\S]*?<\/p>/, `<p>${escText(exercisePage.intro)}</p><blockquote data-callout="note"><p><strong>Note</strong></p><p>${escText(EXERCISE_URGENT_ADVICE)}</p><p>${escText(EXERCISE_EMERGENCY_ADVICE)}</p><p>${escText(EXERCISE_ROUTINE_ADVICE)} <a href="https://www.nhs.uk/conditions/joint-pain/">NHS joint-pain advice</a></p></blockquote>`)
+      .replace("During an active flare — rest and let it settle first", "A hot, swollen joint or sudden severe joint pain needs urgent GP or NHS 111 advice, not routine exercise adaptation") : captured;
   if (!data || data.noindex) return data;
   let out = data;
   if (snap && !(textWords(data.bodyHtml) + textWords(data.answer) >= 300 && textWords(data.bodyHtml) >= textWords(snap))) {
@@ -1032,4 +1033,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-                 }
+  }
