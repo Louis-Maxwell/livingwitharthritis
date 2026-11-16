@@ -178,6 +178,7 @@ export function mergeHeadLayers(...layers) {
 // to keep the static crawler head byte-identical with what the page shows.
 // Empty fields are omitted so richer build-side data (e.g. a page's own
 // visible FAQ set mirrored in ai-head-data.json) is never wiped.
+import { medicalEntityForRoute } from "../src/lib/routeSchema.ts";
 import { PAGE_AEO } from "../src/data/page-aeo.ts";
 import { STANDALONE_ANSWER_CAPSULES } from "../src/data/standaloneAnswerCapsules.ts";
 const STANDALONE_ANSWER_LAYER = Object.fromEntries(Object.entries(STANDALONE_ANSWER_CAPSULES).map(([route, answer]) => [route, { answer }]));
@@ -738,9 +739,9 @@ export function buildJsonLd(route, url, d) {
     description: d.description,
     inLanguage: "en-GB",
     isPartOf: { "@id": `${BASE}/#website` },
-    about: article ? { "@type": "MedicalCondition", name: "Arthritis" }
+    about: medicalEntityForRoute(route, d.condition?.name || d.about || d.question || d.title) || (article ? { "@type": "MedicalCondition", name: "Arthritis" }
       : conditionNode ? conditionNode
-      : d.about ? { "@type": "Thing", name: d.about } : undefined,
+      : d.about ? { "@type": "Thing", name: d.about } : undefined),
     dateModified: d.updatedAt,
     publisher: { "@id": `${BASE}/#organization` },
     ...(medical ? { audience: { "@type": "MedicalAudience", audienceType: "Patient" } } : {}),
@@ -1048,4 +1049,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-  }
+}
