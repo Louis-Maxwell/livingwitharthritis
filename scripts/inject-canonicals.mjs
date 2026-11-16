@@ -372,8 +372,9 @@ const textWords = (html) => String(html || '').replace(/<[^>]+>/g, ' ').replace(
 function withRenderedBody(route, data) {
   const rawCapture = RENDERED_BODIES[route];
   const conditionAnswer = CONDITION_ANSWER_LAYER[route]?.answer || LIBRARY_ANSWER_LAYER[route]?.answer || STANDALONE_ANSWER_LAYER[route]?.answer;
-  const captured = rawCapture && conditionAnswer
-    ? rawCapture.replace(/<p>[\s\S]*?<\/p>/, `<p>${escText(conditionAnswer)}</p>`) : rawCapture;
+  const correctedCapture = rawCapture?.replace(/<strong>Last checked: 11 November 2026<\/strong> against/g, "<strong>Official sources:</strong>").replace('It is available on prescription and also over-the-counter (in lower doses) at pharmacies.', 'Naproxen is prescribed for arthritis. Some UK pharmacy products have limited indications: Naprosyn Pain Relief 250 mg is for short-term muscle and joint pain in adults aged 18 to 50, for no more than 3 days; period-pain products have separate eligibility rules. Ask a pharmacist which product is suitable, and do not use a pharmacy product as ongoing arthritis treatment without medical advice.');
+  const captured = correctedCapture && conditionAnswer
+    ? correctedCapture.replace(/<p>[\s\S]*?<\/p>/, `<p>${escText(conditionAnswer)}</p>`) : correctedCapture;
   const exercisePage = EXERCISE_JOINT_BY_ROUTE.get(route);
   // Keep the captured exercise body while replacing its stale opening copy
   // with the same answer now rendered by the React matrix page.
@@ -1049,4 +1050,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-}
+     }
