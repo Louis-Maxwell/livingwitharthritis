@@ -147,8 +147,8 @@ const ExerciseJointPage = () => {
             <h2 id="exercisejointpage-section-3" className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
               <AlertTriangle className="w-5 h-5 text-destructive" /> Safety Tips
             </h2>
-            <blockquote className="bg-destructive/5 border border-destructive/20 rounded-xl p-5">
-              <p className="font-semibold mb-3">[!NOTE]</p>
+            <blockquote data-callout="note" className="bg-destructive/5 border border-destructive/20 rounded-xl p-5">
+              <p className="font-semibold mb-3">Note</p>
               <ul className="space-y-2">
                 {page.safetyTips.map((tip, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-foreground">
