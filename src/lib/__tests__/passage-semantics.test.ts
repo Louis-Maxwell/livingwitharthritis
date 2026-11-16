@@ -1,4 +1,8 @@
 import { describe, it, expect } from "vitest";
+import { STANDALONE_ANSWER_CAPSULES } from "@/data/standaloneAnswerCapsules";
+import { LIBRARY_ANSWER_CAPSULES } from "@/data/libraryAnswerCapsules";
+import { buildLibraryHeadData } from "../../../scripts/generate-library-head-data";
+import { conditionSubpages } from "@/data/conditionSubpages";
 import { ROUTE_TITLE_OVERRIDES } from "@/data/routeTitleOverrides";
 import { EXERCISE_URGENT_ADVICE, EXERCISE_EMERGENCY_ADVICE } from "@/data/exerciseSafety";
 import { exerciseJointPages } from "@/data/exerciseJointMatrix";
@@ -6,6 +10,42 @@ import { headDataFor } from "../../../scripts/inject-canonicals.mjs";
 import { labelArticleSections, buildStaticArticleInner } from "../../../scripts/static-article-html.mjs";
 
 describe("crawler passage semantics", () => {
+  it("keeps nine standalone route answers complete and within band", () => {
+    expect(Object.keys(STANDALONE_ANSWER_CAPSULES)).toHaveLength(9);
+    for (const [route, answer] of Object.entries(STANDALONE_ANSWER_CAPSULES)) {
+      expect(answer.split(/\s+/).length, route).toBeGreaterThanOrEqual(40);
+      expect(answer.split(/\s+/).length, route).toBeLessThanOrEqual(52);
+      expect(headDataFor(route).answer).toBe(answer);
+      expect(answer).toMatch(/[.!?]$/);
+    }
+  });
+  it("uses full 40-52 word library answers in source, generator and final head", () => {
+    const generated = buildLibraryHeadData();
+    expect(Object.keys(generated)).toHaveLength(54);
+    for (const [route, data] of Object.entries(generated)) {
+      const answer = LIBRARY_ANSWER_CAPSULES[route.split("/").pop()!];
+      expect(answer, route).toBeTruthy();
+      expect(answer.split(/\s+/).length, route).toBeGreaterThanOrEqual(40);
+      expect(answer.split(/\s+/).length, route).toBeLessThanOrEqual(52);
+      expect(answer, route).toMatch(/[.!?]$/);
+      expect(data.answer).toBe(answer);
+      expect(headDataFor(route).answer).toBe(answer);
+    }
+  });
+  it("uses complete 40-52 word source introductions for all 64 condition subpages", () => {
+    let count = 0;
+    for (const [condition, sections] of Object.entries(conditionSubpages)) {
+      for (const [section, data] of Object.entries(sections)) {
+        const words = data.intro.split(/\s+/).length;
+        expect(words, `${condition}/${section}`).toBeGreaterThanOrEqual(40);
+        expect(words, `${condition}/${section}`).toBeLessThanOrEqual(52);
+        expect(headDataFor(`/conditions/${condition}/${section}`).answer).toBe(data.intro);
+        expect(data.intro).toMatch(/[.!?]$/);
+        count++;
+      }
+    }
+    expect(count).toBe(64);
+  });
   it("uses the same specific editorial title in the build data", () => {
     expect(Object.keys(ROUTE_TITLE_OVERRIDES)).toHaveLength(57);
     for (const [route, title] of Object.entries(ROUTE_TITLE_OVERRIDES)) {
