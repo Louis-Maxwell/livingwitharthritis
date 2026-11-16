@@ -463,7 +463,7 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
   "/about": withDefaults({
     question: "Who is Living With Arthritis?",
     answer:
-      "Living With Arthritis is a UK charity registered in England and Wales (no. 1218461), founded by David Williams and independent of Arthritis UK. Everything we offer is free: arthritis guides, a PIP claim guide and evidence diary, a flare action plan, home exercise routines, a symptom and flare tracker and a community hub, for adults with arthritis and their carers.",
+      "Living With Arthritis is an independent UK charity (no. 1218461), founded by David Williams. Free resources support adults with arthritis and their carers through practical information, not personal medical advice. Explore arthritis and PIP guides, an evidence diary, flare plans, home exercises, a symptom tracker and community support.",
     faqs: [
       { q: "What does Living With Arthritis offer for free?", a: "Free arthritis guides, a step-by-step PIP claim guide, a printable PIP evidence diary, a flare action plan, home exercise routines, a printable symptom and flare tracker and a community hub. Everything is free to read, with no sign-up needed." },
       { q: "Who is Living With Arthritis for?", a: "Adults in the UK living with arthritis or joint pain, and the family members and carers who support them. Our guidance is educational and does not replace advice from your GP, pharmacist or rheumatology team." },
