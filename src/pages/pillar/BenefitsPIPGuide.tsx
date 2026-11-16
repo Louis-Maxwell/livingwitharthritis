@@ -14,8 +14,6 @@ import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
-import MedicalReviewBadge from "@/components/MedicalReviewBadge";
-import LastReviewed from "@/components/LastReviewed";
 
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 import { FIN_DIR_HTML } from "@/data/benefitsGuides/financialHelpDirectoryContent";
@@ -27,7 +25,6 @@ import {
   PIP_GUIDE_HTML,
   PIP_GUIDE_META_TITLE,
   PIP_GUIDE_ANSWER,
-  PIP_GUIDE_CHECKED,
   PIP_GUIDE_QUICK_ANSWER,
   PIP_GUIDE_TITLE,
   PIP_HOWTO_STEPS,
@@ -106,7 +103,7 @@ export default function BenefitsPIPGuide() {
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "MedicalWebPage",
+        "@type": "WebPage",
         "name": PIP_GUIDE_TITLE,
         "description": PIP_GUIDE_DESCRIPTION,
         "url": "https://livingwitharthritis.org.uk/guides/benefits-pip",
@@ -115,9 +112,7 @@ export default function BenefitsPIPGuide() {
         "about": { "@type": "MedicalCondition", "name": "Arthritis" },
         "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" },
         "dateModified": "2026-11-11",
-        "lastReviewed": "2026-11-11",
         "author": LOUIS_MAXWELL_REF,
-        "reviewedBy": LOUIS_MAXWELL_REF,
         "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] }
       })}</script>
       <script type="application/ld+json">{JSON.stringify({
@@ -154,13 +149,12 @@ export default function BenefitsPIPGuide() {
       <main id="main-content" className="min-h-dvh bg-background">
         <PageHero
           title="How to claim PIP for arthritis: complete UK guide"
-          subtitle={`The phone call, the PIP2 form, the assessment, the decision and how to challenge it, with 2026/27 rates and how the points work. Last checked against GOV.UK on ${PIP_GUIDE_CHECKED}.`}
+          subtitle="The phone call, the PIP2 form, the assessment, the decision and how to challenge it, with information about rates and how the points work. Check the linked GOV.UK sources for current rules and amounts."
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/benefits-pip" />
-          <LastReviewed date="2026-11-11" />
-          <MedicalReviewBadge reviewer="Louis Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="November 2026" />
+          <p className="text-sm text-muted-foreground mb-6">Clinical review date not recorded.</p>
           <section id="pip-start-here" aria-labelledby="pip-start-here-heading" className="my-8 rounded-2xl border border-border/40 bg-card p-5 sm:p-6">
             <h2 id="pip-start-here-heading" className="font-display font-bold text-xl mt-0 mb-3">Start here: where are you with PIP?</h2>
             <ul className="space-y-2 text-sm text-muted-foreground m-0 pl-5 list-disc">
@@ -218,12 +212,11 @@ export default function BenefitsPIPGuide() {
 
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
         <ArticleCitations citations={CITATIONS_PIP_CLAIM} />
-        <EducationalDisclaimerBox lastReviewed="2026-11-11" />
+        <EducationalDisclaimerBox reviewStatus="pending" pendingText="Clinical review date not recorded." />
       </div>
 <GuideOnwardJourney currentPath="/guides/benefits-pip" />
       <Suspense fallback={null}><Footer /></Suspense>
     </>
   );
 }
-
 

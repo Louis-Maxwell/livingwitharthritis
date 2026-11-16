@@ -164,8 +164,8 @@ const ExerciseConditionPage = () => {
         </header>
 
         {/* Why these exercises work */}
-        <section className="mb-10 bg-primary/5 rounded-xl p-6">
-          <h2 className="section-header-left text-xl font-semibold text-foreground mb-3 flex items-center gap-2">
+        <section aria-labelledby="exerciseconditionpage-section-1" className="mb-10 bg-primary/5 rounded-xl p-6">
+          <h2 id="exerciseconditionpage-section-1" className="section-header-left text-xl font-semibold text-foreground mb-3 flex items-center gap-2">
             <CheckCircle className="w-5 h-5 text-primary" />
             Why these {jointName.toLowerCase()} exercises work for {cond.name.toLowerCase()}
           </h2>
@@ -184,8 +184,8 @@ const ExerciseConditionPage = () => {
         </section>
 
         {/* Exercise picks */}
-        <section className="mb-10">
-          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+        <section aria-labelledby="exerciseconditionpage-section-2" className="mb-10">
+          <h2 id="exerciseconditionpage-section-2" className="section-header-left text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
             <BookOpen className="w-5 h-5 text-primary" />
             Recommended {jointName.toLowerCase()} exercises
           </h2>
@@ -262,8 +262,8 @@ const ExerciseConditionPage = () => {
         </section>
 
         {/* Sibling links — other joints for this condition */}
-        <section className="mb-10">
-          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
+        <section aria-labelledby="exerciseconditionpage-section-4" className="mb-10">
+          <h2 id="exerciseconditionpage-section-4" className="section-header-left text-xl font-semibold text-foreground mb-4">
             Exercises for other joints affected by {cond.name.toLowerCase()}
           </h2>
           <div className="flex flex-wrap gap-2">
@@ -280,8 +280,8 @@ const ExerciseConditionPage = () => {
         </section>
 
         {/* Sibling links — same joint, other conditions */}
-        <section className="mb-10">
-          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
+        <section aria-labelledby="exerciseconditionpage-section-5" className="mb-10">
+          <h2 id="exerciseconditionpage-section-5" className="section-header-left text-xl font-semibold text-foreground mb-4">
             {jointName} exercises for other conditions
           </h2>
           <div className="flex flex-wrap gap-2">
@@ -298,8 +298,8 @@ const ExerciseConditionPage = () => {
         </section>
 
         {/* People Also Ask — FAQ */}
-        <section className="mb-10">
-          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
+        <section aria-labelledby="exerciseconditionpage-section-6" className="mb-10">
+          <h2 id="exerciseconditionpage-section-6" className="section-header-left text-xl font-semibold text-foreground mb-4">
             {jointName} exercises for {cond.shortName} — People Also Ask
           </h2>
           <FaqAccordion

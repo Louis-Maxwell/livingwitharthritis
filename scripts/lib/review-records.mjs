@@ -62,7 +62,10 @@ const OLD_LINE = /Clinically reviewed · Louis Maxwell, HCPC PH128483 · \d{1,2}
 export function withReviewRecord(route, data) {
   if (!data || data.noindex || data.article) return data;
   const rec = reviewRecordFor(route);
-  if (!rec) return data;
+  if (!rec) {
+    const { reviewedBy: _reviewer, lastReviewed: _date, ...withoutUnrecordedReview } = data;
+    return withoutUnrecordedReview;
+  }
   const line = reviewLineHtml(rec);
   const body = String(data.bodyHtml || "");
   const hasCurrent = body.includes(line);

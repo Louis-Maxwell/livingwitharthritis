@@ -1,4 +1,5 @@
-﻿import { useEffect } from "react";
+import { STANDALONE_ANSWER_CAPSULES } from "@/data/standaloneAnswerCapsules";
+import { useEffect } from "react";
 import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { Link } from "react-router-dom";
 import { CheckCircle2, ArrowRight, Activity, Heart, Shield, Sparkles, MapPin, PlayCircle, Library } from "lucide-react";
@@ -20,7 +21,7 @@ import {
   TAI_CHI_DESCRIPTION,
   TAI_CHI_FAQS,
   TAI_CHI_GUIDE_HTML,
-  TAI_CHI_QUICK_ANSWER,
+  
   TAI_CHI_TITLE,
 } from "@/data/exerciseGuides/taiChiForArthritisContent";
 
@@ -143,7 +144,7 @@ export default function TaiChiForArthritis() {
       <PageHero
         badge={<Badge variant="secondary" className="bg-background text-primary border-0">UK Guide · Gentle exercise</Badge>}
         title="Tai Chi for Arthritis"
-        subtitle="A practical UK guide to tai chi for arthritis: what it is, what the evidence says, a 12-week beginner plan, adaptations for painful joints and how to find a class."
+        subtitle={STANDALONE_ANSWER_CAPSULES["/exercises/tai-chi-for-arthritis"]}
       >
         <div className="flex flex-wrap gap-3">
           <Button asChild size="lg"><Link to="/exercises/tai-chi-for-beginners">New to tai chi? Start the 7-day plan <ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
@@ -164,7 +165,7 @@ export default function TaiChiForArthritis() {
       <section className="bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px] pt-12">
           <p className="quick-answer p-5 rounded-xl bg-muted/40 leading-relaxed">
-            <strong>Quick answer:</strong> {TAI_CHI_QUICK_ANSWER}
+            <strong>Quick answer:</strong> {STANDALONE_ANSWER_CAPSULES["/exercises/tai-chi-for-arthritis"]}
           </p>
           <EducationalDisclaimerBox lastReviewed={REVIEW_RECORDS.pages["/exercises/tai-chi-for-arthritis"]} />
         </div>

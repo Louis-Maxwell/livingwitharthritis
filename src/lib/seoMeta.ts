@@ -3,7 +3,7 @@
  *
  * Rules:
  *  - Composed <title> (including any " | Site Name" suffix) ≤ 60 chars.
- *  - <meta name="description"> between 120–160 chars.
+ *  - <meta name="description"> between 120–155 chars.
  *
  * Enforcement is applied at render time by SeoHead and by direct Helmet
  * callers via the exported helpers. Dev builds also warn when input
@@ -14,7 +14,7 @@ import { cleanBrand } from './technicalSeo.mjs';
 const SITE_SUFFIX = " | Living With Arthritis";
 const SHORT_SITE_SUFFIX = " | LWA"; // legacy; no longer appended
 const MAX_TITLE = 60;
-const MAX_DESC = 160;
+const MAX_DESC = 155;
 const MIN_DESC = 120;
 
 const isDev =
@@ -61,7 +61,7 @@ export function enforceTitle(
   return title.length <= MAX_TITLE ? title : truncateOnWord(title, MAX_TITLE);
 }
 
-/** Returns a description ≤ 160 chars. Warns (dev only) when < 120. */
+/** Returns a description ≤ 155 chars. Warns (dev only) when < 120. */
 export function enforceDescription(
   rawDesc: string,
   route?: string,

@@ -455,7 +455,7 @@ const ExerciseHub = () => {
         </section>
 
         {/* ═══ Mid-page CTA: Help Chat ═══ */}
-        <section className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-y border-primary/10">
+        <section aria-labelledby="exercise-finder" className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-y border-primary/10">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -467,7 +467,7 @@ const ExerciseHub = () => {
                 <MessageCircle className="w-8 h-8 text-primary" />
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-xl font-bold text-foreground mb-1">Not sure which exercises suit you?</h2>
+                <h2 id="exercise-finder" className="text-xl font-bold text-foreground mb-1">Not sure which exercises suit you?</h2>
                 <p className="text-muted-foreground text-sm">Our help chat recommends exercises based on your specific joints, pain level and mobility — free and instant.</p>
               </div>
               <Button asChild size="lg" className="min-h-[48px] font-semibold shadow-md shrink-0">
@@ -563,9 +563,9 @@ const ExerciseHub = () => {
         <WaveDivider color="hsl(var(--background))" />
 
         {/* ─── Quick Tips Emoji Grid ─── */}
-        <section className="py-12 lg:py-16">
+        <section aria-labelledby="quick-exercise-tips" className="py-12 lg:py-16">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Quick Exercise Tips</h2>
+            <h2 id="quick-exercise-tips" className="text-2xl font-bold text-foreground mb-2">Quick Exercise Tips</h2>
             <p className="text-sm text-muted-foreground mb-8">Simple guidelines for safe, effective arthritis exercise.</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
               <HighlightCard title="Warm Up" description="Five minutes of gentle marching or shoulder rolls before you load a sore joint." />
@@ -579,9 +579,9 @@ const ExerciseHub = () => {
         </section>
 
         {/* Additional activities */}
-        <section className="py-12 lg:py-16 bg-muted/20">
+        <section aria-labelledby="more-ways-to-stay-active" className="py-12 lg:py-16 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
-            <h2 className="text-3xl font-bold text-foreground mb-3">More Ways to Stay Active</h2>
+            <h2 id="more-ways-to-stay-active" className="text-3xl font-bold text-foreground mb-3">More Ways to Stay Active</h2>
             <p className="text-muted-foreground mb-10 max-w-2xl">Low-impact activities that complement your routine.</p>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -612,9 +612,9 @@ const ExerciseHub = () => {
         </section>
 
         {/* Exercises by joint — internal-link matrix (de-orphans 48 sitemap URLs) */}
-        <section className="py-12 lg:py-16">
+        <section aria-labelledby="exercises-by-joint" className="py-12 lg:py-16">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
-            <h2 className="text-3xl font-bold text-foreground mb-3">Exercises by Joint</h2>
+            <h2 id="exercises-by-joint" className="text-3xl font-bold text-foreground mb-3">Exercises by Joint</h2>
             <p className="text-muted-foreground mb-10 max-w-2xl">
               Pick the exercise type, then the joint you want to focus on. Each guide covers benefits,
               step-by-step instructions, and safety tips.
@@ -645,7 +645,7 @@ const ExerciseHub = () => {
 
 
         {/* ═══ Mid-page CTA: Help Chat ═══ */}
-        <section className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-y border-primary/10">
+        <section aria-labelledby="track-symptoms" className="py-12 lg:py-16 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-y border-primary/10">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -657,7 +657,7 @@ const ExerciseHub = () => {
                 <BarChart3 className="w-8 h-8 text-primary" />
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-xl font-bold text-foreground mb-1">Track how exercise affects your symptoms</h2>
+                <h2 id="track-symptoms" className="text-xl font-bold text-foreground mb-1">Track how exercise affects your symptoms</h2>
                 <p className="text-muted-foreground text-sm">Use our Self Help Tool to explore joint-specific exercises and get personalised guidance from our help chat.</p>
               </div>
               <Button asChild size="lg" className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-primary-foreground shadow-md shrink-0">
@@ -668,9 +668,9 @@ const ExerciseHub = () => {
         </section>
 
         {/* ─── Weekly Plan Timeline ─── */}
-        <section className="py-12 lg:py-16 bg-tint-peach">
+        <section aria-labelledby="sample-weekly-plan" className="py-12 lg:py-16 bg-tint-peach">
           <div className="container mx-auto px-6 md:px-10 max-w-3xl">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Sample Weekly Plan</h2>
+            <h2 id="sample-weekly-plan" className="text-2xl font-bold text-foreground mb-2">Sample Weekly Plan</h2>
             <p className="text-sm text-muted-foreground mb-8">An example week to build towards over time, not a starting point. UK guidance for adults is about 150 minutes of moderate activity a week plus strengthening on at least two days; start well below this and build up.</p>
             <Timeline items={[
               { title: "Monday — Knee Strengthening", description: "20 min quad & hamstring routine." },
@@ -693,7 +693,7 @@ const ExerciseHub = () => {
         <ExerciseProgressTracker />
 
         {/* Final CTA */}
-        <section className="py-16 lg:py-24 bg-gradient-to-br from-primary/5 via-background to-primary/5">
+        <section aria-labelledby="personalised-exercise-advice" className="py-16 lg:py-24 bg-gradient-to-br from-primary/5 via-background to-primary/5">
           <div className="container mx-auto px-6 md:px-10 max-w-3xl text-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -704,7 +704,7 @@ const ExerciseHub = () => {
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
                 <Sparkles className="w-8 h-8 text-primary" />
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Need Personalised Exercise Advice?</h2>
+              <h2 id="personalised-exercise-advice" className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Need Personalised Exercise Advice?</h2>
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto text-lg">
                 Get recommendations tailored to your joints, pain level and fitness — free, instant and evidence-based.
               </p>

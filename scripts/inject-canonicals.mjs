@@ -178,7 +178,20 @@ export function mergeHeadLayers(...layers) {
 // to keep the static crawler head byte-identical with what the page shows.
 // Empty fields are omitted so richer build-side data (e.g. a page's own
 // visible FAQ set mirrored in ai-head-data.json) is never wiped.
+import { medicalEntityForRoute } from "../src/lib/routeSchema.ts";
 import { PAGE_AEO } from "../src/data/page-aeo.ts";
+import { STANDALONE_ANSWER_CAPSULES } from "../src/data/standaloneAnswerCapsules.ts";
+const STANDALONE_ANSWER_LAYER = Object.fromEntries(Object.entries(STANDALONE_ANSWER_CAPSULES).map(([route, answer]) => [route, { answer }]));
+import { LIBRARY_ANSWER_CAPSULES } from "../src/data/libraryAnswerCapsules.ts";
+const LIBRARY_ANSWER_LAYER = Object.fromEntries(Object.entries(LIBRARY_ANSWER_CAPSULES).map(([slug, answer]) => [`/library/${slug}`, { answer }]));
+import { conditionSubpages } from "../src/data/conditionSubpages.ts";
+const CONDITION_ANSWER_LAYER = Object.fromEntries(Object.entries(conditionSubpages).flatMap(([condition, sections]) => Object.entries(sections).map(([section, data]) => [`/conditions/${condition}/${section}`, { answer: data.intro }])));
+import { ROUTE_TITLE_OVERRIDES } from "../src/data/routeTitleOverrides.ts";
+const EDITORIAL_TITLE_LAYER = Object.fromEntries(Object.entries(ROUTE_TITLE_OVERRIDES).map(([route, title]) => [route, { title }]));
+import { exerciseJointPages } from "../src/data/exerciseJointMatrix.ts";
+import { EXERCISE_URGENT_ADVICE, EXERCISE_EMERGENCY_ADVICE, EXERCISE_ROUTINE_ADVICE } from "../src/data/exerciseSafety.ts";
+const EXERCISE_JOINT_BY_ROUTE = new Map(exerciseJointPages.map((page) => [`/exercises/${page.slug}`, page]));
+const EXERCISE_ANSWER_LAYER = Object.fromEntries([...EXERCISE_JOINT_BY_ROUTE].map(([route, page]) => [route, { answer: page.intro }]));
 const PAGE_AEO_LAYER = Object.fromEntries(
   Object.entries(PAGE_AEO).map(([route, page]) => [
     route,
@@ -199,6 +212,12 @@ const AI_DATA = mergeHeadLayers(
   readJson(resolve("scripts/route-head-curated.json")),
   readJson(AI_DATA_PATH),
   PAGE_AEO_LAYER,
+  EXERCISE_ANSWER_LAYER,
+  CONDITION_ANSWER_LAYER,
+  LIBRARY_ANSWER_LAYER,
+  STANDALONE_ANSWER_LAYER,
+  EDITORIAL_TITLE_LAYER,
+  readJson(resolve("scripts/pip-head-overrides.json")),
 );
 
 const BLOG_SLUGS_PATH = resolve("src/data/blog-slugs.generated.json");
@@ -341,12 +360,28 @@ function withSynonyms(route, data) {
   if (!items.length) return data;
   return { ...data, bodyHtml: `${data.bodyHtml || ''}<h2>Also known as</h2><dl>${items.join('')}</dl>` };
 }
-const RENDERED_BODIES = existsSync(resolve('scripts/data/rendered-bodies.json'))
-  ? JSON.parse(readFileSync(resolve('scripts/data/rendered-bodies.json'), 'utf8')) : {};
+// rendered-bodies.overrides.json (small, per-route) is layered over the large
+// committed snapshot so a few routes can be re-captured without rewriting it.
+const RENDERED_BODIES = {
+  ...(existsSync(resolve('scripts/data/rendered-bodies.json'))
+    ? JSON.parse(readFileSync(resolve('scripts/data/rendered-bodies.json'), 'utf8')) : {}),
+  ...(existsSync(resolve('scripts/data/rendered-bodies.overrides.json'))
+    ? JSON.parse(readFileSync(resolve('scripts/data/rendered-bodies.overrides.json'), 'utf8')) : {}),
+};
 // Same counting rule as scripts/lib/route-words.mjs (the word gate).
 const textWords = (html) => String(html || '').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ').split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
 function withRenderedBody(route, data) {
-  const snap = RENDERED_BODIES[route];
+  const rawCapture = RENDERED_BODIES[route];
+  const conditionAnswer = CONDITION_ANSWER_LAYER[route]?.answer || LIBRARY_ANSWER_LAYER[route]?.answer || STANDALONE_ANSWER_LAYER[route]?.answer;
+  const correctedCapture = rawCapture?.replace(/<strong>Last checked: 11 November 2026<\/strong> against/g, "<strong>Official sources:</strong>").replace('It is available on prescription and also over-the-counter (in lower doses) at pharmacies.', 'Naproxen is prescribed for arthritis. Some UK pharmacy products have limited indications: Naprosyn Pain Relief 250 mg is for short-term muscle and joint pain in adults aged 18 to 50, for no more than 3 days; period-pain products have separate eligibility rules. Ask a pharmacist which product is suitable, and do not use a pharmacy product as ongoing arthritis treatment without medical advice.');
+  const captured = correctedCapture && conditionAnswer
+    ? correctedCapture.replace(/<p>[\s\S]*?<\/p>/, `<p>${escText(conditionAnswer)}</p>`) : correctedCapture;
+  const exercisePage = EXERCISE_JOINT_BY_ROUTE.get(route);
+  // Keep the captured exercise body while replacing its stale opening copy
+  // with the same answer now rendered by the React matrix page.
+  const snap = captured && exercisePage
+    ? captured.replace(/<p>[\s\S]*?<\/p>/, `<p>${escText(exercisePage.intro)}</p><blockquote data-callout="note"><p><strong>Note</strong></p><p>${escText(EXERCISE_URGENT_ADVICE)}</p><p>${escText(EXERCISE_EMERGENCY_ADVICE)}</p><p>${escText(EXERCISE_ROUTINE_ADVICE)} <a href="https://www.nhs.uk/conditions/joint-pain/">NHS joint-pain advice</a></p></blockquote>`)
+      .replace("During an active flare — rest and let it settle first", "A hot, swollen joint or sudden severe joint pain needs urgent GP or NHS 111 advice, not routine exercise adaptation") : captured;
   if (!data || data.noindex) return data;
   let out = data;
   if (snap && !(textWords(data.bodyHtml) + textWords(data.answer) >= 300 && textWords(data.bodyHtml) >= textWords(snap))) {
@@ -706,9 +741,9 @@ export function buildJsonLd(route, url, d) {
     description: d.description,
     inLanguage: "en-GB",
     isPartOf: { "@id": `${BASE}/#website` },
-    about: article ? { "@type": "MedicalCondition", name: "Arthritis" }
+    about: medicalEntityForRoute(route, d.condition?.name || d.about || d.question || d.title) || (article ? { "@type": "MedicalCondition", name: "Arthritis" }
       : conditionNode ? conditionNode
-      : d.about ? { "@type": "Thing", name: d.about } : undefined,
+      : d.about ? { "@type": "Thing", name: d.about } : undefined),
     dateModified: d.updatedAt,
     publisher: { "@id": `${BASE}/#organization` },
     ...(medical ? { audience: { "@type": "MedicalAudience", audienceType: "Patient" } } : {}),
@@ -1016,4 +1051,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-    }
+                                        }

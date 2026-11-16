@@ -1,3 +1,4 @@
+import { STANDALONE_ANSWER_CAPSULES } from "@/data/standaloneAnswerCapsules";
 import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { useEffect } from 'react';
@@ -94,7 +95,7 @@ export default function Arthritis() {
       <LastReviewed date={LAST_REVIEWED_ISO} className="mb-6 -mt-4" />
 
       <AnswerBox question="What is arthritis and how is it treated?" reviewed="2026-06-22">
-        Arthritis describes over 100 conditions that affect the joints — causing pain, stiffness, swelling and reduced movement. Osteoarthritis (wear-related) and rheumatoid arthritis (inflammatory) are the most common forms in the UK. Effective management combines targeted exercise, weight optimisation, an anti-inflammatory diet, medical treatment for pain and inflammation, and — when needed — specialist rheumatology care, injections or joint replacement surgery. For inflammatory types, early diagnosis and treatment matter, so see a GP if you have persistent joint swelling.
+        {STANDALONE_ANSWER_CAPSULES["/conditions/arthritis"]}
       </AnswerBox>
 
       <MedicalReviewBadge reviewer="Louis Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
@@ -250,4 +251,4 @@ export default function Arthritis() {
       <TopicClusterNav path="/conditions/arthritis" />
     </article>
   );
-}
+          }

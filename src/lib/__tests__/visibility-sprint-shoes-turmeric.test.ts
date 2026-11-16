@@ -122,7 +122,8 @@ describe("visibility sprint: customer-job hub polish", () => {
     expect(newly).toContain("/guides/benefits-pip");
     expect(newly).toContain("/resources/pip-evidence-diary");
 
-    expect(pip).toMatch(/lastReviewed="2026-(09-20|09-28|10-23|11-11)"/);
+    expect(pip).toContain('EducationalDisclaimerBox reviewStatus="pending"');
+    expect(pip).not.toContain('"lastReviewed":');
     expect(pip).toContain("/guides/benefits-pip");
     // /benefits-pip merged into the pillar guide (2026-10-31); canonical comes from PageSchema.
     expect(pip).toContain("How to claim PIP for arthritis: complete UK guide");

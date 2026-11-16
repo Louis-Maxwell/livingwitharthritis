@@ -37,7 +37,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     ],
 question: "What is osteoarthritis?",
     answer:
-      "Osteoarthritis (OA) is the most common arthritis in the UK. It involves changes in the cartilage that cushions bone ends and in other joint tissues, most often in knees, hips, hands and spine. Pain is usually worse with use, morning stiffness is typically under 30 minutes, and NICE NG226 recommends therapeutic exercise, weight management where relevant, and information and support as core care.",
+      "Osteoarthritis (OA) is the UK's most common arthritis, involving changes in cartilage and other joint tissues, most often in knees, hips, hands and spine. Pain is usually worse with use; morning stiffness typically lasts under 30 minutes. NICE NG226 recommends therapeutic exercise and weight management where relevant as core care.",
     updatedAt: "2026-11-11",
     takeaways: [
       "There is no cure that reverses osteoarthritis, but exercise, pacing, weight advice where relevant and the right pain relief help many people.",
@@ -59,7 +59,7 @@ question: "What is osteoarthritis?",
     ],
 question: "What is rheumatoid arthritis?",
     answer:
-      "Rheumatoid arthritis (RA) is an autoimmune condition where the immune system attacks the joint lining, causing pain, swelling and stiffness, usually first in the small joints of the hands and feet (NHS). If you are newly diagnosed, NICE NG100 says you should be offered a DMARD such as methotrexate as soon as possible, ideally within 3 months of persistent symptoms.",
+      "Rheumatoid arthritis (RA) is an autoimmune condition where the immune system attacks the joint lining, causing pain, swelling and stiffness, usually in the small joints of the hands and feet. If newly diagnosed, NICE NG100 says you should be offered a DMARD such as methotrexate, ideally within 3 months of persistent symptoms.",
     takeaways: [
       "Rheumatoid arthritis is an autoimmune condition: the immune system attacks the joint lining, causing pain, swelling and stiffness.",
       "NICE NG100 recommends starting a DMARD such as methotrexate as soon as possible, ideally within 3 months of persistent symptoms.",
@@ -141,7 +141,7 @@ question: "What is gout?",
     ],
 question: "What is knee arthritis?",
     answer:
-      "Knee arthritis is most often osteoarthritis. It typically causes knee pain with activity such as walking or stairs, stiffness after rest and sometimes swelling. NICE guideline NG226 recommends therapeutic exercise and, if you are living with overweight, weight loss as core treatment, with a topical NSAID as the first medicine to offer for knee osteoarthritis.",
+      "Knee arthritis is most often osteoarthritis, typically causing knee pain with activity such as walking or stairs, stiffness after rest and sometimes swelling. NICE NG226 recommends therapeutic exercise and, if living with overweight, weight loss as core treatment, with a topical NSAID as the first medicine for knee osteoarthritis.",
     updatedAt: "2026-11-11",
     takeaways: [
       "Osteoarthritis can usually be diagnosed without an X-ray if you are 45 or over, have activity-related joint pain and have no morning stiffness or stiffness lasting 30 minutes or less (NICE NG226).",
@@ -250,7 +250,7 @@ question: "What is knee arthritis?",
   "/conditions/polymyalgia-rheumatica": withDefaults({
     question: "What is polymyalgia rheumatica?",
     answer:
-      "Polymyalgia rheumatica (PMR) causes sudden shoulder and hip stiffness and pain, mainly in adults over 50. Low-dose steroids (prednisolone 15 mg) usually give dramatic relief within days. Treatment typically continues for 1-2 years.",
+      "Polymyalgia rheumatica (PMR) causes sudden shoulder and hip stiffness and pain, mainly in adults over 50. Low-dose steroids (prednisolone 15 mg) usually give dramatic relief within days. Diagnosis involves a GP examination and blood tests (CRP and ESR) for inflammation. Treatment typically continues for 1-2 years.",
   
     faqs: [
       { q: "How is polymyalgia rheumatica diagnosed in the UK?", a: "Your GP will check your symptoms, examine your shoulders and hips, and arrange blood tests (CRP and ESR) to look for inflammation. A dramatic improvement within a few days of starting prednisolone helps confirm the diagnosis." },
@@ -293,7 +293,7 @@ question: "I've just been diagnosed with arthritis — what should I do?",
     ],
 question: "How do I relieve arthritis pain?",
     answer:
-      "Use heat for stiff joints or a wrapped cold pack for hot, swollen ones, keep moving gently and build up exercise, which NICE recommends as a core treatment for osteoarthritis. For knee osteoarthritis NICE advises trying an NSAID gel first; NSAID tablets may be added at the lowest dose for the shortest time. NICE says paracetamol and weak opioids should not be offered routinely for osteoarthritis. Inflammatory arthritis needs specialist treatment. Check with a pharmacist or GP what is safe for you.",
+      "Use heat for stiff joints or a wrapped cold pack for hot, swollen ones, and keep moving gently. For knee osteoarthritis NICE advises an NSAID gel first, with tablets at the lowest dose for the shortest time; paracetamol and weak opioids should not be offered routinely. Inflammatory arthritis needs specialist treatment.",
     faqs: [
       { q: "What is the fastest way to ease an arthritis flare?", a: "Use heat for stiffness or a cold pack wrapped in a cloth for a hot swollen joint, reduce rather than stop activity, and use only medicines your GP or pharmacist has advised. Full rest often increases stiffness." },
       { q: "Does exercise help arthritis pain?", a: "Yes. NICE recommends therapeutic exercise, including strengthening and general fitness, as a core treatment for osteoarthritis. Start small and build up gradually." },
@@ -362,7 +362,7 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
   "/guides/disability-support": withDefaults({
     question: "What are my disability rights in the UK if I have arthritis?",
     answer:
-      "Under the Equality Act 2010 (England, Scotland and Wales), arthritis counts as a disability if it has a substantial and long-term negative effect on your normal daily activities. If it does, employers, shops, services, schools, colleges and landlords must not discriminate against you, and many must make reasonable adjustments. Northern Ireland has similar protection under the Disability Discrimination Act 1995.",
+      "Under the Equality Act 2010 (England, Scotland and Wales), arthritis counts as a disability if it has a substantial, long-term negative effect on daily activities. Employers, shops, services, schools and landlords must not discriminate against you, and many must make reasonable adjustments. Northern Ireland has protection under the Disability Discrimination Act 1995.",
   }),
   "/guides/frailty-management-hub": withDefaults({
     question: "How is frailty managed with arthritis?",
@@ -384,7 +384,7 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
   "/arthritis-flare-ups": withDefaults({
     question: "What should I do during an arthritis flare-up?",
     answer:
-      "During a flare, pace activity and keep gently moving within comfort, use heat or cold as appropriate, take only medicines advised by your GP or pharmacist, and note possible triggers. Seek urgent care for a single hot, swollen joint with fever or sudden inability to weight-bear. This is educational guidance, not personal medical advice.",
+      "During a flare, pace activity and keep gently moving within comfort, use heat or cold, take only medicines advised by your GP or pharmacist, and note possible triggers. Seek urgent care for a single hot, swollen joint with fever or sudden inability to weight-bear. This is educational guidance, not personal medical advice.",
     takeaways: [
       "Pace activity and avoid boom-and-bust; keep gentle range-of-motion movement unless advised otherwise.",
       "Use heat or cold for comfort and take only medicines your GP or pharmacist has advised.",
@@ -412,7 +412,7 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
   "/diet/mediterranean-diet-for-arthritis": withDefaults({
     question: "Does the Mediterranean diet help arthritis?",
     answer:
-      "A Mediterranean-style diet, rich in vegetables, fruit, beans, wholegrains, fish and olive or rapeseed oil, may modestly help some people with arthritis, especially rheumatoid arthritis, and is good for heart health. NICE says there is no strong evidence diet changes benefit RA, but people can be encouraged to follow Mediterranean principles. It is not a cure and does not replace medicines.",
+      "A Mediterranean-style diet, rich in vegetables, fruit, beans, wholegrains, fish and olive or rapeseed oil, may modestly help some people with arthritis, especially rheumatoid arthritis. NICE finds no strong evidence diet changes benefit RA but encourages people to follow Mediterranean principles. It is not a cure and does not replace medicines.",
     takeaways: [
       "NICE NG100 says adults with rheumatoid arthritis can be encouraged to follow Mediterranean diet principles, while explaining there is no strong evidence their arthritis will benefit.",
       "A Mediterranean-style diet is rich in vegetables, fruit, beans, wholegrains, fish and olive or rapeseed oil, and supports heart health.",
@@ -439,7 +439,7 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
   "/exercises": withDefaults({
     question: "What are good free physiotherapy exercises for arthritis at home?",
     answer:
-      "NICE guideline NG226 recommends therapeutic exercise tailored to you, such as local muscle strengthening and general aerobic fitness, as a core treatment for osteoarthritis. The NHS advises regular low-impact activity like walking, swimming or yoga. Start with a few gentle repetitions, keep effort around 4 out of 10, and build up slowly; next-day soreness means do less, not stop.",
+      "NICE NG226 recommends therapeutic exercise tailored to you, such as local muscle strengthening and aerobic fitness, as a core osteoarthritis treatment. The NHS advises regular low-impact activity like walking, swimming or yoga. Start gently, keep effort around 4 out of 10, and build up slowly; next-day soreness means do less, not stop.",
     faqs: [
       { q: "Can I do physio exercises at home without a referral?", a: "Yes, for most people with stable joint pain. The NHS says that in many areas you can refer yourself to community musculoskeletal (MSK) physiotherapy without seeing a GP, and you can start gentle home exercise while you wait." },
       { q: "How often should I do arthritis exercises?", a: "Strength exercises are usually done two or three times a week, with gentle range-of-movement exercises daily, as in our knee routine. NICE NG226 advises exercise tailored to you, so build up slowly and adjust to how your joints respond." },
@@ -463,7 +463,7 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
   "/about": withDefaults({
     question: "Who is Living With Arthritis?",
     answer:
-      "Living With Arthritis is a UK charity registered in England and Wales (no. 1218461), founded by David Williams and independent of Arthritis UK. Everything we offer is free: arthritis guides, a PIP claim guide and evidence diary, a flare action plan, home exercise routines, a symptom and flare tracker and a community hub, for adults with arthritis and their carers.",
+      "Living With Arthritis is an independent UK charity (no. 1218461), founded by David Williams. Free resources support adults with arthritis and their carers through practical information, not personal medical advice. Explore arthritis and PIP guides, an evidence diary, flare plans, home exercises, a symptom tracker and community support.",
     faqs: [
       { q: "What does Living With Arthritis offer for free?", a: "Free arthritis guides, a step-by-step PIP claim guide, a printable PIP evidence diary, a flare action plan, home exercise routines, a printable symptom and flare tracker and a community hub. Everything is free to read, with no sign-up needed." },
       { q: "Who is Living With Arthritis for?", a: "Adults in the UK living with arthritis or joint pain, and the family members and carers who support them. Our guidance is educational and does not replace advice from your GP, pharmacist or rheumatology team." },
@@ -475,7 +475,7 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
   "/guides/diet": withDefaults({
     question: "What is the best diet for arthritis?",
     answer:
-      "The NHS advises a healthy, balanced diet and keeping to a healthy weight, because extra weight strains your joints. NICE NG226 says any weight loss helps people with osteoarthritis who are overweight, and NICE NG100 encourages people with rheumatoid arthritis to follow Mediterranean diet principles: more fruit, vegetables, fish and plant oils, less meat. No diet cures arthritis.",
+      "The NHS advises a healthy, balanced diet and keeping to a healthy weight, because extra weight strains your joints. NICE NG226 says any weight loss helps people with osteoarthritis who are overweight, and NG100 encourages people with rheumatoid arthritis to follow Mediterranean principles: more fruit, vegetables, fish and plant oils, less meat.",
     takeaways: [
       "No diet cures arthritis; a balanced diet supports exercise, medicines and your other treatment.",
       "If you have osteoarthritis and are overweight, any weight loss helps, and losing 10% of body weight is likely better than 5% (NICE NG226).",
@@ -501,7 +501,7 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
   "/arthritis-waiting-list-help": withDefaults({
     question: "What can I do while waiting for a rheumatology appointment?",
     answer:
-      "While you wait, check your referral has been received, track your symptoms weekly, keep active, and ask about NHS physiotherapy self-referral. In England you have a legal right to start consultant-led treatment within 18 weeks, with exceptions; Scotland, Wales and Northern Ireland have different rules. Contact your GP if symptoms get worse so the referral can be reviewed.",
+      "While you wait, check your referral has been received, track your symptoms weekly, keep active, and ask about NHS physiotherapy self-referral. In England you have a legal right to start consultant-led treatment within 18 weeks, with exceptions; Scotland, Wales and Northern Ireland differ. Contact your GP if symptoms worsen.",
     faqs: [
       { q: "How long will I wait for a rheumatology appointment?", a: "It depends on where you live, the hospital and how urgent your referral is. Check the official sites: My Planned Care in England, NHS inform in Scotland, your health board and GOV.WALES statistics in Wales, and My Waiting Times NI in Northern Ireland. Suspected inflammatory arthritis should be referred urgently." },
       { q: "What is the 18-week rule?", a: "In England you have a legal right to start non-urgent, consultant-led treatment within 18 weeks of your referral being received or booked, with some exceptions. If you are likely to wait longer, you can ask to be offered a different provider. Scotland, Wales and Northern Ireland have different rules." },

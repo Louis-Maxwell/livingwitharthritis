@@ -1,4 +1,6 @@
-import { useEffect, useMemo } from "react";
+import { correctLibraryCopy } from "@/data/libraryCopyCorrections";
+import { LIBRARY_ANSWER_CAPSULES } from "@/data/libraryAnswerCapsules";
+import { useEffect, useMemo, type ReactNode } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import routeNoindex from "@/data/route-noindex.json";
@@ -19,6 +21,16 @@ import {
   getLibraryLastReviewed,
   getLibraryReviewStatus,
 } from "@/data/libraryReview";
+
+function TopicList({ heading, children }: { heading: string; children: ReactNode }) {
+  const actionable = /treat|manag|self.?care|prevent|when to|seek|support|exercise|what you can do|living with/i.test(heading);
+  return actionable ? (
+    <blockquote data-callout="note" className="border-l-4 border-primary pl-5">
+      <p className="font-semibold mb-3">Note</p>
+      {children}
+    </blockquote>
+  ) : <>{children}</>;
+}
 
 const LibraryTopic = () => {
   const { slug = "" } = useParams<{ slug: string }>();
@@ -124,25 +136,26 @@ const LibraryTopic = () => {
           <h1 className="font-serif text-4xl md:text-5xl font-bold mb-3">
             {heading}
           </h1>
-          {(seo?.description || topic.subtitle) && (
-            <p className="text-lg text-muted-foreground mb-10">
-              {seo?.description || topic.subtitle}
+          {(LIBRARY_ANSWER_CAPSULES[topic.slug] || seo?.description || topic.subtitle) && (
+            <p className="answer-box text-lg text-muted-foreground mb-10">
+              {LIBRARY_ANSWER_CAPSULES[topic.slug] || seo?.description || topic.subtitle}
             </p>
           )}
 
           <div className="space-y-10">
             {topic.sections.map((section, i) => (
-              <section key={i}>
-                <h2 className="font-serif text-2xl font-semibold text-primary mb-4">
+              <section key={i} aria-labelledby={`library-section-${i}`}>
+                <h2 id={`library-section-${i}`} className="font-serif text-2xl font-semibold text-primary mb-4">
                   {section.heading}
                 </h2>
                 {section.body &&
-                  section.body.split("\n\n").map((para, pi) => (
+                  correctLibraryCopy(section.body).split("\n\n").map((para, pi) => (
                     <p key={pi} className="mb-4 leading-relaxed">
                       {para}
                     </p>
                   ))}
                 {section.bullets && section.bullets.length > 0 && (
+                  <TopicList heading={section.heading}>
                   <ul className="list-disc ps-6 space-y-2">
                     {section.bullets.map((b, bi) => (
                       <li key={bi} className="leading-relaxed">
@@ -150,21 +163,23 @@ const LibraryTopic = () => {
                       </li>
                     ))}
                   </ul>
+                  </TopicList>
                 )}
               </section>
             ))}
             {seo?.extraSections?.map((section, i) => (
-              <section key={`seo-extra-${i}`}>
-                <h2 className="font-serif text-2xl font-semibold text-primary mb-4">
+              <section key={`seo-extra-${i}`} aria-labelledby={`library-extra-${i}`}>
+                <h2 id={`library-extra-${i}`} className="font-serif text-2xl font-semibold text-primary mb-4">
                   {section.heading}
                 </h2>
                 {section.body &&
-                  section.body.split("\n\n").map((para, pi) => (
+                  correctLibraryCopy(section.body).split("\n\n").map((para, pi) => (
                     <p key={pi} className="mb-4 leading-relaxed">
                       {para}
                     </p>
                   ))}
                 {section.bullets && section.bullets.length > 0 && (
+                  <TopicList heading={section.heading}>
                   <ul className="list-disc ps-6 space-y-2">
                     {section.bullets.map((b, bi) => (
                       <li key={bi} className="leading-relaxed">
@@ -172,6 +187,7 @@ const LibraryTopic = () => {
                       </li>
                     ))}
                   </ul>
+                  </TopicList>
                 )}
               </section>
             ))}

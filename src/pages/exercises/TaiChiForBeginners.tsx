@@ -1,3 +1,4 @@
+import { STANDALONE_ANSWER_CAPSULES } from "@/data/standaloneAnswerCapsules";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2, Sparkles, Clock, AlertCircle, PlayCircle, Heart } from "lucide-react";
@@ -135,7 +136,7 @@ export default function TaiChiForBeginners() {
       <PageHero
         badge={<Badge variant="secondary" className="bg-background text-primary border-0">Beginner · 7-day plan · Free</Badge>}
         title="Tai Chi for Beginners: Your First 7 Days"
-        subtitle="A gentle, evidence-aligned at-home start. No equipment, ~10 minutes a day, and especially kind to stiff or arthritic joints. Begin today."
+        subtitle={STANDALONE_ANSWER_CAPSULES["/exercises/tai-chi-for-beginners"]}
       >
         <div className="flex flex-wrap gap-3">
           <Button asChild size="lg"><a href="#day-1">Start Day 1 <ArrowRight className="ml-2 h-4 w-4" /></a></Button>
@@ -312,4 +313,4 @@ export default function TaiChiForBeginners() {
       <Footer />
     </div>
   );
-}
+   }

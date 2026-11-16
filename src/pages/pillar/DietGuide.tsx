@@ -273,8 +273,8 @@ export default function DietGuide() {
           </AnswerBox>
           <TableOfContents html={html} />
           <ArticleHtmlWithNextStep html={html} path="/guides/diet" className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" />
-          <section id="diet-guide-faq" className="mt-16 pt-8 border-t border-border/30">
-            <h2 className="font-display font-bold text-2xl mb-6">Frequently asked questions</h2>
+          <section id="diet-guide-faq" aria-labelledby="diet-faq-heading" className="mt-16 pt-8 border-t border-border/30">
+            <h2 id="diet-faq-heading" className="font-display font-bold text-2xl mb-6">Frequently asked questions</h2>
             <FaqAccordion
               idPrefix="diet-guide-faq"
               items={DIET_GUIDE_FAQS}
@@ -306,5 +306,4 @@ export default function DietGuide() {
     </>
   );
 }
-
 

@@ -1,7 +1,7 @@
 /**
  * Complete PIP guide for arthritis: eligibility, points, claiming and challenges (UK)
  * Content for /guides/benefits-pip (Benefits & UK Support batch 3, Oct 2026).
- * Facts checked on GOV.UK / official sources on 11 November 2026 (phone line, form, timescales,
+ * Official sources are linked for checking current rules (phone line, form, timescales,
  * 8/12 point thresholds from the DWP PIP assessment guide part 1). Clinically reviewed by Louis Maxwell (HCPC PH128483).
  */
 
@@ -15,7 +15,7 @@ export const PIP_GUIDE_QUICK_ANSWER = "Daily living and mobility are scored sepa
 
 export const PIP_GUIDE_ANSWER =
   "Yes, you can claim Personal Independence Payment (PIP) for arthritis if joint pain, stiffness, or fatigue limits your daily living or mobility. Eligibility depends entirely on how arthritis impairs functional activities—such as washing, dressing, cooking, and walking—not on diagnosis alone. Claims require medical evidence and completing the DWP PIP2 questionnaire.";
-export const PIP_GUIDE_CHECKED = "11 November 2026";
+export const PIP_GUIDE_CHECKED = ""; // No historical source-check record retained.
 
 /** Numbered claim steps: rendered as the visible <ol> and as HowTo JSON-LD. */
 export const PIP_HOWTO_STEPS: { id: string; name: string; text: string }[] = [
@@ -91,7 +91,7 @@ ${PIP_ACTIVITY_ROWS.map((r) => `<tr><th scope="row">${escHtml(r.activity)}</th><
 </tbody>
 </table>`;
 
-export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Last checked: 11 November 2026</strong> against <a href="https://www.gov.uk/pip" rel="noopener">GOV.UK: Personal Independence Payment</a>, <a href="https://www.gov.uk/pip/how-to-claim" rel="noopener">GOV.UK: How to claim PIP</a>, the <a href="https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-1-the-assessment-process" rel="noopener">DWP PIP assessment guide</a> and the DWP <a href="https://www.gov.uk/government/publications/benefit-and-pension-rates-2026-to-2027" rel="noopener">benefit and pension rates 2026 to 2027</a>. Benefit rules can change, so always check the official pages before you claim.</p>
+export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Official sources:</strong> <a href="https://www.gov.uk/pip" rel="noopener">GOV.UK: Personal Independence Payment</a>, <a href="https://www.gov.uk/pip/how-to-claim" rel="noopener">GOV.UK: How to claim PIP</a>, the <a href="https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-1-the-assessment-process" rel="noopener">DWP PIP assessment guide</a> and the DWP <a href="https://www.gov.uk/government/publications/benefit-and-pension-rates-2026-to-2027" rel="noopener">benefit and pension rates 2026 to 2027</a>. Benefit rules can change, so always check the official pages before you claim.</p>
 
 <p><strong>Before you apply:</strong> if you are still deciding whether arthritis may qualify, read <a href="/blog/pip-for-arthritis-uk">Can you get PIP for arthritis?</a> That page is about eligibility, including rates checked against GOV.UK. This page is the claim itself. Use the <a href="/resources/pip-evidence-diary">Printable PIP evidence diary</a> to record daily living and mobility for two to four weeks before you fill in the form.</p>
 
@@ -119,7 +119,7 @@ export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Last checked: 11 
 <tr><td>Mobility</td><td>£30.30</td><td>£80.00</td></tr>
 </tbody>
 </table>
-<p>Source: <a href="https://www.gov.uk/pip" rel="noopener">GOV.UK PIP guide</a> and the DWP rates publication for 2026 to 2027, checked on 11 November 2026. Adult Disability Payment in Scotland is paid at the same rates for 2026/27, according to <a href="https://www.mygov.scot/adult-disability-payment" rel="noopener">mygov.scot</a>.</p>
+<p>Source: <a href="https://www.gov.uk/pip" rel="noopener">GOV.UK PIP guide</a> and the DWP rates publication for 2026 to 2027. Adult Disability Payment in Scotland is paid at the same rates for 2026/27, according to <a href="https://www.mygov.scot/adult-disability-payment" rel="noopener">mygov.scot</a>.</p>
 
 <h2 id="eligibility">Who can claim PIP?</h2>
 <p>According to GOV.UK, you can get PIP if all of the following apply:</p>
@@ -261,7 +261,7 @@ export const PIP_GUIDE_FAQS: { question: string; answer: string }[] = [
   { question: "What is the PIP new claims phone number?", answer: "In England and Wales, call the DWP PIP new claims line on 0800 917 2222 (Relay UK: 18001 then 0800 917 2222), Monday to Friday, 8am to 5pm. You can also start a claim by writing to Freepost DWP PIP 1. Checked on GOV.UK on 11 November 2026." },
   { question: "What is the PIP2 form?", answer: "PIP2 is the \"How your disability affects you\" form. DWP sends it after you start your claim, as an online link or by post (usually within 2 weeks). You should return it within 1 month; contact the PIP enquiry line if you need more time." },
   { question: "How many points do I need for PIP?", answer: "Daily living and mobility are scored separately. In each part, 8 to 11 points gives the standard rate and 12 or more gives the enhanced rate, according to the DWP PIP assessment guide." },
-  { question: "How much PIP could I get in 2026/27?", answer: "The daily living part is £76.70 a week (standard) or £114.60 (enhanced). The mobility part is £30.30 (standard) or £80 (enhanced). These figures were checked on GOV.UK on 11 November 2026." },
+  { question: "How much PIP could I get in 2026/27?", answer: "The daily living part is £76.70 a week (standard) or £114.60 (enhanced). The mobility part is £30.30 (standard) or £80 (enhanced). Check the linked GOV.UK sources for current figures." },
   { question: "Will I need a PIP assessment?", answer: "Not always. GOV.UK says you might be invited to an assessment if DWP needs more information. It can be at an assessment centre, at home, by phone or by video call, usually takes about 1 hour, and you can bring someone with you." },
   { question: "Can I work and claim PIP?", answer: "Yes. PIP is not means-tested and is not an out-of-work benefit, so you can claim whether or not you work. Your income and savings do not affect it." },
   { question: "How do I show that my arthritis flares?", answer: "Describe a typical week and month: how many bad days you have, what you cannot do on them and how long flares last. PIP looks at which descriptor applies on more than half of days, so a diary covering several weeks is very helpful." },

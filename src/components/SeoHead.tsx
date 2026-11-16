@@ -10,7 +10,7 @@ const DEFAULT_IMAGE = `${SITE_URL}${DEFAULT_OG_PATH}`;
 interface SeoHeadProps {
   /** Page title (will be appended with site name unless includeSiteName=false) */
   title: string;
-  /** Meta description, ideally 140–160 chars */
+  /** Meta description, ideally 140–155 chars */
   description: string;
   /** Canonical path starting with "/" (e.g. "/about-us") */
   path: string;
@@ -99,4 +99,3 @@ export default function SeoHead({
     </Helmet>
   );
 }
-
