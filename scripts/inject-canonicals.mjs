@@ -458,7 +458,12 @@ function withLinkedSummaries(route, data) {
 }
 export { withRenderedBody };
 function headDataFor(route, override) {
-  return withReviewRecord(route, headDataForInner(route, override));
+  const data = withReviewRecord(route, headDataForInner(route, override));
+  if (route === "/guides/knee-exercises-for-osteoarthritis" && data) {
+    const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
+    return editorial;
+  }
+  return data;
 }
 function headDataForInner(route, override) {
   const data = withRenderedBody(route, baseHeadDataFor(route, override));
@@ -1055,4 +1060,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-                                  }
+    }
