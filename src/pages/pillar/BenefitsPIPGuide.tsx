@@ -25,7 +25,6 @@ import {
   PIP_GUIDE_HTML,
   PIP_GUIDE_META_TITLE,
   PIP_GUIDE_ANSWER,
-  PIP_GUIDE_CHECKED,
   PIP_GUIDE_QUICK_ANSWER,
   PIP_GUIDE_TITLE,
   PIP_HOWTO_STEPS,
@@ -150,7 +149,7 @@ export default function BenefitsPIPGuide() {
       <main id="main-content" className="min-h-dvh bg-background">
         <PageHero
           title="How to claim PIP for arthritis: complete UK guide"
-          subtitle={`The phone call, the PIP2 form, the assessment, the decision and how to challenge it, with 2026/27 rates and how the points work. Last checked against GOV.UK on ${PIP_GUIDE_CHECKED}.`}
+          subtitle="The phone call, the PIP2 form, the assessment, the decision and how to challenge it, with information about rates and how the points work. Check the linked GOV.UK sources for current rules and amounts."
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
