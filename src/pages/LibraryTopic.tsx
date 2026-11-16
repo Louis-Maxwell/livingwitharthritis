@@ -1,3 +1,4 @@
+import { LIBRARY_ANSWER_CAPSULES } from "@/data/libraryAnswerCapsules";
 import { useEffect, useMemo, type ReactNode } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -134,9 +135,9 @@ const LibraryTopic = () => {
           <h1 className="font-serif text-4xl md:text-5xl font-bold mb-3">
             {heading}
           </h1>
-          {(seo?.description || topic.subtitle) && (
-            <p className="text-lg text-muted-foreground mb-10">
-              {seo?.description || topic.subtitle}
+          {(LIBRARY_ANSWER_CAPSULES[topic.slug] || seo?.description || topic.subtitle) && (
+            <p className="answer-box text-lg text-muted-foreground mb-10">
+              {LIBRARY_ANSWER_CAPSULES[topic.slug] || seo?.description || topic.subtitle}
             </p>
           )}
 
