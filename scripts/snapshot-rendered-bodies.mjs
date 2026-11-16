@@ -12,7 +12,7 @@ import { spawn } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { routeFile, wordCount } from "./lib/route-words.mjs";
 
-const OUT = "scripts/data/rendered-bodies.json";
+const OUT = process.env.SNAPSHOT_OUT || "scripts/data/rendered-bodies.json";
 const MIN = Number(process.env.MIN_WORDS || 250);
 const all = process.argv.includes("--all");
 const only = process.argv.slice(2).filter((a) => a.startsWith("/"));
@@ -40,13 +40,16 @@ const extract = () => {
     if (node.nodeType !== 1 || skip(node)) return "";
     const inner = [...node.childNodes].map(walk).join("");
     if (node.tagName === "H1") return ""; // the static template writes its own H1
+    if (node.tagName === "SECTION" && /^[A-Za-z][\w-]*$/.test(node.getAttribute("aria-labelledby") || "") && inner.trim()) return `<section aria-labelledby="${node.getAttribute("aria-labelledby")}">${inner.trim()}</section>`;
     if (!KEEP.has(node.tagName)) return /^(DIV|SECTION|ARTICLE|ASIDE)$/.test(node.tagName) ? ` ${inner} ` : inner;
     if (node.tagName === "A") {
       const href = node.getAttribute("href") || "";
       return /^\/(?!\/)/.test(href) || /^https:\/\//.test(href) ? `<a href="${href.replace(/"/g, "&quot;")}">${inner}</a>` : inner;
     }
     const t = node.tagName.toLowerCase();
-    return inner.trim() ? `<${t}>${inner.trim()}</${t}>` : "";
+    const id = /^H[2-4]$/.test(node.tagName) ? node.getAttribute("id") : "";
+    const idAttr = id && /^[A-Za-z][\w-]*$/.test(id) ? ` id="${id}"` : "";
+    return inner.trim() ? `<${t}${idAttr}>${inner.trim()}</${t}>` : "";
   };
   return walk(root).replace(/\s{2,}/g, " ").trim();
 };
