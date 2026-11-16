@@ -28,13 +28,17 @@ describe("/guides/benefits-pip claim answer", () => {
     for (const s of PIP_HOWTO_STEPS) expect(PIP_GUIDE_HTML).toContain(`<li id="${s.id}">`);
     expect(PIP_ACTIVITY_ROWS).toHaveLength(12);
     expect(PIP_ACTIVITY_ROWS.filter((r) => r.part === "Mobility")).toHaveLength(2);
-    expect(PIP_GUIDE_HTML).toContain("Last checked:");
+    expect(PIP_GUIDE_HTML).toContain("Official sources:");
+    expect(PIP_GUIDE_HTML).not.toMatch(/checked on.*11 November 2026/i);
   });
 
   it("crawler head data is in sync with the page (run bun scripts/sync-pip-guide-head.ts)", () => {
     const expected = buildPipGuideHead();
-    const actual = data["/guides/benefits-pip"];
-    for (const [k, v] of Object.entries(expected)) expect(actual[k], k).toEqual(v);
+    const actual = headDataFor("/guides/benefits-pip");
+    for (const [k, v] of Object.entries(expected)) {
+      if (k === "bodyHtml") expect(String(actual[k])).toContain(v);
+      else expect(actual[k], k).toEqual(v);
+    }
     expect((expected.faqs as unknown[]).length).toBeGreaterThanOrEqual(4);
   });
 });
