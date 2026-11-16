@@ -101,8 +101,9 @@ describe("GSC Champions 47–48 (28 Sep): early M3 pillar deepen (pain / OA / ex
     expect(getClusterForPath("/exercises")?.id).toBe("exercises");
   });
 
-  it("PIP hub has review 2026-09-28 and work/carer support blogs", () => {
-    expect(pip).toMatch(/EducationalDisclaimerBox lastReviewed="2026-(09-28|10-23|11-11)"/);
+  it("PIP hub labels unrecorded review and retains work/carer support blogs", () => {
+    expect(pip).toContain('EducationalDisclaimerBox reviewStatus="pending"');
+    expect(pip).not.toContain('"lastReviewed":');
     for (const href of PIP_LINKS) {
       expect(pip.includes(`"${href}"`) || pip.includes(`href: "${href}"`), `PIP missing ${href}`).toBe(true);
     }
