@@ -46,8 +46,8 @@ export default function AnswerBox({
         itemProp="acceptedAnswer"
         itemType="https://schema.org/Answer"
       >
-        <blockquote itemProp="text" className="m-0 border-0 p-0">
-          <p className="text-xs font-semibold text-primary mb-2">[!NOTE]</p>
+        <blockquote data-callout="note" itemProp="text" className="m-0 border-0 p-0">
+          <p className="text-xs font-semibold text-primary mb-2">Note</p>
           {children}
         </blockquote>
       </div>
