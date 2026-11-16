@@ -1,10 +1,20 @@
 import { describe, it, expect } from "vitest";
+import { ROUTE_TITLE_OVERRIDES } from "@/data/routeTitleOverrides";
 import { EXERCISE_URGENT_ADVICE, EXERCISE_EMERGENCY_ADVICE } from "@/data/exerciseSafety";
 import { exerciseJointPages } from "@/data/exerciseJointMatrix";
 import { headDataFor } from "../../../scripts/inject-canonicals.mjs";
 import { labelArticleSections, buildStaticArticleInner } from "../../../scripts/static-article-html.mjs";
 
 describe("crawler passage semantics", () => {
+  it("uses the same specific editorial title in the build data", () => {
+    expect(Object.keys(ROUTE_TITLE_OVERRIDES)).toHaveLength(57);
+    for (const [route, title] of Object.entries(ROUTE_TITLE_OVERRIDES)) {
+      expect(title.length).toBeGreaterThanOrEqual(50);
+      expect(title.length).toBeLessThanOrEqual(60);
+      expect(title).not.toMatch(/Living With Arthritis UK|\| Guide.*\| Guide/);
+      expect(headDataFor(route).title).toBe(title);
+    }
+  });
   it("keeps all exercise-matrix introductions in the answer band and in sync", () => {
     expect(exerciseJointPages).toHaveLength(48);
     for (const page of exerciseJointPages) {
