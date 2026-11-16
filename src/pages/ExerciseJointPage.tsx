@@ -7,6 +7,7 @@ import SocialShareButtons from "@/components/SocialShareButtons";
 import { exerciseJointPages } from "@/data/exerciseJointMatrix";
 import { Dumbbell, CheckCircle, AlertTriangle, ShieldAlert, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
+import { EXERCISE_URGENT_ADVICE, EXERCISE_EMERGENCY_ADVICE, EXERCISE_ROUTINE_ADVICE } from "@/data/exerciseSafety";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -150,7 +151,9 @@ const ExerciseJointPage = () => {
             </h2>
             <blockquote data-callout="note" className="bg-destructive/5 border border-destructive/20 rounded-xl p-5">
               <p className="font-semibold mb-3">Note</p>
-              <p className="text-sm mb-3">Balance rest with comfortable movement. If an activity makes a joint warm and swollen or causes severe pain, stop and rest. Ask a physiotherapist how to adapt your programme.</p>
+              <p className="text-sm mb-3">{EXERCISE_URGENT_ADVICE}</p>
+              <p className="text-sm mb-3">{EXERCISE_EMERGENCY_ADVICE}</p>
+              <p className="text-sm mb-3">{EXERCISE_ROUTINE_ADVICE} <a className="underline" href="https://www.nhs.uk/conditions/joint-pain/">NHS joint-pain advice</a></p>
               <ul className="space-y-2">
                 {page.safetyTips.map((tip, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-foreground">
