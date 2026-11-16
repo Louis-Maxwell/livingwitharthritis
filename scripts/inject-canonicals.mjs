@@ -179,6 +179,9 @@ export function mergeHeadLayers(...layers) {
 // Empty fields are omitted so richer build-side data (e.g. a page's own
 // visible FAQ set mirrored in ai-head-data.json) is never wiped.
 import { PAGE_AEO } from "../src/data/page-aeo.ts";
+import { exerciseJointPages } from "../src/data/exerciseJointMatrix.ts";
+const EXERCISE_JOINT_BY_ROUTE = new Map(exerciseJointPages.map((page) => [`/exercises/${page.slug}`, page]));
+const EXERCISE_ANSWER_LAYER = Object.fromEntries([...EXERCISE_JOINT_BY_ROUTE].map(([route, page]) => [route, { answer: page.intro }]));
 const PAGE_AEO_LAYER = Object.fromEntries(
   Object.entries(PAGE_AEO).map(([route, page]) => [
     route,
@@ -199,6 +202,7 @@ const AI_DATA = mergeHeadLayers(
   readJson(resolve("scripts/route-head-curated.json")),
   readJson(AI_DATA_PATH),
   PAGE_AEO_LAYER,
+  EXERCISE_ANSWER_LAYER,
 );
 
 const BLOG_SLUGS_PATH = resolve("src/data/blog-slugs.generated.json");
@@ -352,7 +356,12 @@ const RENDERED_BODIES = {
 // Same counting rule as scripts/lib/route-words.mjs (the word gate).
 const textWords = (html) => String(html || '').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ').split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
 function withRenderedBody(route, data) {
-  const snap = RENDERED_BODIES[route];
+  const captured = RENDERED_BODIES[route];
+  const exercisePage = EXERCISE_JOINT_BY_ROUTE.get(route);
+  // Keep the captured exercise body while replacing its stale opening copy
+  // with the same answer now rendered by the React matrix page.
+  const snap = captured && exercisePage
+    ? captured.replace(/<p>[\s\S]*?<\/p>/, `<p>${escText(exercisePage.intro)}</p>`) : captured;
   if (!data || data.noindex) return data;
   let out = data;
   if (snap && !(textWords(data.bodyHtml) + textWords(data.answer) >= 300 && textWords(data.bodyHtml) >= textWords(snap))) {
@@ -1022,4 +1031,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-       }
+    }
