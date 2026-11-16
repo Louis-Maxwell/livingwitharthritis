@@ -1,3 +1,4 @@
+import { correctLibraryCopy } from "../src/data/libraryCopyCorrections";
 // Builds scripts/library-head-data.json from reviewed library topics
 // (src/data/healthTopics.ts) plus unique SEO overlays. inject-canonicals.mjs
 // bakes this into the first HTML response so /library/:slug is not a
@@ -27,7 +28,7 @@ function sectionHtml(section: HealthTopicSection | ExtraSection): string {
         .split("\n\n")
         .map((p) => p.trim())
         .filter(Boolean)
-        .map((p) => `<p>${esc(p)}</p>`)
+        .map((p) => `<p>${esc(correctLibraryCopy(p))}</p>`)
         .join("")
     : "";
   const bullets =
@@ -104,4 +105,4 @@ if (isDirectRun()) {
   console.log(
     `[library-head-data] wrote ${Object.keys(data).length} library topics -> ${OUT}`,
   );
-    }
+                    }
