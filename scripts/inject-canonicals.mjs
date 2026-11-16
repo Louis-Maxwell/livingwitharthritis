@@ -361,7 +361,8 @@ function withRenderedBody(route, data) {
   // Keep the captured exercise body while replacing its stale opening copy
   // with the same answer now rendered by the React matrix page.
   const snap = captured && exercisePage
-    ? captured.replace(/<p>[\s\S]*?<\/p>/, `<p>${escText(exercisePage.intro)}</p>`) : captured;
+    ? captured.replace(/<p>[\s\S]*?<\/p>/, `<p>${escText(exercisePage.intro)}</p><blockquote data-callout="note"><p><strong>Note</strong></p><p>Repetitions are examples, not a personal prescription. Start with comfortable movement and ask your physiotherapist how to adapt the programme. If activity makes a joint warm and swollen or causes severe pain, stop and rest.</p></blockquote>`)
+      .replace("During an active flare — rest and let it settle first", "During a flare with a hot, swollen joint, pause strenuous activity and seek advice about comfortable movement") : captured;
   if (!data || data.noindex) return data;
   let out = data;
   if (snap && !(textWords(data.bodyHtml) + textWords(data.answer) >= 300 && textWords(data.bodyHtml) >= textWords(snap))) {
@@ -1031,4 +1032,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-    }
+                 }
