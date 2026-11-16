@@ -217,6 +217,7 @@ const AI_DATA = mergeHeadLayers(
   LIBRARY_ANSWER_LAYER,
   STANDALONE_ANSWER_LAYER,
   EDITORIAL_TITLE_LAYER,
+  readJson(resolve("scripts/pip-head-overrides.json")),
 );
 
 const BLOG_SLUGS_PATH = resolve("src/data/blog-slugs.generated.json");
@@ -1050,4 +1051,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-     }
+                                        }
