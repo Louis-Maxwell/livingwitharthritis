@@ -1,5 +1,5 @@
       (function () {
-        var GA_ID = 'G-X8GTW05JJS';
+        var GA_ID = 'G-ZLLSD3PXZ9';
         var loaded = false;
 
         function hasAnalyticsConsent() {
