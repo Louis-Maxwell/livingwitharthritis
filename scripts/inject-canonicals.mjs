@@ -387,6 +387,10 @@ function withRenderedBody(route, data) {
   if (snap && !(textWords(data.bodyHtml) + textWords(data.answer) >= 300 && textWords(data.bodyHtml) >= textWords(snap))) {
     out = { ...data, bodyHtml: unwrapUnknownLinks(snap) };
   }
+  if (route === "/guides/knee-exercises-for-osteoarthritis") {
+    const supplement = readJson(resolve("src/data/kneeEditorialEnhancement.json"));
+    out = { ...out, bodyHtml: `${out.bodyHtml || ""}<section id="knee-editorial-supplement"><h2>${escText(supplement.title)}</h2><p>${escText(supplement.note)}</p>${supplement.html || ""}</section>` };
+  }
   return withSynonyms(route, withHubSpotlight(route, withLinkedSummaries(route, withIntentLinks(route, out))));
 }
 // Strong hubs link to related guides Google had discovered but never crawled
@@ -1051,4 +1055,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-}
+                                  }
