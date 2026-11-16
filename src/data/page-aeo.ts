@@ -426,16 +426,6 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
       { q: "Do I need to drink red wine?", a: "No. You do not need to drink alcohol to follow the pattern. If you drink, the UK guideline is no more than 14 units a week spread over 3 or more days. If you take methotrexate, ask your rheumatology team what is safe for you." },
     ],
   }),
-  "/blog/knee-arthritis-exercises-uk": withDefaults({
-    question: "What are the best knee arthritis exercises in the UK?",
-    answer:
-      "Quadriceps strengthening, sit-to-stands, straight-leg raises, gentle cycling and walking as tolerated are commonly recommended for knee osteoarthritis. Start low, progress slowly, and stop sharp pain. Educational only — check with a physiotherapist if unsure.",
-    faqs: [
-      { q: "Should I squat with knee OA?", a: "Shallow sit-to-stands are often fine; deep loaded squats may aggravate some knees. Individual assessment is best." },
-      { q: "How many days per week?", a: "Two to three strength sessions plus daily gentle movement suits many people, adjusted for flares." },
-      { q: "Where else can I read about knee OA?", a: "See our knee arthritis condition page and the osteoarthritis pillar guide." },
-    ],
-  }),
   "/diet-hub": withDefaults({
     question: "What's the best diet for arthritis?",
     answer:
