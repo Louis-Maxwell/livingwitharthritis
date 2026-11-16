@@ -15,7 +15,7 @@ export const PIP_GUIDE_QUICK_ANSWER = "Daily living and mobility are scored sepa
 
 export const PIP_GUIDE_ANSWER =
   "Yes, you can claim Personal Independence Payment (PIP) for arthritis if joint pain, stiffness, or fatigue limits your daily living or mobility. Eligibility depends entirely on how arthritis impairs functional activities—such as washing, dressing, cooking, and walking—not on diagnosis alone. Claims require medical evidence and completing the DWP PIP2 questionnaire.";
-export const PIP_GUIDE_CHECKED = "11 November 2026";
+export const PIP_GUIDE_CHECKED = ""; // No historical source-check record retained.
 
 /** Numbered claim steps: rendered as the visible <ol> and as HowTo JSON-LD. */
 export const PIP_HOWTO_STEPS: { id: string; name: string; text: string }[] = [
@@ -91,7 +91,7 @@ ${PIP_ACTIVITY_ROWS.map((r) => `<tr><th scope="row">${escHtml(r.activity)}</th><
 </tbody>
 </table>`;
 
-export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Last checked: 11 November 2026</strong> against <a href="https://www.gov.uk/pip" rel="noopener">GOV.UK: Personal Independence Payment</a>, <a href="https://www.gov.uk/pip/how-to-claim" rel="noopener">GOV.UK: How to claim PIP</a>, the <a href="https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-1-the-assessment-process" rel="noopener">DWP PIP assessment guide</a> and the DWP <a href="https://www.gov.uk/government/publications/benefit-and-pension-rates-2026-to-2027" rel="noopener">benefit and pension rates 2026 to 2027</a>. Benefit rules can change, so always check the official pages before you claim.</p>
+export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Official sources:</strong> <a href="https://www.gov.uk/pip" rel="noopener">GOV.UK: Personal Independence Payment</a>, <a href="https://www.gov.uk/pip/how-to-claim" rel="noopener">GOV.UK: How to claim PIP</a>, the <a href="https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-1-the-assessment-process" rel="noopener">DWP PIP assessment guide</a> and the DWP <a href="https://www.gov.uk/government/publications/benefit-and-pension-rates-2026-to-2027" rel="noopener">benefit and pension rates 2026 to 2027</a>. Benefit rules can change, so always check the official pages before you claim.</p>
 
 <p><strong>Before you apply:</strong> if you are still deciding whether arthritis may qualify, read <a href="/blog/pip-for-arthritis-uk">Can you get PIP for arthritis?</a> That page is about eligibility, including rates checked against GOV.UK. This page is the claim itself. Use the <a href="/resources/pip-evidence-diary">Printable PIP evidence diary</a> to record daily living and mobility for two to four weeks before you fill in the form.</p>
 
