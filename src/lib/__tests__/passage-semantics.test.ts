@@ -1,8 +1,21 @@
 import { describe, it, expect } from "vitest";
+import { exerciseJointPages } from "@/data/exerciseJointMatrix";
 import { headDataFor } from "../../../scripts/inject-canonicals.mjs";
 import { labelArticleSections, buildStaticArticleInner } from "../../../scripts/static-article-html.mjs";
 
 describe("crawler passage semantics", () => {
+  it("keeps all exercise-matrix introductions in the answer band and in sync", () => {
+    expect(exerciseJointPages).toHaveLength(48);
+    for (const page of exerciseJointPages) {
+      const words = page.intro.trim().split(/\s+/).length;
+      expect(words).toBeGreaterThanOrEqual(40);
+      expect(words).toBeLessThanOrEqual(52);
+      const head = headDataFor(`/exercises/${page.slug}`);
+      expect(head.answer).toBe(page.intro);
+      expect(String(head.bodyHtml)).toContain(page.intro);
+      expect(String(head.bodyHtml)).not.toContain("is one of the most recommended activities");
+    }
+  });
   it.each(["/exercises", "/guides/diet", "/library"])("loads captured labelled sections for %s", (route) => {
     const data = headDataFor(route);
     const doc = new DOMParser().parseFromString(String(data.bodyHtml), "text/html");
@@ -28,7 +41,7 @@ describe("crawler passage semantics", () => {
   it("adds a standard note without rewriting or inventing clinical advice", () => {
     const html = buildStaticArticleInner({ question: "How?", answer: "Existing reviewed answer.", bodyHtml: "<h2>Safety</h2><p>Existing advice.</p>" });
     const doc = new DOMParser().parseFromString(html, "text/html");
-    expect(doc.querySelector(".answer-box blockquote")?.textContent).toBe("[!NOTE]Existing reviewed answer.");
+    expect(doc.querySelector('.answer-box blockquote[data-callout="note"]')?.textContent).toBe("NoteExisting reviewed answer.");
     expect(doc.querySelector("section[aria-labelledby] h2")?.id).toBe("passage-safety");
   });
 });
