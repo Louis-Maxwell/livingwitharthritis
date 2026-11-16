@@ -86,7 +86,7 @@ function pruneStaticMetaDuplicates() {
     try { return cleanJsonLd(JSON.parse(node.textContent || '{}')); }
     catch { return undefined; }
   });
-  const normalised = normaliseRouteSchemaEntries(parsed, route);
+  const normalised = normaliseRouteSchemaEntries(parsed, route, scripts.map(isAppManaged));
   scripts.forEach((node, index) => {
     if (parsed[index] === undefined) return;
     const json = JSON.stringify(normalised[index] || {});
@@ -208,4 +208,4 @@ export default function SeoDefaults() {
       <html lang={HREFLANG_CODES[currentLang]} />
     </Helmet>
   );
-}
+    }
