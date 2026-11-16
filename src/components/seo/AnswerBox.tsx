@@ -46,7 +46,10 @@ export default function AnswerBox({
         itemProp="acceptedAnswer"
         itemType="https://schema.org/Answer"
       >
-        <div itemProp="text">{children}</div>
+        <blockquote itemProp="text" className="m-0 border-0 p-0">
+          <p className="text-xs font-semibold text-primary mb-2">[!NOTE]</p>
+          {children}
+        </blockquote>
       </div>
       {reviewed && reviewer && (
         <p className="mt-2 text-xs text-foreground/70">
