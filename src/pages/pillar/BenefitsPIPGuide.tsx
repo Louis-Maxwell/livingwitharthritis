@@ -130,15 +130,7 @@ export default function BenefitsPIPGuide() {
           "url": `https://livingwitharthritis.org.uk/guides/benefits-pip#${st.id}`,
         })),
       })}</script>
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
-          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://livingwitharthritis.org.uk/guides/uk-arthritis" },
-          { "@type": "ListItem", "position": 3, "name": "Benefits & PIP Guide", "item": "https://livingwitharthritis.org.uk/guides/benefits-pip" }
-        ]
-      })}</script>
+      {/* PageBreadcrumb below owns the single visible breadcrumb and its JSON-LD. */}
       {/* FAQPage JSON-LD is emitted once by PageSchema (faqs={ALL_FAQS})
           for the questions rendered visibly in the accordion below. The
           second, hand-written FAQPage block that used to sit here duplicated
