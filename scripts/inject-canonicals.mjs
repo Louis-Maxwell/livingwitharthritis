@@ -173,6 +173,22 @@ export function mergeHeadLayers(...layers) {
 
 // Curated entries win over auto-generated blog/author entries; all of them
 // win over the slug-derived fallback applied in headDataFor().
+// Runtime AEO layer: src/data/page-aeo.ts is the question/answer/FAQ content
+// that <AeoEnhancement> renders visibly on its routes, so it is layered last
+// to keep the static crawler head byte-identical with what the page shows.
+// Empty fields are omitted so richer build-side data (e.g. a page's own
+// visible FAQ set mirrored in ai-head-data.json) is never wiped.
+import { PAGE_AEO } from "../src/data/page-aeo.ts";
+const PAGE_AEO_LAYER = Object.fromEntries(
+  Object.entries(PAGE_AEO).map(([route, page]) => [
+    route,
+    {
+      ...(page.question ? { question: page.question } : {}),
+      ...(page.answer ? { answer: page.answer } : {}),
+      ...(Array.isArray(page.faqs) && page.faqs.length ? { faqs: page.faqs } : {}),
+    },
+  ]),
+);
 const AI_DATA = mergeHeadLayers(
   readJson(BLOG_DATA_PATH),
   readJson(CONDITION_DATA_PATH),
@@ -182,6 +198,7 @@ const AI_DATA = mergeHeadLayers(
   authorHeadData(),
   readJson(resolve("scripts/route-head-curated.json")),
   readJson(AI_DATA_PATH),
+  PAGE_AEO_LAYER,
 );
 
 const BLOG_SLUGS_PATH = resolve("src/data/blog-slugs.generated.json");
@@ -999,4 +1016,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-}
+    }

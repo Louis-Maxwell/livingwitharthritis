@@ -79,52 +79,6 @@ const jsonLd = {
   "mainEntityOfPage": URL,
 };
 
-const faqLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is osteoarthritis?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Osteoarthritis is the most common type of arthritis in the UK. It involves changes in the cartilage that cushions the ends of bones, plus other joint tissues, which can cause pain, short-lived stiffness and reduced movement. It is more than simple \"wear and tear\". NICE guideline NG226 covers diagnosis and management for people aged 16 and over.",
-      },
-    },
-    {
-      "@type": "Question",
-      "name": "What is the best treatment for osteoarthritis?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "NICE recommends therapeutic exercise for everyone with osteoarthritis, weight management where it is relevant, and information and support. Pain medicines support those core treatments rather than replace them: for knee osteoarthritis an anti-inflammatory gel is usually tried first; tablets, if used, should be the lowest dose for the shortest time. Imaging is not needed first for most people.",
-      },
-    },
-    {
-      "@type": "Question",
-      "name": "Can osteoarthritis be cured?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "There is no cure that reverses osteoarthritis, but many people manage symptoms well with exercise, pacing, weight advice where relevant, joint protection, and the right pain relief. Severe symptoms that have not improved with core treatments may lead to a discussion about joint surgery.",
-      },
-    },
-    {
-      "@type": "Question",
-      "name": "What is the best exercise for osteoarthritis?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "NICE recommends therapeutic exercise that includes muscle strengthening and general fitness. Walking, swimming, cycling, seated strength work and tai chi are common starting points. Start small, build up gradually, and expect some aching at first.",
-      },
-    },
-    {
-      "@type": "Question",
-      "name": "When should I see a GP about osteoarthritis?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "See your GP if joint pain is not improving after a few weeks of self-care, wakes you most nights, comes with swelling or morning stiffness lasting longer than 30 minutes, or stops you doing everyday things. Get same-day help from NHS 111 or your GP if a joint is suddenly hot, red and swollen, especially with a fever, and call 999 in an emergency.",
-      },
-    },
-  ],
-};
 
 const Section = ({
   icon: Icon,
@@ -189,7 +143,6 @@ const Osteoarthritis = () => (
       <meta name="geo.region" content="GB" />
       <link rel="alternate" hrefLang="en-GB" href={URL} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
