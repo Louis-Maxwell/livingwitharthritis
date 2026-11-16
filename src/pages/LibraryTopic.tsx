@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, type ReactNode } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import routeNoindex from "@/data/route-noindex.json";
@@ -19,6 +19,16 @@ import {
   getLibraryLastReviewed,
   getLibraryReviewStatus,
 } from "@/data/libraryReview";
+
+function TopicList({ heading, children }: { heading: string; children: ReactNode }) {
+  const actionable = /treat|manag|self.?care|prevent|when to|seek|support|exercise|what you can do|living with/i.test(heading);
+  return actionable ? (
+    <blockquote data-callout="note" className="border-l-4 border-primary pl-5">
+      <p className="font-semibold mb-3">Note</p>
+      {children}
+    </blockquote>
+  ) : <>{children}</>;
+}
 
 const LibraryTopic = () => {
   const { slug = "" } = useParams<{ slug: string }>();
@@ -143,8 +153,7 @@ const LibraryTopic = () => {
                     </p>
                   ))}
                 {section.bullets && section.bullets.length > 0 && (
-                  <blockquote data-callout="note" className="border-l-4 border-primary pl-5">
-                  <p className="font-semibold mb-3">Note</p>
+                  <TopicList heading={section.heading}>
                   <ul className="list-disc ps-6 space-y-2">
                     {section.bullets.map((b, bi) => (
                       <li key={bi} className="leading-relaxed">
@@ -152,7 +161,7 @@ const LibraryTopic = () => {
                       </li>
                     ))}
                   </ul>
-                  </blockquote>
+                  </TopicList>
                 )}
               </section>
             ))}
@@ -168,8 +177,7 @@ const LibraryTopic = () => {
                     </p>
                   ))}
                 {section.bullets && section.bullets.length > 0 && (
-                  <blockquote data-callout="note" className="border-l-4 border-primary pl-5">
-                  <p className="font-semibold mb-3">Note</p>
+                  <TopicList heading={section.heading}>
                   <ul className="list-disc ps-6 space-y-2">
                     {section.bullets.map((b, bi) => (
                       <li key={bi} className="leading-relaxed">
@@ -177,7 +185,7 @@ const LibraryTopic = () => {
                       </li>
                     ))}
                   </ul>
-                  </blockquote>
+                  </TopicList>
                 )}
               </section>
             ))}
