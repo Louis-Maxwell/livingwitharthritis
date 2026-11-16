@@ -20,6 +20,8 @@ import FaqAccordion from "@/components/faq/FaqAccordion";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 import RecommendedNextStep from "@/components/RecommendedNextStep";
 
+import kneeEditorialEnhancement from "@/data/kneeEditorialEnhancement.json";
+
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 // HowTo mirrors the 8 visible exercise steps (#ex-1 to #ex-8) on this page.
@@ -339,7 +341,7 @@ export default function KneeExercisesForOsteoarthritis() {
           <WhatsAppShare path="/guides/knee-exercises-for-osteoarthritis" title="Knee osteoarthritis exercises: 8-move home routine" />
           <JointVisualizer joint="knee" />
           <ArticleCitations citations={CITATIONS_KNEE_EXERCISES} />
-          <EducationalDisclaimerBox lastReviewed="2026-10-23" />
+          <EducationalDisclaimerBox reviewStatus="pending" pendingText="The original 8-move routine retains its prior review record. The separate 16 November 2026 editorial supplement below has not had a fresh clinical review." />
           <TopicClusterNav path="/guides/knee-exercises-for-osteoarthritis" />
           <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
             Free knee exercises for osteoarthritis in the UK. NICE guidance
@@ -355,6 +357,12 @@ export default function KneeExercisesForOsteoarthritis() {
             <RecommendedNextStep path="/guides/knee-exercises-for-osteoarthritis" placement="mid" />
             <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlSecondHalf) }} />
           </article>
+
+          <section id="knee-editorial-supplement" className="prose prose-lg dark:prose-invert max-w-none mt-12 pt-8 border-t border-border/30" aria-label="Enhanced knee arthritis exercise article">
+            <h2>{kneeEditorialEnhancement.title}</h2>
+            <p className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-5 text-sm">{kneeEditorialEnhancement.note}</p>
+            <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(kneeEditorialEnhancement.html) }} />
+          </section>
 
           <div className="mt-12 pt-8 border-t border-border/30">
             <h3 className="font-display font-bold text-lg mb-4">
@@ -435,4 +443,3 @@ export default function KneeExercisesForOsteoarthritis() {
     </>
   );
 }
-
