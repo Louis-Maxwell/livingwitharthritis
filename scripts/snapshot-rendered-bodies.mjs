@@ -46,6 +46,7 @@ const extract = () => {
       const href = node.getAttribute("href") || "";
       return /^\/(?!\/)/.test(href) || /^https:\/\//.test(href) ? `<a href="${href.replace(/"/g, "&quot;")}">${inner}</a>` : inner;
     }
+    if (node.tagName === "BLOCKQUOTE" && node.getAttribute("data-callout") === "note") return `<blockquote data-callout="note">${inner.trim()}</blockquote>`;
     const t = node.tagName.toLowerCase();
     const id = /^H[2-4]$/.test(node.tagName) ? node.getAttribute("id") : "";
     const idAttr = id && /^[A-Za-z][\w-]*$/.test(id) ? ` id="${id}"` : "";
