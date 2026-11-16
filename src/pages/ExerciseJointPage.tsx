@@ -129,6 +129,7 @@ const ExerciseJointPage = () => {
             <h2 id="exercisejointpage-section-2" className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-primary" /> Recommended {page.joint} Exercises
             </h2>
+            <p className="text-sm text-muted-foreground mb-4">Repetitions below are examples, not a personal prescription. Start with what is comfortable and ask your physiotherapist how to adapt them.</p>
             <div className="space-y-4">
               {page.instructions.map((instr, i) => (
                 <div key={i} id={`step-${i + 1}`} className="bg-card border border-border rounded-xl p-5">
@@ -149,6 +150,7 @@ const ExerciseJointPage = () => {
             </h2>
             <blockquote data-callout="note" className="bg-destructive/5 border border-destructive/20 rounded-xl p-5">
               <p className="font-semibold mb-3">Note</p>
+              <p className="text-sm mb-3">Balance rest with comfortable movement. If an activity makes a joint warm and swollen or causes severe pain, stop and rest. Ask a physiotherapist how to adapt your programme.</p>
               <ul className="space-y-2">
                 {page.safetyTips.map((tip, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-foreground">
