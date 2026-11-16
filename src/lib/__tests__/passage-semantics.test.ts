@@ -47,7 +47,7 @@ describe("crawler passage semantics", () => {
     expect(count).toBe(64);
   });
   it("uses the same specific editorial title in the build data", () => {
-    expect(Object.keys(ROUTE_TITLE_OVERRIDES)).toHaveLength(57);
+    expect(Object.keys(ROUTE_TITLE_OVERRIDES)).toHaveLength(105);
     for (const [route, title] of Object.entries(ROUTE_TITLE_OVERRIDES)) {
       expect(title.length).toBeGreaterThanOrEqual(50);
       expect(title.length).toBeLessThanOrEqual(60);
