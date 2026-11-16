@@ -96,7 +96,7 @@ const Library = () => {
           subtitle="Plain-English explanations of conditions, medications, supplements and treatments — including fibromyalgia, osteoarthritis and common UK medicines."
         />
 
-        <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-6xl py-12">
+        <section aria-label="Library topics" className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-6xl py-12">
           <div className="relative mb-6">
             <Search
               className="absolute start-4 top-1/2 -translate-y-1/2 text-muted-foreground"
