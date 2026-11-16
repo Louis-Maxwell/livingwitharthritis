@@ -46,7 +46,7 @@ export function recordedRouteReview(route: string): string | undefined {
 
 type Node = Record<string, unknown>;
 /** Keep one page and one FAQ node after hydration, with recorded review only. */
-export function normaliseRouteSchemaEntries(entries: unknown[], route: string): unknown[] {
+export function normaliseRouteSchemaEntries(entries: unknown[], route: string, preferred: boolean[] = []): unknown[] {
   if (!/^\/(conditions|library|exercises)(\/|$)/.test(route) && route !== "/guides/benefits-pip") return entries;
   const review = recordedRouteReview(route);
   let pageSeen = false;
@@ -78,5 +78,11 @@ export function normaliseRouteSchemaEntries(entries: unknown[], route: string): 
     if (Array.isArray(node["@graph"])) node["@graph"] = visit(node["@graph"]);
     return node;
   };
-  return entries.map(visit);
-                                }
+  // Prefer app-owned nodes: static nodes may be removed by Helmet after this pass.
+  // Keep output indices stable so each result is written to its original script.
+  const output: unknown[] = new Array(entries.length);
+  entries.map((value, index) => ({ value, index }))
+    .sort((a, b) => Number(Boolean(preferred[b.index])) - Number(Boolean(preferred[a.index])))
+    .forEach(({ value, index }) => { output[index] = visit(value); });
+  return output;
+        }
