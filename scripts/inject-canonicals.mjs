@@ -179,6 +179,12 @@ export function mergeHeadLayers(...layers) {
 // Empty fields are omitted so richer build-side data (e.g. a page's own
 // visible FAQ set mirrored in ai-head-data.json) is never wiped.
 import { PAGE_AEO } from "../src/data/page-aeo.ts";
+import { STANDALONE_ANSWER_CAPSULES } from "../src/data/standaloneAnswerCapsules.ts";
+const STANDALONE_ANSWER_LAYER = Object.fromEntries(Object.entries(STANDALONE_ANSWER_CAPSULES).map(([route, answer]) => [route, { answer }]));
+import { LIBRARY_ANSWER_CAPSULES } from "../src/data/libraryAnswerCapsules.ts";
+const LIBRARY_ANSWER_LAYER = Object.fromEntries(Object.entries(LIBRARY_ANSWER_CAPSULES).map(([slug, answer]) => [`/library/${slug}`, { answer }]));
+import { conditionSubpages } from "../src/data/conditionSubpages.ts";
+const CONDITION_ANSWER_LAYER = Object.fromEntries(Object.entries(conditionSubpages).flatMap(([condition, sections]) => Object.entries(sections).map(([section, data]) => [`/conditions/${condition}/${section}`, { answer: data.intro }])));
 import { ROUTE_TITLE_OVERRIDES } from "../src/data/routeTitleOverrides.ts";
 const EDITORIAL_TITLE_LAYER = Object.fromEntries(Object.entries(ROUTE_TITLE_OVERRIDES).map(([route, title]) => [route, { title }]));
 import { exerciseJointPages } from "../src/data/exerciseJointMatrix.ts";
@@ -206,6 +212,9 @@ const AI_DATA = mergeHeadLayers(
   readJson(AI_DATA_PATH),
   PAGE_AEO_LAYER,
   EXERCISE_ANSWER_LAYER,
+  CONDITION_ANSWER_LAYER,
+  LIBRARY_ANSWER_LAYER,
+  STANDALONE_ANSWER_LAYER,
   EDITORIAL_TITLE_LAYER,
 );
 
@@ -360,7 +369,10 @@ const RENDERED_BODIES = {
 // Same counting rule as scripts/lib/route-words.mjs (the word gate).
 const textWords = (html) => String(html || '').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ').split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
 function withRenderedBody(route, data) {
-  const captured = RENDERED_BODIES[route];
+  const rawCapture = RENDERED_BODIES[route];
+  const conditionAnswer = CONDITION_ANSWER_LAYER[route]?.answer || LIBRARY_ANSWER_LAYER[route]?.answer || STANDALONE_ANSWER_LAYER[route]?.answer;
+  const captured = rawCapture && conditionAnswer
+    ? rawCapture.replace(/<p>[\s\S]*?<\/p>/, `<p>${escText(conditionAnswer)}</p>`) : rawCapture;
   const exercisePage = EXERCISE_JOINT_BY_ROUTE.get(route);
   // Keep the captured exercise body while replacing its stale opening copy
   // with the same answer now rendered by the React matrix page.
@@ -1036,4 +1048,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-                                                                             }
+  }
