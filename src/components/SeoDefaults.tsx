@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import { cleanJsonLd, cleanBrand } from '@/lib/technicalSeo.mjs';
-import { enforceTitle } from '@/lib/seoMeta';
+import { enforceTitle, enforceDescription } from '@/lib/seoMeta';
+import { ROUTE_TITLE_OVERRIDES } from '@/data/routeTitleOverrides';
 import {
   SUPPORTED_LANGS,
   HREFLANG_CODES,
@@ -75,7 +76,9 @@ function isAppManaged(el: Element): boolean {
 }
 
 function pruneStaticMetaDuplicates() {
-  const safeTitle = enforceTitle(document.title, { includeSiteName: false });
+  const route = window.location.pathname.replace(/\/$/, "") || "/";
+  const editorialTitle = ROUTE_TITLE_OVERRIDES[route];
+  const safeTitle = enforceTitle(editorialTitle || document.title, { includeSiteName: false });
   if (safeTitle !== document.title) document.title = safeTitle;
   for (const node of document.querySelectorAll('script[type="application/ld+json"]')) {
     try {
@@ -85,7 +88,10 @@ function pruneStaticMetaDuplicates() {
   }
   for (const node of document.head.querySelectorAll('meta[content]')) {
     const raw = node.getAttribute('content') || '';
-    const safe = cleanBrand(raw);
+    const label = node.getAttribute('name') || node.getAttribute('property');
+    const isTitle = label === 'og:title' || label === 'twitter:title';
+    const isDescription = label === 'description' || label === 'og:description' || label === 'twitter:description';
+    const safe = isTitle && editorialTitle ? editorialTitle : isDescription ? enforceDescription(raw, route) : cleanBrand(raw);
     if (raw !== safe) node.setAttribute('content', safe);
   }
   const languageLinks = Array.from(document.head.querySelectorAll('link[hreflang]'));
