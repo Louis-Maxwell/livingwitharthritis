@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
       - name: Generate current article indexes
-        run: bun run blog:catalog && node scripts/generate-blog-head-data.mjs
+        run: bun run content:generate
       - name: Run Vitest
         run: bunx vitest run
 
