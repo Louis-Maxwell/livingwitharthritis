@@ -76,7 +76,7 @@ export function buildCoreDigest(data = headData) {
     if (e.reviewedBy) parts.push(`Clinically reviewed by ${e.reviewedBy}${e.reviewerCredentials ? `, ${e.reviewerCredentials}` : ""}${e.lastReviewed ? ` (last reviewed ${e.lastReviewed})` : ""}.`);
     parts.push("", e.answer);
     const tk = Array.isArray(e.keyTakeaways) ? e.keyTakeaways : [];
-    if (tk.length) parts.push("", ...tk.map((t) => `- ${t}`));
+    if (tk.length) parts.push("", "> [!TIP]", ...tk.map((t) => `> - ${t}`));
     const src = (e.sources || []).filter((x) => /^https?:\/\//.test(x.url));
     if (src.length) parts.push("", `Sources: ${src.map((x) => `[${x.name || x.label}](${x.url})`).join("; ")}`);
   }
@@ -130,7 +130,7 @@ function buildBlogSections(rows) {
               ...(r.last_reviewed ? [`Last clinically reviewed: ${r.last_reviewed}`] : [])] : ['Clinical review: no named reviewer recorded.']),
         `Q: ${r.title ?? r.slug}`,
         `A: ${answer}`,
-        ...((Array.isArray(r.key_takeaways) ? r.key_takeaways : []).map((t) => `Key clinical takeaway: ${t}`)),
+        ...((Array.isArray(r.key_takeaways) ? r.key_takeaways : []).map((t) => `> [!NOTE]\n> ${t}`)),
         ...((r.citations || []).map((c) => `Reference: ${c.label} — ${c.url}`)),
       ];
       return lines.join("\n");
