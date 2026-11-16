@@ -1,8 +1,18 @@
+import { readFileSync } from "node:fs";
 import { ROUTE_TITLE_OVERRIDES } from "../../data/routeTitleOverrides";
 import { describe, expect, it } from "vitest";
 import { medicalEntityForRoute, normaliseRouteSchemaEntries, recordedRouteReview } from "../routeSchema";
 
 describe("live schema parity", () => {
+  it("uses the recorded foot review date visibly and one PIP breadcrumb emitter", () => {
+    const foot = readFileSync("src/pages/conditions/FootAndAnkleArthritis.tsx", "utf8");
+    const pip = readFileSync("src/pages/pillar/BenefitsPIPGuide.tsx", "utf8");
+    expect(foot).toContain("Clinical review date not recorded.");
+    expect(recordedRouteReview("/conditions/foot-and-ankle-arthritis")).toBeUndefined();
+    expect(foot).not.toContain("<MedicalReviewBadge");
+    expect(pip).not.toContain('"@type": "BreadcrumbList"');
+    expect(pip.match(/<PageBreadcrumb /g)).toHaveLength(1);
+  });
   it("keeps the swimming title identical to the static head", () => {
     expect(ROUTE_TITLE_OVERRIDES["/exercises/swimming-for-knee-arthritis"]).toBe("Swimming for Knee Arthritis: 3 Exercises & Safety Tips");
   });
