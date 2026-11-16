@@ -1,4 +1,4 @@
-﻿// Per-condition content for the 4 sub-pages:
+// Per-condition content for the 4 sub-pages:
 // /conditions/:condition/symptoms | treatment | exercises | diet
 // Keyed by the same slugs used in src/App.tsx /conditions/* routes.
 
@@ -63,7 +63,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Osteoarthritis symptoms — what to look for",
       intro:
-        "Osteoarthritis (OA) is the most common form of arthritis in the UK, affecting around 8.5 million adults. Symptoms develop gradually as cartilage wears down in weight-bearing and high-use joints — most often the knees, hips, hands, and spine.",
+        "Osteoarthritis commonly causes joint pain, stiffness and reduced movement, often affecting knees, hips or hands. Changes in cartilage and other joint tissues can make everyday loading uncomfortable. See your GP for persistent symptoms, and seek urgent advice for a suddenly painful, hot or swollen joint.",
       commonSymptoms: [
         "Joint pain that worsens with activity and eases with rest",
         "Morning stiffness lasting under 30 minutes",
@@ -78,7 +78,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Osteoarthritis treatment options",
       intro:
-        "OA cannot be cured, but evidence-based treatment significantly improves pain and function. NICE recommends a combined approach centred on exercise, weight management, and pain relief.",
+        "Osteoarthritis treatment usually combines therapeutic exercise, weight support where appropriate and carefully chosen pain relief. Strengthening surrounding muscles and reducing excess joint loading can improve function without reversing the condition. Ask your clinician about a tailored plan, medicine safety and further options if daily activities remain difficult.",
       approaches: [
         { name: "Exercise therapy", description: "Strength training and aerobic activity reduce knee and hip pain more reliably than any other non-surgical treatment." },
         { name: "Weight management", description: "Every kilogram lost reduces knee joint load by up to four kilograms during walking." },
@@ -91,7 +91,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     exercises: {
       headline: "Best exercises for osteoarthritis",
       intro:
-        "Movement is the single most effective self-management tool for OA. Combine low-impact aerobic activity with strength work targeting the muscles around affected joints.",
+        "Exercise is a core treatment for osteoarthritis, combining muscle strengthening with activity that improves general fitness. Stronger muscles support affected joints, while regular movement helps maintain function. Start at a manageable level and ask a physiotherapist to adapt the exercises to your symptoms and abilities.",
       keyBenefits: [
         "Reduces joint pain and stiffness within 6–8 weeks of consistent practice",
         "Strengthens supporting muscles, reducing joint load",
@@ -103,7 +103,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     diet: {
       headline: "Diet for osteoarthritis",
       intro:
-        "There's no specific OA diet, but maintaining a healthy weight and following a Mediterranean-style eating pattern can reduce inflammation and joint pain.",
+        "A balanced diet and weight management can support osteoarthritis care, but no food rebuilds damaged cartilage. Excess body weight places additional strain on weight-bearing joints, while varied meals support general health. If weight loss is appropriate, discuss a sustainable eating and activity plan with your healthcare team.",
       foodsToFavor: [
         "Oily fish (salmon, mackerel, sardines) two to three times a week for omega-3s",
         "Extra-virgin olive oil as the main cooking fat",
@@ -124,7 +124,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Rheumatoid arthritis symptoms",
       intro:
-        "Rheumatoid arthritis (RA) is an autoimmune condition affecting around 450,000 adults in the UK. Early symptoms can be subtle — recognising them matters because early DMARD treatment dramatically improves long-term outcomes.",
+        "Rheumatoid arthritis can cause painful, swollen joints and prolonged stiffness, often affecting the hands and feet. The immune system attacks joint tissues, producing inflammation that can damage joints without treatment. See your GP promptly for persistent swelling or stiffness so assessment and specialist referral are not delayed.",
       commonSymptoms: [
         "Symmetrical joint pain and swelling, often in the small joints of the hands and feet",
         "Morning stiffness lasting over an hour",
@@ -139,7 +139,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Rheumatoid arthritis treatment",
       intro:
-        "RA is treated with disease-modifying anti-rheumatic drugs (DMARDs) that slow or stop joint damage. Treatment is started as early as possible — ideally within 12 weeks of symptoms.",
+        "Rheumatoid arthritis treatment usually includes disease-modifying medicines alongside support for symptoms and everyday function. These medicines reduce immune-driven inflammation and can slow joint damage, rather than simply masking pain. Follow your rheumatology plan, attend monitoring appointments and discuss side effects before changing or stopping prescribed treatment.",
       approaches: [
         { name: "Conventional DMARDs", description: "Methotrexate is the first-line treatment, often combined with sulfasalazine or hydroxychloroquine." },
         { name: "Biologic DMARDs", description: "Anti-TNF and other biologics are used when conventional DMARDs aren't enough." },
@@ -152,7 +152,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     exercises: {
       headline: "Best exercises for rheumatoid arthritis",
       intro:
-        "Regular gentle exercise helps RA by maintaining joint range of motion, reducing fatigue, and protecting against the deconditioning that often follows flares.",
+        "Exercise can help people with rheumatoid arthritis maintain joint movement and strengthen muscles around affected joints. Balancing activity with rest limits deconditioning without ignoring active inflammation or fatigue. Start gradually, adapt the programme with your physiotherapist and seek urgent advice for new hot, swollen or suddenly severely painful joints.",
       keyBenefits: [
         "Maintains joint range of motion and reduces stiffness",
         "Strengthens the muscles that protect inflamed joints",
@@ -164,7 +164,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     diet: {
       headline: "Diet for rheumatoid arthritis",
       intro:
-        "A Mediterranean-style anti-inflammatory diet may reduce RA pain and disease activity, and supports the bone and heart health that DMARD treatment depends on.",
+        "A healthy balanced diet supports general wellbeing with rheumatoid arthritis, but does not replace disease-modifying medicines. Maintaining an appropriate weight can reduce extra strain on joints and support cardiovascular health. Discuss dietary changes, weight concerns and supplements with your healthcare team, particularly if you take regular medicines.",
       foodsToFavor: [
         "Oily fish two to three times a week (omega-3s reduce joint stiffness)",
         "Olive oil, nuts, and seeds",
@@ -185,7 +185,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Psoriatic arthritis symptoms",
       intro:
-        "Psoriatic arthritis (PsA) is an inflammatory arthritis associated with psoriasis. Around 150,000 people in the UK live with PsA, and roughly 1 in 5 people with psoriasis develop it.",
+        "Psoriatic arthritis can cause painful, swollen joints, stiffness and swollen fingers or toes, sometimes alongside psoriasis or nail changes. Immune-system inflammation affects joints and related tissues, not only the skin. See your GP for recurring joint symptoms, even if you have never been diagnosed with psoriasis.",
       commonSymptoms: [
         "Joint pain and stiffness, often asymmetrical",
         "Dactylitis — sausage-like swelling of a whole finger or toe",
@@ -200,7 +200,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Psoriatic arthritis treatment",
       intro:
-        "PsA treatment targets both skin and joint disease. Coordinated care between rheumatology and dermatology gives the best outcomes.",
+        "Psoriatic arthritis is treated with medicines that control symptoms and, when needed, reduce disease activity. Immune-driven inflammation can affect both joints and skin, so treatment is tailored to the pattern of illness. Tell your rheumatology team about persistent symptoms, side effects and difficulties with daily activities.",
       approaches: [
         { name: "DMARDs", description: "Methotrexate and sulfasalazine are commonly used for joint disease." },
         { name: "Biologic therapies", description: "Anti-TNF, IL-17, and IL-23 inhibitors treat both joint and skin symptoms." },
@@ -213,7 +213,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     exercises: {
       headline: "Best exercises for psoriatic arthritis",
       intro:
-        "Regular movement reduces PsA inflammation, supports tendon and entheses health, and helps manage the fatigue that often comes with the condition.",
+        "Low-impact exercise can support joint strength and function in people with psoriatic arthritis. Moving regularly helps maintain mobility, while strengthening supports muscles around affected joints. Choose activities you can manage, increase gradually and ask your physiotherapist how to adapt movements when pain, swelling or fatigue changes.",
       keyBenefits: [
         "Reduces joint and tendon stiffness",
         "Supports a healthy weight (excess weight worsens both PsA and psoriasis)",
@@ -225,7 +225,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     diet: {
       headline: "Diet for psoriatic arthritis",
       intro:
-        "A Mediterranean-style anti-inflammatory diet supports both the joint and skin components of PsA, and helps maintain a healthy weight.",
+        "A healthy balanced diet supports wellbeing with psoriatic arthritis, but food changes do not replace prescribed treatment. Keeping to an appropriate weight reduces additional pressure on joints and supports general health. Discuss weight support with your healthcare team and check supplements or herbal products for medicine interactions.",
       foodsToFavor: [
         "Oily fish for omega-3s",
         "Olive oil, nuts, and seeds",
@@ -246,7 +246,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Gout symptoms",
       intro:
-        "Gout is caused by sharp urate crystals forming in joints, leading to sudden, severe attacks. It affects around 1 in 40 adults in the UK and is the most common form of inflammatory arthritis in men.",
+        "Gout can cause sudden severe joint pain with hot, swollen skin, commonly affecting the big toe. Urate crystals in and around a joint trigger a strong inflammatory response. Seek medical assessment rather than self-diagnosing, with urgent GP or NHS 111 advice for sudden severe symptoms or feeling unwell.",
       commonSymptoms: [
         "Sudden onset of severe joint pain, often overnight or in the early morning",
         "Hot, red, swollen joint — most commonly the base of the big toe",
@@ -261,7 +261,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Gout treatment",
       intro:
-        "Gout treatment has two parts: managing the acute attack, and lowering uric acid long term to prevent further attacks and joint damage. This page is educational UK guidance only — not a prescription or diagnosis. Your GP, rheumatology team or pharmacist decides what is safe for you.",
+        "Gout treatment addresses both painful attacks and, where needed, long-term urate control to prevent recurrence. Urate-lowering medicines reduce the crystal burden that drives attacks, while other treatments manage inflammation. Follow your prescribed plan and ask your GP about ongoing symptoms, repeated attacks or medicine side effects.",
       approaches: [
         { name: "NSAIDs during attacks", description: "Often first-line for people who can take them — start early in an attack if your clinician has advised this class." },
         { name: "Colchicine", description: "Used for acute attacks when NSAIDs are unsuitable; dosing and kidney checks are clinician decisions." },
@@ -293,7 +293,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     exercises: {
       headline: "Best exercises for gout",
       intro:
-        "Between attacks, regular non-weight-bearing exercise reduces gout flare frequency, supports healthy weight, and protects cardiovascular health.",
+        "Gentle regular activity between gout attacks supports fitness and weight management, but painful joints need protection during an attack. Pressure on an inflamed joint can increase pain rather than help recovery. Avoid strenuous loading during an attack and discuss suitable activity and flare treatment with your clinician.",
       keyBenefits: [
         "Supports a healthy weight (a major factor in gout risk)",
         "Improves circulation, helping the body clear uric acid",
@@ -305,7 +305,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     diet: {
       headline: "Diet for gout",
       intro:
-        "Diet alone won't control gout, but it makes a meaningful difference alongside urate-lowering medication. Focus on hydration, alcohol moderation, and limiting high-purine foods.",
+        "A healthy diet, appropriate weight and adequate fluids can help reduce gout attacks alongside medical treatment. Gout develops when urate crystals form around joints, so dietary changes alone may not control the condition. Avoid crash diets and discuss alcohol, food choices and urate-lowering treatment with your GP.",
       foodsToFavor: [
         "Plenty of water (aim for 2 litres daily)",
         "Low-fat dairy — protective against gout attacks",
@@ -327,7 +327,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Ankylosing spondylitis symptoms",
       intro:
-        "Ankylosing spondylitis (AS), now often called axial spondyloarthritis, is an inflammatory arthritis that mainly affects the spine and sacroiliac joints. It usually starts before age 45. Unlike ordinary back strain, the pain eases when you move and stiffens when you sit or lie still — a pattern NICE asks GPs to treat as a referral clue, not a gym niggle.",
+        "Ankylosing spondylitis commonly causes persistent back pain and stiffness, sometimes with fatigue or pain in other joints. Inflammation affects the spine and areas where tendons attach to bone. See your GP for ongoing symptoms so a rheumatologist can assess whether inflammatory back disease is the cause.",
       commonSymptoms: [
         "Lower back and buttock pain that improves with activity, worsens with rest",
         "Morning stiffness lasting more than 30 minutes",
@@ -356,7 +356,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Ankylosing spondylitis treatment",
       intro:
-        "AS treatment combines daily exercise — the single most important self-management step — with medication to control inflammation and prevent spinal fusion. In the UK this is a rheumatology-led pathway, not a one-off pain-clinic injection.",
+        "Ankylosing spondylitis treatment usually combines exercise, physiotherapy and medicines to relieve symptoms and control inflammation. Keeping the spine moving helps maintain flexibility, while medicines address inflammatory activity that exercise alone cannot treat. Follow your rheumatology plan and discuss persistent pain, stiffness or treatment concerns with your team.",
       approaches: [
         { name: "Daily spinal exercise", description: "Mobility, stretching, and posture work are the foundation of AS management — NASS treats this as daily medicine, not an optional extra." },
         { name: "NSAIDs", description: "First-line pharmacological treatment, often taken regularly rather than as needed so inflammation stays down overnight." },
@@ -383,7 +383,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     exercises: {
       headline: "Best exercises for ankylosing spondylitis",
       intro:
-        "Daily exercise is the single most important self-management step in AS. It preserves spinal range of motion, maintains posture, and reduces stiffness — and is recommended by NASS as a daily routine, including on quieter days when it is tempting to skip.",
+        "Regular exercise and physiotherapy are important parts of managing ankylosing spondylitis alongside medical treatment. Mobility work helps maintain spinal flexibility and posture, while suitable activity supports general fitness. Ask your physiotherapist for an individual programme and adapt it if symptoms change rather than forcing painful movements.",
       keyBenefits: [
         "Preserves spinal mobility and prevents stiffening",
         "Maintains posture and reduces deformity risk",
@@ -405,7 +405,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     diet: {
       headline: "Diet for ankylosing spondylitis",
       intro:
-        "There's no specific AS diet, but a Mediterranean eating pattern supports inflammation control, bone health (a concern with long-term AS), and a healthy weight so the spine and hips carry less load.",
+        "A balanced diet supports general health with ankylosing spondylitis, but there is no established dietary cure. Adequate nutrition supports muscles and bones, while an appropriate weight avoids additional strain on joints. Discuss dietary restrictions, weight changes and any supplement use with your healthcare team alongside your treatment plan.",
       foodsToFavor: [
         "Oily fish for omega-3s",
         "Olive oil as the main cooking fat",
@@ -440,7 +440,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Juvenile arthritis symptoms",
       intro:
-        "Juvenile idiopathic arthritis (JIA) is the most common form of arthritis in children, affecting around 1 in 1,000 under-16s in the UK. Early recognition leads to better long-term outcomes.",
+        "Juvenile idiopathic arthritis can cause persistent joint pain, swelling, stiffness or changes in how a child moves. Inflammation can affect joint function and interfere with everyday play and activities. Arrange a GP assessment for a child with joint problems rather than assuming they are ordinary growing pains.",
       commonSymptoms: [
         "Joint pain, swelling, or warmth lasting more than six weeks",
         "Morning stiffness or a limp on waking",
@@ -455,7 +455,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Juvenile arthritis treatment",
       intro:
-        "JIA treatment is led by paediatric rheumatology and aims to control inflammation, prevent joint damage, and protect normal growth and development.",
+        "Juvenile arthritis treatment is planned by a paediatric rheumatology team and may include medicines, physiotherapy and practical support. Controlling inflammation helps protect joint function while a child grows and develops. Follow the individual treatment and monitoring plan, and discuss changes in symptoms or activity with the team.",
       approaches: [
         { name: "Methotrexate", description: "First-line DMARD for most subtypes of JIA." },
         { name: "Biologic therapies", description: "Anti-TNF and other biologics for moderate-to-severe disease." },
@@ -468,7 +468,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     exercises: {
       headline: "Best exercises for juvenile arthritis",
       intro:
-        "Children and young people with JIA benefit from low-impact, play-based movement that protects growing joints while building strength, confidence, and social connection.",
+        "Children with juvenile arthritis can benefit from activity adapted to their symptoms, abilities and treatment plan. Suitable movement helps maintain joint mobility and muscle strength while supporting participation in play. Ask the paediatric physiotherapy team about appropriate activities and how to adjust them when symptoms change.",
       keyBenefits: [
         "Maintains joint range of motion",
         "Builds strength to protect affected joints",
@@ -480,7 +480,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     diet: {
       headline: "Diet for juvenile arthritis",
       intro:
-        "Children with JIA need a balanced, age-appropriate diet that supports growth, bone health, and immune function. Calcium and vitamin D are particularly important during steroid treatment.",
+        "Children with juvenile arthritis need a varied, age-appropriate diet rather than restrictive arthritis diets or unverified supplements. Adequate energy and nutrients support growth, muscle function and bone health during treatment. Discuss poor appetite, weight changes or supplement questions with the paediatric team or a registered dietitian.",
       foodsToFavor: [
         "Calcium-rich foods (dairy or fortified alternatives) every day",
         "Oily fish for omega-3s and vitamin D",
@@ -500,7 +500,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Fibromyalgia symptoms",
       intro:
-        "Fibromyalgia is a chronic pain condition affecting around 1 in 20 adults in the UK. It's not arthritis but is often managed alongside it and is included here because of how often the two coexist.",
+        "Fibromyalgia commonly causes widespread pain, fatigue, sleep problems and difficulties with concentration, rather than swollen joints from arthritis. It is associated with changes in how the nervous system processes pain signals. See your GP for assessment because other conditions can cause similar symptoms and may need different treatment.",
       commonSymptoms: [
         "Widespread pain lasting more than three months",
         "Persistent fatigue, even after sleep",
@@ -515,7 +515,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Fibromyalgia treatment",
       intro:
-        "Fibromyalgia treatment focuses on self-management — graded exercise, pacing, and sleep — supported by medication where helpful. There's no single cure.",
+        "Fibromyalgia management usually combines activity, support for sleep and wellbeing, and other treatments tailored to symptoms. Changes in pain processing mean symptoms are real even without joint damage or inflammation. Discuss a manageable care plan with your GP, including exercise, talking therapies and medicines where appropriate.",
       approaches: [
         { name: "Graded exercise", description: "The strongest evidence-based treatment for reducing pain and fatigue." },
         { name: "Cognitive behavioural therapy", description: "Helps with pain coping, sleep, and mood." },
@@ -528,7 +528,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     exercises: {
       headline: "Best exercises for fibromyalgia",
       intro:
-        "Very gentle, graded exercise is one of the most strongly evidenced treatments for fibromyalgia, reducing widespread pain, improving sleep, and easing fatigue over 8–12 weeks of consistent practice.",
+        "Exercise can help manage fibromyalgia symptoms when it is introduced at a level the person can tolerate. Gradual activity supports physical function without relying on long periods of inactivity that can reduce fitness. Start gently, pace activities and ask a healthcare professional for help adapting the programme.",
       keyBenefits: [
         "Reduces widespread pain over 8–12 weeks of consistent practice",
         "Improves sleep quality",
@@ -540,7 +540,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     diet: {
       headline: "Diet for fibromyalgia",
       intro:
-        "There's no specific fibromyalgia diet, but a Mediterranean-style eating pattern supports energy, mood, and inflammation control. Limiting caffeine and alcohol often helps sleep.",
+        "A balanced diet can support general wellbeing with fibromyalgia, but no specific diet is an established cure. Regular varied meals provide energy and nutrients, while sleep and activity also affect day-to-day symptoms. Discuss persistent digestive problems, restrictive diets or unexplained weight changes with your GP or dietitian.",
       foodsToFavor: [
         "Regular balanced meals to support energy levels",
         "Oily fish, olive oil, nuts, and seeds",
@@ -561,7 +561,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Lupus symptoms",
       intro:
-        "Systemic lupus erythematosus (SLE) is an autoimmune condition that can affect joints, skin, kidneys, blood, and other organs. Symptoms come and go in flares and remissions. This page is the NHS-pathway checklist; the library note at /library/lupus-symptoms explains the same signs in more narrative detail.",
+        "Lupus can cause joint and muscle pain, persistent tiredness and skin rashes, with symptoms that may fluctuate. The immune system attacks healthy tissues and can affect organs as well as joints. See your GP for recurring symptoms and follow specialist advice if lupus is already diagnosed.",
       commonSymptoms: [
         "Joint pain and swelling, often in the hands, wrists, and knees",
         "Persistent fatigue",
@@ -594,7 +594,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Lupus treatment",
       intro:
-        "Lupus treatment is tailored to which organs are involved. The goal is to control inflammation, prevent organ damage, and minimise medication side effects. In the UK this is almost always rheumatology-led, with GP blood monitoring shared once you are stable.",
+        "Lupus treatment is tailored to symptoms and the organs involved, often using medicines such as hydroxychloroquine or steroids. Reducing immune-driven inflammation helps limit symptoms and protect affected tissues. Follow your specialist plan, attend monitoring appointments and report new symptoms rather than changing prescribed medicines on your own.",
       approaches: [
         { name: "Hydroxychloroquine", description: "The cornerstone of long-term lupus treatment for almost everyone with SLE — it reduces flares and helps protect organs." },
         { name: "Corticosteroids", description: "Short courses for flares, kept at the lowest effective dose because of bone, skin and glucose effects." },
@@ -621,7 +621,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     exercises: {
       headline: "Best exercises for lupus",
       intro:
-        "Regular gentle exercise reduces lupus fatigue, supports cardiovascular health — an important consideration in SLE — and protects joint and muscle function. It is not a cure, but it is one of the few treatments you can start while waiting for a rheumatology slot.",
+        "Staying active can support wellbeing with lupus, but activity needs to be balanced with rest and symptom management. Gentle movement helps maintain muscle and joint function while pacing limits excessive fatigue. Discuss a suitable programme with your healthcare team and protect yourself from sunlight during outdoor activity.",
       keyBenefits: [
         "Reduces lupus fatigue",
         "Supports cardiovascular health (lupus increases heart risk)",
@@ -651,7 +651,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     diet: {
       headline: "Diet for lupus",
       intro:
-        "A Mediterranean-style anti-inflammatory diet supports lupus management, protects heart and bone health, and helps offset the side effects of long-term steroid treatment. It will not replace hydroxychloroquine.",
+        "A healthy balanced diet supports lupus care but cannot replace medicines that control the disease. Calcium and vitamin D contribute to bone health, which is important when steroid treatment is needed. Ask your healthcare team about suitable food choices, supplements and any restrictions related to kidney involvement.",
       foodsToFavor: [
         "Oily fish for omega-3s",
         "Olive oil, nuts, and seeds",
@@ -686,7 +686,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Knee arthritis symptoms",
       intro:
-        "Knee osteoarthritis is the most common cause of long-term knee pain in UK adults. Symptoms usually develop gradually over years.",
+        "Knee osteoarthritis commonly causes pain, stiffness and difficulty with walking, stairs or getting up from a chair. Changes in joint tissues and surrounding muscle function can make loading the knee uncomfortable. See your GP for persistent symptoms, with urgent advice for sudden severe pain or a hot swollen joint.",
       commonSymptoms: [
         "Knee pain that worsens with walking, stairs, or kneeling",
         "Stiffness, particularly after sitting for long periods",
@@ -701,7 +701,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Knee arthritis treatment",
       intro:
-        "NICE recommends starting with exercise, weight management, and topical pain relief. Surgery is considered only when conservative measures no longer control symptoms.",
+        "Knee osteoarthritis treatment usually starts with therapeutic exercise, weight support where appropriate and suitable pain relief. Strengthening muscles around the knee and reducing excess loading can improve everyday function. Ask your clinician about an individual plan, medicine safety and further options if symptoms continue to limit daily life.",
       approaches: [
         { name: "Quadriceps strengthening", description: "Stronger quads reliably reduce knee OA pain — more so than any single drug." },
         { name: "Weight management", description: "Every kilogram lost reduces knee load by up to four kilograms during walking." },
@@ -714,7 +714,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     exercises: {
       headline: "Best exercises for knee arthritis",
       intro:
-        "Strengthening the quadriceps and glutes reduces knee pain more reliably than any non-surgical treatment. Combine with low-impact aerobic activity for best results.",
+        "Knee osteoarthritis exercise programmes usually combine strengthening the surrounding muscles with activity that improves general fitness. Stronger thigh and hip muscles help support the knee during walking and everyday tasks. Start with manageable movements and ask your physiotherapist about progression, especially if symptoms or balance are changing.",
       keyBenefits: [
         "Reduces knee pain within 6–8 weeks of consistent practice",
         "Strengthens quads and glutes — the muscles that protect the knee",
@@ -726,7 +726,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     diet: {
       headline: "Diet for knee arthritis",
       intro:
-        "Maintaining a healthy weight is the single most impactful dietary step you can take for knee OA. A Mediterranean eating pattern supports both weight and inflammation.",
+        "A balanced diet and appropriate weight management can support knee osteoarthritis care, without promising to repair cartilage. Excess body weight increases the load carried through the knees during everyday movement. Discuss sustainable weight support where appropriate and combine eating changes with an exercise plan suited to your abilities.",
       foodsToFavor: [
         "Oily fish for omega-3s",
         "Olive oil, nuts, and seeds",
@@ -747,7 +747,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Hand arthritis symptoms",
       intro:
-        "Hand arthritis most often affects the base of the thumb and the small joints of the fingers. Symptoms can significantly affect grip, dexterity, and daily tasks.",
+        "Hand arthritis can cause painful, stiff fingers or thumbs and make gripping, writing and opening containers difficult. Osteoarthritis and inflammatory arthritis affect joint tissues differently, so similar symptoms do not always have the same cause. See your GP for persistent symptoms or swelling rather than self-diagnosing.",
       commonSymptoms: [
         "Pain or aching in the fingers, thumb base, or wrist",
         "Morning stiffness in the hands",
@@ -762,7 +762,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Hand arthritis treatment",
       intro:
-        "Hand OA is treated with a combination of joint protection, exercise, and pain relief. Inflammatory hand arthritis (such as RA) is treated with disease-modifying drugs alongside hand therapy.",
+        "Hand arthritis treatment depends on whether symptoms arise from osteoarthritis or an inflammatory condition such as rheumatoid arthritis. Joint protection, suitable exercises and pain relief support function, while inflammatory disease may need disease-modifying treatment. Ask your clinician about diagnosis, hand therapy and aids for difficult daily tasks.",
       approaches: [
         { name: "Hand exercises", description: "Daily range-of-motion and gentle strengthening exercises preserve function." },
         { name: "Topical NSAIDs", description: "First-line drug treatment for hand OA." },
@@ -775,7 +775,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     exercises: {
       headline: "Best exercises for hand arthritis",
       intro:
-        "Daily range-of-motion and gentle grip work preserves hand function, reduces stiffness, and protects the small joints from contracture.",
+        "Gentle hand exercises can help maintain movement and support everyday activities affected by arthritis. Range-of-motion movements address stiffness, while appropriate strengthening supports grip and muscle function around the joints. Start gently and ask a hand therapist or physiotherapist how to adapt exercises to pain, swelling or reduced function.",
       keyBenefits: [
         "Maintains finger and thumb range of motion",
         "Reduces morning stiffness",
@@ -787,7 +787,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     diet: {
       headline: "Diet for hand arthritis",
       intro:
-        "A Mediterranean-style anti-inflammatory diet may reduce hand pain and supports the general health of joint tissues.",
+        "No particular food is proven to repair arthritic hand joints, but a balanced diet supports overall health. Adequate nutrition helps maintain muscles and bones alongside exercises, joint protection and prescribed treatment. Choose varied meals and discuss supplements with your pharmacist or healthcare team, especially alongside regular medicines.",
       foodsToFavor: [
         "Oily fish for omega-3s",
         "Olive oil, nuts, and seeds",
@@ -807,7 +807,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Shoulder arthritis symptoms",
       intro:
-        "Shoulder arthritis affects the glenohumeral or acromioclavicular joint and is most common after age 50. It can also follow rotator cuff injury.",
+        "Shoulder arthritis can cause pain, stiffness and difficulty reaching, dressing or lifting the arm. Changes within the shoulder joint can restrict movement, but tendon problems and other conditions can produce similar symptoms. See your GP for persistent problems, and seek urgent assessment for sudden severe symptoms or injury.",
       commonSymptoms: [
         "Deep, aching shoulder pain — often worse at night",
         "Stiffness and reduced range of motion",
@@ -822,7 +822,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Shoulder arthritis treatment",
       intro:
-        "Shoulder arthritis treatment focuses on preserving range of motion, controlling pain, and avoiding the frozen-shoulder stiffness that often complicates the condition.",
+        "Shoulder arthritis treatment may include suitable exercises, activity adjustments and pain relief, with further options considered individually. Maintaining comfortable movement supports function, while treatment choices depend on the cause and severity of symptoms. Ask your clinician about assessment and a tailored plan if daily activities remain difficult.",
       approaches: [
         { name: "Physiotherapy", description: "Tailored range-of-motion and strengthening programmes preserve function." },
         { name: "Pain relief", description: "Paracetamol, topical NSAIDs, and short-term oral NSAIDs for flares." },
@@ -835,7 +835,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     exercises: {
       headline: "Best exercises for shoulder arthritis",
       intro:
-        "Maintaining shoulder range of motion prevents the frozen-shoulder stiffness that often complicates shoulder arthritis. Pendulum and wall-walking exercises are foundational.",
+        "Gentle shoulder movement and appropriate strengthening can support function when arthritis makes reaching or dressing difficult. Mobility exercises help maintain range, while strengthening supports the muscles controlling the shoulder. Ask your physiotherapist which movements suit your diagnosis and avoid forcing the arm through sharp or worsening pain.",
       keyBenefits: [
         "Maintains shoulder range of motion",
         "Prevents frozen-shoulder complications",
@@ -847,7 +847,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     diet: {
       headline: "Diet for shoulder arthritis",
       intro:
-        "A Mediterranean-style anti-inflammatory diet supports joint health and helps maintain a healthy weight, reducing strain on all joints.",
+        "A balanced diet supports general health with shoulder arthritis, but no specific food repairs an affected joint. Adequate nutrition supports muscle and bone health alongside an appropriate exercise and treatment plan. Choose varied meals and discuss supplements, weight concerns or dietary restrictions with your healthcare team if needed.",
       foodsToFavor: [
         "Oily fish for omega-3s",
         "Olive oil, nuts, and seeds",
@@ -868,7 +868,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Polymyalgia rheumatica symptoms",
       intro:
-        "Polymyalgia rheumatica (PMR) is an inflammatory condition causing pain and stiffness in the shoulders, neck, and hips. It almost always starts after age 50 and affects women more often than men.",
+        "Polymyalgia rheumatica causes shoulder, neck and hip pain with prolonged morning stiffness, usually in older adults. Inflammation affects tissues around these areas, but other conditions can cause similar symptoms. See a GP for persistent symptoms; new headache, jaw pain or visual changes need immediate GP or NHS 111 advice.",
       commonSymptoms: [
         "Bilateral shoulder and hip-girdle stiffness, worst in the morning",
         "Morning stiffness lasting more than 45 minutes",
@@ -883,7 +883,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Polymyalgia rheumatica treatment",
       intro:
-        "PMR responds dramatically well to low-dose corticosteroids. Treatment is usually continued for 1–2 years with very gradual dose tapering.",
+        "Polymyalgia rheumatica is usually treated with prednisolone, with the dose reduced gradually under medical supervision. Steroids reduce inflammation and symptoms, but treatment often continues for many months to prevent relapse. Follow the prescribed schedule and discuss returning symptoms or side effects rather than altering the dose yourself.",
       approaches: [
         { name: "Low-dose prednisolone", description: "Most people feel much better within a few days of starting treatment." },
         { name: "Slow steroid taper", description: "Dose is reduced gradually over 1–2 years to prevent relapse." },
@@ -896,7 +896,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     exercises: {
       headline: "Best exercises for polymyalgia rheumatica",
       intro:
-        "Gentle daily movement counteracts the muscle weakness that develops from PMR and from long-term steroid treatment, supporting bone health and reducing fall risk.",
+        "Gentle activity can help maintain function with polymyalgia rheumatica when it is matched to symptoms and treatment. Moving regularly supports joint mobility and muscle function, while pacing helps manage tiredness. Discuss a suitable programme with your clinician or physiotherapist and report significant worsening rather than pushing through it.",
       keyBenefits: [
         "Maintains muscle strength during steroid treatment",
         "Supports bone density",
@@ -908,7 +908,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     diet: {
       headline: "Diet for polymyalgia rheumatica",
       intro:
-        "A balanced diet rich in calcium, vitamin D, and protein supports bone and muscle health during the long course of steroid treatment.",
+        "A balanced diet supports bone and muscle health during treatment for polymyalgia rheumatica, especially when steroids are prescribed. Calcium, vitamin D and adequate nutrition matter because treatment and reduced activity can affect bone health. Ask your healthcare team about dietary needs and whether supplements are appropriate for you.",
       foodsToFavor: [
         "Calcium-rich foods (dairy or fortified alternatives) every day",
         "Oily fish for omega-3s and vitamin D",
@@ -929,7 +929,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Reactive arthritis symptoms",
       intro:
-        "Reactive arthritis is joint inflammation triggered by an infection elsewhere in the body — usually a gut or urinary infection. Symptoms typically appear 2–4 weeks after the triggering infection, which may already have settled, so people often do not connect the two.",
+        "Reactive arthritis can cause sore, stiff and swollen joints after an infection, sometimes alongside eye or urinary symptoms. The immune system begins attacking joints after the original infection, which may already have settled. Seek assessment for unusual joint swelling, with urgent GP or NHS 111 advice for severe or associated symptoms.",
       commonSymptoms: [
         "Joint pain and swelling, often in the knees, ankles, or feet",
         "Lower back or buttock pain",
@@ -958,7 +958,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Reactive arthritis treatment",
       intro:
-        "Most cases of reactive arthritis resolve within 6 months. Treatment focuses on symptom control, managing the triggering infection if still present, and preventing joint damage in persistent cases.",
+        "Reactive arthritis treatment may include anti-inflammatory medicines, physiotherapy and antibiotics if the triggering infection is still present. Inflammation can continue after an infection has cleared, so treatment depends on current symptoms and findings. Follow your care plan and tell your clinician about persistent joint, eye or urinary symptoms.",
       approaches: [
         { name: "NSAIDs", description: "First-line for joint pain and stiffness while the reactive flare settles." },
         { name: "Steroid joint injections", description: "Helpful for individually swollen knees or ankles when tablets are not enough." },
@@ -981,7 +981,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     exercises: {
       headline: "Best exercises for reactive arthritis",
       intro:
-        "Gentle low-impact exercise during recovery helps restore joint mobility and prevents deconditioning while the underlying inflammation resolves. Pushing a hot, swollen knee on a long hike usually prolongs the flare.",
+        "Gentle movement can support recovery from reactive arthritis, while strenuous loading may be unsuitable when joints are swollen. Regular comfortable movement helps limit stiffness, and strengthening can be introduced when inflammation allows. Follow your care team's flare advice and seek urgent assessment for new severe or hot swollen joints.",
       keyBenefits: [
         "Maintains joint range of motion during recovery",
         "Prevents deconditioning",
@@ -1003,7 +1003,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     diet: {
       headline: "Diet for reactive arthritis",
       intro:
-        "A Mediterranean-style anti-inflammatory diet supports recovery and gut health — particularly important if the triggering infection was gastrointestinal. This is a recovery plate, not a detox.",
+        "A healthy balanced diet supports general recovery with reactive arthritis, but it does not replace assessment or prescribed treatment. Symptoms follow an immune response to infection, not a need for detox diets. Eat varied meals and discuss ongoing digestive symptoms, weight loss or dietary restrictions with your clinician.",
       foodsToFavor: [
         "Plenty of water for hydration during recovery",
         "Oily fish for omega-3s",
@@ -1038,7 +1038,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Hip arthritis symptoms",
       intro:
-        "Hip osteoarthritis usually starts as a deep ache in the groin or front of the hip, often mistaken for knee or thigh pain. Morning stiffness usually eases within about 30 minutes of moving.",
+        "Hip osteoarthritis can cause pain around the groin, hip or thigh and make walking or everyday tasks difficult. Joint changes and reduced muscle function can affect how comfortably the hip moves and bears weight. See your GP for persistent symptoms rather than assuming all hip pain is arthritis.",
       commonSymptoms: [
         "Deep groin or front-of-hip ache that worsens with walking or standing from a chair",
         "Stiffness after sitting or first thing in the morning",
@@ -1053,7 +1053,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Hip arthritis treatment",
       intro:
-        "UK first-line care for hip osteoarthritis is exercise, weight support where needed, and simple pain relief — not an early rush to replacement. Surgery is considered when sleep, walking and daily tasks stay badly limited after months of conservative care.",
+        "Hip osteoarthritis treatment usually combines therapeutic exercise, weight support where appropriate and suitable pain relief. Stronger supporting muscles and reduced excess loading can improve function, while surgery may be considered when symptoms remain disabling. Discuss an individual plan and referral options with your clinician if daily life is affected.",
       approaches: [
         { name: "Exercise and physiotherapy", description: "Glute and hip-abductor strength plus low-impact cardio are core NICE-aligned treatment for everyone with hip OA." },
         { name: "Weight management", description: "The hip takes roughly three times body weight when walking, so even modest weight loss can cut load and pain." },
@@ -1066,7 +1066,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     exercises: {
       headline: "Best exercises for hip arthritis",
       intro:
-        "NICE lists exercise as a core treatment for hip osteoarthritis. Strength work for the glutes and hip abductors plus swimming, cycling or pool walking usually beats rest.",
+        "Exercise for hip osteoarthritis usually combines strengthening with activity that improves general fitness, adapted to symptoms and ability. Supporting muscles help control the hip during walking, stairs and getting out of chairs. Start at a manageable level and ask your physiotherapist how to progress without forcing painful movements.",
       keyBenefits: [
         "Reduces groin and outer-hip pain with consistent practice",
         "Improves ability to stand from a chair and climb stairs",
@@ -1078,7 +1078,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     diet: {
       headline: "Diet for hip arthritis",
       intro:
-        "There is no special hip-arthritis diet, but weight control and an anti-inflammatory pattern matter because extra load on the hip shows up quickly in pain and walking distance.",
+        "A balanced diet and weight support where appropriate can help people managing hip osteoarthritis, but cannot rebuild cartilage. Excess body weight increases loading through the hips, while varied meals support general health. Discuss sustainable changes with your healthcare team and combine them with an exercise plan suited to you.",
       foodsToFavor: [
         "A Mediterranean-style pattern: oily fish, vegetables, pulses, olive oil",
         "Protein at each meal to protect muscle while you strengthen",
@@ -1109,7 +1109,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Elbow arthritis symptoms",
       intro:
-        "Elbow osteoarthritis is less common than hip or knee OA but causes a stiff, aching joint that catches when you straighten or rotate the forearm — often after prior injury or heavy manual work.",
+        "Elbow arthritis can cause aching, stiffness and difficulty straightening the arm or rotating the forearm. Changes in joint tissues may restrict movement, but injuries and other conditions can cause similar problems. See your GP for persistent symptoms, with urgent assessment for sudden severe pain or a hot swollen joint.",
       commonSymptoms: [
         "Deep ache around the elbow, worse with gripping or lifting",
         "Stiffness, especially first thing or after rest",
@@ -1124,7 +1124,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Elbow arthritis treatment",
       intro:
-        "Most elbow arthritis is managed with activity changes, gentle movement, and short-term pain relief. Injections or surgery are reserved for stubborn locking or disabling pain after conservative care.",
+        "Elbow arthritis treatment may include adapting activities, maintaining comfortable movement and choosing suitable pain relief with a clinician. The plan depends on the cause of arthritis and how symptoms affect function. Ask about assessment, physiotherapy and further options if pain, locking or restricted movement persist despite initial care.",
       approaches: [
         { name: "Activity modification", description: "Ease repetitive gripping, heavy lifting and vibration tools during flares." },
         { name: "Physiotherapy", description: "Range-of-motion and forearm strengthening protect the joint without forcing end-range pain." },
@@ -1137,7 +1137,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     exercises: {
       headline: "Best exercises for elbow arthritis",
       intro:
-        "Keep the elbow moving through comfortable range and strengthen the forearm gradually. Avoid grinding into sharp catching pain.",
+        "Gentle elbow movement and suitable strengthening can help maintain function when arthritis affects bending, straightening or forearm rotation. Moving within a comfortable range supports mobility without forcing a stiff joint. Ask a physiotherapist how to adapt exercises and seek assessment for sharp catching pain or worsening symptoms.",
       keyBenefits: [
         "Maintains bend and straighten range for dressing and cooking",
         "Improves grip strength for jars and kettles",
@@ -1149,7 +1149,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     diet: {
       headline: "Diet for elbow arthritis",
       intro:
-        "Diet will not rebuild worn elbow cartilage, but steady weight control, protein for muscle, and an anti-inflammatory pattern support the whole-joint plan.",
+        "No specific diet rebuilds an arthritic elbow joint, but balanced eating supports general health during treatment. Adequate nutrition supports muscles and bones alongside movement, activity changes and suitable pain relief. Choose varied meals and discuss supplements or restrictive diets with your healthcare team, particularly if you take regular medicines.",
       foodsToFavor: [
         "Oily fish or omega-3 sources most weeks",
         "Lean protein to support forearm and upper-body strength work",
@@ -1168,7 +1168,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Foot and ankle arthritis symptoms",
       intro:
-        "Foot and ankle arthritis often shows up as pain with every step, morning stiffness and shoes that suddenly feel tight — from hallux rigidus (big toe) to post-traumatic ankle OA and rheumatoid foot involvement.",
+        "Foot and ankle arthritis can cause pain, stiffness or swelling that affects walking and the fit of shoes. Different joints and types of arthritis can be involved, so symptoms need individual assessment. See your GP for persistent problems, with urgent advice for sudden severe pain or a hot swollen joint.",
       commonSymptoms: [
         "Deep ache in the ankle or midfoot that builds with walking",
         "Stiff big toe that blocks push-off (hallux rigidus)",
@@ -1183,7 +1183,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Foot and ankle arthritis treatment",
       intro:
-        "Most people manage with footwear changes, orthotics, graded exercise and short-term pain relief. Injections or surgery are reserved for persistent pain after conservative care.",
+        "Foot and ankle arthritis care may combine suitable footwear, exercise, pain relief and specialist advice about supports. Reducing uncomfortable loading and maintaining movement can help daily function, but treatment depends on the joints involved. Ask your clinician or podiatrist about a plan if walking remains painful or limited.",
       approaches: [
         { name: "Supportive footwear", description: "Wide toe box, cushioned or rocker sole, low heel and adjustable fastenings." },
         { name: "Podiatry and orthotics", description: "Custom insoles redistribute pressure away from painful joints." },
@@ -1196,7 +1196,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     exercises: {
       headline: "Best exercises for foot and ankle arthritis",
       intro:
-        "Keep the ankle and toes moving through a comfortable range and rebuild balance gradually. Pair with our dedicated ankle exercises page.",
+        "Gentle ankle and toe movement, suitable strengthening and balance work can support function with foot and ankle arthritis. These activities help maintain mobility and control for everyday walking when adapted to symptoms. Ask your physiotherapist about suitable exercises and footwear, rather than forcing painful movements or unstable positions.",
       keyBenefits: [
         "Maintains ankle bend and straighten range for walking",
         "Strengthens calves and intrinsic foot muscles",
@@ -1208,7 +1208,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     diet: {
       headline: "Diet for foot and ankle arthritis",
       intro:
-        "Diet will not rebuild worn ankle cartilage, but steady weight control and an anti-inflammatory pattern reduce load and systemic inflammation that aggravate foot pain.",
+        "A balanced diet supports general health with foot and ankle arthritis, but cannot rebuild damaged joint cartilage. Appropriate weight management can reduce extra loading through the feet during walking and standing. Discuss sustainable eating changes where needed and combine them with suitable footwear, activity and your prescribed treatment plan.",
       foodsToFavor: [
         "Oily fish or omega-3 sources most weeks",
         "Lean protein to support calf and foot strength work",
@@ -1223,4 +1223,3 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     },
   },
 };
-
