@@ -27,7 +27,7 @@ const jointLabels: Record<Joint, string> = {
 };
 
 const benefitsMap: Record<Exercise, string[]> = {
-  swimming: ["Zero joint impact — water supports body weight", "Improves cardiovascular fitness", "Increases range of motion", "Reduces stiffness and swelling", "Strengthens muscles around joints"],
+  swimming: ["Low-impact activity — water supports body weight", "Improves cardiovascular fitness", "Increases range of motion", "Reduces stiffness and swelling", "Strengthens muscles around joints"],
   yoga: ["Improves flexibility and range of motion", "Strengthens supporting muscles gently", "Reduces stress and pain perception", "Improves balance and coordination", "Adaptable to all fitness levels"],
   cycling: ["Low-impact cardiovascular exercise", "Strengthens quadriceps and hamstrings", "Improves joint mobility", "Burns calories for weight management", "Can be done indoors on a stationary bike"],
   walking: ["Most accessible form of exercise", "Maintains joint function and mobility", "Supports bone density", "Improves mood and reduces fatigue", "Can be done anywhere, no equipment needed"],
