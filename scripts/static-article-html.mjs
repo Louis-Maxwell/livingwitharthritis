@@ -180,7 +180,9 @@ export function buildStaticArticleInner(data) {
   const creds = article?.reviewer_credentials || article?.author_credentials;
   const author = !selfReview && article?.author && !/placeholder/i.test(article.author)
     ? `<p class="article-byline">Written by ${escText(article.author)}${article.author_credentials ? ` — ${escText(article.author_credentials)}` : ""}.</p>` : "";
-  const reviewer = selfReview
+  const reviewer = article?.editorial_review_note
+    ? `<p class="article-byline editorial-review-note">${escText(article.editorial_review_note)}</p>`
+    : selfReview
     ? `<p class="article-byline">Written and reviewed by ${escText(article.reviewed_by)}${creds ? ` — ${escText(creds)}` : ""}. This is a disclosed self-review by the author, not an independent clinical review.</p>`
     : article?.reviewed_by && !/placeholder/i.test(article.reviewed_by)
     ? `<p>Reviewed by ${escText(article.reviewed_by)}${article.reviewer_credentials ? ` — ${escText(article.reviewer_credentials)}` : ""}.</p>`
