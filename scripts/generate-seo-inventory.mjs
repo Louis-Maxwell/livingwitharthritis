@@ -5,6 +5,7 @@ import { decodeBasicEntities } from "./lib/strip-tags.mjs";
 import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
 
 const DIST = resolve(process.argv[2] || "dist");
+const SITE = "https://livingwitharthritis.org.uk";
 const OUTPUT = resolve(
   process.argv[3] || "docs/seo/content-inventory.csv",
 );
@@ -107,6 +108,16 @@ const headers = [
   "child_pages",
   "status",
   "redirect_target",
+  "robots_directives",
+  "canonical_matches_url",
+  "h2_count",
+  "image_count",
+  "images_missing_alt",
+  "internal_link_count",
+  "external_link_count",
+  "article_word_count",
+  "structured_data_types",
+  "html_bytes",
 ];
 const rows = [];
 
@@ -144,6 +155,13 @@ for (const url of urls) {
   const article = nodes.find((node) =>
     ["Article", "MedicalWebPage", "ProfilePage"].includes(node?.["@type"]),
   );
+  const links = [...html.matchAll(/<a\b[^>]*\bhref=["']([^"']+)["'][^>]*>/gi)].map((match) => match[1]);
+  const images = [...html.matchAll(/<img\b[^>]*>/gi)].map((match) => match[0]);
+  const internalLinks = links.filter((href) => href.startsWith("/") || href.startsWith(SITE));
+  const externalLinks = links.filter((href) => /^https?:\/\//i.test(href) && !href.startsWith(SITE));
+  const articleText = textOf(html, /<main\b[^>]*>([\s\S]*?)<\/main>/i);
+  const schemaTypes = [...new Set(nodes.flatMap((node) => Array.isArray(node?.["@type"]) ? node["@type"] : [node?.["@type"]]).filter(Boolean))].sort();
+  const canonicalUrl = canonical ? new URL(canonical, url).href.replace(/\/$/, "") : "";
   const keywords = meta(html, "name", "keywords")
     .split(",")
     .map((keyword) => keyword.trim())
@@ -170,8 +188,18 @@ for (const url of urls) {
     keywords.slice(1).join("|"),
     parentFor(path),
     childrenFor(path),
-    "indexable",
+    "present-prerender-output",
     "",
+    robots,
+    canonicalUrl === url.replace(/\/$/, ""),
+    (html.match(/<h2\b/gi) || []).length,
+    images.length,
+    images.filter((image) => !/\balt=["'][^"']+["']/i.test(image)).length,
+    internalLinks.length,
+    externalLinks.length,
+    (articleText.match(/\b[\p{L}\p{N}’'_-]+\b/gu) || []).length,
+    schemaTypes.join("|"),
+    Buffer.byteLength(html, "utf8"),
   ]);
 }
 
@@ -201,7 +229,7 @@ for (const line of redirectCsv.trim().split(/\r?\n/).slice(1)) {
 mkdirSync(dirname(OUTPUT), { recursive: true });
 writeFileAtomicSync(
   OUTPUT,
-  [headers, ...rows].map((row) => row.map(csvCell).join(",")).join("\n") +
+  [headers, ...rows].map((row) => [...row, ...Array(Math.max(0, headers.length - row.length)).fill("")].map(csvCell).join(",")).join("\n") +
     "\n",
 );
 console.log(
