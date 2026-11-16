@@ -1,3 +1,4 @@
+import { normaliseRouteSchemaEntries } from "@/lib/routeSchema";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
@@ -80,12 +81,17 @@ function pruneStaticMetaDuplicates() {
   const editorialTitle = ROUTE_TITLE_OVERRIDES[route];
   const safeTitle = enforceTitle(editorialTitle || document.title, { includeSiteName: false });
   if (safeTitle !== document.title) document.title = safeTitle;
-  for (const node of document.querySelectorAll('script[type="application/ld+json"]')) {
-    try {
-      const json = JSON.stringify(cleanJsonLd(JSON.parse(node.textContent || '')));
-      if (node.textContent !== json) node.textContent = json;
-    } catch { /* The static validation gate reports malformed JSON. */ }
-  }
+  const scripts = [...document.querySelectorAll('script[type="application/ld+json"]')];
+  const parsed = scripts.map(node => {
+    try { return cleanJsonLd(JSON.parse(node.textContent || '{}')); }
+    catch { return undefined; }
+  });
+  const normalised = normaliseRouteSchemaEntries(parsed, route);
+  scripts.forEach((node, index) => {
+    if (parsed[index] === undefined) return;
+    const json = JSON.stringify(normalised[index] || {});
+    if (node.textContent !== json) node.textContent = json;
+  });
   for (const node of document.head.querySelectorAll('meta[content]')) {
     const raw = node.getAttribute('content') || '';
     const label = node.getAttribute('name') || node.getAttribute('property');
