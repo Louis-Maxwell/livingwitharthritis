@@ -24,17 +24,8 @@ const sourceLabels = [
   "NICE Clinical Guidelines",
 ];
 
-const keyStats = [
-  { stat: "25–30%", label: "less pain with exercise" },
-  { stat: "15,000", label: "UK children with JIA" },
-  { stat: "60 years", label: "of knuckle-cracking studied" },
-  { stat: "10M+", label: "people affected in UK" },
-];
-
 const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => {
   const imageSrc = item.image_url ? (imageMap[item.image_url] || item.image_url) : null;
-  
-  const stat = keyStats[index % keyStats.length];
 
   return (
     <motion.div
@@ -58,11 +49,6 @@ const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => 
               <span className="text-[10px] font-bold text-primary-foreground bg-primary px-3 py-1.5 rounded-full uppercase tracking-[0.15em] shadow-md">
                 Myth #{index + 1}
               </span>
-            </div>
-            {/* Key stat floating badge */}
-            <div className="absolute bottom-4 right-4 bg-card/95 backdrop-blur-sm rounded-xl px-4 py-2.5 shadow-md border border-border/20">
-              <p className="text-xl font-bold text-primary leading-none">{stat.stat}</p>
-              <p className="text-[10px] text-muted-foreground mt-0.5">{stat.label}</p>
             </div>
           </div>
         )}
@@ -201,10 +187,10 @@ const VirtualPhysioSection = memo(() => {
           className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20"
         >
           {[
-            { value: "150 min", desc: "Weekly exercise recommended by NICE", icon: Activity },
-            { value: "10M+", desc: "UK adults living with arthritis", icon: Users },
-            { value: "1 in 6", desc: "Adults affected across the UK", icon: Heart },
-            { value: "93%", desc: "Patients report improved mobility", icon: Check },
+            { value: "150 min", desc: "Weekly moderate activity in UK CMO guidelines", icon: Activity },
+            { value: "Little and often", desc: "Short daily sessions you can build up", icon: Users },
+            { value: "Free", desc: "Guides and routines, no sign-up needed", icon: Heart },
+            { value: "Stop if", desc: "Pain is sharp or getting worse: seek advice", icon: Check },
           ].map((s, i) => (
             <div key={i} className="bg-card rounded-xl border border-border/20 p-5 text-center">
               <s.icon className="w-5 h-5 text-primary mx-auto mb-2" />

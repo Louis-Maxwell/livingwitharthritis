@@ -197,9 +197,9 @@ const CorporateGiving = () => {
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               {[
-                { value: "10M+", label: "People affected in UK", icon: Users },
-                { value: "88p", label: "Of every £1 to patients", icon: Heart },
-                { value: "100%", label: "Tax deductible", icon: Shield },
+                { value: "1218461", label: "Registered charity number", icon: Users },
+                { value: "Free", label: "Guides for everyone who needs them", icon: Heart },
+                { value: "Independent", label: "Not affiliated with Arthritis UK", icon: Shield },
                 { value: "CSR", label: "Partnership routes", icon: Building2 },
               ].map((stat, i) => (
                 <motion.div

@@ -75,7 +75,7 @@ const DonationSuccess = () => {
                   <p className="font-semibold text-foreground">Your impact matters</p>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  88p of every £1 goes directly to patient care and research. If you provided an email at checkout, a receipt from Stripe will arrive shortly.
+                  Your gift helps keep our arthritis guides and resources free for everyone. If you provided an email at checkout, a receipt from Stripe will arrive shortly.
                 </p>
               </div>
 
