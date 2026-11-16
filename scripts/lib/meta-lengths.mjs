@@ -21,6 +21,6 @@ export function normalizeStaticMeta(data) {
   return {
     ...data,
     title: truncateOnWord(title, 60),
-    description: truncateOnWord(cleanBrand(data.description).trim().replace(/\s+/g, ' '), 160),
+    description: truncateOnWord(cleanBrand(data.description).trim().replace(/\s+/g, ' '), 155),
   };
 }
