@@ -111,7 +111,7 @@ question: "What is gout?",
   "/conditions/fibromyalgia": withDefaults({
     question: "What is fibromyalgia?",
     answer:
-      "Fibromyalgia is a long-term condition causing widespread pain, fatigue, sleep problems and 'fibro fog'. It's a disorder of pain processing rather than joint damage. NICE recommends graded exercise, CBT and paced activity as first-line management.",
+      "Fibromyalgia is a long-term condition causing widespread pain, fatigue, sleep problems and 'fibro fog'. It's a disorder of pain processing rather than joint damage. Diagnosis is clinical, based on widespread pain lasting over three months. NICE recommends graded exercise, CBT and paced activity as first-line management.",
   
     faqs: [
       { q: "Is fibromyalgia a form of arthritis?", a: "No. Fibromyalgia doesn't damage joints or cause inflammation. However, it commonly occurs alongside arthritis and is treated by similar rheumatology teams." },
@@ -124,7 +124,7 @@ question: "What is gout?",
   "/conditions/lupus": withDefaults({
     question: "What is lupus?",
     answer:
-      "Lupus (systemic lupus erythematosus, SLE) is an autoimmune disease that can affect skin, joints, kidneys, heart and lungs. Common symptoms include joint pain, a butterfly rash, fatigue and sun sensitivity. Hydroxychloroquine is the mainstay of treatment.",
+      "Lupus (systemic lupus erythematosus, SLE) is an autoimmune disease that can affect skin, joints, kidneys, heart and lungs. Common symptoms include joint pain, a butterfly rash, fatigue and sun sensitivity. Hydroxychloroquine is the mainstay of treatment, and there is no cure, but modern treatments control symptoms and reduce flares.",
   
     faqs: [
       { q: "Is lupus a form of arthritis?", a: "Lupus isn't classed as arthritis but it commonly causes joint pain and stiffness. Many people are managed by the same rheumatology teams that treat rheumatoid arthritis." },
@@ -171,7 +171,7 @@ question: "What is knee arthritis?",
   "/conditions/hand-arthritis": withDefaults({
     question: "What is hand arthritis?",
     answer:
-      "Hand arthritis affects the small joints of the fingers, thumbs and wrists. Osteoarthritis typically causes bony bumps and thumb-base pain; rheumatoid usually causes symmetrical knuckle swelling. Splints, hand exercises and topical NSAID gels help most people.",
+      "Hand arthritis affects the small joints of the fingers, thumbs and wrists. Osteoarthritis typically causes bony bumps and thumb-base pain; rheumatoid usually causes symmetrical knuckle swelling. Early signs include morning finger stiffness and a dull ache at the base of the thumb. Splints, hand exercises and topical NSAID gels help most people.",
   
     faqs: [
       { q: "What are the first signs of hand arthritis?", a: "Early signs include stiffness in the fingers in the morning, a dull ache at the base of the thumb when opening jars or turning keys, and small bony lumps on the end finger joints (Heberden's nodes)." },
@@ -184,7 +184,7 @@ question: "What is knee arthritis?",
   "/conditions/shoulder-arthritis": withDefaults({
     question: "What is shoulder arthritis?",
     answer:
-      "Shoulder arthritis is cartilage loss in the glenohumeral or acromioclavicular joints, causing deep aching pain, reduced reach and night pain when lying on the affected side. Physio, corticosteroid injections and, if severe, shoulder replacement are options.",
+      "Shoulder arthritis is cartilage loss in the glenohumeral or acromioclavicular joints, causing deep aching pain, reduced reach and night pain when lying on the affected side. It is not the same as a frozen shoulder, which usually resolves within 1-3 years. Physio, corticosteroid injections and, if severe, shoulder replacement are options.",
   
     faqs: [
       { q: "What does shoulder arthritis feel like?", a: "Most people describe a deep ache at the back of the shoulder that worsens when reaching overhead, behind the back, or lying on that side at night. Stiffness limits putting on coats and reaching seatbelts." },
@@ -197,7 +197,7 @@ question: "What is knee arthritis?",
   "/conditions/elbow-arthritis": withDefaults({
     question: "What is elbow arthritis?",
     answer:
-      "Elbow arthritis is joint damage in the elbow causing pain, stiffness, locking or grating during movement. Osteoarthritis and rheumatoid arthritis are the main causes. Treatment ranges from activity modification and NSAIDs to arthroscopy or elbow replacement.",
+      "Elbow arthritis is joint damage in the elbow causing pain, stiffness, locking or grating during movement. Osteoarthritis and rheumatoid arthritis are the main causes, though tennis elbow and golfer's elbow are more common causes of elbow pain. Treatment ranges from activity modification and NSAIDs to arthroscopy or elbow replacement.",
   
     faqs: [
       { q: "What does elbow arthritis feel like?", a: "Most people describe a deep ache on the outside or back of the elbow that worsens when straightening the arm fully or carrying a heavy bag. Many lose the last few degrees of extension, so the arm no longer goes completely straight." },
@@ -223,7 +223,7 @@ question: "What is knee arthritis?",
   "/conditions/juvenile-arthritis": withDefaults({
     question: "What is juvenile arthritis?",
     answer:
-      "Juvenile idiopathic arthritis (JIA) is arthritis starting before age 16, lasting more than 6 weeks. It affects around 1 in 1,000 UK children. Early paediatric rheumatology care and DMARDs help most children live active lives.",
+      "Juvenile idiopathic arthritis (JIA) is arthritis starting before age 16, lasting more than 6 weeks. It affects around 1 in 1,000 UK children. First signs include morning limping, a swollen joint or avoiding a favourite activity. Early paediatric rheumatology care and DMARDs help most children live active lives.",
   
     faqs: [
       { q: "What are the first signs of arthritis in a child?", a: "Look out for limping (worse in the morning), a swollen joint, a child avoiding a normally favourite activity, or unexplained fevers and rashes. Always see your GP if joint symptoms last more than two weeks." },
@@ -236,7 +236,7 @@ question: "What is knee arthritis?",
   "/conditions/reactive-arthritis": withDefaults({
     question: "What is reactive arthritis?",
     answer:
-      "Reactive arthritis is joint inflammation that develops after an infection elsewhere in the body — usually gut or urinary. Symptoms include joint pain, eye inflammation and urinary symptoms. Most cases resolve within 3-12 months.",
+      "Reactive arthritis is joint inflammation that develops after an infection elsewhere in the body — usually gut or urinary. Symptoms include joint pain, eye inflammation and urinary symptoms. Most cases resolve within 3-12 months once the triggering infection clears and inflammation is treated, though around 1 in 5 develop longer-lasting joint problems.",
   
     faqs: [
       { q: "How long does reactive arthritis last?", a: "Most people recover fully within 3 to 6 months. Around 1 in 5 develop longer-lasting joint problems, and a smaller number go on to develop a chronic inflammatory arthritis, which is why early specialist input matters." },
@@ -279,7 +279,7 @@ question: "I've just been diagnosed with arthritis — what should I do?",
   "/guides/understanding-pain": withDefaults({
     question: "What are the main types of pain?",
     answer:
-      "Pain can be inflammatory or mechanical, focal or systemic, bilateral, fibromyalgia-type, acute or chronic, or neuropathic. Matching the pattern helps your GP choose the right next steps. Describe location, timing, morning stiffness and nerve-like burning or tingling clearly.",
+      "Pain can be inflammatory or mechanical, focal or systemic, bilateral, fibromyalgia-type, acute or chronic, or neuropathic. Matching the pattern helps your GP choose the right next steps. Pain lasting longer than about three months is usually called chronic. Describe location, timing, morning stiffness and nerve-like burning or tingling clearly.",
     faqs: [
       { q: "Is inflammatory pain the same as arthritis?", a: "Not always — inflammatory pain can come from autoimmune arthritis and other causes. Mechanical pain is more linked to load, injury or wear. A clinical assessment sorts them out." },
       { q: "When is pain chronic?", a: "Pain lasting longer than about three months is usually called chronic. See your GP if pain persists, wakes you at night, or comes with hot swollen joints." },
@@ -331,7 +331,7 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
   "/guides/free-arthritis-resources-uk": withDefaults({
     question: "What free arthritis resources do UK charities offer?",
     answer:
-      "Living With Arthritis (charity 1218461) offers free home exercise routines, diet advice, PIP claim tools and newly diagnosed checklists. Arthritis UK and NRAS also provide free information. Living With Arthritis is independent of Arthritis UK.",
+      "Living With Arthritis (charity 1218461) offers free home exercise routines, diet advice, PIP claim tools and newly diagnosed checklists. Arthritis UK and NRAS also provide free information. All guides, home physio routines and the PIP evidence diary are free to use. Living With Arthritis is independent of Arthritis UK.",
     faqs: [
       { q: "Is Living With Arthritis the same as Arthritis UK?", a: "No — it is an independent UK charity (1218461), not Arthritis UK (formerly Versus Arthritis)." },
       { q: "Are the exercise and PIP tools free?", a: "Yes. Guides, home physio routines, the PIP evidence diary and flare plan are free to use." },
@@ -352,12 +352,12 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
   "/guides/sarcopenia-muscle-loss": withDefaults({
     question: "What is sarcopenia?",
     answer:
-      "Sarcopenia is age-related muscle loss that accelerates after 60 and worsens arthritis symptoms. Resistance training (2-3 sessions per week) plus 1.0-1.2 g protein/kg body weight/day reverses much of it, even in your 80s.",
+      "Sarcopenia is age-related muscle loss that accelerates after 60 and worsens arthritis symptoms. Struggling to open jars or carry shopping is an early sign. Resistance training (2-3 sessions per week) plus 1.0-1.2 g protein/kg body weight/day reverses much of it, even in your 80s.",
   }),
   "/guides/bone-density-osteoporosis": withDefaults({
     question: "How do I improve bone density?",
     answer:
-      "Weight-bearing exercise (walking, jogging, dancing), resistance training, calcium 700 mg/day and vitamin D 10 mcg/day support bone density. If your FRAX score is high, your GP may prescribe bisphosphonates.",
+      "Weight-bearing exercise (walking, jogging, dancing), resistance training, calcium 700 mg/day and vitamin D 10 mcg/day support bone density. Osteoporosis weakens bones rather than joint cartilage and often coexists with osteoarthritis, especially in post-menopausal women. If your FRAX score is high, your GP may prescribe bisphosphonates.",
   }),
   "/guides/disability-support": withDefaults({
     question: "What are my disability rights in the UK if I have arthritis?",
@@ -367,17 +367,17 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
   "/guides/frailty-management-hub": withDefaults({
     question: "How is frailty managed with arthritis?",
     answer:
-      "Frailty and arthritis together respond to comprehensive geriatric assessment: strength training, protein-rich diet, medication review, hearing/vision checks and social connection. Ask your GP for a formal frailty (Clinical Frailty Scale) review.",
+      "Frailty and arthritis together respond to comprehensive geriatric assessment: strength training, protein-rich diet, medication review, hearing/vision checks and social connection. Mild and moderate frailty can be reversed with progressive strength training and adequate protein. Ask your GP for a formal frailty (Clinical Frailty Scale) review.",
   }),
   "/guides/preventative-msk-health": withDefaults({
     question: "How do I keep my muscles and joints healthy?",
     answer:
-      "The three pillars are: 150 minutes moderate aerobic activity per week, 2 strength sessions per week, and 7-9 hours of sleep. Add Mediterranean-style diet, don't smoke, and keep BMI under 27 for lowest lifetime arthritis risk.",
+      "The three pillars are: 150 minutes moderate aerobic activity per week, 2 strength sessions per week, and 7-9 hours of sleep. Add Mediterranean-style diet, don't smoke, and keep BMI under 27 for lowest lifetime arthritis risk. Early intervention, within weeks rather than years, significantly reduces joint damage.",
   }),
   "/guides/musculoskeletal-health": withDefaults({
     question: "What is musculoskeletal health?",
     answer:
-      "Musculoskeletal (MSK) health means healthy bones, joints, muscles, tendons and ligaments. MSK conditions affect 20 million people in the UK. Movement, strength, sleep and weight management are the four proven levers to protect it.",
+      "Musculoskeletal (MSK) health means healthy bones, joints, muscles, tendons and ligaments. MSK conditions affect 20 million people in the UK. They are the single biggest cause of years lived with disability in the UK. Movement, strength, sleep and weight management are the four proven levers to protect it.",
   }),
 
   // â”€â”€ Hubs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
