@@ -326,7 +326,7 @@ export function generateExerciseJointPages(): ExerciseJointPage[] {
         joint: jo,
         title: `${ex} for ${jo} Arthritis — Exercises, Benefits & Safety Tips`,
         metaDescription: `Discover how ${ex.toLowerCase()} can help manage ${jo.toLowerCase()} arthritis. Step-by-step exercises, benefits, and safety tips from UK physiotherapy guidance.`,
-        intro: `${ex} is one of the most recommended activities for managing ${jo.toLowerCase()} arthritis. It helps reduce stiffness, strengthen the muscles around the ${jo.toLowerCase()} joint, and improve your overall mobility — all with minimal joint impact. This guide provides step-by-step exercises, benefits, and safety considerations specifically for ${jo.toLowerCase()} arthritis, based on UK physiotherapy guidelines.`,
+        intro: `${ex} can be part of an activity plan for ${jo.toLowerCase()} arthritis, adapted to your symptoms and ability. Appropriate movement helps maintain joint mobility, while strengthening exercise supports surrounding muscles. Start with a short, comfortable session, build up gradually and ask a physiotherapist which movements suit you.`,
         benefits: benefitsMap[exercise],
         instructions: jointInstructions[joint][exercise],
         safetyTips: safetyTipsMap[exercise],
