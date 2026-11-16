@@ -341,8 +341,14 @@ function withSynonyms(route, data) {
   if (!items.length) return data;
   return { ...data, bodyHtml: `${data.bodyHtml || ''}<h2>Also known as</h2><dl>${items.join('')}</dl>` };
 }
-const RENDERED_BODIES = existsSync(resolve('scripts/data/rendered-bodies.json'))
-  ? JSON.parse(readFileSync(resolve('scripts/data/rendered-bodies.json'), 'utf8')) : {};
+// rendered-bodies.overrides.json (small, per-route) is layered over the large
+// committed snapshot so a few routes can be re-captured without rewriting it.
+const RENDERED_BODIES = {
+  ...(existsSync(resolve('scripts/data/rendered-bodies.json'))
+    ? JSON.parse(readFileSync(resolve('scripts/data/rendered-bodies.json'), 'utf8')) : {}),
+  ...(existsSync(resolve('scripts/data/rendered-bodies.overrides.json'))
+    ? JSON.parse(readFileSync(resolve('scripts/data/rendered-bodies.overrides.json'), 'utf8')) : {}),
+};
 // Same counting rule as scripts/lib/route-words.mjs (the word gate).
 const textWords = (html) => String(html || '').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ').split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
 function withRenderedBody(route, data) {
@@ -1016,4 +1022,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-    }
+       }
