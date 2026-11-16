@@ -8,6 +8,7 @@ import {
   PIP_ACTIVITY_ROWS,
 } from "@/data/benefitsGuides/pipGuideContent";
 import { PAGE_AEO } from "@/data/page-aeo";
+import { headDataFor } from "../../../scripts/inject-canonicals.mjs";
 
 const words = (s: string) => s.trim().split(/\s+/).length;
 const data = headData as Record<string, Record<string, unknown>>;
@@ -46,7 +47,7 @@ describe("/about free-offer answer", () => {
     expect(aeo.answer).toContain("1218461");
     expect(aeo.answer).toContain("David Williams");
     expect(aeo.answer).not.toMatch(/Living With Arthritis\s*\(?UK/);
-    expect(data["/about"].answer).toBe(aeo.answer);
+    expect((headDataFor("/about") as Record<string, unknown>).answer).toBe(aeo.answer);
     expect(data["/about"].faqs).toEqual((aeo.faqs ?? []).map((f) => ({ q: f.q, a: f.a })));
     const org = data["/about"].organization as Record<string, unknown>;
     expect((org.founder as { name: string }).name).toBe("David Williams");
