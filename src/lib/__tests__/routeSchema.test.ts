@@ -14,6 +14,15 @@ describe("live schema parity", () => {
     expect(first[0]).toMatchObject({ lastReviewed: "2026-11-05", reviewedBy: { name: "Louis Maxwell" }, about: { "@id": expect.stringContaining("#medical-entity"), sameAs: ["https://www.nhs.uk/conditions/osteoarthritis/"] } });
     expect(normaliseRouteSchemaEntries(first, "/conditions/osteoarthritis")).toEqual(first);
   });
+  it("retains app-owned page nodes when Helmet later removes the static fallback", () => {
+    const staticPage = { "@type": "MedicalWebPage", name: "Static fallback" };
+    const appPage = { "@type": "MedicalWebPage", name: "Mounted page" };
+    const first = normaliseRouteSchemaEntries([staticPage, appPage], "/conditions/osteoarthritis", [false, true]);
+    expect(first[0]).toBeNull();
+    expect(first[1]).toMatchObject({ "@type": "MedicalWebPage", name: "Mounted page", lastReviewed: "2026-11-05" });
+    const afterStaticRemoval = normaliseRouteSchemaEntries([first[1]], "/conditions/osteoarthritis", [true]);
+    expect(afterStaticRemoval[0]).toEqual(first[1]);
+  });
   it("does not carry an unsupported clinical date onto PIP", () => {
     expect(recordedRouteReview("/guides/benefits-pip")).toBeUndefined();
     const [page] = normaliseRouteSchemaEntries([{ "@type": "MedicalWebPage", reviewedBy: { name: "Louis Maxwell" }, lastReviewed: "2026-11-11" }], "/guides/benefits-pip");
