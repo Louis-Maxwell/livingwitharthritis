@@ -29,7 +29,7 @@ export default function PageHero({
         <div>
           {badge && <div className={compact ? "mb-3" : "mb-5"}>{badge}</div>}
 
-          <h1 className={`font-display font-bold text-foreground tracking-[-0.025em] leading-[1.15] ${compact ? "text-[1.75rem] sm:text-3xl md:text-[2.25rem] mb-3" : "text-[2rem] sm:text-4xl md:text-[3.5rem] lg:text-[3.75rem] mb-4"}`}>
+          <h1 style={{ lineHeight: 1.15 }} className={`font-display font-bold text-foreground tracking-[-0.025em] leading-[1.15] ${compact ? "text-[1.75rem] sm:text-3xl md:text-[2.25rem] mb-3" : "text-[2rem] sm:text-4xl md:text-[3.5rem] lg:text-[3.75rem] mb-4"}`}>
             {title}
           </h1>
 
