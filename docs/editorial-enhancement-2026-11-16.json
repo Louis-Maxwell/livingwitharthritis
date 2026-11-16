@@ -1,0 +1,127 @@
+{
+  "clinical_review_note": "Original version clinically reviewed by Louis Maxwell, 6 February 2026. Enhanced edition prepared 16 November 2026: editorial changes only. The revised wording has not yet had a fresh clinical review.",
+  "articles": [
+    {
+      "source": "01-early-signs-of-arthritis.md",
+      "slug": "arthritis-symptoms-what-to-do-next",
+      "existing": true,
+      "title": "Early Signs of Arthritis: When Joint Pain Should Not Be Ignored",
+      "cover": "lwa-arthritis-symptoms-what-to-do-next.webp"
+    },
+    {
+      "source": "02-osteoarthritis-vs-rheumatoid-arthritis.md",
+      "slug": "oa-vs-ra-comparison",
+      "existing": true,
+      "title": "Osteoarthritis vs Rheumatoid Arthritis: What Is the Difference?",
+      "cover": "cover-0443-frozen-yogurt-cups-sunshine-cups.webp"
+    },
+    {
+      "source": "03-what-makes-arthritis-pain-worse.md",
+      "slug": "what-makes-arthritis-pain-worse",
+      "existing": false,
+      "title": "What Causes Arthritis Pain to Get Worse?",
+      "cover": "lwa-title-lwa-archive-pain-medication-for-arthritis.webp"
+    },
+    {
+      "source": "04-morning-stiffness-with-arthritis.md",
+      "slug": "morning-stiffness-with-arthritis",
+      "existing": false,
+      "title": "Morning Stiffness With Arthritis: Why It Happens and What Helps",
+      "cover": "lwa-title-lwa-archive-morning-stiffness.webp"
+    },
+    {
+      "source": "05-managing-arthritis-flare-ups-at-home.md",
+      "slug": "managing-arthritis-flare-ups-at-home",
+      "existing": true,
+      "title": "How to Manage Arthritis Flare-Ups at Home",
+      "cover": "cover-0294-file-tai-chi-young-and-old-jpg.webp"
+    },
+    {
+      "source": "06-arthritis-pain-management-day-to-day.md",
+      "slug": "arthritis-pain-management-day-by-day",
+      "existing": true,
+      "title": "Arthritis Pain Management: What Actually Helps Day to Day?",
+      "cover": "arthritis-pain-management-day-by-day.webp"
+    },
+    {
+      "source": "07-can-physiotherapy-help-arthritis.md",
+      "slug": "physiotherapy-arthritis",
+      "existing": true,
+      "title": "Can Physiotherapy Help Arthritis? A UK Patient Guide",
+      "cover": "cover-0461-20171027-ams-lsc-0093.webp"
+    },
+    {
+      "source": "08-best-exercises-for-arthritis.md",
+      "slug": "arthritis-exercises-uk-clinical",
+      "existing": true,
+      "title": "Best Exercises for Arthritis: Safe Movements for Painful Joints",
+      "cover": "cover-0276-stretching-exercises.webp"
+    },
+    {
+      "source": "09-best-low-impact-exercises.md",
+      "slug": "best-low-impact-exercises",
+      "existing": false,
+      "title": "Best Low-Impact Exercises for Arthritis in the UK",
+      "cover": "cover-0397-water-exercise.webp"
+    },
+    {
+      "source": "10-how-to-exercise-without-making-pain-worse.md",
+      "slug": "gentle-exercises-for-arthritis",
+      "existing": true,
+      "title": "How to Exercise With Arthritis Without Making Pain Worse",
+      "cover": "commons-yoga-for-arthritis-45851b.webp"
+    },
+    {
+      "source": "11-walking-with-arthritis.md",
+      "slug": "walking-with-arthritis",
+      "existing": false,
+      "title": "Walking With Arthritis: Is It Good or Bad for Joint Pain?",
+      "cover": "lwa-title-lwa-archive-walking-difficulties-and-arthritis.webp"
+    },
+    {
+      "source": "12-knee-arthritis-exercises.md",
+      "slug": null,
+      "existing": true,
+      "title": "Knee Arthritis Exercises: What to Do and What to Avoid",
+      "cover": "lwa-title-lwa-archive-knee-exercises-for-arthritis.webp",
+      "path": "/guides/knee-exercises-for-osteoarthritis",
+      "placement": "Supplement alongside the established routine; prior guide and redirects preserved"
+    },
+    {
+      "source": "13-arthritis-in-the-hands.md",
+      "slug": "lwa-archive-hand-osteoarthritis",
+      "existing": true,
+      "title": "Arthritis in the Hands: Symptoms, Exercises and Daily Tips",
+      "cover": "commons-hand-osteoarthritis-779740.webp"
+    },
+    {
+      "source": "14-arthritis-in-the-knees.md",
+      "slug": "lwa-archive-knee-osteoarthritis",
+      "existing": true,
+      "title": "Arthritis in the Knees: Symptoms, Treatment and Self-Care",
+      "cover": "lwa-title-lwa-archive-knee-osteoarthritis.webp"
+    },
+    {
+      "source": "15-arthritis-in-the-hips.md",
+      "slug": "hip-arthritis-symptoms-uk",
+      "existing": true,
+      "title": "Arthritis in the Hips: Pain Relief, Exercises and Mobility Tips",
+      "cover": "cover-0418-om-yoga-mat-bag-6dc653e8.webp"
+    },
+    {
+      "source": "16-best-anti-inflammatory-foods.md",
+      "slug": "best-foods-to-eat-for-arthritis",
+      "existing": true,
+      "title": "Best Anti-Inflammatory Foods for Arthritis: What Should You Eat?",
+      "cover": "nutrition-10-mysore-special-fruit-salad-with-ice-cream.webp"
+    },
+    {
+      "source": "17-foods-to-avoid-with-arthritis.md",
+      "slug": "foods-to-avoid-with-arthritis",
+      "existing": true,
+      "title": "Foods to Avoid With Arthritis: A Practical UK Guide",
+      "cover": "cover-0436-mid-morning-salad-snack.webp"
+    }
+  ],
+  "editorial_revision_at": "2026-11-16T21:34:34Z"
+}
