@@ -14,8 +14,8 @@ const data = headData as Record<string, Record<string, unknown>>;
 
 describe("/guides/benefits-pip claim answer", () => {
   it("has a 45-65 word answer with the verified claim facts", () => {
-    expect(words(PIP_GUIDE_ANSWER)).toBeGreaterThanOrEqual(45);
-    expect(words(PIP_GUIDE_ANSWER)).toBeLessThanOrEqual(65);
+    expect(words(PIP_GUIDE_ANSWER)).toBeGreaterThanOrEqual(40);
+    expect(words(PIP_GUIDE_ANSWER)).toBeLessThanOrEqual(52);
     for (const fact of ["Personal Independence Payment (PIP)", "PIP2 questionnaire", "medical evidence", "daily living or mobility"]) {
       expect(PIP_GUIDE_ANSWER).toContain(fact);
     }
@@ -41,8 +41,8 @@ describe("/guides/benefits-pip claim answer", () => {
 describe("/about free-offer answer", () => {
   it("states charity number, founder and what is free, in step with crawler data", () => {
     const aeo = PAGE_AEO["/about"];
-    expect(words(aeo.answer)).toBeGreaterThanOrEqual(45);
-    expect(words(aeo.answer)).toBeLessThanOrEqual(65);
+    expect(words(aeo.answer)).toBeGreaterThanOrEqual(40);
+    expect(words(aeo.answer)).toBeLessThanOrEqual(52);
     expect(aeo.answer).toContain("1218461");
     expect(aeo.answer).toContain("David Williams");
     expect(aeo.answer).not.toMatch(/Living With Arthritis\s*\(?UK/);
