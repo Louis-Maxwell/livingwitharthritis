@@ -3,6 +3,7 @@
 // bakes this into the first HTML response so /library/:slug is not a
 // "Library — slug" teaser (the Soft 404 pattern GSC rejected on 12 Sep 2026).
 
+import { LIBRARY_ANSWER_CAPSULES } from "../src/data/libraryAnswerCapsules";
 import { writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -34,14 +35,6 @@ function sectionHtml(section: HealthTopicSection | ExtraSection): string {
       ? `<ul>${section.bullets.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>`
       : "";
   return `<h2>${esc(section.heading)}</h2>${paras}${bullets}`;
-}
-
-function firstParagraph(topicBody: string, fallback: string): string {
-  const para = topicBody
-    .split("\n\n")
-    .map((p) => p.trim())
-    .find((p) => p.length > 40);
-  return (para || fallback).slice(0, 320);
 }
 
 export function buildLibraryHeadData() {
@@ -78,8 +71,6 @@ export function buildLibraryHeadData() {
       topic.subtitle ||
       `${topic.title} — plain-English information from Living With Arthritis.`
     ).slice(0, 158);
-    const firstBody =
-      topic.sections.find((s) => s.body?.trim())?.body?.trim() ?? topic.subtitle;
     const extra = seo?.extraSections ?? [];
     const bodyHtml = [...topic.sections, ...extra].map(sectionHtml).join("");
 
@@ -87,7 +78,7 @@ export function buildLibraryHeadData() {
       title,
       description,
       question: heading,
-      answer: firstParagraph(firstBody, description),
+      answer: LIBRARY_ANSWER_CAPSULES[topic.slug],
       breadcrumb: topic.title,
       about: topic.title,
       bodyHtml,
@@ -113,4 +104,4 @@ if (isDirectRun()) {
   console.log(
     `[library-head-data] wrote ${Object.keys(data).length} library topics -> ${OUT}`,
   );
-}
+    }
