@@ -335,7 +335,7 @@ export default function KneeExercisesForOsteoarthritis() {
           badge="Clinical Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
-          <AeoEnhancement route="/guides/knee-exercises-for-osteoarthritis" />
+          <AeoEnhancement route="/guides/knee-exercises-for-osteoarthritis" reviewer="" />
           <GpPrepSheet />
           <RoutineBuilder />
           <WhatsAppShare path="/guides/knee-exercises-for-osteoarthritis" title="Knee osteoarthritis exercises: 8-move home routine" />
