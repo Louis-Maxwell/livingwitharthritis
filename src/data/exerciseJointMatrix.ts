@@ -304,7 +304,7 @@ const safetyTipsMap: Record<Exercise, string[]> = {
 };
 
 const whenToAvoidMap: Record<Exercise, string[]> = {
-  swimming: ["During an active flare — rest and let it settle first", "If you have open wounds or skin infections", "If chlorine irritates your skin significantly"],
+  swimming: ["During a flare with a hot, swollen joint, pause strenuous activity and seek advice about comfortable movement", "If you have open wounds or skin infections", "If chlorine irritates your skin significantly"],
   yoga: ["During severe flares — wait until inflammation subsides", "If any pose causes sharp, shooting pain", "Hot yoga — excess heat can worsen some inflammatory conditions"],
   cycling: ["During a knee or hip flare with significant swelling", "If you cannot maintain proper bike posture without pain", "In extreme cold without proper warm-up"],
   walking: ["During severe foot, ankle, or knee flares", "On uneven or icy surfaces that increase fall risk", "If weight-bearing causes sharp pain — try swimming instead"],
