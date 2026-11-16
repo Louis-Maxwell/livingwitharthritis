@@ -1,7 +1,11 @@
+import { ROUTE_TITLE_OVERRIDES } from "../../data/routeTitleOverrides";
 import { describe, expect, it } from "vitest";
 import { medicalEntityForRoute, normaliseRouteSchemaEntries, recordedRouteReview } from "../routeSchema";
 
 describe("live schema parity", () => {
+  it("keeps the swimming title identical to the static head", () => {
+    expect(ROUTE_TITLE_OVERRIDES["/exercises/swimming-for-knee-arthritis"]).toBe("Swimming for Knee Arthritis: 3 Exercises & Safety Tips");
+  });
   it("keeps one medical page and FAQ through repeated hydration passes", () => {
     const input = [
       { "@type": "MedicalWebPage", about: { name: "Osteoarthritis" } },
