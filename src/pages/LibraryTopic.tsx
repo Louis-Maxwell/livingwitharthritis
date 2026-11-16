@@ -1,3 +1,4 @@
+import { correctLibraryCopy } from "@/data/libraryCopyCorrections";
 import { LIBRARY_ANSWER_CAPSULES } from "@/data/libraryAnswerCapsules";
 import { useEffect, useMemo, type ReactNode } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
@@ -148,7 +149,7 @@ const LibraryTopic = () => {
                   {section.heading}
                 </h2>
                 {section.body &&
-                  section.body.split("\n\n").map((para, pi) => (
+                  correctLibraryCopy(section.body).split("\n\n").map((para, pi) => (
                     <p key={pi} className="mb-4 leading-relaxed">
                       {para}
                     </p>
@@ -172,7 +173,7 @@ const LibraryTopic = () => {
                   {section.heading}
                 </h2>
                 {section.body &&
-                  section.body.split("\n\n").map((para, pi) => (
+                  correctLibraryCopy(section.body).split("\n\n").map((para, pi) => (
                     <p key={pi} className="mb-4 leading-relaxed">
                       {para}
                     </p>
