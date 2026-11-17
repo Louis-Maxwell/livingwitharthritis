@@ -12,7 +12,7 @@ describe('opt-in offline/installation prompt',()=>{
   expect(screen.queryByRole('region',{name:'Save for another day'})).not.toBeInTheDocument();
   act(()=>vi.advanceTimersByTime(59999));expect(screen.queryByRole('button',{name:'Save blank sheets offline'})).not.toBeInTheDocument();
   act(()=>vi.advanceTimersByTime(1));const region=screen.getByRole('region',{name:'Save for another day'});expect(region.className).not.toMatch(/fixed|sticky/);
-  fireEvent.click(screen.getByRole('button',{name:'Dismiss'}));expect(screen.queryByRole('region',{name:'Save for another day'})).not.toBeInTheDocument();
+  expect(screen.getByRole('button',{name:'Dismiss'}).className).toContain('shrink-0');fireEvent.click(screen.getByRole('button',{name:'Dismiss'}));expect(screen.queryByRole('region',{name:'Save for another day'})).not.toBeInTheDocument();
  });
  it('does not appear on an unrelated clinical article',()=>{
   render(<MemoryRouter initialEntries={['/blog/some-guide']}><InstallBanner /></MemoryRouter>);act(()=>vi.advanceTimersByTime(60000));expect(screen.queryByRole('region')).not.toBeInTheDocument();
