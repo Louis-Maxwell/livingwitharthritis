@@ -10,6 +10,8 @@
  * URLs stop being indexable while real routes keep "index".
  */
 
+import { createHash } from 'node:crypto';
+
 /** Turn React Router paths into anchored regex sources. */
 export function routePatterns(paths) {
   const out = new Set();
@@ -32,5 +34,15 @@ export function buildFallbackScript(patterns) {
 /** Insert the guard at the end of <head>, after the static robots/canonical tags it replaces. Idempotent. */
 export function injectFallbackNoindex(html, patterns) {
   const clean = String(html).replace(/[ \t]*<script id="fallback-noindex">[\s\S]*?<\/script>\n?/g, '');
-  return clean.replace(/<\/head>/i, (m) => `    ${buildFallbackScript(patterns)}\n${m}`);
+  const script = buildFallbackScript(patterns);
+  const body = script.slice(script.indexOf('>') + 1, script.lastIndexOf('</script>'));
+  const hash = `'sha256-${createHash('sha256').update(body).digest('base64')}'`;
+  // Only this exact generated guard is allowed. Do not weaken script-src with
+  // unsafe-inline: the live meta CSP otherwise blocks the fallback guard.
+  const permitted = clean.replace(/(<meta\b[^>]*http-equiv=["']Content-Security-Policy["'][^>]*content=")([^"]*)(")/i, (_, start, policy, end) => {
+    const next = policy.replace(/(^|;\s*)script-src\s+([^;]+)/i, (directive, prefix, sources) =>
+      sources.includes(hash) ? directive : `${prefix}script-src ${sources.trim()} ${hash}`);
+    return `${start}${next}${end}`;
+  });
+  return permitted.replace(/<\/head>/i, (m) => `    ${script}\n${m}`);
 }
