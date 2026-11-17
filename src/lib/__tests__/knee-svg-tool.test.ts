@@ -5,6 +5,7 @@ import { buildStaticArticleInner } from "../../../scripts/static-article-html.mj
 import { mkdtempSync, writeFileSync, mkdirSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+// @ts-expect-error plain .mjs build helper
 import { routeFile, wordCount } from "../../../scripts/lib/route-words.mjs";
 const html = readFileSync("public/resources/knee-joint-map.html", "utf8");
 const css = readFileSync("public/assets/knee-map/knee-map.css", "utf8");
