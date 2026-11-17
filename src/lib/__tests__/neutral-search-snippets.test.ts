@@ -15,6 +15,11 @@ describe('evidence-neutral search snippets', () => {
     expect(head.description).toBe(post.meta_description);
     expect(post.excerpt).toBe(post.meta_description);
     expect(post.meta_description).not.toMatch(/clinician compares|reduce joint pain|real evidence for joint inflammation/i);
-    expect(post.last_reviewed).toBe('2026-10-23');
+    if (post.editorial_review_note) {
+      expect(post.reviewed_by).toBeNull();
+      expect(post.last_reviewed).toBeUndefined();
+    } else {
+      expect(post.last_reviewed).toBe('2026-10-23');
+    }
   });
 });
