@@ -191,10 +191,8 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
   }, [blogPosts, featuredSlugs]);
 
   const filtered = useMemo(() => {
-    const base =
-      activeCategory === "All" && !searchQuery.trim() && !activeTag && !activeAuthor
-        ? blogPosts.filter((p) => !featuredSlugs.has(p.slug))
-        : blogPosts;
+    // Featured is an additional route in, not an exclusion from All guides.
+    const base = blogPosts;
     let posts =
       activeCategory === "All"
         ? base
@@ -230,7 +228,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
       sorted.sort((a, b) => a.title.localeCompare(b.title, "en-GB", { sensitivity: "base" }));
     }
     return sorted;
-  }, [activeCategory, searchQuery, blogPosts, featuredSlugs, sortMode, activeTag, activeAuthor]);
+  }, [activeCategory, searchQuery, blogPosts, sortMode, activeTag, activeAuthor]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / POSTS_PER_PAGE));
   const safePage = Math.min(currentPage, totalPages);
@@ -367,7 +365,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               </Badge>
               <Badge className="bg-background text-primary border-0 text-xs font-bold px-3 py-1.5">
                 <Sparkles className="w-3 h-3 mr-1.5" aria-hidden="true" />
-                Evidence-Based
+                UK arthritis guides
               </Badge>
             </div>
           }
@@ -380,37 +378,12 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           }
           subtitle={
             heroSubtitle ??
-            `${articleCount} articles for UK readers; clinical-review status is shown on each guide — practical help when living with arthritis feels exhausting. You are not alone.`
+            "Browse UK guides by topic or keyword. Check each article for its clinical-review status."
           }
         />
 
         <div className="container mx-auto max-w-6xl px-5 sm:px-6 md:px-10 py-8 md:py-12">
-          <p className="max-w-prose text-base md:text-[1.05rem] leading-relaxed text-muted-foreground mb-8">
-            This arthritis blog is written for people in the United Kingdom who need plain-English help
-            with joint pain, flare-ups, exercise, diet, PIP and treatments. Browse by topic below, or{" "}
-            <Link to="/search" className="text-primary underline underline-offset-2">
-              search
-            </Link>{" "}
-            when you know what you need, or browse the{" "}
-            <Link to="/blog/archive" className="text-primary underline underline-offset-2">
-              full archive by date
-            </Link>
-            . Living With Arthritis (registered charity 1218461)
-            publishes evidence-based guides — honest evidence, no invented miracle cures. Start
-            with{" "}
-            <Link to="/blog/category/exercise" className="text-primary underline underline-offset-2">
-              exercise articles
-            </Link>
-            , the{" "}
-            <Link to="/exercises" className="text-primary underline underline-offset-2">
-              exercise hub
-            </Link>
-            , or see{" "}
-            <Link to="/seo-content-framework" className="text-primary underline underline-offset-2">
-              how we write SEO content
-            </Link>
-            .
-          </p>
+
 
           {/* Continue reading — last opened article on this device */}
           {continuePost && (
@@ -594,6 +567,13 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               </div>
             </div>
           </section>
+
+          <p className="max-w-prose text-base leading-relaxed text-muted-foreground mb-8">
+            Prefer browsing by date? Open the <Link to="/blog/archive" className="text-primary underline underline-offset-2">full archive</Link>.
+            {" "}You can also use <Link to="/search" className="text-primary underline underline-offset-2">site search</Link>,
+            {" "}<Link to="/blog/category/exercise" className="text-primary underline underline-offset-2">exercise articles</Link>
+            {" "}or the <Link to="/exercises" className="text-primary underline underline-offset-2">exercise hub</Link>.
+          </p>
 
           {/* Editor's picks — lead card spans two columns on md+ */}
           {showDiscovery && featuredPosts.length > 0 && (
