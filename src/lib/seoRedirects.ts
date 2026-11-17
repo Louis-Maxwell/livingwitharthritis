@@ -63,6 +63,7 @@ const JOINT_EXERCISE_HUB: Record<string, string> = {
 };
 
 export const EXACT_SEO_REDIRECTS: Record<string, string> = {
+  "/tracker": "/resources/symptom-flare-tracker",
   "/pip": "/guides/benefits-pip",
   "/authors/louis-maxwell": "/authors/maxwell",
   "/reviewers/louis-maxwell": "/authors/maxwell",
