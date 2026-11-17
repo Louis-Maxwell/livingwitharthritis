@@ -1,11 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useSearchParams, useLocation, Link } from "react-router-dom";
 import SeoHead from "@/components/SeoHead";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, XCircle, Heart, ArrowLeft, Home } from "lucide-react";
-import { trackDonationComplete } from "@/lib/analytics";
+import { XCircle, Heart, ArrowLeft, Home } from "lucide-react";
 
 const DonationSuccess = () => {
   const [searchParams] = useSearchParams();
@@ -17,39 +16,17 @@ const DonationSuccess = () => {
   // The query param is still checked for any in-flight Stripe sessions
   // created before this path existed.
   const isSuccess = status === "success" || location.pathname === "/donation-result/success";
-  const tracked = useRef(false);
-
+  // A return URL is not proof of payment. Only a provider-verified completion
+  // may record donation revenue or confirm that money was received.
   useEffect(() => {
-    if (isSuccess) {
-      document.title = "Thank You! | Living With Arthritis";
-    }
-  }, [isSuccess]);
-
-  useEffect(() => {
-    if (!isSuccess || tracked.current) return;
-    tracked.current = true;
-    const sessionId =
-      searchParams.get("session_id") ||
-      searchParams.get("transaction_id") ||
-      `donation_${Date.now()}`;
-    const amountRaw = searchParams.get("amount");
-    const amount = amountRaw && Number.isFinite(Number(amountRaw)) ? Number(amountRaw) : 0;
-    const donationType =
-      searchParams.get("interval") === "monthly" || searchParams.get("type") === "monthly"
-        ? "monthly"
-        : "one-time";
-    trackDonationComplete({
-      transactionId: sessionId,
-      amount,
-      donationType,
-    });
-  }, [isSuccess, searchParams]);
+    document.title = "Donation Status | Living With Arthritis";
+  }, []);
 
   return (
     <>
       <SeoHead
-        title={isSuccess ? "Thank You for Your Donation" : "Donation Cancelled"}
-        description={isSuccess ? "Thank you for supporting Living With Arthritis. Your donation funds free physiotherapy, exercise plans and online support for people with arthritis." : "Your donation was cancelled — no charge was made. You can try again any time at Living With Arthritis."}
+        title="Donation Status"
+        description="Check your payment provider receipt for confirmation of your donation to Living With Arthritis. This return page cannot verify a payment or charge."
         path="/donation-result"
         noindex
       />
@@ -59,13 +36,13 @@ const DonationSuccess = () => {
           {isSuccess ? (
             <>
               <div className="mx-auto w-20 h-20 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center animate-scale-in">
-                <CheckCircle className="w-10 h-10 text-primary" />
+                <Heart className="w-10 h-10 text-primary" />
               </div>
 
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold text-foreground">Thank You!</h1>
+                <h1 className="text-3xl font-bold text-foreground">Thank you for your support</h1>
                 <p className="text-lg text-muted-foreground">
-                  Your generous donation has been received. Every contribution helps us support people living with arthritis across the UK.
+                  This page cannot confirm whether your donation was completed. Please check your payment provider receipt or account for the final payment status.
                 </p>
               </div>
 
@@ -75,11 +52,11 @@ const DonationSuccess = () => {
                   <p className="font-semibold text-foreground">Your impact matters</p>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Your gift helps keep our arthritis guides and resources free for everyone. If you provided an email at checkout, a receipt from Stripe will arrive shortly.
+                  If your payment was completed, thank you. Your support helps keep our arthritis guides and resources free. If you are unsure, check with your payment provider before trying again to avoid a duplicate donation.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 justify-center pt-2">
                 <Button asChild variant="outline" className="rounded-full">
                   <Link to="/">
                     <Home className="w-4 h-4 mr-2" />
@@ -98,13 +75,13 @@ const DonationSuccess = () => {
               </div>
 
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold text-foreground">Donation Cancelled</h2>
+                <h1 className="text-3xl font-bold text-foreground">Check your donation status</h1>
                 <p className="text-lg text-muted-foreground">
-                  No worries — your payment was not processed. You can try again anytime, or explore other ways to support our work.
+                  We cannot verify a payment or cancellation from this page. Check your payment provider receipt or account before trying again.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 justify-center pt-2">
                 <Button asChild variant="outline" className="rounded-full">
                   <Link to="/">
                     <ArrowLeft className="w-4 h-4 mr-2" />
@@ -112,7 +89,7 @@ const DonationSuccess = () => {
                   </Link>
                 </Button>
                 <Button asChild className="rounded-full btn-primary-cta">
-                  <a href="https://www.gofundme.com/f/help-fund-critical-arthritis-research" target="_blank" rel="noopener noreferrer">Try Again<span className="sr-only"> (opens in a new tab)</span></a>
+                  <a href="https://www.gofundme.com/f/help-fund-critical-arthritis-research" target="_blank" rel="noopener noreferrer">Other ways to support<span className="sr-only"> (opens in a new tab)</span></a>
                 </Button>
               </div>
             </>
