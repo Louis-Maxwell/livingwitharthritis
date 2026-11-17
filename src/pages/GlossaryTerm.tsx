@@ -46,7 +46,7 @@ export default function GlossaryTerm() {
 
   const relatedSlugs =
     entry?.related?.filter((s) => GLOSSARY_CONTENT[s]) ??
-    GLOSSARY_ROUTES.filter((r) => r !== "/glossary" && r !== href)
+    GLOSSARY_ROUTES.filter((r) => r !== "/glossary" && r !== href && GLOSSARY_CONTENT[r.replace("/glossary/", "")])
       .slice(0, 6)
       .map((r) => r.replace("/glossary/", ""));
 
