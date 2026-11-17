@@ -13,6 +13,7 @@ type Row = {
   content: string;
   updated_at?: string | null;
   reviewStatus?: string;
+  editorial_review_note?: string;
   citations?: { label: string; url: string; publisher?: string }[] | null;
   direct_answer?: string | null;
   author?: string | null;
@@ -30,14 +31,15 @@ const ALLOWED_HOSTS = [
   "www.arthritis-uk.org",
   "arthritis-uk.org",
   "www.gov.uk",
+  "www.sps.nhs.uk",
+  "www.swimming.org",
+  "www.cochrane.org",
 ];
 
-const CUSTOMER_JOB_HREFS = [
-  "/guides/arthritis-pain-relief",
-  "/guides/newly-diagnosed",
-  "/guides/benefits-pip",
-  "/guides/diet",
-];
+const RELEVANT_HREFS: Record<string, string[]> = {
+  "swimming-exercises-hip-osteoarthritis": ["/conditions/osteoarthritis", "/exercises", "/guides/hip-exercises-for-osteoarthritis"],
+  "best-supplement-for-knee-joint": ["/conditions/osteoarthritis", "/supplements", "/supplements/glucosamine"],
+};
 
 describe("GSC champions 43–44: swimming hip OA + knee supplements gold-pass (23 Sep)", () => {
   const bySlug = new Map(
@@ -57,8 +59,9 @@ describe("GSC champions 43–44: swimming hip OA + knee supplements gold-pass (2
       expect((row!.updated_at?.slice(0, 10) ?? "") >= "2026-09-23").toBe(true);
       expect(row!.direct_answer && row!.direct_answer.length > 80).toBe(true);
       expect(row!.author).toMatch(/Louis Maxwell/i);
-      if (row!.reviewStatus === "pending") {
+      if (row!.reviewStatus === "pending" || row!.editorial_review_note) {
         expect(row!.reviewed_by).toBeNull();
+        expect(row!.editorial_review_note).toContain("not yet had a fresh clinical review");
       } else {
         expect(row!.reviewed_by).toMatch(/Louis Maxwell/i);
       }
@@ -75,7 +78,7 @@ describe("GSC champions 43–44: swimming hip OA + knee supplements gold-pass (2
       }
 
       const html = row!.content;
-      for (const href of CUSTOMER_JOB_HREFS) {
+      for (const href of RELEVANT_HREFS[slug]) {
         expect(html.includes(`href="${href}"`), `${slug} missing ${href}`).toBe(true);
       }
       expect(html.toLowerCase().includes("doi.org/10.")).toBe(false);
@@ -107,6 +110,6 @@ describe("GSC champions 43–44: swimming hip OA + knee supplements gold-pass (2
     expect(swim).toContain('href="/exercises"');
     expect(knee).toContain('href="/supplements"');
     expect(knee).toContain('href="/supplements/glucosamine"');
-    expect(knee).toMatch(/not a cure|No supplement rebuilds|not rebuild/i);
+    expect(knee).toContain("It does not claim that any of them rebuilds knee cartilage");
   });
 });
