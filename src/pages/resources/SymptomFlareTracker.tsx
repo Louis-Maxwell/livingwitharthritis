@@ -1,3 +1,4 @@
+import InstallBanner from '@/components/pwa/InstallBanner';
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -63,6 +64,7 @@ export default function SymptomFlareTracker() {
           </ul>
           <p className="text-sm">Keep completed sheets somewhere private. Optional identifying details are for your own use. You do not need to sign in or upload anything.</p>
         </section>
+        <InstallBanner immediate />
         <EducationalDisclaimerBox reviewStatus="pending" pendingText="Updated resource guidance and new printables: separate clinical review pending." />
         <h2 className="font-display mt-8 mb-3 text-2xl font-bold text-foreground">What to record each day</h2>
         <ul className="list-disc pl-5 space-y-1">
