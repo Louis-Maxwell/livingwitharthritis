@@ -16,6 +16,19 @@ describe("standalone progressive knee schematic", () => {
     expect(parsed.body.textContent).toContain("separate clinical review pending");
     expect(buildStaticArticleInner({ question: "Knee diagram", bodyHtml: html })).toContain("Cartilage");
   });
+  it("keeps the supplemental tool indexable and canonical without implying clinical review", () => {
+    const parsed = new DOMParser().parseFromString(html, "text/html");
+    expect(parsed.querySelector('meta[name="robots"]')?.getAttribute("content")).toBe("index,follow");
+    expect(parsed.querySelectorAll('link[rel="canonical"]')).toHaveLength(1);
+    expect(parsed.querySelector('link[rel="canonical"]')?.getAttribute("href")).toBe("https://livingwitharthritis.org.uk/resources/knee-joint-map.html");
+    expect(parsed.querySelector('a[href="https://www.niams.nih.gov/health-topics/osteoarthritis"]')).not.toBeNull();
+    expect(html).toContain("separate clinical review pending");
+    const sitemap = readFileSync("scripts/generate-sitemap.ts", "utf8");
+    expect(sitemap).toContain('entries.push({ path: "/resources/knee-joint-map.html", lastmod: "2026-11-17" })');
+    expect(sitemap).toContain('!p.endsWith(".html")');
+    const injector = readFileSync("scripts/inject-canonicals.mjs", "utf8");
+    expect(injector).toContain("if (STATIC_RESOURCES.has(route) ||");
+  });
   it("links from raw and hydrated guides without loading a 3D runtime", () => {
     expect(headDataFor("/conditions/knee-arthritis").bodyHtml).toContain("/resources/knee-joint-map.html");
     const page = readFileSync("src/pages/conditions/KneeArthritis.tsx", "utf8");
