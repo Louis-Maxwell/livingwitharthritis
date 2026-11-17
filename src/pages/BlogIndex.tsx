@@ -365,7 +365,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               </Badge>
               <Badge className="bg-background text-primary border-0 text-xs font-bold px-3 py-1.5">
                 <Sparkles className="w-3 h-3 mr-1.5" aria-hidden="true" />
-                UK arthritis guides
+                UK guides
               </Badge>
             </div>
           }
