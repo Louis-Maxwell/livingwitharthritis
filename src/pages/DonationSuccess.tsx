@@ -4,7 +4,7 @@ import SeoHead from "@/components/SeoHead";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, XCircle, Heart, ArrowLeft, Home } from "lucide-react";
+import { XCircle, Heart, ArrowLeft, Home } from "lucide-react";
 
 const DonationSuccess = () => {
   const [searchParams] = useSearchParams();
@@ -36,7 +36,7 @@ const DonationSuccess = () => {
           {isSuccess ? (
             <>
               <div className="mx-auto w-20 h-20 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center animate-scale-in">
-                <CheckCircle className="w-10 h-10 text-primary" />
+                <Heart className="w-10 h-10 text-primary" />
               </div>
 
               <div className="space-y-2">
@@ -56,7 +56,7 @@ const DonationSuccess = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 justify-center pt-2">
                 <Button asChild variant="outline" className="rounded-full">
                   <Link to="/">
                     <Home className="w-4 h-4 mr-2" />
@@ -81,7 +81,7 @@ const DonationSuccess = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 justify-center pt-2">
                 <Button asChild variant="outline" className="rounded-full">
                   <Link to="/">
                     <ArrowLeft className="w-4 h-4 mr-2" />
