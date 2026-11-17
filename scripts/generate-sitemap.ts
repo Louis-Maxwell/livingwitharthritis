@@ -23,6 +23,7 @@ import { exactRedirectPathSet } from "./seo-redirect-map.mjs";
 import { reviewRecordFor } from "./lib/review-records.mjs";
 import { readBlogCatalog } from "./lib/blog-posts.mjs";
 import { todayInLondon } from "./lib/london-date.mjs";
+import { blogContentLastmod } from "./lib/content-lastmod.mjs";
 import {
   BLOG_CATEGORY_KEYS,
   canonicalBlogCategoryKey,
@@ -30,6 +31,7 @@ import {
 const BASE_URL = "https://livingwitharthritis.org.uk";
 /** W3C date (YYYY-MM-DD) for URLs with no content date. Stable for this run. */
 const BUILD_DATE = todayInLondon();
+const CONTENT_MODIFICATIONS = JSON.parse(readFileSync(resolve("src/data/content-modifications.json"), "utf8")) as Record<string, { modified: string; change: string }>;
 
 interface SitemapEntry {
   path: string;
@@ -412,7 +414,7 @@ function staticCatalogBlogPosts(): BlogPostEntry[] {
       .filter((r) => r.slug && BLOG_SLUG_PATTERN.test(r.slug))
       .map((r) => ({
         slug: r.slug,
-        lastmod: String(r.updated_at || r.date || "").slice(0, 10) || undefined,
+        lastmod: blogContentLastmod(r, CONTENT_MODIFICATIONS[`/blog/${r.slug}`]?.modified),
         category: r.category,
       }));
   } catch {
@@ -568,6 +570,7 @@ async function main() {
     return (
       maxIsoDate(
         extra,
+        asIsoDate(CONTENT_MODIFICATIONS[path]?.modified),
         aiDates.get(path),
         hubDates.get(path),
         pageDates.get(path),
