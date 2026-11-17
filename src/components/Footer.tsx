@@ -1,3 +1,4 @@
+import InstallBanner from '@/components/pwa/InstallBanner';
 import PageDownloads from '@/components/PageDownloads';
 import { Link, useLocation } from "react-router-dom";
 import { MapPin } from "lucide-react";
@@ -114,6 +115,7 @@ const Footer = () => {
   const { pathname } = useLocation();
   return (
     <>
+    {(/^\/exercises(?:\/|$)/).test(pathname) && <InstallBanner />}
     <HubSpotlight />
     {/^\/(guides|conditions|exercises|diet|supplements|daily-tips|resources)\//.test(pathname) && (
       <DeferredMount><Suspense fallback={null}>
