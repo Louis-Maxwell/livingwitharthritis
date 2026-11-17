@@ -50,5 +50,9 @@
   "/resources/symptom-flare-tracker": {
     "modified": "2026-11-17",
     "change": "Added blank printable GP and flare-up companion sheets, privacy explanation and source-linked urgent-help tiers. Not a clinical review date."
+  },
+  "/conditions/knee-arthritis": {
+    "modified": "2026-11-17",
+    "change": "Added an optional lightweight SVG knee schematic with source-linked explanations and separate review pending. No whole-page clinical review attested."
   }
 }

@@ -171,6 +171,8 @@ const KneeArthritis = () => (
 
       <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
 
+        <p className="my-8"><a href="/resources/knee-joint-map.html" className="inline-flex min-h-11 items-center rounded-lg border border-current px-4 py-3 font-semibold underline">Explore the optional simple knee diagram</a></p>
+
         <Section icon={Activity} title="What is knee arthritis?">
           <p>Knee arthritis is the gradual wearing down of the cartilage that lines the knee joint. The knee has three compartments — medial (inside), lateral (outside) and patellofemoral (under the kneecap) — and arthritis can affect any combination of them.</p>
           <p>As cartilage thins, the bones underneath thicken, small bony spurs (osteophytes) form, and the lining of the joint can become inflamed. This produces the familiar mix of pain, stiffness and swelling.</p>
