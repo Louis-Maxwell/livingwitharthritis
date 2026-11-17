@@ -45,6 +45,9 @@ for (const [slug, term] of Object.entries(GLOSSARY_CONTENT)) {
     description: term.short, question: term.label, answer: term.short,
     breadcrumb: term.label, bodyHtml: `<p>${esc(term.body)}</p>`,
     definedTerm: { name: term.label, description: term.body },
+    ...(term.editorialUpdatedAt ? { updatedAt: term.editorialUpdatedAt } : {}),
+    ...(term.reviewNote ? { summaryReviewNote: term.reviewNote } : {}),
+    ...(term.sources ? { sources: term.sources } : {}),
     relatedLinks: [{ path: '/glossary', title: 'Arthritis glossary' }, ...(term.related || [])
       .filter((s) => GLOSSARY_CONTENT[s]).map((s) => ({ path: `/glossary/${s}`, title: GLOSSARY_CONTENT[s].label }))],
   };

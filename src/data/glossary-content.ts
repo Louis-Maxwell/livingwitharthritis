@@ -1,4 +1,4 @@
-﻿// Real, plain-English definitions for high-value glossary terms.
+// Real, plain-English definitions for high-value glossary terms.
 // UK-focused (UK healthcare terminology where relevant). Keep entries 50–100 words.
 // Fallback UI applies when a slug is not defined here.
 
@@ -11,9 +11,38 @@ export interface GlossaryEntry {
   body: string;
   /** Optional related term slugs (must exist in GLOSSARY_ROUTES). */
   related?: string[];
+  /** Editorial source check, not a clinical-review attestation. */
+  editorialUpdatedAt?: string;
+  sources?: Array<{ name: string; url: string }>;
+  reviewNote?: string;
 }
 
 export const GLOSSARY_CONTENT: Record<string, GlossaryEntry> = {
+  sulfasalazine: {
+    label: "Sulfasalazine",
+    short: "A prescription medicine that reduces inflammation and is used to treat rheumatoid arthritis and inflammatory bowel disease.",
+    body: "Sulfasalazine reduces inflammation. In rheumatoid arthritis, it may take one to three months before symptoms improve; it is not an immediate pain reliever. Blood, liver and kidney tests are usually needed before treatment and regularly afterwards. Follow the monitoring plan from your prescribing team rather than a fixed schedule found online. Feeling sick and indigestion are common side effects, and urine can turn orange. Take the medicine as prescribed. Speak to your doctor before stopping it, and ask your pharmacist or rheumatology team about side effects or other medicines.",
+    related: ["dmard", "flare"],
+    editorialUpdatedAt: "2026-11-17",
+    reviewNote: "This definition was checked against the linked NHS sources. It has not yet had an independent clinical review.",
+    sources: [
+      { name: "NHS: About sulfasalazine", url: "https://www.nhs.uk/medicines/sulfasalazine/about-sulfasalazine/" },
+      { name: "NHS: Common questions about sulfasalazine", url: "https://www.nhs.uk/medicines/sulfasalazine/common-questions-about-sulfasalazine/" },
+      { name: "NHS Specialist Pharmacy Service: Sulfasalazine monitoring", url: "https://sps.nhs.uk/monitorings/sulfasalazine-monitoring/" },
+    ],
+  },
+  raynauds: {
+    label: "Raynaud's phenomenon",
+    short: "Episodes of reduced blood flow, usually in fingers or toes, often triggered by cold or stress and causing colour changes, pain or numbness.",
+    body: "Raynaud's phenomenon affects circulation, usually in the fingers and toes. Cold or stress can trigger colour changes, pain, numbness or pins and needles. Keeping warm and avoiding sudden temperature changes can help. It can occur on its own or alongside another condition; symptoms alone do not diagnose arthritis or lupus. See a GP if symptoms are severe, worsening, one-sided, affect daily life, start for the first time after age 30, or occur with joint pain, a rash or muscle weakness. Sores or damaged skin on affected fingers or toes need prompt medical assessment.",
+    related: ["lupus", "scleroderma"],
+    editorialUpdatedAt: "2026-11-17",
+    reviewNote: "This definition was checked against the linked NHS sources. It has not yet had an independent clinical review.",
+    sources: [
+      { name: "NHS: Raynaud's", url: "https://www.nhs.uk/conditions/raynauds/" },
+      { name: "NHS Tayside: Raynaud's phenomenon referral guidance", url: "https://www.rightdecisions.scot.nhs.uk/nhs-tayside-refguide/medicine/rheumatology/raynauds-phenomenon/" },
+    ],
+  },
   dmard: {
     label: "DMARD",
     short:
@@ -234,4 +263,4 @@ export const GLOSSARY_CONTENT: Record<string, GlossaryEntry> = {
 
 export function getGlossaryEntry(slug: string): GlossaryEntry | undefined {
   return GLOSSARY_CONTENT[slug];
-}
+      }
