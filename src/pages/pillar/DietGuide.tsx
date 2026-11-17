@@ -1,4 +1,5 @@
-﻿import { Helmet } from "react-helmet-async";
+import DirectAnswerCapsule from "@/components/seo/DirectAnswerCapsule";
+import { Helmet } from "react-helmet-async";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import Header from "@/components/Header";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
@@ -8,7 +9,6 @@ import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
-import AnswerBox from "@/components/seo/AnswerBox";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import ArticleHtmlWithNextStep from "@/components/ArticleHtmlWithNextStep";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
@@ -244,13 +244,14 @@ export default function DietGuide() {
           { name: "Diet Guide" },
         ]}
         faqs={DIET_GUIDE_FAQS}
-        lastReviewed="2026-09-17"
+
         idPrefix="diet-guide"
       />
       <Header />
       <PageBreadcrumb segments={[{ label: "Guides", href: "/guides" }, { label: "Diet" }]} />
       <main id="main-content" className="min-h-dvh bg-background">
         <PageHero
+          lead={<DirectAnswerCapsule route="/guides/diet" />}
           title="Best arthritis diet advice UK: anti-inflammatory Mediterranean guide"
           subtitle="Evidence-based anti-inflammatory and Mediterranean eating for arthritis in the UK — what helps, what to limit, omega-3s, supplements and a practical meal plan."
           badge="Pillar Guide"
@@ -261,16 +262,7 @@ export default function DietGuide() {
           </p>
           <AeoEnhancement route="/guides/diet" />
           <TopicClusterNav path="/guides/diet" />
-          <AnswerBox
-            question="What is the best diet for arthritis joint pain?"
-            reviewed="2026-06-13"
-          >
-            <p>
-              The best diet for arthritis is the <strong>Mediterranean diet</strong> — rich in
-              vegetables, fruit, wholegrains, olive oil, oily fish, nuts and pulses. NHS and Arthritis UK (formerly Versus Arthritis) guidance supports a Mediterranean-style pattern for general health and joint-friendly eating. For
-              osteoarthritis, gradual weight loss where appropriate (often discussed as around 5–10% of body weight with a clinician) can ease load on weight-bearing joints — this is educational, not a personal target.
-            </p>
-          </AnswerBox>
+
           <TableOfContents html={html} />
           <ArticleHtmlWithNextStep html={html} path="/guides/diet" className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" />
           <section id="diet-guide-faq" aria-labelledby="diet-faq-heading" className="mt-16 pt-8 border-t border-border/30">
@@ -299,11 +291,10 @@ export default function DietGuide() {
       
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
         <ArticleCitations citations={CITATIONS_DIET} />
-        <EducationalDisclaimerBox lastReviewed="2026-09-17" />
+        <EducationalDisclaimerBox reviewStatus="pending" pendingText="Updated source-based summary: separate clinical review pending. Earlier review dates do not attest to this revision." />
       </div>
       <GuideOnwardJourney currentPath="/guides/diet" />
       <Suspense fallback={null}><Footer /></Suspense>
     </>
   );
 }
-
