@@ -46,5 +46,9 @@
   "/faq": {
     "modified": "2026-11-17",
     "change": "Newsletter request and email draft wording corrected in PR498."
+  },
+  "/resources/symptom-flare-tracker": {
+    "modified": "2026-11-17",
+    "change": "Added blank printable GP and flare-up companion sheets, privacy explanation and source-linked urgent-help tiers. Not a clinical review date."
   }
 }
