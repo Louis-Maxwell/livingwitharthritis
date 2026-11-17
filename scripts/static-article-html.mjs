@@ -18,6 +18,14 @@ import {
 const { window } = new JSDOM("");
 const DOMPurify = createDOMPurify(window);
 
+// Match the hydrated article's explicit header associations in the first HTML.
+// Keep authored scopes, including rowgroup/colgroup, unchanged.
+DOMPurify.addHook("afterSanitizeAttributes", (node) => {
+  if (node.tagName === "TH" && !node.hasAttribute("scope")) {
+    node.setAttribute("scope", node.closest("thead") ? "col" : "row");
+  }
+});
+
 const PURIFY_CONFIG = {
   ALLOWED_TAGS: [
     "p", "br", "strong", "em", "u", "h1", "h2", "h3", "h4", "h5", "h6",
@@ -29,6 +37,9 @@ const PURIFY_CONFIG = {
     "href", "target", "rel", "src", "alt", "title", "class", "id",
     "colspan", "rowspan", "width", "height", "loading", "decoding", "scope",
   ],
+  // Table semantics are plain tokens/numbers, not URLs. Keep the strict URL
+  // policy for actual links and images without stripping authored table metadata.
+  ADD_URI_SAFE_ATTR: ["scope", "colspan", "rowspan"],
   // Explicit schemes only — closes incomplete-url-scheme-check (no data:/vbscript:).
   ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto|tel):|\/|#)/i,
   FORBID_TAGS: ["script", "style", "iframe", "object", "embed", "form", "link", "meta", "base"],
