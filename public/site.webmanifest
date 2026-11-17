@@ -1,7 +1,7 @@
 {
   "name": "Living With Arthritis",
   "short_name": "LWA",
-  "description": "Evidence-based arthritis support, exercises and health guides for the UK.",
+  "description": "Arthritis education and blank printable records. Clinical guides need an internet connection.",
   "lang": "en-GB",
   "dir": "ltr",
   "start_url": "/",
@@ -46,6 +46,19 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "id": "/",
+  "shortcuts": [
+    {
+      "name": "Printable symptom records",
+      "short_name": "Printables",
+      "url": "/resources/symptom-flare-tracker"
+    },
+    {
+      "name": "Exercise guides",
+      "short_name": "Exercises",
+      "url": "/exercises"
     }
   ]
 }
