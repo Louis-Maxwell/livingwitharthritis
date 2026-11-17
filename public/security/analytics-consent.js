@@ -4,15 +4,19 @@
 
         function hasAnalyticsConsent() {
           try {
-            if (localStorage.getItem('cookie-consent') === 'accepted') return true;
             var raw = localStorage.getItem('lwa_cv3');
-            if (!raw) return false;
-            return JSON.parse(raw).a === true;
+            // A current structured choice wins over any stale legacy flag.
+            if (raw !== null) {
+              var choice = JSON.parse(raw);
+              return !!choice && choice.a === true;
+            }
+            return localStorage.getItem('cookie-consent') === 'accepted';
           } catch (e) { return false; }
         }
 
         function loadAnalytics() {
-          if (loaded) return;
+          // Recheck even for explicit calls/events; their names are not consent.
+          if (loaded || !hasAnalyticsConsent()) return;
           loaded = true;
 
           // GA4 — send_page_view:false; the SPA router sends page_view itself.
