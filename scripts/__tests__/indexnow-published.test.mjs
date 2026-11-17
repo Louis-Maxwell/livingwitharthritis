@@ -28,18 +28,18 @@ describe('production-gated IndexNow', () => {
     expect(pageIsPublished(html.replace('lwa-build-revision','old-marker'), url, revision)).toBe(false);
   });
   it('does not even read the sitemap or page when production revision is stale', async () => {
-    const request = vi.fn().mockResolvedValue(new Response(JSON.stringify({ revision: 'b'.repeat(40) })));
+    const request = vi.fn().mockResolvedValue(new Response(html.replaceAll(revision, 'b'.repeat(40))));
     expect(await verifyPublication(revision, [url], request)).toBe(false);
     expect(request).toHaveBeenCalledTimes(1);
   });
   it('requires sitemap membership and exact published page, never submits in the verifier', async () => {
-    const request = vi.fn().mockImplementation(async input => input.includes('/.well-known/') ? new Response(JSON.stringify({revision})) : input.endsWith('/sitemap.xml') ? new Response(`<urlset><url><loc>${url}</loc></url></urlset>`) : new Response(html));
+    const request = vi.fn().mockImplementation(async input => input.startsWith(`${ORIGIN}/?revision=`) ? new Response(html.replace(url, `${ORIGIN}/`)) : input.endsWith('/sitemap.xml') ? new Response(`<urlset><url><loc>${url}</loc></url></urlset>`) : new Response(html));
     expect(await verifyPublication(revision, [url], request)).toBe(true);
     expect(request).toHaveBeenCalledTimes(3);
     expect(request.mock.calls.every(([input]) => input.startsWith(ORIGIN))).toBe(true);
   });
   it('rejects HTTP noindex and URLs absent from the production sitemap', async () => {
-    const request = vi.fn().mockImplementation(async input => input.includes('/.well-known/') ? new Response(JSON.stringify({revision})) : input.endsWith('/sitemap.xml') ? new Response(`<urlset><url><loc>${url}</loc></url></urlset>`) : new Response(html, {headers:{'x-robots-tag':'noindex'}}));
+    const request = vi.fn().mockImplementation(async input => input.startsWith(`${ORIGIN}/?revision=`) ? new Response(html.replace(url, `${ORIGIN}/`)) : input.endsWith('/sitemap.xml') ? new Response(`<urlset><url><loc>${url}</loc></url></urlset>`) : new Response(html, {headers:{'x-robots-tag':'noindex'}}));
     expect(await verifyPublication(revision, [url], request)).toBe(false);
     request.mockClear();
     expect(await verifyPublication(revision, [url + '-missing'], request)).toBe(false);

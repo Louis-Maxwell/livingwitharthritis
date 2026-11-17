@@ -16,9 +16,5 @@ export function publicationMarker() {
       const revision = buildRevision();
       return revision ? [{ tag: 'meta', attrs: { name: 'lwa-build-revision', content: revision }, injectTo: 'head' }] : [];
     },
-    generateBundle() {
-      const revision = buildRevision();
-      if (revision) this.emitFile({ type: 'asset', fileName: '.well-known/lwa-build.json', source: JSON.stringify({ revision }) + '\n' });
-    },
   };
 }
