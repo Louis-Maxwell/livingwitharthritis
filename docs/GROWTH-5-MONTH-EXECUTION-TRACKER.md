@@ -136,6 +136,7 @@ M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a 
 | Community / partner pilot | **partly done** (12 Nov); sends **blocked-on-Louis** | `/partners` now has a "Free resources you can share today" pack (4 gold pillars + clinic pack, flare plan, PIP diary, newly diagnosed); first 15 outreaches + NHS/clinic intros still unsent |
 | Fresh GSC/GA4 for M2 close-out KPIs | **blocked-on-Louis** | Needed before any traffic-multiple claim |
 | Trust sweep: unsourced counters off trust/partner pages | **done** (16 Nov) | `/press`, `/community`, `/corporate-giving`, `/self-help` (myths section), donation thank-you; `/trust` source was already clean, its stale crawler snapshot refreshed; Vitest `unsourced-counters-m3-16-nov.test.ts` |
+| Trust follow-up: invented corporate perks, rotating myth-card sources, unsourced fact-sheet figures | **done** (17 Nov) | `/corporate-giving` tiers, `/self-help` myth cards, `/press` fact sheet PDF; Vitest `trust-followup-m3-17-nov.test.ts` |
 
 ### M2 close-out draft skeleton (~11 Nov — do not invent KPIs)
 
@@ -159,6 +160,28 @@ No fresh GSC/GA4 export has been recorded in this repo since B₁, so **no traff
 - **Technical / trust (6–9 Nov, other runs):** Semrush site-audit fixes (#396), AI crawler discovery and regression gate (#397, #413), AEO/GEO strategy doc (#399), edge-protection doc (#403), technical SEO + prerender parity + sitemap integrity gates (#409–#411), priority guide metadata (#412), PIP/hip guides complete in first HTML (#418), GSC snippets and short answers (#419, #420), social previews (#421), CSP hardening and no inline scripts (#422, #423), CLS fixes (#424), new pain-management blog (#425), November magazine (#393, #394).
 - **Distribution (behind plan, Louis-owned):** first 15 partner outreaches, Ad Grants application, Fundraising Regulator + Gift Aid, live social posting and HCP clinic-pack sends are still not recorded as done.
 - **Honest read:** M2 Scenario A content and governance floors are met; the traffic, partnership and revenue KPIs cannot be scored without the export and the Louis-owned sends. M3 priorities: PIP pillar (last of 4), PIP checklist PDF after Louis review, Ad Grants, first outreaches.
+
+## Daily log — 17 Nov 2026 (M3 day 5, weekday run)
+
+**Programme month:** M3 (11 Nov – ~11 Dec 2026). Tracker next-3 from 16 Nov, item 2 shipped (trust follow-up). Other routes merged #497–#500 (17 enhanced articles, donation-claim containment, newsletter/CSP fixes, attested review of ten guides) since the last growth run. No new URLs, no invented figures, no Lovable credits / CloudAgent.
+
+### Shipped
+- **`/corporate-giving` tiers:** removed perks the charity cannot deliver (annual gala table, strategic advisory seat, bespoke reporting dashboard, VIP events, executive board briefings, PR & media, national campaign partnership, named programme sponsorship, staff wellness workshops, co-branded materials). Tiers now list only deliverable things: thank-you (with permission), written note on how the gift was used, certificate, free printable guides for staff, optional educational staff talk by arrangement, credit on a funded resource agreed in writing, help setting up matched/payroll giving. New line: every partnership agreed in writing, no patient data shared, not a product endorsement. "Ergonomic assessments" removed from Employee Wellness.
+- **`/self-help` myth cards:** the rotating "Source:" labels (NICE & Cochrane, Versus Arthritis data, JABFM, NICE) were assigned by card position, not content; replaced with "Reviewed by Louis Maxwell (HCPC PH128483). Educational, not personal advice."
+- **Press fact sheet PDF:** renamed "Arthritis Fact Sheet"; dropped unsourced UK figures (10 million, 1 in 6, 400,000 RA, 15,000 children, £20.7bn, 30M working days, £10bn, £1bn) and the "economic impact" framing; kept the NICE CKS-cited OA 8.75 million figure; "what helps" now cites NICE NG226; footer names NHS/NICE sources, Louis Maxwell review, charity 1218461 and independence from Arthritis UK (formerly Versus Arthritis).
+- **Crawler snapshots** refreshed for `/corporate-giving`, `/press`, `/self-help`.
+- **Tests:** new `src/lib/__tests__/trust-followup-m3-17-nov.test.ts`.
+
+### Still blocked on Louis
+- Decide on open PR #462 (trustee names, "self-review" wording, magazine/events/volunteer/grants pages); #460, #461, #463 also await review
+- GSC URL Inspection / indexing for the 4 gold pillars, and a fresh GSC Pages/Queries + GA4 export (M2 close-out KPIs stay TBD)
+- Review of `docs/M3-LINKABLE-ASSET-PDF-SCOPE.md` before the PIP evidence checklist PDF is built
+- Google Ad Grants; Fundraising Regulator + Gift Aid; first 15 partner outreaches; clinic-pack sends; live social posts; NHS intros
+
+### Next 3 digital actions (GTM)
+1. Internal links from high-traffic blog posts into the 4 gold pillars (cluster strengthening)
+2. Build the PIP evidence checklist PDF once Louis approves the scope doc
+3. Printable one-page partner/HCP leaflet pointing to the 4 pillars (for when outreach sends start)
 
 ## Daily log — 16 Nov 2026 (M3 day 4, weekday run)
 

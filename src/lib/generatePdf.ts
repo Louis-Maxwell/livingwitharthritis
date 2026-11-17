@@ -483,49 +483,40 @@ export function generateProgressTrackerPdf() {
 /* ─── NEW: Arthritis Fact Sheet ─── */
 export function generateArthritisFactSheet() {
   const doc = new jsPDF();
-  header(doc, "UK Arthritis Fact Sheet", "Key statistics and impact data — Living With Arthritis");
+  header(doc, "Arthritis Fact Sheet", "Plain-English facts — Living With Arthritis");
 
   let y = 50;
-  y = paragraph(doc, y, "This fact sheet summarises the prevalence, economic impact and key statistics around arthritis in the United Kingdom. Ideal for journalists, researchers, healthcare professionals and resource pages.");
+  y = paragraph(doc, y, "A short, sourced summary of arthritis for journalists, talks and resource pages. We only include figures we can point to a published source for.");
 
-  y = sectionTitle(doc, y, "Prevalence");
+  y = sectionTitle(doc, y, "What arthritis is");
   y = bulletList(doc, y, [
-    "Over 10 million people in the UK live with arthritis or a related musculoskeletal condition.",
-    "Osteoarthritis is the most common form: around 8.75 million people aged 45+ in the UK have sought treatment for it (Arthritis Research UK, 2013; cited by NICE CKS).",
-    "Rheumatoid arthritis affects around 400,000 adults in the UK.",
-    "1 in 6 people in the UK have arthritis — it is the leading cause of pain and disability.",
-    "Arthritis affects people of all ages, including over 15,000 children (juvenile idiopathic arthritis).",
+    "Arthritis is a common condition that causes pain and inflammation in a joint (NHS).",
+    "Osteoarthritis is the most common type: around 8.75 million people aged 45+ in the UK have sought treatment for it (Arthritis Research UK, 2013; cited by NICE CKS).",
+    "Rheumatoid arthritis is an autoimmune condition where the immune system attacks the joints (NHS).",
+    "Arthritis can affect people of any age, including children (juvenile idiopathic arthritis).",
   ]);
 
-  y = sectionTitle(doc, y, "Economic Impact");
+  y = sectionTitle(doc, y, "Risk factors");
   y = bulletList(doc, y, [
-    "Musculoskeletal conditions cost the UK economy an estimated £20.7 billion per year in lost productivity.",
-    "Arthritis accounts for over 30 million lost working days annually.",
-    "The health service spends approximately £10 billion per year treating musculoskeletal conditions.",
-    "Joint replacement surgery (hips and knees) costs the public health service over £1 billion annually.",
+    "Age: osteoarthritis usually develops in people over 45 (NHS).",
+    "Sex: women are more likely to develop osteoarthritis (NHS).",
+    "Excess weight puts more strain on weight-bearing joints such as hips and knees.",
+    "Previous joint injury, repeated strain on a joint and family history.",
   ]);
 
-  y = sectionTitle(doc, y, "Risk Factors");
+  y = sectionTitle(doc, y, "What helps");
   y = bulletList(doc, y, [
-    "Age — most common in people over 50, but can affect any age group.",
-    "Gender — women are more likely to develop most forms of arthritis.",
-    "Obesity — excess weight increases the load on weight-bearing joints significantly.",
-    "Previous joint injury, repetitive occupational use and family history.",
-  ]);
-
-  y = sectionTitle(doc, y, "Management");
-  y = bulletList(doc, y, [
-    "There is no cure, but symptoms can be effectively managed through exercise, weight control and diet.",
-    "Low-impact exercise (walking, swimming, cycling) is one of the most effective treatments.",
-    "Anti-inflammatory diets (Mediterranean-style) have been shown to reduce pain and stiffness.",
-    "Early diagnosis and physiotherapy referral significantly improve long-term outcomes.",
+    "There is no cure, but symptoms can often be managed.",
+    "NICE recommends therapeutic exercise for everyone with osteoarthritis, and weight loss where relevant (NICE NG226).",
+    "Information and support to self-manage are a core part of care (NICE NG226).",
+    "Anyone with a hot, swollen joint, or joint pain with fever or feeling unwell, should get urgent medical advice.",
   ]);
 
   y += 4;
-  y = paragraph(doc, y, "Sources: NICE, Arthritis UK (formerly Versus Arthritis), World Health Organization, Public Health England. For educational use — not medical advice.", 8);
+  y = paragraph(doc, y, "Sources: NHS (nhs.uk/conditions/arthritis), NICE NG226 Osteoarthritis in over 16s (2022), NICE CKS Osteoarthritis. Reviewed by Louis Maxwell (HCPC PH128483). Living With Arthritis, registered charity 1218461, independent of Arthritis UK (formerly Versus Arthritis). Educational, not medical advice.", 8);
 
   footer(doc);
-  savePdf(doc, "UK_Arthritis_Fact_Sheet_LWA.pdf");
+  savePdf(doc, "Arthritis_Fact_Sheet_LWA.pdf");
 }
 
 /* ─── NEW: Anti-Inflammatory Shopping List ─── */

@@ -17,12 +17,6 @@ const imageMap: Record<string, string> = {
 
 
 
-const sourceLabels = [
-  "NICE & Cochrane Review",
-  "Versus Arthritis (now Arthritis UK) data",
-  "Journal of the American Board of Family Medicine",
-  "NICE Clinical Guidelines",
-];
 
 const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => {
   const imageSrc = item.image_url ? (imageMap[item.image_url] || item.image_url) : null;
@@ -84,11 +78,11 @@ const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => 
             </div>
           </div>
 
-          {/* Source citation */}
+          {/* Review line (no per-card source labels: we cannot tie a named source to each CMS card) */}
           <div className="flex items-center gap-2 pt-2 border-t border-border/20">
             <ShieldCheck className="w-3.5 h-3.5 text-primary flex-shrink-0" />
             <p className="text-[11px] text-muted-foreground italic">
-              Source: {sourceLabels[index % sourceLabels.length]}
+              Reviewed by Louis Maxwell (HCPC PH128483). Educational, not personal advice.
             </p>
           </div>
         </div>
