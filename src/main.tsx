@@ -1,3 +1,4 @@
+import { captureInstallPrompt } from './lib/installPrompt';
 import React from "react"; // v18
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
@@ -14,6 +15,7 @@ import "./index.css";
 installErrorReporting();
 installImageFallback();
 installChunkRecovery();
+captureInstallPrompt();
 installAutoEvents();
 removeStaleServiceWorkers();
 
