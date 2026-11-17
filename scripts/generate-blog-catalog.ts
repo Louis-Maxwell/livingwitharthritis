@@ -18,6 +18,7 @@
  *   bun scripts/generate-blog-catalog.ts          # write
  *   bun scripts/generate-blog-catalog.ts --check  # fail if committed files are stale
  */
+import { materializeEditorialCovers } from "./materialize-editorial-covers";
 import { readFileSync, writeFileSync, existsSync, statSync } from "node:fs";
 import { checkGuideImages } from "../src/lib/blog/imagePolicy";
 import { resolve } from "node:path";
@@ -64,6 +65,7 @@ export function toBlogMeta(post: BlogPost): BlogMeta {
 }
 
 export function buildBlogCatalogArtifacts(root = process.cwd()): BlogCatalogArtifacts {
+  materializeEditorialCovers(root);
   const errors: string[] = [];
   const raw = readAllBlogPosts(root) as unknown[];
   const posts: BlogPost[] = [];
