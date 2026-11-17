@@ -60,6 +60,8 @@ export default function Glossary() {
             "Plain-English UK definitions of arthritis, rheumatology and musculoskeletal terminology reviewed for patients.",
           url: "https://livingwitharthritis.org.uk/glossary",
           inLanguage: "en-GB",
+          // Inventory, visible links and DefinedTermSet aligned on this date.
+          dateModified: "2026-11-17",
           publisher: {
             "@type": "Organization",
             name: "Living With Arthritis",
