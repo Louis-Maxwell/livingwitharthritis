@@ -45,3 +45,17 @@ test('representative normal patterns match upstream behavior',{skip:!process.env
  const files=['a.ts','src/a.tsx','src/lib/test1.js','README.md','abcd','a/b.js','x/node_modules/a.ts','./src/a','src/a.test.ts','src/a.d.ts'];
  for(const pattern of patterns)for(const file of files)assert.equal(pm.isMatch(file,pattern),upstream.isMatch(file,pattern),pattern+' '+file);
 });
+
+test('linear backslash removal preserves upstream bracket and newline behavior',()=>{
+ const remove=require('../vendor/picomatch/lib/utils').removeBackslashes;
+ const original=s=>s.replace(/(?:\[.*?[^\\]\]|\\(?=.))/g,m=>m==='\\'?'':m);
+ const alphabet=['[',']','\\','a','\n','\r','\u2028','\u2029'];
+ const walk=(prefix,depth)=>{assert.equal(remove(prefix),original(prefix),JSON.stringify(prefix));if(depth)for(const c of alphabet)walk(prefix+c,depth-1);};
+ walk('',6);
+ let state=1729;
+ for(let n=0;n<3000;n++){let s='';for(let k=0;k<100;k++){state=(Math.imul(state,1664525)+1013904223)>>>0;s+=alphabet[state%alphabet.length];}assert.equal(remove(s),original(s));}
+});
+test('unmatched bracket input completes within a hard timeout',()=>{
+ const script=`const assert=require('node:assert/strict');const utils=require(${JSON.stringify(require.resolve('../vendor/picomatch/lib/utils'))});const s='['.repeat(200000);assert.equal(utils.removeBackslashes(s),s);const pm=require(${JSON.stringify(require.resolve('../vendor/picomatch'))});assert.doesNotThrow(()=>pm.scan(s,{unescape:true}));`;
+ const result=spawnSync(process.execPath,['-e',script],{timeout:2000,encoding:'utf8'});assert.ifError(result.error);assert.equal(result.status,0,result.stderr);
+});
