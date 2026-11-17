@@ -1,7 +1,7 @@
-import { memo, useState } from "react";
+import { memo, useId, useState } from "react";
 import { CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { toast } from "sonner";
-import { trackEvent, trackNewsletterSignup } from "@/lib/analytics";
+import { trackEvent } from "@/lib/analytics";
 import { subscribeNewsletter } from "@/lib/backendSubmit";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { reportFormFailure } from "@/lib/errorReporting";
@@ -27,6 +27,8 @@ const EmailSignupForm = memo(({
   compact = false,
   className = "",
 }: EmailSignupFormProps) => {
+  const inputId = useId();
+  const errorId = `${inputId}-error`;
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -49,14 +51,14 @@ const EmailSignupForm = memo(({
 
     setLoading(true);
     setError(null);
+    trackEvent("newsletter_attempt", { sequence });
 
     try {
       const result = await subscribeNewsletter({ email: addr, source: sequence });
       if (result.ok && result.via === "formsubmit") {
-        trackNewsletterSignup();
-        trackEvent("email_signup", { sequence, via: "formsubmit" });
+        trackEvent("newsletter_request_accepted", { sequence, via: "formsubmit" });
         setSuccessCopy(
-          "Request emailed to the charity inbox — nothing is stored in a website database.",
+          "Request accepted by the email service. Newsletter membership is not yet confirmed.",
         );
         setSuccess(true);
         setEmail("");
@@ -64,8 +66,7 @@ const EmailSignupForm = memo(({
         onSuccess?.();
         setTimeout(() => setSuccess(false), 10000);
       } else if (result.via === "mailto") {
-        trackNewsletterSignup();
-        trackEvent("email_signup", { sequence, via: "mailto" });
+        trackEvent("newsletter_mailto_open", { sequence, via: "mailto" });
         setSuccessCopy(
           "Almost there — please send the email that opened so we can add you.",
         );
@@ -112,7 +113,7 @@ const EmailSignupForm = memo(({
           disabled={loading || success}
           autoComplete="email"
           aria-invalid={!!error}
-          aria-describedby={error ? "email-signup-compact-err" : undefined}
+          aria-describedby={error ? errorId : undefined}
           className="flex-1 min-h-11 px-4 py-2 rounded-full bg-background border border-border text-sm placeholder:text-muted-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:opacity-50"
           aria-label="Email address"
         />
@@ -120,13 +121,14 @@ const EmailSignupForm = memo(({
           type="submit"
           disabled={loading || success || !email.trim()}
           className="min-h-11 min-w-11 px-5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors disabled:opacity-50 inline-flex items-center justify-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          aria-label={loading ? "Sending request" : success ? "Request sent" : "Join newsletter"}
+          aria-label={loading ? "Sending request" : success ? successCopy : "Join newsletter"}
         >
           {loading ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : null}
-          {success ? "Sent" : loading ? "Sending…" : "Join"}
+          {success ? "Check email" : loading ? "Sending…" : "Join"}
         </button>
+        {success ? <span role="status" className="sr-only">{successCopy}</span> : null}
         {error ? (
-          <span id="email-signup-compact-err" className="sr-only" role="alert">
+          <span id={errorId} className="sr-only" role="alert">
             {error}
           </span>
         ) : null}
@@ -139,7 +141,7 @@ const EmailSignupForm = memo(({
       <form onSubmit={handleSubmit} className="space-y-4" noValidate>
         {label && (
           <div>
-            <label htmlFor="email-signup" className="block text-sm font-semibold text-foreground mb-2">
+            <label htmlFor={inputId} className="block text-sm font-semibold text-foreground mb-2">
               {label}
             </label>
             <p className="text-xs text-foreground/60 mb-3">
@@ -160,7 +162,7 @@ const EmailSignupForm = memo(({
           <>
             <div className="flex flex-col sm:flex-row gap-2">
               <input
-                id="email-signup"
+                id={inputId}
                 type="email"
                 value={email}
                 onChange={(e) => {
@@ -172,7 +174,7 @@ const EmailSignupForm = memo(({
                 disabled={loading}
                 autoComplete="email"
                 aria-invalid={!!error}
-                aria-describedby={error ? "email-signup-err" : undefined}
+                aria-describedby={error ? errorId : undefined}
                 className="flex-1 min-h-11 px-4 py-3 rounded-lg bg-background border border-border text-sm placeholder:text-muted-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:opacity-50"
                 aria-label="Email address"
               />
@@ -193,7 +195,7 @@ const EmailSignupForm = memo(({
             </div>
 
             {error && (
-              <div id="email-signup-err" className="rounded-lg bg-red-500/10 border border-red-200 p-3 flex gap-2" role="alert">
+              <div id={errorId} className="rounded-lg bg-red-500/10 border border-red-200 p-3 flex gap-2" role="alert">
                 <AlertCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <p className="text-xs text-red-700">{error}</p>
               </div>
