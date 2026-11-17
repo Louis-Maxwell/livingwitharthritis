@@ -53,7 +53,7 @@
   },
   "/conditions/knee-arthritis": {
     "modified": "2026-11-17",
-    "change": "Added an optional lightweight SVG knee schematic with source-linked explanations and separate review pending. No whole-page clinical review attested."
+    "change": "Source-linked concise summary and UK/international term explanations added. New summary is awaiting separate clinical review; old review dates do not attest to this revision."
   },
   "/blog/ginger-vs-turmeric-for-arthritis": {
     "modified": "2026-11-17",
@@ -82,5 +82,21 @@
   "/blog/emergency-arthritis-flare-checklist": {
     "modified": "2026-11-17",
     "change": "Added contextual navigation to existing blank printables, with privacy and separate-review limits. Existing medical text and its review date are unchanged."
+  },
+  "/conditions/hip-arthritis": {
+    "modified": "2026-11-17",
+    "change": "Source-linked concise summary and UK/international term explanations added. New summary is awaiting separate clinical review; old review dates do not attest to this revision."
+  },
+  "/guides/diet": {
+    "modified": "2026-11-17",
+    "change": "Source-linked concise summary and UK/international term explanations added. New summary is awaiting separate clinical review; old review dates do not attest to this revision."
+  },
+  "/supplements": {
+    "modified": "2026-11-17",
+    "change": "Source-linked concise summary and UK/international term explanations added. New summary is awaiting separate clinical review; old review dates do not attest to this revision."
+  },
+  "/conditions/polymyalgia-rheumatica": {
+    "modified": "2026-11-17",
+    "change": "Source-linked concise summary and UK/international term explanations added. New summary is awaiting separate clinical review; old review dates do not attest to this revision."
   }
 }
