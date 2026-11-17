@@ -26,7 +26,7 @@ test('ordinary globs and plain repeated alternatives keep useful behavior',()=>{
  assert.throws(()=>pm('+(*a)b'),rejectsUnsafe);
 });
 test('installed root and consumers execute the reviewed private fork',()=>{
- for(const consumer of [null,'micromatch','tinyglobby','readdirp','fast-glob','vite','vitest']){
+ for(const consumer of [null,'micromatch','tinyglobby','readdirp','fast-glob','vite','vitest','anymatch']){
   const r=consumer?createRequire(require.resolve(consumer)):require;
   const entry=r.resolve('picomatch');const dir=dirname(entry);
   const meta=JSON.parse(readFileSync(join(dir,'package.json'),'utf8'));
@@ -58,4 +58,24 @@ test('linear backslash removal preserves upstream bracket and newline behavior',
 test('unmatched bracket input completes within a hard timeout',()=>{
  const script=`const assert=require('node:assert/strict');const utils=require(${JSON.stringify(require.resolve('../vendor/picomatch/lib/utils'))});const s='['.repeat(200000);assert.equal(utils.removeBackslashes(s),s);const pm=require(${JSON.stringify(require.resolve('../vendor/picomatch'))});assert.doesNotThrow(()=>pm.scan(s,{unescape:true}));`;
  const result=spawnSync(process.execPath,['-e',script],{timeout:2000,encoding:'utf8'});assert.ifError(result.error);assert.equal(result.status,0,result.stderr);
+});
+
+test('anymatch and visualizer actual filter APIs preserve ordinary selection and fail loudly',async()=>{
+ const anymatch=require('anymatch');
+ assert.equal(anymatch('**/*.ts','src/a.ts'),true);
+ assert.equal(anymatch('**/*.ts','src/a.js'),false);
+ assert.throws(()=>anymatch('+(*a)b','aab'),rejectsUnsafe);
+ const {pathToFileURL}=require('node:url');
+ const {resolve}=require('node:path');
+ const entry=resolve(__dirname,'../node_modules/rollup-plugin-visualizer/dist/plugin/index.js');
+ const r=createRequire(entry);
+ const meta=JSON.parse(readFileSync(join(dirname(r.resolve('picomatch')),'package.json'),'utf8'));
+ assert.equal(meta.name,'@livingwitharthritis/picomatch');assert.equal(meta.version,'4.0.7-lwa.1');
+ assert.equal(readFileSync(join(dirname(r.resolve('picomatch')),'lib/parse.js'),'utf8'),readFileSync(join(__dirname,'../vendor/picomatch/lib/parse.js'),'utf8'));
+ const {createFilter}=await import(pathToFileURL(join(dirname(entry),'../shared/create-filter.js')).href);
+ const filter=createFilter([{bundle:'**/*.js',file:'src/**/*.ts'}],[{file:'**/*.test.ts'}]);
+ assert.equal(filter('assets/app.js','src/a.ts'),true);
+ assert.equal(filter('assets/app.js','src/a.test.ts'),false);
+ assert.equal(filter('assets/app.js','src/a.css'),false);
+ assert.throws(()=>createFilter([{file:'+(*a)b'}],[]),rejectsUnsafe);
 });
