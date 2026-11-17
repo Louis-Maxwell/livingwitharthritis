@@ -8,6 +8,19 @@ import { headDataFor } from "../../../../scripts/inject-canonicals.mjs";
 const routes = Object.keys(answers) as (keyof typeof answers)[];
 afterEach(cleanup);
 describe("priority source-linked clinical answers", () => {
+  it("keeps quoted term source values inside one link attribute", () => {
+    const source = 'https://example.org/source?note="quoted"&part=one';
+    const raw = buildStaticArticleInner({
+      title: "Terminology check",
+      internationalTerms: [{ term: "UK term", explanation: "A term explanation", source, label: "Source" }],
+    });
+    const container = document.createElement("div");
+    container.innerHTML = raw;
+    const link = container.querySelector("details a");
+    expect(link?.getAttribute("href")).toBe(source);
+    expect(link?.getAttributeNames()).toEqual(["href"]);
+    expect(raw).toContain("&quot;");
+  });
   it.each(routes)("keeps %s concise, source-linked and consistent in raw HTML data", (route) => {
     const entry = answers[route];
     const words = entry.answer.trim().split(/\s+/).length;
