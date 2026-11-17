@@ -49,9 +49,10 @@ vi.mock("@/hooks/useBlogArticles", () => ({
 vi.mock("@/components/Header", () => ({ default: () => <div data-testid="header" /> }));
 vi.mock("@/components/Footer", () => ({ default: () => <div data-testid="footer" /> }));
 vi.mock("@/components/ui/PageHero", () => ({
-  default: ({ title, subtitle }: { title: import("react").ReactNode; subtitle?: string }) => (
+  default: ({ title, subtitle, badge }: { title: import("react").ReactNode; subtitle?: string; badge?: import("react").ReactNode }) => (
     <div data-testid="hero">
       <h1>{title}</h1>
+      <span data-testid="archive-count">{badge}</span>
       {subtitle ? <p>{subtitle}</p> : null}
     </div>
   ),
@@ -77,6 +78,12 @@ function renderArchive(path = "/blog/archive") {
 }
 
 describe("BlogArchive page", () => {
+  it("counts the same listed guides in the hero and archive results", () => {
+    renderArchive();
+    expect(screen.getByTestId("archive-count").textContent).toContain("3 guides");
+    expect(screen.getByRole("main")).toHaveTextContent(/Showing\s+3\s+of\s+3\s+published guides/);
+  });
+
   beforeEach(() => {
     vi.clearAllMocks();
   });
