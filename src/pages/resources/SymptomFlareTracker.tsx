@@ -1,4 +1,3 @@
-import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -21,9 +20,7 @@ const pageLd = {
   name: "Arthritis symptom and flare tracker (free printable)",
   inLanguage: "en-GB",
   datePublished: "2026-10-26",
-  dateModified: "2026-10-26",
-  lastReviewed: "2026-10-26",
-  reviewedBy: { ...LOUIS_MAXWELL_REF },
+  dateModified: "2026-11-17",
   publisher: { "@type": "NGO", name: "Living With Arthritis", url: "https://livingwitharthritis.org.uk" },
 };
 
@@ -48,9 +45,7 @@ export default function SymptomFlareTracker() {
           Write down your symptoms each day for a week or two. Patterns are easier to spot, and you
           will have clear notes to share with your GP, physiotherapist or rheumatology team.
         </p>
-        <p className="mb-6 text-sm text-muted-foreground">
-          Clinically reviewed by <Link to="/authors/maxwell" className="underline">Louis Maxwell</Link> (First Contact Physiotherapist, HCPC PH128483) · Last reviewed 2026-10-26
-        </p>
+        <p className="mb-6 text-sm text-muted-foreground">These are blank personal records to print and keep. Nothing you write is sent to this website. The new companion sheets and updated guidance are awaiting a separate clinical review.</p>
         <div className="mb-8 flex flex-wrap gap-3 print:hidden">
           <a href={PDF} download className="min-h-11 inline-flex items-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground">
             Download the tracker (PDF)
@@ -59,17 +54,24 @@ export default function SymptomFlareTracker() {
             Print this page
           </button>
         </div>
-        <EducationalDisclaimerBox lastReviewed="2026-10-26" />
+        <section aria-labelledby="companion-downloads" className="my-8 space-y-4">
+          <h2 id="companion-downloads" className="font-display text-2xl font-bold">Printable companion sheets</h2>
+          <p>Choose a one-page A4 sheet. Fill it in by hand and share only what you want with your healthcare team. The QR code and short link reopen this toolkit, not your completed notes.</p>
+          <ul className="space-y-3">
+            <li><a href="/resources/gp-appointment-symptom-medication-tracker.pdf" download className="inline-flex min-h-11 items-center text-primary underline">GP appointment symptom and medication tracker (PDF)</a></li>
+            <li><a href="/resources/flare-up-daily-log.pdf" download className="inline-flex min-h-11 items-center text-primary underline">Flare-up daily log (PDF)</a></li>
+          </ul>
+          <p className="text-sm">Keep completed sheets somewhere private. Optional identifying details are for your own use. You do not need to sign in or upload anything.</p>
+        </section>
+        <EducationalDisclaimerBox reviewStatus="pending" pendingText="Updated resource guidance and new printables: separate clinical review pending." />
         <h2 className="font-display mt-8 mb-3 text-2xl font-bold text-foreground">What to record each day</h2>
         <ul className="list-disc pl-5 space-y-1">
           {COLUMNS.map((c) => <li key={c}>{c}</li>)}
         </ul>
         <h2 className="font-display mt-8 mb-3 text-2xl font-bold text-foreground">When to get urgent help</h2>
-        <p>
-          Contact NHS 111 urgently, or call 999 in an emergency, if a single joint becomes hot, red and
-          swollen and you feel feverish or unwell, if you suddenly cannot bear weight, or if you have
-          new weakness, numbness or loss of bladder or bowel control.
-        </p>
+        <p className="mb-3"><strong>Ask for an urgent GP appointment or contact NHS 111:</strong> if a joint is swollen and feels hot, or joint pain comes with feeling unwell, a high temperature, or feeling hot, cold or shivery.</p>
+        <p className="mb-3"><strong>Go to A&amp;E or call 999:</strong> if you cannot walk or put weight on a joint, or have very bad joint pain after a fall or injury. Severe or worsening weakness or numbness in both legs, numbness around your genitals or bottom, or new bladder or bowel control problems also need emergency assessment.</p>
+        <p>If you are unsure, contact NHS 111. Do not wait to complete a tracker before seeking help.</p>
         <h2 className="font-display mt-8 mb-3 text-2xl font-bold text-foreground">Related help</h2>
         <ul className="list-disc pl-5 space-y-1">
           <li><Link to="/resources/flare-action-plan" className="text-primary underline">Flare-up action plan</Link></li>
@@ -78,6 +80,9 @@ export default function SymptomFlareTracker() {
         </ul>
         <h2 className="font-display mt-8 mb-2 text-base font-bold text-foreground">Sources</h2>
         <ul className="list-disc pl-5 text-sm text-muted-foreground">
+          <li><a href="https://www.nhs.uk/symptoms/joint-pain/" rel="noopener noreferrer">NHS: joint pain and urgent help</a></li>
+          <li><a href="https://www.nhs.uk/conditions/septic-arthritis/" rel="noopener noreferrer">NHS: septic arthritis</a></li>
+          <li><a href="https://www.nhs.uk/conditions/sciatica/" rel="noopener noreferrer">NHS: sciatica emergency symptoms</a></li>
           <li><a href="https://www.nhs.uk/conditions/arthritis/" rel="noopener noreferrer">NHS: Arthritis</a></li>
           <li><a href="https://www.nice.org.uk/guidance/ng100" rel="noopener noreferrer">NICE NG100: Rheumatoid arthritis in adults</a></li>
           <li><a href="https://www.nice.org.uk/guidance/ng226" rel="noopener noreferrer">NICE NG226: Osteoarthritis in over 16s</a></li>
