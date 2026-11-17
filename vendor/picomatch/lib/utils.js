@@ -3,7 +3,6 @@
 
 const {
   REGEX_BACKSLASH,
-  REGEX_REMOVE_BACKSLASH,
   REGEX_SPECIAL_CHARS,
   REGEX_SPECIAL_CHARS_GLOBAL
 } = require('./constants');
@@ -27,10 +26,35 @@ exports.isWindows = () => {
   return false;
 };
 
+// Linear equivalent of the upstream bracket-preserving backslash replacement.
+// Precompute the next usable bracket end and line break so an unmatched '['
+// never rescans the same suffix. Dot in the original expression excludes these
+// four line terminators, but its final non-backslash character can be one.
 exports.removeBackslashes = str => {
-  return str.replace(REGEX_REMOVE_BACKSLASH, match => {
-    return match === '\\' ? '' : match;
-  });
+  const length = str.length;
+  const nextClose = new Int32Array(length + 1);
+  const nextBreak = new Int32Array(length + 1);
+  nextClose[length] = length;
+  nextBreak[length] = length;
+  const isBreak = char => char === '\n' || char === '\r' || char === '\u2028' || char === '\u2029';
+  for (let i = length - 1; i >= 0; i--) {
+    nextClose[i] = str[i] === ']' && i > 0 && str[i - 1] !== '\\' ? i : nextClose[i + 1];
+    nextBreak[i] = isBreak(str[i]) ? i : nextBreak[i + 1];
+  }
+  const output = [];
+  for (let i = 0; i < length; i++) {
+    if (str[i] === '[' && i + 2 < length) {
+      const end = nextClose[i + 2];
+      if (end < length && nextBreak[i + 1] >= end - 1) {
+        output.push(str.slice(i, end + 1));
+        i = end;
+        continue;
+      }
+    }
+    if (str[i] === '\\' && i + 1 < length && !isBreak(str[i + 1])) continue;
+    output.push(str[i]);
+  }
+  return output.join('');
 };
 
 exports.escapeLast = (input, char, lastIdx) => {
