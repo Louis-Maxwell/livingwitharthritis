@@ -31,7 +31,7 @@ import ArticleBookmarkButton from "@/components/blog/ArticleBookmarkButton";
 import ClusterRelatedLinks from "@/components/blog/ClusterRelatedLinks";
 import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
 import RecommendedNextStep from "@/components/RecommendedNextStep";
-import { splitHtmlAtMiddleH2 } from "@/lib/splitHtmlAtMiddleH2";
+import { splitHtmlAfterFirstSection, splitHtmlAtMiddleH2 } from "@/lib/splitHtmlAtMiddleH2";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import ViewportSection from "@/components/ViewportSection";
@@ -250,11 +250,9 @@ const BlogPost = () => {
   const faqs = extractFaqs(htmlContent);
   const bodyForRender = renderCallouts(stripQuestionHeadings(htmlContent));
   const htmlWithIds = addHeadingIds(bodyForRender);
-  // Split after the first </h2> so we can inject an inline related-strip mid-article.
-  const firstH2End = htmlWithIds.search(/<\/h2>/i);
-  const splitAt = firstH2End >= 0 ? firstH2End + "</h2>".length : -1;
-  const htmlBeforeStrip = splitAt > 0 ? htmlWithIds.slice(0, splitAt) : htmlWithIds;
-  const htmlAfterStrip = splitAt > 0 ? htmlWithIds.slice(splitAt) : "";
+  // Do not separate a heading from its explanation or cut an authored wrapper.
+  const { first: htmlBeforeStrip, second: htmlAfterStrip } = splitHtmlAfterFirstSection(htmlWithIds);
+  const splitAt = htmlBeforeStrip.length;
   // Second split at the section boundary (<h2>) closest to the halfway point,
   // for the prerendered "Recommended next step" module.
   const { first: htmlAfterA, second: htmlAfterB } = splitHtmlAtMiddleH2(htmlAfterStrip, htmlWithIds.length / 2 - splitAt);
