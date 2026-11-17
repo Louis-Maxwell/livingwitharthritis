@@ -12,9 +12,19 @@ describe("17 editorial enhancements", () => {
       if (entry.slug) {
         const post = read(`src/content/blog/posts/${entry.slug}.json`);
         expect(post.is_published).toBe(true);
-        expect(post.editorial_review_note).toContain("not yet had a fresh clinical review");
-        expect(post.last_reviewed).toBeUndefined();
-        expect(post.reviewed_by).toBeNull();
+        const attested = ["arthritis-symptoms-what-to-do-next", "morning-stiffness-with-arthritis"].includes(entry.slug);
+        if (attested) {
+          expect(post.editorial_review_note).toBeUndefined();
+          expect(post.last_reviewed).toBe("2026-11-17");
+          expect(post.reviewed_by).toBe("Louis Maxwell");
+          expect(post.reviewer_credentials).toContain("PH128483");
+          expect(post.content).toContain("clinically reviewed by Louis Maxwell on 17 November 2026");
+          expect(post.content).toContain("6 February 2026");
+        } else {
+          expect(post.editorial_review_note).toContain("not yet had a fresh clinical review");
+          expect(post.last_reviewed).toBeUndefined();
+          expect(post.reviewed_by).toBeNull();
+        }
         expect(post.content).toContain("Trusted UK sources");
         expect(post.content.length).toBeGreaterThan(5000);
       } else {
