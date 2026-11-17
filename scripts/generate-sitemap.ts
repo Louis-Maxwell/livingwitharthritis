@@ -582,6 +582,9 @@ async function main() {
     );
   }
 
+  // A standalone, directly served resource is not declared in the SPA router.
+  // Indexing metadata changed on this date; this is not a clinical-review date.
+  entries.push({ path: "/resources/knee-joint-map.html", lastmod: "2026-11-17" });
   for (const p of parseStaticRoutes()) {
     const lastmod = lastmodFor(p);
     entries.push({ path: p, ...(lastmod ? { lastmod } : {}) });
@@ -804,6 +807,7 @@ async function main() {
   const prerenderable = [...cleaned, ...entries.filter((e) => routeNoindex.has(e.path))];
   const otherPaths = [...new Set(prerenderable.map((e) => e.path))].filter(
     (p) =>
+      !p.endsWith(".html") &&
       (!p.startsWith("/blog/") || p.startsWith("/blog/category/")) &&
       !/^\/arthritis-support\/[^/]+$/.test(p),
   );
