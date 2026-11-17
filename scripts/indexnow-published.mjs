@@ -41,8 +41,8 @@ export function pageIsPublished(html, url, revision) {
 
 export async function verifyPublication(revision, urls, request = fetch) {
   if (!/^[a-f0-9]{40}$/.test(revision)) throw new Error('Expected revision must be a full Git SHA');
-  const marker = await request(`${ORIGIN}/.well-known/lwa-build.json?revision=${revision}`, { redirect: 'error', cache: 'no-store', signal: AbortSignal.timeout(15000) });
-  if (!marker.ok || (await marker.json()).revision !== revision) return false;
+  const marker = await request(`${ORIGIN}/?revision=${revision}`, { redirect: 'error', cache: 'no-store', signal: AbortSignal.timeout(15000) });
+  if (!marker.ok || !pageIsPublished(await marker.text(), `${ORIGIN}/`, revision)) return false;
   const sitemap = await request(`${ORIGIN}/sitemap.xml`, { redirect: 'error', cache: 'no-store', signal: AbortSignal.timeout(15000) });
   if (!sitemap.ok) return false;
   const canonicalUrls = new Set(sitemapUrls(await sitemap.text()));
