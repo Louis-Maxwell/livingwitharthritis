@@ -21,15 +21,15 @@ describe("M2 trust sweep — unnamed reviewer labels", () => {
     expect(offenders).toEqual([]);
   });
 
-  it("no blog post is pending clinical review: every guide is reviewed by Louis Maxwell (no exceptions)", () => {
+  it("published guides retain explicit review provenance without inheriting sign-off", () => {
     const posts = files.map(
-      (f) => JSON.parse(readFileSync(resolve(postsDir, f), "utf8")) as Post & { is_published?: boolean; reviewed_by?: string | null; editorial_review_note?: string },
+      (f) => JSON.parse(readFileSync(resolve(postsDir, f), "utf8")) as Post & { is_published?: boolean; reviewed_by?: string | null; reviewer_credentials?: string | null; last_reviewed?: string; editorial_review_note?: string },
     );
     for (const p of posts) {
       expect(p.reviewStatus, p.slug).toBeUndefined();
       expect(p.content, p.slug).not.toMatch(/pending clinical review/i);
       if (p.is_published) {
-        if (p.editorial_review_note) { expect(p.reviewed_by, p.slug).toBeNull(); expect(p.editorial_review_note).toContain("not yet had a fresh clinical review"); }
+        if (p.editorial_review_note) { expect(p.reviewed_by, p.slug).toBeNull(); expect(p.editorial_review_note).toMatch(/not (?:yet )?had a fresh (?:independent benefits or legal |clinical )review/); expect(p.reviewer_credentials, p.slug).toBeNull(); expect(p.last_reviewed, p.slug).toBeUndefined(); }
         else expect(p.reviewed_by, p.slug).toBe("Louis Maxwell");
       }
     }
