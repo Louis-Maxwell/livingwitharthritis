@@ -92,7 +92,9 @@ export function escText(value) {
   return String(value)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 /** Mirror of PENDING_REVIEW_TEXT (src/lib/blog/review.ts); a test keeps them equal. */
