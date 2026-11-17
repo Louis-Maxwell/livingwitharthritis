@@ -33,6 +33,9 @@ describe("benefits editorial quality batch two", () => {
       writeFileSync(join(root, "scripts/data/editorial-covers.json"), source);
       materializeEditorialCovers(root);
       const data = JSON.parse(source);
+      const firstName = Object.keys(data)[0];
+      writeFileSync(join(root, "public/openverse", firstName), "stale");
+      materializeEditorialCovers(root);
       for (const [name, asset] of Object.entries(data) as [string, {base64: string}][]) {
         expect(readFileSync(join(root, "public/openverse", name)).equals(Buffer.from(asset.base64, "base64"))).toBe(true);
       }
