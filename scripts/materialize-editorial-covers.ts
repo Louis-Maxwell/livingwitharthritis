@@ -16,6 +16,6 @@ export function materializeEditorialCovers(root = process.cwd()) {
     if (bytes.subarray(0, 4).toString() !== "RIFF" || bytes.subarray(8, 12).toString() !== "WEBP") throw new Error("Invalid editorial WebP");
     if (createHash("sha256").update(bytes).digest("hex") !== asset.sha256) throw new Error("Editorial cover checksum mismatch");
     const target = resolve(output, name);
-    if (!existsSync(target) || !readFileSync(target).equals(bytes)) writeFileSync(target, bytes);
+    writeFileSync(target, bytes);
   }
 }
