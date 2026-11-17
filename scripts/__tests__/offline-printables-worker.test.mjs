@@ -12,9 +12,12 @@ function event(url,mode='navigate',method='GET') { return {request:{url,mode,met
 describe('blank-record service worker boundaries',()=>{
  it('saves only the fixed offline fallback and two blank PDFs on request, and clears only its own old versions',async()=>{
  const w=worker();const install={waitUntil:vi.fn()};w.events.install(install);await install.waitUntil.mock.calls[0][0];expect(w.addAll).not.toHaveBeenCalled();
- const port={postMessage:vi.fn()};const message={data:{type:'SAVE_BLANK_RECORDS'},ports:[port],waitUntil:vi.fn()};w.events.message(message);await message.waitUntil.mock.calls[0][0];expect(port.postMessage).toHaveBeenCalledWith({saved:true});
+ const port={postMessage:vi.fn()};const message={origin:'https://livingwitharthritis.org.uk',source:{url:'https://livingwitharthritis.org.uk/resources/symptom-flare-tracker'},data:{type:'SAVE_BLANK_RECORDS'},ports:[port],waitUntil:vi.fn()};w.events.message(message);await message.waitUntil.mock.calls[0][0];expect(port.postMessage).toHaveBeenCalledWith({saved:true});
  expect(w.addAll).toHaveBeenCalledWith(['/offline.html','/resources/gp-appointment-symptom-medication-tracker.pdf','/resources/flare-up-daily-log.pdf']);
  const activate={waitUntil:vi.fn()};w.events.activate(activate);await activate.waitUntil.mock.calls[0][0];expect(w.remove).toHaveBeenCalledExactlyOnceWith('lwa-blank-records-old');
+ });
+ it('ignores untrusted or missing message origins and sources',()=>{
+ const w=worker();for(const extra of [{origin:'https://other.test',source:{url:'https://other.test'}},{origin:'https://livingwitharthritis.org.uk',source:{url:'https://other.test'}},{origin:'',source:{url:'https://livingwitharthritis.org.uk/'}},{origin:'https://livingwitharthritis.org.uk',source:null}]) {const e={...extra,data:{type:'SAVE_BLANK_RECORDS'},ports:[{postMessage:vi.fn()}],waitUntil:vi.fn()};w.events.message(e);expect(e.waitUntil).not.toHaveBeenCalled();}expect(w.addAll).not.toHaveBeenCalled();
  });
  it('fetches clinical HTML fresh and does not put it in the cache',async()=>{
  const w=worker();const e=event('https://livingwitharthritis.org.uk/blog/example');w.events.fetch(e);expect(await (await e.respondWith.mock.calls[0][0]).text()).toBe('fresh response');expect(w.put).not.toHaveBeenCalled();expect(w.match).not.toHaveBeenCalled();
