@@ -54,5 +54,17 @@
   "/conditions/knee-arthritis": {
     "modified": "2026-11-17",
     "change": "Added an optional lightweight SVG knee schematic with source-linked explanations and separate review pending. No whole-page clinical review attested."
+  },
+  "/blog/ginger-vs-turmeric-for-arthritis": {
+    "modified": "2026-11-17",
+    "change": "Neutral search title, description and listing excerpt; removed treatment-benefit or clinician-comparison wording. Article body and clinical review dates unchanged."
+  },
+  "/blog/anti-inflammatory-smoothie-recipes": {
+    "modified": "2026-11-17",
+    "change": "Neutral search title, description and listing excerpt; removed treatment-benefit or clinician-comparison wording. Article body and clinical review dates unchanged."
+  },
+  "/blog/best-supplements-joint-pain": {
+    "modified": "2026-11-17",
+    "change": "Neutral search title, description and listing excerpt; removed treatment-benefit or clinician-comparison wording. Article body and clinical review dates unchanged."
   }
 }
