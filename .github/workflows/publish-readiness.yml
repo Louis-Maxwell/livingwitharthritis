@@ -34,13 +34,18 @@ concurrency:
 jobs:
   readiness:
     name: Publish readiness gate
+    outputs:
+      ready: ${{ steps.gate.outputs.ready }}
+      revision: ${{ steps.sha.outputs.sha }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     # Skip when the triggering workflow did not succeed; a sibling trigger will
     # still see that failure in the gate below and go red.
     if: >
-      github.event_name == 'workflow_dispatch' ||
-      (github.event.workflow_run.head_branch == 'main' &&
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
+      (github.event.workflow_run.event == 'push' &&
+       github.event.workflow_run.head_repository.full_name == github.repository &&
+       github.event.workflow_run.head_branch == 'main' &&
        github.event.workflow_run.conclusion == 'success')
     steps:
       - name: Resolve commit SHA
@@ -160,3 +165,26 @@ jobs:
             echo
             echo "Some gating workflows were still running. Wait for a run that says **SAFE TO PUBLISH**."
           } >> "$GITHUB_STEP_SUMMARY"
+
+  published-indexnow:
+    name: Verify publication before IndexNow
+    needs: readiness
+    if: needs.readiness.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ needs.readiness.outputs.revision }}
+          fetch-depth: 2
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - name: Notify changed canonical URLs only after production matches
+        env:
+          EXPECTED_REVISION: ${{ needs.readiness.outputs.revision }}
+          INDEXNOW: '1'
+          PUBLICATION_WAIT_SECONDS: '1200'
+        run: node scripts/indexnow-published.mjs
