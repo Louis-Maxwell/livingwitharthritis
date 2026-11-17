@@ -418,10 +418,17 @@ function withHubSpotlight(route, data) {
   if (!items.length) return data;
   return { ...data, bodyHtml: `${data.bodyHtml || ''}<h2>${escText(spot.heading)}</h2><ul>${items.join('')}</ul>` };
 }
-// Keep only internal links that resolve to a sitemap page; others become text.
+// Published standalone resources are useful links even when deliberately noindex
+// or downloadable, so they do not belong in the page sitemap.
+const STATIC_RESOURCES = new Set([
+  "/resources/knee-joint-map.html",
+  "/resources/gp-appointment-symptom-medication-tracker.pdf",
+  "/resources/flare-up-daily-log.pdf",
+]);
+// Keep known sitemap pages and the explicit published resources; others become text.
 function unwrapUnknownLinks(html) {
   return String(html).replace(/<a href="(\/[^"#?]*)[^"]*">([\s\S]*?)<\/a>/g, (all, path, inner) =>
-    SITEMAP_PATHS.includes(path.replace(/\/$/, '') || '/') ? all : inner);
+    (SITEMAP_PATHS.includes(path.replace(/\/$/, '') || '/') || STATIC_RESOURCES.has(path)) ? all : inner);
 }
 // Still-thin pages (interactive tools, contact screens): describe the pages
 // they already link to, using each target's own meta description.
@@ -1060,4 +1067,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-    }
+        }
