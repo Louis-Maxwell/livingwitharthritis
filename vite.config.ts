@@ -86,6 +86,23 @@ export default defineConfig(({ mode }) => {
   },
   plugins: [
     react(),
+    {
+      name: "printable-companion-assets",
+      apply: "build",
+      generateBundle() {
+        // Some publishers call Vite directly rather than npm lifecycle hooks.
+        // Emit the exact inspected PDF bytes in every production build.
+        const assets: Record<string, string> = JSON.parse(
+          fs.readFileSync(path.resolve(__dirname, "scripts/data/printable-companions.json"), "utf8"),
+        );
+        for (const [name, encoded] of Object.entries(assets)) {
+          if (!/^[a-z-]+\.pdf$/.test(name)) throw new Error("Unexpected printable filename");
+          const source = Buffer.from(encoded, "base64");
+          if (source.subarray(0, 5).toString() !== "%PDF-") throw new Error("Invalid printable PDF");
+          this.emitFile({ type: "asset", fileName: `resources/${name}`, source });
+        }
+      },
+    },
     // Lovable MCP backend plugin stays disabled — site is static + mailto only.
     mode === "development" && componentTagger(),
     ENABLE_PRERENDER &&
