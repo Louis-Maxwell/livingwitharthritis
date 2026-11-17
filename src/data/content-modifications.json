@@ -9,7 +9,7 @@
   },
   "/blog/arthritis-symptoms-what-to-do-next": {
     "modified": "2026-11-17",
-    "change": "Page-specific clinical review metadata published in PR500, based on the owner-attested ten-guide batch."
+    "change": "Added a contextual link to existing blank record PDFs and their hub. Existing clinical text and original publication/review dates retained; new sheets explicitly pending separate review."
   },
   "/blog/understanding-frailty-older-adults": {
     "modified": "2026-11-17",
@@ -98,5 +98,25 @@
   "/conditions/polymyalgia-rheumatica": {
     "modified": "2026-11-17",
     "change": "Source-linked concise summary and UK/international term explanations added. New summary is awaiting separate clinical review; old review dates do not attest to this revision."
+  },
+  "/blog/rheumatology-waiting-times-uk": {
+    "modified": "2026-11-17",
+    "change": "Added a contextual link to existing blank record PDFs and their hub. Existing clinical text and original publication/review dates retained; new sheets explicitly pending separate review."
+  },
+  "/blog/questions-to-ask-your-consultant-arthritis": {
+    "modified": "2026-11-17",
+    "change": "Added a contextual link to existing blank record PDFs and their hub. Existing clinical text and original publication/review dates retained; new sheets explicitly pending separate review."
+  },
+  "/blog/hospital-appointments-frailty-arthritis-uk": {
+    "modified": "2026-11-17",
+    "change": "Added a contextual link to existing blank record PDFs and their hub. Existing clinical text and original publication/review dates retained; new sheets explicitly pending separate review."
+  },
+  "/blog/expert-qa-how-to-talk-to-your-gp-about-medication-worries": {
+    "modified": "2026-11-17",
+    "change": "Added a contextual link to existing blank record PDFs and their hub. Existing clinical text and original publication/review dates retained; new sheets explicitly pending separate review."
+  },
+  "/blog/activity-diary-arthritis-frailty-uk": {
+    "modified": "2026-11-17",
+    "change": "Added a contextual link to existing blank record PDFs and their hub. Existing clinical text and original publication/review dates retained; new sheets explicitly pending separate review."
   }
 }
