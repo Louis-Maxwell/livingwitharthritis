@@ -597,7 +597,7 @@ const BlogPost = () => {
             </AnswerBox>
           )}
           {keyTakeaways.length >= 3 && (
-            <KeyTakeaways html="" title={article.title} items={keyTakeaways} heading="Key clinical takeaways" />
+            <KeyTakeaways html="" title={article.title} items={keyTakeaways} heading={editorialReviewNote ? "Key takeaways" : "Key clinical takeaways"} />
           )}
 
           {/* Print header: only visible when saving to PDF / printing */}
