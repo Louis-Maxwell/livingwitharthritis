@@ -25,7 +25,7 @@ export default function InstallBanner({ immediate = false }: { immediate?: boole
   }, []);
   if (!eligible || !ready || dismissed) return null;
   return <section aria-label="Save for another day" className="container mx-auto my-8 max-w-3xl rounded-xl border border-primary/25 bg-background p-5 text-foreground">
-    <div className="flex items-start justify-between gap-4"><h2 className="font-display text-xl font-bold">Keep useful blank records handy</h2><button type="button" onClick={() => setDismissed(true)} className="min-h-11 min-w-11 rounded border border-border px-2 text-sm">Dismiss</button></div>
+    <div className="flex items-start justify-between gap-4"><h2 className="font-display text-xl font-bold">Keep useful blank records handy</h2><button type="button" onClick={() => setDismissed(true)} className="min-h-11 min-w-11 shrink-0 rounded border border-border px-3 text-sm">Dismiss</button></div>
     <p className="my-3 text-sm leading-relaxed">Save the blank GP appointment tracker and flare log on this device. No completed notes are collected. Clinical guides still need an internet connection; the new sheets are awaiting separate clinical review.</p>
     <div className="flex flex-wrap gap-3"><button type="button" disabled={saving} className="min-h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground disabled:opacity-60" onClick={async () => {
       setSaving(true);setStatus('Saving blank sheets on this device...');
