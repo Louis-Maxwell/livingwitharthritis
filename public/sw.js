@@ -6,7 +6,10 @@ self.addEventListener('install', event => {
   event.waitUntil(self.skipWaiting());
 });
 self.addEventListener('message', event => {
-  if (event.data?.type !== 'SAVE_BLANK_RECORDS') return;
+  if (event.origin !== self.location.origin || !event.source?.url) return;
+  try { if (new URL(event.source.url).origin !== self.location.origin) return; }
+  catch { return; }
+  if (event.data?.type !== 'SAVE_BLANK_RECORDS' || !event.ports[0]) return;
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(FILES)).then(() => event.ports[0]?.postMessage({ saved: true })).catch(() => event.ports[0]?.postMessage({ saved: false })));
 });
 self.addEventListener('activate', event => {
