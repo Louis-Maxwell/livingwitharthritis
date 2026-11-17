@@ -61,10 +61,26 @@
   },
   "/blog/anti-inflammatory-smoothie-recipes": {
     "modified": "2026-11-17",
-    "change": "Source-backed editorial evidence and safety revision; removed unsupported efficacy, comparative and attribution claims. Separate clinical review pending."
+    "change": "Source-backed editorial evidence and safety revision; removed unsupported efficacy, comparative and attribution claims. Separate clinical review pending. Added an explicit food/portion safety summary instead of automatically extracting recipe ingredients as takeaways."
   },
   "/blog/best-supplements-joint-pain": {
     "modified": "2026-11-17",
     "change": "Source-backed editorial evidence and safety revision; removed unsupported efficacy, comparative and attribution claims. Separate clinical review pending."
+  },
+  "/blog/rheumatology-appointment-what-to-expect-uk": {
+    "modified": "2026-11-17",
+    "change": "Added contextual navigation to existing blank printables, with privacy and separate-review limits. Existing medical text and its review date are unchanged."
+  },
+  "/blog/arthritis-pain-tracking-journal-template": {
+    "modified": "2026-11-17",
+    "change": "Added contextual navigation to existing blank printables, with privacy and separate-review limits. Existing medical text and its review date are unchanged."
+  },
+  "/blog/arthritis-flare-up-what-to-do": {
+    "modified": "2026-11-17",
+    "change": "Added contextual navigation to existing blank printables, with privacy and separate-review limits. Existing medical text and its review date are unchanged."
+  },
+  "/blog/emergency-arthritis-flare-checklist": {
+    "modified": "2026-11-17",
+    "change": "Added contextual navigation to existing blank printables, with privacy and separate-review limits. Existing medical text and its review date are unchanged."
   }
 }

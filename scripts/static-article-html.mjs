@@ -171,8 +171,9 @@ export function buildStaticArticleInner(data) {
   const takeawaySource = Array.isArray(data?.article?.key_takeaways) ? data.article.key_takeaways
     : Array.isArray(data?.keyTakeaways) ? data.keyTakeaways : [];
   const takeawayItems = takeawaySource.filter((t) => typeof t === "string" && t.trim());
+  const takeawayHeading = data?.article?.editorial_review_note ? 'Key takeaways' : 'Key clinical takeaways';
   const takeaways = takeawayItems.length >= 3
-    ? `<section class="key-takeaways" aria-label="Key clinical takeaways"><h2>Key clinical takeaways</h2><ul>${takeawayItems.map((t) => `<li>${escText(t)}</li>`).join("")}</ul></section>`
+    ? `<section class="key-takeaways" aria-label="${takeawayHeading}"><h2>${takeawayHeading}</h2><ul>${takeawayItems.map((t) => `<li>${escText(t)}</li>`).join("")}</ul></section>`
     : "";
   const nextStep = data?.article?.slug
     ? recommendedNextStepsHtml(`/blog/${data.article.slug}`, `${data.article.title || ""} ${data.article.keywords || ""}`)
