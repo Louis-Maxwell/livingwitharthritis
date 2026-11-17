@@ -31,12 +31,32 @@ export function changedPaths(files, readCurrent, readPrevious) {
   return [...paths].sort();
 }
 
+/** Accept only the build meta or the production host's exact asset stamp.
+ * The host can build without Git metadata, so the meta alone is not always present.
+ * Never infer publication from an arbitrary commit-looking string in page content.
+ */
+export function publishedRevisions(html) {
+  const attribute = (tag, name) => tag.match(new RegExp(`\\s${name}\\s*=\\s*["']([^"']*)["']`, 'i'))?.[1];
+  const metas = [...html.matchAll(/<meta\b[^>]*>/gi)]
+    .map(([tag]) => tag)
+    .filter(tag => attribute(tag, 'name')?.toLowerCase() === 'lwa-build-revision');
+  const hostStamps = [...html.matchAll(/<script\b[^>]*>/gi)]
+    .map(([tag]) => tag)
+    .filter(tag => /^\/__l5e\/events(?:\.[a-f0-9]{16})?\.js$/.test(attribute(tag, 'src') || ''));
+  const revisions = metas.map(tag => attribute(tag, 'content'));
+  for (const tag of hostStamps) {
+    if (attribute(tag, 'data-artifact-kind') !== 'dwl_content_hash' || !/^[a-f0-9]{64}$/.test(attribute(tag, 'data-artifact-id') || '')) return [];
+    revisions.push(attribute(tag, 'data-commit-sha'));
+  }
+  return revisions.length && revisions.every(value => /^[a-f0-9]{40}$/.test(value || '')) ? revisions : [];
+}
+
 export function pageIsPublished(html, url, revision) {
   const canonical = [...html.matchAll(/<link\b[^>]*>/gi)].find(([tag]) => /\brel=["']canonical["']/i.test(tag))?.[0];
   const href = canonical?.match(/\bhref=["']([^"']+)["']/i)?.[1];
   const blocked = [...html.matchAll(/<meta\b[^>]*>/gi)].some(([tag]) => /\bname=["'](?:robots|bingbot)["']/i.test(tag) && /\bcontent=["'][^"']*noindex/i.test(tag));
-  const pageRevision = [...html.matchAll(/<meta\b[^>]*>/gi)].find(([tag]) => /\bname=["']lwa-build-revision["']/i.test(tag))?.[0].match(/\bcontent=["']([^"']+)["']/i)?.[1];
-  return href === url && !blocked && pageRevision === revision;
+  const revisions = publishedRevisions(html);
+  return href === url && !blocked && revisions.length > 0 && revisions.every(value => value === revision);
 }
 
 export async function verifyPublication(revision, urls, request = fetch) {

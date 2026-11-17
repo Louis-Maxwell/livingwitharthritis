@@ -27,6 +27,34 @@ describe('production-gated IndexNow', () => {
     expect(pageIsPublished(html.replace('</head>','<meta name="robots" content="noindex,follow"></head>'), url, revision)).toBe(false);
     expect(pageIsPublished(html.replace('lwa-build-revision','old-marker'), url, revision)).toBe(false);
   });
+  it('accepts the exact production host stamp when Git build metadata is unavailable', () => {
+    const stamp = `<script defer data-commit-sha="${revision}" data-artifact-id="${'c'.repeat(64)}" src="/__l5e/events.js" data-artifact-kind="dwl_content_hash"></script>`;
+    const hosted = html.replace(/<meta[^>]*>/, stamp);
+    expect(pageIsPublished(hosted, url, revision)).toBe(true);
+    expect(pageIsPublished(hosted.replace('/__l5e/events.js', '/__l5e/events.b979ee024b15adfd.js'), url, revision)).toBe(true);
+    expect(pageIsPublished(hosted.replace('/__l5e/events.js', 'https://unrelated.test/__l5e/events.js'), url, revision)).toBe(false);
+    expect(pageIsPublished(hosted, url, 'b'.repeat(40))).toBe(false);
+    expect(pageIsPublished(hosted.replace('/__l5e/events.js', '/other.js'), url, revision)).toBe(false);
+    expect(pageIsPublished(hosted.replace('dwl_content_hash', 'unknown'), url, revision)).toBe(false);
+    expect(pageIsPublished(hosted.replace('c'.repeat(64), 'invalid'), url, revision)).toBe(false);
+    expect(pageIsPublished(hosted.replace(revision, 'main'), url, revision)).toBe(false);
+    expect(pageIsPublished(hosted.replace('</head>', '<meta name="robots" content="noindex,follow"></head>'), url, revision)).toBe(false);
+    expect(pageIsPublished(hosted, url + '/alias', revision)).toBe(false);
+  });
+  it('fails closed for conflicting or malformed build stamps and ignores page prose', () => {
+    const stamp = value => `<script src="/__l5e/events.js" data-artifact-kind="dwl_content_hash" data-artifact-id="${'c'.repeat(64)}" data-commit-sha="${value}"></script>`;
+    expect(pageIsPublished(html.replace('</head>', stamp(revision) + '</head>'), url, revision)).toBe(true);
+    expect(pageIsPublished(html.replace('</head>', stamp('b'.repeat(40)) + '</head>'), url, revision)).toBe(false);
+    expect(pageIsPublished(html.replace('</head>', stamp('invalid') + '</head>'), url, revision)).toBe(false);
+    expect(pageIsPublished(html.replace(/<meta[^>]*>/, `<p data-commit-sha="${revision}">${revision}</p>`), url, revision)).toBe(false);
+  });
+  it('verifies host-stamped home and article without making a submission', async () => {
+    const hosted = html.replace(/<meta[^>]*>/, `<script src="/__l5e/events.js" data-artifact-kind="dwl_content_hash" data-artifact-id="${'c'.repeat(64)}" data-commit-sha="${revision}"></script>`);
+    const request = vi.fn().mockImplementation(async input => input.startsWith(`${ORIGIN}/?revision=`) ? new Response(hosted.replace(url, `${ORIGIN}/`)) : input.endsWith('/sitemap.xml') ? new Response(`<urlset><url><loc>${url}</loc></url></urlset>`) : new Response(hosted));
+    expect(await verifyPublication(revision, [url], request)).toBe(true);
+    expect(request).toHaveBeenCalledTimes(3);
+    expect(request.mock.calls.every(([, options]) => !options.method)).toBe(true);
+  });
   it('does not even read the sitemap or page when production revision is stale', async () => {
     const request = vi.fn().mockResolvedValue(new Response(html.replaceAll(revision, 'b'.repeat(40))));
     expect(await verifyPublication(revision, [url], request)).toBe(false);
