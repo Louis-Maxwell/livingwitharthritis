@@ -23,6 +23,9 @@ const inquirySchema = z.object({
   message: z.string().trim().max(5000).optional(),
 });
 
+// Benefits are only things a small volunteer-led charity can actually deliver.
+// No invented perks such as event tables, board seats or bespoke reports:
+// none of those exist. Every partnership is agreed in writing first.
 const tiers = [
   {
     name: "Bronze Partner",
@@ -30,9 +33,9 @@ const tiers = [
     color: "from-primary/10 to-primary/5 border-primary/20",
     icon: "text-primary",
     benefits: [
-      "Logo on our website",
-      "Social media recognition",
-      "Quarterly impact report",
+      "Thank-you on our website (with your permission)",
+      "Thank-you post on our social channels",
+      "Short written note on how your gift was used",
       "Certificate of partnership",
     ],
   },
@@ -43,10 +46,8 @@ const tiers = [
     icon: "text-primary",
     benefits: [
       "Everything in Bronze",
-      "Featured case study",
-      "Staff wellness workshops",
-      "Co-branded materials",
-      "Annual impact presentation",
+      "Free printable guides to share with your staff",
+      "Optional online staff talk on staying active with arthritis (educational, by arrangement)",
     ],
   },
   {
@@ -56,11 +57,8 @@ const tiers = [
     icon: "text-primary",
     benefits: [
       "Everything in Silver",
-      "Named programme sponsorship",
-      "VIP event invitations",
-      "Executive board briefings",
-      "PR & media opportunities",
-      "Matched giving programme",
+      "Your support credited on a free guide or resource you choose to fund (agreed in writing)",
+      "Help setting up matched or payroll giving for your staff",
     ],
   },
   {
@@ -70,12 +68,8 @@ const tiers = [
     icon: "text-primary",
     benefits: [
       "Everything in Gold",
-      "Strategic advisory seat",
-      "Custom impact programme",
-      "National campaign partnership",
-      "Employee volunteering days",
-      "Annual gala table",
-      "Bespoke reporting dashboard",
+      "A written plan for what your gift funds, agreed with you before you give",
+      "Written update at the end of the funded work",
     ],
   },
 ];
@@ -225,7 +219,7 @@ const CorporateGiving = () => {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-display font-bold text-foreground mb-3">Partnership Tiers</h2>
               <p className="text-muted-foreground max-w-lg mx-auto">
-                Choose the level that fits your organisation. Every tier includes meaningful impact and recognition.
+                Choose the level that fits your organisation. We agree every partnership in writing first. We never share patient data, and a partnership is not an endorsement of your products.
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -275,7 +269,7 @@ const CorporateGiving = () => {
                 { title: "Payroll Giving", desc: "Enable tax-efficient donations directly from employee salaries through Give As You Earn." },
                 { title: "Charity of the Year", desc: "Nominate us as your Charity of the Year for a focused, high-impact partnership." },
                 { title: "Sponsored Events", desc: "Sponsor or host fundraising events — from corporate runs to gala dinners." },
-                { title: "Employee Wellness", desc: "Arthritis awareness workshops and ergonomic assessments for your workforce." },
+                { title: "Employee Wellness", desc: "Educational talks for your staff on staying active with arthritis, by arrangement." },
                 { title: "Pro Bono Support", desc: "Contribute your team's expertise in marketing, tech, legal, or finance." },
               ].map((way, i) => (
                 <motion.div
