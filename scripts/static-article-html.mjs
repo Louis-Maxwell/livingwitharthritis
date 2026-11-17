@@ -223,7 +223,7 @@ export function buildStaticArticleInner(data) {
     `<article id="static-article" class="static-article">` +
     `<h1>${escText(heading)}</h1>` +
     author + reviewer +
-    answer + takeaways +
+    answer + (data?.internationalTerms?.length ? `<details><summary>UK terms explained for international readers</summary><dl>${data.internationalTerms.map(term => `<dt>${escText(term.term)}</dt><dd>${escText(term.explanation)} <a href="${escText(term.source)}">${escText(term.label)}</a></dd>`).join("")}</dl><p>UK care pathways and medicine advice remain UK-specific. Check local advice where you live.</p></details>` : "") + (data?.summaryReviewNote ? `<p class="editorial-review-note">${escText(data.summaryReviewNote)}</p>` : "") + takeaways +
     (bodyHtml ? `<div class="static-article-body">${stripBodyBloat(bodyHtml)}</div>` : "") +
     `<p><em>${updated}This is general information, not a substitute for personalised medical advice.</em></p>` +
     faqHtml +
