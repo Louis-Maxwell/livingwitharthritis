@@ -95,7 +95,9 @@ async function checkOne(path) {
     let res;
     if (DIST_DIR) {
       const pathname = new URL(target).pathname;
-      const file = resolve(DIST_DIR, `.${pathname}`, "index.html");
+      const file = /\.html$/i.test(pathname)
+        ? resolve(DIST_DIR, `.${pathname}`)
+        : resolve(DIST_DIR, `.${pathname}`, "index.html");
       if (!file.startsWith(DIST_DIR + sep)) {
         return { url: path, status: 0, reason: "bad-path" };
       }

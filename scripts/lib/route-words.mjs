@@ -4,7 +4,7 @@ import { join } from "node:path";
 /** dist file served for a route, or null. */
 export function routeFile(route, dist = "dist") {
   const p = route.replace(/^\/+|\/+$/g, "");
-  for (const f of [p ? join(dist, p, "index.html") : join(dist, "index.html"), join(dist, `${p}.html`)]) if (existsSync(f)) return f;
+  for (const f of [...(/\.html$/i.test(p) ? [join(dist, p)] : []), p ? join(dist, p, "index.html") : join(dist, "index.html"), join(dist, `${p}.html`)]) if (existsSync(f)) return f;
   return null;
 }
 

@@ -424,8 +424,8 @@ function withHubSpotlight(route, data) {
   if (!items.length) return data;
   return { ...data, bodyHtml: `${data.bodyHtml || ''}<h2>${escText(spot.heading)}</h2><ul>${items.join('')}</ul>` };
 }
-// Published standalone resources are useful links even when deliberately noindex
-// or downloadable, so they do not belong in the page sitemap.
+// Standalone resources are served directly, not rewritten as SPA route folders.
+// PDFs remain downloads; the knee tool is an indexable supplemental page.
 const STATIC_RESOURCES = new Set([
   "/resources/knee-joint-map.html",
   "/resources/gp-appointment-symptom-medication-tracker.pdf",
@@ -1036,7 +1036,7 @@ function writeRouteFiles() {
 
   for (const route of routes) {
     // Sitemap entries may include downloadable assets; keep them as files.
-    if (/\.(?:pdf|mp4|mov|webm|png|jpe?g|svg|xml|txt)$/i.test(route)) continue;
+    if (STATIC_RESOURCES.has(route) || /\.(?:pdf|mp4|mov|webm|png|jpe?g|svg|xml|txt)$/i.test(route)) continue;
     const dir = join(DIST, route.replace(/^\//, ""));
     const file = join(dir, "index.html");
     const data = headDataFor(route);
@@ -1078,4 +1078,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-          }
+    }
