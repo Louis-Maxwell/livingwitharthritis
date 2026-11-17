@@ -19,18 +19,18 @@ export function classifyLink(a: Pick<HTMLAnchorElement, "getAttribute" | "textCo
   if (!raw) return [];
   const label = (a.getAttribute("aria-label") || a.textContent || "").trim().slice(0, 80);
   const lower = raw.toLowerCase();
+  // Opening a contact app does not prove a connected call or delivered message.
+  // Contact labels can contain the number/address, so omit them from telemetry.
   if (lower.startsWith("tel:")) {
     return [
-      { name: "phone_click", params: { link_text: label, method: "phone" } },
-      { name: "generate_lead", params: { method: "phone" } },
+      { name: "phone_click", params: { method: "phone" } },
     ];
   }
   if (lower.startsWith("mailto:")) {
     // mailto:?subject=… with no recipient is the e-mail share button.
     if (/^mailto:\?/.test(lower)) return [{ name: "social_share", params: { method: "email", link_text: label } }];
     return [
-      { name: "email_click", params: { link_text: label, method: "email" } },
-      { name: "generate_lead", params: { method: "email" } },
+      { name: "email_click", params: { method: "email" } },
     ];
   }
   if (SHARE_RE.test(raw)) {
