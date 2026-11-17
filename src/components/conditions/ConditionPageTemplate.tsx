@@ -1,3 +1,5 @@
+import DirectAnswerCapsule from "@/components/seo/DirectAnswerCapsule";
+import { hasPriorityDirectAnswer } from "@/lib/priorityDirectAnswer";
 import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
 import { Suspense, type ReactNode, type ElementType } from "react";
 import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
@@ -155,8 +157,8 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           signOrSymptom: data.symptoms,
           riskFactor: data.causes,
           image: ogImage,
-          lastReviewed: "2026-10-26",
-          reviewedBy: { name: "Louis Maxwell", jobTitle: "First Contact Practitioner Physiotherapist", identifier: "HCPC PH128483", profileUrl: "https://livingwitharthritis.org.uk/authors/maxwell" },
+          lastReviewed: hasPriorityDirectAnswer(`/conditions/${data.slug}`) ? undefined : "2026-10-26",
+          reviewedBy: hasPriorityDirectAnswer(`/conditions/${data.slug}`) ? undefined : { name: "Louis Maxwell", jobTitle: "First Contact Practitioner Physiotherapist", identifier: "HCPC PH128483", profileUrl: "https://livingwitharthritis.org.uk/authors/maxwell" },
         }}
         faqs={data.faqs}
         // No breadcrumbs prop: <PageBreadcrumb> below already injects its
@@ -210,12 +212,13 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
               {data.name}
             </h1>
+            <DirectAnswerCapsule route={`/conditions/${data.slug}`} />
             <p className="text-lg text-muted-foreground leading-relaxed">{data.tagline}</p>
           </div>
         </div>
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
-          {data.aeoAnswer ? (
+          {hasPriorityDirectAnswer(`/conditions/${data.slug}`) ? <AeoEnhancement route={`/conditions/${data.slug}`} /> : data.aeoAnswer ? (
             <AnswerBox question={data.aeoAnswer.question} reviewed={data.aeoAnswer.reviewed}>
               {data.aeoAnswer.answer}
             </AnswerBox>
@@ -432,7 +435,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           </div>
           <ClusterGpAndLinks path={`/conditions/${data.slug}`} badge />
           <UrgentHelpAndSources path={`/conditions/${data.slug}`} />
-          <EducationalDisclaimerBox lastReviewed="2026-09-17" />
+          <EducationalDisclaimerBox lastReviewed={hasPriorityDirectAnswer(`/conditions/${data.slug}`) ? undefined : "2026-09-17"} reviewStatus={hasPriorityDirectAnswer(`/conditions/${data.slug}`) ? "pending" : "reviewed"} pendingText="Updated source-based summary: separate clinical review pending. Earlier review dates do not attest to this revision." />
           <TopicClusterNav path={`/conditions/${data.slug}`} />
         </main>
         <Suspense fallback={null}>
@@ -442,4 +445,4 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
       </div>
     </>
   );
-}
+                     }

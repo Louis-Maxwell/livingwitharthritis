@@ -1,5 +1,5 @@
+import DirectAnswerCapsule from "@/components/seo/DirectAnswerCapsule";
 import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
-import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -14,12 +14,9 @@ import ConditionBlogStrip from "@/components/ConditionBlogStrip";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
-import AnswerBox from "@/components/seo/AnswerBox";
-import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
-import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/conditions/knee-arthritis`;
@@ -27,8 +24,6 @@ const URL = `${BASE}/conditions/knee-arthritis`;
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
-  "reviewedBy": LOUIS_MAXWELL_REF,
-  "lastReviewed": "2026-10-26",
   "name": "Knee Arthritis – Symptoms, Exercises & Treatment | Living With Arthritis",
   "description": "UK guide to knee arthritis (osteoarthritis of the knee): symptoms, causes, best exercises, weight management, treatment options and when to consider knee replacement.",
   "url": URL,
@@ -130,7 +125,7 @@ const KneeArthritis = () => (
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
               Knee Arthritis
             </h1>
-            <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
+            <DirectAnswerCapsule route="/conditions/knee-arthritis" />
             <AeoEnhancement route="/conditions/knee-arthritis" />
             <p className="speakable-intro text-lg text-muted-foreground leading-relaxed">
               The knee is the most commonly affected joint in osteoarthritis. This guide covers what knee arthritis feels like, the exercises that help most, and the treatment ladder used in the UK — from self-management through to knee replacement.
@@ -138,23 +133,6 @@ const KneeArthritis = () => (
           </motion.div>
         </div>
       </div>
-
-      <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-10">
-        <AnswerBox
-          question="What is the best treatment for knee arthritis?"
-          reviewed="2026-06-13"
-        >
-          <p>
-            UK NICE guidance ranks <strong>quadriceps strengthening</strong> and
-            <strong> weight loss</strong> as the most effective treatments for knee osteoarthritis,
-            cutting pain by around 50%. Add topical NSAID gel for daily pain, oral NSAIDs for
-            flares, and a steroid injection if needed. Knee replacement is highly successful
-            but reserved for severe pain that limits daily life after non-surgical options have
-            been tried.
-          </p>
-        </AnswerBox>
-        <MedicalReviewBadge compact reviewer="Louis Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
-      </section>
 
       <section className="py-12 lg:py-16 bg-tint-green">
         <div className="container mx-auto px-6 md:px-10 max-w-4xl">
@@ -329,7 +307,7 @@ const KneeArthritis = () => (
 
       <ClusterGpAndLinks path="/conditions/knee-arthritis" />
       <UrgentHelpAndSources path="/conditions/knee-arthritis" />
-      <EducationalDisclaimerBox lastReviewed={LAST_REVIEWED_ISO} />
+      <EducationalDisclaimerBox reviewStatus="pending" pendingText="Updated source-based summary: separate clinical review pending. Earlier review dates do not attest to this revision." />
       <TopicClusterNav path="/conditions/knee-arthritis" />
 <CrossLinkBanner
           links={["guide-knee-oa", "flare-action-plan", "exercises", "guide-benefits"]}

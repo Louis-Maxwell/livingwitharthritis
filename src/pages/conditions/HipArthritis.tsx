@@ -1,5 +1,5 @@
+import DirectAnswerCapsule from "@/components/seo/DirectAnswerCapsule";
 import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
-import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 import { Helmet } from "react-helmet-async";
 import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Link } from "react-router-dom";
@@ -14,14 +14,11 @@ import ConditionBlogStrip from "@/components/ConditionBlogStrip";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
-import AnswerBox from "@/components/seo/AnswerBox";
-import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_HIP } from "@/data/clinical/ukCitations";
-import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -30,8 +27,6 @@ const URL = `${BASE}/conditions/hip-arthritis`;
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
-  "reviewedBy": LOUIS_MAXWELL_REF,
-  "lastReviewed": "2026-10-26",
   "name": "Hip Arthritis – Symptoms, Exercises & Pain Relief | Living With Arthritis",
   "description": "UK guide to hip arthritis (osteoarthritis of the hip): symptoms, causes, best exercises, how to relieve hip pain while sleeping, treatment options and when to consider hip replacement.",
   "url": URL,
@@ -136,7 +131,7 @@ const HipArthritis = () => (
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
               Hip Arthritis
             </h1>
-            <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
+            <DirectAnswerCapsule route="/conditions/hip-arthritis" />
             <AeoEnhancement route="/conditions/hip-arthritis" />
             <p className="speakable-intro text-lg text-muted-foreground leading-relaxed">
               Hip osteoarthritis is one of the most common causes of groin and outer-hip pain in adults over 45. This educational guide covers what hip arthritis feels like, the exercises that help most, how to sleep without flaring it up, and the UK treatment ladder — from self-management through to hip replacement. It is not a diagnosis; speak to your GP or physiotherapist for personalised advice.
@@ -144,24 +139,6 @@ const HipArthritis = () => (
           </motion.div>
         </div>
       </div>
-
-      <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-10">
-        <AnswerBox
-          question="What is the best treatment for hip arthritis?"
-          reviewed="2026-06-23"
-        >
-          <p>
-            UK NICE guidance ranks <strong>hip strengthening exercise</strong> and
-            <strong> weight loss</strong> as the most effective treatments for hip osteoarthritis,
-            cutting pain by around 40–50%. Add topical NSAID gel or oral NSAIDs for flares,
-            a steroid injection if needed, and a walking pole in the opposite hand to offload
-            the joint. Total hip replacement is one of the most successful operations in
-            medicine — reserved for severe pain that limits daily life after non-surgical
-            options have been tried.
-          </p>
-        </AnswerBox>
-        <MedicalReviewBadge compact reviewer="Louis Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
-      </section>
 
       <section className="py-12 lg:py-16 bg-tint-green">
         <div className="container mx-auto px-6 md:px-10 max-w-4xl">
@@ -355,7 +332,7 @@ const HipArthritis = () => (
           <ArticleCitations citations={CITATIONS_HIP} />
           <ClusterGpAndLinks path="/conditions/hip-arthritis" />
       <UrgentHelpAndSources path="/conditions/hip-arthritis" />
-          <EducationalDisclaimerBox lastReviewed="2026-09-15" />
+          <EducationalDisclaimerBox reviewStatus="pending" pendingText="Updated source-based summary: separate clinical review pending. Earlier review dates do not attest to this revision." />
           <TopicClusterNav path="/conditions/hip-arthritis" />
           <CrossLinkBanner preset="condition" exclude="/conditions/hip-arthritis" title="Explore related resources" />
         </div>

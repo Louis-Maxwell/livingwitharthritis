@@ -57,6 +57,8 @@ const BLOG_DATA_PATH = resolve("scripts/blog-head-data.json");
 const CONDITION_DATA_PATH = resolve("scripts/condition-head-data.json");
 const LIBRARY_DATA_PATH = resolve("scripts/library-head-data.json");
 const HUB_GUIDE_DATA_PATH = resolve("scripts/hub-guide-head-data.json");
+const INTERNATIONAL_LEXICON = JSON.parse(readFileSync(resolve("src/data/international-lexicon.json"), "utf8"));
+const PRIORITY_ANSWERS = JSON.parse(readFileSync(resolve("src/data/priority-direct-answers.json"), "utf8"));
 
 const template = existsSync(SRC) ? readFileSync(SRC, "utf8") : "";
 
@@ -465,7 +467,12 @@ function withLinkedSummaries(route, data) {
 }
 export { withRenderedBody };
 function headDataFor(route, override) {
-  const data = withReviewRecord(route, headDataForInner(route, override));
+  let data = withReviewRecord(route, headDataForInner(route, override));
+  const priority = PRIORITY_ANSWERS[route];
+  if (priority && data) {
+    const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
+    data = { ...editorial, question: priority.question, answer: priority.answer, internationalTerms: INTERNATIONAL_LEXICON.filter(term => term.term !== "Paracetamol" || route.includes("arthritis")), summaryReviewNote: "Source-based educational summary. This updated summary is awaiting a separate clinical review.", sources: [...(data.sources || []), ...priority.sources] };
+  }
   if (route === "/guides/knee-exercises-for-osteoarthritis" && data) {
     const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
     return editorial;
@@ -1067,4 +1074,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-        }
+}

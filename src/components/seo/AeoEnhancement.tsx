@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from "react";
 import AnswerBox from "@/components/seo/AnswerBox";
+import { hasPriorityDirectAnswer } from "@/lib/priorityDirectAnswer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { ShieldCheck, CalendarClock } from "lucide-react";
@@ -31,6 +32,7 @@ interface AeoEnhancementProps {
  */
 export default function AeoEnhancement(props: AeoEnhancementProps) {
   const configured = getPageAeo(props.route);
+  const hasPriorityAnswer = hasPriorityDirectAnswer(props.route);
   const question = props.question ?? configured?.question;
   const answer = props.answer ?? configured?.answer;
   const faqs = useMemo(() => props.faqs ?? configured?.faqs ?? [], [props.faqs, configured?.faqs]);
@@ -71,12 +73,12 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
 
   return (
     <section className="my-8 space-y-6" aria-label="Key information">
-      {question && answer && (
+      {!hasPriorityAnswer && question && answer && (
         <AnswerBox question={question} reviewed={updatedAt}>
           <p>{answer}</p>
         </AnswerBox>
       )}
-      {question && answer && takeaways.length >= 3 && (
+      {!hasPriorityAnswer && question && answer && takeaways.length >= 3 && (
         <KeyTakeaways html="" title={question} items={takeaways} heading="Key clinical takeaways" />
       )}
 
@@ -94,7 +96,7 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
         </div>
       )}
 
-      <div className="flex flex-wrap items-center gap-2 text-xs">
+      {!hasPriorityAnswer && <div className="flex flex-wrap items-center gap-2 text-xs">
         {reviewer && !/clinical team/i.test(reviewer) && (
           <Badge variant="outline" className="gap-1.5 border-primary/30 text-foreground">
             <ShieldCheck className="h-3 w-3 text-primary" />
@@ -105,7 +107,7 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
           <CalendarClock className="h-3 w-3 text-primary" />
           Updated {new Date(updatedAt).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
         </Badge>
-      </div>
+      </div>}
 
       {faqs.length > 0 && (
         <div className="rounded-xl bg-white p-6">
