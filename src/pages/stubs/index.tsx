@@ -117,6 +117,12 @@ export const ConnectGroupsStub = () => (
     faqs={CONNECT_GROUPS_FAQS}
     intro={
       <>
+        <section aria-labelledby="connect-enquiry-heading" className="mb-8 rounded-xl border border-primary/20 bg-primary/5 p-5 sm:p-6">
+          <h2 id="connect-enquiry-heading" className="text-xl font-semibold text-foreground">Ask about a group</h2>
+          <p className="mt-3">Tell us whether you are looking for online or in-person peer support, and your area if relevant. You do not need to share your medical history to ask.</p>
+          <a href="/contact" className="mt-4 inline-flex min-h-11 items-center justify-center rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">Ask about Connect Groups</a>
+          <p className="mt-3 text-sm text-muted-foreground">This is an enquiry, not a group booking or confirmation of a place. The contact form opens a draft in your email app. Check it and press Send there.</p>
+        </section>
         <p>
           Peer support helps when medical appointments are short and friends or family do not fully understand flares, pacing or treatment side effects.
           Our connect groups give you a regular, moderated space to share what is working, ask practical questions and feel less isolated — online or in person.
