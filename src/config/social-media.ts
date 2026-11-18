@@ -10,6 +10,9 @@ export type SocialPlatform =
   | 'linkedin'
   | 'youtube'
   | 'threads'
+  | 'tiktok'
+  | 'bluesky'
+  | 'mastodon'
   | 'pinterest'
   | 'reddit'
   | 'email';
@@ -97,7 +100,37 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
     icon: 'AtSign',
     color: 'hover:text-black dark:hover:text-white',
     description: 'Follow Living With Arthritis on Threads',
-    enabled: false, // Semrush: Threads returns HTTP 429 to crawlers; re-enable when stable
+    enabled: true, // Public charity profile and website backlink checked 18 November 2026
+  },
+  tiktok: {
+    platform: 'tiktok',
+    url: 'https://www.tiktok.com/@arthritis.org.uk',
+    label: 'TikTok',
+    displayName: 'TikTok',
+    icon: 'Music2',
+    color: 'hover:text-primary',
+    description: 'Follow Living With Arthritis on TikTok',
+    enabled: true,
+  },
+  bluesky: {
+    platform: 'bluesky',
+    url: 'https://bsky.app/profile/lwarthritis.bsky.social',
+    label: 'Bluesky',
+    displayName: 'Bluesky',
+    icon: 'Cloud',
+    color: 'hover:text-primary',
+    description: 'Follow Living With Arthritis on Bluesky',
+    enabled: true,
+  },
+  mastodon: {
+    platform: 'mastodon',
+    url: 'https://mastodon.social/@livingwitharthritis',
+    label: 'Mastodon',
+    displayName: 'Mastodon',
+    icon: 'AtSign',
+    color: 'hover:text-primary',
+    description: 'Follow Living With Arthritis on Mastodon',
+    enabled: true,
   },
   pinterest: {
     platform: 'pinterest',
@@ -206,11 +239,16 @@ export const validateSocialUrl = (url: string): boolean => {
       'youtube.com',
       'threads.com',
       'threads.net',
+      'tiktok.com',
+      'bsky.app',
+      'mastodon.social',
       'pinterest.com',
       'pinterest.co.uk',
       'reddit.com',
     ];
-    return validDomains.some(domain => urlObj.hostname.includes(domain)) || url.startsWith('mailto:');
+    return (urlObj.protocol === 'https:' && validDomains.some(domain =>
+      urlObj.hostname === domain || urlObj.hostname.endsWith(`.${domain}`)
+    )) || urlObj.protocol === 'mailto:';
   } catch {
     return false;
   }
