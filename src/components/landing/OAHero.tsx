@@ -38,7 +38,7 @@ const HERO_SRCSET = `${hero400} 400w, ${hero800} 800w`;
 const HERO_SIZES = "(min-width: 1024px) 240px, (min-width: 640px) 160px, 112px";
 
 const OAHero = memo(() => (
-  <section aria-labelledby="oa-hero" className="home-practical-hero relative w-full max-w-full overflow-hidden">
+  <section aria-labelledby="oa-hero" className="home-practical-hero bg-white text-black [&_h1]:text-black [&_p]:text-black relative w-full max-w-full overflow-hidden">
     <div className="container mx-auto px-5 sm:px-8 lg:px-16 max-w-7xl py-8 sm:py-10 lg:py-14">
       <div className="grid lg:grid-cols-[minmax(0,1.5fr)_minmax(0,0.5fr)] gap-6 lg:gap-12 items-center w-full">
         <div className="min-w-0">
