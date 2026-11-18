@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { trackDonationComplete, trackNewsletterSignup } from "@/lib/analytics";
+import { trackDonationComplete, trackNewsletterSignup, trackContactSubmit } from "@/lib/analytics";
 
 describe("GA4 conversion events", () => {
   beforeEach(() => {
@@ -9,17 +9,20 @@ describe("GA4 conversion events", () => {
     window.gtag = vi.fn() as typeof window.gtag;
   });
 
-  it("fires sign_up and generate_lead on newsletter signup", () => {
+  it("emits only generate_lead for one confirmed contact completion", () => {
+    trackContactSubmit({ topic: "general" });
+    expect(vi.mocked(window.gtag!).mock.calls.map(call => call[1])).toEqual(["generate_lead"]);
+  });
+
+  it("emits only sign_up for one newsletter completion", () => {
     trackNewsletterSignup();
     const names = vi.mocked(window.gtag as (...args: unknown[]) => void).mock.calls.map(
       (c) => c[1],
     );
-    expect(names).toContain("sign_up");
-    expect(names).toContain("generate_lead");
-    expect(names).toContain("newsletter_signup");
+    expect(names).toEqual(["sign_up"]);
   });
 
-  it("fires donate and purchase on donation complete", () => {
+  it("emits only purchase for one donation completion", () => {
     trackDonationComplete({
       transactionId: "txn_test",
       amount: 50,
@@ -28,8 +31,8 @@ describe("GA4 conversion events", () => {
     const names = vi.mocked(window.gtag as (...args: unknown[]) => void).mock.calls.map(
       (c) => c[1],
     );
-    expect(names).toContain("donate");
-    expect(names).toContain("purchase");
+    expect(names).toEqual(["purchase"]);
+    expect(vi.mocked(window.gtag!).mock.calls[0][2]).toMatchObject({ transaction_id: "txn_test", value: 50, currency: "GBP" });
   });
 });
 
