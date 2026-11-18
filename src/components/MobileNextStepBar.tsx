@@ -179,12 +179,14 @@ const MobileNextStepBar = memo(() => {
   const { primary, secondary, eyebrow } = config;
 
   return (
-    <div
-      className="fixed inset-x-0 z-[70] lg:hidden pointer-events-none"
-      style={{ bottom: "calc(68px + env(safe-area-inset-bottom, 0px))" }}
+    <nav
+      className="relative mx-auto w-full max-w-xl px-3 pt-4 lg:hidden"
+      // Keep these actions in the document flow, above the fixed bottom nav
+      // and help launcher, instead of masking the page's reading/link area.
+      style={{ paddingBottom: "calc(68px + env(safe-area-inset-bottom, 0px) + 6rem)" }}
       aria-label="Suggested next step"
     >
-      <div className="mx-2 mb-2 pointer-events-auto">
+      <div className="mb-2">
         <div className="rounded-2xl border border-border/40 bg-card/95 backdrop-blur-xl shadow-lg overflow-hidden">
           <div className="flex items-center justify-between px-3 pt-2">
             <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground truncate">
@@ -199,43 +201,43 @@ const MobileNextStepBar = memo(() => {
               <X className="w-3.5 h-3.5" />
             </button>
           </div>
-          <div className="flex items-stretch gap-2 px-2 pb-2 pt-1.5">
+          <div className="flex flex-col items-stretch gap-2 px-2 pb-2 pt-1.5">
             {primary.href.startsWith("http") ? (
             <a
               href={primary.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-[2] min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-primary-foreground text-sm font-semibold px-3 active:scale-[0.98] transition"
+              className="w-full min-w-0 min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-primary-foreground text-sm font-semibold px-3 active:scale-[0.98] transition"
             >
-              <primary.Icon className="w-4 h-4" />
-              <span className="truncate">{primary.label}</span>
+              <primary.Icon className="w-4 h-4 shrink-0" />
+              <span className="min-w-0 whitespace-normal break-words text-center">{primary.label}</span>
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
             ) : (
             <button
               type="button"
               onClick={() => navigate(primary.href)}
-              className="flex-[2] min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-primary-foreground text-sm font-semibold px-3 active:scale-[0.98] transition"
+              className="w-full min-w-0 min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-primary-foreground text-sm font-semibold px-3 active:scale-[0.98] transition"
             >
-              <primary.Icon className="w-4 h-4" />
-              <span className="truncate">{primary.label}</span>
-              <ArrowRight className="w-3.5 h-3.5 opacity-80" />
+              <primary.Icon className="w-4 h-4 shrink-0" />
+              <span className="min-w-0 whitespace-normal break-words text-center">{primary.label}</span>
+              <ArrowRight className="w-3.5 h-3.5 shrink-0 opacity-80" />
             </button>
             )}
             {secondary && (
               <button
                 type="button"
                 onClick={() => navigate(secondary.href)}
-                className="flex-1 min-h-[44px] inline-flex items-center justify-center gap-1.5 rounded-xl bg-secondary text-secondary-foreground text-xs font-semibold px-2 active:scale-[0.98] transition"
+                className="w-full min-w-0 min-h-[44px] inline-flex items-center justify-center gap-1.5 rounded-xl bg-secondary text-secondary-foreground text-xs font-semibold px-2 active:scale-[0.98] transition"
               >
-                <secondary.Icon className="w-3.5 h-3.5" />
-                <span className="truncate">{secondary.label}</span>
+                <secondary.Icon className="w-3.5 h-3.5 shrink-0" />
+                <span className="min-w-0 whitespace-normal break-words text-center">{secondary.label}</span>
               </button>
             )}
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 });
 

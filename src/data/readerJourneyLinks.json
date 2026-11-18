@@ -1,0 +1,32 @@
+{
+  "/blog/pip-for-arthritis-uk": [
+    { "href": "/guides/benefits-pip", "title": "How to claim PIP for arthritis: step-by-step guide" },
+    { "href": "/resources/pip-evidence-diary", "title": "Printable PIP evidence diary" },
+    { "href": "/blog/appeal-rejected-pip-arthritis", "title": "PIP Appeal Guide for Arthritis: Mandatory Reconsideration, Tribunal and How to Build a Strong Case" }
+  ],
+  "/blog/pip-for-arthritis-how-to-build-a-strong-application": [
+    { "href": "/blog/pip-for-arthritis-uk", "title": "Can you get PIP for arthritis?" },
+    { "href": "/guides/benefits-pip", "title": "How to claim PIP for arthritis: step-by-step guide" },
+    { "href": "/resources/pip-evidence-diary", "title": "Printable PIP evidence diary" }
+  ],
+  "/guides/benefits-pip": [
+    { "href": "/blog/pip-for-arthritis-uk", "title": "Can you get PIP for arthritis?" },
+    { "href": "/resources/pip-evidence-diary", "title": "Printable PIP evidence diary" },
+    { "href": "/blog/appeal-rejected-pip-arthritis", "title": "PIP Appeal Guide for Arthritis: Mandatory Reconsideration, Tribunal and How to Build a Strong Case" }
+  ],
+  "/resources/pip-evidence-diary": [
+    { "href": "/blog/pip-for-arthritis-uk", "title": "Can you get PIP for arthritis?" },
+    { "href": "/guides/benefits-pip", "title": "How to claim PIP for arthritis: step-by-step guide" },
+    { "href": "/blog/appeal-rejected-pip-arthritis", "title": "PIP Appeal Guide for Arthritis: Mandatory Reconsideration, Tribunal and How to Build a Strong Case" }
+  ],
+  "/blog/hip-replacement-recovery-week-by-week": [
+    { "href": "/blog/hip-replacement-arthritis-uk", "title": "Hip Replacement for Arthritis – UK Guide" },
+    { "href": "/guides/hip-exercises-for-osteoarthritis", "title": "Hip exercises for osteoarthritis" },
+    { "href": "/blog/physiotherapy-arthritis", "title": "Physiotherapy for Arthritis — How It Helps and How to Access It" }
+  ],
+  "/blog/physiotherapy-arthritis": [
+    { "href": "/blog/ask-the-physio-arthritis", "title": "Ask the Physio: Your Arthritis Exercise and Physiotherapy Questions" },
+    { "href": "/blog/arthritis-physiotherapy-nhs-waiting-list", "title": "How to Get Arthritis Physiotherapy on the NHS Waiting List" },
+    { "href": "/blog/community-physio-wait-frail-arthritis-uk", "title": "Waiting for community physio with arthritis: what to do while you wait (UK guide)" }
+  ]
+}

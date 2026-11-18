@@ -21,6 +21,16 @@ describe("homepage boot hero", () => {
     expect(compact(html)).toContain(LCP_SENTENCE);
   });
 
+  it("keeps the calm headline and accessible help actions in both shells", () => {
+    for (const source of [compact(hero), compact(html)]) {
+      expect(source).toContain("Practical help for life with arthritis.");
+      expect(source).toContain("home-practical-hero");
+      expect(source).toContain("/guides/arthritis-pain-relief");
+      expect(source).toContain("Find help for my situation");
+      expect(source).toContain("call 999");
+    }
+  });
+
   it("does not preload the hero photo ahead of the entry scripts", () => {
     expect(html).not.toContain("as=\"image\"");
     expect(html).not.toContain("hero-friends-");

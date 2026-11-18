@@ -35,7 +35,7 @@ const AITransparency = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title="AI Transparency & Clinical Review"
         description="AI transparency: Maxwell's HCPC credentials, clinical review process & evidence sources. Trust our clinically-reviewed content."

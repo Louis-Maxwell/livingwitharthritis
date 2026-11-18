@@ -25,8 +25,10 @@ export interface SocialLink {
   enabled: boolean;
 }
 
-/** Charity Facebook Page (numeric id — vanity URL is not owned). */
-export const FACEBOOK_PAGE_ID = '61583723925315';
+/** Charity Facebook Page (numeric id - vanity URL is not owned).
+ * Verified 15 Nov 2026 on the charity's own Meta Business Suite:
+ * asset_id 862105853655104 = "Living With Arthritis" page (6K followers, linked Instagram). */
+export const FACEBOOK_PAGE_ID = '862105853655104';
 export const FACEBOOK_PAGE_URL = `https://www.facebook.com/profile.php?id=${FACEBOOK_PAGE_ID}`;
 
 /**
@@ -39,13 +41,13 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
   // do not prove ownership — enable others only after verifying the account.
   twitter: {
     platform: 'twitter',
-    url: 'https://x.com/ArthritisOrg',
+    url: 'https://x.com/ArthritisOrgHQ',
     label: 'X',
     displayName: 'X',
     icon: 'Twitter',
     color: 'hover:text-blue-400',
     description: 'Follow us on X for daily arthritis tips and updates',
-    enabled: true, // charity-owned X account (@ArthritisOrg)
+    enabled: true, // charity-owned X account (@ArthritisOrgHQ) - the authorised posting target
   },
   facebook: {
     platform: 'facebook',
@@ -59,7 +61,7 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
   },
   instagram: {
     platform: 'instagram',
-    url: 'https://www.instagram.com/livingwitharthritisuk/',
+    url: 'https://www.instagram.com/livingwitharthritisorg/',
     label: 'Instagram',
     displayName: 'Instagram',
     icon: 'Instagram',
@@ -95,7 +97,7 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
     icon: 'AtSign',
     color: 'hover:text-black dark:hover:text-white',
     description: 'Follow Living With Arthritis on Threads',
-    enabled: true, // charity-owned Threads profile
+    enabled: false, // Semrush: Threads returns HTTP 429 to crawlers; re-enable when stable
   },
   pinterest: {
     platform: 'pinterest',

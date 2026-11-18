@@ -37,12 +37,18 @@ describe("GA4 measurement ID", () => {
   it("ships only G-ZLLSD3PXZ9 as the measurement ID", () => {
     const html = readFileSync(resolve(process.cwd(), "index.html"), "utf8");
     const app = readFileSync(resolve(process.cwd(), "src/App.tsx"), "utf8");
+    const loader = readFileSync(resolve(process.cwd(), "public/security/analytics-consent.js"), "utf8");
     const ids = [
       ...html.matchAll(/G-[A-Z0-9]+/g),
       ...app.matchAll(/G-[A-Z0-9]+/g),
+      ...loader.matchAll(/G-[A-Z0-9]+/g),
     ].map((m) => m[0]);
     expect(new Set(ids)).toEqual(new Set(["G-ZLLSD3PXZ9"]));
     expect(html).toContain("www.googletagmanager.com");
+    expect(html).toContain('src="/security/analytics-consent.js"');
+    expect(loader).toContain("www.googletagmanager.com/gtag/js");
+    expect(loader).toContain("cookie-consent-accepted");
+    expect(loader).toContain("send_page_view: false");
     // GA4 regional collection hosts (e.g. region1.google-analytics.com) are
     // allowed by the CSP wildcard; csp-policy.test.ts checks the match.
     expect(html).toContain("https://*.google-analytics.com");

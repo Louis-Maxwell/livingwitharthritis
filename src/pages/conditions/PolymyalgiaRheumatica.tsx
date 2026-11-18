@@ -8,7 +8,7 @@ const data: ConditionPageData = {
     "Polymyalgia rheumatica (PMR) is an inflammatory condition that causes severe stiffness and pain across the shoulders, neck and hips — almost always in adults over 50. With low-dose steroids most people feel dramatically better within days.",
   metaTitle: "Polymyalgia Rheumatica: UK Symptoms & Treatment Guide",
   metaDescription:
-    "UK guide to polymyalgia rheumatica (PMR) — shoulder and hip stiffness in over-50s, GP diagnosis, steroid treatment and self-care. Written for patients by Living With Arthritis.",
+    "Polymyalgia rheumatica (PMR): sudden shoulder and hip stiffness over 50, low-dose steroid treatment, and what recovery looks like.",
   keywords:
     "polymyalgia rheumatica, PMR, polymyalgia symptoms, polymyalgia treatment, steroid for PMR, prednisolone, shoulder stiffness over 50, hip stiffness morning, giant cell arteritis, inflammatory arthritis UK, polymyalgia diet, polymyalgia exercise",
   alternateNames: ["PMR", "Polymyalgia"],

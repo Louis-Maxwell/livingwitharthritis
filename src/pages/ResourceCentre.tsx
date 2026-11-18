@@ -54,7 +54,7 @@ const GROUPS = [
  */
 export default function ResourceCentre() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title="Resource Centre"
         description="One place for Living With Arthritis guides, exercise and diet hubs, PIP help, tools and chatbot — free educational resources. Charity 1218461."

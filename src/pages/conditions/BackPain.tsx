@@ -1,3 +1,4 @@
+import { STANDALONE_ANSWER_CAPSULES } from "@/data/standaloneAnswerCapsules";
 import ClusterLandingPage, { type ClusterLandingData } from "@/components/conditions/ClusterLandingPage";
 
 const DATA: ClusterLandingData = {
@@ -7,8 +8,7 @@ const DATA: ClusterLandingData = {
   title: "Is My Back Pain Arthritis? Signs, Types & When to See a GP",
   description: "How to tell if back pain could be arthritis: wear-related spinal changes vs inflammatory back pain (axial SpA), self-help that works, red flags and when to see a GP.",
   question: "Is my back pain caused by arthritis?",
-  answer:
-    "Most back pain is not caused by arthritis and gets better on its own within a few weeks with keeping active and simple pain relief. Arthritis is more likely when back pain keeps coming back or lasts for months. Wear-related changes in the spine (spondylosis, a form of osteoarthritis) usually cause stiffness that eases as you get moving and aches more after activity. Inflammatory back pain, from axial spondyloarthritis (including ankylosing spondylitis), typically starts before age 45, lasts more than 3 months, is worse in the morning or at night and improves with exercise rather than rest. If that pattern sounds familiar, see a GP: inflammatory back pain needs a rheumatology assessment.",
+  answer: STANDALONE_ANSWER_CAPSULES["/conditions/back-pain"],
   sections: [
     {
       id: "types",

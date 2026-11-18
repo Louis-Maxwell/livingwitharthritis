@@ -49,7 +49,7 @@ export default function HealthTools() {
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <Header />
         <PageBreadcrumb segments={[{ label: "Health Tools" }]} />
 

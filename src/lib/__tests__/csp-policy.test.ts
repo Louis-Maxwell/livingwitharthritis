@@ -45,6 +45,61 @@ describe("Content-Security-Policy", () => {
     expect(allows(meta, "frame-src", "https://www.google.com/maps/embed?pb=x")).toBe(true);
   });
 
+  it("requires hardened baseline directives and disallows unsafe eval", () => {
+    for (const policy of [meta, directives(headerCsp)]) {
+      expect(policy.get("default-src")).toEqual(["'self'"]);
+      expect(policy.get("base-uri")).toEqual(["'self'"]);
+      expect(policy.get("object-src")).toEqual(["'none'"]);
+      expect(policy.has("upgrade-insecure-requests")).toBe(true);
+      expect((policy.get("script-src") ?? []).join(" ")).not.toContain("unsafe-eval");
+    }
+    expect(headers).toMatch(/^\s*X-Frame-Options: DENY$/m);
+    expect(headers).toMatch(/^\s*X-Content-Type-Options: nosniff$/m);
+    expect(headers).toMatch(/^\s*Referrer-Policy: strict-origin-when-cross-origin$/m);
+    expect(headers).toMatch(/^\s*Permissions-Policy: camera=\(\), microphone=\(\), geolocation=\(\), payment=\(\)$/m);
+    expect(directives(headerCsp).get("frame-ancestors")).toEqual(["'none'"]);
+  });
+  it("permits only external executable scripts while leaving JSON-LD as data", () => {
+    for (const policy of [meta, directives(headerCsp)]) {
+      const sources = policy.get("script-src") ?? [];
+      expect(sources).toContain("'self'");
+      expect(sources).not.toContain("'unsafe-inline'");
+      expect(sources).not.toContain("'unsafe-eval'");
+    }
+    expect(headers).toMatch(/^\s*X-Frame-Options: DENY$/m);
+    const parsedIndex = new DOMParser().parseFromString(indexHtml, "text/html");
+    const scripts = [...parsedIndex.querySelectorAll("script")].map((element) => ({
+      attrs: [...element.attributes].map(({ name, value }) => `${name}="${value}"`).join(" "),
+      body: element.textContent ?? "",
+    }));
+    const inlineData = scripts.filter(({ attrs, body }) =>
+      body.trim() && /type=["']application\/ld\+json["']/i.test(attrs),
+    );
+    expect(inlineData.length).toBeGreaterThanOrEqual(2);
+    for (const { attrs, body } of scripts) {
+      if (body.trim()) {
+        expect(attrs).toMatch(/type=["']application\/ld\+json["']/i);
+        expect(() => JSON.parse(body)).not.toThrow();
+      } else if (attrs.includes("src=")) {
+        expect(attrs).toMatch(/src=["']\/(?:security\/|src\/)/i);
+      }
+    }
+    const classicSources = scripts.filter(({ attrs }) => /src=["']\/security\//.test(attrs));
+    expect(classicSources).toHaveLength(4);
+    for (const { attrs } of classicSources) {
+      const scriptPath = attrs.match(/src=["'](\/security\/[^"']+)/)?.[1];
+      expect(scriptPath).toBeTruthy();
+      expect(readFileSync(resolve(root, "public" + scriptPath), "utf8").length).toBeGreaterThan(0);
+    }
+    expect(indexHtml.indexOf('src="/security/analytics-consent.js"')).toBeLessThan(indexHtml.indexOf('src="/src/main.tsx"'));
+    const prerender = readFileSync(resolve(root, "scripts/prerender-routes.mjs"), "utf8");
+    const inject = readFileSync(resolve(root, "scripts/inject-canonicals.mjs"), "utf8");
+    expect(prerender).not.toContain('unsafe-inline');
+    expect(inject).toContain('type="application/ld+json"');
+    expect(inject).not.toMatch(/<script\s*>/i);
+    expect(indexHtml).toContain('id="root-organization-jsonld" type="application/ld+json"');
+  });
+
   it("does not allow unused vendors, eval or plugins", () => {
     expect(metaCsp).not.toMatch(/unsafe-eval|stripe|paypal|resend|lovable/i);
     expect(meta.get("object-src")).toEqual(["'none'"]);

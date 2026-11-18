@@ -3,6 +3,7 @@
  * "Living With Arthritis" pillar page. Each entry powers a static
  * route at /faq/:slug rendered by src/pages/FaqArticle.tsx.
  */
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 export interface FaqSection {
   heading: string;
   content: string;
@@ -82,10 +83,10 @@ export const faqArticles: FaqArticle[] = [
     slug: 'arthritis-disability-benefits-uk',
     title: 'Arthritis and Disability Benefits in the UK',
     question: 'Is arthritis a disability? UK PIP and claim guide',
-    seoTitle: 'Is Arthritis a Disability in the UK? PIP & Rights',
+    seoTitle: 'Can You Claim Disability Benefits for Arthritis? (UK)',
     metaDescription:
-      'It can be under the Equality Act if it has a long-term effect on daily life. How PIP works for adults, who DLA is for, and your rights at work.',
-    lastReviewed: '2026-09-24',
+      'Yes: arthritis can qualify for PIP, Attendance Allowance, DLA for children and Access to Work. Check who qualifies and how to apply step by step.',
+    lastReviewed: REVIEW_RECORDS.faqArticles['arthritis-disability-benefits-uk'],
     quickAnswer:
       'Arthritis is not automatically a disability. Under the Equality Act 2010 it can be, if a physical impairment has a substantial and long-term adverse effect on normal day-to-day activities. PIP is not awarded from the diagnosis alone. This is educational orientation, not legal advice.',
     citations: [
@@ -251,12 +252,15 @@ export const faqArticles: FaqArticle[] = [
     slug: 'is-arthritis-a-disability',
     title: 'Is Arthritis a Disability?',
     question: 'Is arthritis considered a disability?',
+    seoTitle: 'Is Arthritis a Disability? Everyday Impact and Rights',
+    metaDescription:
+      'Is arthritis a disability? Learn how substantial, long-term effects on everyday activities relate to disability rights, adjustments and further support.',
     quickAnswer:
-      "Legally, yes — if it substantially limits your ability to do normal activities. This means you're protected by the Equality Act 2010.",
+      'Arthritis can be considered a disability when it substantially and over the long term affects normal day-to-day activities. The effect on everyday life matters, not simply the diagnosis. This page explains the legal definition, substantial impact, rights and reasonable adjustments, with links to employment and benefits questions.',
     sections: [
-      { heading: 'Legal Definition', content: 'Under UK law, arthritis is a disability if it substantially and long-term limits your ability to carry out normal day-to-day activities. This includes work, self-care, mobility, relationships.' },
+      { heading: 'Is arthritis a disability?', content: 'Under UK law, arthritis can be a disability if it substantially and over the long term limits your ability to carry out normal day-to-day activities. This includes work, self-care, mobility and relationships. The diagnosis on its own is not enough.' },
       { heading: "What 'Substantial' Means", content: "More than minor or trivial impact. If arthritis stops you doing something most people do, it's substantial. Examples: unable to walk far, can't dress yourself, can't work full-time." },
-      { heading: 'Your Rights', content: 'Protection from discrimination, access to reasonable adjustments, eligibility for benefits, right to flexible working, occupational health support at work.' },
+      { heading: 'Your Rights', content: 'If the effect on your day-to-day life is substantial and long-term, you may have protection from discrimination and can ask for reasonable adjustments at work. Benefits are not automatic; they depend on how your condition affects you, not on the diagnosis alone.' },
       { heading: 'Telling People', content: "You don't have to disclose disability to employers unless you need adjustments. Some people worry about stigma, but disclosure often helps." },
     ],
     relatedArticles: ['arthritis-employment-rights-uk', 'arthritis-disability-benefits-uk'],

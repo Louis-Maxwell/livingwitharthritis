@@ -1,3 +1,4 @@
+import DirectAnswerCapsule from "@/components/seo/DirectAnswerCapsule";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -14,9 +15,9 @@ import { CITATIONS_SUPPLEMENTS } from "@/data/clinical/ukCitations";
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/supplements`;
 
-const META_TITLE = "Arthritis Supplements: What Works (UK Guide)";
+const META_TITLE = "Arthritis Supplements UK: What Works and What to Check";
 const META_DESC =
-  "UK hub for arthritis supplements: glucosamine, MSM, turmeric, omega-3, collagen, ginger and vitamin D. What the evidence and NICE say, and what to check first.";
+  "UK hub for arthritis supplements: glucosamine, MSM, turmeric, omega-3, collagen, ginger and vitamin D. What the evidence and NICE say, and what to check.";
 
 const SUPPLEMENTS = [
   {
@@ -132,7 +133,7 @@ export default function SupplementsHub() {
   return (
     <>
       <Helmet>
-        <title>{`${META_TITLE} | Living With Arthritis`}</title>
+        <title>{META_TITLE}</title>
         <meta name="description" content={META_DESC} />
         <meta
           name="keywords"
@@ -158,11 +159,11 @@ export default function SupplementsHub() {
           { name: "Supplements" },
         ]}
         faqs={SUPPLEMENT_FAQS}
-        lastReviewed="2026-09-16"
+
         idPrefix="supplements-hub"
       />
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <Header />
         <PageBreadcrumb segments={[{ label: "Supplements" }]} />
 
@@ -174,6 +175,7 @@ export default function SupplementsHub() {
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
               Arthritis supplements: what actually works
             </h1>
+            <DirectAnswerCapsule route="/supplements" />
             <p className="text-lg text-muted-foreground leading-relaxed">
               The UK joint-supplement aisle is overwhelming. This hub links to every supplement
               guide on our site, covering glucosamine, MSM, turmeric, omega-3, collagen, ginger and
@@ -184,7 +186,7 @@ export default function SupplementsHub() {
         </div>
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
-          <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+          <EducationalDisclaimerBox reviewStatus="pending" pendingText="Updated source-based summary: separate clinical review pending. Earlier review dates do not attest to this revision." />
           <TopicClusterNav path="/supplements" />
           <ArticleCitations citations={CITATIONS_SUPPLEMENTS} />
           <div className="grid sm:grid-cols-2 gap-4">
@@ -375,4 +377,4 @@ export default function SupplementsHub() {
       </div>
     </>
   );
-}
+            }

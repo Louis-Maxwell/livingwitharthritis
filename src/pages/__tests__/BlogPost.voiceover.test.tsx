@@ -36,7 +36,6 @@ vi.mock("@/components/BlogComments", () => ({ default: () => null }));
 vi.mock("@/components/BlogHelpfulness", () => ({ default: () => null }));
 vi.mock("@/components/RelatedArticles", () => ({ default: () => null }));
 vi.mock("@/components/SocialShareButtons", () => ({ default: () => null }));
-vi.mock("@/components/ScrollProgress", () => ({ default: () => null }));
 vi.mock("@/components/ContinueReadingBar", () => ({ default: () => null }));
 vi.mock("@/components/article/MidArticleNextSteps", () => ({ default: () => null }));
 vi.mock("@/components/article/EndNextArticleCard", () => ({ default: () => null }));

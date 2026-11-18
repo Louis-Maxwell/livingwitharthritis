@@ -74,7 +74,7 @@ export default function MediterraneanDietForArthritis() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title={MED_DIET_META_TITLE}
         description={MED_DIET_DESCRIPTION}

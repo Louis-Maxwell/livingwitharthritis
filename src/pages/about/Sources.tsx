@@ -82,7 +82,7 @@ const Sources = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title="Clinical Sources & Evidence"
         description="Clinical sources & evidence: NICE guidelines, Cochrane reviews, peer-reviewed research. Full bibliography of trusted sources."

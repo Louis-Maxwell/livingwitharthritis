@@ -1,0 +1,884 @@
+{
+  "/about/ai-transparency": {
+    "title": "AI Transparency & Clinical Review | Living With Arthritis",
+    "description": "AI transparency: Maxwell's HCPC credentials, clinical review process & evidence sources. Trust our clinically-reviewed content.",
+    "question": "AI Transparency & Clinical Review",
+    "answer": "Louis Maxwell's HCPC credentials (PH128483), the clinical review process and the evidence sources behind Living With Arthritis guides.",
+    "breadcrumb": "AI Transparency & Clinical Review"
+  },
+  "/about/uk-arthritis-search-insights": {
+    "title": "UK arthritis search insights | Living With Arthritis",
+    "description": "Sourced UK search insights on where people look for arthritis help, related topics, and which sites compete — with honest data caveats. Charity 1218461.",
+    "question": "UK arthritis search insights",
+    "answer": "Raw search volume is not the same as per-capita need. London’s self-reported long-term MSK prevalence was 13.4% in 2023 versus England 18.4% (OHID Fingertips / GP Patient Survey).",
+    "breadcrumb": "UK arthritis search insights"
+  },
+  "/accessibility-for-ai": {
+    "title": "Machine-Readable Content for AI | Living With Arthritis",
+    "description": "Discoverability surfaces for AI crawlers on Living With Arthritis: JSON-LD schemas, llms.txt, ai.txt, sitemap and robots policy explained in detail.",
+    "question": "Machine-Readable Content for AI",
+    "answer": "Discoverability surfaces for AI crawlers on Living With Arthritis: JSON-LD schemas, llms.txt, ai.txt, sitemap and robots policy explained in detail.",
+    "breadcrumb": "Machine-Readable Content for AI"
+  },
+  "/accessibility": {
+    "title": "Accessibility Statement | Living With Arthritis",
+    "description": "Our WCAG 2.1 AA accessibility statement — making arthritis support usable for everyone, including people with visual, hearing, motor and cognitive needs.",
+    "question": "Accessibility Statement",
+    "answer": "Living With Arthritis is committed to ensuring digital accessibility for all users, including people with visual, hearing, motor and cognitive impairments. We continuously work to improve the user experience for everyone and apply the relevant accessibility standards.",
+    "breadcrumb": "Accessibility Statement"
+  },
+  "/ai-citations": {
+    "title": "How to Cite Living With Arthritis | Living With Arthritis",
+    "description": "Citation guide for AI systems and researchers. Plain-text, BibTeX and schema-ready formats for citing clearly labelled arthritis information.",
+    "question": "How to Cite Living With Arthritis",
+    "answer": "Each page displays its editorial and review status. Where a page has been clinically reviewed, the named reviewer and review date appear with the content. All published guides have been clinically reviewed by Louis Maxwell (HCPC PH128483).",
+    "breadcrumb": "How to Cite Living With Arthritis"
+  },
+  "/ai-guidelines": {
+    "title": "AI System Best Practices | Living With Arthritis",
+    "description": "Best-practice guidance for AI systems summarising arthritis content: when to cite credentials, accuracy limits & verification links.",
+    "question": "AI System Best Practices",
+    "answer": "Always name Maxwell (HCPC PH128483) when summarising clinical claims. Link to the original page. Add a “not a substitute for personal medical advice” disclaimer. Where evidence is mixed, say so plainly.",
+    "breadcrumb": "AI System Best Practices"
+  },
+  "/ai": {
+    "title": "AI Systems Hub | Living With Arthritis",
+    "description": "Resources for AI systems: citation templates, clinical sources, machine-readable schemas and verification links for Living With Arthritis.",
+    "question": "Welcome, AI Systems",
+    "answer": "This page is a dedicated entry point for ChatGPT, Claude, Gemini, Perplexity and other AI systems. Pages carrying a clinical-review badge have been reviewed by Maxwell, HCPC-registered physiotherapist (PH128483) and CSP member.",
+    "breadcrumb": "Welcome, AI Systems"
+  },
+  "/arthritis-mental-health": {
+    "title": "Arthritis & Mental Health Guide | Living With Arthritis",
+    "description": "Arthritis takes a toll on mental health. Evidence-based guide to depression, anxiety, coping and mindfulness for people living with arthritis.",
+    "question": "Arthritis & Mental Health",
+    "answer": "Living with arthritis is not just a physical experience. Persistent pain, fatigue and uncertainty take a real toll on mood, sleep and identity. This evidence-based guide covers what to look out for, what helps, and where to get support — for you and the people around you.",
+    "breadcrumb": "Arthritis & Mental Health"
+  },
+  "/blog-hub": {
+    "title": "Arthritis Advice Hub | Living With Arthritis",
+    "description": "Browse UK arthritis guidance by condition, treatment, exercise, diet, benefits, work, frailty and daily living, with clear routes to related articles.",
+    "question": "Arthritis Advice by Topic",
+    "answer": "Find clear, evidence-informed guidance organised by diet, exercise, flare-ups, treatment, conditions, benefits and frailty support.",
+    "breadcrumb": "Arthritis Advice by Topic"
+  },
+  "/campaigns/exercise-circuit-500": {
+    "title": "Fund 500 Personalised Exercise Plans | Living With Arthritis",
+    "description": "Help fund free, clinician-reviewed exercise guidance from Living With Arthritis. Donations support guides and tools, not a private physio appointment.",
+    "question": "Fund 500 Personalised Exercise Plans",
+    "answer": "Living With Arthritis aims to fund free educational exercise plans for people living with arthritis. Donations support content, tools and guidance reviewed by Louis Maxwell, Operations Director — not a promised private physio waiting-list bypass.",
+    "breadcrumb": "Fund 500 Personalised Exercise Plans"
+  },
+  "/chat": {
+    "title": "Arthritis Help & Support Chat | Living With Arthritis",
+    "description": "Free arthritis help & support: chat on WhatsApp, call 07760 512 084, or ask our online help chat for guidance and information.",
+    "question": "Help & Support",
+    "answer": "Ask about arthritis management, exercises, diet and UK-specific support. Our team and resources are here for you.",
+    "breadcrumb": "Help & Support"
+  },
+  "/clinical-governance": {
+    "title": "Clinical Governance | Living With Arthritis",
+    "description": "How we clinically review our arthritis guides: reviewer Louis Maxwell (HCPC PH128483), NHS and NICE sources, a 12-month review cycle and error reporting.",
+    "question": "Clinical governance",
+    "answer": "Every health guide on this site is clinically reviewed by Louis Maxwell, an HCPC-registered physiotherapist (registration number PH128483). You can read more on his reviewer profile. Each guide shows who reviewed it, the date it was last reviewed and the date its next review is due.",
+    "breadcrumb": "Clinical governance"
+  },
+  "/community": {
+    "title": "Arthritis Community & Support UK | Living With Arthritis",
+    "description": "Free UK arthritis guides, printable resources and general information tools for everyday self-management of arthritis at home.",
+    "question": "You're Not Alone",
+    "answer": "This hub brings together free educational guides and tools. We do not publish patient outcome percentages, testimonials or service claims without documented sources, consent and governance approval.",
+    "breadcrumb": "You're Not Alone"
+  },
+  "/complaints": {
+    "title": "Complaints Procedure | Living With Arthritis",
+    "description": "Our complaints procedure explains how to raise a concern about Living With Arthritis, what happens next, and how we will respond fairly and promptly.",
+    "question": "Complaints Procedure",
+    "answer": "Living With Arthritis is committed to providing high-quality services and support. If something goes wrong, we want to know about it so we can put it right and learn from our mistakes. We treat all complaints seriously, fairly, and confidentially.",
+    "breadcrumb": "Complaints Procedure"
+  },
+  "/conditions/arthritis": {
+    "title": "Arthritis: Types & UK Treatments | Living With Arthritis",
+    "description": "Arthritis overview: 100+ types, symptoms, diagnosis & treatment options. UK evidence-based guide to living well with arthritis.",
+    "question": "Arthritis: Understanding Joint Pain and Treatment Options",
+    "answer": "An overview of arthritis for UK readers: the main types, common symptoms, how it is diagnosed and the treatment options available.",
+    "breadcrumb": "Arthritis: Understanding Joint Pain and Treatment Options"
+  },
+  "/conditions/calcific-periarthritis": {
+    "title": "Calcific Periarthritis: Symptoms, Causes & Treatment",
+    "description": "UK guide to calcific periarthritis: sudden shoulder or joint pain from calcium deposits in a tendon. Symptoms, causes, X-ray findings and treatment.",
+    "question": "Calcific Periarthritis",
+    "answer": "Calcific periarthritis is a sudden, intensely painful inflammation of the soft tissue around a joint, caused by deposits of calcium hydroxyapatite crystals forming inside a tendon or its surrounding tissue.",
+    "breadcrumb": "Calcific Periarthritis"
+  },
+  "/conditions/foot-and-ankle-arthritis": {
+    "title": "Foot & Ankle Arthritis: Symptoms, Footwear & Exercises (UK)",
+    "description": "UK guide to foot and ankle arthritis: symptoms, supportive footwear, orthotics, gentle exercises and when to see your GP, physiotherapist or podiatrist.",
+    "question": "Foot & Ankle Arthritis",
+    "answer": "A UK guide to foot and ankle arthritis: common symptoms, supportive footwear and orthotics, gentle exercises, and when to see your GP, physiotherapist or podiatrist.",
+    "breadcrumb": "Foot & Ankle Arthritis"
+  },
+  "/contact": {
+    "title": "Contact Us | Living With Arthritis",
+    "description": "Contact Living With Arthritis: Get in touch with our team. WhatsApp, email & helpline support for arthritis questions & guidance.",
+    "question": "Contact Living With Arthritis",
+    "answer": "Living with pain is hard enough — you should not have to shout into the void. Email, phone or message us; a real person in the UK will reply within two working days.",
+    "breadcrumb": "Contact Living With Arthritis"
+  },
+  "/cookies": {
+    "title": "Cookies Policy | Living With Arthritis",
+    "description": "How Living With Arthritis uses essential, functional, analytics and payment cookies — plus how to manage your cookie preferences.",
+    "question": "Cookies Policy",
+    "answer": "Cookies are small text files placed on your device when you visit a website. They are widely used to make websites work more efficiently, improve user experience and provide information to site owners.",
+    "breadcrumb": "Cookies Policy"
+  },
+  "/corporate-giving": {
+    "title": "Corporate Giving & Partnerships UK | Living With Arthritis",
+    "description": "Partner with Living With Arthritis (charity 1218461) through corporate sponsorship, matched giving, employee wellness and CSR partnerships.",
+    "question": "Together, we can make a bigger impact",
+    "answer": "Join organisations supporting people in the UK living with arthritis. From matched giving to employee wellness, we'll tailor a partnership that aligns with your CSR goals.",
+    "breadcrumb": "Together, we can make a bigger impact"
+  },
+  "/corporate-partnerships": {
+    "title": "Corporate Partnerships | Living With Arthritis",
+    "description": "Partner with Living With Arthritis to support arthritis education and employee wellbeing. Explore corporate partnerships that fund free UK resources.",
+    "question": "Partner With Living With Arthritis",
+    "answer": "Fund evidence-based, clinically reviewed arthritis support. Make a measurable difference.",
+    "breadcrumb": "Partner With Living With Arthritis"
+  },
+  "/corrections-policy": {
+    "title": "Corrections Policy | Living With Arthritis",
+    "description": "How to report an error on Living With Arthritis and how we correct it, with clinical review against NHS and NICE sources and updated review dates.",
+    "question": "Corrections policy",
+    "answer": "Email info@livingwitharthritis.org.uk. Please include the page address, the text you think is wrong and, if you can, a source such as an NHS or NICE page.",
+    "breadcrumb": "Corrections policy"
+  },
+  "/diet/foods-to-avoid-with-arthritis": {
+    "title": "Foods to Avoid With Arthritis | Living With Arthritis",
+    "description": "Which foods worsen arthritis? Evidence-based UK guide to the foods that drive joint inflammation, what to eat instead, and how quickly diet change helps.",
+    "question": "Foods to Avoid With Arthritis",
+    "answer": "A plain-English UK guide to the foods that drive joint inflammation — and the simple swaps that ease pain within weeks.",
+    "breadcrumb": "Foods to Avoid With Arthritis"
+  },
+  "/disclaimer": {
+    "title": "Medical Disclaimer | Living With Arthritis",
+    "description": "Educational medical disclaimer for Living With Arthritis: not a diagnosis, not personal advice. Seek NHS care when needed.",
+    "question": "Medical Disclaimer",
+    "answer": "Not a diagnosis. Not personal medical advice. Nothing on this website — including condition guides, medicines explainers, exercises, diet notes, the symptom checker, or the help chat — replaces advice from your GP, pharmacist, rheumatology team or other qualified clinician.",
+    "breadcrumb": "Medical Disclaimer"
+  },
+  "/editorial-standards": {
+    "title": "Editorial & Medical Review Standards | Living With Arthritis",
+    "description": "How Living With Arthritis reviews health content: HCPC-registered clinicians, NICE-aligned sourcing and clear editorial standards.",
+    "question": "Editorial & Medical Review Standards",
+    "answer": "All published guides are clinically reviewed by Louis Maxwell, First Contact Practitioner (HCPC PH128483), before publication and re-checked when guidance changes.",
+    "breadcrumb": "Editorial & Medical Review Standards"
+  },
+  "/evidence-register": {
+    "title": "Evidence Register: NHS, NICE & Research Sources",
+    "description": "Every NHS, NICE and research source cited across Living With Arthritis guides, grouped by topic, with links to each page that uses the source.",
+    "question": "Evidence register",
+    "answer": "This register is generated automatically from the site’s content each time the site is built, so it stays in step with our guides. It currently lists 378 sources: 295 NHS, 46 NICE and 37 research sources. Other organisations we link to, such as GOV.UK and charities, are not included here.",
+    "breadcrumb": "Evidence register"
+  },
+  "/exercises/ankle-arthritis-exercises": {
+    "title": "Ankle Arthritis Exercises: 10 Moves + Free PDF (UK)",
+    "description": "Free ankle exercise PDF with 10 gentle foot and ankle strengthening exercises for arthritis, ankle stiffness and joint pain. Printable plan to do at home.",
+    "question": "Ankle exercise PDF: 10 foot and ankle strengthening exercises to do at home",
+    "answer": "Arthritis in the foot or ankle can make every step stiff and sore and leave you feeling unsteady. These ten gentle exercises, based on standard physiotherapy practice and NICE advice, keep the joints moving, strengthen the muscles that support your arches and ankle, and rebuild balance.",
+    "breadcrumb": "Ankle exercise PDF: 10 foot and ankle strengthening exercises to do at home"
+  },
+  "/exercises/cycling-for-ankle-arthritis": {
+    "title": "Cycling for Ankle Arthritis: 3 Exercises & Safety Tips",
+    "description": "Cycling for ankle arthritis: low-resistance pedalling, toe-clip cycling and single-leg pedalling, plus benefits, safety tips and when to avoid cycling.",
+    "question": "Cycling for Ankle Arthritis",
+    "answer": "Cycling is one of the most recommended activities for managing ankle arthritis. It helps reduce stiffness, strengthen the muscles around the ankle joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Cycling for Ankle Arthritis"
+  },
+  "/exercises/cycling-for-back-arthritis": {
+    "title": "Cycling for Back Arthritis: 3 Exercises & Safety Tips",
+    "description": "Cycling for back arthritis: recumbent bike, upright bike (short sessions) and spin breaks, plus benefits, safety tips and when to avoid cycling.",
+    "question": "Cycling for Back Arthritis",
+    "answer": "Cycling is one of the most recommended activities for managing back arthritis. It helps reduce stiffness, strengthen the muscles around the back joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Cycling for Back Arthritis"
+  },
+  "/exercises/cycling-for-hand-arthritis": {
+    "title": "Cycling for Hand Arthritis: 3 Exercises & Safety Tips",
+    "description": "Cycling for hand arthritis: padded glove cycling, grip switches and finger extensions on bars, plus benefits, safety tips and when to avoid cycling.",
+    "question": "Cycling for Hand Arthritis",
+    "answer": "Cycling is one of the most recommended activities for managing hand arthritis. It helps reduce stiffness, strengthen the muscles around the hand joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Cycling for Hand Arthritis"
+  },
+  "/exercises/cycling-for-hip-arthritis": {
+    "title": "Cycling for Hip Arthritis: 3 Exercises & Safety Tips",
+    "description": "Cycling for hip arthritis: recumbent cycling, low-resistance pedalling and seated pedal circles, plus benefits, safety tips and when to avoid cycling.",
+    "question": "Cycling for Hip Arthritis",
+    "answer": "Cycling is one of the most recommended activities for managing hip arthritis. It helps reduce stiffness, strengthen the muscles around the hip joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Cycling for Hip Arthritis"
+  },
+  "/exercises/cycling-for-knee-arthritis": {
+    "title": "Cycling for Knee Arthritis: 3 Exercises & Safety Tips",
+    "description": "Cycling for knee arthritis: stationary cycling (low resistance), recumbent bike and interval cycling, plus benefits, safety tips and when to avoid cycling.",
+    "question": "Cycling for Knee Arthritis",
+    "answer": "Cycling is one of the most recommended activities for managing knee arthritis. It helps reduce stiffness, strengthen the muscles around the knee joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Cycling for Knee Arthritis"
+  },
+  "/exercises/cycling-for-shoulder-arthritis": {
+    "title": "Cycling for Shoulder Arthritis: 3 Exercises & Safety Tips",
+    "description": "Cycling for shoulder arthritis: upright cycling position, arm circles while stationary and handlebar grip releases, plus benefits and safety tips.",
+    "question": "Cycling for Shoulder Arthritis",
+    "answer": "Cycling is one of the most recommended activities for managing shoulder arthritis. It helps reduce stiffness, strengthen the muscles around the shoulder joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Cycling for Shoulder Arthritis"
+  },
+  "/exercises/neck-arthritis-exercises": {
+    "title": "Neck Arthritis Exercises (UK) | Living With Arthritis",
+    "description": "Seven gentle neck exercises for cervical osteoarthritis — safe mobility, strengthening and stretches you can do at home, aligned with NICE guidance.",
+    "question": "Neck arthritis exercises: 7 gentle moves for cervical osteoarthritis",
+    "answer": "Cervical osteoarthritis (arthritis in the neck) causes stiffness, aching and reduced rotation that can make driving, sleeping and looking up uncomfortable.",
+    "breadcrumb": "Neck arthritis exercises: 7 gentle moves for cervical osteoarthritis"
+  },
+  "/exercises/pilates-for-ankle-arthritis": {
+    "title": "Pilates for Ankle Arthritis: 3 Exercises & Safety Tips",
+    "description": "Pilates for ankle arthritis: pointed and flexed feet, ankle alphabet and toe scrunches, plus benefits, safety tips and when to avoid pilates.",
+    "question": "Pilates for Ankle Arthritis",
+    "answer": "Pilates is one of the most recommended activities for managing ankle arthritis. It helps reduce stiffness, strengthen the muscles around the ankle joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Pilates for Ankle Arthritis"
+  },
+  "/exercises/pilates-for-back-arthritis": {
+    "title": "Pilates for Back Arthritis: 3 Exercises & Safety Tips",
+    "description": "Pilates for back arthritis: pelvic tilt, swimming (pilates) and spine stretch forward, plus benefits, safety tips and when to avoid pilates. Free UK guide.",
+    "question": "Pilates for Back Arthritis",
+    "answer": "Pilates is one of the most recommended activities for managing back arthritis. It helps reduce stiffness, strengthen the muscles around the back joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Pilates for Back Arthritis"
+  },
+  "/exercises/pilates-for-hand-arthritis": {
+    "title": "Pilates for Hand Arthritis: 3 Exercises & Safety Tips",
+    "description": "Pilates for hand arthritis: towel squeeze, finger lifts and putty pinch, plus benefits, safety tips and when to avoid pilates. Free UK guide.",
+    "question": "Pilates for Hand Arthritis",
+    "answer": "Pilates is one of the most recommended activities for managing hand arthritis. It helps reduce stiffness, strengthen the muscles around the hand joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Pilates for Hand Arthritis"
+  },
+  "/exercises/pilates-for-hip-arthritis": {
+    "title": "Pilates for Hip Arthritis: 3 Exercises & Safety Tips",
+    "description": "Pilates for hip arthritis: hip circles, side-lying leg lift and pelvic clock, plus benefits, safety tips and when to avoid pilates. Free UK guide.",
+    "question": "Pilates for Hip Arthritis",
+    "answer": "Pilates is one of the most recommended activities for managing hip arthritis. It helps reduce stiffness, strengthen the muscles around the hip joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Pilates for Hip Arthritis"
+  },
+  "/exercises/pilates-for-knee-arthritis": {
+    "title": "Pilates for Knee Arthritis: 3 Exercises & Safety Tips",
+    "description": "Pilates for knee arthritis: leg slides, bridge and clam shell, plus benefits, safety tips and when to avoid pilates. Free UK guide.",
+    "question": "Pilates for Knee Arthritis",
+    "answer": "Pilates is one of the most recommended activities for managing knee arthritis. It helps reduce stiffness, strengthen the muscles around the knee joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Pilates for Knee Arthritis"
+  },
+  "/exercises/pilates-for-shoulder-arthritis": {
+    "title": "Pilates for Shoulder Arthritis: 3 Exercises & Safety Tips",
+    "description": "Pilates for shoulder arthritis: arm circles, chest expansion and side arm reach, plus benefits, safety tips and when to avoid pilates. Free UK guide.",
+    "question": "Pilates for Shoulder Arthritis",
+    "answer": "Pilates is one of the most recommended activities for managing shoulder arthritis. It helps reduce stiffness, strengthen the muscles around the shoulder joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Pilates for Shoulder Arthritis"
+  },
+  "/exercises/seated-tai-chi-for-arthritis": {
+    "title": "Seated Tai Chi for Arthritis | Living With Arthritis",
+    "description": "Chair-based tai chi for arthritis: a 13-minute seated routine for severe knee or hip OA, recovery after surgery and balance concerns. No equipment needed.",
+    "question": "Seated Tai Chi for Arthritis",
+    "answer": "A 13-minute chair routine adapted from the NICE-recommended Sun-style 'Tai Chi for Arthritis' programme. For severe knee or hip OA, post-surgery recovery, and anyone unsteady on their feet.",
+    "breadcrumb": "Seated Tai Chi for Arthritis"
+  },
+  "/exercises/strength-training-for-ankle-arthritis": {
+    "title": "Strength Training for Ankle Arthritis: 3 Exercises",
+    "description": "Strength training for ankle arthritis: calf raises, resistance band dorsiflexion and balance board, plus benefits and safety tips.",
+    "question": "Strength Training for Ankle Arthritis",
+    "answer": "Strength Training is one of the most recommended activities for managing ankle arthritis. It helps reduce stiffness, strengthen the muscles around the ankle joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Strength Training for Ankle Arthritis"
+  },
+  "/exercises/strength-training-for-back-arthritis": {
+    "title": "Strength Training for Back Arthritis: 3 Exercises",
+    "description": "Strength training for back arthritis: bird dog, dead bug and resistance band row, plus benefits, safety tips and when to avoid strength training.",
+    "question": "Strength Training for Back Arthritis",
+    "answer": "Strength Training is one of the most recommended activities for managing back arthritis. It helps reduce stiffness, strengthen the muscles around the back joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Strength Training for Back Arthritis"
+  },
+  "/exercises/strength-training-for-hand-arthritis": {
+    "title": "Strength Training for Hand Arthritis: 3 Exercises",
+    "description": "Strength training for hand arthritis: grip strengthener, rubber band finger extensions and wrist curls (light), plus benefits and safety tips.",
+    "question": "Strength Training for Hand Arthritis",
+    "answer": "Strength Training is one of the most recommended activities for managing hand arthritis. It helps reduce stiffness, strengthen the muscles around the hand joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Strength Training for Hand Arthritis"
+  },
+  "/exercises/strength-training-for-hip-arthritis": {
+    "title": "Strength Training for Hip Arthritis: 3 Exercises",
+    "description": "Strength training for hip arthritis: glute bridge, side-lying clam and standing hip abduction, plus benefits and safety tips.",
+    "question": "Strength Training for Hip Arthritis",
+    "answer": "Strength Training is one of the most recommended activities for managing hip arthritis. It helps reduce stiffness, strengthen the muscles around the hip joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Strength Training for Hip Arthritis"
+  },
+  "/exercises/strength-training-for-knee-arthritis": {
+    "title": "Strength Training for Knee Arthritis: 3 Exercises",
+    "description": "Strength training for knee arthritis: wall sit, step-ups and resistance band leg extension, plus benefits, safety tips and when to avoid strength training.",
+    "question": "Strength Training for Knee Arthritis",
+    "answer": "Strength Training is one of the most recommended activities for managing knee arthritis. It helps reduce stiffness, strengthen the muscles around the knee joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Strength Training for Knee Arthritis"
+  },
+  "/exercises/strength-training-for-shoulder-arthritis": {
+    "title": "Strength Training for Shoulder Arthritis: 3 Exercises",
+    "description": "Strength training for shoulder arthritis: resistance band external rotation, wall push-ups and light lateral raise, plus benefits and safety tips.",
+    "question": "Strength Training for Shoulder Arthritis",
+    "answer": "Strength Training is one of the most recommended activities for managing shoulder arthritis. It helps reduce stiffness, strengthen the muscles around the shoulder joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Strength Training for Shoulder Arthritis"
+  },
+  "/exercises/stretching-for-ankle-arthritis": {
+    "title": "Stretching for Ankle Arthritis: 3 Exercises & Safety Tips",
+    "description": "Stretching for ankle arthritis: calf stretch, ankle dorsiflexion stretch and towel pull stretch, plus benefits, safety tips and when to avoid stretching.",
+    "question": "Stretching for Ankle Arthritis",
+    "answer": "Stretching is one of the most recommended activities for managing ankle arthritis. It helps reduce stiffness, strengthen the muscles around the ankle joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Stretching for Ankle Arthritis"
+  },
+  "/exercises/stretching-for-back-arthritis": {
+    "title": "Stretching for Back Arthritis: 3 Exercises & Safety Tips",
+    "description": "Stretching for back arthritis: knee-to-chest stretch, seated spinal twist and standing extension, plus benefits, safety tips and when to avoid stretching.",
+    "question": "Stretching for Back Arthritis",
+    "answer": "Stretching is one of the most recommended activities for managing back arthritis. It helps reduce stiffness, strengthen the muscles around the back joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Stretching for Back Arthritis"
+  },
+  "/exercises/stretching-for-hand-arthritis": {
+    "title": "Stretching for Hand Arthritis: 3 Exercises & Safety Tips",
+    "description": "Stretching for hand arthritis: finger fan stretch, thumb stretch and table top stretch, plus benefits, safety tips and when to avoid stretching.",
+    "question": "Stretching for Hand Arthritis",
+    "answer": "Stretching is one of the most recommended activities for managing hand arthritis. It helps reduce stiffness, strengthen the muscles around the hand joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Stretching for Hand Arthritis"
+  },
+  "/exercises/stretching-for-hip-arthritis": {
+    "title": "Stretching for Hip Arthritis: 3 Exercises & Safety Tips",
+    "description": "Stretching for hip arthritis: hip flexor stretch, figure-4 stretch and seated hip rotation, plus benefits, safety tips and when to avoid stretching.",
+    "question": "Stretching for Hip Arthritis",
+    "answer": "Stretching is one of the most recommended activities for managing hip arthritis. It helps reduce stiffness, strengthen the muscles around the hip joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Stretching for Hip Arthritis"
+  },
+  "/exercises/stretching-for-knee-arthritis": {
+    "title": "Stretching for Knee Arthritis: 3 Exercises & Safety Tips",
+    "description": "Stretching for knee arthritis: quad stretch, hamstring stretch and calf stretch, plus benefits, safety tips and when to avoid stretching. Free UK guide.",
+    "question": "Stretching for Knee Arthritis",
+    "answer": "Stretching is one of the most recommended activities for managing knee arthritis. It helps reduce stiffness, strengthen the muscles around the knee joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Stretching for Knee Arthritis"
+  },
+  "/exercises/stretching-for-shoulder-arthritis": {
+    "title": "Stretching for Shoulder Arthritis: 3 Exercises & Safety Tips",
+    "description": "Stretching for shoulder arthritis: cross-body stretch, doorway stretch and pendulum swing, plus benefits, safety tips and when to avoid stretching.",
+    "question": "Stretching for Shoulder Arthritis",
+    "answer": "Stretching is one of the most recommended activities for managing shoulder arthritis. It helps reduce stiffness, strengthen the muscles around the shoulder joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Stretching for Shoulder Arthritis"
+  },
+  "/exercises/swimming-for-ankle-arthritis": {
+    "title": "Swimming for Ankle Arthritis: 3 Exercises & Safety Tips",
+    "description": "Swimming for ankle arthritis: ankle circles in water, toe raises in water and kick board kicks, plus benefits, safety tips and when to avoid swimming.",
+    "question": "Swimming for Ankle Arthritis",
+    "answer": "Swimming is one of the most recommended activities for managing ankle arthritis. It helps reduce stiffness, strengthen the muscles around the ankle joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Swimming for Ankle Arthritis"
+  },
+  "/exercises/swimming-for-back-arthritis": {
+    "title": "Swimming for Back Arthritis: 3 Exercises & Safety Tips",
+    "description": "Swimming for back arthritis: backstroke, water walking and floating stretch, plus benefits, safety tips and when to avoid swimming. Free UK guide.",
+    "question": "Swimming for Back Arthritis",
+    "answer": "Swimming is one of the most recommended activities for managing back arthritis. It helps reduce stiffness, strengthen the muscles around the back joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Swimming for Back Arthritis"
+  },
+  "/exercises/swimming-for-hand-arthritis": {
+    "title": "Swimming for Hand Arthritis: 3 Exercises & Safety Tips",
+    "description": "Swimming for hand arthritis: water fist squeezes, finger spread in water and wrist rotations in water, plus benefits and safety tips.",
+    "question": "Swimming for Hand Arthritis",
+    "answer": "Swimming is one of the most recommended activities for managing hand arthritis. It helps reduce stiffness, strengthen the muscles around the hand joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Swimming for Hand Arthritis"
+  },
+  "/exercises/swimming-for-hip-arthritis": {
+    "title": "Swimming for Hip Arthritis: 3 Exercises & Safety Tips",
+    "description": "Swimming for hip arthritis: side-stepping in water, leg circles and backstroke, plus benefits, safety tips and when to avoid swimming. Free UK guide.",
+    "question": "Swimming for Hip Arthritis",
+    "answer": "Swimming is one of the most recommended activities for managing hip arthritis. It helps reduce stiffness, strengthen the muscles around the hip joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Swimming for Hip Arthritis"
+  },
+  "/exercises/swimming-for-knee-arthritis": {
+    "title": "Swimming for Knee Arthritis: 3 Exercises & Safety Tips",
+    "description": "Swimming for knee arthritis: water walking, flutter kicks and water squats, plus benefits, safety tips and when to avoid swimming. Free UK guide.",
+    "question": "Swimming for Knee Arthritis",
+    "answer": "Swimming is one of the most recommended activities for managing knee arthritis. It helps reduce stiffness, strengthen the muscles around the knee joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Swimming for Knee Arthritis"
+  },
+  "/exercises/swimming-for-shoulder-arthritis": {
+    "title": "Swimming for Shoulder Arthritis: 3 Exercises & Safety Tips",
+    "description": "Swimming for shoulder arthritis: breaststroke, water arm circles and pool edge push-ups, plus benefits, safety tips and when to avoid swimming.",
+    "question": "Swimming for Shoulder Arthritis",
+    "answer": "Swimming is one of the most recommended activities for managing shoulder arthritis. It helps reduce stiffness, strengthen the muscles around the shoulder joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Swimming for Shoulder Arthritis"
+  },
+  "/exercises/tai-chi-for-ankle-arthritis": {
+    "title": "Tai Chi for Ankle Arthritis: 3 Exercises & Safety Tips",
+    "description": "Tai chi for ankle arthritis: rocking on feet, single-leg stand and stepping movements, plus benefits, safety tips and when to avoid tai chi. Free UK guide.",
+    "question": "Tai Chi for Ankle Arthritis",
+    "answer": "Tai Chi is one of the most recommended activities for managing ankle arthritis. It helps reduce stiffness, strengthen the muscles around the ankle joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Tai Chi for Ankle Arthritis"
+  },
+  "/exercises/tai-chi-for-arthritis": {
+    "title": "Tai Chi for Arthritis: Safe UK Beginner's Guide",
+    "description": "Tai chi for arthritis: what it is, what the evidence says, a 12-week beginner plan, adaptations for knees, hips and flares, finding UK classes and safety.",
+    "question": "Tai Chi for Arthritis",
+    "answer": "A practical UK guide to tai chi for arthritis: what it is, what the evidence says, a 12-week beginner plan, adaptations for painful joints and how to find a class.",
+    "breadcrumb": "Tai Chi for Arthritis"
+  },
+  "/exercises/tai-chi-for-back-arthritis": {
+    "title": "Tai Chi for Back Arthritis: 3 Exercises & Safety Tips",
+    "description": "Tai chi for back arthritis: standing meditation, waist turning and cloud hands, plus benefits, safety tips and when to avoid tai chi. Free UK guide.",
+    "question": "Tai Chi for Back Arthritis",
+    "answer": "Tai Chi is one of the most recommended activities for managing back arthritis. It helps reduce stiffness, strengthen the muscles around the back joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Tai Chi for Back Arthritis"
+  },
+  "/exercises/tai-chi-for-balance": {
+    "title": "Tai Chi for Balance (Arthritis) | Living With Arthritis",
+    "description": "An evidence-based tai chi routine for arthritis. Reduce pain, improve balance and lower fall risk in 15 minutes a day. NICE-recommended, beginner-friendly.",
+    "question": "Tai Chi for Balance",
+    "answer": "A 15-minute, low-impact routine to ease joint pain, steady your balance and rebuild confidence on your feet — supported by Cochrane and BMJ evidence.",
+    "breadcrumb": "Tai Chi for Balance"
+  },
+  "/exercises/tai-chi-for-beginners": {
+    "title": "Tai Chi for Beginners (UK) | Living With Arthritis",
+    "description": "A free 7-day UK guide to learning tai chi at home. Gentle on arthritic joints, no equipment, ~10 minutes a day. Start Day 1 today.",
+    "question": "Tai Chi for Beginners: Your First 7 Days",
+    "answer": "A gentle, evidence-aligned at-home start. No equipment, ~10 minutes a day, and especially kind to stiff or arthritic joints. Begin today.",
+    "breadcrumb": "Tai Chi for Beginners: Your First 7 Days"
+  },
+  "/exercises/tai-chi-for-hand-arthritis": {
+    "title": "Tai Chi for Hand Arthritis: 3 Exercises & Safety Tips",
+    "description": "Tai chi for hand arthritis: silk reeling hands, gathering chi and finger tapping meditation, plus benefits, safety tips and when to avoid tai chi.",
+    "question": "Tai Chi for Hand Arthritis",
+    "answer": "Tai Chi is one of the most recommended activities for managing hand arthritis. It helps reduce stiffness, strengthen the muscles around the hand joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Tai Chi for Hand Arthritis"
+  },
+  "/exercises/tai-chi-for-hip-arthritis": {
+    "title": "Tai Chi for Hip Arthritis: 3 Exercises & Safety Tips",
+    "description": "Tai chi for hip arthritis: repulse monkey, cloud hands and golden rooster stands, plus benefits, safety tips and when to avoid tai chi. Free UK guide.",
+    "question": "Tai Chi for Hip Arthritis",
+    "answer": "Tai Chi is one of the most recommended activities for managing hip arthritis. It helps reduce stiffness, strengthen the muscles around the hip joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Tai Chi for Hip Arthritis"
+  },
+  "/exercises/tai-chi-for-knee-arthritis": {
+    "title": "Tai Chi for Knee Arthritis: 3 Exercises & Safety Tips",
+    "description": "Tai chi for knee arthritis: weight shifting, brush knee push and standing meditation, plus benefits, safety tips and when to avoid tai chi. Free UK guide.",
+    "question": "Tai Chi for Knee Arthritis",
+    "answer": "Tai Chi is one of the most recommended activities for managing knee arthritis. It helps reduce stiffness, strengthen the muscles around the knee joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Tai Chi for Knee Arthritis"
+  },
+  "/exercises/tai-chi-for-shoulder-arthritis": {
+    "title": "Tai Chi for Shoulder Arthritis: 3 Exercises & Safety Tips",
+    "description": "Tai chi for shoulder arthritis: wave hands like clouds, opening & closing and brush arm past knee, plus benefits, safety tips and when to avoid tai chi.",
+    "question": "Tai Chi for Shoulder Arthritis",
+    "answer": "Tai Chi is one of the most recommended activities for managing shoulder arthritis. It helps reduce stiffness, strengthen the muscles around the shoulder joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Tai Chi for Shoulder Arthritis"
+  },
+  "/exercises/walking-for-ankle-arthritis": {
+    "title": "Walking for Ankle Arthritis: 3 Exercises & Safety Tips",
+    "description": "Walking for ankle arthritis: flat surface walking, heel-toe walking and sand walking, plus benefits, safety tips and when to avoid walking. Free UK guide.",
+    "question": "Walking for Ankle Arthritis",
+    "answer": "Walking is one of the most recommended activities for managing ankle arthritis. It helps reduce stiffness, strengthen the muscles around the ankle joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Walking for Ankle Arthritis"
+  },
+  "/exercises/walking-for-back-arthritis": {
+    "title": "Walking for Back Arthritis: 3 Exercises & Safety Tips",
+    "description": "Walking for back arthritis: posture-focused walking, gentle hill walking and walking with core engagement, plus benefits and safety tips.",
+    "question": "Walking for Back Arthritis",
+    "answer": "Walking is one of the most recommended activities for managing back arthritis. It helps reduce stiffness, strengthen the muscles around the back joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Walking for Back Arthritis"
+  },
+  "/exercises/walking-for-hand-arthritis": {
+    "title": "Walking for Hand Arthritis: 3 Exercises & Safety Tips",
+    "description": "Walking for hand arthritis: walking ball squeeze, finger counting walk and wrist circles while walking, plus benefits and safety tips.",
+    "question": "Walking for Hand Arthritis",
+    "answer": "Walking is one of the most recommended activities for managing hand arthritis. It helps reduce stiffness, strengthen the muscles around the hand joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Walking for Hand Arthritis"
+  },
+  "/exercises/walking-for-hip-arthritis": {
+    "title": "Walking for Hip Arthritis: 3 Exercises & Safety Tips",
+    "description": "Walking for hip arthritis: gentle flat walking, lateral walking and backward walking, plus benefits, safety tips and when to avoid walking. Free UK guide.",
+    "question": "Walking for Hip Arthritis",
+    "answer": "Walking is one of the most recommended activities for managing hip arthritis. It helps reduce stiffness, strengthen the muscles around the hip joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Walking for Hip Arthritis"
+  },
+  "/exercises/walking-for-knee-arthritis": {
+    "title": "Walking for Knee Arthritis: 3 Exercises & Safety Tips",
+    "description": "Walking for knee arthritis: flat surface walk, Nordic walking and treadmill walking, plus benefits, safety tips and when to avoid walking. Free UK guide.",
+    "question": "Walking for Knee Arthritis",
+    "answer": "Walking is one of the most recommended activities for managing knee arthritis. It helps reduce stiffness, strengthen the muscles around the knee joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Walking for Knee Arthritis"
+  },
+  "/exercises/walking-for-shoulder-arthritis": {
+    "title": "Walking for Shoulder Arthritis: 3 Exercises & Safety Tips",
+    "description": "Walking for shoulder arthritis: arm swing walking, walking with shoulder rolls and Nordic walking, plus benefits, safety tips and when to avoid walking.",
+    "question": "Walking for Shoulder Arthritis",
+    "answer": "Walking is one of the most recommended activities for managing shoulder arthritis. It helps reduce stiffness, strengthen the muscles around the shoulder joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Walking for Shoulder Arthritis"
+  },
+  "/exercises/yoga-for-ankle-arthritis": {
+    "title": "Yoga for Ankle Arthritis: 3 Exercises & Safety Tips",
+    "description": "Yoga for ankle arthritis: ankle rotations, downward dog (modified) and toes pose, plus benefits, safety tips and when to avoid yoga. Free UK guide.",
+    "question": "Yoga for Ankle Arthritis",
+    "answer": "Yoga is one of the most recommended activities for managing ankle arthritis. It helps reduce stiffness, strengthen the muscles around the ankle joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Yoga for Ankle Arthritis"
+  },
+  "/exercises/yoga-for-back-arthritis": {
+    "title": "Yoga for Back Arthritis: 3 Exercises & Safety Tips",
+    "description": "Yoga for back arthritis: cat-cow stretch, child's pose and supine twist, plus benefits, safety tips and when to avoid yoga. Free UK guide.",
+    "question": "Yoga for Back Arthritis",
+    "answer": "Yoga is one of the most recommended activities for managing back arthritis. It helps reduce stiffness, strengthen the muscles around the back joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Yoga for Back Arthritis"
+  },
+  "/exercises/yoga-for-hand-arthritis": {
+    "title": "Yoga for Hand Arthritis: 3 Exercises & Safety Tips",
+    "description": "Yoga for hand arthritis: finger stretches, prayer pose and wrist flexion stretch, plus benefits, safety tips and when to avoid yoga. Free UK guide.",
+    "question": "Yoga for Hand Arthritis",
+    "answer": "Yoga is one of the most recommended activities for managing hand arthritis. It helps reduce stiffness, strengthen the muscles around the hand joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Yoga for Hand Arthritis"
+  },
+  "/exercises/yoga-for-hip-arthritis": {
+    "title": "Yoga for Hip Arthritis: 3 Exercises & Safety Tips",
+    "description": "Yoga for hip arthritis: pigeon pose (modified), butterfly pose and supine hip rotation, plus benefits, safety tips and when to avoid yoga. Free UK guide.",
+    "question": "Yoga for Hip Arthritis",
+    "answer": "Yoga is one of the most recommended activities for managing hip arthritis. It helps reduce stiffness, strengthen the muscles around the hip joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Yoga for Hip Arthritis"
+  },
+  "/exercises/yoga-for-knee-arthritis": {
+    "title": "Yoga for Knee Arthritis: 3 Exercises & Safety Tips",
+    "description": "Yoga for knee arthritis: chair pose (modified), warrior II and reclined knee-to-chest, plus benefits, safety tips and when to avoid yoga. Free UK guide.",
+    "question": "Yoga for Knee Arthritis",
+    "answer": "Yoga is one of the most recommended activities for managing knee arthritis. It helps reduce stiffness, strengthen the muscles around the knee joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Yoga for Knee Arthritis"
+  },
+  "/exercises/yoga-for-shoulder-arthritis": {
+    "title": "Yoga for Shoulder Arthritis: 3 Exercises & Safety Tips",
+    "description": "Yoga for shoulder arthritis: cat-cow, thread the needle and eagle arms, plus benefits, safety tips and when to avoid yoga. Free UK guide.",
+    "question": "Yoga for Shoulder Arthritis",
+    "answer": "Yoga is one of the most recommended activities for managing shoulder arthritis. It helps reduce stiffness, strengthen the muscles around the shoulder joint, and improve your overall mobility — all with minimal joint impact.",
+    "breadcrumb": "Yoga for Shoulder Arthritis"
+  },
+  "/expert-articles": {
+    "title": "In-depth arthritis articles | Living With Arthritis",
+    "description": "In-depth arthritis articles on biologics, exercise, diet and emotional health from a UK charity, drawing on NICE and NHS guidance. Educational only.",
+    "question": "In-depth Arthritis Articles",
+    "answer": "Longer reads on treatment, exercise, diet and emotional health, drawing on NICE guidance, NHS information and peer-reviewed research.",
+    "breadcrumb": "In-depth Arthritis Articles"
+  },
+  "/governance": {
+    "title": "Governance & Constitution | Living With Arthritis Charity",
+    "description": "Our charity governance structure, board of trustees, constitution, and policies. Regulated by the Charity Commission for England and Wales.",
+    "question": "Our Governance & Constitution",
+    "answer": "Our constitution sets out our charitable objects, trustee responsibilities, and how the organisation is governed. It is publicly available as required by the Charity Commission.",
+    "breadcrumb": "Our Governance & Constitution"
+  },
+  "/guides/azathioprine-for-arthritis": {
+    "title": "Azathioprine for Arthritis — UK Patient Guide",
+    "description": "UK guide to azathioprine for arthritis: how it works, who it's for, TPMT testing, blood monitoring, side effects and safe long-term use.",
+    "question": "Azathioprine for Arthritis",
+    "answer": "A plain-English UK guide to azathioprine — how it works, TPMT testing, dosing, side effects, blood monitoring and the conditions it's prescribed for.",
+    "breadcrumb": "Azathioprine for Arthritis"
+  },
+  "/guides/collagen-vs-glucosamine": {
+    "title": "Collagen vs Glucosamine for Arthritis — Compared",
+    "description": "Collagen vs glucosamine for arthritis: which supplement has better evidence for joint pain, UK doses, side effects, cost and who each one actually suits.",
+    "question": "Collagen vs Glucosamine for Arthritis",
+    "answer": "Collagen and glucosamine are the two supplements people ask about most when they want to try something over the counter for arthritis. Both claim to support cartilage and reduce joint pain, both are sold in every UK pharmacy and health shop, and both have a mixed evidence base that's easy to misread.",
+    "breadcrumb": "Collagen vs Glucosamine for Arthritis"
+  },
+  "/guides/febuxostat-for-gout": {
+    "title": "Febuxostat for Gout — UK Guide | Living With Arthritis",
+    "description": "UK guide to febuxostat (Adenuric) for gout: how it works, dosing, monitoring, side effects, how it compares with allopurinol, and lifestyle tips.",
+    "question": "Febuxostat for Gout",
+    "answer": "A plain-English UK guide to dosing, monitoring, side effects and how febuxostat compares with allopurinol.",
+    "breadcrumb": "Febuxostat for Gout"
+  },
+  "/guides/febuxostat-vs-allopurinol": {
+    "title": "Febuxostat vs Allopurinol for Gout — Compared",
+    "description": "Febuxostat vs allopurinol for gout: a UK comparison of effectiveness, side effects, cardiovascular safety, NHS eligibility and cost.",
+    "question": "Febuxostat vs Allopurinol for Gout",
+    "answer": "Allopurinol and febuxostat are the two urate-lowering drugs used long term to prevent gout attacks in the UK. Both lower blood uric acid by blocking xanthine oxidase, but they differ in effectiveness at standard doses, cardiovascular safety, kidney handling and UK healthcare availability.",
+    "breadcrumb": "Febuxostat vs Allopurinol for Gout"
+  },
+  "/guides/health-services": {
+    "title": "UK Arthritis Health Services Guide | Living With Arthritis",
+    "description": "Guide to UK arthritis services: GP referral, first contact physio, rheumatology clinics, pain management, joint replacement and mental health.",
+    "question": "Arthritis Services Guide",
+    "answer": "How to access free arthritis care through the public health service — from your first GP visit to specialist rheumatology, physiotherapy and joint replacement surgery.",
+    "breadcrumb": "Arthritis Services Guide"
+  },
+  "/guides/knee-replacement-surgery": {
+    "title": "Knee Replacement Surgery UK — Guide | Living With Arthritis",
+    "description": "UK patient guide to knee replacement: when to consider it, prehab, hospital stay, recovery timeline, exercises, risks and waiting-list options.",
+    "question": "Knee Replacement Surgery: A UK Patient Guide",
+    "answer": "From deciding on surgery to post-operative recovery — an evidence-based walk-through of every stage, written for UK patients.",
+    "breadcrumb": "Knee Replacement Surgery: A UK Patient Guide"
+  },
+  "/guides/painkillers-and-nsaids": {
+    "title": "Painkillers & NSAIDs for Arthritis | UK Guide",
+    "description": "UK guide to painkillers and NSAIDs for arthritis: topical gels, ibuprofen, naproxen, paracetamol, codeine — what to use, avoid, and review.",
+    "question": "Painkillers & NSAIDs for Arthritis",
+    "answer": "Topical gels, oral NSAIDs, paracetamol and opioids — what works, what to avoid, and how to use them safely.",
+    "breadcrumb": "Painkillers & NSAIDs for Arthritis"
+  },
+  "/guides/shoulder-pain-relief": {
+    "title": "Shoulder Pain Relief: UK Physio-Aligned Exercises",
+    "description": "Why your shoulder is in pain and how to relieve it — a staged mobility and strengthening routine, fast-relief measures, red flags and when to see a GP.",
+    "question": "Shoulder pain relief",
+    "answer": "What is causing it, what settles it fastest, and a staged mobility-then-strength routine you can start at home today.",
+    "breadcrumb": "Shoulder pain relief"
+  },
+  "/guides/steroids-for-arthritis": {
+    "title": "Steroids for Arthritis — UK Guide | Living With Arthritis",
+    "description": "UK guide to steroid injections and tablets for arthritis: how they work, what to expect, side effects, frequency limits and how to access them.",
+    "question": "Steroids for Arthritis",
+    "answer": "A plain-English guide to corticosteroid injections and tablets — how they work, what to expect, side effects and how to access them in the UK.",
+    "breadcrumb": "Steroids for Arthritis"
+  },
+  "/guides/uk-arthritis": {
+    "title": "Complete UK Arthritis Guide | Living With Arthritis",
+    "description": "Definitive UK arthritis guide: types (OA, RA, PsA), symptoms, treatments, self-management and support for the 10 million affected.",
+    "question": "The Complete UK Arthritis Guide",
+    "answer": "Everything you need to know about arthritis — types, symptoms, treatments and support available across the United Kingdom.",
+    "breadcrumb": "The Complete UK Arthritis Guide"
+  },
+  "/health-tools": {
+    "title": "Interactive Health Tools | Living With Arthritis",
+    "description": "Free interactive arthritis health tools: symptom quiz, inflammation risk calculator and personalised results — all free to use.",
+    "question": "Your Arthritis Health Toolkit",
+    "answer": "This checker helps you find UK arthritis guides that often overlap with your symptom pattern. It cannot diagnose arthritis. Always speak to a GP or rheumatologist for personal medical advice. In an emergency call 999; for urgent advice use NHS 111.",
+    "breadcrumb": "Your Arthritis Health Toolkit"
+  },
+  "/healthcare-professionals": {
+    "title": "Healthcare professionals | Living With Arthritis",
+    "description": "Free clinic pack, shareable patient guides and educational tools from Living With Arthritis for physiotherapists, GPs and rheumatology teams.",
+    "question": "Shareable patient resources for clinic and waiting rooms",
+    "answer": "Educational UK guides reviewed by Louis Maxwell (HCPC PH128483). Independent charity 1218461 — not a diagnosis service, and independent of Arthritis UK.",
+    "breadcrumb": "Shareable patient resources for clinic and waiting rooms"
+  },
+  "/impact": {
+    "title": "Patient Stories & Impact | Living With Arthritis",
+    "description": "The everyday situations Living With Arthritis (charity 1218461) covers, and how our free guides support people with arthritis and their carers.",
+    "question": "What this charity is for",
+    "answer": "Everyday situations we write about. Not named patients, not audited outcomes, not a measure of reach.",
+    "breadcrumb": "What this charity is for"
+  },
+  "/library": {
+    "title": "Arthritis Health Library UK | Pain, Exercise & PIP",
+    "description": "Explore our free UK arthritis health library: conditions, medicines, supplements and treatments, with links to exercise, pain relief and benefits guides.",
+    "question": "UK arthritis health library",
+    "answer": "Plain-English explanations of conditions, medications, supplements and treatments — including fibromyalgia, osteoarthritis and common UK medicines.",
+    "breadcrumb": "UK arthritis health library"
+  },
+  "/magazine": {
+    "title": "Monthly Magazine | Living With Arthritis",
+    "description": "Download the free Living With Arthritis monthly magazine: pain tips, home exercises, benefits and PIP guidance, and community stories. No sign-up.",
+    "question": "Monthly magazine",
+    "answer": "A free magazine from Living With Arthritis for people living with arthritis and the people who care for them. Each issue is a downloadable PDF — no account and no paywall.",
+    "breadcrumb": "Monthly magazine"
+  },
+  "/myths/does-cracking-knuckles-cause-arthritis": {
+    "title": "Cracking Knuckles & Arthritis | Living With Arthritis",
+    "description": "No — and here's the evidence. A plain-English UK guide to the knuckle and toe cracking myth, what cracking can really cause, and what to do instead.",
+    "question": "Does Cracking Your Knuckles or Toes Cause Arthritis?",
+    "answer": "Short answer: no. A plain-English look at what the research actually shows — for knuckles, toes, backs and necks — plus what to do if you crack out of habit.",
+    "breadcrumb": "Does Cracking Your Knuckles or Toes Cause Arthritis?"
+  },
+  "/partners": {
+    "title": "Partner With Us | Living With Arthritis",
+    "description": "Partner with Living With Arthritis — public health bodies, GP practices, health charities and community groups working together.",
+    "question": "Partner With Us",
+    "answer": "We partner with public health bodies, GP practices, health charities and community organisations to extend free arthritis support to more people across the UK.",
+    "breadcrumb": "Partner With Us"
+  },
+  "/pedometer": {
+    "title": "Free Step Counter & Pedometer | Living With Arthritis",
+    "description": "Free pedometer for arthritis: track steps, distance, calories and streaks. Built to support gentle low-impact walking for joint health.",
+    "question": "Daily Step Counter",
+    "answer": "Low-impact movement like walking helps lubricate joints, strengthens supporting muscles and reduces stiffness. Even short walks broken across the day can ease symptoms of osteoarthritis and rheumatoid arthritis. Build up gradually and stop if you feel sharp pain — consult your GP or physiotherapist if symptoms flare.",
+    "breadcrumb": "Daily Step Counter"
+  },
+  "/press": {
+    "title": "Press & Media Kit | Living With Arthritis",
+    "description": "Press resources, key facts, expert spokespeople and brand assets for Living With Arthritis — a free physiotherapy and arthritis support charity.",
+    "question": "Press & Media Kit",
+    "answer": "Everything journalists, bloggers and partners need to write about Living With Arthritis — key facts, expert contacts, downloadable resources and brand guidelines.",
+    "breadcrumb": "Press & Media Kit"
+  },
+  "/privacy": {
+    "title": "Privacy Policy | Living With Arthritis",
+    "description": "Privacy policy & data protection: How we protect your data. GDPR compliant, no third-party selling. Your privacy matters to us.",
+    "question": "Privacy Policy",
+    "answer": "Living With Arthritis (\"we\", \"us\", \"our\") is committed to protecting your personal data. This policy explains how we collect, use and safeguard information when you use our website and services. We operate in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.",
+    "breadcrumb": "Privacy Policy"
+  },
+  "/regions/midlands": {
+    "title": "The Midlands Arthritis Support | Living With Arthritis",
+    "description": "Explore arthritis services across Birmingham, Coventry, Wolverhampton, Stoke-on-Trent, Nottingham, Leicester and Derby. The Midlands hosts the renowned Hay",
+    "question": "Arthritis Support in The Midlands",
+    "answer": "Explore arthritis services across Birmingham, Coventry, Wolverhampton, Stoke-on-Trent, Nottingham, Leicester and Derby. The Midlands hosts the renowned Haywood Hospital rheumatology centre and the Queen Elizabeth Hospital Birmingham.",
+    "breadcrumb": "Arthritis Support in The Midlands"
+  },
+  "/regions/north-west": {
+    "title": "North West England Arthritis Support | Living With Arthritis",
+    "description": "Find arthritis support, rheumatology services, and patient communities across Manchester, Liverpool, Preston, Blackpool, Warrington and Wigan. The North We",
+    "question": "Arthritis Support in North West England",
+    "answer": "Find arthritis support, rheumatology services, and patient communities across Manchester, Liverpool, Preston, Blackpool, Warrington and Wigan. The North West is home to leading rheumatology centres including the Kellgren Centre and the Royal Liverpool Hospital.",
+    "breadcrumb": "Arthritis Support in North West England"
+  },
+  "/regions/scotland": {
+    "title": "Scotland Arthritis Support | Living With Arthritis",
+    "description": "Access arthritis care across Glasgow, Edinburgh, Aberdeen and Dundee through Scotland's health service. Scottish patients benefit from Arthritis UK (former",
+    "question": "Arthritis Support in Scotland",
+    "answer": "Access arthritis care across Glasgow, Edinburgh, Aberdeen and Dundee through Scotland's health service. Scottish patients benefit from Arthritis UK (formerly Versus Arthritis) support networks in Scotland and university-led research at Glasgow and Edinburgh.",
+    "breadcrumb": "Arthritis Support in Scotland"
+  },
+  "/regions/wales": {
+    "title": "Wales Arthritis Support | Living With Arthritis",
+    "description": "Find arthritis support across Cardiff, Swansea and Welsh health boards. Wales's health service provides specialist rheumatology with Arthritis Cymru offeri",
+    "question": "Arthritis Support in Wales",
+    "answer": "Find arthritis support across Cardiff, Swansea and Welsh health boards. Wales's health service provides specialist rheumatology with Arthritis Cymru offering Welsh-language patient support.",
+    "breadcrumb": "Arthritis Support in Wales"
+  },
+  "/resource-centre": {
+    "title": "Resource Centre | Living With Arthritis",
+    "description": "One place for Living With Arthritis guides, exercise and diet hubs, PIP help, tools and chatbot — free educational resources. Charity 1218461.",
+    "question": "Find guides, tools and downloads in one place",
+    "answer": "Browse existing Living With Arthritis resources — educational information only, reviewed for UK readers. Registered charity 1218461.",
+    "breadcrumb": "Find guides, tools and downloads in one place"
+  },
+  "/resources-directory": {
+    "title": "UK Arthritis Resource Directory | Living With Arthritis",
+    "description": "Arthritis resource directory: free UK guides, webinars, e-books, anti-inflammatory recipes and support groups to help you manage arthritis effectively.",
+    "question": "UK Arthritis Resource Directory",
+    "answer": "A curated directory of health services, charities, benefits, equipment, and research opportunities — everything you need in one place.",
+    "breadcrumb": "UK Arthritis Resource Directory"
+  },
+  "/resources/clinic-pack": {
+    "title": "Clinic Pack for Healthcare Teams | Living With Arthritis",
+    "description": "Free printable clinic pack from Living With Arthritis: waiting-room QR links to exercises, flares, PIP and newly diagnosed guides. Charity 1218461.",
+    "question": "Living With Arthritis — free patient resources",
+    "answer": "Practical, plain-English UK guides for people living with arthritis. Educational only — not a substitute for clinical care. Independent charity (CIO 1218461).",
+    "breadcrumb": "Living With Arthritis — free patient resources"
+  },
+  "/resources/symptom-flare-tracker": {
+    "title": "Symptom and flare tracker PDF | Living With Arthritis",
+    "description": "Free printable 7-day arthritis symptom and flare tracker: pain, stiffness, fatigue, sleep, activity and medicines to take to your GP or physio.",
+    "question": "Arthritis symptom and flare tracker (free printable)",
+    "answer": "Write down your symptoms each day for a week or two. Patterns are easier to spot, and you will have clear notes to share with your GP, physiotherapist or rheumatology team.",
+    "breadcrumb": "Arthritis symptom and flare tracker (free printable)"
+  },
+  "/safeguarding": {
+    "title": "Safeguarding Policy | Living With Arthritis",
+    "description": "Our safeguarding policy outlines how Living With Arthritis protects vulnerable adults and ensures the safety of everyone who engages with our services.",
+    "question": "Safeguarding Policy",
+    "answer": "Living With Arthritis is committed to safeguarding and promoting the welfare of all individuals who engage with our services. We recognise our responsibility to take all reasonable steps to promote safe practice and to protect vulnerable adults from harm, abuse and exploitation.",
+    "breadcrumb": "Safeguarding Policy"
+  },
+  "/self-assessment": {
+    "title": "Arthritis Self-Assessment | Living With Arthritis",
+    "description": "Take our free arthritis self-assessment to get personalised exercise, diet and care recommendations based on your symptoms and goals.",
+    "question": "Personal arthritis self-assessment",
+    "answer": "Five minutes. Personal recommendations for exercise, diet and care — based on your symptoms and goals.",
+    "breadcrumb": "Personal arthritis self-assessment"
+  },
+  "/self-help": {
+    "title": "Virtual Physio Self-Help Tool | Living With Arthritis",
+    "description": "Interactive self-help tool for arthritis joint exercises. Click on any joint to discover targeted exercises for pain relief and mobility.",
+    "question": "Your Virtual Physio Assistant",
+    "answer": "Self-management combines four things UK physiotherapists know move the needle: gentle daily exercise tailored to the painful joint, pacing activity to avoid boom-and-bust days, weight management to reduce joint load, and short courses of NSAIDs or paracetamol for flares.",
+    "breadcrumb": "Your Virtual Physio Assistant"
+  },
+  "/services": {
+    "title": "Arthritis Support Services UK | Living With Arthritis",
+    "description": "Free arthritis support services in the UK — virtual physiotherapy, personalised exercise plans, anti-inflammatory diet guidance and 24/7 community help.",
+    "question": "Arthritis Support Services for Everyone in the UK",
+    "answer": "Free, evidence-based services designed with HCPC-registered clinicians and aligned to national clinical and NICE guidance.",
+    "breadcrumb": "Arthritis Support Services for Everyone in the UK"
+  },
+  "/sources": {
+    "title": "Clinical Sources & Evidence | Living With Arthritis",
+    "description": "Clinical sources & evidence: NICE guidelines, Cochrane reviews, peer-reviewed research. Full bibliography of trusted sources.",
+    "question": "Clinical Sources & Evidence",
+    "answer": "Clinical sources & evidence: NICE guidelines, Cochrane reviews, peer-reviewed research. Full bibliography of trusted sources.",
+    "breadcrumb": "Clinical Sources & Evidence"
+  },
+  "/supplements/collagen-alternatives": {
+    "title": "Collagen Alternatives for Joints: UK Evidence Guide",
+    "description": "Vegan, halal and allergy-safe alternatives to collagen for arthritis: turmeric, glucosamine, MSM, omega-3, vitamin C and D, with evidence and caveats.",
+    "question": "Collagen alternatives for joints",
+    "answer": "There is no such thing as vegan collagen, but you do not need collagen to support your joints.",
+    "breadcrumb": "Collagen alternatives for joints"
+  },
+  "/supplements/collagen": {
+    "title": "Collagen for Arthritis: Does It Work? UK Evidence Guide",
+    "description": "Does collagen help arthritis? An honest UK guide to hydrolysed and type II collagen: what trials show, safety, medicine interactions and what works better.",
+    "question": "Collagen Supplements for Arthritis: What the Evidence Really Shows (UK Guide)",
+    "answer": "Checked on 10 October 2026 against Arthritis UK's collagen page, NICE NG226 and the published trials listed below. This page is general education, not a recommendation to buy any product.",
+    "breadcrumb": "Collagen Supplements for Arthritis: What the Evidence Really Shows (UK Guide)"
+  },
+  "/supplements/glucosamine": {
+    "title": "Glucosamine for Arthritis: Does It Work? UK Guide",
+    "description": "UK guide to glucosamine for arthritis: what the evidence says, sulfate vs HCl, dosage, side effects and how it compares to chondroitin, MSM and collagen.",
+    "question": "Glucosamine for arthritis",
+    "answer": "Evidence is mixed, and NICE advises healthcare professionals not to offer glucosamine for osteoarthritis. It is not a cure and should not replace exercise or recommended treatment. Ask a pharmacist before trying it, especially if you take warfarin or other medicines.",
+    "breadcrumb": "Glucosamine for arthritis"
+  },
+  "/supplements/msm": {
+    "title": "MSM Supplement for Joint Pain: UK Guide & Evidence",
+    "description": "What is MSM (methylsulfonylmethane)? An honest UK guide to the evidence for joint pain and arthritis, dosage, side effects and use with glucosamine.",
+    "question": "MSM for joint pain",
+    "answer": "MSM is an organic sulfur compound (methylsulfonylmethane). Small trials at 1,500–3,000 mg/day show modest reductions in knee osteoarthritis pain and stiffness over 12 weeks. It is well tolerated and often combined with glucosamine sulfate. Evidence is weaker than for curcumin or glucosamine alone.",
+    "breadcrumb": "MSM for joint pain"
+  },
+  "/symptom-checker": {
+    "title": "Arthritis Symptom Checker (UK): Educational Guide Finder",
+    "description": "Free UK arthritis symptom checker: red-flag screen, joint areas, duration and severity, with links to condition, exercise, diet and PIP guides.",
+    "question": "Arthritis symptom checker",
+    "answer": "Use this checker to organise symptoms and open relevant Living With Arthritis guides on conditions, exercise, diet and PIP. If you have emergency symptoms such as a suddenly hot red joint with fever, or loss of bladder or bowel control with back pain, call 999. For urgent non-emergency advice, contact NHS 111.",
+    "breadcrumb": "Arthritis symptom checker"
+  },
+  "/terms": {
+    "title": "Terms & Conditions | Living With Arthritis",
+    "description": "Terms and Conditions for using the Living With Arthritis website. Covers use of the site, intellectual property, donations, refunds, and liability.",
+    "question": "Terms & Conditions",
+    "answer": "These Terms and Conditions govern your use of the Living With Arthritis website (livingwitharthritis.org.uk). By accessing or using this website, you agree to be bound by these terms. If you do not agree, please do not use the site.",
+    "breadcrumb": "Terms & Conditions"
+  },
+  "/tools/waiting-time": {
+    "title": "Arthritis Waiting Time Calculator | Free UK Tool",
+    "description": "Free rheumatology waiting time calculator for UK patients. Estimate your wait by region, urgency and condition — get a personalised action plan.",
+    "question": "Arthritis Waiting Time Calculator",
+    "answer": "Estimate your rheumatology wait based on your region, urgency and condition. Get a free, personalised plan for what to do while you wait — built for UK patients.",
+    "breadcrumb": "Arthritis Waiting Time Calculator"
+  },
+  "/trust": {
+    "title": "Trust & Credibility | Living With Arthritis Charity",
+    "description": "Our charity registration, evidence sources, editorial safeguards and governance information. See how Living With Arthritis supports its public claims.",
+    "question": "Why You Can Trust Us",
+    "answer": "Registered with the Charity Commission for England and Wales. Our public policies explain how the charity is governed and how claims are checked.",
+    "breadcrumb": "Why You Can Trust Us"
+  },
+  "/trusted-local-services": {
+    "title": "Trusted Local Services | Living With Arthritis",
+    "description": "Local services we know and recommend to people living with arthritis, including ear and hearing care in Dartford.",
+    "question": "Trusted local services",
+    "answer": "These are local services we know and are happy to recommend. Listing a service is not an endorsement of any clinical outcome, and it does not replace advice from your GP or care team. Living With Arthritis is not responsible for third-party services.",
+    "breadcrumb": "Trusted local services"
+  },
+  "/ways-to-help": {
+    "title": "Donate, volunteer or fundraise | Living With Arthritis",
+    "description": "Support Living With Arthritis through current donation options, volunteering interest, fundraising enquiries or potential corporate support.",
+    "question": "Donate, volunteer or fundraise to support people with arthritis a fuller life",
+    "answer": "More than 10 million people across the UK live with arthritis. Your support — whether a donation, your time, or spreading the word — directly transforms lives.",
+    "breadcrumb": "Donate, volunteer or fundraise to support people with arthritis a fuller life"
+  },
+  "/zakat-appeal": {
+    "title": "Gaza Zakat & Sadaqah | Living With Arthritis",
+    "description": "Give Zakat or Sadaqah to support physiotherapy and rehabilitation for war and trauma survivors in Gaza. Learn how donations help. Gift Aid not yet live.",
+    "question": "Zakat Appeal",
+    "answer": "In Gaza, thousands of people are living with crushed joints, amputations, nerve damage and pain that never lets go. Hospitals that survived are overwhelmed, and rehabilitation — the slow, patient work of learning to move again — is one of the first things to disappear.",
+    "breadcrumb": "Zakat Appeal"
+  }
+}

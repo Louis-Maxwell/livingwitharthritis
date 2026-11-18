@@ -134,6 +134,7 @@ This chat cannot replace emergency services.`,
       "charity number",
       "hcpc",
       "louis maxwell",
+      "david williams",
       "motion is lotion",
     ],
     synonyms: ["about us", "independent", "who runs", "founder", "ph128483", "1218461", "are you versus"],
@@ -144,7 +145,8 @@ This chat cannot replace emergency services.`,
 We are **Living With Arthritis** — an independent UK charity (Charitable Incorporated Organisation, registered charity **1218461** in England and Wales).
 
 - We are **not** Arthritis UK (formerly Versus Arthritis) and **not** the US Arthritis Foundation.
-- Clinical review is led by our founder **Louis Maxwell**, an HCPC-registered First Contact Practitioner (**PH128483**) and CSP member.
+- Our founder is **David Williams**.
+- Clinical review is led by **Louis Maxwell**, Operations Director and an HCPC-registered First Contact Practitioner (**PH128483**) and CSP member.
 - Our motto: **Motion is Lotion** — gentle, regular movement is one of the best treatments for most arthritis.
 - Everything on the site is free; we do **not** diagnose or prescribe.
 
@@ -1172,7 +1174,7 @@ Learn more: **/conditions/osteoarthritis**, **/conditions/rheumatoid-arthritis**
     chips: ["OA exercises", "Knee OA", "Diet hub"],
     answer: `**Osteoarthritis (OA) — essentials**
 
-OA is the most common arthritis. Cartilage cushioning wears, so joints feel stiff, achy and sometimes swollen — often knees, hips, hands and spine.
+OA is the most common arthritis. It involves changes in the cartilage that cushions bone ends and in other joint tissues, so joints feel stiff, achy and sometimes swollen — often knees, hips, hands and spine.
 
 **Typical pattern**
 - Pain worse with activity, easier with rest
@@ -1194,6 +1196,9 @@ Explore **/conditions/osteoarthritis** and **/exercises**. Hot/red joint with fe
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "article", title: "Swimming for hip OA", url: "/blog/swimming-exercises-hip-osteoarthritis" },
       { type: "article", title: "Walking with arthritis", url: "/blog/walking-with-arthritis-start-build-up-keep-going" },
+      { type: "article", title: "Getting up safely from a chair, bed or car", url: "/blog/hip-and-knee-oa-frailty-transfers-uk" },
+      { type: "article", title: "Knee osteoarthritis: staying steady at home", url: "/blog/knee-osteoarthritis-frailty-staying-steady-home-uk" },
+      { type: "article", title: "Seated strength exercises", url: "/blog/seated-strength-frail-osteoarthritis-uk" },
       { type: "guide", title: "Pain relief", url: "/guides/arthritis-pain-relief" },
       { type: "guide", title: "Benefits & PIP hub", url: "/guides/benefits-pip" },
       { type: "guide", title: "Diet hub", url: "/guides/diet" },

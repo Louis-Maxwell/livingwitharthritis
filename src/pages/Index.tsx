@@ -25,7 +25,6 @@ import ViewportSection from "@/components/ViewportSection";
 import OAHero from "@/components/landing/OAHero";
 import HomeTrustStrip from "@/components/landing/HomeTrustStrip";
 import HomeJobRouter from "@/components/landing/HomeJobRouter";
-import TopicClusterLinksHome from "@/components/seo/TopicClusterLinks";
 import HomeTopicGuides from "@/components/landing/HomeTopicGuides";
 const HomeGuidesShowcase = lazy(() => import("@/components/blog/HomeGuidesShowcase"));
 
@@ -125,20 +124,20 @@ function HomePage() {
         />
       </Helmet>
 
-      <div className="min-h-screen bg-background text-foreground">
+      <div className="min-h-dvh bg-background text-foreground">
         <Header />
         <ScrollProgress />
 
         <main id="main-content" role="main" tabIndex={-1}>
           {/* 01 — Hero (eager LCP): one H1, one primary + one secondary action */}
           <OAHero />
-          <MotivationMarquee />
 
           {/* 02 — Trust strip: verifiable facts only */}
-          <HomeTrustStrip />
 
           {/* 03 — Visitor-job router: the main way into the site */}
           <HomeJobRouter />
+          <HomeTrustStrip />
+          <MotivationMarquee />
           <ViewportSection>
             <Suspense fallback={null}>
               <HomeGuidesShowcase />
@@ -147,7 +146,6 @@ function HomePage() {
 
           {/* Topic links stay rendered without waiting for a scroll event. */}
           <HomeTopicGuides />
-          <TopicClusterLinksHome />
 
           {/* 04 — Motion is Lotion: pick a joint for a home exercise plan */}
           <ViewportSection rootMargin="200px 0px" fallback={<SectionFallback />}>
@@ -204,4 +202,4 @@ export default function Index() {
       <HomePage />
     </ErrorBoundary>
   );
-}
+              }

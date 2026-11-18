@@ -28,7 +28,9 @@ export default function AnswerBox({
 }: AnswerBoxProps) {
   return (
     <aside
-      className="speakable-intro my-8 pl-5 border-l-4 border-primary bg-white"
+      role="region"
+      aria-label="Quick Answer"
+      className="direct-answer-capsule speakable-intro my-8 pl-5 border-l-4 border-primary bg-white"
       itemScope
       itemType="https://schema.org/Question"
     >
@@ -44,7 +46,10 @@ export default function AnswerBox({
         itemProp="acceptedAnswer"
         itemType="https://schema.org/Answer"
       >
-        <div itemProp="text">{children}</div>
+        <blockquote data-callout="note" itemProp="text" className="m-0 border-0 p-0">
+          <p className="text-xs font-semibold text-primary mb-2">Note</p>
+          {children}
+        </blockquote>
       </div>
       {reviewed && reviewer && (
         <p className="mt-2 text-xs text-foreground/70">

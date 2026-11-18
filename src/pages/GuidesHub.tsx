@@ -7,7 +7,6 @@ import PageHero from "@/components/ui/PageHero";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import TopicClusterLinks from "@/components/seo/TopicClusterLinks";
 import { ArrowRight, BookOpen } from "lucide-react";
 import {
   GUIDE_REGISTRY,
@@ -81,7 +80,7 @@ const GuidesHub = () => {
       </Helmet>
 
       <Header />
-      <main id="main-content" className="min-h-screen bg-background text-foreground">
+      <main id="main-content" className="min-h-dvh bg-background text-foreground">
         <PageBreadcrumb segments={[{ label: "Guides" }]} />
         <PageHero
           badge={
@@ -213,7 +212,6 @@ const GuidesHub = () => {
             );
           })}
         </section>
-        <div className="container mx-auto px-4"><TopicClusterLinks /></div>
       </main>
       <InternalLinks />
       <Footer />

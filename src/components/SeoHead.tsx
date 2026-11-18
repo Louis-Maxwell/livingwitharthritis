@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
 import { DEFAULT_OG_PATH } from "@/lib/articleImages";
+import { canonicalPath } from '@/lib/technicalSeo.mjs';
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 const SITE_NAME = "Living With Arthritis";
@@ -9,7 +10,7 @@ const DEFAULT_IMAGE = `${SITE_URL}${DEFAULT_OG_PATH}`;
 interface SeoHeadProps {
   /** Page title (will be appended with site name unless includeSiteName=false) */
   title: string;
-  /** Meta description, ideally 140–160 chars */
+  /** Meta description, ideally 140–155 chars */
   description: string;
   /** Canonical path starting with "/" (e.g. "/about-us") */
   path: string;
@@ -42,7 +43,7 @@ export default function SeoHead({
 }: SeoHeadProps) {
   const fullTitle = enforceTitle(title, { includeSiteName, route: path });
   const safeDescription = enforceDescription(description, path);
-  const canonical = `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
+  const canonical = `${SITE_URL}${canonicalPath(path)}`;
   // Social crawlers require absolute image URLs.
   const absoluteImage = /^https?:\/\//i.test(image)
     ? image
@@ -98,4 +99,3 @@ export default function SeoHead({
     </Helmet>
   );
 }
-

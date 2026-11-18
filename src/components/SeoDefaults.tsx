@@ -1,6 +1,10 @@
+import { normaliseRouteSchemaEntries } from "@/lib/routeSchema";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
+import { cleanJsonLd, cleanBrand } from '@/lib/technicalSeo.mjs';
+import { enforceTitle, enforceDescription } from '@/lib/seoMeta';
+import { ROUTE_TITLE_OVERRIDES } from '@/data/routeTitleOverrides';
 import {
   SUPPORTED_LANGS,
   HREFLANG_CODES,
@@ -52,6 +56,8 @@ const MANAGED_META = [
   { attr: "property", value: "og:image:height" },
   { attr: "property", value: "og:image:alt" },
   { attr: "name", value: "twitter:card" },
+  { attr: "name", value: "twitter:site" },
+  { attr: "name", value: "twitter:creator" },
   { attr: "name", value: "twitter:title" },
   { attr: "name", value: "twitter:description" },
   { attr: "name", value: "twitter:image" },
@@ -71,6 +77,33 @@ function isAppManaged(el: Element): boolean {
 }
 
 function pruneStaticMetaDuplicates() {
+  const route = window.location.pathname.replace(/\/$/, "") || "/";
+  const editorialTitle = ROUTE_TITLE_OVERRIDES[route];
+  const safeTitle = enforceTitle(editorialTitle || document.title, { includeSiteName: false });
+  if (safeTitle !== document.title) document.title = safeTitle;
+  const scripts = [...document.querySelectorAll('script[type="application/ld+json"]')];
+  const parsed = scripts.map(node => {
+    try { return cleanJsonLd(JSON.parse(node.textContent || '{}')); }
+    catch { return undefined; }
+  });
+  const normalised = normaliseRouteSchemaEntries(parsed, route, scripts.map(isAppManaged));
+  scripts.forEach((node, index) => {
+    if (parsed[index] === undefined) return;
+    const json = JSON.stringify(normalised[index] || {});
+    if (node.textContent !== json) node.textContent = json;
+  });
+  for (const node of document.head.querySelectorAll('meta[content]')) {
+    const raw = node.getAttribute('content') || '';
+    const label = node.getAttribute('name') || node.getAttribute('property');
+    const isTitle = label === 'og:title' || label === 'twitter:title';
+    const isDescription = label === 'description' || label === 'og:description' || label === 'twitter:description';
+    const safe = isTitle && editorialTitle ? editorialTitle : isDescription ? enforceDescription(raw, route) : cleanBrand(raw);
+    if (raw !== safe) node.setAttribute('content', safe);
+  }
+  const languageLinks = Array.from(document.head.querySelectorAll('link[hreflang]'));
+  for (const node of languageLinks) {
+    if (location.search || (!isAppManaged(node) && languageLinks.some(isAppManaged))) node.remove();
+  }
   for (const { attr, value } of MANAGED_META) {
     const matches = document.head.querySelectorAll(`meta[${attr}="${value}"]`);
     if (matches.length < 2) continue;
@@ -113,12 +146,12 @@ function pruneStaticMetaDuplicates() {
  * homepage-only). Canonical <link> tags are emitted by <SeoHead>.
  */
 export default function SeoDefaults() {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
 
   useEffect(() => {
     pruneStaticMetaDuplicates();
     const observer = new MutationObserver(pruneStaticMetaDuplicates);
-    observer.observe(document.head, { childList: true });
+    observer.observe(document.head, { childList: true, subtree: true });
     return () => observer.disconnect();
   }, []);
 
@@ -145,14 +178,16 @@ export default function SeoDefaults() {
       {bingVerify && (
         <meta name="msvalidate.01" content={bingVerify} />
       )}
+      <meta name="twitter:site" content="@ArthritisOrgHQ" />
+      <meta name="twitter:creator" content="@ArthritisOrgHQ" />
       {/* Exactly one self-referencing canonical per page. Emitted here so
           every route gets one, including pages that use raw Helmet rather
           than <SeoHead />. The static index.html canonical is pruned above
           once this one mounts. */}
       <link rel="canonical" key="canonical" href={pageUrl} />
       {/* General English reaches English readers across countries without inventing regional versions. */}
-      <link rel="alternate" hrefLang="en" href={`${SITE_URL}${basePath}`} />
-      {hasTranslations ? (
+      {!search && <link rel="alternate" hrefLang="en" href={pageUrl} />}
+      {!search && (hasTranslations ? (
         <>
           {SUPPORTED_LANGS.map((lang) => (
             <link
@@ -169,8 +204,8 @@ export default function SeoDefaults() {
           <link rel="alternate" hrefLang="en-GB" href={pageUrl} />
           <link rel="alternate" hrefLang="x-default" href={pageUrl} />
         </>
-      )}
+      ))}
       <html lang={HREFLANG_CODES[currentLang]} />
     </Helmet>
   );
-}
+    }

@@ -8,7 +8,7 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: ["./src/test/setup.ts"],
-    include: ["src/**/*.{test,spec}.{ts,tsx}", "scripts/__tests__/**/*.{test,spec}.{ts,mjs}"],
+    include: ["src/**/*.{test,spec}.{ts,tsx}", "scripts/__tests__/**/*.{test,spec}.{ts,mjs}", "scripts/tests/priority-social-meta.test.mjs"],
     environmentMatchGlobs: [
       ["scripts/__tests__/**", "node"],
     ],

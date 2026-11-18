@@ -1,9 +1,10 @@
 /**
  * Optional Google Business Profile map embed.
  *
- * Louis sets VITE_GBP_MAPS_EMBED_URL to a Google Maps *embed* URL once GBP
- * is verified. Until then the Contact page shows UK contact details and a
- * placeholder — never invent a street address (no Oswestry).
+ * Louis sets VITE_GBP_MAPS_EMBED_URL to a Google Maps *embed* URL once the
+ * GBP public map representation is confirmed accurate. Until then the Contact
+ * page shows UK contact details and a placeholder.
+ * Never invent a street address (no Oswestry).
  */
 
 const EMBED_HOST_ALLOWLIST = [

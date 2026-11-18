@@ -7,6 +7,8 @@ interface OptimizedImageProps {
   className?: string;
   width?: number;
   height?: number;
+  /** Intrinsic layout ratio for images without explicit pixel dimensions. */
+  aspectRatio?: number | string;
   priority?: boolean;
   /** Optional WebP source for <picture> element */
   webpSrc?: string;
@@ -30,6 +32,7 @@ const OptimizedImage = memo(({
   className,
   width,
   height,
+  aspectRatio,
   priority = false,
   webpSrc,
   srcSet,
@@ -40,7 +43,8 @@ const OptimizedImage = memo(({
   const [isInView, setIsInView] = useState(priority);
   const imgRef = useRef<HTMLDivElement>(null);
 
-  const resolvedWebp = webpSrc || deriveWebpSrc(src);
+  // A guessed .webp sibling may not exist and produces a failed image request.
+  const resolvedWebp = webpSrc;
 
   useEffect(() => {
     if (priority) return;
@@ -77,7 +81,7 @@ const OptimizedImage = memo(({
         "overflow-hidden bg-muted/20",
         className
       )}
-      style={{ width, height }}
+      style={{ width, height, aspectRatio: aspectRatio ?? (width && height ? `${width} / ${height}` : "4 / 3") }}
     >
       {isInView && (
         <picture>

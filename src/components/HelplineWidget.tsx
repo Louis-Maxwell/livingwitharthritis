@@ -76,7 +76,7 @@ export default function HelplineWidget() {
   return (
     <section
       aria-labelledby="helpline-heading"
-      className="bg-primary text-primary-foreground"
+      className="bg-primary text-primary-foreground min-h-[320px] sm:min-h-[300px] lg:min-h-[280px]"
     >
       <div className="container mx-auto px-4 md:px-6 py-12 md:py-16 max-w-6xl">
         <div className="text-center mb-10">
@@ -117,9 +117,10 @@ export default function HelplineWidget() {
               <li key={eyebrow} className="min-w-0">
                 {external ? (
                   <a
+                    id={track === 'whatsapp' ? 'footer-whatsapp' : undefined}
                     href={href}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
                     onClick={() => trackClick(track)}
                     className={cardClass}
                   >

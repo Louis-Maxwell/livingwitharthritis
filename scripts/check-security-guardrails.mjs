@@ -72,8 +72,19 @@ const extractLocs = (xml, label) => {
 
 const locs = extractLocs(sitemap, "sitemap.xml");
 const sitemapIndexLocs = extractLocs(sitemapIndex, "sitemap-index.xml");
-if (!sitemapIndexLocs.includes(SITE_ORIGIN + "/sitemap.xml")) {
-  failures.push("sitemap-index.xml must reference the canonical sitemap.xml");
+for (const child of ["/sitemap.xml", "/sitemap-images.xml", "/sitemap-articles.xml"]) {
+  if (!sitemapIndexLocs.includes(SITE_ORIGIN + child)) {
+    failures.push("sitemap-index.xml must reference " + child);
+  }
+}
+
+// Lovable sync guard: Lovable sync commits have re-added Supabase before.
+const pkg = JSON.parse(read("package.json") || "{}");
+const allDeps = { ...pkg.dependencies, ...pkg.devDependencies };
+for (const name of Object.keys(allDeps)) {
+  if (name.startsWith("@supabase/")) {
+    failures.push("package.json must not depend on " + name + " (no Supabase on this site)");
+  }
 }
 
 const privatePrefixes = [
