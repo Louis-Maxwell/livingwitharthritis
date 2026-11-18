@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { motionAllowed } from "@/lib/motion";
-import { applySiteMotion } from "@/lib/siteMotion";
+import { applyActionDepth, applySiteMotion } from "@/lib/siteMotion";
 
 /**
  * Site-wide micro-motion for cards, applied after hydration (see
@@ -34,12 +34,14 @@ export default function SiteMotion() {
     const scan = () => {
       timer = 0;
       const main = document.querySelector("main");
-      if (main)
+      if (main) {
         applySiteMotion(
           main.parentElement ?? document,
           window.innerHeight,
           (el) => pending.add(el),
         );
+        applyActionDepth(main);
+      }
     };
     const schedule = () => {
       if (!timer) timer = window.setTimeout(scan, 150);
@@ -64,4 +66,4 @@ export default function SiteMotion() {
     };
   }, []);
   return null;
-}
+        }
