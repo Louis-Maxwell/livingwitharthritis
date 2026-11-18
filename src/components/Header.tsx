@@ -262,9 +262,9 @@ const Header = () => {
     { label: "Newly Diagnosed", icon: Sparkles, desc: "Your essential first steps guide", href: "/guides/newly-diagnosed", action: () => navigate("/guides/newly-diagnosed") },
     { label: "Self Help Tool", icon: Activity, desc: "Interactive joint exercise diagram", href: "/self-help", action: () => navigate("/self-help") },
     { label: "Exercises & Diet", icon: Dumbbell, desc: "Physio exercises & nutrition plans", href: "/exercises", action: () => navigate("/exercises") },
-    { label: "Pets & Arthritis", icon: HeartPulse, desc: "Dogs, cats, horses & more", href: "/pets", action: () => navigate("/pets") },
     { label: "Conditions", icon: HeartPulse, desc: "OA, RA, Gout, PsA & more", href: "#conditions" },
-    { label: "Blog & Stories", icon: Newspaper, desc: "40+ evidence-based articles", href: "/blog", action: () => navigate("/blog") },
+    { label: "Blog & Stories", icon: Newspaper, desc: "Practical guides and personal stories", href: "/blog", action: () => navigate("/blog") },
+    { label: "Pets & Arthritis", icon: HeartPulse, desc: "Dogs, cats, horses & more", href: "/pets", action: () => navigate("/pets") },
     { label: "Glossary", icon: BookOpen, desc: "Plain-English arthritis A–Z", href: "/glossary", action: () => navigate("/glossary") },
     { label: "Trust & Credibility", icon: ShieldCheck, desc: "Evidence, authors & governance", href: "/trust", action: () => navigate("/trust") },
     { label: "Support Us", icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
@@ -666,7 +666,7 @@ const Header = () => {
                   className: `relative flex items-center gap-3 w-full text-left px-4 py-4 text-[15px] font-semibold rounded-xl transition-all cursor-pointer group min-h-[56px] ${
                     active
                       ? "text-primary bg-primary/5 ring-1 ring-primary/15"
-                      : "text-muted-foreground hover:text-foreground hover:bg-accent active:bg-accent/80"
+                      : "text-foreground hover:bg-accent active:bg-accent/80"
                   }`,
                   style: { animationDelay: `${index * 50}ms` },
                 };
@@ -680,7 +680,7 @@ const Header = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <span className="block truncate">{item.label}{isExternalItem && <span className="sr-only"> (opens in a new tab)</span>}</span>
-                      <span className="text-[11px] font-normal text-muted-foreground truncate block">{item.desc}</span>
+                      <span className="text-sm font-normal text-foreground leading-relaxed block">{item.desc}</span>
                     </div>
                   </>
                 );

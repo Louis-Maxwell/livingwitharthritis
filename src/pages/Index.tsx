@@ -131,13 +131,13 @@ function HomePage() {
         <main id="main-content" role="main" tabIndex={-1}>
           {/* 01 — Hero (eager LCP): one H1, one primary + one secondary action */}
           <OAHero />
-          <MotivationMarquee />
 
           {/* 02 — Trust strip: verifiable facts only */}
-          <HomeTrustStrip />
 
           {/* 03 — Visitor-job router: the main way into the site */}
           <HomeJobRouter />
+          <HomeTrustStrip />
+          <MotivationMarquee />
           <ViewportSection>
             <Suspense fallback={null}>
               <HomeGuidesShowcase />
@@ -202,4 +202,4 @@ export default function Index() {
       <HomePage />
     </ErrorBoundary>
   );
-}
+              }
