@@ -1642,6 +1642,17 @@ details[open] > :not(summary) {
     outline-offset: 3px;
   }
 
+  /* Restore the requested red/white hero in both the boot and hydrated page.
+     Scope the palette here so other sections and theme colours stay unchanged. */
+  .home-practical-hero.band-red { background: #d60000; color: #fff; }
+  .home-practical-hero.band-red h1,
+  .home-practical-hero.band-red p { color: #fff; }
+  .home-practical-hero .hero-help-primary { background: #fff; color: #000; }
+  .home-practical-hero .hero-help-primary:hover { background: #f2f2f2; color: #000; }
+  .home-practical-hero .hero-help-secondary { background: transparent; color: #fff; border: 2px solid #fff; }
+  .home-practical-hero .hero-help-secondary:hover { background: #b30000; color: #fff; }
+  .home-practical-hero.band-red a:focus-visible { outline-color: #fff; }
+
   /* Softer octagon for inline cards / thumbnails */
   .clip-octagon-soft {
     clip-path: polygon(8% 0%, 92% 0%, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0% 92%, 0% 8%);

@@ -38,7 +38,7 @@ const HERO_SRCSET = `${hero400} 400w, ${hero800} 800w`;
 const HERO_SIZES = "(min-width: 1024px) 240px, (min-width: 640px) 160px, 112px";
 
 const OAHero = memo(() => (
-  <section aria-labelledby="oa-hero" className="home-practical-hero bg-white text-black [&_h1]:text-black [&_p]:text-black relative w-full max-w-full overflow-hidden">
+  <section aria-labelledby="oa-hero" className="home-practical-hero band-red relative w-full max-w-full overflow-hidden">
     <div className="container mx-auto px-5 sm:px-8 lg:px-16 max-w-7xl py-8 sm:py-10 lg:py-14">
       <div className="grid lg:grid-cols-[minmax(0,1.5fr)_minmax(0,0.5fr)] gap-6 lg:gap-12 items-center w-full">
         <div className="min-w-0">
@@ -63,7 +63,7 @@ const OAHero = memo(() => (
               onClick={() =>
                 trackStartHereCard("Hero: I'm in pain — help now", "/guides/arthritis-pain-relief")
               }
-              className="btn-map group w-full sm:w-auto justify-center min-h-12 bg-primary text-primary-foreground focus-visible:outline-black"
+              className="btn-map group w-full sm:w-auto justify-center min-h-12 hero-help-primary focus-visible:outline-white"
             >
               <HeartPulse className="w-4 h-4 mr-2" aria-hidden="true" />
               I&apos;m in pain — help now
@@ -78,7 +78,7 @@ const OAHero = memo(() => (
                 trackStartHereCard("Hero: find help for my situation", `#${ROUTER_ID}`);
                 scrollToRouter(e);
               }}
-              className="btn-map w-full sm:w-auto justify-center min-h-12 border border-black/30 bg-white text-black hover:bg-black/5 focus-visible:outline-black"
+              className="btn-map w-full sm:w-auto justify-center min-h-12 hero-help-secondary focus-visible:outline-white"
             >
               Find help for my situation
               <ArrowDown className="w-4 h-4 ml-2" aria-hidden="true" />
