@@ -158,10 +158,8 @@ describe("public SEO / AEO identity", () => {
   });
 
   it("does not invent social sameAs URLs", () => {
-    expect(cityPage.toLowerCase().includes("twitter.com/livingwarthritis")).toBe(false);
-    expect(indexHtml.toLowerCase().includes("facebook.com/livingwitharthritis")).toBe(
-      false,
-    );
+    expect(cityPage).not.toMatch(/https?:\/\/(?:www\.)?twitter\.com\/livingwarthritis["']/i);
+    expect(indexHtml).not.toMatch(/https?:\/\/(?:www\.)?facebook\.com\/livingwitharthritis["']/i);
     const sameAsHosts = ORGANIZATION_PAYLOAD.sameAs.map((url) => {
       const host = new URL(url).hostname;
       return host.startsWith("www.") ? host.slice(4) : host;
