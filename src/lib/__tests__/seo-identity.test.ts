@@ -164,7 +164,7 @@ describe("public SEO / AEO identity", () => {
       const host = new URL(url).hostname;
       return host.startsWith("www.") ? host.slice(4) : host;
     });
-    expect(sameAsHosts.includes("twitter.com")).toBe(false);
+    expect(sameAsHosts.every((host) => host !== "twitter.com")).toBe(true);
     expect(ORGANIZATION_PAYLOAD.sameAs).not.toContain("https://twitter.com/[your-handle]");
   });
 
