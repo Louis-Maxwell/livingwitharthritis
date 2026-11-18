@@ -5,6 +5,7 @@
  */
 import { existsSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
+import { auditVisibleText } from "./lib/audit-visible-text.mjs";
 
 const dist = resolve(process.env.DIST_DIR || "dist");
 const routes = [
@@ -17,7 +18,7 @@ const routes = [
   "/exercises",
 ];
 const failures = [];
-const text = (html) => html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+const text = auditVisibleText;
 const attr = (html, pattern) => html.match(pattern)?.[1] || "";
 
 for (const route of routes) {

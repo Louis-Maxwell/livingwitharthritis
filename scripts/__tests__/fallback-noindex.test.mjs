@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { createHash } from 'node:crypto';
-import { routePatterns, injectFallbackNoindex } from '../lib/fallback-noindex.mjs';
+import { routePatterns, injectFallbackNoindex, buildFallbackScript } from '../lib/fallback-noindex.mjs';
 
 const SHELL = `<!DOCTYPE html><html><head><title>Home</title><meta name="robots" content="index, follow" /><link rel="canonical" href="https://livingwitharthritis.org.uk/" /></head><body></body></html>`;
 const patterns = routePatterns(['/', '*', '/conditions/arthritis', '/blog/:slug', '/admin/*', '/arthritis']);
@@ -33,6 +33,21 @@ describe('fallback shell noindex guard', () => {
     expect(policy).toContain("object-src 'none'");
     expect(policy).not.toContain('unsafe-inline');
     expect(injectFallbackNoindex(html, patterns)).toBe(html);
+  });
+  it('escapes less-than signs so route data cannot terminate the generated script', () => {
+    const html = buildFallbackScript(['</script><script id="unexpected">alert(1)</script>']);
+    const dom = new JSDOM(html);
+    expect(dom.window.document.scripts).toHaveLength(1);
+    expect(dom.window.document.querySelector('#unexpected')).toBeNull();
+    expect(dom.window.document.scripts[0].textContent).toContain('\\u003c/script>');
+  });
+  it('replaces an existing guard regardless of attribute order or quoting', () => {
+    const html = SHELL.replace('</head>', "<script data-old='yes' id='fallback-noindex'>old()</script></head>");
+    const result = injectFallbackNoindex(html, patterns);
+    const dom = new JSDOM(result);
+    expect(dom.window.document.querySelectorAll('#fallback-noindex')).toHaveLength(1);
+    expect(result).not.toContain('old()');
+    expect(injectFallbackNoindex(result, patterns)).toBe(result);
   });
   it('is idempotent', () => {
     const once = injectFallbackNoindex(SHELL, patterns);
