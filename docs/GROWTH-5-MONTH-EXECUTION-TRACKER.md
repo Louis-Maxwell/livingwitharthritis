@@ -108,7 +108,7 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 
 | Must-do (CEO plan §12, M2) | Status | Notes |
 |---|---|---|
-| Champions 11–30 upgraded | **done** (in M1) | 122–124 shipped 4 Nov (pacing housework, osteoporosis with arthritis, night pain and sleep), after 119–121 on 3 Nov. 125–128 shipped later on 4 Nov (wheelchair for distance, waiting for an OT, hip and knee transfers, meal delivery): published template pool is now 0; 82 template files left in total, the rest unpublished behind merge-plan 301s (`docs/M2-FRAILTY-TEMPLATE-TRIAGE.md`) |
+| Champions 11–30 upgraded | **done** (in M1) | 122–128 shipped 4 Nov; published template pool 0; unpublished templates remain behind merge-plan 301s (`docs/M2-FRAILTY-TEMPLATE-TRIAGE.md`). M3 pillar gold started 4–5 Nov (pain + OA) |
 | Email welcome + PECR compliance | **done** (brought forward) | ESP send-live is Louis-owned |
 | Partner target list 50 + first 15 outreaches | list **done**; sends **blocked-on-Louis** | First 15 from `docs/PARTNER-OUTREACH-50.md`, public contact routes only |
 | Social cadence SOPs (FB/IG/LI) | **done** | `docs/SOCIAL-CADENCE-SOPS.md`; posting needs Louis's go-ahead |
@@ -121,6 +121,178 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a fresh GSC export to measure), 5 / 15 partner conversations, Regulator pathway progressed / 3 grant apps submitted, email signup rate tracked / tool completion tracked.
 
 ---
+
+
+## Month 3 must-do status (from ~11 Nov 2026; early starts 4–5 Nov)
+
+| Must-do (CEO plan §12–13, M3) | Status | Notes |
+|---|---|---|
+| Pain pillar gold-standard pass | **done** (4 Nov) | `/guides/arthritis-pain-relief` customer-first rewrite; Vitest `pain-pillar-m3-04-nov.test.ts`; PR #390 |
+| OA pillar gold-standard pass | **done** (5 Nov) | `/conditions/osteoarthritis` customer-first rewrite; dates aligned 2026-11-05; Vitest `oa-pillar-m3-05-nov.test.ts` |
+| Exercise pillar gold-standard pass | **done** (10 Nov) | `/exercises` hub customer-first pass (start today, red flags, pain rule, starting points, flare days, GP/physio, carers); unsourced stat counters and effectiveness charts removed; `/guides/exercise` claims cleaned; Vitest `exercise-pillar-m3-10-nov.test.ts` |
+| PIP pillar gold-standard pass | **done** (11 Nov) | `/guides/benefits-pip`: claim-path content, HowTo, 12-activity table and GOV.UK checks in #439; this run added the Louis Maxwell review layer (badge, LastReviewed, MedicalWebPage `reviewedBy` / `dateModified` 2026-11-11) and a "Start here: where are you with PIP?" router; Vitest `pip-pillar-m3-11-nov.test.ts`. **All 4 M3 pillars now gold** |
+| First M3 linkable asset PDF | **scoped** (5 Nov) | PIP evidence checklist PDF complementary to `/resources/pip-evidence-diary` — `docs/M3-LINKABLE-ASSET-PDF-SCOPE.md` (not shipped) |
+| Google Ad Grants live | **blocked-on-Louis** | Pack ready (`docs/GOOGLE-AD-GRANTS-PACK.md`); apply via Google for Nonprofits |
+| Community / partner pilot | **partly done** (12 Nov); sends **blocked-on-Louis** | `/partners` now has a "Free resources you can share today" pack (4 gold pillars + clinic pack, flare plan, PIP diary, newly diagnosed); first 15 outreaches + NHS/clinic intros still unsent |
+| Fresh GSC/GA4 for M2 close-out KPIs | **blocked-on-Louis** | Needed before any traffic-multiple claim |
+| Trust sweep: unsourced counters off trust/partner pages | **done** (16 Nov) | `/press`, `/community`, `/corporate-giving`, `/self-help` (myths section), donation thank-you; `/trust` source was already clean, its stale crawler snapshot refreshed; Vitest `unsourced-counters-m3-16-nov.test.ts` |
+| Trust follow-up: invented corporate perks, rotating myth-card sources, unsourced fact-sheet figures | **done** (17 Nov) | `/corporate-giving` tiers, `/self-help` myth cards, `/press` fact sheet PDF; Vitest `trust-followup-m3-17-nov.test.ts` |
+
+### M2 close-out draft skeleton (~11 Nov — do not invent KPIs)
+
+Fill only after a fresh GSC Pages/Queries + GA4 export (B₁ remains the Year 0 lock in `docs/YEAR-0-ANALYTICS-BASELINE.md`).
+
+| M2 KPI theme | Scenario A / B (CEO plan) | Status / evidence |
+|---|---|---|
+| Organic traffic vs M1 cohort | +10–20% / +25–40% | **TBD** — needs fresh GSC/GA4 (no invented numbers) |
+| Partner conversations | 5 / 15 | **TBD** — sends still Louis-owned |
+| Regulator / grants | pathway progressed / 3 apps | Regulator + Gift Aid + Ad Grants still blocked-on-Louis |
+| Content | Champions + pillars | **Ahead on content** — Champions through 128; pain + OA + exercise pillars gold (3 of 4); PDF scoped |
+| Honest read | — | Content/governance ahead of distribution; distribution gap is Louis-owned actions outside GitHub |
+
+---
+
+## M2 close-out (12 Oct – 11 Nov 2026) — written 10 Nov 2026
+
+No fresh GSC/GA4 export has been recorded in this repo since B₁, so **no traffic multiple vs M1 or Year 0 is claimed**. The KPI rows in the skeleton above stay **TBD** until Louis exports GSC Pages/Queries + GA4 for the M2 window.
+
+- **Content (ahead of plan):** Champions through 128 rewritten on existing URLs and reviewed by Louis Maxwell; published template pool cleared 4 Nov; pain (4 Nov), OA (5 Nov) and exercise (10 Nov) pillars gold; first M3 PDF scoped (PIP evidence checklist, not shipped).
+- **Technical / trust (6–9 Nov, other runs):** Semrush site-audit fixes (#396), AI crawler discovery and regression gate (#397, #413), AEO/GEO strategy doc (#399), edge-protection doc (#403), technical SEO + prerender parity + sitemap integrity gates (#409–#411), priority guide metadata (#412), PIP/hip guides complete in first HTML (#418), GSC snippets and short answers (#419, #420), social previews (#421), CSP hardening and no inline scripts (#422, #423), CLS fixes (#424), new pain-management blog (#425), November magazine (#393, #394).
+- **Distribution (behind plan, Louis-owned):** first 15 partner outreaches, Ad Grants application, Fundraising Regulator + Gift Aid, live social posting and HCP clinic-pack sends are still not recorded as done.
+- **Honest read:** M2 Scenario A content and governance floors are met; the traffic, partnership and revenue KPIs cannot be scored without the export and the Louis-owned sends. M3 priorities: PIP pillar (last of 4), PIP checklist PDF after Louis review, Ad Grants, first outreaches.
+
+## Daily log — 17 Nov 2026 (M3 day 5, weekday run)
+
+**Programme month:** M3 (11 Nov – ~11 Dec 2026). Tracker next-3 from 16 Nov, item 2 shipped (trust follow-up). Other routes merged #497–#500 (17 enhanced articles, donation-claim containment, newsletter/CSP fixes, attested review of ten guides) since the last growth run. No new URLs, no invented figures, no Lovable credits / CloudAgent.
+
+### Shipped
+- **`/corporate-giving` tiers:** removed perks the charity cannot deliver (annual gala table, strategic advisory seat, bespoke reporting dashboard, VIP events, executive board briefings, PR & media, national campaign partnership, named programme sponsorship, staff wellness workshops, co-branded materials). Tiers now list only deliverable things: thank-you (with permission), written note on how the gift was used, certificate, free printable guides for staff, optional educational staff talk by arrangement, credit on a funded resource agreed in writing, help setting up matched/payroll giving. New line: every partnership agreed in writing, no patient data shared, not a product endorsement. "Ergonomic assessments" removed from Employee Wellness.
+- **`/self-help` myth cards:** the rotating "Source:" labels (NICE & Cochrane, Versus Arthritis data, JABFM, NICE) were assigned by card position, not content; replaced with "Reviewed by Louis Maxwell (HCPC PH128483). Educational, not personal advice."
+- **Press fact sheet PDF:** renamed "Arthritis Fact Sheet"; dropped unsourced UK figures (10 million, 1 in 6, 400,000 RA, 15,000 children, £20.7bn, 30M working days, £10bn, £1bn) and the "economic impact" framing; kept the NICE CKS-cited OA 8.75 million figure; "what helps" now cites NICE NG226; footer names NHS/NICE sources, Louis Maxwell review, charity 1218461 and independence from Arthritis UK (formerly Versus Arthritis).
+- **Crawler snapshots** refreshed for `/corporate-giving`, `/press`, `/self-help`.
+- **Tests:** new `src/lib/__tests__/trust-followup-m3-17-nov.test.ts`.
+
+### Still blocked on Louis
+- Decide on open PR #462 (trustee names, "self-review" wording, magazine/events/volunteer/grants pages); #460, #461, #463 also await review
+- GSC URL Inspection / indexing for the 4 gold pillars, and a fresh GSC Pages/Queries + GA4 export (M2 close-out KPIs stay TBD)
+- Review of `docs/M3-LINKABLE-ASSET-PDF-SCOPE.md` before the PIP evidence checklist PDF is built
+- Google Ad Grants; Fundraising Regulator + Gift Aid; first 15 partner outreaches; clinic-pack sends; live social posts; NHS intros
+
+### Next 3 digital actions (GTM)
+1. Internal links from high-traffic blog posts into the 4 gold pillars (cluster strengthening)
+2. Build the PIP evidence checklist PDF once Louis approves the scope doc
+3. Printable one-page partner/HCP leaflet pointing to the 4 pillars (for when outreach sends start)
+
+## Daily log — 16 Nov 2026 (M3 day 4, weekday run)
+
+**Programme month:** M3 (11 Nov – ~11 Dec 2026). The 13 Nov growth run did not complete and left no growth branch. Four 13 Nov PRs from another route are still open (#460 title suffix, #461 404s + /shop 301, #462 trust copy cleanup, #463 blog LCP/CSP); #462 overlaps `/community` but conflicts with `main` and bundles decisions only Louis can make (publishing trustee names, "self-review" wording, closing magazine/events/volunteer/grants pages), so this run did not merge or duplicate it. Tracker next-3 from 12 Nov, item 1 shipped. No new URLs, no invented figures, no Lovable credits / CloudAgent.
+
+### Shipped
+- **Unsourced counters removed** (the NHS arthritis page no longer gives a "10 million" figure; no published accounts or outcome data back "88p" or "93%"):
+  - `/press`: "10M+", "100% free services", "Registered physiotherapy team" and "10 million+" prose replaced with charity 1218461, free guides, NHS/NICE-cited, reviewed by Louis Maxwell (HCPC PH128483); About copy names David Williams as founder, is educational-not-diagnostic and states independence from Versus Arthritis (now Arthritis UK). Removed the "free symptom chat and peer support community" claim.
+  - `/community`: "10M+" and "24/7 help chat" counters replaced with the live article count (from `CONTENT_INVENTORY`) and "Free, no sign-up needed to read".
+  - `/corporate-giving`: "10M+", "88p of every £1 to patients" and "100% tax deductible" replaced with charity number, free guides, independent.
+  - `/self-help` (myths section): removed the floating stat badges that were rotated onto myth cards regardless of topic ("25–30%", "10M+" etc.) and the "10M+" / "1 in 6" / "93% patients report improved mobility" summary bar; "150 min" now credited to UK CMO guidelines, not NICE.
+  - Donation thank-you: "88p of every £1" line replaced with a plain thank-you.
+  - `/trust`: source already clean; crawler body snapshot still showed "88p" / "24/7", now refreshed.
+- **Crawler snapshots:** `scripts/data/rendered-bodies.json` refreshed for the 5 routes.
+- **Tests:** new `src/lib/__tests__/unsourced-counters-m3-16-nov.test.ts` (sources + crawler snapshot guard); 1067 tests pass locally; build, tsc and ESLint clean.
+
+### Still blocked on Louis
+- Decide on open PR #462 (trustee names, "self-review" wording, magazine/events/volunteer/grants pages); #460, #461 and #463 also await review
+- GSC URL Inspection / indexing requests for the 4 gold pillars, and a fresh GSC Pages/Queries + GA4 export (M2 close-out KPIs stay TBD)
+- Review of `docs/M3-LINKABLE-ASSET-PDF-SCOPE.md` before the PIP evidence checklist PDF is built
+- Google Ad Grants; Fundraising Regulator + Gift Aid; first 15 partner outreaches; clinic-pack sends; live social posts
+
+### Next 3 digital actions (GTM)
+1. Internal links from high-traffic blog posts into the 4 gold pillars (cluster strengthening)
+2. Trust follow-up: `/corporate-giving` tier perks that do not exist (gala table, advisory seat, reporting dashboard), the rotating "Source:" labels on `/self-help` myth cards, and the `/press` "UK Arthritis Fact Sheet" stats
+3. Build the PIP evidence checklist PDF once Louis approves the scope doc
+
+## Daily log — 12 Nov 2026 (M3 day 2, weekday run)
+
+**Programme month:** M3 (11 Nov – ~11 Dec 2026). Tracker next-3 from 11 Nov: (1) GSC indexing for the 4 gold pillars (needs Louis's GSC access, so not doable from GitHub) (2) PIP checklist PDF (still waiting on Louis's scope review) (3) partner pilot pack. This run shipped (3) on the live site instead of as a doc, so every outreach Louis sends lands on a page that gives partners something to share straight away. No new URLs, no invented figures, no Lovable credits / CloudAgent.
+
+### Shipped
+- **`/partners` share-today pack:** new "Free resources you can share today" section linking the 4 gold pillars (`/guides/arthritis-pain-relief`, `/conditions/osteoarthritis`, `/exercises`, `/guides/benefits-pip`) plus `/resources/clinic-pack`, `/resources/flare-action-plan`, `/resources/pip-evidence-diary` and `/guides/newly-diagnosed`; reviewed by Louis Maxwell (HCPC PH128483); educational-not-personal-advice line; link to `/healthcare-professionals`.
+- **Trust fixes on `/partners`:** removed "Reach 10M+ UK adults" (implied our reach), "E-E-A-T credentials with quality backlinks", "Co-Branded Guides" and "engaged patient community for research" promises (co-branding needs a separate decision per the clinic-pack sheet). Benefits now state only true things: free, reviewed by Louis, no patient data, charity 1218461.
+- **`/healthcare-professionals`:** shareable list now includes the pain pillar.
+- **Tests:** new `src/lib/__tests__/partner-share-pack-m3-12-nov.test.ts`; 1035 tests pass locally.
+
+### Still blocked on Louis
+- GSC URL Inspection / indexing requests for the 4 gold pillars, and a fresh GSC Pages/Queries + GA4 export (M2 close-out KPIs stay TBD)
+- Review of `docs/M3-LINKABLE-ASSET-PDF-SCOPE.md` before the PIP evidence checklist PDF is built
+- Google Ad Grants; Fundraising Regulator + Gift Aid; first 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); clinic-pack sends (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts
+
+### Next 3 digital actions (GTM)
+1. Same trust sweep on other pages still showing unsourced "10M+" / "88p" / "93%" counters (`/press`, `/community`, `/corporate-giving`, `/trust`, `/self-help`)
+2. Build the PIP evidence checklist PDF once Louis approves the scope doc
+3. Internal links from high-traffic blog posts into the 4 gold pillars (cluster strengthening)
+
+## Daily log — 11 Nov 2026 (M3 day 1, weekday run)
+
+**Programme month:** M3 (11 Nov – ~11 Dec 2026). Tracker next-3 from 10 Nov: (1) PIP pillar gold (2) GSC indexing for the pillar URLs (3) PIP checklist PDF after Louis review. #439 (merged 11 Nov 09:26) had already rewritten the PIP claim content, so this run closed the pillar with the trust and routing layer only. No new URLs, no redirects, no invented figures, no Lovable credits / CloudAgent. Reviewed by Louis Maxwell (HCPC PH128483). Auto-publishes from `main` when CI passes.
+
+### Shipped
+- **PIP pillar gold (`/guides/benefits-pip`):** MedicalReviewBadge + LastReviewed (Louis Maxwell, HCPC PH128483, November 2026); MedicalWebPage `author` / `reviewedBy` `LOUIS_MAXWELL_REF`, `dateModified` / `lastReviewed` **2026-11-11**; disclaimer date 2026-11-11.
+- **"Start here: where are you with PIP?"** customer-job router: thinking about claiming (eligibility, points, evidence diary, Scotland → Adult Disability Payment), ready to claim, assessment coming up, turned down (challenge + time limits), over State Pension age (Attendance Allowance guide), carers (Carer's Allowance + free independent help). Not-benefits-advice line.
+- **Tests:** new `src/lib/__tests__/pip-pillar-m3-11-nov.test.ts`; three older PIP review-date gates accept 2026-11-11. 1002 tests pass locally.
+
+### Still blocked on Louis
+- Fresh GSC Pages/Queries + GA4 export for the M2 window (M2 close-out KPIs stay TBD until then)
+- Review of `docs/M3-LINKABLE-ASSET-PDF-SCOPE.md` before the PIP evidence checklist PDF is built
+- Google Ad Grants / Google for Nonprofits; Fundraising Regulator + Gift Aid; first 15 partner outreaches; NHS / HCP clinic-pack intros; live social posts
+
+### Next 3 digital actions (GTM)
+1. GSC indexing requests for the 4 gold pillars (`/guides/benefits-pip`, `/exercises`, `/conditions/osteoarthritis`, `/guides/arthritis-pain-relief`) once deployed
+2. Build the PIP evidence checklist PDF once Louis approves the scope doc
+3. M3 community/partner pilot prep: one-page partner pack linking the 4 gold pillars + clinic pack (sends stay Louis-owned)
+
+## Daily log — 10 Nov 2026 (M2 last weekday; M3 starts 11 Nov)
+
+**Programme month:** M2 (12 Oct – 11 Nov 2026). Tracker next-3 from 5 Nov: (1) exercise pillar gold pass (2) PIP pillar gold pass (3) PIP checklist PDF after Louis review. Checked merged PRs 5–9 Nov (#393–#425) and open PRs first: none touched `src/pages/ExerciseHub.tsx` content beyond the 3 Nov image srcset (#381), and `/guides/exercise` only had title/schema hygiene (#396). This run shipped the **exercise pillar gold-standard pass**. No new URLs, no redirects changed, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. Reviewed by Louis Maxwell (HCPC PH128483). The site auto-publishes from `main` when CI passes.
+
+### Shipped
+- **Exercise pillar gold (`/exercises`, cluster pillar):** answer-first speakable lead ("Motion is lotion"); LastReviewed + MedicalReviewBadge (Louis Maxwell, HCPC PH128483, November 2026); MedicalWebPage `dateModified` / `lastReviewed` **2026-11-10**, author + reviewedBy `LOUIS_MAXWELL_REF`. New customer-first blocks: "Exercise today: start here" (5 steps); "Red flags: stop and get help" (NHS 111 same day for hot, red, swollen joint / immunosuppressed with infection / injury; 999 for chest pain, severe breathlessness, fainting); "Is it safe? How to read pain" (NICE NG226 framing: exercise unlikely to harm joints, next-day rule); "Pick your starting point" (newly diagnosed, knee/hip OA, RA with NICE NG100 specialist physio, unsteady/older, after surgery, pool); "Flare days: do less, not nothing"; "When to see your GP or a physiotherapist" (incl. NHS self-referral); "For carers and family". **Removed unsourced numbers:** stat counters (40% pain reduction, 8.75M), the "effectiveness by type" bar chart and benefits donut (no source), AnswerBox "up to 40%" / "more effective than painkillers", "Physiotherapy Approved" badge, hydration claim. Weekly plan reframed as a build-towards example using UK CMO guidance (150 min moderate + strength 2 days). Mislabelled "Exercises to avoid" link now goes to `/guides/can-exercise-make-osteoarthritis-worse`.
+- **`/guides/exercise` claims clean-up:** removed "over 60% (Sport England)", "up to 30% (WHO)", "1 kg = 4 kg knee load", "Cochrane 2021", "up to 90% buoyancy", "2019 BMJ", "single most effective" and the "statistics as of 2024" line; replaced with NICE NG226 / NG100, NHS and CMO wording; next-day pain rule replaces the 2-hour rule; red-flag line added; broken "UK Health Fitness Studio" link replaced with nhs.uk exercise; reviewed by Louis Maxwell; dates **2026-11-10**.
+- **Citations:** `CITATIONS_EXERCISE_HUB` adds NICE NG100 + NHS osteoarthritis. **Head data / sitemap:** `updatedAt` / `lastmod` **2026-11-10** for `/exercises` and `/guides/exercise`.
+- **Tests:** new `src/lib/__tests__/exercise-pillar-m3-10-nov.test.ts`; Champions 47–48 gate accepts exercise review `2026-11-10`.
+
+### Still blocked on Louis
+- Fresh GSC Pages/Queries + GA4 export for the M2 window (needed to score the M2 close-out KPIs)
+- Review of `docs/M3-LINKABLE-ASSET-PDF-SCOPE.md` before the PIP evidence checklist PDF is built
+- Google Ad Grants / Google for Nonprofits; Fundraising Regulator + Gift Aid; first 15 partner outreaches; HCP clinic-pack sends; live social posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation)
+
+### Next 3 digital actions (GTM)
+1. PIP pillar gold-standard pass (`/guides/benefits-pip`) — last of the 4 M3 pillars
+2. GSC URL Inspection / indexing requests for `/exercises`, `/guides/exercise`, `/conditions/osteoarthritis`, `/guides/arthritis-pain-relief` once auto-publish has deployed
+3. Build the PIP evidence checklist PDF after Louis reviews the scope doc
+
+## Daily log — 5 Nov 2026 (M2 day 19, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026); M3 starts ~11 Nov. Tracker next-3 from 4 Nov: (1) Champions 125–128 — already done later on 4 Nov (2) M3 pain pillar — done 4 Nov (#390) (3) scope first M3 linkable asset PDF + M2 close-out; continue 4 pillars gold → OA next. This run shipped the **OA pillar gold-standard pass**, the **M3 PDF scope doc**, tracker M3 status + M2 close-out skeleton, and Vitest `oa-pillar-m3-05-nov.test.ts`. No new public URLs, no redirects changed, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. Reviewed by Louis Maxwell (HCPC PH128483). The site auto-publishes from `main` when CI passes, so Louis does not need to press Publish.
+
+### Shipped
+- **OA pillar gold (`/conditions/osteoarthritis`):** full customer-first rewrite matching the pain-pillar pattern. Answer-first speakable intro; “OA right now: start here”; early red flags (NHS 111 / 999); plain-English OA (cartilage + joint changes, not wear-and-tear-only; NICE NG226); symptoms vs inflammatory handoff (RA / early symptoms); diagnosis (GP, imaging not first for many); core treatments (therapeutic exercise, weight management if relevant, information/support); pain relief aligned with NG226 / pain pillar (topical NSAID first for knee OA; oral NSAID lowest/shortest; paracetamol and weak opioids not routinely; no strong opioids); heat/cold safety; aids / transfers / joint protection; flares; work/PIP; carers; NICE-not-recommended list. Dates aligned: jsonLd `dateModified` / `lastReviewed`, LastReviewed, MedicalReviewBadge (November 2026), EducationalDisclaimerBox → **2026-11-05**; author `LOUIS_MAXWELL_REF`. Dense internal links to gold-pass spokes (pain hub, exercises, hip/knee OA guides, swimming, walking, shoes, joint protection, knee steady at home, transfers, seated strength, painkillers/NSAIDs, PIP hub + FAQ, flare plan, newly diagnosed, RA). Kept TopicClusterNav path + `CITATIONS_OA`; removed stale AnswerBox “June 2026”, viscosupplementation/PRP promotion, supplement doses, and Organisation-only author.
+- **`topicClusters.ts`:** OA cluster fronts hip-and-knee transfers, knee OA steady at home, seated strength; triggers added. **Chatbot KB** `oa-general`: related links for those three Champions; softened wear-and-tear framing.
+- **`page-aeo.ts`:** OA AEO answer/FAQs aligned with NG226 (clinical diagnosis, no cure claim, exercise wording); `updatedAt` 2026-11-05.
+- **Sitemap** `lastmod` **2026-11-05** for `/conditions/osteoarthritis`; **llms.txt / ai.txt** preferred-cite line refreshed.
+- **M3 PDF scope:** `docs/M3-LINKABLE-ASSET-PDF-SCOPE.md` — chosen asset = **PIP evidence checklist PDF** complementary to `/resources/pip-evidence-diary` (higher ROI than inventing an MSK page; flare + PIP printables already exist; partner-ready static file). Scope only — PDF not shipped.
+- **Tracker:** M3 must-do status table started; M2 close-out draft skeleton (KPIs blank pending GSC/GA4).
+- **Tests:** `src/lib/__tests__/oa-pillar-m3-05-nov.test.ts`; Champions 47–48 gate accepts OA review `2026-11-05`.
+
+### Still blocked on Louis (no change since 4 Nov)
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply (M3 must-do depends on it)
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI and complete the close-out table); GSC URL Inspection on rewritten URLs once auto-publish has deployed them
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Exercise pillar gold-standard pass (`/exercises` or canonical exercise guide — match pain/OA customer-first pattern)
+2. PIP pillar gold-standard pass (`/guides/benefits-pip`)
+3. Implement the scoped PIP evidence checklist PDF (`docs/M3-LINKABLE-ASSET-PDF-SCOPE.md`) on a later weekday after Louis review
 
 ## Daily log — 4 Nov 2026 (M2 day 18, weekday run)
 
@@ -660,7 +832,7 @@ M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a 
 
 ### Shipped
 - **74 blog posts:** "reviewed by our Clinical Review Board" replaced with an honest line (prepared by the Living With Arthritis editorial team using NICE / NHS / peer-reviewed sources; pending clinical review). Content otherwise untouched; no repo page now claims an unnamed review board or panel
-- **`/expert-articles`:** removed the unverifiable four-clinician contributor panel and per-article clinician roles; byline is now "Living With Arthritis editorial team — Pending clinical review"; added a "Who writes these articles" block (charity 1218461, founded by Louis Maxwell, HCPC PH128483, link to the editorial claims policy); removed first-person clinician lines ("In my clinical practice", "I recommend"); title / meta / OG / JSON-LD no longer say "clinician-written" or "by UK clinicians". URL unchanged
+- **`/expert-articles`:** removed the unverifiable four-clinician contributor panel and per-article clinician roles; byline is now "Living With Arthritis editorial team — Pending clinical review"; added a "Who writes these articles" block (charity 1218461, founded by David Williams, clinical review by Louis Maxwell, HCPC PH128483, link to the editorial claims policy); removed first-person clinician lines ("In my clinical practice", "I recommend"); title / meta / OG / JSON-LD no longer say "clinician-written" or "by UK clinicians". URL unchanged
 - Catalog / head data / content stats / search index regenerated
 - **Tests:** `src/lib/__tests__/m2-trust-sweep-12-oct.test.ts` (no unnamed panel anywhere in posts or `/expert-articles`, pending status matches the line, no private addresses)
 - **M2 first-15 outreach send sheet:** `docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md` (public routes only; Louis sends)

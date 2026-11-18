@@ -6,7 +6,7 @@ describe("GbpMapSection", () => {
   it("shows placeholder when embed is unset (no fake address)", () => {
     render(<GbpMapSection embedUrl={null} />);
     expect(screen.getByTestId("gbp-map-placeholder")).toHaveTextContent(
-      /Map goes live once Google Business Profile is verified/i,
+      /We serve the whole UK, not a single shopfront/i,
     );
     expect(screen.queryByTestId("gbp-map-iframe")).not.toBeInTheDocument();
     expect(

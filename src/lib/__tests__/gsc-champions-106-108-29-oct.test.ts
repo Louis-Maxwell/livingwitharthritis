@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 import { getClusterForPath, TOPIC_CLUSTERS } from "@/data/topicClusters";
 
 type Post = {
+  editorial_review_note?: string;
   title: string;
   last_reviewed?: string;
   reviewStatus?: string;
@@ -89,8 +90,14 @@ describe("GSC Champions 106–108 (29 Oct): flare or something else, waiting for
       const raw = read(c.slug);
       const json = JSON.parse(raw) as Post;
       expect(json.reviewStatus).toBeUndefined();
-      expect(json.reviewed_by).toBe("Louis Maxwell");
-      expect(json.reviewer_credentials).toMatch(/PH128483/);
+      if (json.editorial_review_note) {
+        expect(json.reviewed_by).toBeNull();
+        expect(json.reviewer_credentials).toBeNull();
+        expect(json.editorial_review_note).toContain("not yet had a fresh clinical review");
+      } else {
+        expect(json.reviewed_by).toBe("Louis Maxwell");
+        expect(json.reviewer_credentials).toMatch(/PH128483/);
+      }
       expect(json.last_reviewed).toBe("2026-10-29");
       expect(json.content).toMatch(/Clinically reviewed by Louis Maxwell \(HCPC PH128483\) on 29 October 2026/);
       expect(raw).not.toMatch(/pending clinical review/i);
@@ -182,9 +189,15 @@ describe("GSC Champions 106–108 (29 Oct): flare or something else, waiting for
     const slugs = ["what-is-arthritis", "arthritis-exercise-for-beginners", "arthritis-exercise-programme", "arthritis-health-guides", "gentle-exercises-for-arthritis"];
     const covers = new Set<string>();
     for (const slug of slugs) {
-      const json = JSON.parse(read(slug)) as Post & { cover?: string; author?: string };
-      expect(json.reviewed_by).toBe("Louis Maxwell");
-      expect(json.reviewer_credentials).toMatch(/PH128483/);
+      const json = JSON.parse(read(slug)) as Post & { cover?: string; author?: string; editorial_review_note?: string };
+      if (json.editorial_review_note) {
+        expect(json.reviewed_by).toBeNull();
+        expect(json.reviewer_credentials).toBeNull();
+        expect(json.editorial_review_note).toContain("not yet had a fresh clinical review");
+      } else {
+        expect(json.reviewed_by).toBe("Louis Maxwell");
+        expect(json.reviewer_credentials).toMatch(/PH128483/);
+      }
       expect(json.author).toBe("Louis Maxwell");
       expect(json.cover).toBeTruthy();
       expect(covers.has(json.cover!)).toBe(false);

@@ -1,3 +1,4 @@
+import { STANDALONE_ANSWER_CAPSULES } from "@/data/standaloneAnswerCapsules";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CheckCircle2, Clock, Activity, Heart, Shield, Sparkles, ArrowRight, AlertTriangle } from "lucide-react";
@@ -125,7 +126,7 @@ export default function TaiChiForBalance() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title="Tai Chi for Balance (Arthritis)"
         description="An evidence-based tai chi routine for arthritis. Reduce pain, improve balance and lower fall risk in 15 minutes a day. NICE-recommended, beginner-friendly."
@@ -160,7 +161,7 @@ export default function TaiChiForBalance() {
       <PageHero
         badge={<Badge variant="secondary" className="bg-background text-primary border-0">Evidence-based · NICE-recommended</Badge>}
         title="Tai Chi for Balance"
-        subtitle="A 15-minute, low-impact routine to ease joint pain, steady your balance and rebuild confidence on your feet — supported by Cochrane and BMJ evidence."
+        subtitle={STANDALONE_ANSWER_CAPSULES["/exercises/tai-chi-for-balance"]}
       >
         <div className="flex flex-wrap gap-3">
           <Button asChild size="lg"><a href="#routine">Start the routine <ArrowRight className="ml-2 h-4 w-4" /></a></Button>
@@ -340,4 +341,4 @@ export default function TaiChiForBalance() {
       <Footer />
     </div>
   );
-}
+    }

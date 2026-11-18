@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { trackDonationClick, trackStartHereCard } from "@/lib/ga-events";
+import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 import { GOFUNDME_URL, MORE_TOPICS, VISITOR_JOBS, type VisitorJob } from "./homeJobs";
 
 /**
@@ -27,7 +28,7 @@ export default function HomeJobRouter() {
     <section
       id="find-help"
       aria-labelledby="find-help-heading"
-      className="scroll-mt-28 bg-background py-10 md:py-14"
+      className="scroll-mt-28 bg-background py-8 md:py-12"
     >
       <div className="container mx-auto max-w-6xl px-5 md:px-10">
         <h2
@@ -41,14 +42,16 @@ export default function HomeJobRouter() {
           Pick the one that fits. Each goes straight to a free guide — no sign-up, no quiz.
         </p>
 
-        <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {VISITOR_JOBS.map((job) => {
+        <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {VISITOR_JOBS.map((job, i) => {
             const Icon = job.icon;
             const isDonate = job.id === "donate";
             return (
-              <li
+              <RevealOnScroll
+                as="li"
                 key={job.id}
-                className={`flex min-w-0 flex-col rounded-2xl border p-4 sm:p-5 transition-shadow hover:shadow-md ${
+                delay={(i % 3) * 60}
+                className={`hover-lift flex min-w-0 flex-col rounded-2xl border p-4 sm:p-5 ${
                   isDonate ? "border-border/60 bg-muted/40" : "border-border/60 bg-card"
                 }`}
               >
@@ -128,7 +131,7 @@ export default function HomeJobRouter() {
                     </li>
                   ))}
                 </ul>
-              </li>
+              </RevealOnScroll>
             );
           })}
         </ul>

@@ -3,8 +3,31 @@
 import { writeFileSync } from 'node:fs';
 import { faqArticles } from '../src/data/faqArticles';
 import { GLOSSARY_CONTENT } from '../src/data/glossary-content';
+import { dailyTips, dailyLivingIntro } from '../src/data/dailyTips';
 const esc = (v: string) => v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const entries: Record<string, unknown> = {};
+const paragraphs = (text: string) => text.split(/\n\n+/)
+  .map((p) => `<p>${esc(p).replace(/\n/g, '<br>')}</p>`).join('');
+for (const tip of dailyTips) {
+  entries[`/daily-tips/${tip.slug}`] = {
+    title: `${tip.metaTitle || tip.title} — Daily Living Tips`,
+    description: tip.desc, question: tip.title, bodyHtml: paragraphs(tip.detail),
+    breadcrumb: tip.title,
+    relatedLinks: [{ path: '/daily-tips/overview', title: dailyLivingIntro.title }],
+  };
+}
+const tipHubs: Array<[string, string, string, string]> = [
+  ['daily-living', dailyLivingIntro.title, dailyLivingIntro.subtitle, dailyLivingIntro.content],
+  ['health-tips', 'Tips for Every Day', 'Short UK daily tips that support joint health and everyday living with arthritis.', dailyLivingIntro.tipsOverview],
+  ['overview', 'Daily living overview', 'Overview of practical UK daily-living habits for people with arthritis.', `${dailyLivingIntro.content}\n\n${dailyLivingIntro.tipsOverview}`],
+];
+for (const [slug, title, description, content] of tipHubs) {
+  entries[`/daily-tips/${slug}`] = {
+    title: `${title} — Daily Living Tips`, description,
+    question: title, bodyHtml: paragraphs(content), breadcrumb: title,
+    relatedLinks: dailyTips.map((tip) => ({ path: `/daily-tips/${tip.slug}`, title: tip.title })),
+  };
+}
 for (const article of faqArticles) {
   entries[`/faq/${article.slug}`] = {
     title: article.seoTitle || `${article.question} | Living With Arthritis`,
@@ -22,6 +45,9 @@ for (const [slug, term] of Object.entries(GLOSSARY_CONTENT)) {
     description: term.short, question: term.label, answer: term.short,
     breadcrumb: term.label, bodyHtml: `<p>${esc(term.body)}</p>`,
     definedTerm: { name: term.label, description: term.body },
+    ...(term.editorialUpdatedAt ? { updatedAt: term.editorialUpdatedAt } : {}),
+    ...(term.reviewNote ? { summaryReviewNote: term.reviewNote } : {}),
+    ...(term.sources ? { sources: term.sources } : {}),
     relatedLinks: [{ path: '/glossary', title: 'Arthritis glossary' }, ...(term.related || [])
       .filter((s) => GLOSSARY_CONTENT[s]).map((s) => ({ path: `/glossary/${s}`, title: GLOSSARY_CONTENT[s].label }))],
   };

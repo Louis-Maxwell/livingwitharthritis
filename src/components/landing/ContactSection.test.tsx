@@ -2,6 +2,9 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, fireEvent, waitFor, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import ContactSection from "./ContactSection";
+import { trackEvent, trackContactSubmit } from "@/lib/analytics";
+import { trackContactFormSubmit } from "@/lib/ga-events";
+import { submitContactInquiry } from "@/lib/backendSubmit";
 
 // ── Mocks ──────────────────────────────────────────────────────────────
 
@@ -9,7 +12,7 @@ vi.mock("sonner", () => ({
   toast: { success: vi.fn(), error: vi.fn(), message: vi.fn() },
 }));
 
-vi.mock("@/lib/analytics", () => ({ trackContactSubmit: vi.fn() }));
+vi.mock("@/lib/analytics", () => ({ trackContactSubmit: vi.fn(), trackEvent: vi.fn() }));
 vi.mock("@/lib/ga-events", () => ({ trackContactFormSubmit: vi.fn() }));
 vi.mock("@/lib/backendSubmit", () => ({
   submitContactInquiry: vi.fn(async () => ({
@@ -105,6 +108,29 @@ describe("ContactSection submission feedback", () => {
       }),
     );
     expect(screen.queryByText(/message received/i)).not.toBeInTheDocument();
+    expect(trackEvent).toHaveBeenCalledExactlyOnceWith("contact_email_draft_open", {
+      method: "mailto", source: "contact_section",
+    });
+    expect(trackContactSubmit).not.toHaveBeenCalled();
+    expect(trackContactFormSubmit).not.toHaveBeenCalled();
+  });
+
+  it.each(["throttled", "none"] as const)("does not record a draft or lead when the result is %s", async (via) => {
+    vi.mocked(submitContactInquiry).mockResolvedValueOnce(
+      via === "throttled"
+        ? { ok: false, via, message: "Please wait before trying again.", retryAfterMs: 1000 }
+        : { ok: false, via, message: "The email draft could not open." },
+    );
+    renderSection();
+    fillValid();
+    fireEvent.click(screen.getByRole("button", { name: /open mail app/i }));
+    await waitFor(() => expect(submitContactInquiry).toHaveBeenCalled());
+    await waitFor(() => expect(screen.getByRole("button", { name: /open mail app/i })).not.toBeDisabled());
+    expect(trackEvent).not.toHaveBeenCalled();
+    expect(trackContactSubmit).not.toHaveBeenCalled();
+    expect(trackContactFormSubmit).not.toHaveBeenCalled();
+    expect(screen.queryByText(/email draft ready/i)).not.toBeInTheDocument();
+    expect(screen.getByLabelText(/email address/i)).toHaveValue("jane@example.com");
   });
 });
 
@@ -121,6 +147,16 @@ describe("ContactSection input length caps", () => {
 });
 
 describe("ContactSection channel cards", () => {
+  it("records email-link intent without reporting a submitted form", () => {
+    renderSection();
+    const links = screen.getAllByRole("link", { name: /info@livingwitharthritis\.org\.uk/i });
+    for (const link of links) fireEvent.click(link);
+    expect(trackEvent).toHaveBeenCalledWith("mailto_click", { source: "contact_channel_card" });
+    expect(trackEvent).toHaveBeenCalledWith("mailto_click", { source: "contact_form_footnote" });
+    expect(trackContactSubmit).not.toHaveBeenCalled();
+    expect(trackContactFormSubmit).not.toHaveBeenCalled();
+    expect(vi.mocked(trackEvent).mock.calls.every(([name]) => name === "mailto_click")).toBe(true);
+  });
   it("keeps long values inside every card, including the email", () => {
     renderSection();
     const emailCard = screen.getAllByRole("link", { name: /info@livingwitharthritis\.org\.uk/i })

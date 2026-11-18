@@ -67,7 +67,7 @@ Yes Real-time health monitoring with debug tools
 ```
 Yes X/Twitter        → https://x.com/ArthritisOrg
 Yes Facebook         → https://www.facebook.com/profile.php?id=61583723925315
-Yes Instagram        → https://www.instagram.com/livingwitharthritisuk
+Yes Instagram        → https://www.instagram.com/livingwitharthritisorg
 Yes LinkedIn         → https://www.linkedin.com/company/112596569/
 Yes YouTube          → https://www.youtube.com/@livingwitharthritisuk
 Yes TikTok           → https://www.tiktok.com/@livingwitharthritisuk

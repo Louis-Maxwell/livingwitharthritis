@@ -116,7 +116,7 @@ export default function Turmeric() {
         <meta name="twitter:description" content={META_DESC} />
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <Header />
         <PageBreadcrumb
           segments={[{ label: "Supplements", href: "/supplements" }, { label: "Turmeric" }]}

@@ -6,8 +6,8 @@ import { trackEvent } from "@/lib/analytics";
 const resources = [
   {
     icon: FileText,
-    title: "UK Arthritis Fact Sheet",
-    desc: "Key statistics, prevalence data and economic impact of arthritis in the UK. Perfect for articles, presentations and resource pages.",
+    title: "Arthritis Fact Sheet",
+    desc: "Plain-English facts on the main types of arthritis, risk factors and what helps, with NICE and NHS sources. For articles, talks and resource pages.",
     fn: "generateArthritisFactSheet" as const,
     image: "/og/conditions-rheumatoid-arthritis.png",
   },

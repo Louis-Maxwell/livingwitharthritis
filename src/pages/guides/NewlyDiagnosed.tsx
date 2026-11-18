@@ -14,9 +14,12 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const SLUG = "guides/newly-diagnosed";
@@ -318,6 +321,8 @@ export default function NewlyDiagnosed() {
               Newly diagnosed? Your first UK arthritis checklist
             </h1>
             <AeoEnhancement route="/guides/newly-diagnosed" />
+            <GpPrepSheet />
+            <WhatsAppShare path="/guides/newly-diagnosed" title="Newly diagnosed with arthritis" />
             <p className="speakable-intro text-base md:text-lg text-muted-foreground leading-relaxed">
               Just diagnosed with arthritis or rheumatoid arthritis (RA) in the UK? Start here: confirm the type, prepare your rheumatology visit, begin prescribed care when offered, then add paced movement and practical support — educational checklist, not personal medical advice. We are Living With Arthritis (charity 1218461), independent of Arthritis UK.
 
@@ -517,6 +522,7 @@ export default function NewlyDiagnosed() {
             );
           })}
 
+          <RecommendedNextStep path="/guides/newly-diagnosed" placement="mid" />
           {/* FAQ */}
           <section
             aria-labelledby="faq-heading"

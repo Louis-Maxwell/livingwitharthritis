@@ -11,14 +11,14 @@
     "keywords_for_import.csv": 10000,
     "docs/seo/growth-2026-10-11/keyword-map.csv": 1480
   },
-  "authoredPagesAudited": 651,
+  "authoredPagesAudited": 650,
   "statusCounts": {
-    "phrase_present": 511,
-    "intent_review": 27915,
-    "content_gap": 76177
+    "phrase_present": 508,
+    "intent_review": 27890,
+    "content_gap": 76205
   },
-  "invalidDeclaredTargetKeywords": 11191,
-  "searchAliases": 454,
+  "invalidDeclaredTargetKeywords": 11029,
+  "searchAliases": 451,
   "linkedBlogPages": 476,
   "notes": [
     "Stored/generated candidates are not measured organic rankings.",

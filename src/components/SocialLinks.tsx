@@ -52,7 +52,8 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
   linkClassName,
   orientation = 'horizontal',
 }) => {
-  const socialLinks = getSocialLinksForContext(context);
+  const socialLinks = getSocialLinksForContext(context)
+    .filter((link) => context === 'footer' || !/threads\.com|wa\.me/i.test(link.url));
 
   if (socialLinks.length === 0) {
     return null;
@@ -78,7 +79,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
             href={link.url}
             {...(isMail
               ? {}
-              : { target: '_blank', rel: 'noopener noreferrer' })}
+              : { target: '_blank', rel: 'nofollow noopener noreferrer' })}
             className={`${linkClassName || defaultLink} ${link.color} group`}
             aria-label={`Visit ${link.displayName}`}
             title={link.description}

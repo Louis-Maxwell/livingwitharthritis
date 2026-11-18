@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { useParams, Link, Navigate } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
 import Header from '@/components/Header';
@@ -123,7 +124,7 @@ export default function FaqArticle() {
       </div>
 
 
-      <EducationalDisclaimerBox lastReviewed={article.lastReviewed ?? "2026-09-16"} />
+      <EducationalDisclaimerBox lastReviewed={article.lastReviewed ?? REVIEW_RECORDS.faqArticleFallback} />
       {getClusterForPath(`/faq/${article.slug}`) && (
         <TopicClusterNav path={`/faq/${article.slug}`} />
       )}

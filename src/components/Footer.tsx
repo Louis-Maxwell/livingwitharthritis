@@ -1,10 +1,12 @@
+import InstallBanner from '@/components/pwa/InstallBanner';
 import PageDownloads from '@/components/PageDownloads';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import FooterMostRead from "@/components/FooterMostRead";
 import { lazy, Suspense } from "react";
 import DeferredMount from "@/components/DeferredMount";
 const RelatedGuidesBlock = lazy(() => import("@/components/blog/RelatedGuidesBlock"));
+const PageShareButtons = lazy(() => import('@/components/PageShareButtons'));
 import HelplineWidget from "@/components/HelplineWidget";
 import SiteLogo from "@/components/SiteLogo";
 import HubSpotlight from "@/components/HubSpotlight";
@@ -26,6 +28,7 @@ const columns = [
       { label: "PIP Evidence Diary", href: "/resources/pip-evidence-diary" },
       { label: "Clinic Pack", href: "/resources/clinic-pack" },
       { label: "Resource Centre", href: "/resource-centre" },
+      { label: "Monthly Magazine", href: "/magazine" },
       { label: "Healthcare Professionals", href: "/healthcare-professionals" },
       { label: "Contact Us", href: "/contact" },
       { label: "FAQ", href: "/faq" },
@@ -109,9 +112,16 @@ const columns = [
 ];
 
 const Footer = () => {
+  const { pathname } = useLocation();
   return (
     <>
+    {(/^\/exercises(?:\/|$)/).test(pathname) && <InstallBanner />}
     <HubSpotlight />
+    {/^\/(guides|conditions|exercises|diet|supplements|daily-tips|resources)\//.test(pathname) && (
+      <DeferredMount><Suspense fallback={null}>
+        <PageShareButtons path={pathname} />
+      </Suspense></DeferredMount>
+    )}
     <footer className="bg-muted/30 border-t border-border/20 pb-20 lg:pb-0" role="contentinfo" aria-label="Site footer">
       {/* Helpline strip — sits above the footer on every page */}
       <DeferredMount>
@@ -139,7 +149,7 @@ const Footer = () => {
           {columns.map((col) => (
             <nav key={col.title} aria-label={col.title}>
               <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-5">{col.title}</h3>
-              <ul className="space-y-2.5">
+              <ul className="lg:space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
                     {link.href.startsWith("http") ? (
@@ -147,21 +157,21 @@ const Footer = () => {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-foreground/85 hover:text-primary transition-colors duration-200 text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
+                        className="inline-flex min-h-11 items-center text-xs text-foreground/85 hover:text-primary transition-colors duration-200 lg:min-h-0 lg:text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
                       >
                         {link.label}
                       </a>
                     ) : link.href.startsWith("#") ? (
                       <a
                         href={link.href}
-                        className="text-foreground/85 hover:text-primary transition-colors duration-200 text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
+                        className="inline-flex min-h-11 items-center text-xs text-foreground/85 hover:text-primary transition-colors duration-200 lg:min-h-0 lg:text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
                       >
                         {link.label}
                       </a>
                     ) : (
                       <Link
                         to={link.href}
-                        className="text-foreground/85 hover:text-primary transition-colors duration-200 text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
+                        className="inline-flex min-h-11 items-center text-xs text-foreground/85 hover:text-primary transition-colors duration-200 lg:min-h-0 lg:text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
                       >
                         {link.label}
                       </Link>
@@ -179,7 +189,7 @@ const Footer = () => {
               context="footer"
               size="md"
               orientation="vertical"
-              linkClassName="text-foreground/85 hover:text-primary transition-colors duration-200 text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm flex items-center gap-2"
+              linkClassName="min-h-11 text-xs lg:min-h-0 lg:text-[13px] text-foreground/85 hover:text-primary transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm flex items-center gap-2"
               showLabels={true}
             />
           </nav>
@@ -188,7 +198,7 @@ const Footer = () => {
 
       <div className="border-t border-border/15">
         <div className="container mx-auto px-6 md:px-12 py-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
-          <div className="text-[11px] text-muted-foreground tracking-wide">
+          <div className="text-xs lg:text-[11px] text-muted-foreground tracking-wide">
             <p>
               © {new Date().getFullYear()} {CHARITY.legalName}™ ·{" "}
               <a

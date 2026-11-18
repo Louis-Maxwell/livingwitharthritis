@@ -1,0 +1,56 @@
+{
+  "/conditions/knee-arthritis": {
+    "question": "What helps knee osteoarthritis?",
+    "answer": "Knee osteoarthritis symptoms can improve with tailored exercise. Strengthening the muscles around your knee supports movement and reduces symptoms. Start gently, build up gradually and ask a physiotherapist (physical therapist) for a suitable plan. Weight management can also help if you are overweight.",
+    "sources": [
+      {
+        "label": "NICE NG226: exercise and weight management",
+        "url": "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations"
+      }
+    ]
+  },
+  "/conditions/hip-arthritis": {
+    "question": "What helps hip osteoarthritis?",
+    "answer": "Hip osteoarthritis can cause pain, stiffness and difficulty moving. Regular strengthening and general fitness exercises help maintain movement and ease symptoms. Start gently and build up gradually; a physiotherapist (physical therapist) can tailor a plan. Discuss persistent symptoms and suitable pain relief with your GP.",
+    "sources": [
+      {
+        "label": "NHS: osteoarthritis treatment and support",
+        "url": "https://www.nhs.uk/conditions/osteoarthritis/treatment/"
+      }
+    ]
+  },
+  "/guides/diet": {
+    "question": "What diet helps with arthritis?",
+    "answer": "No diet cures arthritis. A healthy, balanced diet supports general health, while weight management can reduce strain on joints affected by osteoarthritis. Choose varied foods, keep active within your abilities and ask your GP or dietitian for advice before making restrictive changes to your diet.",
+    "sources": [
+      {
+        "label": "NHS: living with arthritis",
+        "url": "https://www.nhs.uk/conditions/arthritis/"
+      }
+    ]
+  },
+  "/supplements": {
+    "question": "Do supplements help arthritis?",
+    "answer": "Supplements are not a cure for arthritis, and evidence of benefit is often limited. NICE advises against glucosamine for osteoarthritis because there is no strong evidence it helps. Check any supplement with your GP or pharmacist first, especially when taking prescribed medicines, because interactions can occur.",
+    "sources": [
+      {
+        "label": "NICE NG226: medicines and supplements",
+        "url": "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations"
+      },
+      {
+        "label": "NHS SPS: supplements and medicine interactions",
+        "url": "https://sps.nhs.uk/articles/advising-on-complementary-products-and-conventional-medicines/"
+      }
+    ]
+  },
+  "/conditions/polymyalgia-rheumatica": {
+    "question": "How is polymyalgia rheumatica treated?",
+    "answer": "Polymyalgia rheumatica is usually treated with prednisolone, a steroid that reduces inflammation and relieves symptoms. Your clinician adjusts the dose gradually according to your response. Take it as prescribed, attend follow-up appointments and never stop steroid treatment suddenly without advice from your GP or specialist.",
+    "sources": [
+      {
+        "label": "NHS: PMR treatment",
+        "url": "https://www.nhs.uk/conditions/polymyalgia-rheumatica/treatment/"
+      }
+    ]
+  }
+}

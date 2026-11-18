@@ -74,10 +74,10 @@ import HeaderSocial from '@/components/HeaderSocial';
 |----------|-----|--------|----------|
 | X/Twitter | — | No Disabled (wrong organisation) | — |
 | Facebook | https://www.facebook.com/profile.php?id=61583723925315 | Yes Enabled | Yes Yes |
-| Instagram | https://www.instagram.com/livingwitharthritisuk | Yes Enabled | Yes Yes |
+| Instagram | https://www.instagram.com/livingwitharthritisorg | Yes Enabled | Yes Yes |
 | LinkedIn | https://www.linkedin.com/company/112596569/ | Yes Enabled | Yes Yes |
 | YouTube | https://www.youtube.com/@livingwitharthritisorg | Yes Enabled | Yes Yes |
-| Threads | https://www.threads.com/@livingwitharthritisuk | Yes Enabled | Yes Yes |
+| Threads | https://www.threads.com/@livingwitharthritisorg | Yes Enabled | Yes Yes |
 | Pinterest | https://www.pinterest.co.uk/livingwitharthritis | Yes Enabled | Yes Yes |
 | Reddit | https://www.reddit.com/r/arthritis | No Disabled | Yes Yes |
 | Email | mailto:info@livingwitharthritis.org.uk | Yes Enabled | Yes Yes |

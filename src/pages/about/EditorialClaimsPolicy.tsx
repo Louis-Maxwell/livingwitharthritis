@@ -41,7 +41,7 @@ export default function EditorialClaimsPolicy() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title="Editorial claims policy"
         description="How Living With Arthritis publishes counts and claims: inventory-backed facts only, educational not diagnostic, no fake visitor stats."

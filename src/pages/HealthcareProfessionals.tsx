@@ -29,6 +29,7 @@ const CLINIC_LINKS = [
 const SHAREABLE = [
   { title: "Newly diagnosed checklist", href: "/guides/newly-diagnosed" },
   { title: "Exercise hub", href: "/exercises" },
+  { title: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
   { title: "Diet hub", href: "/guides/diet" },
   { title: "Benefits & PIP hub", href: "/guides/benefits-pip" },
   { title: "Symptom checker (educational)", href: "/symptom-checker" },
@@ -43,7 +44,7 @@ const SHAREABLE = [
  */
 export default function HealthcareProfessionals() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title="Healthcare professionals"
         description="Free clinic pack, shareable patient guides and educational tools from Living With Arthritis for physiotherapists, GPs and rheumatology teams. Charity 1218461."

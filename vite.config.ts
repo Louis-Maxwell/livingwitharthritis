@@ -6,6 +6,7 @@ import { createRequire } from "node:module";
 import { componentTagger } from "lovable-tagger";
 import Prerender from "@prerenderer/rollup-plugin";
 import { visualizer } from "rollup-plugin-visualizer";
+import { publicationMarker } from "./scripts/publication-marker.mjs";
 import { PRERENDER_ROUTES } from "./scripts/prerender-routes.mjs";
 
 // Prerender is ON by default for production builds so crawlers (Googlebot's
@@ -85,6 +86,7 @@ export default defineConfig(({ mode }) => {
     port: 8080,
   },
   plugins: [
+    publicationMarker(),
     react(),
     // Lovable MCP backend plugin stays disabled — site is static + mailto only.
     mode === "development" && componentTagger(),

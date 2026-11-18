@@ -36,7 +36,7 @@ const ArticleClosingCTA = ({ title, category, slug }: Props) => {
       <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
         Choose a useful next step after reading this article. Our resources provide educational support and do not replace advice from your clinician.
       </p>
-      <div className="grid gap-3 sm:grid-cols-3">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         {actions.map(({ to, label, detail }) => (
           <Link key={to} to={to} onClick={() => trackInternalLink(label, to)}
             className="group flex min-h-11 flex-col rounded-xl border border-border/50 bg-card p-4 transition-colors hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">

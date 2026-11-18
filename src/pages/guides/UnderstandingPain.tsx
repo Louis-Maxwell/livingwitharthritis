@@ -17,8 +17,11 @@ import { motion } from "framer-motion";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const PATH = "/guides/understanding-pain";
@@ -227,7 +230,7 @@ const UnderstandingPain = () => (
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
     </Helmet>
 
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <Header />
       <PageBreadcrumb segments={[{ label: "Guides", href: "/guides" }, { label: "Understanding pain" }]} />
 
@@ -246,6 +249,8 @@ const UnderstandingPain = () => (
             Understanding Pain
           </h1>
           <AeoEnhancement route={PATH} />
+          <GpPrepSheet />
+          <WhatsAppShare path="/guides/understanding-pain" title="Understanding arthritis pain" />
           <p className="speakable-intro text-lg text-muted-foreground leading-relaxed mb-8">
             Learn about pain, the main ways clinicians describe it, and how to explain what you feel so your GP or rheumatology team can help more accurately.
           </p>
@@ -346,6 +351,8 @@ const UnderstandingPain = () => (
             Finding the cause matters: untreated psoriatic arthritis, osteoarthritis and rheumatoid arthritis can permanently damage joints.
           </p>
         </Section>
+
+        <RecommendedNextStep path="/guides/understanding-pain" placement="mid" />
 
         <Section icon={Sparkles} title="Fibromyalgia Pain">
           <p>

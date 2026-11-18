@@ -165,11 +165,11 @@ const JointMarker = ({
     className="absolute -translate-x-1/2 -translate-y-1/2 group min-h-11 min-w-11 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-full"
     style={{ top: `${top}%`, left: `${left}%` }}
   >
-    {/* Pulsing outer ring when active — skipped when the visitor prefers reduced motion */}
+    {/* Static outer ring when active (no looping motion) */}
     {active && (
       <span
         aria-hidden="true"
-        className="absolute inset-0 m-auto w-7 h-7 rounded-full bg-primary/30 motion-safe:animate-ping"
+        className="absolute inset-0 m-auto w-9 h-9 rounded-full bg-primary/20"
       />
     )}
     {/* Marker dot */}

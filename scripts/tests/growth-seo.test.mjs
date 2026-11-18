@@ -5,9 +5,11 @@ import { conditionTopicLinks } from '../condition-topic-links.mjs';
 import { articleJsonLd, ensureArticleJsonLd } from '../article-jsonld.mjs';
 
 test('media sitemap includes only pages with existing image entries and preserves XML escaping', () => {
-  const xml = '<urlset><url><loc>https://example.org/one</loc><image:image><image:loc>https://example.org/a.jpg?x=1&amp;y=2</image:loc></image:image></url><url><loc>https://example.org/two</loc></url></urlset>';
-  const result = imageSitemap(xml);
+  const xml = '<urlset><url><loc>https://example.org/one</loc><lastmod>2026-11-01</lastmod><image:image><image:loc>https://example.org/a.jpg?x=1&amp;y=2</image:loc></image:image></url><url><loc>https://example.org/two</loc></url><url><loc>https://example.org/three</loc><image:image><image:loc>https://example.org/b.jpg</image:loc></image:image></url></urlset>';
+  const result = imageSitemap(xml, '2026-11-13');
   assert.ok(result.includes('<loc>https://example.org/one</loc>'));
+  assert.ok(result.includes('<lastmod>2026-11-01</lastmod>'));
+  assert.ok(result.includes('<loc>https://example.org/three</loc><lastmod>2026-11-13</lastmod>'));
   assert.ok(!result.includes('<loc>https://example.org/two</loc>'));
   assert.match(result, /x=1&amp;y=2/);
   const once = registerImageSitemap('<sitemapindex></sitemapindex>');

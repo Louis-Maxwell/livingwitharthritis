@@ -56,7 +56,7 @@ export default function HomeTrustStrip() {
             to="/about"
             className={`font-semibold text-foreground inline-flex items-center min-h-11 ${linkCls}`}
           >
-            About us
+            About us and what we offer for free
           </Link>
         </p>
         <p className="mt-3 text-sm text-muted-foreground">

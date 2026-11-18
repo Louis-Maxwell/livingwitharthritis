@@ -96,7 +96,7 @@ const SearchPage = () => {
       </Helmet>
 
       <Header />
-      <main id="main-content" className="min-h-screen bg-background text-foreground">
+      <main id="main-content" className="min-h-dvh bg-background text-foreground">
         <PageHero
           badge={
             <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 rounded-full">

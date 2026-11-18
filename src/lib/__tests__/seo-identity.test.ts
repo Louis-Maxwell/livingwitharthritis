@@ -55,8 +55,8 @@ describe("public SEO / AEO identity", () => {
     expect(CONTACT_EMAILS.info).toBe("info@livingwitharthritis.org.uk");
     expect(CONTACT_PHONE).toBe("07760 512 084");
     expect(CONTACT_PHONE_E164).toBe("+447760512084");
-    expect(FACEBOOK_PAGE_ID).toBe("61583723925315");
-    expect(ORGANIZATION_PAYLOAD.founder.identifier.value).toBe("PH128483");
+    expect(FACEBOOK_PAGE_ID).toBe("862105853655104");
+    expect(ORGANIZATION_PAYLOAD.founder.name).toBe("David Williams");
     expect(ORGANIZATION_PAYLOAD.contactPoint[0].telephone.replace(/\D/g, "")).toBe(
       "447760512084",
     );
@@ -82,12 +82,13 @@ describe("public SEO / AEO identity", () => {
     expect(hasCharityAddress()).toBe(false);
   });
 
-  it("ships one NGO + Organization + MedicalOrganization node with charity 1218461", () => {
+  it("ships one NGO + Organization node with charity 1218461", () => {
     const org = jsonLdFromIndex("root-organization-jsonld");
     expect(org["@id"]).toBe("https://livingwitharthritis.org.uk/#organization");
     expect(org["@type"]).toEqual(
-      expect.arrayContaining(["NGO", "Organization", "MedicalOrganization"]),
+      expect.arrayContaining(["NGO", "Organization"]),
     );
+    expect(org["@type"]).not.toContain("MedicalOrganization");
     expect(JSON.stringify(org.identifier)).toContain("1218461");
     expect(org.name).toBe("Living With Arthritis");
     expect(org.legalName).toBe("Living With Arthritis");
@@ -97,9 +98,9 @@ describe("public SEO / AEO identity", () => {
         "Living With Arthritis (charity 1218461)",
       ]),
     );
-    expect(org.founder.name).toBe("Louis Maxwell");
-    expect(org.founder.identifier.value).toBe("PH128483");
-    expect(ORGANIZATION_PAYLOAD.founder.identifier.value).toBe("PH128483");
+    expect(org.founder.name).toBe("David Williams");
+    expect(ORGANIZATION_PAYLOAD.founder.name).toBe("David Williams");
+    expect(org.founder).not.toHaveProperty("identifier");
     expect(org.sameAs).toEqual(OFFICIAL_SAME_AS);
     expect(org.sameAs).toEqual(ORGANIZATION_PAYLOAD.sameAs);
     expect(org).not.toHaveProperty("address");
@@ -118,12 +119,13 @@ describe("public SEO / AEO identity", () => {
     expect(org.email).toBe(ORGANIZATION_PAYLOAD.email);
   });
 
-  it("ships a WebSite node with an EntryPoint SearchAction", () => {
+  it("ships a WebSite node without SearchAction (SPA search is not crawlable)", () => {
     const site = jsonLdFromIndex("root-website-jsonld");
     expect(site["@id"]).toBe("https://livingwitharthritis.org.uk/#website");
-    expect(site.potentialAction.target["@type"]).toBe("EntryPoint");
-    expect(site.potentialAction.target.urlTemplate).toContain("/search?q=");
-    expect(WEBSITE_PAYLOAD.potentialAction.target["@type"]).toBe("EntryPoint");
+    expect(site.name).toBe("Living With Arthritis");
+    expect(site).not.toHaveProperty("potentialAction");
+    expect(WEBSITE_PAYLOAD).not.toHaveProperty("potentialAction");
+    expect(WEBSITE_PAYLOAD.name).toBe("Living With Arthritis");
     expect(WEBSITE_PAYLOAD.about).toEqual(
       expect.arrayContaining(["Osteoarthritis", "Frailty and musculoskeletal health"]),
     );
@@ -192,5 +194,29 @@ describe("public SEO / AEO identity", () => {
   it("does not mark city hubs as a MedicalBusiness", () => {
     expect(cityPage).not.toMatch(/MedicalBusiness/);
     expect(cityPage).not.toMatch(/14 to 22 weeks/);
+  });
+});
+
+describe("founder attribution", () => {
+  it("names David Williams as founder and never calls Louis Maxwell founder", () => {
+    expect((ORGANIZATION_PAYLOAD.founder as { name: string }).name).toBe("David Williams");
+    const files = [
+      "index.html",
+      "public/llms.txt",
+      "public/llms-full.txt",
+      "public/.well-known/llms.txt",
+      "public/ai.txt",
+      "public/.well-known/ai.txt",
+      "public/humans.txt",
+      "public/answer-engine.json",
+      "scripts/ai-head-data.json",
+      "scripts/data/rendered-bodies.json",
+    ];
+    for (const f of files) {
+      const text = readFileSync(resolve(f), "utf8");
+      expect(text, f).not.toMatch(/founded by (Louis|Maxwell)/i);
+      expect(text, f).not.toMatch(/founder[^.\n]{0,40}(Louis|Maxwell)/i);
+      expect(text, f).not.toMatch(/(Louis|Maxwell)[^.\n]{0,40}\b(co-)?founder\b/i);
+    }
   });
 });

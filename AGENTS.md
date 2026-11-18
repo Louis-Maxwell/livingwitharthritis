@@ -52,3 +52,12 @@ Token-thrift on **this** repo:
 
 Hosting moves, dashboard clicks (GSC, Stripe, Lovable billing), merging,
 force-pushing, and anything that spends money.
+
+## Technical SEO
+
+- Share/canonical URL and JSON-LD sanitation rules live in technicalSeo.mjs;
+  static and React metadata must use the same rules to prevent drift.
+- Static route heads are finalised after generation, including reused
+  snapshots and city documents, so inherited homepage tags cannot survive.
+- Keep redirects in the existing shared redirect map; Lovable hosting does
+  not execute `_redirects`, so never claim those rules deliver HTTP 301s here.

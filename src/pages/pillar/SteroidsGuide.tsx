@@ -7,6 +7,7 @@ import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import ArticleHtmlWithNextStep from "@/components/ArticleHtmlWithNextStep";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import ArticleCitations from "@/components/blog/ArticleCitations";
@@ -166,7 +167,7 @@ export default function SteroidsGuide() {
         idPrefix="steroids-guide"
       />
       <Header />
-      <main id="main-content" className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-dvh bg-background">
         <PageHero
           title="Steroids for Arthritis"
           subtitle="A plain-English guide to corticosteroid injections and tablets — how they work, what to expect, side effects and how to access them in the UK."
@@ -182,7 +183,7 @@ export default function SteroidsGuide() {
             they do, what to expect, and how to access them on the public health service.
           </p>
           <TableOfContents html={html} />
-          <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }} />
+          <ArticleHtmlWithNextStep html={html} path="/guides/steroids-for-arthritis" className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" />
           <div className="mt-16 pt-8 border-t border-border/30">
             <h3 className="font-display font-bold text-lg mb-4">Continue Reading</h3>
             <div className="grid sm:grid-cols-2 gap-4">

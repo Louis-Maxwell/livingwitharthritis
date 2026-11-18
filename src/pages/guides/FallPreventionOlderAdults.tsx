@@ -5,6 +5,9 @@ import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const FAQS = [
   { q: 'Why do older adults with arthritis fall more often?', a: 'Arthritis reduces muscle strength, joint stability and balance reactions. Pain alters walking patterns, medications can cause dizziness, and reduced activity erodes confidence — together raising fall risk substantially.' },
@@ -71,6 +74,8 @@ export default function FallPreventionOlderAdults() {
       <h1 className="text-4xl md:text-5xl font-bold mb-6">Fall Prevention for Older Adults with Arthritis</h1>
             <AeoEnhancement route="/guides/fall-prevention-older-adults" />
 
+            <GpPrepSheet />
+            <WhatsAppShare path="/guides/fall-prevention-older-adults" title="Fall prevention for older adults" />
       <AnswerBox question="How can older adults with arthritis prevent falls?">
         Fall prevention usually combines strength and balance exercise, a
         medication and vision review, suitable footwear, and changes to hazards
@@ -98,6 +103,7 @@ export default function FallPreventionOlderAdults() {
         </ul>
       </section>
 
+      <RecommendedNextStep path="/guides/fall-prevention-older-adults" placement="mid" />
       <section id="balance" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">3. Balance and proprioception training</h2>
         <p className="leading-relaxed mb-4">Balance is trainable at any age. Start with simple drills at a kitchen counter: stand on one leg 10 seconds (build to 30), heel-to-toe walking, weight shifts. Tai chi reduces falls by around 20% and is suitable for most older adults — see our <Link to="/exercises/tai-chi-for-balance" className="text-primary underline">tai chi for balance</Link> guide.</p>

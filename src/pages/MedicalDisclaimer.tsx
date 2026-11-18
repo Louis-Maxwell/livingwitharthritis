@@ -31,7 +31,7 @@ export default function MedicalDisclaimer() {
         <link rel="canonical" href={URL} />
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <Header />
         <PageBreadcrumb segments={[{ label: "Medical disclaimer" }]} />
 
