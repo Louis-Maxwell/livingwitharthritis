@@ -28,7 +28,7 @@ export default function HomeJobRouter() {
     <section
       id="find-help"
       aria-labelledby="find-help-heading"
-      className="scroll-mt-28 bg-background py-10 md:py-14"
+      className="scroll-mt-28 bg-background py-8 md:py-12"
     >
       <div className="container mx-auto max-w-6xl px-5 md:px-10">
         <h2
@@ -42,7 +42,7 @@ export default function HomeJobRouter() {
           Pick the one that fits. Each goes straight to a free guide — no sign-up, no quiz.
         </p>
 
-        <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {VISITOR_JOBS.map((job, i) => {
             const Icon = job.icon;
             const isDonate = job.id === "donate";
@@ -50,7 +50,7 @@ export default function HomeJobRouter() {
               <RevealOnScroll
                 as="li"
                 key={job.id}
-                delay={(i % 4) * 60}
+                delay={(i % 3) * 60}
                 className={`hover-lift flex min-w-0 flex-col rounded-2xl border p-4 sm:p-5 ${
                   isDonate ? "border-border/60 bg-muted/40" : "border-border/60 bg-card"
                 }`}
