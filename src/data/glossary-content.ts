@@ -18,6 +18,79 @@ export interface GlossaryEntry {
 }
 
 export const GLOSSARY_CONTENT: Record<string, GlossaryEntry> = {
+  "dass-score": {
+    "label": "DASS score (not DAS28)",
+    "short": "DASS measures symptoms of depression, anxiety and stress. It is different from DAS28, a rheumatoid arthritis disease-activity assessment.",
+    "body": "The Depression Anxiety Stress Scales (DASS) are questionnaires about emotional symptoms over the past week. The original form has 42 questions; DASS21 is a shorter version. Scores describe symptom severity but do not, on their own, diagnose a mental health condition. They do not measure rheumatoid arthritis inflammation. DAS28 is a different assessment combining a joint examination, blood tests and your view of your health. If a clinic letter mentions a score, ask your healthcare team which assessment was used and what it means for you.",
+    "related": [
+      "rheumatoid-arthritis"
+    ],
+    "sources": [
+      {
+        "name": "UNSW: Overview of the DASS and its uses",
+        "url": "https://dass.psy.unsw.edu.au/over.htm"
+      },
+      {
+        "name": "NRAS: The DAS28 score",
+        "url": "https://nras.org.uk/resource/the-das28-score/"
+      }
+    ],
+    "editorialUpdatedAt": "2026-11-18",
+    "reviewNote": "This definition was checked against the linked sources. It has not yet had an independent clinical review."
+  },
+  "cfs": {
+    "label": "Chronic fatigue syndrome (ME/CFS)",
+    "short": "ME/CFS is a long-term condition involving severe fatigue and other symptoms, including symptoms worsening after physical or mental activity.",
+    "body": "Myalgic encephalomyelitis, also called chronic fatigue syndrome (ME/CFS), can affect daily activities, sleep, concentration and memory. A key symptom is post-exertional malaise: symptoms get worse after activity and recovery can be prolonged. ME/CFS is not simply feeling tired after a busy day. There is no single diagnostic test; a GP assesses symptoms and checks for other causes. Persistent fatigue with arthritis does not automatically mean ME/CFS. Seek a GP assessment rather than self-diagnosing. Management is individual and can include help with energy management and other symptoms.",
+    "related": [
+      "fatigue"
+    ],
+    "sources": [
+      {
+        "name": "NHS: ME/CFS overview",
+        "url": "https://www.nhs.uk/conditions/chronic-fatigue-syndrome-cfs/"
+      }
+    ],
+    "editorialUpdatedAt": "2026-11-18",
+    "reviewNote": "This definition was checked against the linked sources. It has not yet had an independent clinical review."
+  },
+  "passive-vs-active-movement": {
+    "label": "Passive and active movement",
+    "short": "Active movement uses your own muscles. Passive movement uses outside help, such as your other hand, to move a joint.",
+    "body": "In physiotherapy, active movement means moving a joint using your own muscle power. Passive movement means the joint is moved with outside help, for example using your other hand while the affected muscles relax. The type of movement advised depends on the joint, injury and stage of recovery; one is not always better than the other. Follow the plan from your physiotherapist or hand therapist, especially after surgery. Move slowly and within the limits they give you. Do not force a stretch through sharp or lasting pain.",
+    "related": [
+      "range-of-motion"
+    ],
+    "sources": [
+      {
+        "name": "Sherwood Forest Hospitals NHS: Thumb exercises",
+        "url": "https://www.sfh-tr.nhs.uk/media/bbapxq3v/pil202503-05-te-thumb-exercises.pdf"
+      },
+      {
+        "name": "Dorset County Hospital NHS: Wrist exercises",
+        "url": "https://dchft.nhs.uk/leaflets/wrist-exercises/"
+      }
+    ],
+    "editorialUpdatedAt": "2026-11-18",
+    "reviewNote": "This definition was checked against the linked sources. It has not yet had an independent clinical review."
+  },
+  "meniscus": {
+    "label": "Meniscus",
+    "short": "A meniscus is cartilage in the knee that helps protect the joint during movement. A tear can cause pain, swelling or difficulty moving the knee.",
+    "body": "The meniscus is cartilage between the bones of the knee. It helps protect them as the knee moves. A tear may follow a twisting injury, including a relatively minor twist, and can cause pain, stiffness, swelling or difficulty bending and straightening the leg. These symptoms can have other causes, so clicking alone does not establish a meniscus tear. Treatment depends on the problem and may include physiotherapy; not every tear needs surgery. Get urgent GP or NHS 111 help if you cannot bear weight or straighten the knee, or it becomes hot and swollen.",
+    "related": [
+      "cartilage"
+    ],
+    "sources": [
+      {
+        "name": "NHS: Meniscus tear",
+        "url": "https://www.nhs.uk/conditions/meniscus-tear/"
+      }
+    ],
+    "editorialUpdatedAt": "2026-11-18",
+    "reviewNote": "This definition was checked against the linked sources. It has not yet had an independent clinical review."
+  },
+
   sulfasalazine: {
     label: "Sulfasalazine",
     short: "A prescription medicine that reduces inflammation and is used to treat rheumatoid arthritis and inflammatory bowel disease.",
@@ -263,4 +336,4 @@ export const GLOSSARY_CONTENT: Record<string, GlossaryEntry> = {
 
 export function getGlossaryEntry(slug: string): GlossaryEntry | undefined {
   return GLOSSARY_CONTENT[slug];
-      }
+    }
