@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { trackEvent } from "@/lib/analytics";
 import { recommendedNextSteps } from "@/lib/recommendedNextSteps.mjs";
 
 interface RecommendedNextStepProps {
@@ -39,6 +40,11 @@ export default function RecommendedNextStep({
           <li key={link.href} className="m-0">
             <Link
               to={link.href}
+              onClick={() => trackEvent("recommended_next_step_click", {
+                source_path: path.split(/[?#]/)[0],
+                target_path: link.href,
+                placement,
+              })}
               className="text-base md:text-lg font-semibold text-primary underline underline-offset-4 decoration-2 hover:decoration-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
             >
               {link.label}
@@ -49,4 +55,4 @@ export default function RecommendedNextStep({
       </ul>
     </nav>
   );
-}
+        }

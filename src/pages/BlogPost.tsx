@@ -614,7 +614,7 @@ const BlogPost = () => {
           </div>
 
           <div className="no-print mb-6 flex flex-wrap justify-end gap-2">
-            <BlogPdfDownload title={article.title} html={htmlContent} slug={slug ?? "article"} />
+            <BlogPdfDownload title={article.title} html={htmlContent} slug={slug ?? "article"} dateLine={`${editorialReviewNote || `Last reviewed: ${blogLastReviewed || dateModifiedIso || article.date}`} · Downloaded: ${new Date().toLocaleDateString("en-GB")}`} />
             <Button
               variant="outline"
               size="sm"
