@@ -138,7 +138,7 @@ export default function GlossaryTerm() {
             <h2 className="text-lg font-bold mb-2">Talk to your team</h2>
             <p className="text-sm text-muted-foreground">
               This page is general information, not medical advice. If you've seen{" "}
-              <strong>{label}</strong> mentioned in an UK healthcare letter or clinic and want it
+              <strong>{label}</strong> mentioned in a UK healthcare letter or clinic and want it
               explained for your situation, ask your GP, rheumatology nurse or pharmacist.
             </p>
           </section>
