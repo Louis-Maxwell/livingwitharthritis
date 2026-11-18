@@ -32,7 +32,8 @@ const AEO_POSTS = [
 describe("Recommended next step content loops", () => {
   it("every destination is a real route", () => {
     for (const href of RECOMMENDED_NEXT_STEP_HREFS) {
-      expect(app.includes(`path="${href}"`), href).toBe(true);
+      const real = app.includes(`path="${href}"`) || (app.includes('path="/blog/:slug"') && href.startsWith("/blog/") && existsSync(resolve(`src/content/blog/posts/${href.slice(6)}.json`)));
+      expect(real, href).toBe(true);
     }
   });
 
