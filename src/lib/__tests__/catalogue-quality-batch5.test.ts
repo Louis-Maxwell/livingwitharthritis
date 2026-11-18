@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { execFileSync } from 'node:child_process';
 const p = JSON.parse(readFileSync('src/content/blog/posts/paracetamol-for-arthritis-pain-what-the-evidence-says.json', 'utf8'));
 describe('paracetamol substantive source revision', () => {
   it('preserves the published path without inheriting an old clinical review', () => {
@@ -7,8 +10,20 @@ describe('paracetamol substantive source revision', () => {
     expect(p.is_published).toBe(true);
     const cards = JSON.parse(readFileSync('scripts/data/editorial-covers.json', 'utf8'));
     expect(cards[p.cover]?.sha256).toMatch(/^[a-f0-9]{64}$/);
-    const credits = JSON.parse(readFileSync('src/data/cover-credits.generated.json', 'utf8'));
-    expect(credits[p.cover]).toBe('Image: Living With Arthritis');
+    // CI runs unit tests before the full build regenerates credits.
+    // Exercise the real generator in isolation, without relying on stale build output.
+    const fixture = mkdtempSync(join(tmpdir(), 'lwa-cover-credit-'));
+    try {
+      for (const dir of ['public/openverse', 'scripts/data', 'src/data']) mkdirSync(join(fixture, dir), { recursive: true });
+      for (const file of ['public/openverse/ATTRIBUTION.json', 'scripts/data/editorial-covers.json', 'scripts/generate-cover-credits.mjs']) {
+        writeFileSync(join(fixture, file), readFileSync(file));
+      }
+      execFileSync(process.execPath, ['scripts/generate-cover-credits.mjs'], { cwd: fixture });
+      const credits = JSON.parse(readFileSync(join(fixture, 'src/data/cover-credits.generated.json'), 'utf8'));
+      expect(credits[p.cover]).toBe('Image: Living With Arthritis');
+    } finally {
+      rmSync(fixture, { recursive: true, force: true });
+    }
     expect(p.reviewed_by).toBeNull();
     expect(p.reviewer_credentials).toBeNull();
     expect(p.last_reviewed).toBeUndefined();
