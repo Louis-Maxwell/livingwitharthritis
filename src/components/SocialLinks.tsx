@@ -9,6 +9,8 @@ import {
   Linkedin,
   Youtube,
   AtSign,
+  Music2,
+  Cloud,
   Mail,
   Github,
   MessageCircle,
@@ -33,6 +35,9 @@ const iconMap: Record<SocialPlatform, React.ComponentType<LucideProps>> = {
   linkedin: Linkedin,
   youtube: Youtube,
   threads: AtSign,
+  tiktok: Music2,
+  bluesky: Cloud,
+  mastodon: AtSign,
   pinterest: Github,
   reddit: MessageCircle,
   email: Mail,
@@ -52,8 +57,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
   linkClassName,
   orientation = 'horizontal',
 }) => {
-  const socialLinks = getSocialLinksForContext(context)
-    .filter((link) => context === 'footer' || !/threads\.com|wa\.me/i.test(link.url));
+  const socialLinks = getSocialLinksForContext(context);
 
   if (socialLinks.length === 0) {
     return null;
