@@ -3,9 +3,13 @@ import { describe, expect, it } from 'vitest';
 import { headDataFor, rewriteHead } from '../../../scripts/inject-canonicals.mjs';
 const slugs=['rheumatology-appointment-what-to-expect-uk','arthritis-pain-tracking-journal-template','arthritis-flare-up-what-to-do','emergency-arthritis-flare-checklist'];
 describe('contextual links to existing blank records',()=>{
- it.each(slugs)('keeps the original review date and clearly labels the new sheets in %s',slug=>{
+ it.each(slugs)('keeps honest guide review status and clearly labels the new sheets in %s',slug=>{
  const post=JSON.parse(readFileSync(`src/content/blog/posts/${slug}.json`,'utf8'));
- expect(post.last_reviewed).toBe('2026-10-23');
+ if(slug==='rheumatology-appointment-what-to-expect-uk'){
+ expect(post.last_reviewed).toBeUndefined();
+ expect(post.reviewed_by).toBeNull();
+ expect(post.editorial_review_note).toContain('not yet had a fresh clinical review');
+ }else expect(post.last_reviewed).toBe('2026-10-23');
  expect(post.content).toContain('awaiting separate clinical review');
  expect(post.content).toContain('not a treatment plan');
  expect(post.content).toContain('do not send your entries');
