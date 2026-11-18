@@ -129,7 +129,8 @@ export const trackDonationComplete = (opts: {
   donationType?: "one-time" | "monthly";
 }): void => {
   // Treat a verified donation as one GA4 purchase/key event. The payment
-  // provider transaction ID provides idempotency for reconciliation.
+  // provider transaction ID is sent for downstream reconciliation.
+  // This helper itself does not prevent repeated calls.
   trackEvent("purchase", {
     transaction_id: opts.transactionId,
     value: opts.amount,
