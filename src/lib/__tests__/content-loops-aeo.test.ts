@@ -121,10 +121,15 @@ describe("AEO on priority pages", () => {
     expect(words(p.direct_answer)).toBeLessThanOrEqual(58);
     expect(p.key_takeaways.length).toBeGreaterThanOrEqual(3);
     expect(p.key_takeaways.length).toBeLessThanOrEqual(4);
-    // Search-question subheadings stay in the body (q-heading), FAQ section keeps >= 4 questions.
-    expect((p.content.match(/class="q-heading"/g) || []).length).toBeGreaterThanOrEqual(4);
-    const faq = p.content.slice(p.content.search(/<h2>Frequently asked questions<\/h2>/));
-    expect((faq.match(/<h3>[^<]*\?<\/h3>/g) || []).length).toBeGreaterThanOrEqual(4);
+    if (slug === "pip-for-arthritis-uk") {
+      // The revised guide uses three real question headings. BlogPost extracts these
+      // into its visible FAQ block; do not require a second, duplicated FAQ in source.
+      expect((p.content.match(/<h2>[^<]*\?<\/h2>/g) || []).length).toBeGreaterThanOrEqual(3);
+    } else {
+      expect((p.content.match(/class="q-heading"/g) || []).length).toBeGreaterThanOrEqual(4);
+      const faq = p.content.slice(p.content.search(/<h2>Frequently asked questions<\/h2>/));
+      expect((faq.match(/<h3>[^<]*\?<\/h3>/g) || []).length).toBeGreaterThanOrEqual(4);
+    }
     expect(JSON.stringify(p)).not.toMatch(/Living With Arthritis UK/);
   });
 
@@ -139,7 +144,8 @@ describe("AEO on priority pages", () => {
   it("static article HTML shows takeaways and the next step", () => {
     const p = post("pip-for-arthritis-uk");
     const html = buildStaticArticleInner({ article: p, answer: p.direct_answer, title: p.title });
-    expect(html).toContain("Key clinical takeaways");
+    expect(html).toContain("Key takeaways");
+    expect(html).not.toContain("Key clinical takeaways");
     expect(html).toContain('aria-label="Recommended next step"');
   });
 });
