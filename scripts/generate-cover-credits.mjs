@@ -21,5 +21,8 @@ for (const [file, a] of Object.entries(attr)) {
   const parts = [creator ? `Photo: ${creator}` : 'Photo', licence, `via ${host}`].filter(Boolean);
   out[file] = parts.join(' · ');
 }
+// These checksum-validated title cards are created by Living With Arthritis.
+const editorial = JSON.parse(readFileSync('scripts/data/editorial-covers.json', 'utf8'));
+for (const file of Object.keys(editorial)) out[file] = 'Image: Living With Arthritis';
 writeFileSync('src/data/cover-credits.generated.json', JSON.stringify(out, null, 0) + '\n');
 console.log(`[cover-credits] ${Object.keys(out).length} credits written`);
