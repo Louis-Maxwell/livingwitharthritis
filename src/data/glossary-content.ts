@@ -18,6 +18,171 @@ export interface GlossaryEntry {
 }
 
 export const GLOSSARY_CONTENT: Record<string, GlossaryEntry> = {
+  "facet-joint-injection": {
+    "label": "Facet joint injection",
+    "short": "An injection into the small joints linking the bones of the spine, sometimes used to reduce pain temporarily.",
+    "body": "Facet joints link the bones of the spine and help guide movement. A specialist may offer an injection of local anaesthetic and steroid into these joints for selected back or neck pain. The injection may reduce pain temporarily; it is not a cure and does not help everyone. It is usually performed with imaging guidance. Discuss the possible benefits, alternatives and risks, including infection, bleeding and a temporary increase in pain, with your treating team. Follow their preparation and aftercare instructions rather than assuming advice for another injection applies.",
+    "related": [
+      "corticosteroid"
+    ],
+    "sources": [
+      {
+        "name": "East Kent Hospitals NHS: Facet joint injections",
+        "url": "https://leaflets.ekhuft.nhs.uk/facet-joint-injections/html/"
+      }
+    ],
+    "editorialUpdatedAt": "2026-11-18",
+    "reviewNote": "This definition was checked against the linked sources. It has not yet had an independent clinical review."
+  },
+  "methotrexate": {
+    "label": "Methotrexate",
+    "short": "A prescription medicine that reduces immune-system activity and inflammation in conditions such as rheumatoid arthritis.",
+    "body": "Methotrexate is used for inflammatory conditions including rheumatoid and psoriatic arthritis. For these conditions it is taken once a week, on the same day each week, not every day. Cancer treatment uses different specialist regimens. It may be prescribed as tablets, liquid or an injection. Follow your prescription and keep your weekly dose record with you. Methotrexate can increase the risk of infection, so ask your prescribing team for urgent advice if you develop an infection. Your team will explain monitoring, blood tests and precautions with other medicines.",
+    "related": [
+      "dmard",
+      "sulfasalazine"
+    ],
+    "sources": [
+      {
+        "name": "NHS: About methotrexate",
+        "url": "https://www.nhs.uk/medicines/methotrexate/about-methotrexate/"
+      }
+    ],
+    "editorialUpdatedAt": "2026-11-18",
+    "reviewNote": "This definition was checked against the linked sources. It has not yet had an independent clinical review."
+  },
+  "pain-scale": {
+    "label": "Pain scale",
+    "short": "A way to describe how much pain you feel, often using a score from 0 for no pain to 10 for the worst pain.",
+    "body": "A pain scale helps you communicate your experience to a healthcare professional. A common numerical scale runs from 0, meaning no pain, to 10, meaning the worst pain. The score records your own experience of pain. It is also useful to describe where the pain is, when it occurs and how it affects sleep, movement and daily activities. Use the same scale when tracking change. Ask your clinician how your score should guide your individual activity or treatment plan.",
+    "related": [
+      "flare"
+    ],
+    "sources": [
+      {
+        "name": "Kingston and Richmond NHS: Physio after your appointment",
+        "url": "https://www.kingstonandrichmond.nhs.uk/patients-and-families/patient-leaflets/after-physio"
+      },
+      {
+        "name": "Robert Jones and Agnes Hunt NHS: Managing pain after surgery",
+        "url": "https://www.rjah.nhs.uk/media/jhljg23f/managing-pain-after-surgery-print-friendly-new.pdf"
+      }
+    ],
+    "editorialUpdatedAt": "2026-11-18",
+    "reviewNote": "This definition was checked against the linked sources. It has not yet had an independent clinical review."
+  },
+  "self-referral": {
+    "label": "Self-referral",
+    "short": "Contacting a healthcare service directly to ask for an assessment, without first needing another professional to refer you.",
+    "body": "Self-referral lets you ask a service for help directly, often through an online form. In England, many community musculoskeletal services accept self-referrals for joint, muscle or back problems, including arthritis, without a confirmed diagnosis. Availability and eligibility vary by area; some services still need a GP referral. A health professional reviews the request and the service explains what happens next, including waiting times. Self-referral is not a guaranteed appointment or immediate treatment. Routine community MSK services do not provide urgent or emergency help; use the appropriate urgent-care route when needed.",
+    "related": [
+      "physiotherapy-triage"
+    ],
+    "sources": [
+      {
+        "name": "NHS: Get help for back or joint problems",
+        "url": "https://www.nhs.uk/nhs-services/get-nhs-help-for-back-joint-problems/"
+      }
+    ],
+    "editorialUpdatedAt": "2026-11-18",
+    "reviewNote": "This definition was checked against the linked sources. It has not yet had an independent clinical review."
+  },
+  "bone-density": {
+    "label": "Bone density",
+    "short": "A measure used to assess bone strength and help estimate the risk of osteoporosis and broken bones.",
+    "body": "Bone density describes how dense your bones are. A DEXA scan uses low-dose X-rays to measure it, often at the hip and lower spine. The result helps assess osteoporosis and fracture risk, but it is not the whole picture: your age, previous fractures and other risk factors also matter. Low bone density can be present without symptoms until a bone breaks. A clinician interprets the scan alongside your medical history and explains whether treatment or other steps are needed. Tell the scanning team if you may be pregnant.",
+    "related": [
+      "bisphosphonates"
+    ],
+    "sources": [
+      {
+        "name": "NHS: Bone density scan",
+        "url": "https://www.nhs.uk/tests-and-treatments/dexa-scan/"
+      },
+      {
+        "name": "NHS: How a bone density scan is performed",
+        "url": "https://www.nhs.uk/tests-and-treatments/dexa-scan/what-happens/"
+      }
+    ],
+    "editorialUpdatedAt": "2026-11-18",
+    "reviewNote": "This definition was checked against the linked sources. It has not yet had an independent clinical review."
+  },
+  "codeine": {
+    "label": "Codeine",
+    "short": "An opioid painkiller that can cause sleepiness, constipation and dependence, and must be used as directed.",
+    "body": "Codeine is an opioid medicine used for pain. Some products combine it with another painkiller, so check the ingredients to avoid accidentally taking the same medicine twice. Common side effects include constipation, nausea and sleepiness. Do not drive or use machinery if it makes you sleepy. Dependence and addiction can occur; discuss the dose, duration and any plan to stop with your prescriber or pharmacist. Do not increase the dose yourself. Tell your healthcare team about other medicines and supplements, as combinations can increase the risk of serious side effects.",
+    "related": [
+      "nsaid"
+    ],
+    "sources": [
+      {
+        "name": "NHS: Codeine",
+        "url": "https://www.nhs.uk/medicines/codeine/"
+      },
+      {
+        "name": "NHS: About ibuprofen and codeine",
+        "url": "https://www.nhs.uk/medicines/ibuprofen-and-codeine-nurofen-plus/about-ibuprofen-and-codeine/"
+      }
+    ],
+    "editorialUpdatedAt": "2026-11-18",
+    "reviewNote": "This definition was checked against the linked sources. It has not yet had an independent clinical review."
+  },
+  "nice": {
+    "label": "NICE",
+    "short": "The National Institute for Health and Care Excellence, which produces evidence-based guidance for health and care.",
+    "body": "NICE is the National Institute for Health and Care Excellence. Its guidelines contain evidence-based recommendations for health and care in England and Wales, including advice relevant to arthritis assessment and treatment. NICE develops recommendations using evidence reviews and input from professionals, people using services and carers. It also produces other types of guidance, such as technology appraisals, as well as quality standards. Reading a NICE recommendation can help you discuss choices with your healthcare team. It is not a personal diagnosis or an instruction to start, stop or change treatment yourself.",
+    "related": [
+      "dmard"
+    ],
+    "sources": [
+      {
+        "name": "NICE: About NICE guidelines",
+        "url": "https://www.nice.org.uk/what-nice-does/our-guidance/about-nice-guidelines"
+      },
+      {
+        "name": "NICE: What NICE does",
+        "url": "https://www.nice.org.uk/what-nice-does"
+      }
+    ],
+    "editorialUpdatedAt": "2026-11-18",
+    "reviewNote": "This definition was checked against the linked sources. It has not yet had an independent clinical review."
+  },
+  "bisphosphonates": {
+    "label": "Bisphosphonates",
+    "short": "Medicines that slow bone loss and help maintain bone strength, used to treat or prevent osteoporosis in suitable people.",
+    "body": "Bisphosphonates are medicines used to slow the weakening of bones and reduce fracture risk in people with osteoporosis or certain risk factors. Alendronic acid is one example. Your clinician chooses treatment using your fracture risk, scan results, medical history and preferences. Instructions differ between medicines and formulations. Some tablets have strict rules about taking them with water and staying upright afterwards; follow your own leaflet and prescription. Tell your dentist about treatment and keep up dental checks. Discuss side effects, treatment duration and any planned pause with your prescribing team.",
+    "related": [
+      "bone-density"
+    ],
+    "sources": [
+      {
+        "name": "NHS: Osteoporosis",
+        "url": "https://www.nhs.uk/conditions/osteoporosis/treatment/"
+      },
+      {
+        "name": "NHS: About alendronic acid",
+        "url": "https://www.nhs.uk/medicines/alendronic-acid/about-alendronic-acid/"
+      }
+    ],
+    "editorialUpdatedAt": "2026-11-18",
+    "reviewNote": "This definition was checked against the linked sources. It has not yet had an independent clinical review."
+  },
+  "hydroxychloroquine": {
+    "label": "Hydroxychloroquine",
+    "short": "A prescription disease-modifying anti-rheumatic drug used for rheumatoid arthritis, lupus and some other inflammatory conditions.",
+    "body": "Hydroxychloroquine is a DMARD, a disease-modifying anti-rheumatic drug. It changes the immune response to help control conditions such as rheumatoid arthritis and lupus. It usually comes as tablets; take the prescribed dose with food or milk and follow your medicine leaflet. Nausea, diarrhoea, headache and rash are possible side effects. Eye problems are uncommon but important: your team may arrange regular eye checks depending on treatment duration and risk. Seek prompt medical advice about new persistent vision changes. Ask your prescriber or pharmacist before combining it with other medicines.",
+    "related": [
+      "dmard"
+    ],
+    "sources": [
+      {
+        "name": "NHS: Hydroxychloroquine",
+        "url": "https://www.nhs.uk/medicines/hydroxychloroquine/"
+      }
+    ],
+    "editorialUpdatedAt": "2026-11-18",
+    "reviewNote": "This definition was checked against the linked sources. It has not yet had an independent clinical review."
+  },
   "dass-score": {
     "label": "DASS score (not DAS28)",
     "short": "DASS measures symptoms of depression, anxiety and stress. It is different from DAS28, a rheumatoid arthritis disease-activity assessment.",
