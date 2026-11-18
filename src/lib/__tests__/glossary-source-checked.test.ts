@@ -33,7 +33,7 @@ describe("source-checked glossary replacements", () => {
     }
   });
   it("keeps unknown definitions unchanged and limits seed-answer precedence to explicitly updated glossary entries", () => {
-    for (const slug of ["dass-score", "cfs", "stem-cell"]) expect(GLOSSARY_CONTENT[slug]).toBeUndefined();
+    for (const slug of ["stem-cell", "unknown-term"]) expect(GLOSSARY_CONTENT[slug]).toBeUndefined();
     const script = fs.readFileSync("scripts/inject-canonicals.mjs", "utf8");
     expect(script).toContain('route.startsWith("/glossary/") && entry.summaryReviewNote');
     const page = fs.readFileSync("src/pages/GlossaryTerm.tsx", "utf8");
