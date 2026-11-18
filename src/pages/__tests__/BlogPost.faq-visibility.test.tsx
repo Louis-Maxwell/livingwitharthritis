@@ -99,7 +99,7 @@ describe("Article evidence and FAQ visibility", () => {
     });
   });
 
-  it("shows one PIP FAQ heading and names a self-review when the author is the reviewer", async () => {
+  it("shows one PIP FAQ heading and does not inherit author self-review for the revised guide", async () => {
     vi.mocked(useBlogArticle).mockReturnValue({
       data: pipEligibility,
       isLoading: false,
@@ -107,7 +107,8 @@ describe("Article evidence and FAQ visibility", () => {
     renderBlogPost(pipEligibility.slug);
     await waitFor(() => {
       expect(screen.getAllByRole("heading", { name: "Frequently asked questions" })).toHaveLength(1);
-      expect(screen.getAllByText(/disclosed self-review by the author, not an independent clinical review/i).length).toBeGreaterThan(0);
+      expect(screen.getAllByText(/not had a fresh specialist welfare-rights or qualified clinical review/i).length).toBeGreaterThan(0);
+      expect(screen.queryByText(/disclosed self-review by the author, not an independent clinical review/i)).not.toBeInTheDocument();
       expect(screen.getAllByRole("link", { name: /printable PIP evidence diary/i }).length).toBeGreaterThan(0);
     });
   });
