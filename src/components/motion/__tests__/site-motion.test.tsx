@@ -3,7 +3,7 @@ import { execSync } from "node:child_process";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { render } from "@testing-library/react";
 import SiteMotion from "@/components/motion/SiteMotion";
-import { applySiteMotion } from "@/lib/siteMotion";
+import { applyActionDepth, applySiteMotion } from "@/lib/siteMotion";
 
 const css = readFileSync("src/index.css", "utf8");
 
@@ -63,13 +63,13 @@ describe("site-wide reveal and lift (SiteMotion)", () => {
       document.getElementById(id)!.getAttribute("data-site-reveal");
     expect(armed("card1")).toBe("armed");
     expect(armed("card2")).toBe("armed");
-    expect(armed("outer")).toBe("armed");
-    for (const id of ["hero", "formcard", "inprose", "hdr", "ftr", "inner"])
+    expect(armed("inner")).toBe("armed");
+    for (const id of ["hero", "formcard", "inprose", "hdr", "ftr", "outer"])
       expect(armed(id), id).toBeNull();
     expect(observed.map((e) => e.id).sort()).toEqual([
       "card1",
       "card2",
-      "outer",
+      "inner",
     ]);
   });
 
@@ -82,6 +82,46 @@ describe("site-wide reveal and lift (SiteMotion)", () => {
     expect(
       document.getElementById("card2")!.hasAttribute("data-site-lift"),
     ).toBe(false);
+  });
+
+  it("adds depth to cards without nesting it or moving forms, prose, alerts or headings", () => {
+    page();
+    document.querySelector("main")!.insertAdjacentHTML("beforeend", `
+      <div role="alert" class="rounded-xl border" id="urgent">Urgent advice</div>
+      <div class="reveal rounded-xl border" id="existing"><a href="/help">Help</a></div>
+      <button class="btn-map" id="action">Find help</button>
+      <form><button id="submit">Send</button></form>
+      <div class="prose"><button id="prose-action">Example</button></div>
+      <button id="faq" class="btn-map" aria-expanded="false">FAQ</button>
+      <div class="reveal"><a class="rounded-xl border" id="nested-reveal" href="/a">Nested</a></div>
+      <button id="disabled" disabled>Unavailable</button>`);
+    for (const id of ["urgent", "existing", "nested-reveal"]) place(document.getElementById(id)!, 1200);
+    applySiteMotion(document, 800, () => {});
+    applyActionDepth(document);
+    expect(document.getElementById("card1")).toHaveAttribute("data-site-depth", "card");
+    expect(document.getElementById("existing")).toHaveAttribute("data-site-depth", "card");
+    expect(document.getElementById("existing")).not.toHaveAttribute("data-site-reveal");
+    expect(document.getElementById("nested-reveal")).not.toHaveAttribute("data-site-reveal");
+    expect(document.getElementById("nested-reveal")).toHaveAttribute("data-site-depth", "card");
+    expect(document.getElementById("action")).toHaveAttribute("data-site-depth", "action");
+    for (const id of ["hero", "formcard", "inprose", "hdr", "ftr", "outer", "inner", "urgent", "submit", "prose-action", "disabled", "faq"])
+      expect(document.getElementById(id), id).not.toHaveAttribute("data-site-depth");
+  });
+
+  it("keeps pills, static advice, tall panels and navigation free of 3D", () => {
+    document.body.innerHTML = `<main>
+      <a class="rounded-xl border" id="pill" href="/a">Small</a>
+      <a class="rounded-xl border" id="tall" href="/a">Tall</a>
+      <div class="rounded-xl border" id="static">Advice</div>
+      <nav><button id="navigation">Menu</button></nav>
+      <aside class="key-takeaways rounded-xl border" id="key"><a href="/a">Key</a></aside>
+      <aside class="editorial-review-note rounded-xl border" id="review"><a href="/a">Review</a></aside>
+      </main>`;
+    for (const id of ["pill", "tall", "static", "key", "review"])
+      place(document.getElementById(id)!, 1200, id === "pill" ? 40 : id === "tall" ? 900 : 120);
+    applySiteMotion(document, 800, () => {});
+    applyActionDepth(document);
+    expect(document.querySelector("[data-site-depth]")).toBeNull();
   });
 
   it("does nothing with prefers-reduced-motion or during prerender", () => {
@@ -190,5 +230,27 @@ describe("no looping decoration", () => {
     expect(readFileSync("src/components/Header.tsx", "utf8")).toMatch(
       /border-b border-border\/30 shadow-sm/,
     );
+  });
+});
+
+describe("progressive 3D depth safety", () => {
+  const region = css.slice(css.indexOf("/* Site-wide 3D depth."), css.indexOf("/* Text split reveal */"));
+  it("uses real CSS perspective, short one-time entry and fine-pointer tilt without invisible content", () => {
+    expect(region).toContain("@media (prefers-reduced-motion: no-preference)");
+    expect(region).toContain("perspective(1000px) rotateX(5deg) translateZ(-8px)");
+    expect(region).toContain("@media (hover: hover) and (pointer: fine)");
+    expect(region).toContain(":not(:focus-within):hover");
+    expect(region).not.toMatch(/opacity\s*:|infinite|will-change/);
+  });
+  it("disables depth for reduced-motion and print and retains stable keyboard focus", () => {
+    expect(region).toContain("@media (prefers-reduced-motion: reduce), print");
+    expect(region).toContain("transform: none !important");
+    expect(region).toContain("transition: none !important");
+    expect(region).toContain("[data-site-depth]:focus-visible");
+    expect(region).toContain('[data-site-depth="card"][data-site-lift][data-site-reveal]');
+    expect(region).toContain("translate: none !important");
+    expect(region).toContain('.reveal.hover-lift[data-site-depth="card"][data-reveal]');
+    expect(region).toContain("color 150ms ease, border-color 150ms ease");
+    expect(region).toContain("scale 150ms ease");
   });
 });
