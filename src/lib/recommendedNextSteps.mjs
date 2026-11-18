@@ -7,6 +7,9 @@
 /** @typedef {{ href: string, label: string, description: string }} NextStepLink */
 
 const L = {
+  symptomRecord: { href: "/resources/symptom-flare-tracker", label: "Symptom and flare tracker", description: "Organise notes for an appointment. A blank record, not a diagnosis or treatment plan." },
+  footGuide: { href: "/conditions/foot-and-ankle-arthritis", label: "Foot and ankle arthritis", description: "Read about a separate possible cause of foot symptoms and when to ask for advice." },
+  interactionChecks: { href: "/blog/medication-supplement-interactions-arthritis", label: "Arthritis medicine and supplement interaction checks", description: "Prepare the product details and medicine list to discuss with a pharmacist." },
   hipExercises: { href: "/guides/hip-exercises-for-osteoarthritis", label: "Hip exercises for osteoarthritis", description: "A gentle home routine to build hip strength and movement, with stop rules." },
   painkillers: { href: "/guides/painkillers-and-nsaids", label: "Painkillers and anti-inflammatories explained", description: "How paracetamol, NSAIDs and gels are used, and when to check with a pharmacist." },
   pipDiary: { href: "/resources/pip-evidence-diary", label: "Printable PIP evidence diary", description: "Record how daily living and mobility change on better and worse days." },
@@ -30,6 +33,14 @@ const L = {
 
 /** Exact-path mappings agreed for the highest-traffic pages. */
 const EXACT = {
+  "/blog/best-plantar-fasciitis-shoes-women-uk": [L.symptomRecord, L.footGuide],
+  "/blog/best-supplements-joint-pain": [L.supplements, L.interactionChecks],
+  "/blog/best-supplement-for-knee-joint": [L.supplements, L.interactionChecks],
+  "/blog/turmeric-and-methotrexate-interaction": [L.interactionChecks, L.symptomRecord],
+  "/blog/medication-supplement-interactions-arthritis": [L.supplements, L.symptomRecord],
+  "/blog/rheumatology-appointment-what-to-expect-uk": [L.symptomRecord, L.newlyDiagnosed],
+  "/blog/rheumatology-waiting-times-uk": [L.symptomRecord, L.flarePlan],
+  "/blog/swimming-exercises-hip-osteoarthritis": [L.hipExercises, L.exerciseGuide],
   "/blog/hip-replacement-recovery-week-by-week": [L.hipExercises, L.painkillers],
   "/blog/pip-for-arthritis-uk": [L.pipDiary, L.pipGuide],
   "/exercises": [L.kneeExercises, L.hipExercises],
@@ -114,4 +125,4 @@ export function recommendedNextStepsHtml(path, context = "") {
   return `<nav class="recommended-next-step" aria-label="Recommended next step"><h2>Recommended next step</h2><ul>${links
     .map((l) => `<li><a href="${esc(l.href)}">${esc(l.label)}</a>: ${esc(l.description)}</li>`)
     .join("")}</ul></nav>`;
-}
+                }
