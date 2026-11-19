@@ -1,4 +1,5 @@
-﻿import { useState, useEffect, useRef, useCallback, useMemo, Suspense, type MouseEvent, type KeyboardEvent } from "react";
+import HomeSupportStrip from "@/components/landing/HomeSupportStrip";
+import { useState, useEffect, useRef, useCallback, useMemo, Suspense, type MouseEvent, type KeyboardEvent } from "react";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, BookOpen, BookMarked, ChevronDown, Stethoscope, Activity, Newspaper, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search, ShoppingBag } from "lucide-react";
@@ -328,6 +329,7 @@ const Header = () => {
       <aside aria-label="Clinical review information" className="w-full border-b border-primary/20 bg-accent text-foreground">
         <p className="container mx-auto max-w-7xl px-3 py-1.5 text-center text-[11px] leading-snug sm:px-6 sm:py-2 sm:text-sm sm:leading-relaxed">Clinical review status and review dates are shown on each guide. We update content when relevant evidence or guidance changes.</p>
       </aside>
+      {pathname === "/" && <HomeSupportStrip />}
       {/* â”€â”€ STICKY WRAPPER — entire header block sticks together â”€â”€ */}
       <div
         className={`sticky top-0 z-50 transition-transform duration-300 ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
