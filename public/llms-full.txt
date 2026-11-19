@@ -47,10 +47,11 @@ Clinically reviewed by Louis Maxwell, Physiotherapist, HCPC PH128483.
 
 The NHS advises a healthy, balanced diet and keeping to a healthy weight, because extra weight strains your joints. NICE NG226 says any weight loss helps people with osteoarthritis who are overweight, and NICE NG100 encourages people with rheumatoid arthritis to follow Mediterranean diet principles: more fruit, vegetables, fish and plant oils, less meat. No diet cures arthritis.
 
-- No diet cures arthritis; a balanced diet supports exercise, medicines and your other treatment.
-- If you have osteoarthritis and are overweight, any weight loss helps, and losing 10% of body weight is likely better than 5% (NICE NG226).
-- NICE NG100 encourages Mediterranean diet principles for rheumatoid arthritis: more fruit, vegetables, fish and plant oils, less meat.
-- Don't drink too much alcohol, and follow your rheumatology team's limits if you take methotrexate.
+> [!TIP]
+> - No diet cures arthritis; a balanced diet supports exercise, medicines and your other treatment.
+> - If you have osteoarthritis and are overweight, any weight loss helps, and losing 10% of body weight is likely better than 5% (NICE NG226).
+> - NICE NG100 encourages Mediterranean diet principles for rheumatoid arthritis: more fruit, vegetables, fish and plant oils, less meat.
+> - Don't drink too much alcohol, and follow your rheumatology team's limits if you take methotrexate.
 
 Sources: [NHS: Arthritis](https://www.nhs.uk/conditions/arthritis/); [NICE NG226: Osteoarthritis in over 16s](https://www.nice.org.uk/guidance/ng226); [NICE NG100: Rheumatoid arthritis in adults](https://www.nice.org.uk/guidance/ng100)
 
@@ -67,10 +68,11 @@ Clinically reviewed by Louis Maxwell, Physiotherapist, HCPC PH128483 (last revie
 
 The most effective knee osteoarthritis exercises strengthen the quadriceps and hamstrings to offload the joint. NICE guideline NG226 recommends therapeutic exercise as core treatment. Start with straight-leg raises, seated knee extensions, and shallow sit-to-stands. Aim for two to three sets of ten repetitions daily, stopping if sharp pain or sudden swelling occurs.
 
-- NICE NG226 lists therapeutic exercise, and weight management if appropriate, as core treatments for osteoarthritis.
-- Mild discomfort up to about 4 out of 10 that settles within 24 hours is usually fine.
-- Stop that session if pain is sharp or catching, the knee locks or gives way, or new swelling lasts overnight.
-- Get urgent help for a hot, red, swollen knee with fever, or a painful, swollen calf.
+> [!TIP]
+> - NICE NG226 lists therapeutic exercise, and weight management if appropriate, as core treatments for osteoarthritis.
+> - Mild discomfort up to about 4 out of 10 that settles within 24 hours is usually fine.
+> - Stop that session if pain is sharp or catching, the knee locks or gives way, or new swelling lasts overnight.
+> - Get urgent help for a hot, red, swollen knee with fever, or a painful, swollen calf.
 
 Sources: [NHS: Osteoarthritis](https://www.nhs.uk/conditions/osteoarthritis/); [NICE NG226: Osteoarthritis in over 16s](https://www.nice.org.uk/guidance/ng226)
 
@@ -80,10 +82,11 @@ Clinically reviewed by Louis Maxwell, Physiotherapist, HCPC PH128483 (last revie
 
 During a flare, pace activity and keep gently moving within comfort, use heat or cold as appropriate, take only medicines advised by your GP or pharmacist, and note possible triggers. Seek urgent care for a single hot, swollen joint with fever or sudden inability to weight-bear. This is educational guidance, not personal medical advice.
 
-- Pace activity and avoid boom-and-bust; keep gentle range-of-motion movement unless advised otherwise.
-- Use heat or cold for comfort and take only medicines your GP or pharmacist has advised.
-- Many osteoarthritis flares settle over days to a couple of weeks; inflammatory flares vary, so follow your rheumatology care plan.
-- A single hot, swollen joint with fever, or sudden inability to bear weight, needs urgent care.
+> [!TIP]
+> - Pace activity and avoid boom-and-bust; keep gentle range-of-motion movement unless advised otherwise.
+> - Use heat or cold for comfort and take only medicines your GP or pharmacist has advised.
+> - Many osteoarthritis flares settle over days to a couple of weeks; inflammatory flares vary, so follow your rheumatology care plan.
+> - A single hot, swollen joint with fever, or sudden inability to bear weight, needs urgent care.
 
 Sources: [NHS: Arthritis](https://www.nhs.uk/conditions/arthritis/); [NICE NG226: Osteoarthritis in over 16s](https://www.nice.org.uk/guidance/ng226); [NICE NG100: Rheumatoid arthritis in adults](https://www.nice.org.uk/guidance/ng100)
 
@@ -93,10 +96,11 @@ Clinically reviewed by Louis Maxwell, Physiotherapist, HCPC PH128483.
 
 Yes, you can claim Personal Independence Payment (PIP) for arthritis if joint pain, stiffness, or fatigue limits your daily living or mobility. Eligibility depends entirely on how arthritis impairs functional activities—such as washing, dressing, cooking, and walking—not on diagnosis alone. Claims require medical evidence and completing the DWP PIP2 questionnaire.
 
-- PIP depends on how arthritis affects daily living and mobility, not on the diagnosis alone.
-- Daily living and mobility are scored separately: 8 to 11 points gives the standard rate and 12 or more the enhanced rate.
-- PIP is not means-tested and you can claim while working.
-- Return the PIP2 form within 1 month; challenge a decision with mandatory reconsideration within 1 month, then a tribunal appeal.
+> [!TIP]
+> - PIP depends on how arthritis affects daily living and mobility, not on the diagnosis alone.
+> - Daily living and mobility are scored separately: 8 to 11 points gives the standard rate and 12 or more the enhanced rate.
+> - PIP is not means-tested and you can claim while working.
+> - Return the PIP2 form within 1 month; challenge a decision with mandatory reconsideration within 1 month, then a tribunal appeal.
 
 Sources: [GOV.UK: Personal Independence Payment (PIP)](https://www.gov.uk/pip); [GOV.UK: How to claim PIP](https://www.gov.uk/pip/how-to-claim); [Department for Work and Pensions: PIP assessment guide part 1: the assessment process](https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-1-the-assessment-process); [Department for Work and Pensions: PIP assessment guide part 2: the assessment criteria](https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-2-the-assessment-criteria); [GOV.UK: Challenge a benefit decision (mandatory reconsideration)](https://www.gov.uk/mandatory-reconsideration); [GOV.UK: Appeal a benefit decision](https://www.gov.uk/appeal-benefit-decision); [Citizens Advice: Check how to fill in your PIP claim form](https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/help-with-your-claim/fill-in-form-pip/); [Citizens Advice: Getting evidence to support your PIP claim](https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/help-with-your-claim/your-supporting-evidence/)
 
@@ -270,6 +274,22 @@ Q: Can fibromyalgia be cured?
 A: There is no cure, but with self-management, exercise, medication and CBT, many people significantly reduce symptoms and stay in work and family life.
 Q: Does fibromyalgia get worse over time?
 A: Fibromyalgia is not progressive — it doesn't damage tissue. Symptoms fluctuate, often worsening with stress, poor sleep or overdoing activity, and easing with steady self-management.
+
+## Foot & Ankle Arthritis: Symptoms, Footwear & Exercises (UK)
+URL: https://livingwitharthritis.org.uk/conditions/foot-and-ankle-arthritis
+Last updated: 2026-09-11
+Q: What is foot and ankle arthritis?
+A: Foot and ankle arthritis is joint damage in the ankle, midfoot or big toe that causes pain with walking, morning stiffness and difficulty finding comfortable shoes. Hallux rigidus, post-traumatic ankle OA and rheumatoid foot involvement are common UK patterns. Supportive footwear, orthotics, gentle exercises and podiatry help most people.
+Q: What are the first signs of foot or ankle arthritis?
+A: Morning stiffness in the ankle or big toe, a deep ache with the first steps of the day, swelling after walking, and shoes that feel tight over a bony bump on the big toe joint.
+Q: What is the best footwear for foot arthritis?
+A: Choose a wide, deep toe box, firm heel counter, cushioned or rocker sole, low heel and adjustable fastenings. Removable insoles leave room for orthotics.
+Q: What exercises help ankle arthritis?
+A: Daily ankle circles, alphabet tracing, towel scrunches, gentle calf raises and single-leg balance near a counter. Warm the foot first and stop short of sharp pain.
+Q: Can NHS podiatry help?
+A: Yes. Ask your GP for a podiatry referral, or self-refer where available. Podiatrists assess biomechanics and can prescribe custom orthotics.
+Q: When should I see a GP about foot or ankle pain?
+A: If pain lasts more than a few weeks, limits walking, comes with warm swelling or deformity, or follows an old fracture. Seek urgent care for a hot, red joint with fever.
 
 ## Gout: Symptoms, Triggers, Diet & Treatment (UK Guide)
 URL: https://livingwitharthritis.org.uk/conditions/gout
@@ -2035,14 +2055,22 @@ Last clinically reviewed: 2026-10-23
 Q: An Anti-Inflammatory Shopping List for UK Supermarkets
 A: To reduce arthritis pain, prioritise movement and exercise, aiming for 150 minutes of moderate activity weekly. Follow an anti-inflammatory diet, like a Mediterranean-style pattern, with oily fish, vegetables, olive oil, and whole grains. Manage weight, as even a 5% reduction can significantly ease symptoms. Use heat for stiffness and cold for swelling. Improve pain perception by ensuring consistent, adequate sleep.
 
-## Anti-Inflammatory Smoothie Recipes for Joint Pain
+## Smoothie Recipes for Arthritis: Ingredients and Safety
 URL: https://livingwitharthritis.org.uk/blog/anti-inflammatory-smoothie-recipes
-Last updated: 2026-09-05
+Last updated: 2026-11-17
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Anti-Inflammatory Smoothie Recipes for Joint Pain
-A: This page brings together smoothie recipes using fruit, vegetables and other ingredients. Use the recipes as food ideas, not as a treatment plan or a promise of less joint pain. For advice about arthritis care or changes to your treatment, speak to your GP or rheumatology team.
+Clinical review: no named reviewer recorded.
+Q: Smoothie Recipes for Arthritis: Ingredients and Safety
+A: These smoothie recipes are food ideas, not treatments for arthritis or a promise of less joint pain. Keep taking prescribed medicines and follow your care plan. NHS advice is to limit fruit or vegetable juice and smoothies to a combined total of 150ml a day, with meals.
+> [!NOTE]
+> These recipes are food ideas, not treatments for arthritis or replacements for prescribed care.
+> [!NOTE]
+> The ingredient lists make larger batches. Limit juice and smoothies to a combined total of 150ml a day, with meals.
+> [!NOTE]
+> Check ingredients for allergies, dietary restrictions and food advice given with your medicines.
+Reference: NHS: 5 A Day and smoothie portions — https://www.nhs.uk/live-well/eat-well/5-a-day/5-a-day-what-counts/
+Reference: NHS SPS: complementary products and conventional medicines — https://www.sps.nhs.uk/articles/advising-on-complementary-products-and-conventional-medicines/
+Reference: NCCIH: turmeric safety — https://www.nccih.nih.gov/health/turmeric
 
 ## Anticholinergic load, arthritis medicines and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/anticholinergic-load-arthritis-frailty-uk
@@ -2347,15 +2375,17 @@ Last clinically reviewed: 2026-10-29
 Q: Arthritis Exercise Programme: A Gentle 4-Week Plan
 A: A practical arthritis exercise programme with gentle movement, strength and pacing ideas for beginners.
 
-## Clinically recommended Arthritis Exercises
+## Best Exercises for Arthritis: Safe Movements for Painful Joints
 URL: https://livingwitharthritis.org.uk/blog/arthritis-exercises-uk-clinical
-Last updated: 2026-09-05
+Last updated: 2026-11-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Clinically recommended Arthritis Exercises
-A: To manage arthritis, the NHS recommends at least 150 minutes of moderate aerobic exercise weekly, strengthening exercises targeting affected joints at least twice a week, and daily flexibility work. Examples include walking, swimming, cycling, Tai Chi, and light strength training. If joints are more painful 24 hours after exercise, reduce intensity, but do not stop exercising.
-Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Clinical review: no named reviewer recorded.
+Q: Best Exercises for Arthritis: Safe Movements for Painful Joints
+A: The best exercises for arthritis are activities that can be adapted to your ability, such as walking, swimming, cycling, gentle mobility work and muscle strengthening. Start gently, move within a comfortable range and build up gradually. Stop if pain becomes sharp, severe or unusual, and ask a physiotherapist for advice if you are unsure.
+Reference: NHS arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NICE osteoarthritis (NG226) — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
+Reference: NHS arthritis Pilates video — https://www.nhs.uk/live-well/exercise/pilates-and-yoga/arthritis-pilates-exercise-video/
 
 ## Arthritis fatigue explained: why it happens and what helps (UK)
 URL: https://livingwitharthritis.org.uk/blog/arthritis-fatigue-explained
@@ -2532,17 +2562,16 @@ Q: How Arthritis Medications Affect Sexual Function: DMARDs, Biologics and NSAID
 A: Arthritis treatments manage pain and inflammation but can sometimes impact your intimate life. While physical dysfunction is rare, indirect methotrexate sexual side effects can include lowered libido due to severe fatigue or nausea. Other drugs, like steroids or opioids, might reduce desire or alter hormone levels. Always discuss rheumatoid arthritis sexual dysfunction with your rheumatology team.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Arthritis Pain Management: What Actually Helps Day by Day?
+## Arthritis Pain Management: What Actually Helps Day to Day?
 URL: https://livingwitharthritis.org.uk/blog/arthritis-pain-management-day-by-day
-Last updated: 2026-11-09
+Last updated: 2026-11-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-11-09
-Q: Arthritis Pain Management: What Actually Helps Day by Day?
-A: Arthritis pain management often works best as a combination of gentle movement, sensible pacing, rest, practical adaptations and appropriate healthcare support. Heat or cold may also help some people. The right approach depends on your type of arthritis, symptoms and general health.
-Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
-Reference: NHS: Joint pain — https://www.nhs.uk/symptoms/joint-pain/
-Reference: NICE NG226: Osteoarthritis in over 16s — recommendations — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
+Clinical review: no named reviewer recorded.
+Q: Arthritis Pain Management: What Actually Helps Day to Day?
+A: Arthritis pain management is rarely about finding one thing that makes pain disappear. Day to day, a combination of pacing, appropriate rest, gentle movement, heat or cold, practical adaptations and professional support can make symptoms more manageable. The right balance changes from person to person, and from one day to the next.
+Reference: NHS arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS joint pain — https://www.nhs.uk/symptoms/joint-pain/
+Reference: NICE osteoarthritis (NG226) — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
 
 ## Arthritis Pain Management — A Kind, Practical Guide
 URL: https://livingwitharthritis.org.uk/blog/arthritis-pain-management
@@ -2719,25 +2748,19 @@ Q: Living With Arthritis in the UK: A Guide for Refugees, Asylum Seekers and Div
 A: If you are new to the UK and living with arthritis, registering with a GP is a useful first step. Ask for an interpreter if needed and seek help for persistent joint pain or swelling.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Arthritis Symptoms: What Could It Be and What to Do Next (UK)
+## Early Signs of Arthritis: When Joint Pain Should Not Be Ignored
 URL: https://livingwitharthritis.org.uk/blog/arthritis-symptoms-what-to-do-next
-Last updated: 2026-10-11
+Last updated: 2026-11-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Arthritis Symptoms: What Could It Be and What to Do Next (UK)
-A: Check red flags first. Call 999 for severe pain after injury, a joint out of place, or back pain with numbness in both legs or bladder or bowel changes. Get same-day help from your GP or NHS 111 for a hot, swollen joint or joint pain with fever. See a GP for swelling that does not settle, stiffness over 30 minutes after waking, or pain not improving after 2 weeks.
-Reference: NHS: Joint pain — https://www.nhs.uk/symptoms/joint-pain/
-Reference: NHS: Back pain — https://www.nhs.uk/conditions/back-pain/
-Reference: NHS: Septic arthritis — https://www.nhs.uk/conditions/septic-arthritis/
-Reference: NHS: Gout — https://www.nhs.uk/conditions/gout/
-Reference: NHS: Temporal arteritis — https://www.nhs.uk/conditions/temporal-arteritis/
-Reference: NHS: Polymyalgia rheumatica — https://www.nhs.uk/conditions/polymyalgia-rheumatica/
-Reference: NHS: Rheumatoid arthritis symptoms — https://www.nhs.uk/conditions/rheumatoid-arthritis/symptoms/
-Reference: NHS: Osteoarthritis symptoms — https://www.nhs.uk/conditions/osteoarthritis/symptoms/
-Reference: NHS: Ankylosing spondylitis symptoms — https://www.nhs.uk/conditions/ankylosing-spondylitis/symptoms/
-Reference: NHS: Psoriatic arthritis — https://www.nhs.uk/conditions/psoriatic-arthritis/
-Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
+Last clinically reviewed: 2026-11-17
+Q: Early Signs of Arthritis: When Joint Pain Should Not Be Ignored
+A: Early signs of arthritis can include persistent joint pain, stiffness, swelling, tenderness and difficulty moving a joint. These symptoms do not automatically mean arthritis. But joint pain that persists, worsens, keeps returning or interferes with normal activities should be checked. A suddenly hot, swollen or severely painful joint, especially if you feel unwell, may need urgent medical assessment.
+Reference: NHS arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS joint pain — https://www.nhs.uk/symptoms/joint-pain/
+Reference: NHS osteoarthritis symptoms — https://www.nhs.uk/conditions/osteoarthritis/symptoms/
+Reference: NHS rheumatoid arthritis symptoms — https://www.nhs.uk/conditions/rheumatoid-arthritis/symptoms/
+Reference: NICE rheumatoid arthritis (NG100) — https://www.nice.org.uk/guidance/ng100
 
 ## Arthritis Treatment — Your Complete Guide to Managing Joint Pain
 URL: https://livingwitharthritis.org.uk/blog/arthritis-treatment-hub
@@ -2819,7 +2842,7 @@ URL: https://livingwitharthritis.org.uk/blog/balance-training-arthritis
 Last updated: 2026-10-10
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-17
 Q: Balance Training for Arthritis: Safe Exercises to Stay Steady (UK Guide)
 A: Balance training helps people with arthritis stay steady and reduce the risk of falls. Practise standard exercises such as heel-to-toe standing, sideways walking and single-leg stands, holding a sturdy support, on at least 2 days a week alongside strength work. Start easy, progress slowly, and talk to your GP if you are falling or feel unsteady.
 Reference: NHS: Balance exercises — https://www.nhs.uk/live-well/exercise/balance-exercises/
@@ -2895,21 +2918,31 @@ A: Best home exercises for knee OA: seated leg raises, calf raises, hip side ste
 Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Foods Supported by Research for Arthritis: What the Evidence Actually Shows (UK Guide)
+## Best Anti-Inflammatory Foods for Arthritis: What Should You Eat?
 URL: https://livingwitharthritis.org.uk/blog/best-foods-to-eat-for-arthritis
-Last updated: 2026-10-10
+Last updated: 2026-11-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Foods Supported by Research for Arthritis: What the Evidence Actually Shows (UK Guide)
-A: No single food treats arthritis. The best-supported choices are oily fish (omega-3 fats can reduce inflammation and disease activity in rheumatoid arthritis), a Mediterranean-style eating pattern, fibre-rich wholegrains, beans, fruit and vegetables, and calcium and vitamin D foods for bone health. Evidence for individual 'superfoods', spices, apple cider vinegar and manuka honey is weak or absent.
-Reference: Arthritis UK: Are there any foods that help with arthritis? — https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/eating-well-with-arthritis/are-there-any-foods-that-help-with-arthritis/
-Reference: Arthritis UK: Eating well with arthritis (research) — https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/eating-well-with-arthritis/
-Reference: NICE NG100: Rheumatoid arthritis in adults – recommendation 1.8.8 (diet) — https://www.nice.org.uk/guidance/ng100/chapter/Recommendations
-Reference: NHS: The Eatwell Guide — https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/the-eatwell-guide/
-Reference: NHS: Fish and shellfish — https://www.nhs.uk/live-well/eat-well/food-types/fish-and-shellfish-nutrition/
-Reference: Limongi F et al. Efficacy of Mediterranean diet in musculoskeletal disorders: systematic review and meta-analysis. Nutrition 2026 (PMID 41223661) — https://pubmed.ncbi.nlm.nih.gov/41223661/
-Reference: Hagen KB et al. Dietary interventions for rheumatoid arthritis. Cochrane Database Syst Rev 2009 (PMID 19160281) — https://pubmed.ncbi.nlm.nih.gov/19160281/
+Clinical review: no named reviewer recorded.
+Q: Best Anti-Inflammatory Foods for Arthritis: What Should You Eat?
+A: The best anti-inflammatory foods for arthritis are generally foods that fit within a healthy Mediterranean-style eating pattern: vegetables, fruit, beans, lentils, wholegrains, nuts, seeds, oily fish and unsaturated fats such as olive or rapeseed oil. No individual food can treat or cure arthritis, so diet should complement, not replace, medical care.
+Reference: NHS healthy balanced diet — https://www.nhs.uk/live-well/eat-well/how-to-eat-a-balanced-diet/eating-a-balanced-diet/
+Reference: NHS arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS rheumatoid arthritis treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
+Reference: NHS fish and shellfish guidance — https://www.nhs.uk/live-well/eat-well/food-types/fish-and-shellfish-nutrition/
+Reference: NHS fats and nutrition — https://www.nhs.uk/live-well/eat-well/food-types/different-fats-nutrition/
+Reference: NICE osteoarthritis (NG226) — https://www.nice.org.uk/guidance/ng226
+
+## Best Low-Impact Exercises for Arthritis in the UK
+URL: https://livingwitharthritis.org.uk/blog/best-low-impact-exercises
+Last updated: 2026-11-16
+Author: Living With Arthritis Editorial Team
+Clinical review: no named reviewer recorded.
+Q: Best Low-Impact Exercises for Arthritis in the UK
+A: Low-impact exercises for arthritis can include walking, swimming, water-based exercise, cycling, gentle strengthening, mobility exercises and adapted tai chi or yoga. The best choice depends on your joints, fitness and health. Start gently, stay within a comfortable range and increase activity gradually rather than pushing through severe pain.
+Reference: NHS arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NICE osteoarthritis (NG226) — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
+Reference: NHS physical activity guidelines — https://www.nhs.uk/live-well/exercise/
 
 ## Best Mattress for Arthritis? An Honest UK Buying Guide
 URL: https://livingwitharthritis.org.uk/blog/best-mattress-for-arthritis-uk
@@ -2926,14 +2959,22 @@ Reference: Kovacs FM et al. Effect of firmness of mattress on chronic non-specif
 Reference: Caggiari G et al. What type of mattress should be chosen to avoid back pain and improve sleep quality? J Orthop Traumatol 2021 — https://pubmed.ncbi.nlm.nih.gov/34878594/
 Reference: NHS: Back pain — https://www.nhs.uk/conditions/back-pain/
 
-## Best Plantar Fasciitis Shoes for Women (UK Guide, 2026)
+## Plantar Fasciitis Shoes for Women: A UK Fit Checklist
 URL: https://livingwitharthritis.org.uk/blog/best-plantar-fasciitis-shoes-women-uk
-Last updated: 2026-11-15
+Last updated: 2026-11-18
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Best Plantar Fasciitis Shoes for Women (UK Guide, 2026)
-A: This guide compares footwear features for women with plantar fasciitis, including arch support, cushioning and heel fit. It also covers insoles, stretches and when to seek advice. Use it as a checklist for choosing shoes, rather than a promise that a particular shoe will resolve heel pain.
+Clinical review: no named reviewer recorded.
+Q: Plantar Fasciitis Shoes for Women: A UK Fit Checklist
+A: There is no single best shoe for every woman with plantar fasciitis. NHS advice is to choose cushioned heels and good arch support, and to avoid high heels, tight pointed shoes, flip-flops and backless slippers. Check comfort and fit in person where possible. Shoes can be part of self-care, but persistent or worsening heel pain needs advice.
+> [!NOTE]
+> Choose comfortable heel cushioning, arch support and a fit that does not squeeze your toes.
+> [!NOTE]
+> Bring any existing insoles to the fitting and check the actual retailer return terms.
+> [!NOTE]
+> New shoes do not replace an assessment: see a GP for severe, worsening or recurrent pain, or pain not improving after two weeks of self-care.
+Reference: NHS: plantar fasciitis — https://www.nhs.uk/conditions/plantar-fasciitis/
+Reference: Royal National Orthopaedic Hospital: inferior heel pain — https://www.rnoh.nhs.uk/patients-and-visitors/patient-information-guides/inferior-heel-pain
+Reference: Rotherham Doncaster and South Humber NHS Foundation Trust: plantar fasciitis — https://www.rdash.nhs.uk/services/podiatry-foot-protection/musculoskeletal-foot-care/plantar-fasciitis/
 
 ## The Best Sleeping Positions for Every Joint with Arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/best-sleep-positions-joint-pain
@@ -2952,15 +2993,15 @@ Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/gu
 
 ## Best Supplement for Knee Joints? Evidence and Safety
 URL: https://livingwitharthritis.org.uk/blog/best-supplement-for-knee-joint
-Last updated: 2026-11-15
+Last updated: 2026-11-17
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Clinical review: no named reviewer recorded.
 Q: Best Supplement for Knee Joints? Evidence and Safety
-A: There is no established best supplement for knee joints. NICE says not to offer glucosamine for osteoarthritis. Supplements do not restore damaged cartilage and should not replace an agreed care plan. Discuss any product with a pharmacist or clinician, especially if you take other medicines.
-Reference: Osteoarthritis: recommendations — https://www.nice.org.uk/guidance/ng226/chapter/Recommendations
-Reference: Osteoarthritis: treatment and support — https://www.nhs.uk/conditions/osteoarthritis/treatment/
-Reference: Arthritis: conditions and care — https://www.nhs.uk/conditions/arthritis/
+A: There is no established best supplement for knee joints. NICE says not to offer glucosamine for osteoarthritis. There is no reliable evidence that supplements restore damaged cartilage and should not replace an agreed care plan. Discuss any product with a pharmacist or clinician, especially if you take other medicines.
+Reference: NICE NG226: osteoarthritis recommendations — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
+Reference: NHS: osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NHS: knee pain — https://www.nhs.uk/conditions/knee-pain/
+Reference: NHS SPS: complementary products and conventional medicines — https://www.sps.nhs.uk/articles/advising-on-complementary-products-and-conventional-medicines/
 
 ## Best Supplements for Arthritis in the UK
 URL: https://livingwitharthritis.org.uk/blog/best-supplements-arthritis-uk
@@ -2970,22 +3011,31 @@ Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Best Supplements for Arthritis in the UK
 A: Omega-3 fish oil and turmeric (curcumin) have the most research behind them, but benefits are modest and the evidence is mixed. NICE does not recommend glucosamine for osteoarthritis. The NHS advises everyone to consider 10 micrograms of vitamin D a day in autumn and winter. Check with your GP or pharmacist before starting any supplement.
-Key clinical takeaway: No supplement cures arthritis or replaces prescribed medication.
-Key clinical takeaway: Omega-3 fish oil and turmeric have the most research, but benefits are modest and the evidence is mixed.
-Key clinical takeaway: NICE guideline NG226 says glucosamine should not be offered to manage osteoarthritis, because there is no strong evidence of benefit.
-Key clinical takeaway: Ask a pharmacist about interactions first, especially if you take blood thinners or methotrexate.
+> [!NOTE]
+> No supplement cures arthritis or replaces prescribed medication.
+> [!NOTE]
+> Omega-3 fish oil and turmeric have the most research, but benefits are modest and the evidence is mixed.
+> [!NOTE]
+> NICE guideline NG226 says glucosamine should not be offered to manage osteoarthritis, because there is no strong evidence of benefit.
+> [!NOTE]
+> Ask a pharmacist about interactions first, especially if you take blood thinners or methotrexate.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 Reference: NICE NG226: Osteoarthritis in over 16s: diagnosis and management — https://www.nice.org.uk/guidance/ng226
 Reference: NHS: Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
 
-## Best Supplements for Joint Pain (UK): What Works
+## Supplements for Joint Pain: Evidence and Safety (UK)
 URL: https://livingwitharthritis.org.uk/blog/best-supplements-joint-pain
-Last updated: 2026-09-05
+Last updated: 2026-11-17
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Best Supplements for Joint Pain (UK): What Works
-A: Supplements with the most research for joint pain: omega-3 fish oil (high doses were used in rheumatoid arthritis trials), vitamin D (especially UK autumn/winter), curcumin with piperine (moderate evidence for OA). Glucosamine has weak evidence and is not recommended by NICE. Check with your GP or pharmacist before starting any supplement.
+Clinical review: no named reviewer recorded.
+Q: Supplements for Joint Pain: Evidence and Safety (UK)
+A: There is no single best supplement for everyone with joint pain. Evidence depends on the product and type of arthritis, and supplements can interact with medicines. NICE says not to offer glucosamine for osteoarthritis. Ask your pharmacist or treating clinician before starting a product, and do not replace prescribed treatment.
+Reference: NICE NG226: osteoarthritis recommendations — https://www.nice.org.uk/guidance/ng226/chapter/Recommendations
+Reference: NCCIH: turmeric — https://www.nccih.nih.gov/health/turmeric
+Reference: NCCIH: ginger — https://www.nccih.nih.gov/health/ginger
+Reference: NCCIH: omega-3 supplements — https://www.nccih.nih.gov/health/omega3-supplements-in-depth
+Reference: NHS: vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
+Reference: NHS SPS: complementary products and conventional medicines — https://www.sps.nhs.uk/articles/advising-on-complementary-products-and-conventional-medicines/
 
 ## Best Shoes for Arthritis: How to Choose (UK Buying Guide)
 URL: https://livingwitharthritis.org.uk/blog/best-walking-shoes-arthritis-uk
@@ -3099,7 +3149,7 @@ URL: https://livingwitharthritis.org.uk/blog/building-strength-resilience-exerci
 Last updated: 2026-09-05
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-17
 Q: Building Strength and Resilience: Exercise for Frailty Prevention
 A: Regular physical activity helps prevent and reverse frailty by maintaining muscle, improving balance, and supporting bone density. An effective programme combines strength, balance, flexibility, and light aerobic exercises. Start slowly and build gradually — a physical therapist can guide you. Consistency matters; even small improvements make a difference. Consult a doctor before starting if you have existing medical conditions.
 
@@ -3267,7 +3317,7 @@ URL: https://livingwitharthritis.org.uk/blog/chair-exercises-older-adults-arthri
 Last updated: 2026-10-10
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-17
 Q: Chair Exercises for Older Adults With Arthritis: A Safe 20-Minute Routine (UK)
 A: Chair exercises let older adults with arthritis build strength, keep joints moving and improve circulation safely while seated. A good routine includes seated marching, leg straightening, ankle pumps, arm raises, shoulder rolls, chest stretches, and sit-to-stands. Do 10 to 20 minutes on most days, move within comfort, and stop if you feel dizzy, breathless or sharp pain.
 Reference: NHS: Sitting exercises — https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/sitting-exercises/
@@ -3841,7 +3891,7 @@ URL: https://livingwitharthritis.org.uk/blog/early-arthritis-intervention-uk
 Last updated: 2026-09-05
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-17
 Q: Why Early Intervention Beats Late Treatment in Arthritis
 A: Catching arthritis in the first 12 weeks dramatically changes long-term outcomes. UK pathways to fast…
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
@@ -4330,21 +4380,19 @@ Reference: NHS: Alcohol units — https://www.nhs.uk/live-well/alcohol-advice/ca
 Reference: NHS: Colchicine — https://www.nhs.uk/medicines/colchicine/
 Reference: BNF: British National Formulary — https://bnf.nice.org.uk/
 
-## Foods That May Trigger Arthritis Symptoms: What the Evidence Says (UK)
+## Foods to Avoid With Arthritis: A Practical UK Guide
 URL: https://livingwitharthritis.org.uk/blog/foods-to-avoid-with-arthritis
-Last updated: 2026-10-10
+Last updated: 2026-11-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Foods That May Trigger Arthritis Symptoms: What the Evidence Says (UK)
-A: For most types of arthritis, no single food reliably triggers flares. The clearest exception is gout, where alcohol, very large meals, sugary drinks and dehydration can trigger attacks. Limiting sugary, highly processed foods and alcohol helps overall health and weight. Do not cut out whole food groups without advice from your GP or a dietitian.
-Reference: NHS: Gout — https://www.nhs.uk/conditions/gout/
-Reference: NHS: The Eatwell Guide — https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/the-eatwell-guide/
-Reference: NHS: Common questions about methotrexate — https://www.nhs.uk/medicines/methotrexate/common-questions-about-methotrexate/
-Reference: NHS: Coeliac disease — https://www.nhs.uk/conditions/coeliac-disease/
-Reference: NHS: The risks of drinking too much — https://www.nhs.uk/live-well/alcohol-advice/the-risks-of-drinking-too-much/
-Reference: NICE NG219: Gout — https://www.nice.org.uk/guidance/ng219
-Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Clinical review: no named reviewer recorded.
+Q: Foods to Avoid With Arthritis: A Practical UK Guide
+A: There is no universal list of foods everyone with arthritis must avoid. For general health, it is sensible to limit foods high in saturated fat, salt and free sugars, while avoiding unnecessary elimination diets. If a particular food repeatedly seems to affect your symptoms, discuss it with a GP or dietitian before making major restrictions.
+Reference: NHS healthy balanced diet — https://www.nhs.uk/live-well/eat-well/how-to-eat-a-balanced-diet/eating-a-balanced-diet/
+Reference: NHS Eatwell Guide — https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/the-eatwell-guide/
+Reference: NHS food labels — https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/how-to-read-food-labels/
+Reference: NHS saturated fat guidance — https://www.nhs.uk/live-well/eat-well/how-to-eat-a-balanced-diet/eat-less-saturated-fat/
+Reference: NHS rheumatoid arthritis treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
+Reference: NICE osteoarthritis (NG226) — https://www.nice.org.uk/guidance/ng226
 
 ## Foot and Ankle Arthritis: Symptoms, Exercises and Footwear (UK)
 URL: https://livingwitharthritis.org.uk/blog/foot-and-ankle-arthritis-uk
@@ -4487,14 +4535,17 @@ Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NHS: Pacing and fatigue — Royal College of Occupational Therapists: How to conserve your energy — https://www.rcot.co.uk/conserving-energy
 Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
 
-## Gentle Exercises for Arthritis: Movement Without Overdoing It
+## How to Exercise With Arthritis Without Making Pain Worse
 URL: https://livingwitharthritis.org.uk/blog/gentle-exercises-for-arthritis
-Last updated: 2026-10-25
+Last updated: 2026-11-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-29
-Q: Gentle Exercises for Arthritis: Movement Without Overdoing It
-A: Gentle exercises for arthritis including walking, water exercise, mobility and light strength work.
+Clinical review: no named reviewer recorded.
+Q: How to Exercise With Arthritis Without Making Pain Worse
+A: To exercise with arthritis without making pain worse, start gently, choose manageable activities, move within a comfortable range and increase activity gradually. Some temporary discomfort can occur, but sharp, severe, unusual or persistent pain is a reason to stop and reassess. A physiotherapist can help tailor exercise if you are unsure.
+Reference: NHS arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NICE osteoarthritis (NG226) — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
+Reference: NHS exercise — https://www.nhs.uk/live-well/exercise/
 
 ## Giant Cell Arteritis: The Headache You Must Not Ignore
 URL: https://livingwitharthritis.org.uk/blog/giant-cell-arteritis-headache-warning-signs
@@ -4524,15 +4575,16 @@ Reference: Arthritis UK: How food and drink can affect your medication — https
 Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226/chapter/Recommendations
 Reference: NHS: Warfarin — https://www.nhs.uk/medicines/warfarin/
 
-## Ginger vs Turmeric for Arthritis: Which Actually Works?
+## Ginger vs Turmeric for Arthritis: Evidence and Safety
 URL: https://livingwitharthritis.org.uk/blog/ginger-vs-turmeric-for-arthritis
-Last updated: 2026-09-05
+Last updated: 2026-11-17
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Ginger vs Turmeric for Arthritis: Which Actually Works?
-A: For most people with arthritis, turmeric (as a properly absorbed curcumin supplement) has somewhat stronger, but still limited, evidence for reducing pain and stiffness. Ginger at 500–1,000 mg/day is a well-tolerated adjunct, especially if you also have morning stiffness or nausea. Check with your GP before starting.
-Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Clinical review: no named reviewer recorded.
+Q: Ginger vs Turmeric for Arthritis: Evidence and Safety
+A: Neither ginger nor turmeric is a proven replacement for arthritis treatment. Some studies suggest symptom benefits, but study quality and supplement formulations vary. Research does not establish a reliable winner for you. Ask a pharmacist or your treating clinician before taking supplements, especially alongside prescribed medicines.
+Reference: NCCIH: ginger evidence and safety — https://www.nccih.nih.gov/health/ginger
+Reference: NCCIH: turmeric evidence and safety — https://www.nccih.nih.gov/health/turmeric
+Reference: NHS SPS: complementary products and conventional medicines — https://www.sps.nhs.uk/articles/advising-on-complementary-products-and-conventional-medicines/
 
 ## Glucosamine vs Collagen: Which Is Better for Joints?
 URL: https://livingwitharthritis.org.uk/blog/glucosamine-vs-collagen
@@ -4827,16 +4879,18 @@ Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 Reference: NICE NG249: Falls – assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
 Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
-## Hip Arthritis Symptoms UK: Signs, Diagnosis and Treatment Options
+## Arthritis in the Hips: Pain Relief, Exercises and Mobility Tips
 URL: https://livingwitharthritis.org.uk/blog/hip-arthritis-symptoms-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Hip Arthritis Symptoms UK: Signs, Diagnosis and Treatment Options
-A: Hip arthritis symptoms typically develop gradually, often including groin pain that may radiate down the front of the thigh, stiffness, and reduced range of motion. You may also experience pain during or after activity, night pain, limping, and referred knee pain. If these symptoms persist for several weeks or worsen, see your GP.
-Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Clinical review: no named reviewer recorded.
+Q: Arthritis in the Hips: Pain Relief, Exercises and Mobility Tips
+A: Arthritis in the hips can cause pain, stiffness and reduced movement, often affecting walking, stairs, getting out of a chair and putting on shoes or socks. Management may include therapeutic exercise, physiotherapy, pacing, weight management where appropriate, pain management and medical treatment. Gentle strengthening and regular comfortable movement can support mobility when adapted to the individual.
+Reference: NHS arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NHS hip pain — https://www.nhs.uk/symptoms/hip-pain/
+Reference: NICE osteoarthritis (NG226) — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
 
 ## Hip osteoarthritis and frailty: turning in bed and getting up (UK)
 URL: https://livingwitharthritis.org.uk/blog/hip-oa-frailty-bed-mobility-uk
@@ -4910,10 +4964,14 @@ Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Hip Replacement Recovery Week by Week
 A: Hip replacement recovery takes several months, progressing from walking frames or crutches in weeks one to three, to unassisted walking around six weeks. Driving and work typically resume after six weeks with clinical approval. Gentle swimming with front crawl or backstroke is usually safe once wounds heal; avoid breaststroke kicking initially.
-Key clinical takeaway: Recovery usually takes several months and varies with age and general health, so follow your surgical team's plan rather than a fixed timetable.
-Key clinical takeaway: Use crutches or a walking frame at first, and walk every day as far as is comfortable.
-Key clinical takeaway: Wait at least 6 weeks before driving, and only drive when your doctor says you are fit to.
-Key clinical takeaway: Call 999 if pain and swelling in the hip or leg come with chest pain or difficulty breathing.
+> [!NOTE]
+> Recovery usually takes several months and varies with age and general health, so follow your surgical team's plan rather than a fixed timetable.
+> [!NOTE]
+> Use crutches or a walking frame at first, and walk every day as far as is comfortable.
+> [!NOTE]
+> Wait at least 6 weeks before driving, and only drive when your doctor says you are fit to.
+> [!NOTE]
+> Call 999 if pain and swelling in the hip or leg come with chest pain or difficulty breathing.
 Reference: NHS: recovering from a hip replacement — https://www.nhs.uk/tests-and-treatments/hip-replacement/recovering-from-a-hip-replacement/
 Reference: NHS: complications of a hip replacement — https://www.nhs.uk/tests-and-treatments/hip-replacement/complications-of-a-hip-replacement/
 Reference: NICE NG157: Joint replacement (primary): hip, knee and shoulder — https://www.nice.org.uk/guidance/ng157
@@ -4940,25 +4998,25 @@ Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/s
 Reference: NHS: Help and support for carers — https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/
 Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
 
-## Hospital appointments with arthritis: transport, parking, waiting rooms and asking for help (UK guide)
+## Hospital Appointments With Arthritis: A Practical UK Checklist
 URL: https://livingwitharthritis.org.uk/blog/hospital-appointments-frailty-arthritis-uk
-Last updated: 2026-11-03
+Last updated: 2026-11-18
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-11-03
-Q: Hospital appointments with arthritis: transport, parking, waiting rooms and asking for help (UK guide)
-A: A hospital appointment can take a whole day when arthritis makes walking, sitting and waiting painful, but most of the hard parts can be planned for. Ask the clinic before the day for the adjustments you need, such as a ground-floor room, an early slot, a wheelchair at the entrance or a phone or video appointment instead. Ask your GP or hospital team whether you qualify for free non-emergency patient transport, check the hospital's parking rules for disabled people, and take your appointment letter, a list of your medicines and your questions. If you cannot get there, tell the clinic before the date rather than missing it. Never stop or change a prescribed medicine yourself before a test unless the clinic tells you to.
-Reference: NHS: How to organise transport to and from hospital — https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/how-to-organise-transport-to-and-from-hospital/
-Reference: NHS England: Non-emergency patient transport services eligibility criteria — https://www.england.nhs.uk/wp-content/uploads/2022/05/B1244-nepts-eligibility-criteria.pdf
-Reference: NHS: Healthcare Travel Costs Scheme (HTCS) — https://www.nhs.uk/nhs-services/help-with-health-costs/healthcare-travel-costs-scheme-htcs/
-Reference: NHS: NHS Low Income Scheme — https://www.nhs.uk/nhs-services/help-with-health-costs/nhs-low-income-scheme-lis/
-Reference: GOV.UK: NHS patient, visitor and staff car parking management — https://www.gov.uk/government/publications/nhs-patient-visitor-and-staff-car-parking-principles
-Reference: GOV.UK: Apply for a Blue Badge — https://www.gov.uk/apply-blue-badge
-Reference: NHS: Going into hospital — https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/
-Reference: NHS: What is PALS (Patient Advice and Liaison Service)? — https://www.nhs.uk/nhs-services/hospitals/what-is-pals-patient-advice-and-liaison-service/
-Reference: NHS App — https://www.nhs.uk/nhs-app/
-Reference: Community Transport Association — https://ctauk.org/
-Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
+Clinical review: no named reviewer recorded.
+Q: Hospital Appointments With Arthritis: A Practical UK Checklist
+A: Plan the journey inside the hospital as well as the journey there. Check the appointment instructions, ask about access or communication support early, and confirm transport and parking arrangements before travelling. NHS patient transport and travel-cost help have separate eligibility rules. Bring medicines information and questions, and tell the clinic promptly if you cannot attend.
+Reference: NHS: Outpatients and day patients — https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/outpatients-and-day-patients/
+Reference: NHS Highland: Attending an outpatient appointment — https://www.nhshighland.scot.nhs.uk/your-services/in-person-services-and-locations/hospitals/attending-an-outpatient-appointment/
+Reference: NHS England: Accessible Information Standard — https://www.england.nhs.uk/long-read/accessible-information-standard-requirements-dapb1605/
+Reference: NHS: Hospital transport — https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/how-to-organise-transport-to-and-from-hospital/
+Reference: NHS England: Non-emergency patient transport eligibility — https://www.england.nhs.uk/wp-content/uploads/2022/05/B1244-nepts-eligibility-criteria.pdf
+Reference: NHS: Healthcare Travel Costs Scheme in England — https://www.nhs.uk/nhs-services/help-with-health-costs/healthcare-travel-costs-scheme-htcs/
+Reference: NHS inform: Transport-cost help in Scotland — https://www.nhsinform.scot/care-support-and-rights/health-rights/access/health-costs/help-with-transport-costs-for-nhs-treatment/
+Reference: GOV.WALES: NHS travel-cost help — https://www.gov.wales/get-help-nhs-travel-costs
+Reference: nidirect: Hospital Travel Costs Scheme — https://www.nidirect.gov.uk/articles/hospital-travel-costs-scheme
+Reference: DHSC: NHS parking guidance in England — https://www.gov.uk/government/publications/nhs-patient-visitor-and-staff-car-parking-principles/nhs-patient-visitor-and-staff-car-parking-principles
+Reference: NHS: Patient Advice and Liaison Service (PALS) — https://www.nhs.uk/nhs-services/hospitals/what-is-pals-patient-advice-and-liaison-service/
+Reference: NHS: Septic arthritis and urgent symptoms — https://www.nhs.uk/conditions/septic-arthritis/
 
 ## Avoiding deconditioning in hospital when you have arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/hospital-deconditioning-arthritis-stay-uk
@@ -5279,13 +5337,13 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Juvenile Arthritis: A UK Parent's Guide to Childhood Joint Care
 URL: https://livingwitharthritis.org.uk/blog/juvenile-arthritis-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-18
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Clinical review: no named reviewer recorded.
 Q: Juvenile Arthritis: A UK Parent's Guide to Childhood Joint Care
-A: Juvenile idiopathic arthritis (JIA) is a group of autoimmune conditions causing joint inflammation in children under 16, affecting approximately 15,000 children and young people in the UK. Parents might notice limping, morning stiffness, swollen joints, or unusual irritability. Diagnosis involves clinical assessment by a paediatric rheumatologist. Treatment aims for remission, using medicines like NSAIDs, methotrexate, and biologics, alongside physiotherapy to maintain joint function and strength.
+A: Juvenile idiopathic arthritis (JIA) is a group of autoimmune conditions causing joint inflammation in children under 16, affecting approximately 12,000 children under 16 in the UK. Parents might notice limping, morning stiffness, swollen joints, or unusual irritability. Diagnosis involves clinical assessment by a paediatric rheumatologist. Treatment aims for remission, using medicines like NSAIDs, methotrexate, and biologics, alongside physiotherapy to maintain joint function and strength.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NRAS: Juvenile idiopathic arthritis — https://nras.org.uk/resource/juvenile-idiopathic-arthritis/
 
 ## Kitchen adaptations for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/kitchen-adaptations-arthritis-frailty-uk
@@ -5658,21 +5716,18 @@ Reference: NHS: Septic arthritis — https://www.nhs.uk/conditions/septic-arthri
 Reference: NHS: Healthy weight — https://www.nhs.uk/live-well/healthy-weight/
 Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
-## Hand Osteoarthritis
+## Arthritis in the Hands: Symptoms, Exercises and Daily Tips
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-hand-osteoarthritis
-Last updated: 2026-10-23
+Last updated: 2026-11-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Hand Osteoarthritis
-A: Hand osteoarthritis commonly affects the joints at the end and middle of the fingers and the base of the thumb. It causes pain, stiffness, knobbly swellings and weaker grip, and is most common in women over 50. It cannot be cured, but hand exercises, anti-inflammatory gels, splints and gadgets help most people. Surgery is occasionally needed for the thumb.
-Reference: NHS: Hand pain — https://www.nhs.uk/symptoms/hand-pain/
-Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
-Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS: Occupational therapy — https://www.nhs.uk/tests-and-treatments/occupational-therapy/
-Reference: NHS: Carpal tunnel syndrome — https://www.nhs.uk/conditions/carpal-tunnel-syndrome/
-Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
+Clinical review: no named reviewer recorded.
+Q: Arthritis in the Hands: Symptoms, Exercises and Daily Tips
+A: Arthritis in the hands can cause pain, stiffness, swelling, tenderness and difficulty moving the fingers or thumb. Gentle movement, pacing and practical adaptations may make everyday tasks easier. Persistent, worsening or unusual symptoms should be assessed by an appropriate healthcare professional.
+Reference: NHS arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS osteoarthritis symptoms — https://www.nhs.uk/conditions/osteoarthritis/symptoms/
+Reference: NHS rheumatoid arthritis symptoms — https://www.nhs.uk/conditions/rheumatoid-arthritis/symptoms/
+Reference: NHS rheumatoid arthritis treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
+Reference: University Hospitals Sussex hand osteoarthritis exercises — https://www.uhsussex.nhs.uk/resources/range-of-movement-exercises-if-you-have-osteoarthritis-of-the-hand/
 
 ## Inflammation and Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-inflammation-and-arthritis
@@ -5721,21 +5776,19 @@ Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/gu
 Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
 Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
-## Knee Osteoarthritis
+## Arthritis in the Knees: Symptoms, Treatment and Self-Care
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-knee-osteoarthritis
-Last updated: 2026-10-23
+Last updated: 2026-11-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Knee Osteoarthritis
-A: Knee osteoarthritis is the most common type of arthritis in the UK. It causes knee pain that is worse with activity, short-lived stiffness, and sometimes swelling and grinding. Exercise to strengthen the leg muscles is the most important treatment, alongside weight loss if needed and simple pain relief. Knee replacement is considered when symptoms seriously affect your life despite these.
-Reference: NHS: Knee pain — https://www.nhs.uk/symptoms/knee-pain/
-Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
-Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS: Physiotherapy — https://www.nhs.uk/tests-and-treatments/physiotherapy/
-Reference: NHS: Healthy weight — https://www.nhs.uk/live-well/healthy-weight/
-Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
+Clinical review: no named reviewer recorded.
+Q: Arthritis in the Knees: Symptoms, Treatment and Self-Care
+A: Arthritis in the knees can cause pain, stiffness, swelling and difficulty walking, climbing stairs or getting up from a chair. Treatment depends on the type and severity of arthritis and may include exercise, physiotherapy, weight management where appropriate, pain management and medical treatment. Gentle movement, pacing and practical adaptations can support day-to-day function.
+Reference: NHS arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NHS rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS joint pain — https://www.nhs.uk/symptoms/joint-pain/
+Reference: NICE osteoarthritis (NG226) — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
 
 ## Long-Term Outlook for Rheumatoid Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-long-term-outlook-for-rheumatoid-arthritis
@@ -6085,20 +6138,17 @@ Q: Managing Arthritis at Work: Practical Tips
 A: Managing arthritis at work involves practical adjustments and communication. This includes using ergonomic equipment like adjustable chairs and split keyboards, taking regular breaks to move, and having a plan for flare-ups. Under the Equality Act 2010, employers must make reasonable adjustments if arthritis substantially affects daily activities. Discussing needs with your employer, focusing on solutions, and suggesting specific adjustments is key.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## What To Do In The First 24 Hours Of An Arthritis Flare (UK)
+## How to Manage Arthritis Flare-Ups at Home
 URL: https://livingwitharthritis.org.uk/blog/managing-arthritis-flare-ups-at-home
-Last updated: 2026-10-10
+Last updated: 2026-11-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: What To Do In The First 24 Hours Of An Arthritis Flare (UK)
-A: In the first 24 hours of an arthritis flare, check for red flag signs first, then calm the joint with a short rest, cold for heat and swelling or warmth for stiffness, and gentle movement every hour or so. Use only medicines your GP or pharmacist has agreed, pace your day, protect your sleep and note your symptoms.
-Reference: Arthritis UK: Managing arthritis flare-ups — https://www.arthritis-uk.org/information-and-support/understanding-arthritis/managing-arthritis-symptoms/managing-arthritis-flare-ups/
-Reference: NHS: Septic arthritis — https://www.nhs.uk/conditions/septic-arthritis/
-Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS: Methotrexate — https://www.nhs.uk/medicines/methotrexate/
-Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Clinical review: no named reviewer recorded.
+Q: How to Manage Arthritis Flare-Ups at Home
+A: To manage arthritis flare-ups at home, reduce demanding activities, pace yourself, take short rests and keep your joints moving gently where comfortable. Heat or cold may help some symptoms. Continue your medicines as prescribed and speak to a pharmacist or healthcare professional if unsure. Seek medical advice for severe, unusual or persistent symptoms.
+Reference: NHS arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS joint pain — https://www.nhs.uk/symptoms/joint-pain/
+Reference: NHS rheumatoid arthritis: living with — https://www.nhs.uk/conditions/rheumatoid-arthritis/living-with/
+Reference: NHS rheumatoid arthritis treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
 
 ## Managing Methotrexate Side Effects: Practical Tips
 URL: https://livingwitharthritis.org.uk/blog/managing-methotrexate-side-effects-practical-tips
@@ -6137,15 +6187,23 @@ Q: Travelling Abroad With Arthritis Medication: A UK Checklist
 A: Prescription rules, controlled medication paperwork and time-zone dosing for biologics and DMARDs.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Medication and Supplement Interactions: DMARD, Biologic and NSAID Safety
+## Arthritis Medicines and Supplements: Interaction Checks
 URL: https://livingwitharthritis.org.uk/blog/medication-supplement-interactions-arthritis
-Last updated: 2026-11-15
+Last updated: 2026-11-17
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Medication and Supplement Interactions: DMARD, Biologic and NSAID Safety
-A: This guide explains supplement interactions alongside arthritis medicines, including DMARDs, biologics and NSAIDs. Use it to prepare questions for your pharmacist or rheumatology team before combining products. Bring details of your prescribed medicines and supplements so the discussion focuses on the combination you are considering, rather than general claims about safety.
-Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Clinical review: no named reviewer recorded.
+Q: Arthritis Medicines and Supplements: Interaction Checks
+A: Check the exact supplement with a pharmacist or your rheumatology team before taking it with arthritis medicines. Some combinations have known risks; many herbal combinations have not been studied well enough to call safe. Bring the ingredients, strength and a full medicines list. Do not change prescribed treatment or folic acid to make room for a supplement.
+Reference: NHS: methotrexate medicines and supplements — https://www.nhs.uk/medicines/methotrexate/taking-methotrexate-with-other-medicines-and-herbal-supplements/
+Reference: NHS SPS: managing methotrexate interactions — https://sps.nhs.uk/articles/managing-interactions-with-methotrexate/
+Reference: NHS SPS: folic acid with methotrexate — https://sps.nhs.uk/articles/using-folic-acid-with-methotrexate-in-rheumatoid-arthritis/
+Reference: UK Committee on Toxicity: turmeric and curcumin — https://www.gov.uk/government/publications/turmeric-and-curcumin-supplements/statement-on-the-potential-risk-to-human-health-of-turmeric-and-curcumin-supplements-lay-summary
+Reference: Welsh Medicines Advice Service: turmeric interactions — https://www.wmic.wales.nhs.uk/turmeric-potential-interactions/
+Reference: NHS: methotrexate side effects — https://www.nhs.uk/medicines/methotrexate/side-effects-of-methotrexate/
+Reference: NHS SPS: complementary products and conventional medicines — https://sps.nhs.uk/articles/managing-complementary-products-and-conventional-medicines/
+Reference: NHS: sulfasalazine medicines and supplements — https://www.nhs.uk/medicines/sulfasalazine/taking-sulfasalazine-with-other-medicines-and-herbal-supplements/
+Reference: NHS: adalimumab — https://www.nhs.uk/medicines/adalimumab/
+Reference: NHS: ibuprofen for adults — https://www.nhs.uk/medicines/ibuprofen-for-adults/
 
 ## Mediterranean Diet for Arthritis: A 14-Day UK Meal Plan
 URL: https://livingwitharthritis.org.uk/blog/mediterranean-diet-arthritis-14-day-plan
@@ -6271,6 +6329,19 @@ A: Morning stiffness is common in arthritis. In osteoarthritis, it usually eases
 Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
 Reference: NHS: Polymyalgia rheumatica — https://www.nhs.uk/conditions/polymyalgia-rheumatica/
+
+## Morning Stiffness With Arthritis: Why It Happens and What Helps
+URL: https://livingwitharthritis.org.uk/blog/morning-stiffness-with-arthritis
+Last updated: 2026-11-16
+Author: Living With Arthritis Editorial Team
+Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
+Last clinically reviewed: 2026-11-17
+Q: Morning Stiffness With Arthritis: Why It Happens and What Helps
+A: Morning stiffness with arthritis can happen because joints have been relatively still overnight, while inflammation can also contribute in inflammatory types of arthritis. Gentle movement, warmth, pacing your morning and gradually increasing activity may help. Persistent, prolonged or worsening stiffness should be discussed with a healthcare professional.
+Reference: NHS arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS rheumatoid arthritis symptoms — https://www.nhs.uk/conditions/rheumatoid-arthritis/symptoms/
+Reference: NICE osteoarthritis (NG226) — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
 
 ## Motability Scheme and Arthritis: Who Can Join, How It Works and What It Costs (UK)
 URL: https://livingwitharthritis.org.uk/blog/motability-scheme-arthritis-uk
@@ -6457,16 +6528,18 @@ Last clinically reviewed: 2026-10-23
 Q: Nutrition Strategies to Reduce Frailty Risk
 A: Frailty is linked to unintentional weight loss and inadequate nutrient intake. Optimising nutrition — particularly protein intake of 1.0–1.2 grams per kilogram of body weight daily, plus Vitamin D, calcium, B vitamins and adequate fluid — helps manage it. Addressing barriers like reduced appetite or dental issues, and seeking guidance from a registered dietitian, improves outcomes.
 
-## Osteoarthritis vs Rheumatoid Arthritis — Understanding the Differences
+## Osteoarthritis vs Rheumatoid Arthritis: What Is the Difference?
 URL: https://livingwitharthritis.org.uk/blog/oa-vs-ra-comparison
-Last updated: 2026-09-05
+Last updated: 2026-11-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Osteoarthritis vs Rheumatoid Arthritis — Understanding the Differences
-A: Osteoarthritis (OA) and rheumatoid arthritis (RA) both cause joint pain but differ fundamentally. OA involves cartilage breakdown, usually from wear and tear, and commonly affects knees, hips, and hands. RA is an autoimmune disease where the immune system attacks joint linings, causing inflammation and damage — typically symmetrical, often starting in smaller joints on both sides of the body.
-Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
-Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Clinical review: no named reviewer recorded.
+Q: Osteoarthritis vs Rheumatoid Arthritis: What Is the Difference?
+A: Osteoarthritis involves structural changes and damage within a joint. Rheumatoid arthritis is an autoimmune condition in which the immune system mistakenly attacks the lining of the joints, causing inflammation that can also affect other parts of the body. Both can cause pain, stiffness and swelling, so symptoms alone cannot always tell them apart.
+Reference: NHS arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NICE osteoarthritis (NG226) — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
+Reference: NICE rheumatoid arthritis (NG100) — https://www.nice.org.uk/guidance/ng100
 
 ## Occupational Therapy for Arthritis in the UK
 URL: https://livingwitharthritis.org.uk/blog/occupational-therapy-arthritis-uk
@@ -6645,13 +6718,18 @@ Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.u
 
 ## Paracetamol for Arthritis Pain: What the Evidence Says
 URL: https://livingwitharthritis.org.uk/blog/paracetamol-for-arthritis-pain-what-the-evidence-says
-Last updated: 2026-09-05
+Last updated: 2026-11-18
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Clinical review: no named reviewer recorded.
 Q: Paracetamol for Arthritis Pain: What the Evidence Says
-A: Paracetamol alone provides limited benefit for many with arthritis pain, especially osteoarthritis. Some studies suggest a small pain reduction compared with placebo, often not enough for daily life. It may suit mild pain or occasional flare-ups as part of a wider plan. Exceeding the recommended dose can be harmful: follow the packet and check with a pharmacist or your clinician.
-Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+A: Paracetamol has little average benefit for hip or knee osteoarthritis. NICE says not to offer it routinely for osteoarthritis, except for infrequent, short-term relief when other drug treatments cannot be used, are not tolerated or have not worked. A personal medicines review matters more than increasing the dose. Do not change prescribed treatment solely because of this page.
+Reference: NICE NG226: Osteoarthritis recommendations — https://www.nice.org.uk/guidance/ng226/chapter/Recommendations/
+Reference: Paracetamol for adults — https://www.nhs.uk/medicines/paracetamol-for-adults/
+Reference: Paracetamol for hip or knee osteoarthritis (2019 review) — https://www.cochrane.org/evidence/CD013273_paracetamol-treating-people-hip-or-knee-osteoarthritis
+Reference: Rheumatoid arthritis treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
+Reference: Co-codamol and other medicines — https://www.nhs.uk/medicines/co-codamol-for-adults/taking-co-codamol-with-other-medicines-and-herbal-supplements/
+Reference: Septic arthritis — https://www.nhs.uk/conditions/septic-arthritis/
+Reference: Paracetamol overdose — https://liveruk.org/about-liver-disease/conditions/paracetamol-overdose/
 
 ## Parenting With Arthritis: Hacks for Babies and Toddlers
 URL: https://livingwitharthritis.org.uk/blog/parenting-with-arthritis-hacks-for-babies-and-toddlers
@@ -6728,15 +6806,18 @@ Reference: Chartered Society of Physiotherapy: Information for patients and the 
 Reference: NHS: Strength exercises — https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/strength-exercises/
 Reference: Arthritis UK: Exercising with arthritis — https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/exercising-with-arthritis/
 
-## Physiotherapy for Arthritis — How It Helps and How to Access It
+## Can Physiotherapy Help Arthritis? A UK Patient Guide
 URL: https://livingwitharthritis.org.uk/blog/physiotherapy-arthritis
-Last updated: 2026-09-05
+Last updated: 2026-11-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Physiotherapy for Arthritis — How It Helps and How to Access It
-A: Physiotherapy helps arthritis by providing a comprehensive assessment, exercise programmes, and manual therapy. Physiotherapists offer pain management advice, joint protection techniques, and gait re-training. You can access physiotherapy on the NHS via GP referral or self-referral, or privately. Your first appointment includes assessment, physical examination, and a personalised treatment plan.
-Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Clinical review: no named reviewer recorded.
+Q: Can Physiotherapy Help Arthritis? A UK Patient Guide
+A: Physiotherapy can help some people with arthritis improve movement, muscle strength, fitness and confidence with everyday activity. A physiotherapist assesses how arthritis affects you and develops an activity or exercise approach suited to your symptoms and abilities. It does not cure arthritis or reverse joint changes, and the right programme depends on your condition and individual needs.
+Reference: NHS physiotherapy — https://www.nhs.uk/tests-and-treatments/physiotherapy/
+Reference: NHS arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS rheumatoid arthritis treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
+Reference: NHS osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NICE osteoarthritis (NG226) — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
 
 ## Home-visit physiotherapy for frail osteoarthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/physiotherapy-home-visit-frail-oa-uk
@@ -6751,15 +6832,22 @@ Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/gu
 Reference: NICE NG74: Intermediate care including reablement — https://www.nice.org.uk/guidance/ng74
 Reference: NHS: Strength exercises — https://www.nhs.uk/live-well/exercise/strength-exercises/
 
-## How to Get PIP for Fibromyalgia Denied on First Application
+## PIP Refused for Fibromyalgia? Reconsideration and Appeal
 URL: https://livingwitharthritis.org.uk/blog/pip-fibromyalgia-denied-reapply
-Last updated: 2026-09-05
+Last updated: 2026-11-17
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: How to Get PIP for Fibromyalgia Denied on First Application
-A: If PIP is denied for fibromyalgia: request mandatory reconsideration in writing within 1 month, including GP letter on functional limitations and OT assessment if available. If MR fails, appeal to SSCS Tribunal (free, 60-70% success rate with evidence). Citizens Advice (0800 144 8848) provides free representation.
-Reference: NHS: Fibromyalgia — https://www.nhs.uk/conditions/fibromyalgia/
+Clinical review: no named reviewer recorded.
+Q: PIP Refused for Fibromyalgia? Reconsideration and Appeal
+A: If you disagree with a PIP refusal for fibromyalgia, check the date and reasons on your decision letter. In England and Wales you can usually ask for mandatory reconsideration within one month, by phone, letter or the official form. If you still disagree after reconsideration, you can appeal to an independent tribunal. No diagnosis or wording guarantees an award.
+Reference: GOV.UK: PIP eligibility — https://www.gov.uk/pip/eligibility
+Reference: GOV.UK: PIP claim process — https://www.gov.uk/pip/how-to-claim
+Reference: DWP: assessment criteria and reliability — https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-2-the-assessment-criteria
+Reference: GOV.UK: requesting mandatory reconsideration — https://www.gov.uk/mandatory-reconsideration/how-to-ask-for-mandatory-reconsideration
+Reference: GOV.UK: appeal a benefit decision — https://www.gov.uk/appeal-benefit-decision
+Reference: Citizens Advice: how PIP decisions are made — https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/help-with-your-claim/how-decisions-are-made/
+Reference: Department for Communities: NI PIP disputes — https://www.communities-ni.gov.uk/articles/ni-pip-handbook-disputes-process
+Reference: mygov.scot: Adult Disability Payment — https://www.mygov.scot/adult-disability-payment
+Reference: Citizens Advice: challenging a PIP decision and award risk — https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/appeals/mandatory-reconsideration/
 
 ## How to Apply for PIP With Fibromyalgia UK
 URL: https://livingwitharthritis.org.uk/blog/pip-fibromyalgia-uk-apply
@@ -6789,33 +6877,49 @@ Reference: PIP regulations: mobility component (regulation 6) — https://www.le
 
 ## Can You Get PIP for Arthritis? UK Points & Evidence
 URL: https://livingwitharthritis.org.uk/blog/pip-for-arthritis-uk
-Last updated: 2026-11-15
+Last updated: 2026-11-18
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Clinical review: no named reviewer recorded.
 Q: Can You Get PIP for Arthritis? UK Points & Evidence
-A: PIP is not awarded for a diagnosis alone; it depends on how daily living and mobility are affected. Describe what you can do reliably, how often difficulties occur, and your better and worse days. You can claim whether or not you work. Use the claim guide for application steps and the evidence diary to organise examples.
-Key clinical takeaway: PIP depends on how arthritis affects daily living and mobility, not on the diagnosis alone.
-Key clinical takeaway: Daily living and mobility are scored separately: 8 to 11 points gives the standard rate and 12 or more the enhanced rate.
-Key clinical takeaway: Describe whether you can do each activity safely, repeatedly, to an acceptable standard and in a reasonable time, on better and worse days.
-Key clinical takeaway: If you disagree with a decision, ask for a mandatory reconsideration within the time limit on your decision letter.
-Reference: Personal Independence Payment (PIP) — https://www.gov.uk/pip
+A: Arthritis can affect a PIP claim, but the diagnosis alone does not qualify you. Awards depend on assessed daily living and mobility activities, reliability and how often difficulties occur, alongside other eligibility rules. Check the correct national service: Scotland uses Adult Disability Payment for new working-age claims. You can receive PIP while working or with savings.
+> [!NOTE]
+> Arthritis does not automatically qualify: PIP assesses particular daily living and mobility activities, separately.
+> [!NOTE]
+> Describe safety, acceptable standard, repeatability, time and frequency, not just one difficult or better day.
+> [!NOTE]
+> Use the correct national benefit and service; Scotland uses Adult Disability Payment for new working-age claims.
+> [!NOTE]
+> Keep deadlines in view and seek welfare advice; a challenge can put an existing award at risk.
+Reference: PIP eligibility — https://www.gov.uk/pip/eligibility
+Reference: What PIP is for — https://www.gov.uk/pip
+Reference: PIP assessment guide part 1: assessment process — https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-1-the-assessment-process
+Reference: PIP assessment guide part 2: criteria and reliability — https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-2-the-assessment-criteria
+Reference: PIP in Northern Ireland — https://www.nidirect.gov.uk/articles/personal-independence-payment-pip
+Reference: Who can apply for Adult Disability Payment — https://www.mygov.scot/adult-disability-payment/applicants
+Reference: Pension Age Disability Payment — https://www.mygov.scot/pension-age-disability-payment
+Reference: PIP amounts — https://www.gov.uk/pip/how-much-youll-get
 Reference: How to claim PIP — https://www.gov.uk/pip/how-to-claim
-Reference: Arthritis and everyday life — https://www.nhs.uk/conditions/arthritis/
-Reference: PIP assessment criteria: reliability and fluctuating conditions — https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-2-the-assessment-criteria
-Reference: PIP: how much you'll get — https://www.gov.uk/pip/how-much-youll-get
-Reference: Benefit and pension rates 2026 to 2027 — https://www.gov.uk/government/publications/benefit-and-pension-rates-2026-to-2027/proposed-benefit-and-pension-rates-2026-to-2027
+Reference: Mandatory reconsideration — https://www.gov.uk/mandatory-reconsideration
+Reference: Challenging a PIP decision: England advice — https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/appeals/mandatory-reconsideration-pip/
+Reference: PIP Regulations 2013: daily living scoring, regulation 5 — https://www.legislation.gov.uk/uksi/2013/377/regulation/5
+Reference: PIP Regulations 2013: mobility scoring, regulation 6 — https://www.legislation.gov.uk/uksi/2013/377/regulation/6
 
-## How to Claim PIP for Osteoarthritis in Both Knees
+## PIP for Osteoarthritis in Both Knees: Evidence Guide
 URL: https://livingwitharthritis.org.uk/blog/pip-osteoarthritis-both-knees
-Last updated: 2026-09-05
+Last updated: 2026-11-17
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: How to Claim PIP for Osteoarthritis in Both Knees
-A: For PIP with bilateral knee OA: describe functional impact in detail — standing time limit, difficulty dressing, mobility distance with stops. Include GP supporting letter stating functional limitations (not just diagnosis). An OT assessment report is strong evidence. If refused, appeal — 60-70% success rate at tribunal.
-Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Clinical review: no named reviewer recorded.
+Q: PIP for Osteoarthritis in Both Knees: Evidence Guide
+A: Osteoarthritis in both knees does not automatically qualify you for PIP, and it does not rule you out. Eligibility depends on the specific daily living and mobility activities you can do reliably, alongside age, residence and other rules. Explain your own walking and everyday difficulties, help or aids you need, and how your ability varies. Do not copy another person's distances or describe every day as your worst day.
+Reference: GOV.UK: PIP eligibility — https://www.gov.uk/pip/eligibility
+Reference: GOV.UK: PIP claim process — https://www.gov.uk/pip/how-to-claim
+Reference: DWP: assessment criteria and reliability — https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-2-the-assessment-criteria
+Reference: GOV.UK: requesting mandatory reconsideration — https://www.gov.uk/mandatory-reconsideration/how-to-ask-for-mandatory-reconsideration
+Reference: GOV.UK: appeal a benefit decision — https://www.gov.uk/appeal-benefit-decision
+Reference: Citizens Advice: how PIP decisions are made — https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/help-with-your-claim/how-decisions-are-made/
+Reference: Department for Communities: NI PIP disputes — https://www.communities-ni.gov.uk/articles/ni-pip-handbook-disputes-process
+Reference: mygov.scot: Adult Disability Payment — https://www.mygov.scot/adult-disability-payment
+Reference: Citizens Advice: challenging a PIP decision and award risk — https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/appeals/mandatory-reconsideration/
 
 ## Plant-Based and Vegan Diets for Arthritis: An Honest Evidence Review (UK)
 URL: https://livingwitharthritis.org.uk/blog/plant-based-diet-arthritis-evidence
@@ -6969,7 +7073,7 @@ URL: https://livingwitharthritis.org.uk/blog/preventing-falls-guide-frail-adults
 Last updated: 2026-09-05
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-17
 Q: Preventing Falls: A Guide for Frail and At-Risk Adults
 A: Falls are a serious health risk for older adults, but most are preventable. Modifiable risk factors include muscle weakness, balance problems, certain medications, poor vision, and home hazards like loose rugs. Addressing these through exercise, home safety improvements such as grab bars and better lighting, vision checks, and medication reviews with a doctor can significantly reduce fall risk.
 
@@ -7038,7 +7142,7 @@ URL: https://livingwitharthritis.org.uk/blog/protein-requirements-arthritis-uk
 Last updated: 2026-10-10
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-17
 Q: Protein and Arthritis: How Much You Need and Easy Ways to Get It (UK Guide)
 A: UK guidance for adults is about 0.75g of protein per kilogram of body weight a day, and most people already eat more than this. Older adults and people with long-term illness may benefit from more, roughly 1.0 to 1.2g per kilogram according to a European expert group, ideally spread across meals and combined with strength exercise. If you have kidney disease, ask your doctor or dietitian before increasing protein.
 Reference: British Nutrition Foundation: Protein — https://www.nutrition.org.uk/nutritional-information/protein/
@@ -7290,22 +7394,21 @@ A: The Mediterranean diet is recommended for managing Rheumatoid Arthritis (RA) 
 Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
 Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
 
-## What Happens at a Rheumatology Appointment? A UK Guide to Your First Visit
+## First Rheumatology Appointment: What to Ask and Expect
 URL: https://livingwitharthritis.org.uk/blog/rheumatology-appointment-what-to-expect-uk
-Last updated: 2026-10-10
+Last updated: 2026-11-18
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: What Happens at a Rheumatology Appointment? A UK Guide to Your First Visit
-A: At a first rheumatology appointment, a consultant, doctor in training or specialist nurse asks about your symptoms and examines your joints. Blood tests are usual, sometimes with an X-ray, ultrasound or MRI. You may leave with a diagnosis and treatment plan, wait for results, or return to your GP. Bring a medicines list, a symptom diary and your top questions.
-Reference: NHS: Rheumatoid arthritis – diagnosis — https://www.nhs.uk/conditions/rheumatoid-arthritis/diagnosis/
-Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100/chapter/Recommendations
-Reference: NICE QS33: Rheumatoid arthritis in over 16s – quality statements — https://www.nice.org.uk/guidance/qs33/chapter/Quality-statements
-Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226/chapter/Recommendations
-Reference: NICE NG65: Spondyloarthritis in over 16s — https://www.nice.org.uk/guidance/ng65/chapter/Recommendations
-Reference: NHS England: Patient initiated follow-up — https://www.england.nhs.uk/outpatient-transformation-programme/patient-initiated-follow-up-giving-patients-greater-control-over-their-hospital-follow-up-care/
-Reference: NHS: Septic arthritis — https://www.nhs.uk/conditions/septic-arthritis/
-Reference: Healthwatch: Getting a second opinion about your care — https://www.healthwatch.co.uk/advice-and-information/2025-09-29/getting-second-opinion-about-your-care
+Clinical review: no named reviewer recorded.
+Q: First Rheumatology Appointment: What to Ask and Expect
+A: A first rheumatology appointment usually includes questions about your symptoms and an examination. The team may arrange blood tests or scans, on the day or later. A diagnosis is not guaranteed at the first visit. Bring a medicines list, a short account of how symptoms affect you and your main questions. Follow your own clinic's instructions.
+Reference: NHS: Outpatients and day patients — https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/outpatients-and-day-patients/
+Reference: NHS Highland: Attending an outpatient appointment — https://www.nhshighland.scot.nhs.uk/your-services/in-person-services-and-locations/hospitals/attending-an-outpatient-appointment/
+Reference: Gloucestershire Hospitals: Your rheumatology appointment — https://www.gloshospitals.nhs.uk/our-services/services-we-offer/rheumatology/your-outpatient-appointment-with-rheumatology/
+Reference: NHS: Rheumatoid arthritis diagnosis — https://www.nhs.uk/conditions/rheumatoid-arthritis/diagnosis/
+Reference: NHS: Septic arthritis and urgent symptoms — https://www.nhs.uk/conditions/septic-arthritis/
+Reference: NHS 24: When to phone 111 in Scotland — https://www.nhs24.scot/111/
+Reference: NHS 111 Wales: Calling 111 — https://www.111.wales.nhs.uk/Calling111.aspx
+Reference: nidirect: GP out-of-hours service — https://www.nidirect.gov.uk/articles/gp-out-hours-service
 
 ## Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/rheumatology-clinic-frail-older-adult-uk
@@ -7406,7 +7509,7 @@ URL: https://livingwitharthritis.org.uk/blog/sarcopenia-muscle-loss-how-to-comba
 Last updated: 2026-09-05
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-17
 Q: Sarcopenia: Muscle Loss and How to Combat It
 A: Sarcopenia is the progressive loss of muscle mass, strength, and function, commonly appearing as a significant decline with ageing. It results from reduced physical activity, hormonal changes, inadequate protein intake, and chronic inflammation. Recognising signs like reduced grip strength or slower walking pace is key. Resistance training and sufficient protein intake are effective in combating and even reversing sarcopenia.
 
@@ -7455,14 +7558,13 @@ Reference: NICE NG226: Osteoarthritis in over 16s — diagnosis and management �
 Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
 Reference: Versus Arthritis (now Arthritis UK): Exercising with arthritis — https://www.versusarthritis.org/about-arthritis/exercising-with-arthritis/
 
-## Septic Arthritis: A Hot, Swollen Joint That Needs A&E
+## Septic Arthritis: Get Urgent Help for a Hot, Swollen Joint
 URL: https://livingwitharthritis.org.uk/blog/septic-arthritis-hot-swollen-joint-emergency
-Last updated: 2026-09-25
+Last updated: 2026-11-18
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Septic Arthritis: A Hot, Swollen Joint That Needs A&E
-A: Septic arthritis is an infection inside a joint, usually caused by bacteria. It typically causes one hot, swollen, very painful joint that is hard to move, often with a fever. It is a medical emergency because the infection can damage the joint within days and spread to the blood. Go to A&amp;E or call 999 if you think you might have it.
+Clinical review: no named reviewer recorded.
+Q: Septic Arthritis: Get Urgent Help for a Hot, Swollen Joint
+A: Septic arthritis is an infection inside a joint that needs urgent medical assessment and hospital treatment as soon as possible. Sudden severe joint pain, swelling or difficulty moving a joint need an urgent GP appointment or NHS 111 advice now. Do not wait for a fever. Call 999 for symptoms that make you worry about sepsis.
 Reference: NHS: Septic arthritis — https://www.nhs.uk/conditions/septic-arthritis/
 Reference: NHS: Sepsis — https://www.nhs.uk/conditions/sepsis/
 Reference: NICE CKS: Septic arthritis — https://cks.nice.org.uk/topics/septic-arthritis/
@@ -7619,14 +7721,14 @@ Reference: Department of Health (NI): More healthcare professionals can now cert
 
 ## Signs of Rheumatoid Arthritis in Early Stages
 URL: https://livingwitharthritis.org.uk/blog/signs-rheumatoid-arthritis-early-stages
-Last updated: 2026-09-05
+Last updated: 2026-11-18
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Clinical review: no named reviewer recorded.
 Q: Signs of Rheumatoid Arthritis in Early Stages
-A: Early signs of RA include: symmetrical swelling in small hand/foot joints, morning stiffness lasting over 30-60 minutes, profound fatigue and flu-like malaise. See your GP urgently if symptoms persist over 6 weeks — NICE recommends rheumatology referral within 3 working days.
+A: Early rheumatoid arthritis can cause swollen, painful joints, morning stiffness and fatigue. Arrange a prompt GP assessment for unexplained persistent joint swelling; do not wait six weeks. NICE recommends urgent referral within three working days of presentation when the small joints of the hands or feet, or more than one joint, are affected.
 Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
 Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NICE CKS: Suspected rheumatoid arthritis — https://cks.nice.org.uk/topics/rheumatoid-arthritis/management/suspected-ra/
 
 ## Sit-to-stand practice with arthritis: getting up from a chair more easily (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/sit-to-stand-practice-frail-arthritis-uk
@@ -8021,16 +8123,16 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Swimming strokes for hip arthritis
 URL: https://livingwitharthritis.org.uk/blog/swimming-exercises-hip-osteoarthritis
-Last updated: 2026-09-23
+Last updated: 2026-11-17
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Clinical review: no named reviewer recorded.
 Q: Swimming strokes for hip arthritis
-A: For hip osteoarthritis, warm-water exercise can make movement easier because the water takes some weight off the joint. This page covers backstroke, front crawl with a comfortable kick, and a shorter breaststroke kick, plus simple pool drills. Go at your own pace and stop if pain increases. It is general information, not a personal exercise plan.
-Reference: Osteoarthritis in over 16s: diagnosis and management (NG226) — https://www.nice.org.uk/guidance/ng226
-Reference: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: Exercise and arthritis — https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/exercising-with-arthritis/
-Reference: Hip pain — https://www.nhs.uk/conditions/hip-pain/
+A: There is no single swimming stroke that suits everyone with hip osteoarthritis. Choose a comfortable activity and adapt any movement that causes pain. If changing the activity does not help, end the session and seek advice. A physiotherapist or swimming teacher can help you find an appropriate starting point.
+Reference: NICE NG226: osteoarthritis recommendations — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
+Reference: Swim England: musculoskeletal conditions and swimming — https://www.swimming.org/justswim/musculoskeletal-conditions-swimming/
+Reference: Arthritis UK: aquatic therapy — https://www.arthritis-uk.org/information-and-support/understanding-arthritis/arthritis-treatments/therapies/hydrotherapy/
+Reference: Cochrane: aquatic exercise for knee or hip osteoarthritis (2016) — https://www.cochrane.org/evidence/CD005523_aquatic-exercise-people-osteoarthritis-knee-or-hip
+Reference: NHS: hip pain in adults — https://www.nhs.uk/conditions/hip-pain/
 
 ## Swimming for Arthritis: A Complete Guide
 URL: https://livingwitharthritis.org.uk/blog/swimming-for-arthritis
@@ -8253,14 +8355,20 @@ Reference: GOV.UK: Take medicine in or out of the UK — https://www.gov.uk/take
 Reference: AccessAble — https://www.accessable.co.uk/
 Reference: Tourism for All — https://www.tourismforall.co.uk/charity
 
-## Turmeric and Methotrexate: Interaction Risks, Evidence and Safe Use
+## Turmeric and Methotrexate: Evidence and Safety Questions
 URL: https://livingwitharthritis.org.uk/blog/turmeric-and-methotrexate-interaction
-Last updated: 2026-09-25
+Last updated: 2026-11-17
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Turmeric and Methotrexate: Interaction Risks, Evidence and Safe Use
-A: The potential turmeric methotrexate interaction involves the liver. Both substances are processed by the same liver pathways, meaning high-dose turmeric supplements could theoretically increase methotrexate levels in your blood, raising the risk of side effects. While using turmeric in normal cooking is generally safe, always discuss high-dose supplements with your rheumatology team first.
+Clinical review: no named reviewer recorded.
+Q: Turmeric and Methotrexate: Evidence and Safety Questions
+A: Ask your pharmacist or rheumatology team before taking a turmeric or curcumin supplement with methotrexate. Supplement safety with methotrexate is not established, and turmeric supplements have been linked to rare liver injury. Normal use of turmeric as a food spice is a different exposure. This guide cannot give you a safe supplement dose or timing schedule.
+Reference: NHS: methotrexate medicines and supplements — https://www.nhs.uk/medicines/methotrexate/taking-methotrexate-with-other-medicines-and-herbal-supplements/
+Reference: NHS SPS: managing methotrexate interactions — https://sps.nhs.uk/articles/managing-interactions-with-methotrexate/
+Reference: NHS SPS: folic acid with methotrexate — https://sps.nhs.uk/articles/using-folic-acid-with-methotrexate-in-rheumatoid-arthritis/
+Reference: UK Committee on Toxicity: turmeric and curcumin — https://www.gov.uk/government/publications/turmeric-and-curcumin-supplements/statement-on-the-potential-risk-to-human-health-of-turmeric-and-curcumin-supplements-lay-summary
+Reference: Welsh Medicines Advice Service: turmeric interactions — https://www.wmic.wales.nhs.uk/turmeric-potential-interactions/
+Reference: NHS: methotrexate side effects — https://www.nhs.uk/medicines/methotrexate/side-effects-of-methotrexate/
+Reference: TGA: turmeric and curcumin liver-injury warning — https://www.tga.gov.au/safety/safety-monitoring-and-information/safety-alerts/medicines-containing-turmeric-or-curcumin-risk-liver-injury
 
 ## Turmeric and Curcumin for Arthritis: What the Evidence Really Shows (UK Guide)
 URL: https://livingwitharthritis.org.uk/blog/turmeric-curcumin-arthritis-evidence
@@ -8296,7 +8404,7 @@ URL: https://livingwitharthritis.org.uk/blog/understanding-frailty-older-adults
 Last updated: 2026-09-05
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-17
 Q: Understanding Frailty in Older Adults
 A: Frailty is a medical syndrome characterised by reduced strength, endurance, and physiological reserve, making individuals vulnerable to illness or injury. It is different from normal ageing, as many older people remain robust. Clinically, frailty is identified by unintentional weight loss, exhaustion, weakness, slow walking speed, and low physical activity. Early identification is crucial for effective intervention and improved outcomes.
 
@@ -8478,6 +8586,18 @@ Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/gu
 Reference: UK Chief Medical Officers' Physical Activity Guidelines (2019) — https://www.gov.uk/government/publications/physical-activity-guidelines-uk-chief-medical-officers-report
 Reference: Arthritis UK: Exercising with arthritis — https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/exercising-with-arthritis/
 
+## Walking With Arthritis: Is It Good or Bad for Joint Pain?
+URL: https://livingwitharthritis.org.uk/blog/walking-with-arthritis
+Last updated: 2026-11-16
+Author: Living With Arthritis Editorial Team
+Clinical review: no named reviewer recorded.
+Q: Walking With Arthritis: Is It Good or Bad for Joint Pain?
+A: Walking is generally a useful low-impact activity for many people with arthritis. It can help maintain mobility, fitness and muscle strength, but distance, pace and terrain should be adapted to your symptoms. Start gently, build gradually, and stop or reduce activity if pain becomes severe, sharp or unusual, or comes with significant swelling.
+Reference: NHS arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NICE osteoarthritis (NG226) — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
+Reference: NHS joint pain — https://www.nhs.uk/symptoms/joint-pain/
+
 ## Weather and Arthritis Pain Explained: What Helps (UK)
 URL: https://livingwitharthritis.org.uk/blog/weather-and-arthritis-pain-explained
 Last updated: 2026-10-10
@@ -8551,6 +8671,19 @@ Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-29
 Q: What Is Arthritis? Symptoms, Types and Next Steps
 A: What arthritis means, the main types, common symptoms and when to seek advice.
+
+## What Causes Arthritis Pain to Get Worse?
+URL: https://livingwitharthritis.org.uk/blog/what-makes-arthritis-pain-worse
+Last updated: 2026-11-16
+Author: Living With Arthritis Editorial Team
+Clinical review: no named reviewer recorded.
+Q: What Causes Arthritis Pain to Get Worse?
+A: Arthritis pain can get worse for several reasons: a flare-up, increased inflammation, doing more activity than usual, prolonged inactivity, stress, poor sleep, illness or injury. Osteoarthritis symptoms can also vary with activity and, for some people, the weather. New, severe, persistent or unusual pain should be medically assessed rather than assumed to be a normal flare.
+Reference: NHS arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS joint pain — https://www.nhs.uk/symptoms/joint-pain/
+Reference: NHS osteoarthritis symptoms — https://www.nhs.uk/conditions/osteoarthritis/symptoms/
+Reference: NHS rheumatoid arthritis symptoms — https://www.nhs.uk/conditions/rheumatoid-arthritis/symptoms/
+Reference: Oxford University Hospitals flare guidance — https://www.ouh.nhs.uk/rheumatology/information/patients/advice/flare/
 
 ## What Sustained Remission Means in RA
 URL: https://livingwitharthritis.org.uk/blog/what-sustained-remission-means-in-ra
