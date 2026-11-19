@@ -8,7 +8,7 @@ describe("pet image truth and provenance", () => {
     for (const article of PET_ARTICLES) {
       expect(article.images).toHaveLength(1);
       const image = article.images[0];
-      expect(image.url).toMatch(/^\/images\/pets\/(cat|dog|horse|alpaca)-illustration.webp$/);
+      expect(image.url).toMatch(/^\/images\/pets\/\d+-(cat|dog|horse|alpaca)-illustration.webp$/);
       expect(existsSync(`public${image.url}`)).toBe(true);
       expect(image.alt).not.toMatch(/senior|vet|arthrit|pain/i);
       expect(image.caption).toContain("not identified as having arthritis");
