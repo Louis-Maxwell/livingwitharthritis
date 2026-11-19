@@ -4,6 +4,8 @@ export const CHAT_DESTINATION_LABELS: Readonly<Record<string, string>> = {
   '/conditions/arthritis': 'Arthritis types and treatments',
   '/conditions/osteoarthritis': 'Osteoarthritis guide',
   '/conditions/rheumatoid-arthritis': 'Rheumatoid arthritis guide',
+  '/library': 'Browse the health library',
+  '/living-with-arthritis': 'Living with arthritis guide',
   '/library/arthritis': 'Understanding arthritis',
   '/guides/exercise': 'Exercise guide',
   '/exercises': 'Free exercise routines',
