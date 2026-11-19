@@ -1,3 +1,4 @@
+import PetPhotoCredits from "@/components/pets/PetPhotoCredits";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { AlertTriangle, ChevronLeft } from "lucide-react";
@@ -5,13 +6,7 @@ import PET_ARTICLES from "@/data/pets-arthritis.generated";
 import SeoHead from "@/components/SeoHead";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 
-/**
- * /pets/:slug — Pet article page
- * Data-driven: one component renders all 8 articles. Images are interleaved
- * between sections (image → section → image → section) so every article
- * shows its 2-3 images spread through the content, not stacked at the top.
- * Rename to PetArticle.tsx and register in App.tsx (see PETS-INTEGRATION-GUIDE.md).
- */
+/** Data-driven pet guides with one source-checked animal illustration each. */
 export default function PetArticle() {
   const { slug } = useParams<{ slug: string }>();
   const article = PET_ARTICLES.find((a) => a.slug === slug);
@@ -43,11 +38,11 @@ export default function PetArticle() {
             <img
               src={article.images[0].url}
               alt={article.images[0].alt}
-              width={800}
-              height={450}
+              width={article.images[0].width}
+              height={article.images[0].height}
               fetchPriority="high"
               decoding="async"
-              className="w-full rounded-xl object-cover max-h-96"
+              className="w-full h-auto rounded-xl object-contain max-h-96 bg-gray-50"
             />
             <figcaption className="text-sm text-gray-500 mt-2">{article.images[0].caption}</figcaption>
           </figure>
@@ -60,32 +55,12 @@ export default function PetArticle() {
             </p>
           </div>
 
-          {/* Sections with remaining images interleaved */}
-          {article.sections.map((s, i) => {
-            // Interleave images 2..n after sections 1, 2, ... so a 3-image
-            // article shows: lead image, section, image 2, section, image 3, rest.
-            const img = article.images[i + 1];
-            return (
-              <div key={i}>
-                <h2 className="text-2xl font-bold mt-8 mb-3">{s.heading}</h2>
-                <p className="text-gray-700 leading-relaxed">{s.body}</p>
-                {img && (
-                  <figure className="my-6">
-                    <img
-                      src={img.url}
-                      alt={img.alt}
-                      width={800}
-                      height={450}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full rounded-xl object-cover max-h-80"
-                    />
-                    <figcaption className="text-sm text-gray-500 mt-2">{img.caption}</figcaption>
-                  </figure>
-                )}
-              </div>
-            );
-          })}
+          {article.sections.map((section, index) => (
+            <section key={index}>
+              <h2 className="text-2xl font-bold mt-8 mb-3">{section.heading}</h2>
+              <p className="text-gray-700 leading-relaxed">{section.body}</p>
+            </section>
+          ))}
 
           {/* FAQs */}
           <section className="mt-10">
@@ -104,9 +79,10 @@ export default function PetArticle() {
                 <Link key={r.slug} to={`/pets/${r.slug}`} className="group rounded-lg overflow-hidden border hover:shadow-md transition">
                   <img
                     src={r.images[0].url}
+                    style={{ objectPosition: r.species === "Llamas & Alpacas" ? "center top" : "center" }}
                     alt={r.images[0].alt}
-                    width={400}
-                    height={225}
+                    width={r.images[0].width}
+                    height={r.images[0].height}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-28 object-cover"
@@ -116,8 +92,9 @@ export default function PetArticle() {
               ))}
             </div>
           </section>
+          <PetPhotoCredits images={[...article.images, ...related.flatMap(guide => guide.images)]} />
         </article>
       </main>
     </>
   );
-    }
+}
