@@ -4,11 +4,7 @@ import { join, resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { isVerifiedMaxwellReviewer } from "@/lib/blog/review";
 
-/**
- * 27 Oct 2026 gate: Louis Maxwell decided (26 Oct) that every guide is reviewed by him.
- * No public surface may say a guide is "pending clinical review", and the article badge
- * must recognise the stored reviewer name "Louis Maxwell".
- */
+/** Legacy review metadata must not attest to later editorial revisions. */
 const root = process.cwd();
 const PENDING = /pending clinical review/i;
 const CREDS = "First Contact Practitioner, HCPC PH128483, CSP member";
@@ -29,10 +25,11 @@ const walk = (dir: string, out: string[] = []): string[] => {
 type Post = { slug: string; is_published?: boolean; reviewed_by?: string | null; reviewer_credentials?: string | null; reviewStatus?: string; review_status?: string; editorial_review_note?: string };
 
 const postsDir = resolve(root, "src/content/blog/posts");
-const published = readdirSync(postsDir)
+const allPublished = readdirSync(postsDir)
   .filter((f) => f.endsWith(".json"))
   .map((f) => JSON.parse(readFileSync(join(postsDir, f), "utf8")) as Post)
-  .filter((p) => p.is_published !== false && !p.editorial_review_note);
+  .filter((p) => p.is_published !== false);
+const published = allPublished.filter((p) => !p.editorial_review_note);
 
 describe("Review labelling gate (27 Oct 2026)", () => {
   it('no app source, content or public crawler file says "pending clinical review"', () => {
@@ -47,8 +44,14 @@ describe("Review labelling gate (27 Oct 2026)", () => {
     expect(hits.map((f) => f.replace(root + "/", ""))).toEqual([]);
   });
 
-  it("every published guide is reviewed by Louis Maxwell (HCPC PH128483) with no pending status", () => {
-    expect(published.length).toBeGreaterThan(500);
+  it("unrevised guides retain their stored reviewer metadata; revised guides carry explicit review notes", () => {
+    expect(allPublished.length).toBeGreaterThan(500);
+    expect(published.length).toBeGreaterThan(0);
+    for (const p of allPublished.filter((p) => p.editorial_review_note)) {
+      expect(p.reviewed_by, p.slug).toBeNull();
+      expect(p.reviewer_credentials, p.slug).toBeNull();
+      expect(p.editorial_review_note, p.slug).toMatch(/not (yet )?had a fresh/);
+    }
     const bad = published.filter(
       (p) =>
         p.reviewed_by !== "Louis Maxwell" ||
