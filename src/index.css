@@ -1833,6 +1833,7 @@ details[open] > :not(summary) {
    users who request reduced motion, and avoid transition/animation work that
    can otherwise contribute to poor INP on low-powered devices. */
 @media (prefers-reduced-motion: reduce) {
+  .footer-connect *, .footer-connect *::before, .footer-connect *::after { animation: none !important; transition: none !important; transform: none !important; }
   .reveal {
     transition: none !important;
     translate: none !important;
@@ -1941,7 +1942,4 @@ details[open] > :not(summary) {
   .footer-connect .footer-connect__link:hover { transform: translateY(-2px); }
   .footer-connect .footer-connect__link:hover .footer-connect__arrow { transform: translate(2px, -2px); }
   .footer-connect .footer-connect__link:active { transform: translateY(0); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .footer-connect *, .footer-connect *::before, .footer-connect *::after { animation: none !important; transition: none !important; transform: none !important; }
 }
