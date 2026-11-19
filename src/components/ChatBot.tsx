@@ -124,7 +124,7 @@ const ChatMessage = ({ message, isLatest, isStreaming, sessionKey, previousUserM
             <TypingIndicator />
           ) : (
             <div className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1.5 prose-p:text-sm prose-p:leading-relaxed prose-ul:my-1.5 prose-li:my-0.5 prose-li:text-sm prose-headings:my-2 prose-headings:text-base prose-headings:font-semibold prose-headings:text-foreground prose-strong:text-foreground">
-              <ReactMarkdown remarkPlugins={[remarkChatDestinations]}>{displayText}</ReactMarkdown>
+              <ReactMarkdown remarkPlugins={[remarkChatDestinations]} components={{ a: ({ node: _node, ...props }) => <a {...props} className="scroll-mb-24" /> }}>{displayText}</ReactMarkdown>
               {streaming && displayText.trim() ? (
                 <span className="inline-block w-1.5 h-3.5 ml-0.5 align-middle bg-primary/50 animate-pulse rounded-sm" aria-hidden="true" />
               ) : null}
@@ -494,4 +494,4 @@ export function ChatBot() {
     </div>
     </MotionConfig>
   );
-}
+    }
