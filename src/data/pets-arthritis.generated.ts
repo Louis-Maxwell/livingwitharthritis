@@ -17,7 +17,7 @@ export const PET_ARTICLES: PetArticle[] = [
     "summary": "Around 80% of dogs over 8 show signs of arthritis. Learn the early warning signs, what your vet can offer (from supplements to Librela), and simple home changes that make a big difference.",
     "images": [
       {
-        "url": "/images/pets/12-dog-illustration.webp",
+        "url": "/images/pets/15-12-dog-illustration.webp",
         "alt": "Brown and white dog resting with its head on grass",
         "caption": "Illustrative photograph. The animal pictured is not identified as having arthritis.",
         "credit": "www.Pixel.la Free Stock Photos",
@@ -125,7 +125,7 @@ export const PET_ARTICLES: PetArticle[] = [
     "summary": "Degenerative joint disease is the leading cause of early retirement in UK horses. Early management — footcare, surfaces, warm-up and vet support — keeps horses comfortable for years longer.",
     "images": [
       {
-        "url": "/images/pets/13-horse-illustration.webp",
+        "url": "/images/pets/1-horse-pet.webp",
         "alt": "Four horses grazing in a green field",
         "caption": "Illustrative photograph. The animal pictured is not identified as having arthritis.",
         "credit": "Dwight Burdette",
@@ -179,7 +179,7 @@ export const PET_ARTICLES: PetArticle[] = [
     "summary": "Camelids are stoic animals that hide lameness until it's advanced. Learn the subtle signs of joint disease in llamas and alpacas and the husbandry changes that keep them comfortable.",
     "images": [
       {
-        "url": "/images/pets/14-alpaca-illustration.webp",
+        "url": "/images/pets/2-alpaca-pet.webp",
         "alt": "Brown and white alpaca standing beside a fence",
         "caption": "Illustrative photograph. The animal pictured is not identified as having arthritis.",
         "credit": "Dcoetzee",
@@ -225,7 +225,7 @@ export const PET_ARTICLES: PetArticle[] = [
     "summary": "The single most common mistake owners make is weekend-warrior exercise. Here's how to build a joint-friendly movement routine for dogs, cats and horses alike.",
     "images": [
       {
-        "url": "/images/pets/12-dog-illustration.webp",
+        "url": "/images/pets/15-12-dog-illustration.webp",
         "alt": "Brown and white dog resting with its head on grass",
         "caption": "Illustrative photograph. The animal pictured is not identified as having arthritis.",
         "credit": "www.Pixel.la Free Stock Photos",
@@ -271,7 +271,7 @@ export const PET_ARTICLES: PetArticle[] = [
     "summary": "Excess weight is the most powerful — and most fixable — driver of arthritis pain in pets. A practical guide to body condition scoring and safe weight loss for dogs, cats, horses and camelids.",
     "images": [
       {
-        "url": "/images/pets/12-dog-illustration.webp",
+        "url": "/images/pets/15-12-dog-illustration.webp",
         "alt": "Brown and white dog resting with its head on grass",
         "caption": "Illustrative photograph. The animal pictured is not identified as having arthritis.",
         "credit": "www.Pixel.la Free Stock Photos",
@@ -317,7 +317,7 @@ export const PET_ARTICLES: PetArticle[] = [
     "summary": "Ramps, rugs, raised bowls and warm beds — small changes around the home dramatically reduce daily joint strain for arthritic dogs and cats.",
     "images": [
       {
-        "url": "/images/pets/12-dog-illustration.webp",
+        "url": "/images/pets/15-12-dog-illustration.webp",
         "alt": "Brown and white dog resting with its head on grass",
         "caption": "Illustrative photograph. The animal pictured is not identified as having arthritis.",
         "credit": "www.Pixel.la Free Stock Photos",
@@ -367,7 +367,7 @@ export const PET_ARTICLES: PetArticle[] = [
     "summary": "Most pet arthritis can be managed at a routine appointment — but some signs need urgent attention. Know the difference.",
     "images": [
       {
-        "url": "/images/pets/12-dog-illustration.webp",
+        "url": "/images/pets/15-12-dog-illustration.webp",
         "alt": "Brown and white dog resting with its head on grass",
         "caption": "Illustrative photograph. The animal pictured is not identified as having arthritis.",
         "credit": "www.Pixel.la Free Stock Photos",
