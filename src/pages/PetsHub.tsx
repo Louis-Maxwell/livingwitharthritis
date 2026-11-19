@@ -1,3 +1,4 @@
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { PawPrint, AlertTriangle } from "lucide-react";
@@ -23,6 +24,7 @@ export default function PetsHub() {
       />
 
       <main id="main-content" className="bg-white">
+        <PageBreadcrumb segments={[{ label: "Pets" }]} />
         {/* Hero */}
         <section className="bg-gradient-to-br from-primary to-secondary text-white px-6 py-16">
           <div className="max-w-5xl mx-auto text-center">
@@ -127,4 +129,4 @@ export default function PetsHub() {
       </main>
     </>
   );
-}
+      }
