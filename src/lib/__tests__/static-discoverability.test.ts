@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
+import { rewriteHead } from "../../../scripts/inject-canonicals.mjs";
 
 const home = readFileSync("index.html", "utf8");
 const knee = readFileSync("public/resources/knee-joint-map.html", "utf8");
@@ -16,6 +17,14 @@ describe("static discovery parity", () => {
     expect(injector).toContain("ld-home-breadcrumb");
     const enrich = injector.slice(injector.indexOf("function enrichHead"));
     expect(enrich.indexOf("ld-home-breadcrumb")).toBeLessThan(enrich.indexOf("if (!d) return out"));
+  });
+  it("keeps a boundary when removing the root-only script", () => {
+    const trail = '<script type="application/ld+json" id="ld-home-breadcrumb">{}</script>';
+    const template = `<html><head><scr${trail}ipt id="boundary-probe"></script></head><body><div id="root"></div></body></html>`;
+    const result = rewriteHead(template, "/about");
+    expect(result).not.toContain("ld-home-breadcrumb");
+    expect(result).toContain('<scr\nipt id="boundary-probe">');
+    expect(result).not.toContain('<script id="boundary-probe">');
   });
   it("gives the standalone knee resource one real two-level trail", () => {
     const trails = scripts(knee).filter(s => s["@type"] === "BreadcrumbList");
