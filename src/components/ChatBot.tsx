@@ -5,14 +5,13 @@ import { Send, User, Trash2, Loader2, Stethoscope, Apple, Dumbbell, HelpCircle, 
 import { useStreamingChat, Message } from "@/hooks/useStreamingChat";
 import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, MotionConfig, useReducedMotion } from "framer-motion";
 import { chatRheumatoid, chatFoods, chatExercise, chatDoctor } from "@/data/images";
 import EmergencyRedirectDialog, { detectClientRedFlag } from "@/components/ai/EmergencyRedirectDialog";
-import { AboutYouPanel } from "@/components/chat/AboutYouPanel";
 import { ResourceCards } from "@/components/chat/ResourceCards";
 import { FeedbackButtons } from "@/components/chat/FeedbackButtons";
-import { loadChatProfile, saveChatProfile, type ChatProfile } from "@/lib/chatProfile";
 import { extractResources, stripStreamingResourceFence } from "@/lib/chatResources";
+import { remarkChatDestinations } from "@/lib/chatDestinations";
 import { trackChatStart } from "@/lib/ga-events";
 
 const quickSuggestions = [
@@ -50,19 +49,22 @@ function getOrCreateSessionKey(): string {
   }
 }
 
-const TypingIndicator = () => (
+const TypingIndicator = () => {
+  const reducedMotion = useReducedMotion();
+  return (
   <div className="flex items-center gap-1.5 px-4 py-2.5" role="status" aria-live="polite" aria-label="Assistant is typing">
     {[0, 1, 2].map((i) => (
       <motion.div
         key={i}
         className="w-2 h-2 rounded-full bg-primary/60"
-        animate={{ scale: [0.8, 1.2, 0.8], opacity: [0.4, 1, 0.4] }}
-        transition={{ duration: 0.8, repeat: Infinity, delay: i * 0.15 }}
+        animate={reducedMotion ? undefined : { scale: [0.8, 1.2, 0.8], opacity: [0.4, 1, 0.4] }}
+        transition={reducedMotion ? { duration: 0 } : { duration: 0.8, repeat: Infinity, delay: i * 0.15 }}
       />
     ))}
     <span className="sr-only">Assistant is typing</span>
   </div>
-);
+  );
+};
 
 interface ChatMessageProps {
   message: Message;
@@ -107,7 +109,7 @@ const ChatMessage = ({ message, isLatest, isStreaming, sessionKey, previousUserM
         {isUser ? <User className="h-3.5 w-3.5" /> : <Heart className="h-3.5 w-3.5" />}
       </div>
 
-      <div className="max-w-[85%] flex flex-col">
+      <div className="min-w-0 max-w-[85%] flex flex-col break-words">
         <div
           className={cn(
             "rounded-2xl px-4 py-3 text-sm leading-relaxed",
@@ -122,7 +124,7 @@ const ChatMessage = ({ message, isLatest, isStreaming, sessionKey, previousUserM
             <TypingIndicator />
           ) : (
             <div className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1.5 prose-p:text-sm prose-p:leading-relaxed prose-ul:my-1.5 prose-li:my-0.5 prose-li:text-sm prose-headings:my-2 prose-headings:text-base prose-headings:font-semibold prose-headings:text-foreground prose-strong:text-foreground">
-              <ReactMarkdown>{displayText}</ReactMarkdown>
+              <ReactMarkdown remarkPlugins={[remarkChatDestinations]}>{displayText}</ReactMarkdown>
               {streaming && displayText.trim() ? (
                 <span className="inline-block w-1.5 h-3.5 ml-0.5 align-middle bg-primary/50 animate-pulse rounded-sm" aria-hidden="true" />
               ) : null}
@@ -148,7 +150,6 @@ const ChatMessage = ({ message, isLatest, isStreaming, sessionKey, previousUserM
 export function ChatBot() {
   const [input, setInput] = useState("");
   const [historyOpen, setHistoryOpen] = useState(false);
-  const [profile, setProfile] = useState<ChatProfile>({});
   const [sessionKey, setSessionKey] = useState("");
   const [emergency, setEmergency] = useState<{ open: boolean; category: string | null }>({
     open: false,
@@ -172,20 +173,13 @@ export function ChatBot() {
   const chatStarted = useRef(false);
 
   useEffect(() => {
-    setProfile(loadChatProfile());
     setSessionKey(getOrCreateSessionKey());
   }, []);
 
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
+    const viewport = scrollRef.current?.querySelector<HTMLElement>('[data-radix-scroll-area-viewport]');
+    if (viewport) viewport.scrollTop = viewport.scrollHeight;
   }, [messages]);
-
-  const handleProfileChange = (next: ChatProfile) => {
-    setProfile(next);
-    saveChatProfile(next);
-  };
 
   const safelySend = (text: string) => {
     const flag = detectClientRedFlag(text);
@@ -197,7 +191,7 @@ export function ChatBot() {
       chatStarted.current = true;
       trackChatStart("help_chat");
     }
-    sendMessage(text, profile);
+    sendMessage(text);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -210,7 +204,7 @@ export function ChatBot() {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
       e.preventDefault();
       handleSubmit(e);
     }
@@ -241,6 +235,7 @@ export function ChatBot() {
   };
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="flex flex-col h-full w-full overflow-hidden bg-background relative">
       <EmergencyRedirectDialog
         open={emergency.open}
@@ -269,7 +264,7 @@ export function ChatBot() {
             <div className="flex items-center gap-1">
               <div className={`w-1.5 h-1.5 rounded-full ${isLoading ? "bg-amber-300 animate-pulse" : "bg-emerald-300"}`} aria-hidden="true" />
               <span className="text-[10px] text-primary-foreground" aria-live="polite">
-                {isLoading ? (statusLabel || "Searching guidance…") : "Online"}
+                {isLoading ? (statusLabel || "Searching guidance…") : "Guidance ready"}
               </span>
             </div>
           </div>
@@ -279,7 +274,7 @@ export function ChatBot() {
             onClick={newChat}
             title="New chat"
             aria-label="Start a new chat"
-            className="text-primary-foreground/60 hover:text-primary-foreground p-2.5 rounded-lg hover:bg-background/10 transition-colors min-h-11 min-w-11 inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/40"
+            className="text-primary-foreground hover:text-primary-foreground p-2.5 rounded-lg hover:bg-background/10 transition-colors min-h-11 min-w-11 inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/40"
           >
             <Plus className="h-3.5 w-3.5" />
           </button>
@@ -288,7 +283,7 @@ export function ChatBot() {
               onClick={clearMessages}
               title="Clear messages"
               aria-label="Clear messages"
-              className="text-primary-foreground/40 hover:text-primary-foreground p-2.5 rounded-lg hover:bg-background/10 transition-colors min-h-11 min-w-11 inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/40"
+              className="text-primary-foreground hover:text-primary-foreground p-2.5 rounded-lg hover:bg-background/10 transition-colors min-h-11 min-w-11 inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/40"
             >
               <Trash2 className="h-3.5 w-3.5" />
             </button>
@@ -296,8 +291,7 @@ export function ChatBot() {
         </div>
       </div>
 
-      {/* About You panel */}
-      <AboutYouPanel profile={profile} onChange={handleProfileChange} />
+      {/* No health-profile inputs while replies do not use them. */}
 
       {/* History Sidebar */}
       <AnimatePresence>
@@ -374,7 +368,7 @@ export function ChatBot() {
       </AnimatePresence>
 
       {/* Messages */}
-      <ScrollArea ref={scrollRef} className="flex-1 px-3.5 py-3">
+      <ScrollArea ref={scrollRef} className="flex-1 px-3.5 py-3 [&_[data-radix-scroll-area-viewport]>div]:!block">
         <AnimatePresence mode="wait">
           {messages.length === 0 ? (
             <motion.div
@@ -498,5 +492,6 @@ export function ChatBot() {
         </div>
       </form>
     </div>
+    </MotionConfig>
   );
 }
