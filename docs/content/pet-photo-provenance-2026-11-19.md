@@ -6,7 +6,7 @@ The eight pet guides use one relevant illustrative animal photograph each. No pi
 
 ## Cat
 
-- File: `/images/pets/cat-illustration.webp`
+- File: `/images/pets/11-cat-illustration.webp`
 - Source: https://commons.wikimedia.org/wiki/File:Sleeping_Tabby_Cat.JPG
 - Creator: Mattes
 - Reuse: Public domain
@@ -14,7 +14,7 @@ The eight pet guides use one relevant illustrative animal photograph each. No pi
 
 ## Horse
 
-- File: `/images/pets/horse-illustration.webp`
+- File: `/images/pets/13-horse-illustration.webp`
 - Source: https://commons.wikimedia.org/wiki/File:Horses_Grazing_in_a_Field_North_Harris_Road_Superior_Township_Michigan.JPG
 - Creator: Dwight Burdette
 - Reuse: CC BY 3.0
@@ -22,7 +22,7 @@ The eight pet guides use one relevant illustrative animal photograph each. No pi
 
 ## Alpaca
 
-- File: `/images/pets/alpaca-illustration.webp`
+- File: `/images/pets/14-alpaca-illustration.webp`
 - Source: https://commons.wikimedia.org/wiki/File:Calico_brown_and_white_alpaca_at_Cougar_Mountain_Zoological_Park.jpg
 - Creator: Dcoetzee
 - Reuse: CC0 1.0
@@ -30,7 +30,7 @@ The eight pet guides use one relevant illustrative animal photograph each. No pi
 
 ## Dog
 
-- File: `/images/pets/dog-illustration.webp`
+- File: `/images/pets/12-dog-illustration.webp`
 - Source: https://commons.wikimedia.org/wiki/File:Prone_dog_on_grass.jpg
 - Creator: www.Pixel.la Free Stock Photos
 - Reuse: CC0 1.0
