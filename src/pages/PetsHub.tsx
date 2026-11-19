@@ -1,3 +1,4 @@
+import PetPhotoCredits from "@/components/pets/PetPhotoCredits";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -81,9 +82,10 @@ export default function PetsHub() {
               >
                 <img
                   src={a.images[0].url}
+                  style={{ objectPosition: a.species === "Llamas & Alpacas" ? "center top" : "center" }}
                   alt={a.images[0].alt}
-                  width={800}
-                  height={450}
+                  width={a.images[0].width}
+                  height={a.images[0].height}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-52 object-cover group-hover:scale-[1.02] transition"
@@ -104,6 +106,8 @@ export default function PetsHub() {
             ))}
           </div>
         </section>
+
+        <div className="max-w-5xl mx-auto px-6 pb-10"><PetPhotoCredits images={shown.flatMap(article => article.images)} /></div>
 
         {/* Cross-link to human content — internal linking reduces bounce */}
         <section className="bg-gray-50 px-6 py-12">
@@ -129,4 +133,4 @@ export default function PetsHub() {
       </main>
     </>
   );
-      }
+}
