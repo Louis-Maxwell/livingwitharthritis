@@ -885,7 +885,8 @@ export function buildJsonLd(route, url, d) {
 
 function enrichHead(html, route, url, override) {
   // Strip the root-only trail even when a route has no curated metadata.
-  let out = route === "/" ? html : html.replace(/<script\b[^>]*id=["']ld-home-breadcrumb["'][^>]*>[\s\S]*?<\/script>\s*/gi, "");
+  // Preserve a token boundary rather than joining surrounding HTML fragments.
+  let out = route === "/" ? html : html.replace(/<script\b[^>]*id=["']ld-home-breadcrumb["'][^>]*>[\s\S]*?<\/script>\s*/gi, "\n");
   const d = normalizeStaticMeta(headDataFor(route, override));
   if (!d) return out;
 
@@ -1078,4 +1079,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-                      }
+}
