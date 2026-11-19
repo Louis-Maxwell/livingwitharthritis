@@ -28,7 +28,6 @@ import { useBlogViews } from "@/hooks/useBlogViews";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import ArticleBookmarkButton from "@/components/blog/ArticleBookmarkButton";
-import ClusterRelatedLinks from "@/components/blog/ClusterRelatedLinks";
 import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
 import RecommendedNextStep from "@/components/RecommendedNextStep";
 import { splitHtmlAfterFirstSection, splitHtmlAtMiddleH2 } from "@/lib/splitHtmlAtMiddleH2";
@@ -58,11 +57,12 @@ import { getClusterForPath } from "@/data/topicClusters";
 import { getBlogReviewMeta } from "@/lib/blog/reviewIndex";
 import { blogReviewSchemaFields } from "@/lib/blog/review";
 import { canonicalBlogCategoryKey, BLOG_CATEGORY_LABELS } from "@/data/blogCategories";
-import TopicPrevNext from "@/components/blog/TopicPrevNext";
 import { distinctSeoTitle } from '@/lib/technicalSeo.mjs';
 
 // Below-the-fold article furniture loads as the reader scrolls towards it
 // (ViewportSection), so the first paint only pays for the article itself.
+const ClusterRelatedLinks = lazyWithRetry(() => import("@/components/blog/ClusterRelatedLinks"));
+const TopicPrevNext = lazyWithRetry(() => import("@/components/blog/TopicPrevNext"));
 const KeywordRelatedLinks = lazyWithRetry(() => import("@/components/seo/KeywordRelatedLinks"));
 const TopicClusterNav = lazyWithRetry(() => import("@/components/seo/TopicClusterNav"));
 const BlogComments = lazyWithRetry(() => import("@/components/BlogComments"));
@@ -722,6 +722,7 @@ const BlogPost = () => {
             <RecommendedNextStep path={`/blog/${slug}`} context={`${article.title} ${article.keywords ?? ""}`} placement="end" />
           )}
             {slug && (
+              <ViewportSection>
               <ClusterRelatedLinks
                 slug={slug}
                 title={article.title}
@@ -729,6 +730,7 @@ const BlogPost = () => {
                 category={article.category}
                 keywords={article.keywords}
               />
+              </ViewportSection>
             )}
 
 
