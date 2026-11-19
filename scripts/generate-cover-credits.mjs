@@ -3,7 +3,7 @@
  * so CC BY / CC BY-SA covers show the creator and licence (required by the licence)
  * instead of a generic "Openly licensed image" line.
  */
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 
 const attr = JSON.parse(readFileSync('public/openverse/ATTRIBUTION.json', 'utf8'));
 const LIC = { by: 'CC BY', 'by-sa': 'CC BY-SA', cc0: 'CC0', pdm: 'Public domain' };
@@ -23,6 +23,8 @@ for (const [file, a] of Object.entries(attr)) {
 }
 // These checksum-validated title cards are created by Living With Arthritis.
 const editorial = JSON.parse(readFileSync('scripts/data/editorial-covers.json', 'utf8'));
+const additional = 'scripts/data/editorial-herbs-cover.json';
+if (existsSync(additional)) Object.assign(editorial, JSON.parse(readFileSync(additional, 'utf8')));
 for (const file of Object.keys(editorial)) out[file] = 'Image: Living With Arthritis';
 writeFileSync('src/data/cover-credits.generated.json', JSON.stringify(out, null, 0) + '\n');
 console.log(`[cover-credits] ${Object.keys(out).length} credits written`);
