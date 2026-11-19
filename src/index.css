@@ -1833,6 +1833,7 @@ details[open] > :not(summary) {
    users who request reduced motion, and avoid transition/animation work that
    can otherwise contribute to poor INP on low-powered devices. */
 @media (prefers-reduced-motion: reduce) {
+  .footer-connect *, .footer-connect *::before, .footer-connect *::after { animation: none !important; transition: none !important; transform: none !important; }
   .reveal {
     transition: none !important;
     translate: none !important;
@@ -1887,4 +1888,58 @@ details[open] > :not(summary) {
 @media print {
   body.gp-prep-printing #main-content > *:not(:has(.gp-prep-sheet-root)) { display: none !important; }
   body.gp-prep-printing .gp-sheet-keep > *:not(.gp-prep-sheet-root) { display: none !important; }
+}
+
+
+/* Footer Connect: quiet, pointer-triggered movement only. No new script,
+   autoplay, hidden links or layout changes during interaction. */
+.footer-connect { padding-top: 1.75rem; border-top: 1px solid hsl(var(--border)); }
+.footer-connect .footer-connect__links {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.625rem;
+}
+.footer-connect .footer-connect__link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 52px;
+  min-width: 0;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  text-decoration: none;
+}
+.footer-connect .footer-connect__link > span { margin-left: 0; }
+.footer-connect__icon { flex-shrink: 0; color: hsl(var(--primary)); }
+.footer-connect__arrow { margin-left: auto; flex-shrink: 0; color: hsl(var(--muted-foreground)); }
+.footer-connect .footer-connect__link:focus-visible {
+  outline: 3px solid hsl(var(--primary));
+  outline-offset: 3px;
+  background: hsl(var(--muted));
+}
+@media (min-width: 480px) {
+  .footer-connect .footer-connect__links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 640px) {
+  .footer-connect .footer-connect__links { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .footer-connect .footer-connect__links { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .footer-connect .footer-connect__link:hover {
+    color: hsl(var(--foreground));
+    background: hsl(var(--muted));
+    border-color: hsl(var(--primary));
+  }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .footer-connect .footer-connect__link,
+  .footer-connect__arrow { transition: transform 160ms ease-out, background-color 160ms ease-out, border-color 160ms ease-out; }
+  .footer-connect .footer-connect__link:hover { transform: translateY(-2px); }
+  .footer-connect .footer-connect__link:hover .footer-connect__arrow { transform: translate(2px, -2px); }
+  .footer-connect .footer-connect__link:active { transform: translateY(0); }
 }
