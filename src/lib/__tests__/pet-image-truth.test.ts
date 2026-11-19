@@ -12,10 +12,15 @@ describe("pet image truth and provenance", () => {
       expect(existsSync(`public${image.url}`)).toBe(true);
       expect(image.alt).not.toMatch(/senior|vet|arthrit|pain/i);
       expect(image.caption).toContain("not identified as having arthritis");
-      expect(image.source).toMatch(/^https:\/\/commons.wikimedia.org\/wiki\/File:/);
+      const sourceUrl = new URL(image.source);
+      expect(sourceUrl.protocol).toBe("https:");
+      expect(sourceUrl.hostname).toBe("commons.wikimedia.org");
+      expect(sourceUrl.pathname.startsWith("/wiki/File:")).toBe(true);
       expect(image.credit.length).toBeGreaterThan(2);
       expect(["Public domain", "CC0 1.0", "CC BY 3.0"]).toContain(image.license);
-      expect(image.licenseUrl).toMatch(/^https:\/\/creativecommons.org\//);
+      const licenseUrl = new URL(image.licenseUrl);
+      expect(licenseUrl.protocol).toBe("https:");
+      expect(licenseUrl.hostname).toBe("creativecommons.org");
       expect(image.changes).toContain("WebP");
     }
   });
