@@ -15,7 +15,7 @@ The existing herbs/spices route was selected from the unassessed substantive led
 
 The new Cochrane review is published on the source-check date itself. Earlier positive NCCIH summaries are explicitly distinguished, not hidden or averaged. Findings are about short trials of knee osteoarthritis supplements, not rheumatoid arthritis, food doses or long-term safety.
 
-Original authorship retained; inherited self-review fields removed and fresh qualified clinical review explicitly pending. Same publication date, route and public/indexable status. Replaced the inherited kale cover and the mislabelled leaf/seedling inline image with an original title card. Actual old/new image pixels inspected. New title-card exact WebP bytes use the existing checksum-validated materialisation pipeline. No photograph rights claim, package change or clinical approval badge.
+Original authorship retained; inherited self-review fields removed and fresh qualified clinical review explicitly pending. Same publication date, route and public/indexable status. Replaced the inherited kale cover and the mislabelled leaf/seedling inline image with an original title card. Actual old/new image pixels inspected. New title-card exact WebP bytes use an optional small source sidecar read by the existing checksum-validated materialisation and credit pipeline. Existing covers are unchanged; the sidecar avoids rewriting the large shared payload. No photograph rights claim, package change or clinical approval badge.
 
 Local/hosted checks, production publication, Play/PDF and review state require separate verification receipts. This preparation note is not completion or clinical sign-off.
 
