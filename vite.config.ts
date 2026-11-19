@@ -1,4 +1,4 @@
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig, loadEnv, type UserConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
@@ -11,15 +11,6 @@ import { explicitPrerenderEnabled } from "./scripts/prerender-availability.ts";
 // Prerender is opt-in. An explicitly requested run must not silently fall back
 // to a non-prerendered build when its browser is missing. Ordinary hosted builds
 // remain unchanged and never force all routes through Chromium.
-const ENABLE_PRERENDER = explicitPrerenderEnabled();
-if (!ENABLE_PRERENDER) {
-  console.warn(
-    "[prerender] skipped — set PRERENDER=1 (npm run build:prerender) with a " +
-      "Chromium binary available to generate static HTML for crawlers.",
-  );
-}
-
-
 // Bundle analyzer is opt-in via ANALYZE=1 npm run build → dist/stats.html
 const ENABLE_ANALYZE = process.env.ANALYZE === "1";
 
@@ -58,7 +49,17 @@ function preloadInterFont() {
   };
 }
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(async ({ mode }): Promise<UserConfig> => {
+const ENABLE_PRERENDER = await explicitPrerenderEnabled();
+if (!ENABLE_PRERENDER) {
+  console.warn(
+    "[prerender] skipped — set PRERENDER=1 (npm run build:prerender) with a " +
+      "Chromium binary available to generate static HTML for crawlers.",
+  );
+}
+
+
+
   return ({
   server: {
     host: "::",
