@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import MotivationMarquee from "../MotivationMarquee";
 
 const css = readFileSync("src/index.css", "utf8");
+const layoutCss = readFileSync("src/components/landing/MotivationMarquee.css", "utf8");
 
 describe("restored original orange encouragement banner", () => {
   it("keeps one accessible quote while decorative copies scroll", () => {
@@ -39,8 +40,8 @@ describe("restored original orange encouragement banner", () => {
     expect(block).toContain(".motivation-marquee:hover");
     expect(block).toContain("@media (prefers-reduced-motion: reduce)");
     expect(block).toContain("animation: none");
-    expect(block).toContain("min-width: 100vw");
-    expect(block).toContain("order: -1");
+    expect(layoutCss).toContain("min-width: 100vw");
+    expect(layoutCss).toContain("order: -1");
     expect(block).toContain("white-space: normal");
   });
 });
