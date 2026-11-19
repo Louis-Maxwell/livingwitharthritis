@@ -1,3 +1,4 @@
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { AlertTriangle, ChevronLeft } from "lucide-react";
 import PET_ARTICLES from "@/data/pets-arthritis.generated";
@@ -28,11 +29,12 @@ export default function PetArticle() {
 
       <main id="main-content" className="bg-white">
         <article className="max-w-3xl mx-auto px-6 py-10">
+          <PageBreadcrumb className="!px-0 !pt-0" segments={[{ label: "Pets", href: "/pets" }, { label: article.title }]} />
           <Link to="/pets" className="inline-flex items-center gap-1 text-sm text-primary font-semibold mb-6 hover:underline">
             <ChevronLeft className="w-4 h-4" aria-hidden="true" /> All pet guides
           </Link>
 
-          <span className="text-xs font-bold uppercase tracking-wide text-primary">{article.species}</span>
+          <span className="block text-xs font-bold uppercase tracking-wide text-primary">{article.species}</span>
           <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">{article.title}</h1>
           <p className="text-lg text-gray-600 mb-6">{article.summary}</p>
 
@@ -118,4 +120,4 @@ export default function PetArticle() {
       </main>
     </>
   );
-}
+    }
