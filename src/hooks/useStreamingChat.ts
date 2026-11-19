@@ -53,29 +53,34 @@ function getRateLimitUserId(): string {
 async function tryRemoteThenLocal(
   input: string,
   onStatus: (s: string) => void,
+  signal: AbortSignal,
 ): Promise<{ mode: "local" | "remote"; text: string }> {
-  const remoteEnabled =
-    typeof import.meta !== "undefined" &&
-    Boolean((import.meta as ImportMeta & { env?: Record<string, string> }).env?.VITE_CHAT_API);
+  const remoteEnabled = Boolean(import.meta.env.VITE_CHAT_API);
 
   if (remoteEnabled) {
     onStatus("Searching guidance…");
     try {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 2500);
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input }),
-        signal: controller.signal,
-      });
-      clearTimeout(timer);
-      if (res.ok) {
-        const data = (await res.json().catch(() => null)) as { reply?: string; content?: string } | null;
-        const text = data?.reply || data?.content;
-        if (text && text.trim()) {
-          return { mode: "remote", text: text.trim() };
+      const cancel = () => controller.abort();
+      signal.addEventListener("abort", cancel, { once: true });
+      try {
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: input }),
+          signal: controller.signal,
+        });
+        if (res.ok) {
+          const data = (await res.json().catch(() => null)) as { reply?: string; content?: string } | null;
+          const text = data?.reply || data?.content;
+          if (text && text.trim()) {
+            return { mode: "remote", text: text.trim() };
+          }
         }
+      } finally {
+        clearTimeout(timer);
+        signal.removeEventListener("abort", cancel);
       }
     } catch {
       // fall through to local immediately
@@ -98,6 +103,13 @@ export function useStreamingChat() {
   const historyLoadedRef = useRef(false);
   const messagesRef = useRef<Message[]>([]);
   const isLoadingRef = useRef(false);
+  const requestIdRef = useRef(0);
+  const requestControllerRef = useRef<AbortController | null>(null);
+
+  useEffect(() => () => {
+    requestIdRef.current += 1;
+    requestControllerRef.current?.abort();
+  }, []);
 
   useEffect(() => {
     const saved = loadAnonChatHistory();
@@ -115,6 +127,9 @@ export function useStreamingChat() {
   }, [messages, userId]);
 
   const abortInFlight = useCallback(() => {
+    requestIdRef.current += 1;
+    requestControllerRef.current?.abort();
+    requestControllerRef.current = null;
     isLoadingRef.current = false;
     setIsLoading(false);
     setStatusLabel(null);
@@ -122,6 +137,12 @@ export function useStreamingChat() {
 
   const sendMessage = useCallback(async (input: string, _userProfile?: ChatProfile) => {
     if (!input.trim() || isLoadingRef.current) return;
+
+    const requestId = ++requestIdRef.current;
+    const controller = new AbortController();
+    requestControllerRef.current = controller;
+    const isCurrent = () => requestIdRef.current === requestId && !controller.signal.aborted;
+    const updateStatus = (status: string | null) => { if (isCurrent()) setStatusLabel(status); };
 
     const userMsg: Message = { role: "user", content: input.trim(), id: makeId() };
     const assistantId = makeId();
@@ -133,6 +154,7 @@ export function useStreamingChat() {
     setMessages((prev) => [...prev, userMsg, { role: "assistant", content: "", id: assistantId }]);
 
     const appendToAssistant = (chunk: string) => {
+      if (!isCurrent()) return;
       setMessages((prev) =>
         prev.map((m) =>
           m.id === assistantId ? { ...m, content: (m.content || "") + chunk } : m,
@@ -141,19 +163,22 @@ export function useStreamingChat() {
     };
 
     const replaceAssistant = (text: string) => {
+      if (!isCurrent()) return;
       setMessages((prev) =>
         prev.map((m) => (m.id === assistantId ? { ...m, content: text } : m)),
       );
     };
 
     try {
-      const remote = await tryRemoteThenLocal(userMsg.content, setStatusLabel);
+      const remote = await tryRemoteThenLocal(userMsg.content, updateStatus, controller.signal);
+      if (!isCurrent()) return;
 
       if (remote.mode === "remote" && remote.text) {
         replaceAssistant("");
-        setStatusLabel(null);
+        updateStatus(null);
         const parts = remote.text.match(/[^\n]+(?:\n+|$)/g) || [remote.text];
         for (const p of parts) {
+          if (!isCurrent()) return;
           appendToAssistant(p);
           await new Promise((r) => setTimeout(r, 10));
         }
@@ -164,11 +189,11 @@ export function useStreamingChat() {
           userMsg.content,
           getRateLimitUserId(),
           (chunk) => {
-            setStatusLabel(null);
+            updateStatus(null);
             appendToAssistant(chunk);
           },
           () => {},
-          (status) => setStatusLabel(status),
+          (status) => updateStatus(status),
         );
         appendToAssistant(EMAIL_NOTE);
       }
@@ -176,9 +201,13 @@ export function useStreamingChat() {
       const fallback = getFallbackAnswer(userMsg.content) + EMAIL_NOTE;
       replaceAssistant(fallback);
     } finally {
-      isLoadingRef.current = false;
-      setIsLoading(false);
-      setStatusLabel(null);
+      if (isCurrent()) {
+        isLoadingRef.current = false;
+        setIsLoading(false);
+        setStatusLabel(null);
+        requestControllerRef.current = null;
+        controller.abort();
+      }
     }
   }, []);
 
