@@ -23,7 +23,7 @@ describe("homepage boot hero", () => {
 
   it("keeps the current headline and accessible help actions in both shells", () => {
     for (const source of [compact(hero), compact(html)]) {
-      expect(source).toContain("Practical help for life with arthritis.");
+      expect(source).toContain("Providing practical advice, support and evidence-based guidance for people living with arthritis and frailty.");
       expect(source).toContain("home-practical-hero");
       expect(source).toContain("/guides/arthritis-pain-relief");
       expect(source).toContain("Find help for my situation");
