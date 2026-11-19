@@ -1,8 +1,28 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync, writeFileSync, mkdirSync, mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { materializeEditorialCovers } from '../../../scripts/materialize-editorial-covers';
 import post from '@/content/blog/posts/anti-inflammatory-herbs-spices-arthritis.json';
 import { blogPostSchema } from '@/lib/blog/schema';
 
 describe('herbs and spices editorial boundaries', () => {
+  it('materialises the exact checked title card and original artwork credit', () => {
+    const fixture = mkdtempSync(join(tmpdir(), 'lwa-herbs-cover-'));
+    try {
+      for (const dir of ['public/openverse', 'scripts/data', 'src/data']) mkdirSync(join(fixture, dir), { recursive: true });
+      for (const file of ['public/openverse/ATTRIBUTION.json', 'scripts/data/editorial-covers.json', 'scripts/data/editorial-herbs-cover.json', 'scripts/generate-cover-credits.mjs']) writeFileSync(join(fixture, file), readFileSync(file));
+      materializeEditorialCovers(fixture);
+      const cards = JSON.parse(readFileSync('scripts/data/editorial-herbs-cover.json', 'utf8'));
+      expect(readFileSync(join(fixture, 'public/openverse', post.cover))).toEqual(Buffer.from(cards[post.cover].base64, 'base64'));
+      execFileSync(process.execPath, ['scripts/generate-cover-credits.mjs'], { cwd: fixture });
+      expect(JSON.parse(readFileSync(join(fixture, 'src/data/cover-credits.generated.json'), 'utf8'))[post.cover]).toBe('Image: Living With Arthritis');
+      cards[post.cover].sha256 = 'invalid';
+      writeFileSync(join(fixture, 'scripts/data/editorial-herbs-cover.json'), JSON.stringify(cards));
+      expect(() => materializeEditorialCovers(fixture)).toThrow('checksum mismatch');
+    } finally { rmSync(fixture, { recursive: true, force: true }); }
+  });
   it('keeps the existing published route and an honest review state', () => {
     expect(blogPostSchema.safeParse(post).success).toBe(true);
     expect(post.slug).toBe('anti-inflammatory-herbs-spices-arthritis');
