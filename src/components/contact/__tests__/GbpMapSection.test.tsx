@@ -15,6 +15,20 @@ describe("GbpMapSection", () => {
     expect(screen.queryByText(/Oswestry/i)).not.toBeInTheDocument();
   });
 
+  it("keeps contact links without promising unverified hours or routing", () => {
+    render(<GbpMapSection embedUrl={null} />);
+    const section = screen.getByTestId("gbp-map-section");
+    expect(section).not.toHaveTextContent(/9am|5pm|Mon.?Fri|working days|we will point/i);
+    expect(screen.getByRole("link", { name: /@/ })).toHaveAttribute(
+      "href",
+      expect.stringMatching(/^mailto:/),
+    );
+    expect(section.querySelector('a[href^="tel:"]')).toBeInTheDocument();
+    expect(screen.getByTestId("gbp-map-placeholder")).toHaveTextContent(
+      /use the contact details above/i,
+    );
+  });
+
   it("renders iframe with width/height when allowlisted embed URL is set", () => {
     const url =
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d0!2d0!3d0";
