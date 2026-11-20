@@ -10,6 +10,8 @@ export function materializeEditorialCovers(root = process.cwd()) {
   const assets = JSON.parse(readFileSync(source, "utf8")) as Record<string, { sha256: string; base64: string }>;
   const additional = resolve(root, "scripts/data/editorial-herbs-cover.json");
   if (existsSync(additional)) Object.assign(assets, JSON.parse(readFileSync(additional, "utf8")));
+  const care = resolve(root, "scripts/data/editorial-care-covers.json");
+  if (existsSync(care)) Object.assign(assets, JSON.parse(readFileSync(care, "utf8")));
   const output = resolve(root, "public/openverse");
   mkdirSync(output, { recursive: true });
   for (const [name, asset] of Object.entries(assets)) {
