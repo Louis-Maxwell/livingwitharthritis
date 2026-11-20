@@ -16,6 +16,13 @@ describe("contextual blank-record link expansion",()=>{
    expect(post.reviewed_by).toBeNull();
    expect(post.editorial_review_note).toContain("not yet had a fresh clinical review");
    expect(post.content).toContain("awaiting separate clinical review");
+  }else if(slug==="activity-diary-arthritis-frailty-uk") {
+   expect(hash(clean)).toBe("b20e9d2dace1b7a9c6476a92610b7dcc97e7be91191a66609efd89e3ffa060c2");
+   expect(post.last_reviewed).toBeUndefined();
+   expect(post.reviewed_by).toBeNull();
+   expect(post.editorial_review_note).toContain("limited correction");
+   expect(post.content).toContain("awaiting separate clinical review");
+   expect(post.citations.some((x:{url:string})=>x.url==="https://www.nhs.uk/conditions/confusion/")).toBe(true);
   }else {
   expect(hash(clean)).toBe(baselines[slug].body);
   const newMeta={...post}; delete newMeta.content;
