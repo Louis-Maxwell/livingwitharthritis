@@ -327,9 +327,9 @@ export function pickArticleImages(
       credit: "Original illustration: Living With Arthritis. A conversation aid, not a treatment plan.",
     }];
   }
-  // This beginner guide teaches seated movements, not the automatically
-  // matched Pilates poses. Keep its relevant group-activity cover only.
-  if (seedKey === "arthritis-exercise-for-beginners") return [cover];
+  // These guides do not teach the automatically matched Pilates poses.
+  // Keep their existing covers rather than implying those poses are instructions.
+  if (seedKey === "arthritis-exercise-for-beginners" || seedKey === "tai-chi-for-arthritis-uk") return [cover];
   const text = topicText(category, title, seedKey, keywords);
   const tokens = tokenize(text);
   const allowNutrition = isDietNutritionTopic(category, title, seedKey, keywords);
