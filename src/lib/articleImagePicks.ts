@@ -315,7 +315,7 @@ export function pickArticleImages(
   // visually confirmed on this prevention guide. Other articles keep their picks.
   if (seedKey === "skin-pressure-care-arthritis-frailty-uk") {
     return [cover, {
-      src: "/openverse/lwa-pressure-care-everyday.webp",
+      src: "/openverse/lwa-pressure-care-everyday.svg",
       alt: "Everyday pressure care: change position regularly, check skin daily and get equipment assessed",
       credit: "Original illustration: Living With Arthritis. Based on NHS pressure-ulcer prevention advice.",
     }];
@@ -384,4 +384,4 @@ export function coverFromFile(file: string | null | undefined): ArticleImage {
 /** Test helper: true if a path/filename is nutrition/fruit stock. */
 export function isNutritionStockPath(srcOrFile: string): boolean {
   return NUTRITION_FILENAME_RE.test(srcOrFile);
-}
+    }
