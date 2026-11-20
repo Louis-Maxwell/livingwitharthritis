@@ -91,7 +91,7 @@ const ContactSection = memo(() => {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const draftHeadingRef = useRef<HTMLHeadingElement>(null);
-  const messageRef = useRef<HTMLTextAreaElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement | null>(null);
   const restoreMessageFocus = useRef(false);
   useEffect(() => {
     if (submitted) draftHeadingRef.current?.focus();
