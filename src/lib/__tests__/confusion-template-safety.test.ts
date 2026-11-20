@@ -14,6 +14,7 @@ describe('Sudden-confusion source-copy safety guard', () => {
     for (const p of revised) {
       expect(blogPostSchema.safeParse(p).success, p.slug).toBe(true);
       expect(p.reviewed_by, p.slug).toBeNull();
+      expect(p.content, p.slug).not.toMatch(/(?:clinically )?reviewed by Louis Maxwell/i);
       expect(p.editorial_review_note, p.slug).toContain('not yet had a fresh clinical review');
       expect(p.citations?.some(c => c.url === 'https://www.nhs.uk/conditions/confusion/'), p.slug).toBe(true);
       expect(/(?:Call 999|call 999|999 or go to A&amp;E)/.test(p.content), p.slug).toBe(true);
