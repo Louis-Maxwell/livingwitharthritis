@@ -327,6 +327,9 @@ export function pickArticleImages(
       credit: "Original illustration: Living With Arthritis. A conversation aid, not a treatment plan.",
     }];
   }
+  // This beginner guide teaches seated movements, not the automatically
+  // matched Pilates poses. Keep its relevant group-activity cover only.
+  if (seedKey === "arthritis-exercise-for-beginners") return [cover];
   const text = topicText(category, title, seedKey, keywords);
   const tokens = tokenize(text);
   const allowNutrition = isDietNutritionTopic(category, title, seedKey, keywords);
@@ -391,4 +394,4 @@ export function coverFromFile(file: string | null | undefined): ArticleImage {
 /** Test helper: true if a path/filename is nutrition/fruit stock. */
 export function isNutritionStockPath(srcOrFile: string): boolean {
   return NUTRITION_FILENAME_RE.test(srcOrFile);
-      }
+}
