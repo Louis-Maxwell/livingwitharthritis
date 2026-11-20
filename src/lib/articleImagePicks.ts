@@ -320,6 +320,13 @@ export function pickArticleImages(
       credit: "Original illustration: Living With Arthritis. Based on NHS pressure-ulcer prevention advice.",
     }];
   }
+  if (seedKey === "wound-care-reaching-arthritis-frailty-uk") {
+    return [cover, {
+      src: "/openverse/lwa-wound-care-plan.svg",
+      alt: "Wound-care planning questions: assessment, practical help and care between appointments",
+      credit: "Original illustration: Living With Arthritis. A conversation aid, not a treatment plan.",
+    }];
+  }
   const text = topicText(category, title, seedKey, keywords);
   const tokens = tokenize(text);
   const allowNutrition = isDietNutritionTopic(category, title, seedKey, keywords);
@@ -384,4 +391,4 @@ export function coverFromFile(file: string | null | undefined): ArticleImage {
 /** Test helper: true if a path/filename is nutrition/fruit stock. */
 export function isNutritionStockPath(srcOrFile: string): boolean {
   return NUTRITION_FILENAME_RE.test(srcOrFile);
-    }
+      }

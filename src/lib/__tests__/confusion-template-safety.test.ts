@@ -10,7 +10,12 @@ describe('Sudden-confusion source-copy safety guard', () => {
   });
   it('keeps the explicitly limited corrections valid, cited and pending separate clinical review', () => {
     const revised = posts.filter(p => p.is_published && p.editorial_review_note?.startsWith('The sudden-confusion emergency advice was corrected on 20 November 2026'));
-    expect(revised.length).toBe(96);
+    // The pressure-care guide now has a full rewrite and a dedicated regression guard.
+    expect(revised.length).toBe(95);
+    const pressure = posts.find(p => p.slug === 'skin-pressure-care-arthritis-frailty-uk');
+    expect(pressure?.editorial_review_note).toContain('Substantively revised on 20 November 2026');
+    expect(pressure?.content).toContain('Call 999 or go to A&amp;E if you think the person may have sepsis');
+    expect(pressure?.citations?.some(c => c.url === 'https://www.nhs.uk/conditions/sepsis/')).toBe(true);
     for (const p of revised) {
       expect(blogPostSchema.safeParse(p).success, p.slug).toBe(true);
       expect(p.reviewed_by, p.slug).toBeNull();
