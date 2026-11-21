@@ -5,6 +5,7 @@ import { MapPin } from "lucide-react";
 import FooterMostRead from "@/components/FooterMostRead";
 import { lazy, Suspense } from "react";
 import DeferredMount from "@/components/DeferredMount";
+import ViewportSection from "@/components/ViewportSection";
 const RelatedGuidesBlock = lazy(() => import("@/components/blog/RelatedGuidesBlock"));
 const PageShareButtons = lazy(() => import('@/components/PageShareButtons'));
 import HelplineWidget from "@/components/HelplineWidget";
@@ -124,11 +125,11 @@ const Footer = () => {
     )}
     <footer className="bg-muted/30 border-t border-border/20 pb-20 lg:pb-0" role="contentinfo" aria-label="Site footer">
       {/* Helpline strip — sits above the footer on every page */}
-      <DeferredMount>
-        <Suspense fallback={null}>
-          <RelatedGuidesBlock />
-        </Suspense>
-      </DeferredMount>
+      {/* Keep catalogue-backed recommendations off the initial route request.
+          Mount near the footer, without removing any links or changing their order. */}
+      <ViewportSection>
+        <RelatedGuidesBlock />
+      </ViewportSection>
       <HelplineWidget />
 
       <FooterMostRead />
