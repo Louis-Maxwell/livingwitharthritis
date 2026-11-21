@@ -79,8 +79,27 @@ describe("no removed backends", () => {
     expect(hits, hits.join("\n")).toEqual([]);
   });
 
-  it("does not resurrect vercel.json, .vercel, or src/integrations/supabase", () => {
-    expect(pathExists("vercel.json")).toBe(false);
+  it("allows a redirects-only vercel.json and no Vercel project or Supabase client", () => {
+    // vercel.json is the static 301 map for the Vercel preview. It must not
+    // grow a rewrite to index.html (that is the soft 404) or any serverless
+    // backend. .vercel/ and @vercel imports stay forbidden.
+    expect(pathExists("vercel.json")).toBe(true);
+    const vercel = JSON.parse(readFileSync(join(ROOT, "vercel.json"), "utf8")) as {
+      redirects?: { source: string; destination: string; statusCode: number }[];
+      rewrites?: unknown;
+      routes?: unknown;
+      functions?: unknown;
+      builds?: unknown;
+      crons?: unknown;
+    };
+    expect(vercel.rewrites).toBeUndefined();
+    expect(vercel.routes).toBeUndefined();
+    expect(vercel.functions).toBeUndefined();
+    expect(vercel.builds).toBeUndefined();
+    expect(vercel.crons).toBeUndefined();
+    const shop = vercel.redirects?.find((rule) => rule.source === "/shop");
+    expect(shop).toEqual({ source: "/shop", destination: "/supplements", statusCode: 301 });
+    expect(vercel.redirects?.some((rule) => rule.destination.includes("index.html"))).toBe(false);
     expect(pathExists(".vercel")).toBe(false);
     expect(pathExists("src/integrations")).toBe(false);
     expect(pathExists("src/integrations/supabase")).toBe(false);

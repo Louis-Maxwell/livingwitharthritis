@@ -41,6 +41,7 @@
     "seo:headings": "bun scripts/audit-headings.ts",
     "seo:aeo-sync": "bun scripts/check-aeo-sync.mjs",
     "seo:redirects": "node scripts/check-redirects.mjs && node scripts/sync-host-redirects.mjs --check",
+    "seo:built-status": "node scripts/check-built-status.mjs",
     "seo:prerender-meta": "node scripts/check-prerender-meta.mjs",
     "seo:ai-identity": "node scripts/validate-ai-identity.mjs",
     "seo:sitemap-live": "node scripts/audit-sitemap.mjs",

@@ -15,6 +15,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { writeFileAtomicSync } from './lib/atomic-write.mjs';
 import { resolve } from 'node:path';
 import { routePatterns, injectFallbackNoindex } from './lib/fallback-noindex.mjs';
+import { forcePermanentRedirects } from './lib/host-routing.mjs';
 
 const DIST = resolve('dist');
 const indexPath = resolve(DIST, 'index.html');
@@ -148,7 +149,13 @@ const block = [
   '',
 ].join('\n');
 
-writeFileAtomicSync(redirectsPath, `${existing.trimEnd()}\n${block}`, 'utf8');
+// 301! beats the noindex stub files written for hosts that ignore
+// redirects. Without the force flag, dist/shop/index.html is served as 200.
+writeFileAtomicSync(
+  redirectsPath,
+  forcePermanentRedirects(`${existing.trimEnd()}\n${block}`),
+  'utf8',
+);
 console.log(`[404] appended ${spaRules.size} SPA rules + catch-all 404 to dist/_redirects`);
 
 // Soft-404 guard on the fallback shell: Lovable ignores _redirects and serves
