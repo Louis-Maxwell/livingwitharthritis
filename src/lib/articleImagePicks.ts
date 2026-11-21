@@ -311,6 +311,12 @@ export function pickArticleImages(
   seedKey: string,
   keywords?: string | string[] | null,
 ): ArticleImage[] {
+  // These article-specific covers replace visually confirmed unrelated imagery.
+  // Do not imply that surgical photographs or advanced Pilates poses illustrate these topics.
+  if (seedKey === "bereavement-arthritis-frailty-living-alone-uk"
+    || seedKey === "post-hip-replacement-frailty-home-uk") {
+    return [cover];
+  }
   // Article-specific editorial replacement: unrelated surgical imagery was
   // visually confirmed on this prevention guide. Other articles keep their picks.
   if (seedKey === "skin-pressure-care-arthritis-frailty-uk") {
@@ -329,7 +335,7 @@ export function pickArticleImages(
   }
   // This beginner guide teaches seated movements, not the automatically
   // matched Pilates poses. Keep its relevant group-activity cover only.
-  if (seedKey === "arthritis-exercise-for-beginners") return [cover];
+  if (seedKey === "arthritis-exercise-for-beginners" || seedKey === "tai-chi-for-arthritis-uk") return [cover];
   const text = topicText(category, title, seedKey, keywords);
   const tokens = tokenize(text);
   const allowNutrition = isDietNutritionTopic(category, title, seedKey, keywords);

@@ -430,6 +430,8 @@ const STATIC_RESOURCES = new Set([
   "/resources/knee-joint-map.html",
   "/resources/gp-appointment-symptom-medication-tracker.pdf",
   "/resources/flare-up-daily-log.pdf",
+  "/resources/chair-exercise-guide.pdf",
+  "/resources/joint-friendly-eating-checklist.pdf",
 ]);
 // Keep known sitemap pages and the explicit published resources; others become text.
 function unwrapUnknownLinks(html) {
