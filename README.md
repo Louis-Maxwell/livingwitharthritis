@@ -11,9 +11,9 @@ A member/admin backend will return later when traffic grows. Until then the publ
 
 ## Run locally
 
-Prerequisites: Node.js 20+.
+Prerequisites: Node.js ^22.13.0, ^24.0.0, or 26+ (see the `engines` field in `package.json`).
 
-    npm i
+    npm ci
     npm run dev
 
 Open http://localhost:8080
@@ -48,6 +48,4 @@ MIT - see LICENSE.
 
 ## SEO resources
 
-- [Shared SEO resource](https://getautoseo.com/shared/af63fadcda4b0360c01c08aca725cb8c65651f5327659436930aff53c5b24762)
-- [Shared SEO resource](https://getautoseo.com/shared/62d3bd030673ab5a14041f9ed15e3768b863e54a8778ea4b38cc804b2a5c3d3b)
-- [Shared SEO resource](https://getautoseo.com/shared/57f4af4439e023be378d1a7011813a37ed92c78ed4eae7ffc3522d3f73c5ae75)
+SEO research and working notes are maintained in the project’s private workspace. Do not publish shared or access-token URLs in this repository.
