@@ -3,6 +3,9 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 
+import { MEDICAL_DISCLAIMER_SHORT } from "@/lib/medicalDisclaimer";
+import { htmlToPlainText } from "@/lib/sanitize";
+
 const here = dirname(fileURLToPath(import.meta.url));
 const hero = readFileSync(resolve(here, "../OAHero.tsx"), "utf8");
 const html = readFileSync(resolve(here, "../../../../index.html"), "utf8");
@@ -27,8 +30,14 @@ describe("homepage boot hero", () => {
       expect(source).toContain("home-practical-hero");
       expect(source).toContain("/guides/arthritis-pain-relief");
       expect(source).toContain("Find help for my situation");
-      expect(source).toContain("call 999");
+
     }
+  });
+
+  it("keeps the exact shared safety warning in both shells", () => {
+    expect(hero).toContain("{MEDICAL_DISCLAIMER_SHORT}");
+    expect(htmlToPlainText(html)).toContain(MEDICAL_DISCLAIMER_SHORT);
+    expect(MEDICAL_DISCLAIMER_SHORT).toContain("Call 999 for a life-threatening emergency");
   });
 
   it("restores red and white without reverting the current content or help routes", () => {
