@@ -14,6 +14,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 
 import Header from "@/components/Header";
+import { HOMEPAGE_INTRODUCTION, CHARITY_MISSION } from "@/data/reviewedPublicCopy";
 import MotivationMarquee from "@/components/landing/MotivationMarquee";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
@@ -155,6 +156,8 @@ function HomePage() {
 
           {/* 05 — Answer-first summary + FAQ (single FAQPage JSON-LD) */}
           <div className="container mx-auto px-5 md:px-10 max-w-3xl py-6">
+            <p className="text-base leading-relaxed text-foreground">{HOMEPAGE_INTRODUCTION}</p>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">{CHARITY_MISSION}</p>
             <Suspense fallback={null}>
               <AeoEnhancement route="/" />
             </Suspense>

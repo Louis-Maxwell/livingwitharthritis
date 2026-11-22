@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ArrowDown, HeartPulse } from "lucide-react";
 import { onCoverImgError } from "@/lib/coverFallback";
 import { trackStartHereCard } from "@/lib/ga-events";
+import { MEDICAL_DISCLAIMER_SHORT } from "@/lib/medicalDisclaimer";
 
 /**
  * Homepage hero — customer-first.
@@ -86,8 +87,7 @@ const OAHero = memo(() => (
           </div>
 
           <p className="mt-4 text-sm max-w-xl leading-relaxed">
-            Educational information only - not a diagnosis or personal medical advice. If
-            you have an emergency, call 999. For urgent non-emergency advice contact your GP or NHS 111.
+            {MEDICAL_DISCLAIMER_SHORT}
           </p>
         </div>
 

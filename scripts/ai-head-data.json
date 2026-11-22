@@ -6988,8 +6988,70 @@
     "title": "Living With Arthritis | Evidence-Based Health Guides",
     "description": "Free UK arthritis guides on joint pain, exercise, diet and PIP. Find practical self-care help from Living With Arthritis, independent charity 1218461.",
     "question": "What is Living With Arthritis?",
-    "answer": "Living With Arthritis is a registered charity in England and Wales (no. 1218461) publishing free, clinically reviewed guidance for people living with arthritis across the UK — exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.",
-    "updatedAt": "2026-09-20"
+    "answer": "Living With Arthritis is an independent registered charity in England and Wales (no. 1218461). We publish free educational information and practical resources about arthritis, exercise, everyday self-management and UK benefits. Our information is not a diagnosis or a personal treatment plan. We are separate from Arthritis UK and the US Arthritis Foundation.",
+    "updatedAt": "2026-11-22",
+    "faqs": [
+      {
+        "q": "What is Living With Arthritis?",
+        "a": "Living With Arthritis is an independent registered charity in England and Wales (no. 1218461), publishing free educational information and practical resources about arthritis, exercise, everyday self-management and UK benefits. Our information does not replace personal medical advice. We are separate from Arthritis UK and the US Arthritis Foundation."
+      },
+      {
+        "q": "What types of arthritis do you cover?",
+        "a": "Our resources cover conditions including osteoarthritis, rheumatoid arthritis, psoriatic arthritis, gout, ankylosing spondylitis and juvenile idiopathic arthritis. Related resources also discuss joint pain and fibromyalgia. Coverage is educational, not a diagnosis or a promise of specialist care for every condition."
+      },
+      {
+        "q": "Is arthritis an inevitable part of ageing?",
+        "a": "No. Age can increase the risk of some types of arthritis, but age alone is not a diagnosis. Arthritis can also affect younger adults and children. Ask a GP about unexplained joint pain, swelling or stiffness that does not settle, rather than assuming it is simply ageing."
+      },
+      {
+        "q": "Can arthritis be cured?",
+        "a": "There is currently no cure for most long-term forms of arthritis, but treatments can help manage symptoms and protect function. The right approach depends on the type of arthritis and your circumstances. Seek assessment and discuss treatment with your healthcare team; this website does not promise a cure."
+      },
+      {
+        "q": "What are the most common symptoms of arthritis?",
+        "a": "Common symptoms include joint pain, swelling, stiffness and difficulty moving a joint. Symptoms and their pattern vary by condition. Sudden severe pain and swelling in one joint, a hot or red joint, or joint pain with fever or shivering need urgent clinical advice. Do not use a symptom list to diagnose yourself."
+      },
+      {
+        "q": "Does exercise make arthritis worse?",
+        "a": "Appropriate exercise is an important part of arthritis management. For osteoarthritis, NICE recommends exercise tailored to your needs and explains that pain may increase when you first start. Regular exercise can improve pain and function over time. Ask a suitable healthcare professional how to adapt activity to your symptoms and other health conditions."
+      },
+      {
+        "q": "What exercises are best for arthritis?",
+        "a": "There is no single best routine for everyone. For osteoarthritis, NICE recommends exercise tailored to the person, such as muscle strengthening and aerobic fitness. Low-impact activities can include walking, swimming or cycling when suitable. Choose and adapt activities with advice where needed, rather than copying another person's programme."
+      },
+      {
+        "q": "Can losing weight help arthritis pain?",
+        "a": "For people with osteoarthritis who are living with overweight or obesity, NICE says weight loss can reduce pain and improve physical function and quality of life. The goal and support should suit the individual. This does not mean everyone with arthritis needs to lose weight or that weight loss replaces other treatment."
+      },
+      {
+        "q": "Is arthritis only a joint condition?",
+        "a": "Not always. Some inflammatory conditions, including rheumatoid arthritis, can affect other parts of the body, such as the eyes, lungs, heart or blood vessels. Effects differ between conditions and people. Tell your healthcare team about new symptoms rather than assuming they are an ordinary flare."
+      },
+      {
+        "q": "How can physiotherapy help arthritis?",
+        "a": "Physiotherapy can help improve strength and mobility and support a suitable exercise and self-management plan. The assessment and advice should reflect your condition and goals. Reading an exercise guide on this website is not the same as receiving an individual physiotherapy assessment or treatment."
+      },
+      {
+        "q": "Can young people get arthritis?",
+        "a": "Yes. Arthritis can affect children, teenagers and younger adults as well as older people. Juvenile idiopathic arthritis affects children under 16. Persistent unexplained joint pain, swelling or stiffness should be assessed by an appropriate healthcare professional."
+      },
+      {
+        "q": "What is self-management?",
+        "a": "Self-management means the everyday actions you take alongside your healthcare team to manage a long-term condition. This can include suitable activity, taking medicines as prescribed, monitoring symptoms, adapting tasks and seeking help when needed. It does not mean managing alone or replacing necessary treatment."
+      },
+      {
+        "q": "How does Living With Arthritis support people?",
+        "a": "You can read educational guides and use practical resources such as joint-exercise information, a symptom and flare tracker and UK benefits guidance. Check each page for its purpose, limitations and review status. These web resources do not provide a diagnosis or replace personal clinical care. For urgent help, use the appropriate health service."
+      },
+      {
+        "q": "Is the information provided by Living With Arthritis medically reviewed?",
+        "a": "Check the stated author, sources, date and review status on each guide. Some pages disclose an editorial source check or an author's self-review; those are not independent specialist clinical review. Do not assume that every page has been independently reviewed. The information does not replace advice from your own healthcare professional."
+      },
+      {
+        "q": "How can I support Living With Arthritis?",
+        "a": "You can share a useful resource or use the website's current donation and contact routes. Contact the charity to ask which volunteering or collaboration opportunities are available before making plans. Sharing information should respect other people's privacy and the rules of the place where you share it."
+      }
+    ]
   },
   "/arthritis-waiting-list-help": {
     "title": "Arthritis Waiting List Help UK | Your Rights & What to Do",
@@ -7883,37 +7945,46 @@
       }
     ]
   },
-    "/conditions/foot-and-ankle-arthritis": {
-          "title": "Foot & Ankle Arthritis: Symptoms, Footwear & Exercises (UK)",
-          "description": "UK guide to foot and ankle arthritis: symptoms, supportive footwear, orthotics, gentle exercises and when to see your GP, physiotherapist or podiatrist.",
-          "about": "Foot and ankle arthritis",
-          "question": "What is foot and ankle arthritis?",
-          "answer": "Foot and ankle arthritis is joint damage in the ankle, midfoot or big toe that causes pain with walking, morning stiffness and difficulty finding comfortable shoes. Hallux rigidus, post-traumatic ankle OA and rheumatoid foot involvement are common UK patterns. Supportive footwear, orthotics, gentle exercises and podiatry help most people.",
-          "updatedAt": "2026-09-11",
-          "faqs": [
-                  {
-                            "q": "What are the first signs of foot or ankle arthritis?",
-                            "a": "Morning stiffness in the ankle or big toe, a deep ache with the first steps of the day, swelling after walking, and shoes that feel tight over a bony bump on the big toe joint."
-                  },
-                  {
-                            "q": "What is the best footwear for foot arthritis?",
-                            "a": "Choose a wide, deep toe box, firm heel counter, cushioned or rocker sole, low heel and adjustable fastenings. Removable insoles leave room for orthotics."
-                  },
-                  {
-                            "q": "What exercises help ankle arthritis?",
-                     "a": "Daily ankle circles, alphabet tracing, towel scrunches, gentle calf raises and single-leg balance near a counter. Warm the foot first and stop short of sharp pain."
-                  },
-                  {
-                            "q": "Can NHS podiatry help?",
-                            "a": "Yes. Ask your GP for a podiatry referral, or self-refer where available. Podiatrists assess biomechanics and can prescribe custom orthotics."
-                  },
-                  {
-                            "q": "When should I see a GP about foot or ankle pain?",
-                            "a": "If pain lasts more than a few weeks, limits walking, comes with warm swelling or deformity, or follows an old fracture. Seek urgent care for a hot, red joint with fever."
-                  }
-          ],
-          "reviewedBy": "Louis Maxwell",
-          "reviewerCredentials": "Physiotherapist, HCPC PH128483",
-          "lastReviewed": "2026-09-21"
-    }
+  "/conditions/foot-and-ankle-arthritis": {
+    "title": "Foot & Ankle Arthritis: Symptoms, Footwear & Exercises (UK)",
+    "description": "UK guide to foot and ankle arthritis: symptoms, supportive footwear, orthotics, gentle exercises and when to see your GP, physiotherapist or podiatrist.",
+    "about": "Foot and ankle arthritis",
+    "question": "What is foot and ankle arthritis?",
+    "answer": "Foot and ankle arthritis is joint damage in the ankle, midfoot or big toe that causes pain with walking, morning stiffness and difficulty finding comfortable shoes. Hallux rigidus, post-traumatic ankle OA and rheumatoid foot involvement are common UK patterns. Supportive footwear, orthotics, gentle exercises and podiatry help most people.",
+    "updatedAt": "2026-09-11",
+    "faqs": [
+      {
+        "q": "What are the first signs of foot or ankle arthritis?",
+        "a": "Morning stiffness in the ankle or big toe, a deep ache with the first steps of the day, swelling after walking, and shoes that feel tight over a bony bump on the big toe joint."
+      },
+      {
+        "q": "What is the best footwear for foot arthritis?",
+        "a": "Choose a wide, deep toe box, firm heel counter, cushioned or rocker sole, low heel and adjustable fastenings. Removable insoles leave room for orthotics."
+      },
+      {
+        "q": "What exercises help ankle arthritis?",
+        "a": "Daily ankle circles, alphabet tracing, towel scrunches, gentle calf raises and single-leg balance near a counter. Warm the foot first and stop short of sharp pain."
+      },
+      {
+        "q": "Can NHS podiatry help?",
+        "a": "Yes. Ask your GP for a podiatry referral, or self-refer where available. Podiatrists assess biomechanics and can prescribe custom orthotics."
+      },
+      {
+        "q": "When should I see a GP about foot or ankle pain?",
+        "a": "If pain lasts more than a few weeks, limits walking, comes with warm swelling or deformity, or follows an old fracture. Seek urgent care for a hot, red joint with fever."
+      }
+    ],
+    "reviewedBy": "Louis Maxwell",
+    "reviewerCredentials": "Physiotherapist, HCPC PH128483",
+    "lastReviewed": "2026-09-21"
+  },
+  "/disclaimer": {
+    "title": "Medical Disclaimer | Living With Arthritis",
+    "description": "Educational information only, not a diagnosis or personal medical advice. Check treatment decisions with an appropriate healthcare professional. Do not delay seeking care because of this website. Call 999 for a life-threatening emergency; use the appropriate urgent-care service for your part of the UK for urgent non-emergency help.",
+    "pageType": "WebPage",
+    "question": "What are the limits of this information?",
+    "answer": "Living With Arthritis publishes educational information about arthritis and related everyday concerns. Articles, exercises, tools, downloads and help-chat responses do not replace an individual assessment, diagnosis or treatment plan from a qualified healthcare professional.",
+    "updatedAt": "2026-11-22",
+    "bodyHtml": "<p>Living With Arthritis publishes educational information about arthritis and related everyday concerns. Articles, exercises, tools, downloads and help-chat responses do not replace an individual assessment, diagnosis or treatment plan from a qualified healthcare professional.</p><p>People&#x27;s symptoms, medicines and circumstances differ. Discuss treatment decisions with your GP, pharmacist, rheumatology team, physiotherapist or other appropriate clinician. Follow your prescriber&#x27;s instructions and medicine information; this website does not determine your dose or how to start, stop or change a medicine.</p><p>Check each guide&#x27;s sources, date and stated review status. An editorial source check is not the same as specialist clinical or welfare-rights review, and an author&#x27;s self-review is not independent review. Information and official rules can change. Use current official guidance and seek individual advice when needed.</p><p>Tools and help chat cannot examine you or provide emergency care. Do not wait for an online response if you need medical help. Follow the urgent-care guidance on this page, using the service for the part of the UK where you are.</p><p>External links lead to other organisations&#x27; information and services. Check their current guidance and whether it applies to your location and circumstances. Questions about the website can be sent through its current contact page; that is not an urgent medical-care route.</p><h2>When to seek urgent care</h2><h3>Call 999 for a life-threatening emergency</h3><p>Examples include a suspected heart attack or stroke, severe difficulty breathing, unconsciousness, severe uncontrolled bleeding or a severe allergic reaction. Follow the emergency call handler&#x27;s instructions. Do not use this website or wait for a charity response instead of seeking help.</p><h3>Back pain with new neurological warning signs</h3><p>If you have back pain with new bladder or bowel changes, loss of feeling around the genitals or anus, or pain, tingling, weakness or numbness in both legs, call 999 or go to A&amp;E immediately.</p><h3>A suddenly painful, hot or swollen joint</h3><p>Ask for an urgent GP appointment or urgent clinical advice if a joint becomes suddenly severely painful and swollen, the skin is hot or red, or joint pain comes with fever, shivering or feeling unwell. Use 111 where available, or your local urgent-care route in Northern Ireland. Call 999 if there are life-threatening symptoms.</p><h3>Mental health danger and urgent support</h3><p>Call 999 or go to A&amp;E if someone&#x27;s life is at risk or you cannot keep yourself or someone else safe. For urgent mental health help without immediate danger, use your local NHS or health-service crisis route. Emotional-support lines are not a replacement for emergency care.</p><h3>Urgent non-emergency help across the UK</h3><p>England: NHS 111. Scotland: NHS 24 on 111, with your own GP the usual route for urgent advice during normal working hours. Wales: NHS 111 Wales. Northern Ireland: contact your GP or local GP out-of-hours service; Phone First is available in some Trust areas.</p>"
+  }
 }
