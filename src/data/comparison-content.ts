@@ -210,86 +210,103 @@ export const COMPARISON_CONTENT: Record<string, ComparisonArticle> = {
   },
 
   "/guides/dmards-vs-biologics": {
-    path: "/guides/dmards-vs-biologics",
-    title: "DMARDs vs Biologics for Arthritis",
-    metaDescription:
-      "DMARDs vs biologics — how they differ in how they work, who gets them on the UK healthcare system, side-effects and cost. A plain-English UK guide.",
-    intro:
-      "For rheumatoid, psoriatic and axial spondyloarthritis, DMARDs and biologics are the two families of medicines that actually change the disease. They are not painkillers — they suppress the immune activity driving joint damage. This guide compares them for UK patients navigating UK healthcare rheumatology.",
-    optionA: {
-      name: "Conventional DMARDs",
-      howItWorks:
-        "Broadly damp down the immune system. Methotrexate is the anchor drug; others include sulfasalazine, hydroxychloroquine and leflunomide.",
-      bestFor:
-        "First-line treatment for rheumatoid, psoriatic and juvenile arthritis. Often used long-term.",
-      sideEffects:
-        "Nausea, mouth ulcers, hair thinning, raised liver enzymes, low blood counts. Reversible with dose changes.",
-      nhs: "Freely prescribed on the UK healthcare system, usually started by rheumatology and monitored with regular blood tests.",
-      cost: "Very cheap — methotrexate tablets cost the UK healthcare system pennies per week.",
+    "path": "/guides/dmards-vs-biologics",
+    "title": "DMARDs vs Biologics for Arthritis",
+    "metaDescription": "DMARDs vs biologics — how they differ in how they work, who gets them on the UK healthcare system, side-effects and cost. A plain-English UK guide.",
+    "intro": "Biologics are a type of disease-modifying anti-rheumatic drug (DMARD). This guide compares conventional DMARDs, such as methotrexate, with biological DMARDs for inflammatory arthritis. JAK inhibitors are a separate group called targeted synthetic DMARDs, not biologics. Conventional DMARDs can help rheumatoid arthritis and peripheral joint disease, but are not recommended for purely axial spondyloarthritis affecting the spine.",
+    "optionA": {
+      "name": "Conventional DMARDs",
+      "howItWorks": "Broadly damp down the immune system. Methotrexate is the anchor drug; others include sulfasalazine, hydroxychloroquine and leflunomide.",
+      "bestFor": "First-line treatment for rheumatoid, psoriatic and juvenile arthritis. Often used long-term.",
+      "sideEffects": "Nausea, mouth ulcers, hair thinning, raised liver enzymes, low blood counts. Reversible with dose changes.",
+      "nhs": "Freely prescribed on the UK healthcare system, usually started by rheumatology and monitored with regular blood tests.",
+      "cost": "Very cheap — methotrexate tablets cost the UK healthcare system pennies per week."
     },
-    optionB: {
-      name: "Biologics",
-      howItWorks:
-        "Target one specific step of the immune response — TNF, IL-6, IL-17, JAK, B cells — using engineered proteins or small molecules.",
-      bestFor:
-        "People whose disease stays active despite two conventional DMARDs, or who cannot tolerate them.",
-      sideEffects:
-        "Increased infection risk, injection-site reactions; specific classes carry other risks (e.g. shingles, cardiovascular).",
-      nhs: "Prescribed by rheumatology under NICE-approved criteria after DMARD failure, monitored by hospital.",
-      cost: "£8,000–£15,000+/year — usually free to eligible UK healthcare patients; biosimilars have reduced the price significantly.",
+    "optionB": {
+      "name": "Biologics",
+      "howItWorks": "Use engineered proteins to target parts of the immune response, such as TNF, IL-6, IL-17 or B cells. JAK inhibitors are targeted synthetic DMARDs, not biological medicines.",
+      "bestFor": "Selected people with active inflammatory arthritis when other suitable treatments have not controlled it. The treatment pathway depends on the condition and medicine.",
+      "sideEffects": "Infections and injection-site reactions are possible; other risks depend on the medicine. JAK inhibitors have separate safety warnings and should not be treated as biologics.",
+      "nhs": "Prescribed by specialist rheumatology under medicine- and condition-specific eligibility criteria, with ongoing monitoring.",
+      "cost": "£8,000–£15,000+/year — usually free to eligible UK healthcare patients; biosimilars have reduced the price significantly."
     },
-    sections: [
+    "sections": [
       {
-        heading: "How the two families really differ",
-        paragraphs: [
+        "heading": "How the two families really differ",
+        "paragraphs": [
           "Conventional DMARDs are old-school immune suppressants: they slow down a wide range of immune activity, which is why they work but also why they need blood monitoring. Methotrexate — the most-used arthritis medicine in the world — is safe and effective for most people at once-weekly doses.",
-          "Biologics are precision tools. Instead of dampening the whole immune system, they block one signal — for example TNF-Î± (adalimumab, etanercept, infliximab), IL-6 (tocilizumab), IL-17 (secukinumab) or B-cells (rituximab). Newer 'targeted synthetic DMARDs' (JAK inhibitors like tofacitinib and baricitinib) are tablets rather than injections but work in the same targeted way.",
-        ],
+          "Biological DMARDs target parts of the immune response. Examples include adalimumab, etanercept and infliximab (TNF inhibitors), tocilizumab (an IL-6 inhibitor), secukinumab (an IL-17 inhibitor) and rituximab (which targets B cells). They are given by injection or infusion. JAK inhibitors, such as tofacitinib and baricitinib, are tablets in the separate targeted synthetic DMARD group."
+        ]
       },
       {
-        heading: "How the UK healthcare system decides who gets what",
-        paragraphs: [
-          "NICE sets clear criteria. For rheumatoid arthritis, biologics are approved after a person has failed to respond to at least two conventional DMARDs (one of which is usually methotrexate) and still has moderate to severe disease activity — measured by DAS28 score. Similar rules apply to psoriatic arthritis and ankylosing spondylitis.",
-          "This means most UK patients start on methotrexate, add hydroxychloroquine or sulfasalazine, and only move to biologics if disease activity stays high. It's not a matter of newer being 'better' — for a large minority of patients, DMARDs alone give excellent control.",
-        ],
+        "heading": "How the UK healthcare system decides who gets what",
+        "paragraphs": [
+          "The NHS treatment pathway depends on the diagnosis, disease activity, previous treatments and the particular medicine. In rheumatoid arthritis, conventional DMARDs are usually tried before a biological treatment. The same sequence should not be assumed for every inflammatory arthritis condition.",
+          "For purely axial spondyloarthritis, conventional DMARDs are not recommended because they do not effectively treat spinal disease. They may still be used for peripheral arthritis, such as swollen joints in the arms or legs. Biological medicines or JAK inhibitors may be considered by a specialist when appropriate for axial disease."
+        ]
       },
       {
-        heading: "Side-effect trade-offs",
-        paragraphs: [
+        "heading": "Side-effect trade-offs",
+        "paragraphs": [
           "DMARDs need regular blood tests (fortnightly at start, then every 8–12 weeks) to catch liver, kidney or blood-count problems early. Common day-to-day side-effects — nausea, mouth ulcers, tiredness the day after methotrexate — often improve with folic acid, dose splitting or an anti-sickness tablet.",
-          "Biologics have lower rates of these particular issues but a higher risk of serious infection, TB reactivation and, for some classes, shingles or blood clots. That's why patients are screened for TB, hepatitis and vaccinated before starting, and told to hold doses during active infections.",
-        ],
+          "Biological medicines can increase infection risk, including reactivation of infections such as TB. Screening and monitoring depend on the medicine and your health history. JAK inhibitors are a different medicine group with separate warnings, including cardiovascular problems and blood clots. Ask your rheumatology team what to do if you develop an infection; do not apply one stopping or restarting rule to every medicine."
+        ]
       },
       {
-        heading: "Cost and access",
-        paragraphs: [
+        "heading": "Cost and access",
+        "paragraphs": [
           "For the individual patient, both are free on the UK healthcare system if criteria are met (though there's a prescription charge in England for DMARD tablets unless you're exempt). To the UK healthcare system, however, biologics cost thousands per patient per year — mitigated significantly by the rise of biosimilars, which are cheaper 'generic' versions with equivalent effect.",
-          "Privately, methotrexate and other DMARDs can be prescribed for a few pounds a month; biologics privately cost hundreds to a few thousand a month, so almost all UK patients access them through the UK healthcare system.",
-        ],
+          "Privately, methotrexate and other DMARDs can be prescribed for a few pounds a month; biologics privately cost hundreds to a few thousand a month, so almost all UK patients access them through the UK healthcare system."
+        ]
       },
       {
-        heading: "Which is 'better'?",
-        paragraphs: [
+        "heading": "Which is 'better'?",
+        "paragraphs": [
           "For most newly-diagnosed rheumatoid arthritis, methotrexate remains the anchor drug — often combined with a short course of steroids to bridge until it kicks in. Roughly half of patients get durable low disease activity or remission on DMARDs alone.",
-          "For those with persistent activity or specific features (like severe skin psoriasis or axial disease), biologics are transformative and now expected in the UK healthcare system treatment pathway. Increasingly, rheumatologists tailor the choice of biologic to the disease pattern and personal factors like pregnancy, cardiovascular risk and needle tolerance.",
-        ],
+          "For those with persistent activity or specific features (like severe skin psoriasis or axial disease), biologics are transformative and now expected in the UK healthcare system treatment pathway. Increasingly, rheumatologists tailor the choice of biologic to the disease pattern and personal factors like pregnancy, cardiovascular risk and needle tolerance."
+        ]
+      }
+    ],
+    "table": [
+      {
+        "label": "Type of medicine",
+        "a": "Broad immune suppressants",
+        "b": "Targeted immune blockers"
       },
+      {
+        "label": "First-line?",
+        "a": "Often in rheumatoid or peripheral arthritis; not purely axial disease",
+        "b": "Depends on the condition and previous treatment"
+      },
+      {
+        "label": "How given",
+        "a": "Tablets or weekly injection",
+        "b": "Injection or infusion"
+      },
+      {
+        "label": "Monitoring",
+        "a": "Regular bloods",
+        "b": "Screening + infection watch"
+      },
+      {
+        "label": "UK healthcare cost/year",
+        "a": "Under £100",
+        "b": "£8,000–£15,000+"
+      },
+      {
+        "label": "Access on NHS",
+        "a": "Freely prescribed",
+        "b": "NICE criteria required"
+      }
     ],
-    table: [
-      { label: "Type of medicine", a: "Broad immune suppressants", b: "Targeted immune blockers" },
-      { label: "First-line?", a: "Yes", b: "After DMARD failure" },
-      { label: "How given", a: "Tablets or weekly injection", b: "Injection or infusion (some tablets)" },
-      { label: "Monitoring", a: "Regular bloods", b: "Screening + infection watch" },
-      { label: "UK healthcare cost/year", a: "Under £100", b: "£8,000–£15,000+" },
-      { label: "Access on NHS", a: "Freely prescribed", b: "NICE criteria required" },
-    ],
-    takeaways: [
-      "Most UK patients start on methotrexate — cheap, effective, and well understood.",
-      "Biologics come in after two DMARDs haven't controlled disease.",
-      "Both need infection awareness, but biologics carry a higher infection risk.",
+    "takeaways": [
+      "Biologics are DMARDs too. This comparison is conventional versus biological DMARDs.",
+      "JAK inhibitors are targeted synthetic DMARD tablets, not biologics.",
+      "Conventional DMARDs are not recommended for purely axial spinal disease, although they may help peripheral arthritis.",
+      "Side effects, infection precautions and monitoring depend on the individual medicine and your health history.",
       "Biosimilars have made biologics far more affordable for the UK healthcare system.",
-      "The goal for either family is remission or low disease activity, not just pain relief.",
-    ],
+      "The goal for either family is remission or low disease activity, not just pain relief."
+    ]
   },
 
   "/guides/swimming-vs-walking-arthritis": {
@@ -972,4 +989,3 @@ export const COMPARISON_META_DESCRIPTIONS: Record<string, string> = {
 export function getComparisonMetaDescription(path: string): string | undefined {
   return COMPARISON_CONTENT[path]?.metaDescription ?? COMPARISON_META_DESCRIPTIONS[path];
 }
-

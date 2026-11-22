@@ -1,0 +1,41 @@
+{
+  "/guides/dmards-vs-biologics": {
+    "answer": "Biologics are a type of disease-modifying anti-rheumatic drug (DMARD). This guide compares conventional DMARDs, such as methotrexate, with biological DMARDs for inflammatory arthritis. JAK inhibitors are a separate group called targeted synthetic DMARDs, not biologics. Conventional DMARDs can help rheumatoid arthritis and peripheral joint disease, but are not recommended for purely axial spondyloarthritis affecting the spine.",
+    "faqs": [
+      {
+        "q": "Are JAK inhibitors biologics?",
+        "a": "No. JAK inhibitors are targeted synthetic DMARDs. Biological DMARDs are given by injection or infusion."
+      },
+      {
+        "q": "Do conventional DMARDs treat axial spinal disease?",
+        "a": "Conventional DMARDs are not recommended for purely axial spondyloarthritis. They may help peripheral arthritis affecting other joints."
+      }
+    ],
+    "sources": [
+      {
+        "name": "NHS: Rheumatoid arthritis treatment",
+        "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/"
+      },
+      {
+        "name": "NHS: Ankylosing spondylitis treatment",
+        "url": "https://www.nhs.uk/conditions/ankylosing-spondylitis/treatment/"
+      },
+      {
+        "name": "NICE CKS: Confirmed spondyloarthritis or psoriatic arthropathy",
+        "url": "https://cks.nice.org.uk/topics/spondyloarthritis-psoriatic-arthropathy/management/confirmed-spondyloarthritis-or-psoriatic-arthropathy/"
+      },
+      {
+        "name": "NHS Greater Manchester: Rheumatoid arthritis high-cost drug pathway v6.2",
+        "url": "https://gmmmg.nhs.uk/wp-content/uploads/2025/09/GMMMG-HCD-pathway-for-RA-v6.2-FINAL-FOR-WEBSITE.pdf"
+      },
+      {
+        "name": "NRAS: JAK inhibitors",
+        "url": "https://nras.org.uk/resource/jak-inhibitors/"
+      },
+      {
+        "name": "NRAS: Biologics",
+        "url": "https://nras.org.uk/resource/biologics/"
+      }
+    ]
+  }
+}
