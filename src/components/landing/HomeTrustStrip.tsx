@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { BadgeCheck, Landmark, Stethoscope } from "lucide-react";
 import { CONTACT_EMAILS, CONTACT_PHONE, CONTACT_PHONE_TEL } from "@/config/contact";
 import { CHARITY } from "@/config/charity";
+import { CONTENT_REVIEW_STATUS } from "@/data/reviewedPublicCopy";
 
 /**
  * Homepage trust strip (P1-07) — immediately under the hero.
@@ -37,9 +38,8 @@ export default function HomeTrustStrip() {
           <li className="flex items-start gap-2">
             <Stethoscope className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
             <span>
-              Reviewed by{" "}
-              <Link to="/authors/maxwell" className={linkCls}>
-                Louis Maxwell, HCPC-registered physiotherapist (PH128483)
+              <Link to="/editorial-standards" className={linkCls}>
+                {CONTENT_REVIEW_STATUS}
               </Link>
             </span>
           </li>
