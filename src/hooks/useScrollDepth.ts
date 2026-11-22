@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { trackEvent } from "@/lib/analytics";
+import { hasAnalyticsConsent, trackEvent } from "@/lib/analytics";
 
 /**
  * useScrollDepth
@@ -17,35 +17,36 @@ export function useScrollDepth(threshold = 0.8) {
 
   useEffect(() => {
     let fired = false;
-    let rafScheduled = false;
+    let frame: number | undefined;
 
     const check = () => {
-      rafScheduled = false;
-      if (fired) return;
+      frame = undefined;
+      if (fired || !hasAnalyticsConsent()) return;
       const doc = document.documentElement;
       const max = doc.scrollHeight - window.innerHeight;
       if (max <= 0) return;
       const pct = window.scrollY / max;
       if (pct >= threshold) {
-        fired = true;
-        trackEvent("scroll_80", {
+        fired = trackEvent("scroll_80", {
           page_path: location.pathname,
           depth_pct: Math.round(pct * 100),
         });
-        window.removeEventListener("scroll", onScroll);
+        if (fired) window.removeEventListener("scroll", onScroll);
       }
     };
 
     const onScroll = () => {
-      if (rafScheduled) return;
-      rafScheduled = true;
-      requestAnimationFrame(check);
+      if (frame !== undefined || !hasAnalyticsConsent()) return;
+      frame = requestAnimationFrame(check);
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
     // Also check on mount for short pages already past threshold.
     check();
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame !== undefined) cancelAnimationFrame(frame);
+    };
   }, [location.pathname, threshold]);
 }
 
