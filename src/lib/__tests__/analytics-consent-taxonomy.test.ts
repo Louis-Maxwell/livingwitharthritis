@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { analyticsUrl } from "../analytics-url";
-import { hasAnalyticsConsent, setUserProperties, trackAppError, trackEvent } from "../analytics";
+import { hasAnalyticsConsent, setUserProperties, trackAppError, trackButtonClick, trackEvent, trackSocialOutbound } from "../analytics";
 
 beforeEach(() => {
   localStorage.clear();
@@ -61,6 +61,46 @@ describe("central analytics consent and privacy boundary", () => {
       page_location: `${window.location.origin}/guides/example`, page_title: "Example guide",
     }]);
     expect(JSON.stringify(sent())).not.toMatch(/hidden|private|override|07700900123/);
+  });
+  it.each([
+    ["link_location", "footer_connect"],
+    ["button_location", "hero"],
+    ["location", "downloadable_resources"],
+    ["prompt_location", "article_end"],
+  ])("keeps the categorical %s label as text", (key, value) => {
+    allow(); trackEvent("example_click", { [key]: value });
+    expect(sent()[0][2]).toHaveProperty(key, value);
+  });
+  it("preserves location categories through the public social and button helpers", () => {
+    allow();
+    trackSocialOutbound("facebook", "footer_connect", "https://www.facebook.com/example?private=hidden#hidden");
+    trackButtonClick("Get support", "hero");
+    expect(sent()[0]).toEqual(["event", "social_media_click", expect.objectContaining({
+      platform: "facebook", link_location: "footer_connect", target_url: "https://www.facebook.com/example",
+    })]);
+    expect(sent()[1]).toEqual(["event", "button_click", expect.objectContaining({ button_location: "hero" })]);
+  });
+  it.each([
+    ["target_url", "https://example.org/guide?email=hidden#hidden", "https://example.org/guide"],
+    ["file_url", "/guide.pdf?email=hidden#hidden", "https://livingwitharthritis.org.uk/guide.pdf"],
+    ["page_referrer", "https://example.org/guide?email=hidden#hidden", "https://example.org/guide"],
+    ["page_path", "/guides/example?email=hidden#hidden", "/guides/example"],
+    ["target_page", "/guides/example?email=hidden#hidden", "/guides/example"],
+    ["target_url", "https://example.org/contact/private%40example.test?hidden=1", "https://example.org/"],
+    ["file_url", "https://user:password@example.org/contact/07700900123?hidden=1#hidden", "https://example.org/"],
+    ["location", "https://user:password@example.org/contact/private%40example.test?hidden=1#hidden", "https://example.org/"],
+  ])("still privacy-cleans the %s URL or route value", (key, value, expected) => {
+    allow(); trackEvent("example_click", { [key]: value });
+    expect(sent()[0][2]).toHaveProperty(key, expected);
+    expect(JSON.stringify(sent())).not.toMatch(/hidden|private%40|password|07700900123/);
+  });
+  it("still bounds and redacts categorical location text", () => {
+    allow(); trackEvent("example_click", {
+      link_location: "private@example.test", button_location: "x".repeat(140), location: "07700900123",
+    });
+    expect(sent()[0][2]).toMatchObject({
+      link_location: "[redacted-email]", button_location: "x".repeat(100), location: "[redacted-number]",
+    });
   });
   it("keeps public social handles but removes contact identifiers in URL paths", () => {
     expect(analyticsUrl("https://www.youtube.com/@public-handle?x=hidden")).toBe("https://www.youtube.com/@public-handle");
