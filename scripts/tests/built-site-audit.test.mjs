@@ -22,7 +22,7 @@ function audit(body = '', robots = 'index,follow') {
     const result = spawnSync(process.execPath, [auditScript], { cwd, encoding: 'utf8' });
     assert.ifError(result.error);
     const report = JSON.parse(readFileSync(join(cwd, '.preflight-reports/built-site-audit.json'), 'utf8'));
-    return { status: result.status, report };
+    return { status: result.status, report, stdout: result.stdout, stderr: result.stderr };
   } finally { rmSync(cwd, { recursive: true, force: true }); }
 }
 
@@ -40,4 +40,21 @@ test('accidentally noindexed sitemap pages fail the build', () => {
   const result = audit('', 'noindex,follow');
   assert.equal(result.status, 1);
   assert.ok(result.report.issues.some(i => i.issue === 'Sitemap page is noindex'));
+});
+
+test('failing audits print every finding while keeping the summary and failure gate', () => {
+  const result = audit('<a href="/missing-one">One</a><a href="/missing-two">Two</a>', 'noindex,follow');
+  assert.equal(result.status, 1);
+  assert.ok(result.stderr.trim(), 'a failing audit must print diagnostic JSON');
+  assert.deepEqual(JSON.parse(result.stderr), { issues: result.report.issues });
+  assert.equal(result.report.issues.length, 3);
+  const summary = JSON.parse(result.stdout);
+  assert.deepEqual(summary.counts, { HIGH: 3 });
+  assert.equal(summary.unresolvedLinkPages, 1);
+});
+
+test('clean audits keep stderr quiet', () => {
+  const result = audit('<a href="/">Home</a>');
+  assert.equal(result.status, 0);
+  assert.equal(result.stderr, '');
 });

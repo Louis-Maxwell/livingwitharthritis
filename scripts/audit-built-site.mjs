@@ -25,4 +25,7 @@ for(const key of ['title','description']){const grouped=new Map();for(const row 
 const report={ranAt:new Date().toISOString(),scope:'All canonical sitemap URLs in built response HTML; rendering, clinical review and CWV require separate validation',sitemapUrls:urls.length,pagesAudited:rows.length,counts:{},issues,pages:rows};for(const issue of issues)report.counts[issue.severity]=(report.counts[issue.severity]||0)+1;mkdirSync('.preflight-reports',{recursive:true});writeFileSync('.preflight-reports/built-site-audit.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({sitemapUrls:urls.length,pagesAudited:rows.length,counts:report.counts,unresolvedLinkPages:rows.filter(r=>r.unresolvedLinks.length).length},null,2));
 
 // A report must fail the build when it finds a regression.
-if (issues.length) process.exitCode = 1;
+if (issues.length) {
+  console.error(JSON.stringify({ issues }, null, 2));
+  process.exitCode = 1;
+}

@@ -148,6 +148,7 @@
     "rollup-plugin-visualizer": "^7.0.1",
     "satori": "^0.63.2",
     "tailwindcss": "3.4.17",
+    "ts-deepmerge": "file:vendor/ts-deepmerge-compat",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
     "vite": "^6.4.5",
@@ -170,7 +171,7 @@
     "jspdf": "^4.2.1",
     "picomatch": "$picomatch",
     "lodash": "^4.17.21",
-    "ts-deepmerge": "^8.0.0",
+    "ts-deepmerge": "$ts-deepmerge",
     "esbuild": "^0.25.12",
     "qs": "^6.17.0",
     "satori": "^0.63.2",
@@ -197,6 +198,7 @@
     "lodash": "^4.17.21",
     "brace-expansion": "^5.0.1",
     "braces": "file:vendor/braces",
-    "postcss-selector-parser": "^7.1.6"
+    "postcss-selector-parser": "^7.1.6",
+    "ts-deepmerge": "file:vendor/ts-deepmerge-compat"
   }
 }
