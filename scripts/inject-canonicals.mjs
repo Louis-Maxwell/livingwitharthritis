@@ -1001,7 +1001,21 @@ export function rewriteHead(html, route, dataOverride) {
   }
 
   // AI-visibility enrichment (title, description, JSON-LD) for curated routes.
-  out = enrichHead(out, route, url, dataOverride);
+  // This printable route needs the same table regions and scoped stylesheet
+  // before React loads, including when JavaScript is disabled.
+  let staticOverride = dataOverride;
+  if (route === "/resources/flare-action-plan" && headMeta?.bodyHtml) {
+    let tableNumber = 0;
+    const body = headMeta.bodyHtml.replace(/<table\b[^>]*>[\s\S]*?<\/table>/gi, (table) => {
+      tableNumber += 1;
+      const label = tableNumber === 1 ? "Scrollable data table" : `Scrollable data table ${tableNumber}`;
+      return `<div class="table-scroll" tabindex="0" role="region" aria-label="${label}">${table}</div>`;
+    });
+    staticOverride = { ...headMeta, bodyHtml: `<div class="flare-plan-static flare-plan-content prose prose-neutral max-w-none">${body}</div>` };
+    const css = readFileSync(resolve("src/pages/resources/FlareActionPlan.css"), "utf8");
+    out = out.replace(/<\/head>/i, `<style id="flare-plan-static-layout">${css}</style>\n</head>`);
+  }
+  out = enrichHead(out, route, url, staticOverride);
   return finalizeTechnicalHead(out, route, normalizeStaticMeta(headMeta), BASE);
 }
 
@@ -1083,4 +1097,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-                                                }
+}
