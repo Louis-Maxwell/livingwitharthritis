@@ -36,6 +36,9 @@ for (const file of walk(ROOT)) {
     src.includes("StubPage") || // StubPage itself emits og:title internally
     src.includes("GovernancePolicyPage") || // wraps SeoHead
     src.includes("ClusterLandingPage") || // wraps SeoHead
+    // CorporatePartnerships delegates its whole page and path-specific head.
+    (src.includes('import CorporateGiving from "@/pages/CorporateGiving"') &&
+      src.includes('return <CorporateGiving path="/corporate-partnerships" />')) ||
     src.includes("og:title")
   ) continue;
   missing.push(file);
@@ -63,6 +66,8 @@ export const PRIORITY_SOCIAL_ROUTES = Object.freeze([
   "/guides/benefits-pip",
   "/guides/dmards-vs-biologics",
 ]);
+
+export const CORPORATE_SOCIAL_ROUTES = Object.freeze(["/corporate-giving", "/corporate-partnerships"]);
 
 function headMeta(html) {
   const head = html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)?.[1] ?? html;
@@ -104,7 +109,7 @@ export function auditPrioritySocialMeta(distDir, routes = PRIORITY_SOCIAL_ROUTES
     const card = get("name", "twitter:card");
 
     if (site && site !== "Living With Arthritis") failures.push(route + ": incorrect og:site_name");
-    const expectedType = route === "/faq" ? "website" : "article";
+    const expectedType = route === "/faq" || CORPORATE_SOCIAL_ROUTES.includes(route) ? "website" : "article";
     if (type && type !== expectedType) failures.push(route + ": expected og:type " + expectedType);
     for (const [name, value] of [["og:title", ogTitle], ["twitter:title", twitterTitle]]) {
       if (value && value.length >= 60) failures.push(route + ": " + name + " must be under 60 characters");
@@ -132,11 +137,11 @@ export function auditPrioritySocialMeta(distDir, routes = PRIORITY_SOCIAL_ROUTES
 
 const distFlag = process.argv.find((arg) => arg.startsWith("--dist="));
 if (distFlag) {
-  const problems = auditPrioritySocialMeta(resolve(distFlag.slice("--dist=".length)));
+  const problems = auditPrioritySocialMeta(resolve(distFlag.slice("--dist=".length)), [...PRIORITY_SOCIAL_ROUTES, ...CORPORATE_SOCIAL_ROUTES]);
   if (problems.length) {
     console.error("Priority social metadata audit failed:\n" + problems.map((p) => "  - " + p).join("\n"));
     process.exitCode = 1;
   } else {
-    console.log("OK: all seven prerendered priority pages have valid social previews.");
+    console.log("OK: all priority and corporate prerendered pages have valid social previews.");
   }
 }
