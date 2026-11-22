@@ -1,3 +1,4 @@
+import "./FlareActionPlan.css";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -7,6 +8,7 @@ import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox"
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import { CONTACT_EMAILS, CONTACT_PHONE } from "@/config/contact";
 import { CHARITY } from "@/config/charity";
+import { REVIEWED_DISCLAIMER_SHORT } from "@/data/reviewedPublicCopy";
 import { sanitizeHtml, jsonLdScript } from "@/utils/sanitizeHtml";
 import {
   FLARE_PLAN_FAQS,
@@ -30,7 +32,7 @@ const pageLd = {
   name: "Arthritis flare-up action plan (free printable)",
   inLanguage: "en-GB",
   datePublished: "2026-10-03",
-  dateModified: "2026-10-10",
+  dateModified: FLARE_PLAN_UPDATED,
   publisher: { "@type": "Organization", name: "Living With Arthritis", url: "https://livingwitharthritis.org.uk" },
 };
 
@@ -68,7 +70,7 @@ export default function FlareActionPlan() {
         <script type="application/ld+json">{jsonLdScript(pageLd)}</script>
         <script type="application/ld+json">{jsonLdScript(faqLd)}</script>
       </Helmet>
-      <Header />
+      <div className="contents no-print"><Header /></div>
       <main id="main-content" className="container mx-auto max-w-3xl px-6 py-12 md:px-10 md:py-16">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3 print:hidden">
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Resources · Free printable</p>
@@ -88,15 +90,17 @@ export default function FlareActionPlan() {
           <strong>Quick answer:</strong> {DIRECT_ANSWER}
         </p>
         <p className="mb-6 text-sm text-muted-foreground">
-          Written by the {CHARITY.shortName} team · clinically reviewed by Louis Maxwell (HCPC
-          PH128483) · Updated {FLARE_PLAN_UPDATED}
+          Written by the {CHARITY.shortName} team · Editorial update {FLARE_PLAN_UPDATED}
         </p>
 
-        <EducationalDisclaimerBox lastReviewed={FLARE_PLAN_UPDATED} />
+        <EducationalDisclaimerBox
+          reviewStatus="pending"
+          pendingText="Educational resource. This editorial safety update is not independent clinical review."
+        />
         <TopicClusterNav path="/arthritis-flare-ups" />
 
         <article
-          className="prose prose-neutral max-w-none dark:prose-invert prose-table:text-sm print:prose-sm"
+          className="flare-plan-content prose prose-neutral max-w-none dark:prose-invert prose-table:text-sm print:prose-sm"
           dangerouslySetInnerHTML={{ __html: sanitizeHtml(FLARE_PLAN_HTML) }}
         />
 
@@ -137,16 +141,17 @@ export default function FlareActionPlan() {
             <li><a href="https://www.nice.org.uk/guidance/ng100" rel="noopener noreferrer">NICE NG100: Rheumatoid arthritis in adults</a></li>
             <li><a href="https://www.nice.org.uk/guidance/ng219" rel="noopener noreferrer">NICE NG219: Gout</a></li>
             <li><a href="https://www.arthritis-uk.org/information-and-support/understanding-arthritis/managing-arthritis-symptoms/managing-arthritis-flare-ups/" rel="noopener noreferrer">Arthritis UK: Managing arthritis flare-ups</a></li>
+            <li><a href="https://www.nhs.uk/conditions/back-pain/" rel="noopener noreferrer">NHS: Back pain</a></li>
+            <li><a href="https://www.nhs.uk/conditions/joint-pain/" rel="noopener noreferrer">NHS: Joint pain</a></li>
+            <li><a href="https://www.nhs.uk/conditions/temporal-arteritis/" rel="noopener noreferrer">NHS: Temporal arteritis</a></li>
+            <li><a href="https://www.nhs.uk/conditions/vision-loss/" rel="noopener noreferrer">NHS: Vision loss</a></li>
             <li><a href="https://www.nhs.uk/conditions/septic-arthritis/" rel="noopener noreferrer">NHS: Septic arthritis</a></li>
             <li><a href="https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/" rel="noopener noreferrer">NHS: When to use 111</a></li>
           </ul>
         </section>
 
         <p className="mb-4 rounded-lg border border-border/40 bg-card px-4 py-3 text-sm text-foreground/85">
-          {CHARITY.shortName} is a UK registered charity ({CHARITY.number}). This printable plan is
-          educational information, clinically reviewed by Louis Maxwell (HCPC PH128483) — not a diagnosis or a personal treatment
-          plan. Always follow the advice of your own GP, pharmacist or rheumatology team. In an
-          emergency call 999; for urgent advice contact NHS 111.
+          {CHARITY.shortName} is a UK registered charity ({CHARITY.number}). {REVIEWED_DISCLAIMER_SHORT}
         </p>
         <p className="text-xs text-muted-foreground">
           {CHARITY.shortName} · Charity {CHARITY.number} · {CONTACT_PHONE} · {CONTACT_EMAILS.info}
@@ -160,4 +165,4 @@ export default function FlareActionPlan() {
       <Footer />
     </div>
   );
-}
+      }
