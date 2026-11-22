@@ -27,6 +27,7 @@ import OAHero from "@/components/landing/OAHero";
 import HomeTrustStrip from "@/components/landing/HomeTrustStrip";
 import HomeJobRouter from "@/components/landing/HomeJobRouter";
 import HomeTopicGuides from "@/components/landing/HomeTopicGuides";
+import InteractiveStartPath from "@/components/landing/InteractiveStartPath";
 const HomeGuidesShowcase = lazy(() => import("@/components/blog/HomeGuidesShowcase"));
 
 // Everything below the router mounts only when scrolled near, so it never
@@ -147,6 +148,9 @@ function HomePage() {
 
           {/* Topic links stay rendered without waiting for a scroll event. */}
           <HomeTopicGuides />
+
+          {/* Symptoms navigator: pick a joint and a need, routed to real guides */}
+          <InteractiveStartPath />
 
           {/* 04 — Motion is Lotion: pick a joint for a home exercise plan */}
           <ViewportSection rootMargin="200px 0px" fallback={<SectionFallback />}>
