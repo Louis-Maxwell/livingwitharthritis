@@ -28,7 +28,8 @@ export function hasAnalyticsConsent(): boolean {
 }
 
 const PRIVATE_PARAM = /^(?:q|query|query_text|search_term|search_query|email|email_address|phone|phone_number|address|first_name|last_name|full_name|message|form_data|form_values|user_id|client_id)$/i;
-const URL_PARAM = /(?:^|_)(?:url|location|referrer|path|page)$/i;
+// Placement labels such as link_location are text; only page_location is a URL.
+const URL_PARAM = /(?:^page_location$|(?:^|_)(?:url|referrer|path|page)$)/i;
 
 /** Only public labels, bounded numbers and clean URLs belong in event parameters. */
 function cleanAnalyticsValue(key: string, value: unknown, depth = 0): unknown {
