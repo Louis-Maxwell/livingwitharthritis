@@ -1,46 +1,16 @@
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig, loadEnv, type UserConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import fs from "node:fs";
-import { createRequire } from "node:module";
 import { componentTagger } from "lovable-tagger";
 import Prerender from "@prerenderer/rollup-plugin";
 import { visualizer } from "rollup-plugin-visualizer";
 import { publicationMarker } from "./scripts/publication-marker.mjs";
 import { PRERENDER_ROUTES } from "./scripts/prerender-routes.mjs";
+import { explicitPrerenderEnabled } from "./scripts/prerender-availability.ts";
 
-// Prerender is ON by default for production builds so crawlers (Googlebot's
-// non-JS pass, Bing, LLM scrapers) receive real HTML instead of an empty SPA
-// shell. It is skipped automatically when no Chromium binary is available,
-// and can be forced off with PRERENDER=0.
-//
-// IMPORTANT: prerendering ~1,000 routes through headless Chromium takes far
-// longer than the hosted publish build's time limit, which made `npm run
-// build` (what publishing runs) hang until it was killed. It is therefore
-// OPT-IN via PRERENDER=1 (`npm run build:prerender`, CI, local audits) and
-// never runs during a plain production/publish build.
-function chromiumAvailable() {
-  if (process.env.PRERENDER !== "1") return false;
-  try {
-    const req = createRequire(import.meta.url);
-    const puppeteer = req("puppeteer");
-    const exe =
-      process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath();
-    return Boolean(exe) && fs.existsSync(exe);
-  } catch {
-    return false;
-  }
-}
-
-const ENABLE_PRERENDER = chromiumAvailable();
-if (!ENABLE_PRERENDER) {
-  console.warn(
-    "[prerender] skipped — set PRERENDER=1 (npm run build:prerender) with a " +
-      "Chromium binary available to generate static HTML for crawlers.",
-  );
-}
-
-
+// Prerender is opt-in. An explicitly requested run must not silently fall back
+// to a non-prerendered build when its browser is missing. Ordinary hosted builds
+// remain unchanged and never force all routes through Chromium.
 // Bundle analyzer is opt-in via ANALYZE=1 npm run build → dist/stats.html
 const ENABLE_ANALYZE = process.env.ANALYZE === "1";
 
@@ -79,7 +49,17 @@ function preloadInterFont() {
   };
 }
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(async ({ mode }): Promise<UserConfig> => {
+const ENABLE_PRERENDER = await explicitPrerenderEnabled();
+if (!ENABLE_PRERENDER) {
+  console.warn(
+    "[prerender] skipped — set PRERENDER=1 (npm run build:prerender) with a " +
+      "Chromium binary available to generate static HTML for crawlers.",
+  );
+}
+
+
+
   return ({
   server: {
     host: "::",
