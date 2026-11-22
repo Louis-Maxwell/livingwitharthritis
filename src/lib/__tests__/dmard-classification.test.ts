@@ -16,8 +16,8 @@ describe('DMARD classification and axial scope',()=>{
     expect(head.title).toBe('DMARDs vs Biologics for Rheumatoid Arthritis');
     expect(head.updatedAt).toBe('2026-07-04');
   });
-  it('limits the correction layer to this route and preserves seed metadata',()=>{
-    expect(Object.keys(clinical)).toEqual([route]);
+  it('limits the correction layer to the two scoped routes and preserves DMARD seed metadata',()=>{
+    expect(Object.keys(clinical).sort()).toEqual([route, '/resources/flare-action-plan'].sort());
     expect(Object.keys(clinical[route]).sort()).toEqual(['answer','faqs','sources']);
     for (const key of ['title','description','breadcrumb','updatedAt']) expect(head[key]).toBe(seed[key]);
   });
