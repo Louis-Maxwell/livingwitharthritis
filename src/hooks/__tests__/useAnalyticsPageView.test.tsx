@@ -8,11 +8,13 @@ const go = (path: string) => window.history.replaceState({}, "", path);
 const strict = ({ children }: { children: ReactNode }) => <StrictMode>{children}</StrictMode>;
 
 beforeEach(() => {
+  localStorage.setItem("lwa_cv3", JSON.stringify({ a: true }));
   go("/contact");
+  Object.defineProperty(window, "__LWA_GA4_ID__", { value: "G-ZLLSD3PXZ9", configurable: true });
   window.gtag = vi.fn();
   document.title = "Contact";
 });
-afterEach(() => { delete window.gtag; vi.useRealTimers(); });
+afterEach(() => { localStorage.clear(); delete window.gtag; vi.useRealTimers(); });
 
 describe("SPA analytics page views", () => {
   it("sends one initial view even under StrictMode effect replay", () => {
