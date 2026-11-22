@@ -220,6 +220,8 @@ const AI_DATA = mergeHeadLayers(
   STANDALONE_ANSWER_LAYER,
   EDITORIAL_TITLE_LAYER,
   readJson(resolve("scripts/pip-head-overrides.json")),
+  // Narrow source-checked clinical corrections override older seed answers.
+  readJson(resolve("scripts/clinical-head-overrides.json")),
   // Source-checked glossary replacements must win over the older seed answers.
   // Restrict this to definitions carrying their explicit pending-review note.
   Object.fromEntries(Object.entries(readJson(resolve("scripts/editorial-head-data.json")))
@@ -1081,4 +1083,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-}
+                                                }
