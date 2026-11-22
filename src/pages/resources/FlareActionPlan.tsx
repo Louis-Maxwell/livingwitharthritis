@@ -165,4 +165,4 @@ export default function FlareActionPlan() {
       <Footer />
     </div>
   );
-      }
+}
