@@ -1,3 +1,4 @@
+import { ORGANIZATION_DESCRIPTION, HOMEPAGE_INTRODUCTION } from "../data/reviewedPublicCopy.ts";
 import { getSchemaOrgSameAs } from "@/config/social-media";
 
 /**
@@ -31,14 +32,13 @@ export const ORGANIZATION_PAYLOAD = {
     height: 630,
   },
   disambiguatingDescription:
-    "UK charity 1218461 providing free arthritis guidance, with clinical-review status shown on each page — not Arthritis UK (formerly Versus Arthritis).",
-  foundingDate: "2026-06-15",
+    ORGANIZATION_DESCRIPTION,
   founder: {
     "@type": "Person",
     name: "David Williams",
   },
   description:
-    "Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, publishing free educational guidance about arthritis, exercise, diet, benefits and self-management for people across the United Kingdom.",
+    ORGANIZATION_DESCRIPTION,
   keywords:
     "arthritis charity UK, arthritis help UK, osteoarthritis exercises, rheumatoid arthritis support, joint pain advice, frailty support, PIP arthritis guidance, NICE aligned exercise, arthritis pain relief UK, arthritis waiting list help, arthritis disability benefits UK, Mediterranean diet for arthritis",
   email: "info@livingwitharthritis.org.uk",
@@ -123,7 +123,7 @@ export const WEBSITE_PAYLOAD = {
   url: `${BASE}/`,
   inLanguage: "en-GB",
   description:
-    "Free UK arthritis guidance from Living With Arthritis (registered charity 1218461), with clinical-review status shown on each page — NICE-aligned exercise, diet, PIP and waiting-list help. Independent of Arthritis UK.",
+    HOMEPAGE_INTRODUCTION,
   about: [
     "Living with arthritis in the United Kingdom",
     "Osteoarthritis",
