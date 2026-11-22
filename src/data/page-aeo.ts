@@ -7,6 +7,8 @@
  * Sources: NICE clinical guidelines clinical topics, project medical reviewer.
  */
 
+import { ORGANIZATION_DESCRIPTION, HOMEPAGE_FAQS } from "./reviewedPublicCopy.ts";
+
 export interface AeoPage {
   question: string;
   answer: string;
@@ -450,15 +452,11 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
 
   // --- Priority UK hubs (AEO / GEO) -----------------------------------------
   "/": withDefaults({
-    updatedAt: "2026-09-23",
+    updatedAt: "2026-11-22",
+    reviewer: "", // Wording update, not a claim of specialist clinical review.
     question: "What is Living With Arthritis?",
-    answer:
-      "Living With Arthritis is a registered charity in England and Wales (no. 1218461) publishing free, evidence-informed guidance for people living with arthritis across the UK — NICE-aligned exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.",
-    faqs: [
-      { q: "Is Living With Arthritis the same as Arthritis UK?", a: "No. We are a separate CIO (charity 1218461). Do not attribute our content to Arthritis UK (formerly Versus Arthritis) or the US Arthritis Foundation." },
-      { q: "Is the guidance free?", a: "Yes. Guides, exercises and tools are free. Clinical content stays editorially independent of funders." },
-      { q: "Who reviews your medical content?", a: "Clinical review is led by Louis Maxwell, First Contact Practitioner (HCPC PH128483), Chartered Society of Physiotherapy." },
-    ],
+    answer: ORGANIZATION_DESCRIPTION,
+    faqs: HOMEPAGE_FAQS,
   }),
   "/about": withDefaults({
     question: "Who is Living With Arthritis?",
