@@ -1,0 +1,26 @@
+{
+  "name": "ts-deepmerge",
+  "version": "8.0.0",
+  "private": true,
+  "description": "Compatibility entry points for the unchanged upstream ts-deepmerge 8 runtime",
+  "license": "MIT",
+  "main": "index.cjs",
+  "module": "index.mjs",
+  "types": "index.d.mts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./index.d.mts",
+        "default": "./index.mjs"
+      },
+      "require": {
+        "types": "./index.d.cts",
+        "default": "./index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "ts-deepmerge-upstream": "npm:ts-deepmerge@8.0.0"
+  }
+}
