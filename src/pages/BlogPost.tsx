@@ -43,6 +43,7 @@ import {
 } from "@/lib/articleHtmlCodeBlocks.mjs";
 import type { Citation } from "@/components/blog/ArticleCitations";
 import AnswerBox from "@/components/seo/AnswerBox";
+import { PIP_ANSWER_HEADING } from "@/data/reviewedPublicCopy";
 import KeyTakeaways from "@/components/article/KeyTakeaways";
 import ArticleVoiceover from "@/components/article/ArticleVoiceover";
 import { renderCallouts } from "@/components/article/Callouts";
@@ -188,7 +189,7 @@ function extractFaqs(html: string): { question: string; answer: string }[] {
     const qRaw = htmlToPlainText(m[1]);
     if (!qRaw.endsWith("?")) continue;
     if (/^<h[23][^>]*\bq-heading\b/i.test(m[0])) continue;
-    const aRaw = htmlToPlainText(m[2]).slice(0, 500);
+    const aRaw = htmlToPlainText(m[2]);
     if (qRaw && aRaw && aRaw.length > 30) {
       faqs.push({ question: qRaw, answer: aRaw });
     }
@@ -589,7 +590,7 @@ const BlogPost = () => {
           <div className="min-w-0 max-w-[760px]">
           {directAnswer && (
             <AnswerBox
-              question={article.title.replace(/[?.!]+$/, "").trim() + "?"}
+              question={slug === "pip-for-arthritis-uk" ? PIP_ANSWER_HEADING : article.title.replace(/[?.!]+$/, "").trim() + "?"}
             >
               {directAnswer}
             </AnswerBox>
