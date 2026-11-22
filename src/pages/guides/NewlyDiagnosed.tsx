@@ -1,4 +1,5 @@
 import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
+import { trackEvent } from "@/lib/analytics";
 import { Helmet } from "react-helmet-async";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
@@ -220,14 +221,7 @@ export default function NewlyDiagnosed() {
   }, [activeId]);
 
   const handlePrint = () => {
-    try {
-      (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.(
-        "event",
-        "print_newly_diagnosed",
-      );
-    } catch {
-      /* no-op */
-    }
+    trackEvent("print_newly_diagnosed");
     window.print();
   };
 
