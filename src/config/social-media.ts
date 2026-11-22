@@ -1,3 +1,5 @@
+import { trackEvent } from "@/lib/analytics";
+
 /**
  * Centralized Social Media Configuration
  * Single source of truth for all social platform links and metadata
@@ -208,20 +210,13 @@ export const getSchemaOrgSameAs = (): string[] => {
  * Track social media clicks (analytics)
  */
 export const trackSocialMediaClick = (platform: SocialPlatform, source: string = 'unknown'): void => {
-  if (typeof window === 'undefined') return;
-
-  try {
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'social_media_click', {
-        platform,
-        source,
-        event_category: 'engagement',
-        event_label: `social_${platform}`,
-      });
-    }
-  } catch (e) {
-    // Silently fail if analytics not available
-  }
+  const link = SOCIAL_LINKS[platform];
+  trackEvent("social_media_click", {
+    platform: platform === "twitter" ? "x" : platform,
+    link_location: source === "footer" ? "footer_connect" : source === "header" ? "site_header" : "other",
+    target_url: platform === "email" ? undefined : link?.url,
+    interaction_type: "intent",
+  });
 };
 
 /**

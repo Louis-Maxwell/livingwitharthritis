@@ -7,13 +7,13 @@ const source = readFileSync(resolve("public/security/analytics-consent.js"), "ut
 
 // Execute the actual shipped loader with inert script nodes. No network, DOM
 // navigation or analytics requests are possible in this harness.
-function boot(initial: Record<string, string> = {}, storageThrows = false) {
+function boot(initial: Record<string, string> = {}, storageThrows = false, href = "https://livingwitharthritis.org.uk/contact?email=private%40example.com#message") {
   const stored = { ...initial };
   const scripts: Array<Record<string, unknown>> = [];
   const listeners: Record<string, () => void> = {};
   const events: string[] = [];
   const win: Record<string, unknown> = {
-    location: { href: "https://livingwitharthritis.org.uk/contact?email=private%40example.com#message" },
+    location: { href },
     addEventListener: (name: string, fn: () => void) => { listeners[name] = fn; },
     dispatchEvent: (event: { type: string }) => { events.push(event.type); },
   };
@@ -35,6 +35,14 @@ function boot(initial: Record<string, string> = {}, storageThrows = false) {
 }
 
 describe("shipped consent loader", () => {
+  it("exposes one immutable configured target without loading analytics before consent", () => {
+    const app = boot();
+    expect(app.win.__LWA_GA4_ID__).toBe("G-ZLLSD3PXZ9");
+    expect(Reflect.set(app.win, "__LWA_GA4_ID__", "G-UNVERIFIED")).toBe(false);
+    expect(app.win.__LWA_GA4_ID__).toBe("G-ZLLSD3PXZ9");
+    expect(app.scripts).toEqual([]);
+    expect(app.win.gtag).toBeUndefined();
+  });
   it.each([
     {},
     { "cookie-consent": "declined" },
@@ -71,6 +79,20 @@ describe("shipped consent loader", () => {
     const config = Array.from(queue[1]);
     expect(config[0]).toBe("config");
     expect(config[2]).toEqual({ send_page_view: false, page_location: "https://livingwitharthritis.org.uk/contact", page_referrer: "https://example.org/" });
+  });
+
+  it.each([
+    ["/contact/+447700900123", "/"],
+    ["/contact/%2B44%207700%20900123", "/"],
+    ["/contact/test@example.invalid", "/"],
+    ["/contact/test%40example.invalid", "/"],
+    ["/contact/%E0%A4%A", "/"],
+    ["/@LivingWithArthritis", "/@LivingWithArthritis"],
+    ["/blog/pip-for-arthritis-uk", "/blog/pip-for-arthritis-uk"],
+  ])("keeps bootstrap contact identifiers out of page_location: %s", (path, safePath) => {
+    const app = boot({ lwa_cv3: JSON.stringify({ a: true }) }, false, `https://livingwitharthritis.org.uk${path}?q=private#private`);
+    const config = Array.from((app.win.dataLayer as IArguments[])[1]);
+    expect(config[2]).toEqual({ send_page_view: false, page_location: `https://livingwitharthritis.org.uk${safePath}`, page_referrer: "https://example.org/" });
   });
 
   it("can load after an initially denied choice becomes accepted", () => {

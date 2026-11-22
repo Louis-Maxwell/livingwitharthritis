@@ -5,6 +5,7 @@ import { trackDonationComplete, trackNewsletterSignup, trackContactSubmit } from
 
 describe("GA4 conversion events", () => {
   beforeEach(() => {
+    localStorage.setItem("lwa_cv3", JSON.stringify({ a: true }));
     vi.restoreAllMocks();
     window.gtag = vi.fn() as typeof window.gtag;
   });
@@ -41,12 +42,17 @@ describe("GA4 measurement ID", () => {
     const html = readFileSync(resolve(process.cwd(), "index.html"), "utf8");
     const app = readFileSync(resolve(process.cwd(), "src/App.tsx"), "utf8");
     const loader = readFileSync(resolve(process.cwd(), "public/security/analytics-consent.js"), "utf8");
+    const hook = readFileSync(resolve(process.cwd(), "src/hooks/useAnalyticsPageView.ts"), "utf8");
     const ids = [
       ...html.matchAll(/G-[A-Z0-9]+/g),
       ...app.matchAll(/G-[A-Z0-9]+/g),
       ...loader.matchAll(/G-[A-Z0-9]+/g),
     ].map((m) => m[0]);
     expect(new Set(ids)).toEqual(new Set(["G-ZLLSD3PXZ9"]));
+    expect(loader.match(/G-ZLLSD3PXZ9/g)).toHaveLength(1);
+    expect(hook).not.toMatch(/G-[A-Z0-9]+/);
+    expect(hook).toContain("send_to: window.__LWA_GA4_ID__");
+    expect(loader).toContain("Object.defineProperty(window, '__LWA_GA4_ID__'");
     expect(html).toContain("www.googletagmanager.com");
     expect(html).toContain('src="/security/analytics-consent.js"');
     expect(loader).toContain("www.googletagmanager.com/gtag/js");

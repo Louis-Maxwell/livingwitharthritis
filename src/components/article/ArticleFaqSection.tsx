@@ -1,4 +1,6 @@
 import { HelpCircle } from "lucide-react";
+import { useRef } from "react";
+import { trackFaqToggle } from "@/lib/analytics";
 
 interface Faq {
   question: string;
@@ -15,6 +17,7 @@ interface Props {
  * Same Q&A pairs feed FAQPage JSON-LD in BlogPost.
  */
 const ArticleFaqSection = ({ faqs }: Props) => {
+  const userToggles = useRef(new WeakSet<HTMLDetailsElement>());
   if (faqs.length < 2) return null;
 
   return (
@@ -35,8 +38,17 @@ const ArticleFaqSection = ({ faqs }: Props) => {
             key={i}
             className="group rounded-xl border border-border/50 bg-secondary/40 shadow-sm open:bg-secondary/60"
             open={i === 0}
+            onToggle={(event) => {
+              const details = event.currentTarget;
+              if (!userToggles.current.has(details)) return;
+              userToggles.current.delete(details);
+              trackFaqToggle(`article-faq-${i}`, details.open);
+            }}
           >
-            <summary className="cursor-pointer list-none flex items-center justify-between gap-3 p-5 md:px-6 min-h-[44px] font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden">
+            <summary onClick={(event) => {
+              const details = event.currentTarget.parentElement;
+              if (details instanceof HTMLDetailsElement) userToggles.current.add(details);
+            }} className="cursor-pointer list-none flex items-center justify-between gap-3 p-5 md:px-6 min-h-[44px] font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden">
               <span>{f.question}</span>
               <span
                 aria-hidden="true"

@@ -1,4 +1,5 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
+import { trackFaqToggle } from "@/lib/analytics";
 import AnswerBox from "@/components/seo/AnswerBox";
 import { hasPriorityDirectAnswer } from "@/lib/priorityDirectAnswer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -32,6 +33,7 @@ interface AeoEnhancementProps {
  */
 export default function AeoEnhancement(props: AeoEnhancementProps) {
   const configured = getPageAeo(props.route);
+  const openFaq = useRef({ route: props.route, value: "" });
   const hasPriorityAnswer = hasPriorityDirectAnswer(props.route);
   const question = props.question ?? configured?.question;
   const answer = props.answer ?? configured?.answer;
@@ -112,7 +114,13 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
       {faqs.length > 0 && (
         <div className="rounded-xl bg-white p-6">
           <h2 className="text-xl font-bold text-foreground mb-4">Frequently asked questions</h2>
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion key={props.route} type="single" collapsible className="w-full" onValueChange={(value) => {
+            const previous = openFaq.current.route === props.route ? openFaq.current.value : "";
+            if (previous === value) return;
+            if (previous) trackFaqToggle(`${props.route}:${previous}`, false);
+            if (value) trackFaqToggle(`${props.route}:${value}`, true);
+            openFaq.current = { route: props.route, value };
+          }}>
             {faqs.map((f, i) => (
               <AccordionItem key={i} value={`faq-${i}`}>
                 <AccordionTrigger className="text-left text-base font-semibold">{f.q}</AccordionTrigger>

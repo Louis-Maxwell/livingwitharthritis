@@ -1,5 +1,6 @@
 import { Phone, Mail, MessageCircle, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
+import { trackHelplineEngagement, type ContactChannel } from "@/lib/analytics";
 import {
   CONTACT_PHONE,
   CONTACT_PHONE_TEL,
@@ -8,17 +9,6 @@ import {
 
 const WHATSAPP_URL = `https://wa.me/44${CONTACT_PHONE_TEL.replace(/^0/, "")}`;
 
-const trackClick = (channel: string) => {
-  try {
-    (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.(
-      "event",
-      "helpline_click",
-      { channel },
-    );
-  } catch {
-    /* no-op */
-  }
-};
 
 /**
  * Full-width helpline strip — placed above the footer on every page.
@@ -33,7 +23,7 @@ type Channel = {
   sub: string;
   href: string;
   external?: boolean;
-  track: string;
+  track: ContactChannel;
 };
 
 const channels: Channel[] = [
@@ -68,7 +58,7 @@ const channels: Channel[] = [
     value: "Prepare a message",
     sub: "Prepare an email draft to review and send",
     href: "/contact",
-    track: "form",
+    track: "contact_form",
   },
 ];
 
@@ -125,17 +115,17 @@ export default function HelplineWidget() {
                     href={href}
                     target="_blank"
                     rel="nofollow noopener noreferrer"
-                    onClick={() => trackClick(track)}
+                    onClick={() => trackHelplineEngagement(track)}
                     className={cardClass}
                   >
                     {inner}
                   </a>
                 ) : href.startsWith("/") ? (
-                  <Link to={href} onClick={() => trackClick(track)} className={cardClass}>
+                  <Link to={href} onClick={() => trackHelplineEngagement(track)} className={cardClass}>
                     {inner}
                   </Link>
                 ) : (
-                  <a href={href} onClick={() => trackClick(track)} className={cardClass}>
+                  <a href={href} onClick={() => trackHelplineEngagement(track)} className={cardClass}>
                     {inner}
                   </a>
                 )}

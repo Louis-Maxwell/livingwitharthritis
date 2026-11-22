@@ -1,5 +1,7 @@
       (function () {
         var GA_ID = 'G-ZLLSD3PXZ9';
+        // The router reads this exact configured target, never a second ID literal.
+        Object.defineProperty(window, '__LWA_GA4_ID__', { value: GA_ID, writable: false, configurable: false });
         var loaded = false;
 
         function hasAnalyticsConsent() {
@@ -25,8 +27,15 @@
           window.gtag('js', new Date());
           // Do not let automatic events inherit search queries, contact data or fragments.
           var safeLocation = new URL(window.location.href);
+          safeLocation.username = ''; safeLocation.password = '';
           safeLocation.search = ''; safeLocation.hash = '';
-          if (/@|%40/i.test(safeLocation.pathname)) safeLocation.pathname = '/';
+          var privatePath = false;
+          try {
+            // Match the central URL policy, including encoded contact identifiers.
+            var decodedPath = decodeURIComponent(safeLocation.pathname);
+            privatePath = /[^\s/@]+@[^\s/@]+\.[^\s/@]+/.test(decodedPath) || /\+?\d[\d ()-]{8,}\d/.test(decodedPath);
+          } catch (e) { privatePath = true; }
+          if (privatePath) safeLocation.pathname = '/';
           var safeReferrer = '';
           try { safeReferrer = new URL(document.referrer).origin + '/'; } catch (e) {}
           window.gtag('config', GA_ID, {

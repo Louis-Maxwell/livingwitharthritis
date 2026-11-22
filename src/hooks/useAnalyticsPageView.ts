@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { analyticsUrl } from "@/lib/analytics-url";
+import { trackEvent } from "@/lib/analytics";
 
 /** One clean page view per route visit, including a visit that awaits consent. */
 export function useAnalyticsPageView(pathname: string) {
@@ -10,16 +11,15 @@ export function useAnalyticsPageView(pathname: string) {
       visit.current = { pathname, sent: false };
     }
     const sendPageView = () => {
-      if (visit.current.sent || typeof window.gtag !== "function") return;
+      if (visit.current.sent || !window.__LWA_GA4_ID__) return;
       const page_location = analyticsUrl(window.location.href);
-      window.gtag("event", "page_view", {
+      visit.current.sent = trackEvent("page_view", {
         page_path: page_location ? new URL(page_location).pathname : pathname,
         page_location,
         page_referrer: analyticsUrl(document.referrer) || "",
         page_title: document.title,
-        send_to: "G-ZLLSD3PXZ9",
+        send_to: window.__LWA_GA4_ID__,
       });
-      visit.current.sent = true;
     };
     sendPageView();
     window.addEventListener("analytics-ready", sendPageView);
