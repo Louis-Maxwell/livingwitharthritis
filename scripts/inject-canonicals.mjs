@@ -405,16 +405,18 @@ function withRenderedBody(route, data) {
 // (src/data/hub-spotlight.json, also rendered by <HubSpotlight /> in React).
 const HUB_SPOTLIGHT = existsSync(resolve('src/data/hub-spotlight.json'))
   ? JSON.parse(readFileSync(resolve('src/data/hub-spotlight.json'), 'utf8')) : {};
+const RELATED_NAVIGATION = JSON.parse(readFileSync(resolve('src/data/relatedNavigationLinks.json'), 'utf8'));
 const READER_JOURNEY = existsSync(resolve('src/data/readerJourneyLinks.json'))
   ? JSON.parse(readFileSync(resolve('src/data/readerJourneyLinks.json'), 'utf8')) : {};
 function withIntentLinks(route, data) {
-  const rows = READER_JOURNEY[route];
+  const rows = RELATED_NAVIGATION[route] || READER_JOURNEY[route];
   if (!data || !Array.isArray(rows) || !rows.length) return data;
   return {
     ...data,
-    relatedLinks: rows
-      .filter((row) => row?.href && row?.title)
-      .map((row) => ({ path: row.href, title: row.title })),
+    relatedLinks: [...new Map([
+      ...(data.relatedLinks || []),
+      ...rows.filter((row) => row?.href && row?.title).map((row) => ({ path: row.href, title: row.title })),
+    ].map((row) => [row.path, row])).values()],
   };
 }
 function withHubSpotlight(route, data) {
