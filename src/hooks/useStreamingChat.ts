@@ -25,7 +25,7 @@ function makeId(): string {
 }
 
 const EMAIL_NOTE =
-  `\n\nIf you would rather speak to a person, email ${CONTACT_EMAILS.info} — we reply within two working days.`;
+  `\n\nIf you would rather speak to a person, email ${CONTACT_EMAILS.info}.`;
 
 const SESSION_USER_KEY = "lwa_chat_rl_uid";
 
