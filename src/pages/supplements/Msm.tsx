@@ -58,7 +58,7 @@ export default function Msm() {
       datePublished: "2026-06-18",
       dateModified: "2026-06-18",
       about: {
-        "@type": "Drug",
+        "@type": "MedicalEntity",
         name: "MSM",
         alternateName: ["Methylsulfonylmethane", "Methyl sulfonyl methane", "Dimethyl sulfone"],
       },
