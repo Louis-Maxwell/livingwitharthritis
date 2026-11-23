@@ -499,24 +499,6 @@
   ],
   "/glossary/hydroxychloroquine": [
     {
-      "href": "/glossary/sulfasalazine",
-      "title": "Sulfasalazine"
-    },
-    {
-      "href": "/glossary/morning-stiffness",
-      "title": "Morning stiffness"
-    },
-    {
-      "href": "/glossary",
-      "title": "Arthritis glossary"
-    }
-  ],
-  "/glossary/sulfasalazine": [
-    {
-      "href": "/glossary/hydroxychloroquine",
-      "title": "Hydroxychloroquine"
-    },
-    {
       "href": "/glossary/morning-stiffness",
       "title": "Morning stiffness"
     },
@@ -531,48 +513,14 @@
       "title": "Hydroxychloroquine"
     },
     {
-      "href": "/glossary/sulfasalazine",
-      "title": "Sulfasalazine"
-    },
-    {
-      "href": "/glossary/raynauds",
-      "title": "Raynaud's phenomenon"
-    },
-    {
       "href": "/glossary",
       "title": "Arthritis glossary"
     }
   ],
   "/glossary/meniscus": [
     {
-      "href": "/glossary/musculoskeletal",
-      "title": "Musculoskeletal (MSK)"
-    },
-    {
       "href": "/glossary/passive-vs-active-movement",
       "title": "Passive vs active movement"
-    },
-    {
-      "href": "/glossary",
-      "title": "Arthritis glossary"
-    }
-  ],
-  "/glossary/musculoskeletal": [
-    {
-      "href": "/glossary/meniscus",
-      "title": "Meniscus"
-    },
-    {
-      "href": "/glossary/passive-vs-active-movement",
-      "title": "Passive vs active movement"
-    },
-    {
-      "href": "/glossary/nice",
-      "title": "NICE"
-    },
-    {
-      "href": "/glossary/self-referral",
-      "title": "Self-referral"
     },
     {
       "href": "/glossary",
@@ -585,10 +533,6 @@
       "title": "Meniscus"
     },
     {
-      "href": "/glossary/musculoskeletal",
-      "title": "Musculoskeletal (MSK)"
-    },
-    {
       "href": "/glossary",
       "title": "Arthritis glossary"
     }
@@ -599,10 +543,6 @@
       "title": "Self-referral"
     },
     {
-      "href": "/glossary/musculoskeletal",
-      "title": "Musculoskeletal (MSK)"
-    },
-    {
       "href": "/glossary",
       "title": "Arthritis glossary"
     }
@@ -611,20 +551,6 @@
     {
       "href": "/glossary/nice",
       "title": "NICE"
-    },
-    {
-      "href": "/glossary/musculoskeletal",
-      "title": "Musculoskeletal (MSK)"
-    },
-    {
-      "href": "/glossary",
-      "title": "Arthritis glossary"
-    }
-  ],
-  "/glossary/raynauds": [
-    {
-      "href": "/glossary/morning-stiffness",
-      "title": "Morning stiffness"
     },
     {
       "href": "/glossary",
