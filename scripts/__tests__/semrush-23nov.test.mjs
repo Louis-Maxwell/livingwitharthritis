@@ -39,5 +39,12 @@ test('referral page and daily tips do not promise fabricated waits or personal t
  const html=rewriteHead(template,'/tools/waiting-time');
  assert.doesNotMatch(html,/published averages|Estimated wait:|Calculate my waiting|Ask our team 24|tailored daily routine/);
  assert.match(html,/does not calculate or predict/);
- for(const path of ['/daily-tips/overview','/daily-tips/health-tips','/daily-tips/daily-living'])assert.doesNotMatch(rewriteHead(template,path),/tailored daily routine|Quality sleep reduces inflammation|dehydration can worsen joint stiffness/);
+ for(const path of ['/daily-tips/overview','/daily-tips/health-tips','/daily-tips/daily-living','/daily-tips/morning-stretches','/daily-tips/stay-hydrated','/daily-tips/anti-inflammatory-snacks','/daily-tips/walk-20-minutes','/daily-tips/prioritise-sleep','/daily-tips/pace-yourself'])assert.doesNotMatch(rewriteHead(template,path),/tailored daily routine|Quality sleep reduces inflammation|dehydration can worsen joint stiffness/);
+});
+
+test('waiting-time cross-links do not promise numerical estimates',()=>{
+ const routes=['/regions/north-west','/conditions/rheumatoid-arthritis','/conditions/psoriatic-arthritis'];
+ for(const route of routes){const html=rewriteHead(template,route);assert.doesNotMatch(html,/Waiting Time Calculator|estimate your local 2026 wait|Estimate current rheumatology waiting times/);}
+ const snapshots={...JSON.parse(read('scripts/data/rendered-bodies.json')),...JSON.parse(read('scripts/data/rendered-bodies.overrides.json'))};
+ for(const [route,html]of Object.entries(snapshots)){if(route==='/tools/waiting-time'||route.startsWith('/arthritis-support/'))continue;for(const a of html.matchAll(/<a href="\/tools\/waiting-time">[\s\S]*?<\/a>/g))assert.doesNotMatch(a[0],/calculator|estimate|2026 wait/i,route)}
 });
