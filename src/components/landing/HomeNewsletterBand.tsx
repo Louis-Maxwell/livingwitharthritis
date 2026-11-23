@@ -17,8 +17,8 @@ export default function HomeNewsletterBand() {
       className="border-y border-border/40 bg-muted/30"
     >
       <div className="container mx-auto max-w-3xl px-5 md:px-10 py-10 md:py-14 text-center">
-        <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-2 inline-flex items-center justify-center gap-1.5">
-          <Mail className="w-3.5 h-3.5" aria-hidden="true" /> Newsletter
+        <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground mb-2 inline-flex items-center justify-center gap-1.5">
+          <Mail className="w-3.5 h-3.5 text-primary" aria-hidden="true" /> Newsletter
         </p>
         <h2
           id="home-newsletter-heading"
