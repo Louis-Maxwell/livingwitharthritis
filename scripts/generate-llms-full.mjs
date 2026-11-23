@@ -8,7 +8,6 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
-import { headDataFor } from "./inject-canonicals.mjs";
 import { resolveInternalHref, isRedirectedPath } from "./lib/internal-href.mjs";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -22,14 +21,19 @@ export function currentFeedEntries(paths = Object.keys(routeInventory)) {
   return Object.fromEntries([...new Set(paths.map(resolveInternalHref))]
     .filter((route) => !isExcludedRoute(route) && !isRedirectedPath(route))
     .map((route) => {
-      const current = headDataFor(route);
       const existing = routeInventory[route];
-      if (!current || current.noindex || !existing) return [route, null];
-      const aligned = priorityAnswers[route] ? current : { ...existing,
-        reviewedBy: existing.answer === current.answer ? current.reviewedBy : undefined,
-        lastReviewed: existing.answer === current.answer ? current.lastReviewed : undefined,
-        sources: [...new Map([...(existing.sources || []), ...(current.sources || [])]
-          .filter((source) => source.url).map((source) => [source.url, source])).values()],
+      if (!existing || existing.noindex) return [route, null];
+      const priority = priorityAnswers[route];
+      // Do not infer clinical review from older metadata. The five checked
+      // summaries carry the same explicit pending-review note as the page.
+      const aligned = { ...existing, reviewedBy: undefined, lastReviewed: undefined,
+        ...(priority ? {
+          question: priority.question,
+          answer: priority.answer,
+          summaryReviewNote: "Source-based educational summary. This updated summary is awaiting a separate clinical review.",
+          sources: [...new Map([...(existing.sources || []), ...(priority.sources || [])]
+            .filter((source) => source.url).map((source) => [source.url, source])).values()],
+        } : {}),
       };
       return [route, aligned];
     })
