@@ -63,7 +63,7 @@ export default function Glucosamine() {
       datePublished: "2026-06-18",
       dateModified: "2026-06-18",
       about: {
-        "@type": "Drug",
+        "@type": "MedicalEntity",
         name: "Glucosamine",
         alternateName: ["Glucosamine sulfate", "Glucosamine hydrochloride", "Glucosamine sulphate"],
       },

@@ -18,12 +18,12 @@ for (const tip of dailyTips) {
 }
 const tipHubs: Array<[string, string, string, string]> = [
   ['daily-living', dailyLivingIntro.title, dailyLivingIntro.subtitle, dailyLivingIntro.content],
-  ['health-tips', 'Tips for Every Day', 'Short UK daily tips that support joint health and everyday living with arthritis.', dailyLivingIntro.tipsOverview],
-  ['overview', 'Daily living overview', 'Overview of practical UK daily-living habits for people with arthritis.', `${dailyLivingIntro.content}\n\n${dailyLivingIntro.tipsOverview}`],
+  ['health-tips', 'Everyday arthritis tips for joint health', 'Short, practical everyday tips for living with arthritis in the UK — movement, food, pacing and sleep.', dailyLivingIntro.tipsOverview],
+  ['overview', 'Daily Living Tips', 'Browse the published daily-living tips from Living With Arthritis.', 'Browse the published daily-living tips from Living With Arthritis.'],
 ];
 for (const [slug, title, description, content] of tipHubs) {
   entries[`/daily-tips/${slug}`] = {
-    title: `${title} — Daily Living Tips`, description,
+    title: slug === "overview" ? `${title} | Living With Arthritis` : `${title} — Daily Living Tips`, description,
     question: title, bodyHtml: paragraphs(content), breadcrumb: title,
     relatedLinks: dailyTips.map((tip) => ({ path: `/daily-tips/${tip.slug}`, title: tip.title })),
   };

@@ -58,7 +58,7 @@ export default function Turmeric() {
       datePublished: "2026-07-11",
       dateModified: "2026-07-11",
       about: {
-        "@type": "Drug",
+        "@type": "MedicalEntity",
         name: "Turmeric",
         alternateName: ["Curcumin", "Curcuma longa", "Curcuminoids"],
       },

@@ -77,11 +77,14 @@ describe('Corporate giving visitor journey', () => {
     expect(screen.getByLabelText('I am interested in *')).toHaveValue('Monthly employee giving (£3–£10)');
     expect(submitContactInquiry).not.toHaveBeenCalled();
   });
-  it('gives both established URLs the same truthful content instead of inert perks', () => {
+  it('keeps partnerships focused and links to the full giving page without inert perks', () => {
     renderPage(true);
     const main = screen.getByRole('main');
-    expect(within(main).getByRole('heading', { level: 1 })).toHaveTextContent('Your business can help keep arthritis information free.');
-    expect(within(main).getAllByRole('button', { name: /^Discuss / })).toHaveLength(9);
+    expect(within(main).getByRole('heading', { level: 1 })).toHaveTextContent('Company donation or sponsorship');
+    expect(within(main).getAllByRole('button', { name: /^Discuss / })).toHaveLength(4);
+    expect(within(main).getByRole('link', { name: 'Corporate Giving' })).toHaveAttribute('href', '/corporate-giving');
+    expect(within(main).queryByRole('heading', { name: 'Matched Giving' })).not.toBeInTheDocument();
+    expect(within(main).getByLabelText('Your name *')).toBeInTheDocument();
     expect(main.textContent).not.toMatch(/100%.*tax|25% discount|2M UK|70% of consumers|X guides|Most Popular|within 2 business days|Lifetime naming|advisory board|clinically reviewed/i);
   });
 });
