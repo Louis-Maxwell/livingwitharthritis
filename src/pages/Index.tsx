@@ -36,6 +36,7 @@ const HomeGuidesShowcase = lazy(() => import("@/components/blog/HomeGuidesShowca
 const AeoEnhancement = lazyWithRetry(() => import("@/components/seo/AeoEnhancement"));
 const JointExerciseSection = lazyWithRetry(() => import("@/components/JointExerciseSection"));
 const HomeToolsBand = lazyWithRetry(() => import("@/components/landing/HomeToolsBand"));
+const HomeNewsletterBand = lazyWithRetry(() => import("@/components/landing/HomeNewsletterBand"));
 const HomeZakatLink = lazyWithRetry(() => import("@/components/landing/HomeZakatLink"));
 const ConditionPillBand = lazyWithRetry(() => import("@/components/landing/ConditionPillBand"));
 const LatestGrid = lazyWithRetry(() => import("@/components/landing/LatestGrid"));
@@ -156,6 +157,11 @@ function HomePage() {
           <ViewportSection rootMargin="200px 0px" fallback={<SectionFallback />}>
             <JointExerciseSection />
             <HomeToolsBand />
+          </ViewportSection>
+
+          {/* 04b — Newsletter: settled inbox mechanism, no download promise */}
+          <ViewportSection rootMargin="200px 0px" fallback={<SectionFallback />}>
+            <HomeNewsletterBand />
           </ViewportSection>
 
           {/* 05 — Answer-first summary + FAQ (single FAQPage JSON-LD) */}
