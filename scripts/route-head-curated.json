@@ -880,5 +880,12 @@
     "question": "Zakat Appeal",
     "answer": "In Gaza, thousands of people are living with crushed joints, amputations, nerve damage and pain that never lets go. Hospitals that survived are overwhelmed, and rehabilitation — the slow, patient work of learning to move again — is one of the first things to disappear.",
     "breadcrumb": "Zakat Appeal"
+  },
+  "/helpline": {
+    "title": "Support & Helpline: Talk to a Real Person | Living With Arthritis",
+    "description": "UK arthritis helpline — call 07760 512 084 (weekdays). Individual advice about your diagnosis and benefits, and help finding information on this website.",
+    "question": "Support & Helpline: Talk to a Real Person",
+    "answer": "Call 07760 512 084 on weekdays to reach our helpline: a real person, not a chatbot. We offer individual advice about your diagnosis and benefits, and help finding information on this website. We don't advise on medicines.",
+    "breadcrumb": "Helpline"
   }
 }
