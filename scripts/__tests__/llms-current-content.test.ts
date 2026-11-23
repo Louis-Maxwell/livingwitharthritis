@@ -1,5 +1,6 @@
 import {describe,it,expect} from 'vitest';
 import {headDataFor} from '../inject-canonicals.mjs';
+import {execFileSync} from 'node:child_process';
 import {currentFeedEntries,buildHeadDataSections,buildCoreDigest} from '../generate-llms-full.mjs';
 describe('AI answer feed uses current published route composition',()=>{
  it('exports current knee answer and source links, not old snapshot statistic',()=>{
@@ -14,6 +15,10 @@ describe('AI answer feed uses current published route composition',()=>{
  });
  it('only labels a digest clinically reviewed when both name and date are recorded',()=>{
   const text=buildCoreDigest({'/guides/diet':{answer:'Existing answer',reviewedBy:'Louis Maxwell'}});expect(text).not.toContain('Clinically reviewed by');
+ });
+ it('runs without native TypeScript stripping on the supported plain Node path',()=>{
+  const output=execFileSync(process.execPath,['--no-experimental-strip-types','--input-type=module','-e',"import('./scripts/generate-llms-full.mjs').then(m=>console.log(Object.keys(m.currentFeedEntries()).length))"],{encoding:'utf8'});
+  expect(output.trim()).toBe('211');
  });
  it('preserves cautious existing answers outside the five source-checked priority answers',()=>{
   const entries=currentFeedEntries(['/guides/newly-diagnosed','/guides/sarcopenia-muscle-loss','/guides/frailty-management-hub']);
