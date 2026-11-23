@@ -1,3 +1,4 @@
+import relatedNavigation from "@/data/relatedNavigationLinks.json";
 import PetPhotoCredits from "@/components/pets/PetPhotoCredits";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Link, useParams, Navigate } from "react-router-dom";
@@ -12,7 +13,11 @@ export default function PetArticle() {
   const article = PET_ARTICLES.find((a) => a.slug === slug);
   if (!article) return <Navigate to="/pets" replace />;
 
-  const related = PET_ARTICLES.filter((a) => a.slug !== article.slug).slice(0, 3);
+  const relatedByPath = relatedNavigation as Record<string, { href: string; title: string }[]>;
+  const selected = relatedByPath[`/pets/${article.slug}`];
+  const related = selected
+    ? selected.map((row) => PET_ARTICLES.find((a) => `/pets/${a.slug}` === row.href)).filter((a): a is typeof article => !!a)
+    : PET_ARTICLES.filter((a) => a.slug !== article.slug).slice(0, 3);
 
   return (
     <>
@@ -92,6 +97,7 @@ export default function PetArticle() {
               ))}
             </div>
           </section>
+          {selected?.some((row) => !row.href.startsWith('/pets/')) && <nav aria-label="Related reading" className="mt-8"><h2 className="text-xl font-bold mb-4">Related reading</h2><ul>{selected.filter((row) => !row.href.startsWith('/pets/')).map((row) => <li key={row.href}><Link className="underline underline-offset-2" to={row.href}>{row.title}</Link></li>)}</ul></nav>}
           <PetPhotoCredits images={[...article.images, ...related.flatMap(guide => guide.images)]} />
         </article>
       </main>

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import relatedNavigation from "@/data/relatedNavigationLinks.json";
 import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { useParams, Link, Navigate } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
@@ -58,6 +59,9 @@ const FAQ_CONDITION_LINKS: Record<string, { label: string; href: string }[]> = {
 export default function FaqArticle() {
   const { slug } = useParams<{ slug: string }>();
   const article = faqArticles.find((a) => a.slug === slug);
+  const relatedByPath = relatedNavigation as Record<string, { href: string; title: string }[]>;
+  const linkedSlugs = relatedByPath[`/faq/${slug}`]?.map((row) => row.href.replace('/faq/', ''));
+  const relatedSlugs = [...new Set([...(article?.relatedArticles || []), ...(linkedSlugs || [])])];
 
   useEffect(() => {
     if (!article) return;
@@ -157,23 +161,23 @@ export default function FaqArticle() {
         </section>
       )}
 
-      {(article.relatedArticles.length > 0 || extraLinks.length > 0) && (
+      {(relatedSlugs.length > 0 || extraLinks.length > 0) && (
         <section className="bg-muted p-6 rounded-lg my-12">
           <h2 className="text-xl font-bold mb-4">Related questions and guides</h2>
           <ul className="space-y-2">
             {extraLinks.map((link) => (
               <li key={link.href}>
-                <Link to={link.href} className="text-primary hover:underline font-semibold">
+                <Link to={link.href} className="text-foreground hover:underline font-semibold">
                   → {link.label}
                 </Link>
               </li>
             ))}
-            {article.relatedArticles.map((relSlug) => {
+            {relatedSlugs.map((relSlug) => {
               const rel = faqArticles.find((a) => a.slug === relSlug);
               if (!rel) return null;
               return (
                 <li key={relSlug}>
-                  <Link to={`/faq/${rel.slug}`} className="text-primary hover:underline font-semibold">
+                  <Link to={`/faq/${rel.slug}`} className="text-foreground hover:underline font-semibold">
                     → {rel.title}
                   </Link>
                 </li>

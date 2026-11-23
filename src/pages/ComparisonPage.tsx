@@ -9,6 +9,7 @@ import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
 import { getComparisonArticle, COMPARISON_META_DESCRIPTIONS } from "@/data/comparison-content";
 import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
+import relatedComparisons from "@/data/relatedNavigationLinks.json";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
@@ -62,7 +63,8 @@ export default function ComparisonPage() {
     COMPARISON_META_DESCRIPTIONS[path] ??
     `${title}: an evidence-informed side-by-side comparison for UK arthritis patients, covering effectiveness, safety and cost.`;
 
-  const others = COMPARISON_ROUTES.filter((r) => r !== path).slice(0, 6);
+  const relatedByPath = relatedComparisons as Record<string, { href: string; title: string }[]>;
+  const others = relatedByPath[path] ?? COMPARISON_ROUTES.filter((r) => r !== path).slice(0, 6).map((href) => ({ href, title: getComparisonArticle(href)?.title ?? prettify(href.replace(/^\/guides\//, "")) }));
 
   const canonicalUrl = `https://livingwitharthritis.org.uk${path}`;
   const medicalWebPageLd = {
@@ -233,13 +235,7 @@ export default function ComparisonPage() {
 
           <h2 className="text-xl font-bold mb-4">Other comparisons</h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {others.map((r) => {
-              const p = parseComparison(r.replace(/^\/guides\//, ""));
-              const label = p
-                ? p.context
-                  ? `${prettify(p.a)} vs ${prettify(p.b)} for ${prettify(p.context)}`
-                  : `${prettify(p.a)} vs ${prettify(p.b)}`
-                : r;
+            {others.map(({ href: r, title: label }) => {
               return (
                 <li key={r}>
                   <Link

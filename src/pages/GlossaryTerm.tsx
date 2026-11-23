@@ -8,6 +8,7 @@ import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { GLOSSARY_ROUTES } from "@/data/glossary-routes.generated";
 import { getGlossaryEntry, GLOSSARY_CONTENT } from "@/data/glossary-content";
 import SeoHead from "@/components/SeoHead";
+import relatedNavigation from "@/data/relatedNavigationLinks.json";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
@@ -54,10 +55,11 @@ export default function GlossaryTerm() {
       .slice(0, 6)
       .map((r) => r.replace("/glossary/", ""));
 
-  const related = relatedSlugs.map((s) => ({
-    href: `/glossary/${s}`,
-    label: GLOSSARY_CONTENT[s]?.label ?? prettify(s),
-  }));
+  const relatedByPath = relatedNavigation as Record<string, { href: string; title: string }[]>;
+  const related = [...new Map([
+    ...relatedSlugs.map((s) => ({ href: `/glossary/${s}`, label: GLOSSARY_CONTENT[s]?.label ?? prettify(s) })),
+    ...(relatedByPath[href] || []).map((row) => ({ href: row.href, label: row.title })),
+  ].map((row) => [row.href, row])).values()];
 
   return (
     <>
@@ -177,4 +179,4 @@ export default function GlossaryTerm() {
       </Suspense>
     </>
   );
-}
+      }
