@@ -1,0 +1,788 @@
+{
+  "/guides/arthritis-vs-fibromyalgia": [
+    {
+      "href": "/guides/bursitis-vs-arthritis",
+      "title": "Bursitis vs Arthritis"
+    },
+    {
+      "href": "/guides/tendonitis-vs-arthritis",
+      "title": "Tendonitis vs Arthritis"
+    },
+    {
+      "href": "/guides/sciatica-vs-hip-arthritis",
+      "title": "Sciatica vs Hip Arthritis"
+    },
+    {
+      "href": "/guides/osteoarthritis-vs-rheumatoid-arthritis",
+      "title": "Osteoarthritis vs Rheumatoid Arthritis"
+    },
+    {
+      "href": "/guides/gout-vs-pseudogout",
+      "title": "Gout vs Pseudogout: What's the Difference?"
+    }
+  ],
+  "/guides/bursitis-vs-arthritis": [
+    {
+      "href": "/guides/arthritis-vs-fibromyalgia",
+      "title": "Arthritis vs Fibromyalgia"
+    },
+    {
+      "href": "/guides/tendonitis-vs-arthritis",
+      "title": "Tendonitis vs Arthritis"
+    },
+    {
+      "href": "/guides/sciatica-vs-hip-arthritis",
+      "title": "Sciatica vs Hip Arthritis"
+    },
+    {
+      "href": "/guides/osteoarthritis-vs-rheumatoid-arthritis",
+      "title": "Osteoarthritis vs Rheumatoid Arthritis"
+    },
+    {
+      "href": "/guides/gout-vs-pseudogout",
+      "title": "Gout vs Pseudogout: What's the Difference?"
+    }
+  ],
+  "/guides/tendonitis-vs-arthritis": [
+    {
+      "href": "/guides/arthritis-vs-fibromyalgia",
+      "title": "Arthritis vs Fibromyalgia"
+    },
+    {
+      "href": "/guides/bursitis-vs-arthritis",
+      "title": "Bursitis vs Arthritis"
+    },
+    {
+      "href": "/guides/sciatica-vs-hip-arthritis",
+      "title": "Sciatica vs Hip Arthritis"
+    },
+    {
+      "href": "/guides/osteoarthritis-vs-rheumatoid-arthritis",
+      "title": "Osteoarthritis vs Rheumatoid Arthritis"
+    },
+    {
+      "href": "/guides/gout-vs-pseudogout",
+      "title": "Gout vs Pseudogout: What's the Difference?"
+    }
+  ],
+  "/guides/sciatica-vs-hip-arthritis": [
+    {
+      "href": "/guides/arthritis-vs-fibromyalgia",
+      "title": "Arthritis vs Fibromyalgia"
+    },
+    {
+      "href": "/guides/bursitis-vs-arthritis",
+      "title": "Bursitis vs Arthritis"
+    },
+    {
+      "href": "/guides/tendonitis-vs-arthritis",
+      "title": "Tendonitis vs Arthritis"
+    },
+    {
+      "href": "/guides/osteoarthritis-vs-rheumatoid-arthritis",
+      "title": "Osteoarthritis vs Rheumatoid Arthritis"
+    },
+    {
+      "href": "/guides/gout-vs-pseudogout",
+      "title": "Gout vs Pseudogout: What's the Difference?"
+    }
+  ],
+  "/guides/osteoarthritis-vs-rheumatoid-arthritis": [
+    {
+      "href": "/guides/arthritis-vs-fibromyalgia",
+      "title": "Arthritis vs Fibromyalgia"
+    },
+    {
+      "href": "/guides/bursitis-vs-arthritis",
+      "title": "Bursitis vs Arthritis"
+    },
+    {
+      "href": "/guides/tendonitis-vs-arthritis",
+      "title": "Tendonitis vs Arthritis"
+    },
+    {
+      "href": "/guides/sciatica-vs-hip-arthritis",
+      "title": "Sciatica vs Hip Arthritis"
+    },
+    {
+      "href": "/guides/gout-vs-pseudogout",
+      "title": "Gout vs Pseudogout: What's the Difference?"
+    }
+  ],
+  "/guides/gout-vs-pseudogout": [
+    {
+      "href": "/guides/arthritis-vs-fibromyalgia",
+      "title": "Arthritis vs Fibromyalgia"
+    },
+    {
+      "href": "/guides/bursitis-vs-arthritis",
+      "title": "Bursitis vs Arthritis"
+    },
+    {
+      "href": "/guides/tendonitis-vs-arthritis",
+      "title": "Tendonitis vs Arthritis"
+    },
+    {
+      "href": "/guides/sciatica-vs-hip-arthritis",
+      "title": "Sciatica vs Hip Arthritis"
+    },
+    {
+      "href": "/guides/osteoarthritis-vs-rheumatoid-arthritis",
+      "title": "Osteoarthritis vs Rheumatoid Arthritis"
+    }
+  ],
+  "/guides/swimming-vs-walking-arthritis": [
+    {
+      "href": "/guides/yoga-vs-pilates-arthritis",
+      "title": "Yoga vs Pilates for Arthritis"
+    },
+    {
+      "href": "/guides/chair-yoga-vs-tai-chi",
+      "title": "Chair Yoga vs Tai Chi for Arthritis"
+    },
+    {
+      "href": "/guides/resistance-bands-vs-weights",
+      "title": "Resistance Bands vs Weights for Arthritis"
+    }
+  ],
+  "/guides/yoga-vs-pilates-arthritis": [
+    {
+      "href": "/guides/swimming-vs-walking-arthritis",
+      "title": "Swimming vs Walking for Arthritis"
+    },
+    {
+      "href": "/guides/chair-yoga-vs-tai-chi",
+      "title": "Chair Yoga vs Tai Chi for Arthritis"
+    },
+    {
+      "href": "/guides/resistance-bands-vs-weights",
+      "title": "Resistance Bands vs Weights for Arthritis"
+    }
+  ],
+  "/guides/chair-yoga-vs-tai-chi": [
+    {
+      "href": "/guides/swimming-vs-walking-arthritis",
+      "title": "Swimming vs Walking for Arthritis"
+    },
+    {
+      "href": "/guides/yoga-vs-pilates-arthritis",
+      "title": "Yoga vs Pilates for Arthritis"
+    },
+    {
+      "href": "/guides/resistance-bands-vs-weights",
+      "title": "Resistance Bands vs Weights for Arthritis"
+    },
+    {
+      "href": "/guides/meditation-vs-cbt-arthritis-pain",
+      "title": "Meditation vs CBT for Arthritis Pain"
+    }
+  ],
+  "/guides/resistance-bands-vs-weights": [
+    {
+      "href": "/guides/swimming-vs-walking-arthritis",
+      "title": "Swimming vs Walking for Arthritis"
+    },
+    {
+      "href": "/guides/yoga-vs-pilates-arthritis",
+      "title": "Yoga vs Pilates for Arthritis"
+    },
+    {
+      "href": "/guides/chair-yoga-vs-tai-chi",
+      "title": "Chair Yoga vs Tai Chi for Arthritis"
+    }
+  ],
+  "/guides/heat-vs-cold-arthritis-pain": [
+    {
+      "href": "/guides/wet-vs-dry-heat-therapy",
+      "title": "Wet Heat vs Dry Heat for Arthritis"
+    },
+    {
+      "href": "/guides/cold-plunge-vs-warm-bath-arthritis",
+      "title": "Cold Plunge vs Warm Bath for Arthritis"
+    }
+  ],
+  "/guides/wet-vs-dry-heat-therapy": [
+    {
+      "href": "/guides/heat-vs-cold-arthritis-pain",
+      "title": "Heat vs Cold Therapy for Arthritis"
+    },
+    {
+      "href": "/guides/cold-plunge-vs-warm-bath-arthritis",
+      "title": "Cold Plunge vs Warm Bath for Arthritis"
+    }
+  ],
+  "/guides/cold-plunge-vs-warm-bath-arthritis": [
+    {
+      "href": "/guides/heat-vs-cold-arthritis-pain",
+      "title": "Heat vs Cold Therapy for Arthritis"
+    },
+    {
+      "href": "/guides/wet-vs-dry-heat-therapy",
+      "title": "Wet Heat vs Dry Heat for Arthritis"
+    }
+  ],
+  "/guides/glucosamine-vs-turmeric-arthritis": [
+    {
+      "href": "/guides/collagen-vs-glucosamine",
+      "title": "Collagen vs Glucosamine for Arthritis"
+    },
+    {
+      "href": "/guides/magnesium-vs-vitamin-d",
+      "title": "Magnesium vs Vitamin D for Arthritis"
+    },
+    {
+      "href": "/guides/mediterranean-diet-vs-anti-inflammatory-diet",
+      "title": "Mediterranean Diet vs Anti-Inflammatory Diet"
+    }
+  ],
+  "/guides/collagen-vs-glucosamine": [
+    {
+      "href": "/guides/glucosamine-vs-turmeric-arthritis",
+      "title": "Glucosamine vs Turmeric for Arthritis"
+    },
+    {
+      "href": "/guides/magnesium-vs-vitamin-d",
+      "title": "Magnesium vs Vitamin D for Arthritis"
+    },
+    {
+      "href": "/guides/mediterranean-diet-vs-anti-inflammatory-diet",
+      "title": "Mediterranean Diet vs Anti-Inflammatory Diet"
+    }
+  ],
+  "/guides/magnesium-vs-vitamin-d": [
+    {
+      "href": "/guides/glucosamine-vs-turmeric-arthritis",
+      "title": "Glucosamine vs Turmeric for Arthritis"
+    },
+    {
+      "href": "/guides/collagen-vs-glucosamine",
+      "title": "Collagen vs Glucosamine for Arthritis"
+    },
+    {
+      "href": "/guides/mediterranean-diet-vs-anti-inflammatory-diet",
+      "title": "Mediterranean Diet vs Anti-Inflammatory Diet"
+    }
+  ],
+  "/guides/mediterranean-diet-vs-anti-inflammatory-diet": [
+    {
+      "href": "/guides/glucosamine-vs-turmeric-arthritis",
+      "title": "Glucosamine vs Turmeric for Arthritis"
+    },
+    {
+      "href": "/guides/collagen-vs-glucosamine",
+      "title": "Collagen vs Glucosamine for Arthritis"
+    },
+    {
+      "href": "/guides/magnesium-vs-vitamin-d",
+      "title": "Magnesium vs Vitamin D for Arthritis"
+    }
+  ],
+  "/guides/walking-stick-vs-crutch-arthritis": [
+    {
+      "href": "/guides/rollator-vs-walking-frame",
+      "title": "Rollator vs Walking Frame (Zimmer): Which Should You Choose?"
+    },
+    {
+      "href": "/guides/standing-desk-vs-sitting-desk",
+      "title": "Standing Desk vs Sitting Desk for Arthritis"
+    }
+  ],
+  "/guides/rollator-vs-walking-frame": [
+    {
+      "href": "/guides/walking-stick-vs-crutch-arthritis",
+      "title": "Walking Stick vs Crutch for Arthritis"
+    },
+    {
+      "href": "/guides/standing-desk-vs-sitting-desk",
+      "title": "Standing Desk vs Sitting Desk for Arthritis"
+    }
+  ],
+  "/guides/standing-desk-vs-sitting-desk": [
+    {
+      "href": "/guides/walking-stick-vs-crutch-arthritis",
+      "title": "Walking Stick vs Crutch for Arthritis"
+    },
+    {
+      "href": "/guides/rollator-vs-walking-frame",
+      "title": "Rollator vs Walking Frame (Zimmer): Which Should You Choose?"
+    }
+  ],
+  "/guides/paracetamol-vs-ibuprofen-for-arthritis": [
+    {
+      "href": "/guides/topical-nsaid-vs-oral-nsaid-arthritis",
+      "title": "Topical NSAID Gel vs Oral NSAID: Which Is Safer?"
+    },
+    {
+      "href": "/guides/steroid-injection-vs-hyaluronic-acid",
+      "title": "Steroid Injection vs Hyaluronic Acid for Knee Arthritis"
+    },
+    {
+      "href": "/guides/physiotherapy-vs-surgery-knee-arthritis",
+      "title": "Physiotherapy vs Surgery for Knee Arthritis"
+    }
+  ],
+  "/guides/topical-nsaid-vs-oral-nsaid-arthritis": [
+    {
+      "href": "/guides/paracetamol-vs-ibuprofen-for-arthritis",
+      "title": "Paracetamol vs Ibuprofen for Arthritis Pain"
+    },
+    {
+      "href": "/guides/steroid-injection-vs-hyaluronic-acid",
+      "title": "Steroid Injection vs Hyaluronic Acid for Knee Arthritis"
+    },
+    {
+      "href": "/guides/physiotherapy-vs-surgery-knee-arthritis",
+      "title": "Physiotherapy vs Surgery for Knee Arthritis"
+    }
+  ],
+  "/guides/steroid-injection-vs-hyaluronic-acid": [
+    {
+      "href": "/guides/paracetamol-vs-ibuprofen-for-arthritis",
+      "title": "Paracetamol vs Ibuprofen for Arthritis Pain"
+    },
+    {
+      "href": "/guides/topical-nsaid-vs-oral-nsaid-arthritis",
+      "title": "Topical NSAID Gel vs Oral NSAID: Which Is Safer?"
+    },
+    {
+      "href": "/guides/physiotherapy-vs-surgery-knee-arthritis",
+      "title": "Physiotherapy vs Surgery for Knee Arthritis"
+    }
+  ],
+  "/guides/physiotherapy-vs-surgery-knee-arthritis": [
+    {
+      "href": "/guides/paracetamol-vs-ibuprofen-for-arthritis",
+      "title": "Paracetamol vs Ibuprofen for Arthritis Pain"
+    },
+    {
+      "href": "/guides/topical-nsaid-vs-oral-nsaid-arthritis",
+      "title": "Topical NSAID Gel vs Oral NSAID: Which Is Safer?"
+    },
+    {
+      "href": "/guides/steroid-injection-vs-hyaluronic-acid",
+      "title": "Steroid Injection vs Hyaluronic Acid for Knee Arthritis"
+    }
+  ],
+  "/guides/pip-vs-attendance-allowance": [
+    {
+      "href": "/guides/blue-badge-vs-disability-parking",
+      "title": "Blue Badge vs Disability Parking Concessions"
+    },
+    {
+      "href": "/guides/nhs-vs-private-rheumatology",
+      "title": "NHS vs Private Rheumatology in the UK"
+    },
+    {
+      "href": "/guides/physio-self-referral-vs-gp-referral",
+      "title": "Physio Self-Referral vs GP Referral"
+    }
+  ],
+  "/guides/blue-badge-vs-disability-parking": [
+    {
+      "href": "/guides/pip-vs-attendance-allowance",
+      "title": "PIP vs Attendance Allowance for Arthritis"
+    },
+    {
+      "href": "/guides/nhs-vs-private-rheumatology",
+      "title": "NHS vs Private Rheumatology in the UK"
+    },
+    {
+      "href": "/guides/physio-self-referral-vs-gp-referral",
+      "title": "Physio Self-Referral vs GP Referral"
+    }
+  ],
+  "/guides/nhs-vs-private-rheumatology": [
+    {
+      "href": "/guides/pip-vs-attendance-allowance",
+      "title": "PIP vs Attendance Allowance for Arthritis"
+    },
+    {
+      "href": "/guides/blue-badge-vs-disability-parking",
+      "title": "Blue Badge vs Disability Parking Concessions"
+    },
+    {
+      "href": "/guides/physio-self-referral-vs-gp-referral",
+      "title": "Physio Self-Referral vs GP Referral"
+    }
+  ],
+  "/guides/physio-self-referral-vs-gp-referral": [
+    {
+      "href": "/guides/pip-vs-attendance-allowance",
+      "title": "PIP vs Attendance Allowance for Arthritis"
+    },
+    {
+      "href": "/guides/blue-badge-vs-disability-parking",
+      "title": "Blue Badge vs Disability Parking Concessions"
+    },
+    {
+      "href": "/guides/nhs-vs-private-rheumatology",
+      "title": "NHS vs Private Rheumatology in the UK"
+    }
+  ],
+  "/glossary/cfs": [
+    {
+      "href": "/glossary/dass-score",
+      "title": "DASS"
+    },
+    {
+      "href": "/glossary/pain-scale",
+      "title": "Pain scale (0-10)"
+    },
+    {
+      "href": "/glossary",
+      "title": "Arthritis glossary"
+    }
+  ],
+  "/glossary/dass-score": [
+    {
+      "href": "/glossary/cfs",
+      "title": "Clinical Frailty Scale"
+    },
+    {
+      "href": "/glossary/pain-scale",
+      "title": "Pain scale (0-10)"
+    },
+    {
+      "href": "/glossary",
+      "title": "Arthritis glossary"
+    }
+  ],
+  "/glossary/pain-scale": [
+    {
+      "href": "/glossary/cfs",
+      "title": "Clinical Frailty Scale"
+    },
+    {
+      "href": "/glossary/dass-score",
+      "title": "DASS"
+    },
+    {
+      "href": "/glossary/codeine",
+      "title": "Codeine"
+    },
+    {
+      "href": "/glossary/facet-joint-injection",
+      "title": "Facet joint injection"
+    },
+    {
+      "href": "/glossary",
+      "title": "Arthritis glossary"
+    }
+  ],
+  "/glossary/codeine": [
+    {
+      "href": "/glossary/facet-joint-injection",
+      "title": "Facet joint injection"
+    },
+    {
+      "href": "/glossary/pain-scale",
+      "title": "Pain scale (0-10)"
+    },
+    {
+      "href": "/glossary",
+      "title": "Arthritis glossary"
+    }
+  ],
+  "/glossary/facet-joint-injection": [
+    {
+      "href": "/glossary/codeine",
+      "title": "Codeine"
+    },
+    {
+      "href": "/glossary/pain-scale",
+      "title": "Pain scale (0-10)"
+    },
+    {
+      "href": "/glossary",
+      "title": "Arthritis glossary"
+    }
+  ],
+  "/glossary/hydroxychloroquine": [
+    {
+      "href": "/glossary/sulfasalazine",
+      "title": "Sulfasalazine"
+    },
+    {
+      "href": "/glossary/morning-stiffness",
+      "title": "Morning stiffness"
+    },
+    {
+      "href": "/glossary",
+      "title": "Arthritis glossary"
+    }
+  ],
+  "/glossary/sulfasalazine": [
+    {
+      "href": "/glossary/hydroxychloroquine",
+      "title": "Hydroxychloroquine"
+    },
+    {
+      "href": "/glossary/morning-stiffness",
+      "title": "Morning stiffness"
+    },
+    {
+      "href": "/glossary",
+      "title": "Arthritis glossary"
+    }
+  ],
+  "/glossary/morning-stiffness": [
+    {
+      "href": "/glossary/hydroxychloroquine",
+      "title": "Hydroxychloroquine"
+    },
+    {
+      "href": "/glossary/sulfasalazine",
+      "title": "Sulfasalazine"
+    },
+    {
+      "href": "/glossary/raynauds",
+      "title": "Raynaud's phenomenon"
+    },
+    {
+      "href": "/glossary",
+      "title": "Arthritis glossary"
+    }
+  ],
+  "/glossary/meniscus": [
+    {
+      "href": "/glossary/musculoskeletal",
+      "title": "Musculoskeletal (MSK)"
+    },
+    {
+      "href": "/glossary/passive-vs-active-movement",
+      "title": "Passive vs active movement"
+    },
+    {
+      "href": "/glossary",
+      "title": "Arthritis glossary"
+    }
+  ],
+  "/glossary/musculoskeletal": [
+    {
+      "href": "/glossary/meniscus",
+      "title": "Meniscus"
+    },
+    {
+      "href": "/glossary/passive-vs-active-movement",
+      "title": "Passive vs active movement"
+    },
+    {
+      "href": "/glossary/nice",
+      "title": "NICE"
+    },
+    {
+      "href": "/glossary/self-referral",
+      "title": "Self-referral"
+    },
+    {
+      "href": "/glossary",
+      "title": "Arthritis glossary"
+    }
+  ],
+  "/glossary/passive-vs-active-movement": [
+    {
+      "href": "/glossary/meniscus",
+      "title": "Meniscus"
+    },
+    {
+      "href": "/glossary/musculoskeletal",
+      "title": "Musculoskeletal (MSK)"
+    },
+    {
+      "href": "/glossary",
+      "title": "Arthritis glossary"
+    }
+  ],
+  "/glossary/nice": [
+    {
+      "href": "/glossary/self-referral",
+      "title": "Self-referral"
+    },
+    {
+      "href": "/glossary/musculoskeletal",
+      "title": "Musculoskeletal (MSK)"
+    },
+    {
+      "href": "/glossary",
+      "title": "Arthritis glossary"
+    }
+  ],
+  "/glossary/self-referral": [
+    {
+      "href": "/glossary/nice",
+      "title": "NICE"
+    },
+    {
+      "href": "/glossary/musculoskeletal",
+      "title": "Musculoskeletal (MSK)"
+    },
+    {
+      "href": "/glossary",
+      "title": "Arthritis glossary"
+    }
+  ],
+  "/glossary/raynauds": [
+    {
+      "href": "/glossary/morning-stiffness",
+      "title": "Morning stiffness"
+    },
+    {
+      "href": "/glossary",
+      "title": "Arthritis glossary"
+    }
+  ],
+  "/faq/arthritis-and-pregnancy": [
+    {
+      "href": "/faq/can-arthritis-affect-young-people",
+      "title": "Can Arthritis Affect Younger People?"
+    },
+    {
+      "href": "/faq/young-people-arthritis",
+      "title": "Why Young People Get Arthritis"
+    },
+    {
+      "href": "/faq",
+      "title": "More arthritis questions and answers"
+    }
+  ],
+  "/faq/can-arthritis-affect-young-people": [
+    {
+      "href": "/faq/arthritis-and-pregnancy",
+      "title": "Arthritis and Pregnancy"
+    },
+    {
+      "href": "/faq/young-people-arthritis",
+      "title": "Why Young People Get Arthritis"
+    },
+    {
+      "href": "/faq",
+      "title": "More arthritis questions and answers"
+    }
+  ],
+  "/faq/young-people-arthritis": [
+    {
+      "href": "/faq/arthritis-and-pregnancy",
+      "title": "Arthritis and Pregnancy"
+    },
+    {
+      "href": "/faq/can-arthritis-affect-young-people",
+      "title": "Can Arthritis Affect Younger People?"
+    },
+    {
+      "href": "/faq",
+      "title": "More arthritis questions and answers"
+    }
+  ],
+  "/faq/arthritis-return-to-work": [
+    {
+      "href": "/faq/arthritis-employment-rights-uk",
+      "title": "Arthritis and Employment Rights in the UK"
+    },
+    {
+      "href": "/faq",
+      "title": "More arthritis questions and answers"
+    }
+  ],
+  "/faq/arthritis-sleeping-positions": [
+    {
+      "href": "/faq/arthritis-and-sleep",
+      "title": "Arthritis and Sleep"
+    },
+    {
+      "href": "/faq",
+      "title": "More arthritis questions and answers"
+    }
+  ],
+  "/pets/home-adaptations-for-arthritic-pets": [
+    {
+      "href": "/pets/pet-weight-and-joint-health",
+      "title": "Pet Weight & Joint Health: The Treatment Owners Control"
+    },
+    {
+      "href": "/pets/senior-pet-exercise-guide",
+      "title": "Exercise for Arthritic Pets: Little and Often Wins"
+    },
+    {
+      "href": "/pets/when-to-see-the-vet-pet-arthritis",
+      "title": "Pet Arthritis: When to See the Vet (Red Flags)"
+    }
+  ],
+  "/pets/pet-weight-and-joint-health": [
+    {
+      "href": "/pets/home-adaptations-for-arthritic-pets",
+      "title": "Home Adaptations for Arthritic Pets: 15 Cheap Changes That Work"
+    },
+    {
+      "href": "/pets/senior-pet-exercise-guide",
+      "title": "Exercise for Arthritic Pets: Little and Often Wins"
+    },
+    {
+      "href": "/pets/when-to-see-the-vet-pet-arthritis",
+      "title": "Pet Arthritis: When to See the Vet (Red Flags)"
+    },
+    {
+      "href": "/guides/dog-arthritis-supplements-vs-prescription",
+      "title": "Joint Supplements vs Prescription Meds for Dogs with Arthritis"
+    }
+  ],
+  "/pets/senior-pet-exercise-guide": [
+    {
+      "href": "/pets/home-adaptations-for-arthritic-pets",
+      "title": "Home Adaptations for Arthritic Pets: 15 Cheap Changes That Work"
+    },
+    {
+      "href": "/pets/pet-weight-and-joint-health",
+      "title": "Pet Weight & Joint Health: The Treatment Owners Control"
+    },
+    {
+      "href": "/pets/when-to-see-the-vet-pet-arthritis",
+      "title": "Pet Arthritis: When to See the Vet (Red Flags)"
+    }
+  ],
+  "/pets/when-to-see-the-vet-pet-arthritis": [
+    {
+      "href": "/pets/home-adaptations-for-arthritic-pets",
+      "title": "Home Adaptations for Arthritic Pets: 15 Cheap Changes That Work"
+    },
+    {
+      "href": "/pets/pet-weight-and-joint-health",
+      "title": "Pet Weight & Joint Health: The Treatment Owners Control"
+    },
+    {
+      "href": "/pets/senior-pet-exercise-guide",
+      "title": "Exercise for Arthritic Pets: Little and Often Wins"
+    }
+  ],
+  "/guides/dmards-vs-biologics": [
+    {
+      "href": "/guides/steroid-injection-vs-hyaluronic-acid",
+      "title": "Steroid Injection vs Hyaluronic Acid for Knee Arthritis"
+    }
+  ],
+  "/guides/meditation-vs-cbt-arthritis-pain": [
+    {
+      "href": "/guides/chair-yoga-vs-tai-chi",
+      "title": "Chair Yoga vs Tai Chi for Arthritis"
+    }
+  ],
+  "/faq/arthritis-employment-rights-uk": [
+    {
+      "href": "/faq/arthritis-return-to-work",
+      "title": "Returning to Work After an Arthritis Flare"
+    },
+    {
+      "href": "/faq",
+      "title": "More arthritis questions and answers"
+    }
+  ],
+  "/faq/arthritis-and-sleep": [
+    {
+      "href": "/faq/arthritis-sleeping-positions",
+      "title": "Best Sleeping Positions for Arthritis Pain"
+    },
+    {
+      "href": "/faq",
+      "title": "More arthritis questions and answers"
+    }
+  ]
+}
