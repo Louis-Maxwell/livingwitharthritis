@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
 import blogNoindex from "@/data/blog-noindex.json";
+import { BLOG_VIDEOS } from "@/data/blogVideos";
 
 const BLOG_NOINDEX = new Set<string>(blogNoindex as string[]);
 import { Helmet } from "react-helmet-async";
@@ -62,6 +63,7 @@ import { distinctSeoTitle } from '@/lib/technicalSeo.mjs';
 
 // Below-the-fold article furniture loads as the reader scrolls towards it
 // (ViewportSection), so the first paint only pays for the article itself.
+const ArticleVideo = lazyWithRetry(() => import("@/components/blog/ArticleVideo"));
 const ClusterRelatedLinks = lazyWithRetry(() => import("@/components/blog/ClusterRelatedLinks"));
 const TopicPrevNext = lazyWithRetry(() => import("@/components/blog/TopicPrevNext"));
 const KeywordRelatedLinks = lazyWithRetry(() => import("@/components/seo/KeywordRelatedLinks"));
@@ -718,6 +720,11 @@ const BlogPost = () => {
             )}
           </section>
 
+          {slug && BLOG_VIDEOS[slug] && (
+            <ViewportSection fallback={<div data-testid="article-video-placeholder" className="min-h-[760px]" />} rootMargin="200px 0px">
+              <ArticleVideo key={slug} video={BLOG_VIDEOS[slug]} />
+            </ViewportSection>
+          )}
           <ArticleFaqSection faqs={faqs} />
           {slug && (
             <RecommendedNextStep path={`/blog/${slug}`} context={`${article.title} ${article.keywords ?? ""}`} placement="end" />
