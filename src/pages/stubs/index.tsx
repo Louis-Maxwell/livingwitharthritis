@@ -208,11 +208,11 @@ export const PodcastsStub = () => (
 );
 
 const HELPLINE_FAQS: StubPageFAQ[] = [
-  { q: "How do I contact the helpline?", a: "Email info@livingwitharthritis.org.uk, call 07760 512 084 (Mon–Fri, 9am–5pm), or message us on WhatsApp. A real person — not a chatbot — responds within 2 working days." },
-  { q: "What can the helpline help with?", a: "Signposting to UK services, understanding your diagnosis, questions about medications, support during a flare, accessing benefits and equipment, and general emotional support. We don't replace your clinical team but help you navigate the system." },
+  { q: "How do I contact the helpline?", a: "Call 07760 512 084 (weekdays) and you'll speak to a real person, not a chatbot." },
+  { q: "What can the helpline help with?", a: "Individual advice about your diagnosis and benefits, and help finding information on this website. We don't advise on medicines — your GP or pharmacist is the right contact — and we don't replace your clinical team." },
   { q: "Is the helpline confidential?", a: "Yes. Conversations are private and only shared if there's a safeguarding concern. We don't share your contact details with third parties." },
-  { q: "Can you give me medical advice?", a: "No — we can't diagnose, prescribe or recommend specific treatments. We can explain what your clinician has told you, suggest questions to ask, and signpost evidence-based resources." },
-  { q: "How quickly will I get a reply?", a: "Email and WhatsApp: within 2 working days. Phone: within office hours, or leave a voicemail and we'll call back. Complex queries that need research may take longer — we'll let you know." },
+  { q: "Can you give me medical advice?", a: "We can't diagnose, prescribe or advise on medicines. We can talk through what your diagnosis means and your benefits options, and help you find evidence-based information on this website." },
+  { q: "When can I call?", a: "The helpline is staffed on weekdays." },
   { q: "Is there a cost?", a: "No — all our support is free. We're funded by donations and grants, never by selling your data or by advertising." },
 ];
 
@@ -220,8 +220,8 @@ export const HelplineStub = () => (
   <StubPage
     slug="helpline"
     title="Support & Helpline: Talk to a Real Person"
-    description="Free UK arthritis helpline — email, call or WhatsApp. A real person responds within 2 working days for signposting, emotional support and help navigating services."
-    answer="Our free helpline is staffed by trained people, not a chatbot. Email info@livingwitharthritis.org.uk, call 07760 512 084 (Mon–Fri 9–5), or message us on WhatsApp. We respond within 2 working days for signposting, emotional support and help understanding your diagnosis."
+    description="UK arthritis helpline — call 07760 512 084 (weekdays). Individual advice about your diagnosis and benefits, and help finding information on this website."
+    answer="Call 07760 512 084 on weekdays to reach our helpline: a real person, not a chatbot. We offer individual advice about your diagnosis and benefits, and help finding information on this website. We don't advise on medicines."
     breadcrumbs={[home, communityCrumb, { label: "Helpline", href: "/helpline" }]}
     faqs={HELPLINE_FAQS}
     relatedLinks={[
