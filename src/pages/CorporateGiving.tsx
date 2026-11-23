@@ -28,6 +28,10 @@ const routes = [...corporateRoutes, ...employeeRoutes, matchedRoute];
 const empty = { name: "", email: "", organisation: "", interest: "", budget: "", message: "" };
 
 export default function CorporateGiving({ path = "/corporate-giving" }: { path?: string }) {
+  const isPartnerships = path === "/corporate-partnerships";
+  const pageTitle = isPartnerships ? "Corporate Partnerships" : "Corporate Giving";
+  const pageHeading = isPartnerships ? "Company donation or sponsorship" : "Your business can help keep arthritis information free.";
+  const pageDescription = isPartnerships ? corporateRoutes[0].text : "Explore corporate giving, employee donations and matched giving. Discuss sponsorship, fundraising or skills support with Living With Arthritis today.";
   const [form, setForm] = useState(empty);
   const [busy, setBusy] = useState(false);
   const [status, setStatus] = useState("");
@@ -54,9 +58,9 @@ export default function CorporateGiving({ path = "/corporate-giving" }: { path?:
     } finally { setBusy(false); }
   };
   return <>
-    <SeoHead title="Corporate Giving" description="Explore corporate giving, employee donations and matched giving. Discuss sponsorship, fundraising or skills support with Living With Arthritis today." path={path} />
+    <SeoHead title={pageTitle} description={pageDescription} path={path} />
     <Helmet>
-      <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", name: "Corporate giving and partnerships", url: `https://livingwitharthritis.org.uk${path}`, inLanguage: "en-GB" })}</script>
+      <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", name: pageTitle, url: `https://livingwitharthritis.org.uk${path}`, inLanguage: "en-GB" })}</script>
     </Helmet>
     <Header />
     <main id="main-content" className="min-h-dvh bg-background">
@@ -64,8 +68,8 @@ export default function CorporateGiving({ path = "/corporate-giving" }: { path?:
         <div className="container max-w-6xl px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10 items-center">
           <div>
             <p className="text-sm font-semibold tracking-widest uppercase mb-4">For businesses and teams</p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-tight tracking-tight">Your business can help keep arthritis information free.</h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground max-w-2xl">Support Living With Arthritis through corporate giving, employee giving or matched donations. Start with an idea that fits your organisation.</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-tight tracking-tight">{pageHeading}</h1>
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground max-w-2xl">{isPartnerships ? corporateRoutes[2].text : "Support Living With Arthritis through corporate giving, employee giving or matched donations. Start with an idea that fits your organisation."}</p>
             <div className="flex flex-col sm:flex-row gap-3 mt-8">
               <Button asChild size="lg" className="rounded-full h-auto min-h-12 whitespace-normal text-center"><a href="#partnership-form">Discuss your idea <ArrowRight aria-hidden="true" className="ml-2 w-4 h-4 shrink-0" /></a></Button>
               <Button asChild size="lg" variant="outline" className="rounded-full h-auto min-h-12 whitespace-normal text-center"><Link to="/donate">Explore donation options</Link></Button>
@@ -86,10 +90,12 @@ export default function CorporateGiving({ path = "/corporate-giving" }: { path?:
         <p className="mt-4 max-w-2xl text-muted-foreground leading-relaxed">These are ideas to discuss, not pre-agreed packages. We agree every partnership in writing, including any sponsorship, recognition, activity or reporting, before you commit.</p>
         <h3 className="text-2xl font-bold mt-8 mb-5">Corporate Giving</h3><div className="grid grid-cols-1 sm:grid-cols-2 gap-5">{corporateRoutes.map(route => <article key={route.title} className="rounded-2xl border border-border bg-card p-6 flex flex-col"><route.icon className="w-7 h-7 text-primary mb-5" aria-hidden="true" /><h4 className="text-xl font-bold">{route.title}</h4><p className="text-muted-foreground leading-relaxed mt-3 mb-6 flex-1">{route.text}</p><Button variant="outline" className="h-auto min-h-11 whitespace-normal" onClick={() => choose(route.prompt)}>Discuss {route.title.toLowerCase()}</Button></article>)}</div>
       </section>
-      <section className="container max-w-6xl px-5 sm:px-8 pb-14 sm:pb-20" aria-labelledby="employee-title"><h2 id="employee-title" className="text-3xl sm:text-4xl font-display font-bold">Employee Giving</h2><p className="mt-4 mb-8 max-w-2xl text-muted-foreground leading-relaxed">Make giving a voluntary choice that works for your colleagues. Start with a small regular gift, a team activity or an offer of time and skills.</p><div className="grid grid-cols-1 sm:grid-cols-2 gap-5">{employeeRoutes.map(route => <article key={route.title} className="rounded-2xl border border-border bg-card p-6 flex flex-col"><route.icon className="w-7 h-7 text-primary mb-5" aria-hidden="true" /><h3 className="text-xl font-bold">{route.title}</h3><p className="text-muted-foreground leading-relaxed mt-3 mb-6 flex-1">{route.text}</p><Button variant="outline" className="h-auto min-h-11 whitespace-normal" onClick={() => choose(route.prompt)}>Discuss {route.title.toLowerCase()}</Button></article>)}</div>
+      {!isPartnerships && <><section className="container max-w-6xl px-5 sm:px-8 pb-14 sm:pb-20" aria-labelledby="employee-title"><h2 id="employee-title" className="text-3xl sm:text-4xl font-display font-bold">Employee Giving</h2><p className="mt-4 mb-8 max-w-2xl text-muted-foreground leading-relaxed">Make giving a voluntary choice that works for your colleagues. Start with a small regular gift, a team activity or an offer of time and skills.</p><div className="grid grid-cols-1 sm:grid-cols-2 gap-5">{employeeRoutes.map(route => <article key={route.title} className="rounded-2xl border border-border bg-card p-6 flex flex-col"><route.icon className="w-7 h-7 text-primary mb-5" aria-hidden="true" /><h3 className="text-xl font-bold">{route.title}</h3><p className="text-muted-foreground leading-relaxed mt-3 mb-6 flex-1">{route.text}</p><Button variant="outline" className="h-auto min-h-11 whitespace-normal" onClick={() => choose(route.prompt)}>Discuss {route.title.toLowerCase()}</Button></article>)}</div>
         <aside className="mt-6 rounded-2xl border border-border p-6 bg-accent/30" aria-label="How UK Payroll Giving works"><h3 className="text-xl font-bold">How UK Payroll Giving works</h3><p className="mt-3 text-muted-foreground leading-relaxed">Through an employer-run scheme and a Payroll Giving agency, donations come from PAYE wages or a pension before Income Tax, but after National Insurance. Tax relief depends on the donor's tax rate. Agency fees may apply and Gift Aid cannot be added.</p><p className="mt-3 text-muted-foreground leading-relaxed">The receiving charity must be recognised by HMRC. Payroll Giving availability for Living With Arthritis is not confirmed on this page; check eligibility with the agency and contact us before setting it up.</p><a className="inline-block mt-4 underline underline-offset-4" href="https://www.gov.uk/payroll-giving">Read the GOV.UK Payroll Giving guidance</a></aside>
       </section>
       <section className="container max-w-6xl px-5 sm:px-8 pb-14 sm:pb-20" aria-labelledby="matched-title"><div className="rounded-3xl border border-border bg-card p-6 sm:p-10"><HeartHandshake className="w-9 h-9 text-primary mb-5" aria-hidden="true" /><h2 id="matched-title" className="text-3xl sm:text-4xl font-display font-bold">Matched Giving</h2><p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">Invite your organisation to match employee donations or fundraising. With a full £1-for-£1 match, a £10 employee gift plus £10 from the employer means £20 donated before any fees.</p><p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">Matching can give colleagues a shared fundraising goal. Check the employer's scheme, eligibility, match rate, cap and claim deadline first. No employer match or increase in staff engagement is guaranteed.</p><Button variant="outline" className="mt-6 h-auto min-h-11 whitespace-normal" onClick={() => choose(matchedRoute.prompt)}>Discuss employee matched giving</Button></div></section>
+      </>}
+      {isPartnerships && <section className="container max-w-6xl px-5 sm:px-8 pb-14"><h2 className="text-2xl font-bold">Employee Giving</h2><p className="mt-4 text-muted-foreground">Make giving a voluntary choice that works for your colleagues. Start with a small regular gift, a team activity or an offer of time and skills.</p><Link className="inline-block mt-4 underline underline-offset-4" to="/corporate-giving">Corporate Giving</Link></section>}
       <section className="bg-accent/30 border-y border-border py-14">
         <div className="container max-w-6xl px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div><h2 className="text-3xl font-display font-bold">A clear conversation, before a commitment</h2><ol className="mt-7 space-y-5">{[
