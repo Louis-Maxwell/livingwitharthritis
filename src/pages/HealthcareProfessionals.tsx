@@ -130,8 +130,8 @@ export default function HealthcareProfessionals() {
           </h2>
           <p className="text-muted-foreground leading-relaxed max-w-2xl mb-4">
             If you would like printable packs for a waiting room, a short teaching session,
-            or to flag a clinical accuracy concern, email us — a real person replies within
-            two working days.
+            or to flag a clinical accuracy concern, email us at
+            info@livingwitharthritis.org.uk.
           </p>
           <Link
             to="/contact"
