@@ -28,11 +28,20 @@ describe('ArticleVideo privacy and reader control', () => {
     expect(screen.queryByTitle(video.title)).toBeNull();
     expect({ ...localStorage }).toEqual(before);
   });
-  it('keeps a small explicit topic map with no scheduled bone or muscle film', () => {
-    expect(Object.keys(BLOG_VIDEOS)).toHaveLength(3);
+  it('uses landscape geometry for a public long film without changing Short geometry', () => {
+    const long = BLOG_VIDEOS['osteoporosis-arthritis-frailty-bone-joint-uk'];
+    const { container } = render(<ArticleVideo video={long} />);
+    expect(container.querySelector('.aspect-video')).toBeTruthy();
+    expect(screen.getByText('A video from Living With Arthritis.')).toBeVisible();
+    fireEvent.click(screen.getByRole('button', { name: /Allow YouTube/ }));
+    expect(screen.getByTitle(long.title)).toHaveAttribute('width', '1280');
+    expect(screen.getByTitle(long.title)).toHaveAttribute('height', '720');
+  });
+  it('keeps a small explicit topic map with only checked public films', () => {
+    expect(Object.keys(BLOG_VIDEOS)).toHaveLength(4);
     for (const item of Object.values(BLOG_VIDEOS)) {
       expect(item.id).toMatch(/^[a-zA-Z0-9_-]{11}$/);
-      expect(item.url).toBe(`https://www.youtube.com/shorts/${item.id}`);
+      expect(item.url).toBe(item.format === 'landscape' ? `https://www.youtube.com/watch?v=${item.id}` : `https://www.youtube.com/shorts/${item.id}`);
     }
   });
 });

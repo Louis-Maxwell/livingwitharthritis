@@ -1,11 +1,18 @@
-/** Public channel videos checked on 23 November 2026. No scheduled/private IDs. */
+/** Public channel videos checked on 23–24 November 2026. No scheduled/private IDs. */
 export interface BlogVideo {
   id: string;
   title: string;
   url: string;
+  format?: "landscape";
 }
 
 export const BLOG_VIDEOS: Readonly<Record<string, BlogVideo>> = {
+  'osteoporosis-arthritis-frailty-bone-joint-uk': {
+    id: 'XfrDbSSwwjs',
+    title: 'Bone health and arthritis: strength, food and safer movement',
+    url: 'https://www.youtube.com/watch?v=XfrDbSSwwjs',
+    format: 'landscape',
+  },
   'arthritis-hows-life-living-with-arthritis': {
     id: 'LkOgyDMPStw',
     title: 'Living With Arthritis: The Pain You Cannot See',
