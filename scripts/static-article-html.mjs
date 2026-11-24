@@ -3,6 +3,7 @@
 // shell or a homepage-duplicate fallback. Used by inject-canonicals.mjs.
 
 import { marked } from "marked";
+import { readableParagraphs } from "../src/lib/readableParagraphs.mjs";
 import { resolveInternalHref } from "./lib/internal-href.mjs";
 import { keywordRelatedLinks } from "./keyword-related-links.mjs";
 import { conditionTopicLinks } from "./condition-topic-links.mjs";
@@ -168,7 +169,7 @@ export function buildStaticArticleInner(data) {
   // The template owns H1. Keep all existing heading words as subordinate H2s.
   const bodyHtml = labelArticleSections(composeArticleBody(data));
   const answer = data?.answer && !bodyHtml.includes(data.answer)
-    ? `<aside role="region" aria-label="Quick Answer" class="direct-answer-capsule answer-box"><blockquote data-callout="note"><p><strong>Note</strong></p><p><strong>${escText(data.answer)}</strong></p></blockquote></aside>`
+    ? `<aside role="region" aria-label="Quick Answer" class="direct-answer-capsule answer-box"><blockquote data-callout="note"><p><strong>Note</strong></p>${readableParagraphs(data.answer).map(paragraph => `<p><strong>${escText(paragraph)}</strong></p>`).join("")}</blockquote></aside>`
     : "";
   const takeawaySource = Array.isArray(data?.article?.key_takeaways) ? data.article.key_takeaways
     : Array.isArray(data?.keyTakeaways) ? data.keyTakeaways : [];
