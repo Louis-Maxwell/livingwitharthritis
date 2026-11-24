@@ -1,3 +1,4 @@
+import ChildArthritisSafety from "@/components/conditions/ChildArthritisSafety";
 import DirectAnswerCapsule from "@/components/seo/DirectAnswerCapsule";
 import { hasPriorityDirectAnswer } from "@/lib/priorityDirectAnswer";
 import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
@@ -93,6 +94,7 @@ export interface ConditionPageData {
   aeoAnswer?: { question: string; answer: ReactNode; reviewed?: string };
   /** Authoritative, page-specific sources shown to readers. */
   sources?: { label: string; url: string }[];
+  reviewStatus?: "pending" | "reviewed";
 }
 
 // Real Unsplash photographs (free to use) — replaces previous AI-generated webp set.
@@ -157,8 +159,8 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           signOrSymptom: data.symptoms,
           riskFactor: data.causes,
           image: ogImage,
-          lastReviewed: hasPriorityDirectAnswer(`/conditions/${data.slug}`) ? undefined : "2026-10-26",
-          reviewedBy: hasPriorityDirectAnswer(`/conditions/${data.slug}`) ? undefined : { name: "Louis Maxwell", jobTitle: "First Contact Practitioner Physiotherapist", identifier: "HCPC PH128483", profileUrl: "https://livingwitharthritis.org.uk/authors/maxwell" },
+          lastReviewed: (data.reviewStatus === "pending" || hasPriorityDirectAnswer(`/conditions/${data.slug}`)) ? undefined : "2026-10-26",
+          reviewedBy: (data.reviewStatus === "pending" || hasPriorityDirectAnswer(`/conditions/${data.slug}`)) ? undefined : { name: "Louis Maxwell", jobTitle: "First Contact Practitioner Physiotherapist", identifier: "HCPC PH128483", profileUrl: "https://livingwitharthritis.org.uk/authors/maxwell" },
         }}
         faqs={data.faqs}
         // No breadcrumbs prop: <PageBreadcrumb> below already injects its
@@ -202,11 +204,11 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           <div className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl relative z-10">
             <Link
               to="/#conditions"
-              className="text-primary text-sm font-medium inline-flex items-center gap-1.5 mb-6 hover:gap-2.5 transition-all"
+              className={`${data.slug === "juvenile-arthritis" ? "text-foreground" : "text-primary"} text-sm font-medium inline-flex items-center gap-1.5 mb-6 hover:gap-2.5 transition-all`}
             >
               <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
             </Link>
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
+            <span className={`inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] ${data.slug === "juvenile-arthritis" ? "text-foreground" : "text-primary"} mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full`}>
               <Activity className="w-3 h-3" /> Condition Guide
             </span>
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
@@ -218,7 +220,8 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
         </div>
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
-          {hasPriorityDirectAnswer(`/conditions/${data.slug}`) ? <AeoEnhancement route={`/conditions/${data.slug}`} /> : data.aeoAnswer ? (
+          {data.slug === "juvenile-arthritis" && <ChildArthritisSafety />}
+          {data.reviewStatus === "pending" ? null : hasPriorityDirectAnswer(`/conditions/${data.slug}`) ? <AeoEnhancement route={`/conditions/${data.slug}`} /> : data.aeoAnswer ? (
             <AnswerBox question={data.aeoAnswer.question} reviewed={data.aeoAnswer.reviewed}>
               {data.aeoAnswer.answer}
             </AnswerBox>
@@ -435,7 +438,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           </div>
           <ClusterGpAndLinks path={`/conditions/${data.slug}`} badge />
           <UrgentHelpAndSources path={`/conditions/${data.slug}`} />
-          <EducationalDisclaimerBox lastReviewed={hasPriorityDirectAnswer(`/conditions/${data.slug}`) ? undefined : "2026-09-17"} reviewStatus={hasPriorityDirectAnswer(`/conditions/${data.slug}`) ? "pending" : "reviewed"} pendingText="Updated source-based summary: separate clinical review pending. Earlier review dates do not attest to this revision." />
+          <EducationalDisclaimerBox lastReviewed={(data.reviewStatus === "pending" || hasPriorityDirectAnswer(`/conditions/${data.slug}`)) ? undefined : "2026-09-17"} reviewStatus={(data.reviewStatus === "pending" || hasPriorityDirectAnswer(`/conditions/${data.slug}`)) ? "pending" : "reviewed"} pendingText="Updated source-based summary: separate clinical review pending. Earlier review dates do not attest to this revision." />
           <TopicClusterNav path={`/conditions/${data.slug}`} />
         </main>
         <Suspense fallback={null}>
@@ -445,4 +448,4 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
       </div>
     </>
   );
-                     }
+}
