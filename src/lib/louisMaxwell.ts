@@ -20,7 +20,7 @@ export const LOUIS_MAXWELL_PERSON = {
   name: "Louis Maxwell",
   url: LOUIS_MAXWELL_PROFILE_URL,
   mainEntityOfPage: LOUIS_MAXWELL_PROFILE_URL,
-  jobTitle: ["First Contact Physiotherapist", "Operations Director, Living With Arthritis"],
+  jobTitle: ["Band 7 First Contact Practitioner", "Operations Director, Living With Arthritis"],
   identifier: HCPC,
   hasCredential: {
     "@type": "EducationalOccupationalCredential",
@@ -34,7 +34,7 @@ export const LOUIS_MAXWELL_PERSON = {
   },
   hasOccupation: {
     "@type": "Occupation",
-    name: "First Contact Physiotherapist",
+    name: "Band 7 First Contact Practitioner",
   },
   worksFor: { "@id": `${BASE}/#organization` },
   knowsAbout: [
@@ -72,7 +72,7 @@ export const LOUIS_MAXWELL_REF = {
   "@id": LOUIS_MAXWELL_ID,
   name: "Louis Maxwell",
   url: LOUIS_MAXWELL_PROFILE_URL,
-  jobTitle: "First Contact Physiotherapist",
+  jobTitle: "Band 7 First Contact Practitioner",
   identifier: "HCPC PH128483",
 } as const;
 
