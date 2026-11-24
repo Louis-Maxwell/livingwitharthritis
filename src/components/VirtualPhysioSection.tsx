@@ -211,7 +211,7 @@ const VirtualPhysioSection = memo(() => {
           <div className="relative max-w-xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-background/10 rounded-full px-4 py-1.5 mb-6">
               <span className="w-2 h-2 rounded-full bg-primary" />
-              <span className="text-xs font-medium text-primary-foreground">Appointments available this week</span>
+              <span className="text-xs font-medium text-primary-foreground">Ask about appointment availability</span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-4 leading-tight">
@@ -219,7 +219,7 @@ const VirtualPhysioSection = memo(() => {
               <span className="italic font-normal opacity-90">it's the now.</span>
             </h3>
             <p className="text-primary-foreground mb-10 text-base sm:text-lg leading-relaxed">
-              HCPC-registered physiotherapists. No waiting lists. No referral needed.
+              Contact us about virtual physiotherapy and current appointment availability.
               Flexible sessions from the comfort of your home.
             </p>
 
