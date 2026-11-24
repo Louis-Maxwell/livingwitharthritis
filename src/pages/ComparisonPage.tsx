@@ -1,4 +1,5 @@
-﻿import { Helmet } from "react-helmet-async";
+﻿import SupplementSafetyGuide from "@/components/seo/SupplementSafetyGuide";
+import { Helmet } from "react-helmet-async";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Link, useLocation, Navigate } from "react-router-dom";
 import { Suspense, useMemo } from "react";
@@ -43,7 +44,7 @@ function parseComparison(slug: string): { a: string; b: string; context?: string
  * Uses long-form COMPARISON_CONTENT when available, with a lightweight
  * fallback for slugs not yet fleshed out.
  */
-export default function ComparisonPage() {
+function StandardComparisonPage() {
   const location = useLocation();
   const path = location.pathname;
   const slug = path.replace(/^\/guides\//, "");
@@ -256,4 +257,11 @@ export default function ComparisonPage() {
       </Suspense>
     </>
   );
+}
+
+export default function ComparisonPage() {
+  const { pathname } = useLocation();
+  if (pathname === "/guides/collagen-vs-glucosamine") return <SupplementSafetyGuide slug="collagen-vs-glucosamine" />;
+  if (pathname === "/guides/glucosamine-vs-turmeric-arthritis") return <SupplementSafetyGuide slug="glucosamine-vs-turmeric-arthritis" />;
+  return <StandardComparisonPage />;
 }
