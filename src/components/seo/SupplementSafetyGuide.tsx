@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageBreadcrumb from '@/components/ui/PageBreadcrumb';
 import AnswerBox from '@/components/seo/AnswerBox';
+import EducationalDisclaimerBox from '@/components/seo/EducationalDisclaimerBox';
+import TopicClusterNav from '@/components/seo/TopicClusterNav';
 import copy from '@/data/supplementSafety24.json';
 import nextStep from '@/data/niceNextStep24.json';
 
@@ -30,6 +32,9 @@ export default function SupplementSafetyGuide({ slug }: { slug: keyof typeof cop
       <section className="my-8"><h2 className="text-2xl font-bold mb-3">Keep recommended care in place</h2><p className="leading-relaxed">For osteoarthritis, NICE recommends exercise tailored to your needs, such as muscle strengthening and aerobic activity. Weight management can help if you are living with overweight or obesity. If pain relief is needed, discuss suitable options with a pharmacist or clinician. The choice depends on your health conditions and other medicines. Supplements are not a replacement for this care. If you have rheumatoid arthritis or another inflammatory condition, continue the treatment agreed with your specialist team and ask them about symptoms that are not controlled.</p></section>
       <section className="my-8"><h2 className="text-2xl font-bold mb-3">{nextStep.heading}</h2>{nextStep.paragraphs.map(text => <p key={text} className="leading-relaxed mb-4">{text}</p>)}</section>
       <section className="my-8"><h2 className="text-2xl font-bold mb-3">Sources</h2><ul className="list-disc pl-6 space-y-3">{page.sources.map(source => <li key={source.url}><a className="underline" href={source.url} target="_blank" rel="noopener noreferrer">{source.name}</a></li>)}</ul></section>
+      <EducationalDisclaimerBox reviewStatus="pending" />
+      <TopicClusterNav path={path} />
+      <p className="my-6"><Link className="underline" to="/guides/arthritis-pain-relief">Arthritis pain relief</Link> · <Link className="underline" to="/guides/newly-diagnosed">Newly diagnosed</Link> · <Link className="underline" to="/diet/mediterranean-diet-for-arthritis">Mediterranean diet information</Link> · <Link className="underline" to="/guides/benefits-pip">Benefits and PIP</Link></p>
       <p><Link className="underline" to="/supplements">Supplements overview</Link> · <Link className="underline" to="/conditions/osteoarthritis">Osteoarthritis care</Link></p>
     </main><Footer /></>;
 }
