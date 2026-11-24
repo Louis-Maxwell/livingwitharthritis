@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import relatedNavigation from "@/data/relatedNavigationLinks.json";
+import nextStep from '@/data/niceNextStep24.json';
 import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { useParams, Link, Navigate } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
@@ -129,6 +130,7 @@ export default function FaqArticle() {
       </div>
 
 
+      {safetyUpdated && <section className="my-8"><h2 className="text-2xl font-bold mb-3">{nextStep.heading}</h2>{nextStep.paragraphs.map(text => <p key={text} className="leading-relaxed mb-4">{text}</p>)}</section>}
       <EducationalDisclaimerBox lastReviewed={safetyUpdated ? undefined : article.lastReviewed ?? REVIEW_RECORDS.faqArticleFallback} reviewStatus={safetyUpdated ? "pending" : "reviewed"} />
       {getClusterForPath(`/faq/${article.slug}`) && (
         <TopicClusterNav path={`/faq/${article.slug}`} />
