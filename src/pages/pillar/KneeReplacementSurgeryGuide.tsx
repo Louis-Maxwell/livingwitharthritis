@@ -17,7 +17,7 @@ import { CITATIONS_KNEE_REPLACEMENT } from "@/data/clinical/ukCitations";
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const KNEE_REPLACEMENT_FAQS = [
-  { question: "When should I consider knee replacement surgery?", answer: "Knee replacement is usually considered when severe osteoarthritis or rheumatoid arthritis causes daily pain that disturbs sleep, limits walking under 30 minutes, and has not responded to at least 3–6 months of non-surgical treatment (weight loss, physiotherapy, painkillers, steroid injections). NICE guidance (NG226) recommends referral when symptoms substantially affect quality of life." },
+  { question: "When should I consider knee replacement surgery?", answer: "NICE recommends considering referral for osteoarthritis when symptoms substantially affect quality of life and non-surgical treatment is ineffective or unsuitable. Decisions should be based on clinical assessment and your preferences, not an arbitrary walking limit or a fixed treatment period." },
   { question: "How long does a knee replacement last?", answer: "Modern total knee replacements last around 20–25 years in 80–90% of patients, according to the UK National Joint Registry. Longevity depends on age at surgery, weight, activity level and implant type. Younger, more active patients may need revision surgery later in life." },
   { question: "How long is recovery from knee replacement surgery ?", answer: "Most patients are discharged within 1–3 days. You can usually walk with crutches within 24 hours, drive at 6 weeks, and return to desk work at 6–8 weeks. Full recovery — including swelling reduction and maximum strength — typically takes 6–12 months. Daily physiotherapy exercises are essential during this period." },
   { question: "What is the UK waiting list for a knee replacement?", answer: "As of 2024, the median public-system wait for a knee replacement in England is around 18–22 weeks from referral, though some trusts exceed 40 weeks. You have the legal right under the UK 18-week referral-to-treatment standard to be treated within 18 weeks of referral and can request alternative providers if waits exceed this." },
@@ -38,7 +38,7 @@ const CONTENT = `
 <li><strong>Difficulty with stairs</strong>, getting out of a chair, or driving</li>
 <li><strong>Persistent stiffness</strong> and visible deformity (bow-leg or knock-knee)</li>
 <li><strong>X-ray evidence of advanced arthritis</strong> — narrowed joint space, bone spurs, bone-on-bone contact</li>
-<li>Symptoms not improving after <strong>3–6 months</strong> of weight loss, physiotherapy, analgesia and (where appropriate) steroid injections</li>
+<li>Non-surgical treatment is ineffective or unsuitable</li>
 </ul>
 <p>If these apply, ask your GP for an orthopaedic referral. You may also want to read our companion guide on <a href="/conditions/knee-arthritis">knee arthritis</a> and <a href="/arthritis-waiting-list-help">managing the wait for surgery</a>.</p>
 
@@ -147,17 +147,16 @@ const CONTENT = `
 <p>Private knee replacement in the UK typically costs <strong>£12,000–£16,000</strong> all-inclusive. Patients often choose private care to shorten waits or to select a specific consultant. Outcomes are similar to public care when the same surgeon and implant are used. See our guide on <a href="/arthritis-waiting-list-help">managing the UK waiting list</a> for practical steps while you wait.</p>
 
 <h2 id="alternatives">Alternatives and Delaying Surgery</h2>
-<p>Many patients can delay or avoid surgery with a structured non-surgical plan. NICE recommends offering <strong>all</strong> patients with knee osteoarthritis a combined approach before considering surgery:</p>
+<p>NICE recommends therapeutic exercise for people with osteoarthritis and weight management if they are living with overweight or obesity. Treatment should reflect your needs and preferences.</p>
 <ul>
-<li><strong>Weight management</strong> — losing 5–10% of body weight reduces knee pain as much as some surgical interventions</li>
-<li><strong>Structured exercise</strong> — supervised physiotherapy for 6–12 weeks; ESCAPE-pain is a UK programme proven to reduce pain by 30–50%</li>
-<li><strong>Topical NSAID gels</strong> (ibuprofen or diclofenac) — first-line analgesia under NICE NG226</li>
-<li><strong>Oral analgesia</strong> — paracetamol, short courses of oral NSAIDs with gastric protection</li>
-<li><strong>Intra-articular steroid injections</strong> — short-term pain relief lasting 4–12 weeks</li>
-<li><strong>Walking aids</strong> — a stick used in the opposite hand can reduce knee load by 25%</li>
-<li><strong>An <a href="/diet/mediterranean-diet-for-arthritis">anti-inflammatory Mediterranean diet</a></strong> to reduce systemic inflammation and aid weight loss</li>
+<li><strong>Exercise:</strong> tailored strengthening and aerobic activity. ESCAPE-pain is a six-week education and exercise programme for hip and knee osteoarthritis. It can help symptoms and function; benefits vary.</li>
+<li><strong>Weight management:</strong> supported weight loss, where appropriate, can help pain and function. It is not a requirement to reach a particular BMI before referral.</li>
+<li><strong>Pain relief:</strong> NICE recommends a topical NSAID for knee osteoarthritis. If this is unsuitable or ineffective, a clinician may consider an oral NSAID after assessing risks, with gastroprotection. Paracetamol and weak opioids are not routinely recommended.</li>
+<li><strong>Steroid injections:</strong> may be considered when other medicines are unsuitable or ineffective, or to support exercise. NICE describes short-term relief of 2 to 10 weeks.</li>
+<li><strong>Walking aids:</strong> may help lower-limb osteoarthritis. Ask about a suitable aid and how to use it.</li>
 </ul>
-<p>Newer treatments — PRP (platelet-rich plasma), hyaluronic acid injections and stem-cell therapy — have <strong>limited or inconsistent evidence</strong> and are not routinely funded by the UK health service.</p>
+<p>NICE advises against offering glucosamine or intra-articular hyaluronan for osteoarthritis. Referral for joint replacement should be considered when symptoms substantially affect quality of life and non-surgical management is ineffective or unsuitable. Do not delay asking for a referral because you have not completed an arbitrary exercise period.</p>
+<p>Sources: <a href="https://www.nice.org.uk/guidance/ng226/chapter/Recommendations">NICE NG226 recommendations</a>; <a href="https://www.arthritis-uk.org/our-research/our-research-impact/research-achievements/escape-pain-exercise-to-reduce-the-pain-of-osteoarthritis/">Arthritis UK: ESCAPE-pain</a>.</p>
 
 <h2 id="emotional-side">The Emotional Side of Surgery</h2>
 <p>Major surgery can be daunting. Anxiety, low mood and sleep disturbance are common before and after the operation. Patients often describe a "<strong>third-week dip</strong>" when the initial momentum fades and progress feels slow. This is normal. Recovery is rarely linear. Things that help:</p>
@@ -250,5 +249,4 @@ export default function KneeReplacementSurgeryGuide() {
     </>
   );
 }
-
 
