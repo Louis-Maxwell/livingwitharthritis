@@ -25,19 +25,14 @@ export default function FrailtyManagementHub() {
       datePublished: '2026-06-21', dateModified: new Date().toISOString().slice(0, 10),
       mainEntityOfPage: 'https://livingwitharthritis.org.uk/guides/frailty-management-hub',
     };
-    const faq = {
-      '@context': 'https://schema.org', '@type': 'FAQPage',
-      mainEntity: FAQS.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
-    };
     const breadcrumb = buildBreadcrumb([
       { name: 'Home', path: '/' },
       { name: 'Guides', path: '/guides/frailty-management-hub' },
       { name: 'Frailty Management', path: '/guides/frailty-management-hub' },
     ]);
     const c1 = injectJsonLd('frailty-hub-article', article);
-    const c2 = injectJsonLd('frailty-hub-faq', faq);
     const c3 = injectJsonLd('frailty-hub-breadcrumb', breadcrumb);
-    return () => { c1(); c2(); c3(); };
+    return () => { c1(); c3(); };
   }, []);
 
   return (
