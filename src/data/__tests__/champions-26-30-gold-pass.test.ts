@@ -28,7 +28,10 @@ describe("Champions 26–30 gold pass", () => {
     expect(src).toContain("EducationalDisclaimerBox");
     expect(src).toContain("TopicClusterNav");
     // An editorial revision awaiting clinical review must not inherit an old date.
-    if (rel === "src/pages/supplements/SupplementsHub.tsx") {
+    if (rel === "src/pages/SymptomChecker.tsx") {
+      expect(src).toContain('reviewStatus="pending"');
+      expect(src).not.toContain("lastReviewed=");
+    } else if (rel === "src/pages/supplements/SupplementsHub.tsx") {
       expect(src).toContain('reviewStatus="pending"');
       expect(src).toContain("Earlier review dates do not attest to this revision.");
     } else {
