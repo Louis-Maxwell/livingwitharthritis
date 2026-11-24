@@ -16,15 +16,6 @@ import { CITATIONS_KNEE_REPLACEMENT } from "@/data/clinical/ukCitations";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
-const KNEE_REPLACEMENT_FAQS = [
-  { question: "When should I consider knee replacement surgery?", answer: "NICE recommends considering referral for osteoarthritis when symptoms substantially affect quality of life and non-surgical treatment is ineffective or unsuitable. Decisions should be based on clinical assessment and your preferences, not an arbitrary walking limit or a fixed treatment period." },
-  { question: "How long does a knee replacement last?", answer: "Modern total knee replacements last around 20–25 years in 80–90% of patients, according to the UK National Joint Registry. Longevity depends on age at surgery, weight, activity level and implant type. Younger, more active patients may need revision surgery later in life." },
-  { question: "How long is recovery from knee replacement surgery ?", answer: "Most patients are discharged within 1–3 days. You can usually walk with crutches within 24 hours, drive at 6 weeks, and return to desk work at 6–8 weeks. Full recovery — including swelling reduction and maximum strength — typically takes 6–12 months. Daily physiotherapy exercises are essential during this period." },
-  { question: "What is the UK waiting list for a knee replacement?", answer: "As of 2024, the median public-system wait for a knee replacement in England is around 18–22 weeks from referral, though some trusts exceed 40 weeks. You have the legal right under the UK 18-week referral-to-treatment standard to be treated within 18 weeks of referral and can request alternative providers if waits exceed this." },
-  { question: "What are the risks of knee replacement surgery?", answer: "Serious complications are uncommon. Around 1 in 100 patients develop a deep infection, 1 in 100 a blood clot (DVT or pulmonary embolism), and 1 in 200 nerve damage. About 15–20% of patients have residual pain or stiffness. Mortality within 90 days is under 0.5%. Risks rise with age, obesity, smoking and uncontrolled diabetes." },
-  { question: "Can I avoid knee replacement surgery?", answer: "Tailored exercise, weight management where appropriate and suitable pain relief can help osteoarthritis symptoms. Whether to have surgery depends on your symptoms, quality of life, preferences and response to non-surgical care. Ask about referral when non-surgical treatment is ineffective or unsuitable." },
-];
-
 const CONTENT = `
 <h2 id="overview">A Patient's Guide to Knee Replacement Surgery</h2>
 <p>Knee replacement — known clinically as <strong>knee arthroplasty</strong> — is one of the most successful and well-studied operations performed in the UK. Around <strong>110,000 knee replacements</strong> are carried out each year in England, Wales and Northern Ireland (National Joint Registry, 2023), and the great majority of patients report substantial pain relief and improved mobility within a year of surgery.</p>
@@ -34,7 +25,7 @@ const CONTENT = `
 <p>Knee replacement is recommended when conservative treatments no longer control pain and disability. Typical triggers include:</p>
 <ul>
 <li><strong>Pain that disturbs sleep</strong> — waking at night or being unable to find a comfortable position</li>
-<li><strong>Reduced walking distance</strong> — struggling to walk for more than 20–30 minutes</li>
+<li><strong>Walking difficulties</strong> that affect your quality of life, with no minimum walking-time threshold required</li>
 <li><strong>Difficulty with stairs</strong>, getting out of a chair, or driving</li>
 <li><strong>Persistent stiffness</strong> and visible deformity (bow-leg or knock-knee)</li>
 <li><strong>X-ray evidence of advanced arthritis</strong> — narrowed joint space, bone spurs, bone-on-bone contact</li>
@@ -204,8 +195,6 @@ export default function KneeReplacementSurgeryGuide() {
           { name: "Guides", item: "/guides" },
           { name: "Knee Replacement Surgery" },
         ]}
-        faqs={KNEE_REPLACEMENT_FAQS}
-        lastReviewed="2026-09-16"
         idPrefix="knee-replacement-guide"
       />
       <Header />
@@ -217,8 +206,7 @@ export default function KneeReplacementSurgeryGuide() {
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
-            Knee replacement is one of the most successful operations performed in the UK, with
-            one of the most commonly performed joint operations in the UK. Many patients gain substantial pain relief and
+            Knee replacement is a commonly performed joint operation in the UK. Many patients gain substantial pain relief and
             improved mobility over the following months — individual outcomes vary. This guide explains who benefits, how to prepare,
             what to expect in hospital, and what realistic recovery looks like week by week.
           </p>
@@ -241,7 +229,7 @@ export default function KneeReplacementSurgeryGuide() {
       </main>
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
         <ArticleCitations citations={CITATIONS_KNEE_REPLACEMENT} />
-        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+        <EducationalDisclaimerBox reviewStatus="pending" />
         <TopicClusterNav path="/guides/knee-replacement-surgery" />
       </div>
       <GuideOnwardJourney currentPath="/guides/knee-replacement-surgery" />
