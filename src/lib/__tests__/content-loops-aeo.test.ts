@@ -152,15 +152,24 @@ describe("AEO on priority pages", () => {
 
 describe("schema and crawler HTML", () => {
   it("binds the reviewer to Louis Maxwell with his HCPC number on the MedicalWebPage", () => {
-    const p = post("hip-replacement-recovery-week-by-week");
+    const p = { ...post("hip-replacement-recovery-week-by-week"), editorial_review_note: undefined, reviewed_by: "Louis Maxwell", reviewer_credentials: "First Contact Practitioner, HCPC PH128483" };
     const out = buildJsonLd("/blog/x", "https://livingwitharthritis.org.uk/blog/x", { title: p.title, description: "d", article: p });
     const graphs = out.split("\n").filter(Boolean).map((line) => JSON.parse(line.slice(line.indexOf(">") + 1, line.lastIndexOf("<"))));
     const page = graphs.find((g) => g["@type"] === "MedicalWebPage");
     const article = graphs.find((g) => g["@type"] === "Article");
     expect(page.reviewedBy).toMatchObject({ "@type": "Person", name: "Louis Maxwell", jobTitle: "Physiotherapist" });
     expect(page.reviewedBy.identifier.value).toBe("PH128483");
-    expect(article.citation.some((c: { url: string }) => c.url === "https://www.nice.org.uk/guidance/ng157")).toBe(true);
+    expect(article.citation.some((c: { url: string }) => c.url === "https://www.nice.org.uk/guidance/ng157/chapter/Recommendations")).toBe(true);
     expect(out).not.toMatch(/speakable|medicalAudience/);
+  });
+
+  it("does not invent reviewer attestation for the revised hip recovery article", () => {
+    const p = post("hip-replacement-recovery-week-by-week");
+    const out = buildJsonLd("/blog/" + p.slug, "https://livingwitharthritis.org.uk/blog/" + p.slug, { title: p.title, description: "d", article: p });
+    const graphs = out.split("\n").filter(Boolean).map((line) => JSON.parse(line.slice(line.indexOf(">") + 1, line.lastIndexOf("<"))));
+    const page = graphs.find((g) => g["@type"] === "MedicalWebPage");
+    expect(page.reviewedBy).toBeUndefined();
+    expect(p.editorial_review_note).toContain("not yet had a fresh clinical review");
   });
 
   it("strips decorative SVG, comments and stray JSON from body only", () => {
