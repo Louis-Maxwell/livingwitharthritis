@@ -2,7 +2,6 @@ import { describe, expect, it } from "vitest";
 import { complementaryTherapies } from "@/data/hubGuides/complementaryTherapies";
 import { drugGuide } from "@/data/hubGuides/drugGuide";
 import { buildHubGuideHeadData } from "../../../scripts/generate-hub-guide-head-data";
-// @ts-expect-error untyped build-script module
 import { headDataFor } from "../../../scripts/inject-canonicals.mjs";
 
 const copy = (guide: typeof drugGuide) => JSON.stringify(guide);
