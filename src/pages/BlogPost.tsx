@@ -540,8 +540,8 @@ const BlogPost = () => {
                       <BookOpen className="w-3.5 h-3.5 text-primary" />
                       <Link to="/authors/maxwell" className="text-xs font-medium text-primary underline-offset-2 hover:underline">
                         {selfReview
-                          ? `Written and reviewed by ${reviewerName} (HCPC PH128483, Band 8 Advanced Practice Physiotherapist). ${SELF_REVIEW_DISCLOSURE}`
-                          : `Clinically reviewed by ${reviewerName} (HCPC PH128483, Band 8 Advanced Practice Physiotherapist)`}
+                          ? `Written and reviewed by ${reviewerName} (HCPC PH128483, Band 7 First Contact Practitioner). ${SELF_REVIEW_DISCLOSURE}`
+                          : `Clinically reviewed by ${reviewerName} (HCPC PH128483, Band 7 First Contact Practitioner)`}
                       </Link>
                       {(blogLastReviewed || dateModifiedIso) && (
                         <span className="text-xs text-muted-foreground">Last reviewed {String(blogLastReviewed || dateModifiedIso).slice(0, 10)} · Next review {nextReviewDate(String(blogLastReviewed || dateModifiedIso))}</span>
