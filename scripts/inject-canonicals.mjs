@@ -204,12 +204,13 @@ const PAGE_AEO_LAYER = Object.fromEntries(
     },
   ]),
 );
+const HUB_GUIDE_DATA = readJson(HUB_GUIDE_DATA_PATH);
 const NICE_SAFETY = readJson(resolve("scripts/nice-safety-overrides.json"));
 const AI_DATA = mergeHeadLayers(
   readJson(BLOG_DATA_PATH),
   readJson(CONDITION_DATA_PATH),
   readJson(LIBRARY_DATA_PATH),
-  readJson(HUB_GUIDE_DATA_PATH),
+  HUB_GUIDE_DATA,
   readJson(resolve("scripts/editorial-head-data.json")),
   authorHeadData(),
   readJson(resolve("scripts/route-head-curated.json")),
@@ -489,6 +490,14 @@ function headDataFor(route, override) {
     return editorial;
   }
   if (route === "/services" && data) data = { ...data, description: "Arthritis information, educational resources and support services. Contact Living With Arthritis about suitability and current availability.", answer: "Explore arthritis information and support. Contact us to check which service is suitable and its current availability.", bodyHtml: String(data.bodyHtml || "").replace(/Every service is clinically reviewed, NICE-compliant and designed by our multidisciplinary team\. No waiting lists, no referrals, no cost\./g, "Explore our educational resources and support services. Contact us about suitability and current availability.") };
+  // A newly source-checked guide must not inherit older captured text, seed
+  // answers or clinical-review metadata. Use its generated data as the final
+  // authority for this pending revision, including FAQs and visible sources.
+  const pendingGuide = HUB_GUIDE_DATA[route];
+  if (pendingGuide?.reviewStatus === "pending" && data) {
+    const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
+    return { ...editorial, ...pendingGuide };
+  }
   const safety = NICE_SAFETY[route];
   if (safety && data) {
     const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;

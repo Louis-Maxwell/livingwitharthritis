@@ -22,7 +22,7 @@ export function hubGuideBodyHtml(guide: HubGuide): string {
   const review =
     `<p class="reviewed-by">Written by ${esc(HUB_GUIDE_REVIEWER.name)}, ${esc(HUB_GUIDE_REVIEWER.credentials)}. ` +
     `Updated ${esc(guide.updated)}.` +
-    "" +
+    (guide.reviewStatus === "pending" ? " Editorial safety update. Awaiting separate clinical review. Earlier review dates do not attest to this revision." : "") +
     `</p>`;
   const sections = guide.sections
     .map((s) => {
@@ -39,7 +39,8 @@ export function hubGuideBodyHtml(guide: HubGuide): string {
         .map((l) => `<li><a href="${attr(l.href)}">${esc(l.label)}</a></li>`)
         .join("")}</ul>`
     : "";
-  return review + sections + related;
+  const sources = guide.sources?.length ? `<h2>Sources checked for this update</h2><ul>${guide.sources.map(source => `<li><a href="${attr(source.href)}">${esc(source.label)}</a></li>`).join("")}</ul>` : "";
+  return review + sections + sources + related;
 }
 
 export function buildHubGuideHeadData() {
@@ -53,6 +54,9 @@ export function buildHubGuideHeadData() {
       breadcrumb: guide.breadcrumbs[guide.breadcrumbs.length - 1]?.label ?? guide.title,
       about: guide.title,
       updatedAt: guide.updated,
+      reviewStatus: guide.reviewStatus,
+      ...(guide.reviewStatus === "pending" ? {summaryReviewNote: "Editorial safety update: 24 November 2026. Awaiting separate clinical review."} : {}),
+      ...(guide.sources?.length ? {sources: guide.sources.map(source => ({name: source.label, url: source.href}))} : {}),
       bodyHtml: hubGuideBodyHtml(guide),
       faqs: guide.faqs.map((f) => ({ q: f.q, a: f.a })),
     };

@@ -102,13 +102,14 @@ export default function HubGuidePage({ guide }: { guide: HubGuide }) {
               </Link>
               , {HUB_GUIDE_REVIEWER.credentials}. Updated {guide.updated}.
             </p>
+            {guide.reviewStatus === "pending" && <p className="mt-3 text-sm font-medium text-foreground">Editorial safety update. Awaiting separate clinical review. Earlier review dates do not attest to this revision.</p>}
           </header>
 
           <aside
             aria-label="Quick answer"
             className="border-l-4 border-primary bg-accent/40 p-5 md:p-6 rounded-r-lg mb-10"
           >
-            <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">
+            <p className="text-xs font-bold uppercase tracking-widest text-foreground mb-2">
               Quick answer
             </p>
             <p className="text-base md:text-lg text-foreground leading-relaxed">{guide.answer}</p>
@@ -151,6 +152,10 @@ export default function HubGuidePage({ guide }: { guide: HubGuide }) {
                 </div>
               ))}
             </section>
+            {guide.sources?.length ? <section aria-labelledby="sources-heading" className="mb-10">
+              <h2 id="sources-heading">Sources checked for this update</h2>
+              <ul>{guide.sources.map(source => <li key={source.href}><a href={source.href} className="text-foreground underline">{source.label}</a></li>)}</ul>
+            </section> : null}
           </article>
 
           <aside
@@ -158,11 +163,13 @@ export default function HubGuidePage({ guide }: { guide: HubGuide }) {
             className="my-10 rounded-xl border border-amber-500/30 bg-amber-500/5 p-5 text-sm leading-relaxed text-foreground/90"
           >
             <p className="font-semibold text-foreground">
-              Reviewer: {HUB_GUIDE_REVIEWER.name}, {HUB_GUIDE_REVIEWER.credentials}
-                          </p>
+              {guide.reviewStatus === "pending"
+                ? "Editorial safety update. Awaiting separate clinical review. Earlier review dates do not attest to this revision."
+                : <>Reviewer: {HUB_GUIDE_REVIEWER.name}, {HUB_GUIDE_REVIEWER.credentials}</>}
+            </p>
             <p className="mt-2">
               {MEDICAL_DISCLAIMER_SHORT} Always follow the advice of your own GP or rheumatology team. See our{" "}
-              <Link to={MEDICAL_DISCLAIMER_PATH} className="text-primary underline underline-offset-2">
+              <Link to={MEDICAL_DISCLAIMER_PATH} className="text-foreground underline underline-offset-2">
                 medical disclaimer
               </Link>
               .

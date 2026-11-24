@@ -45,5 +45,7 @@ export interface HubGuide {
   /** YYYY-MM-DD. */
   updated: string;
   /** Written by Louis Maxwell; awaiting a second clinical review. */
-  reviewStatus: "reviewed" | "reviewed";
+  reviewStatus: "reviewed" | "pending";
+  /** Primary sources checked for this editorial revision. */
+  sources?: HubGuideLink[];
 }
