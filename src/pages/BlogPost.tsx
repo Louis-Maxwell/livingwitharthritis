@@ -10,6 +10,7 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
 import blogNoindex from "@/data/blog-noindex.json";
 import { BLOG_VIDEOS } from "@/data/blogVideos";
+import { readableParagraphs } from "@/lib/readableParagraphs.mjs";
 
 const BLOG_NOINDEX = new Set<string>(blogNoindex as string[]);
 import { Helmet } from "react-helmet-async";
@@ -594,7 +595,7 @@ const BlogPost = () => {
             <AnswerBox
               question={slug === "pip-for-arthritis-uk" ? PIP_ANSWER_HEADING : article.title.replace(/[?.!]+$/, "").trim() + "?"}
             >
-              {directAnswer}
+              {readableParagraphs(directAnswer).map((paragraph, index) => <p key={index} className="mb-4 last:mb-0">{paragraph}</p>)}
             </AnswerBox>
           )}
           {keyTakeaways.length >= 3 && (
