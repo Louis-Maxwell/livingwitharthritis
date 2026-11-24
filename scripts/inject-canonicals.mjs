@@ -487,6 +487,11 @@ function headDataFor(route, override) {
     const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
     return editorial;
   }
+  const safety = readJson(resolve("scripts/nice-safety-overrides.json"))[route];
+  if (safety && data) {
+    const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
+    return { ...editorial, ...safety };
+  }
   return data;
 }
 function headDataForInner(route, override) {
