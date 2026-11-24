@@ -44,7 +44,7 @@ export default function FrailtyManagementHub() {
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
         title="Frailty & Arthritis Guide"
-        description="Frailty & arthritis guide: Individual assessment, activity, nutrition and falls support."
+        description="Frailty and arthritis: why individual assessment matters, how to ask about activity and nutrition support, and when to contact your GP."
         path="/guides/frailty-management-hub"
         type="article"
         keywords="frailty arthritis, frailty prevention, frailty support, sarcopenia, older adults arthritis"
