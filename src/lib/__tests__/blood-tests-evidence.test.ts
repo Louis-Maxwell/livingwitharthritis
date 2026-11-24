@@ -32,6 +32,9 @@ describe('blood test evidence and safety boundaries', () => {
     expect(post.content).toContain('Do not wait until several tests');
     expect(post.content).toContain('A single concerning result can need prompt action');
     expect(post.content).toContain('Joint infection can occur without a fever');
+    expect(post.content).toContain('methotrexate, sulfasalazine, leflunomide, a biologic');
+    expect(post.content).toContain('contact your GP, rheumatology team or NHS 111 promptly');
+    expect(post.content).toContain('Do not wait for the next blood test');
   });
   it('carries the same corrections, sources and pending note into static output', () => {
     const data = headDataFor('/blog/' + post.slug);
@@ -41,6 +44,6 @@ describe('blood test evidence and safety boundaries', () => {
     expect(html).toContain('tophi or chronic gouty arthritis');
     expect(html).toContain('Awaiting separate clinical review');
     expect(html).not.toMatch(/Written and reviewed by|Clinically reviewed by|Checked on 10 October|2026-10-23/);
-    expect(post.citations).toHaveLength(19);
+    expect(post.citations).toHaveLength(21);
   });
 });
