@@ -20,9 +20,10 @@ describe("M1 checker→email + FAQ hub CRO (21 Sep 2026)", () => {
     expect(quiz).toContain("1218461");
   });
 
-  it("symptom checker page bumps clinical review to 2026-09-21", () => {
+  it("symptom checker safety revision awaits a separate clinical review", () => {
     const page = read("src/pages/SymptomChecker.tsx");
-    expect(page).toContain('lastReviewed="2026-09-21"');
+    expect(page).toContain('reviewStatus="pending"');
+    expect(page).not.toContain('lastReviewed=');
     expect(page).toMatch(/not a diagnosis/i);
   });
 
