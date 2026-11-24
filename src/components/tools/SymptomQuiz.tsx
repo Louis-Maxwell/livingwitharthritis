@@ -42,6 +42,8 @@ import {
   SkinId,
   emptyAnswers,
   getTriggeredRedFlags,
+  getAnswerRedFlags,
+  needsPromptJointAssessment,
   highestRedFlagLevel,
   progressPercent,
   rankEducationalGuides,
@@ -119,7 +121,7 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
     const saved = loadStored();
     if (saved) {
       setAnswers(saved.answers);
-      setStep(saved.step);
+      setStep(getAnswerRedFlags(saved.answers).length ? "urgent" : saved.step);
     }
     setResumeOffer(false);
   };
@@ -161,6 +163,10 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
   };
 
   const finish = () => {
+    if (getAnswerRedFlags(answers).length) {
+      go("urgent");
+      return;
+    }
     go("results");
     onComplete?.();
   };
@@ -171,8 +177,8 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
   );
 
   const triggered = useMemo(
-    () => getTriggeredRedFlags(answers.redFlags),
-    [answers.redFlags],
+    () => getAnswerRedFlags(answers),
+    [answers],
   );
   const urgentLevel = highestRedFlagLevel(triggered);
 
@@ -291,7 +297,7 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
                         flag.level === "emergency" ? "text-destructive" : "text-amber-700 dark:text-amber-300"
                       }`}
                     >
-                      {flag.level === "emergency" ? "Emergency — 999" : "Urgent — 111 / GP"}
+                      {flag.level === "emergency" ? "Emergency — A&E / 999" : "Urgent — 111 / GP"}
                     </span>
                   </span>
                 </label>
@@ -320,7 +326,7 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
             <AlertTriangle className="w-7 h-7 text-destructive shrink-0" aria-hidden />
             <div>
               <h2 id={headingId} className="font-display text-2xl font-bold text-foreground">
-                {urgentLevel === "emergency" ? "Call 999 now" : "Get urgent NHS advice"}
+                {urgentLevel === "emergency" ? "Get emergency help now" : "Get urgent NHS advice"}
               </h2>
               <p className="mt-2 text-base text-foreground leading-relaxed">
                 Based on what you selected, please seek clinical help before browsing educational guides.
@@ -352,7 +358,7 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
                 </a>
               </Button>
             )}
-            <Button asChild size="lg" variant="outline" className="min-h-14 text-base gap-2">
+            {urgentLevel !== "emergency" && <Button asChild size="lg" variant="outline" className="min-h-14 text-base gap-2">
               <a
                 href="https://111.nhs.uk/"
                 target="_blank"
@@ -361,18 +367,17 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
               >
                 NHS 111 online
               </a>
-            </Button>
+            </Button>}
           </div>
 
           <p className="text-sm text-muted-foreground leading-relaxed">
-            If you are sure these symptoms have resolved and a clinician has already assessed you, you may continue
-            for educational reading only.
+            {urgentLevel === "emergency" ? "Do not continue this checker or wait for online advice. Seek emergency help now." : "Seek urgent assessment before using the guides. Continue only if a clinician has already assessed these symptoms and given you advice."}
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <Button type="button" variant="outline" className="min-h-11" onClick={() => go("areas")}>
+            {urgentLevel !== "emergency" && <Button type="button" variant="outline" className="min-h-11" onClick={() => go("areas")}>
               Continue for education only
-            </Button>
+            </Button>}
             <Button type="button" variant="ghost" className="min-h-11" onClick={restart}>
               Start again
             </Button>
@@ -537,7 +542,10 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
                 type="button"
                 role="radio"
                 aria-checked={answers.swelling === opt.id}
-                onClick={() => setAnswers((a) => ({ ...a, swelling: opt.id as SwellingId }))}
+                onClick={() => {
+                  setAnswers((a) => ({ ...a, swelling: opt.id as SwellingId }));
+                  if (opt.id === "hot-acute") go("urgent");
+                }}
                 className={optionClass(answers.swelling === opt.id)}
               >
                 <span className="text-sm sm:text-base font-medium">{opt.label}</span>
@@ -609,6 +617,11 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
             </p>
           </div>
 
+          {needsPromptJointAssessment(answers) && <aside role="alert" className="rounded-xl border-2 border-amber-600 p-5">
+            <h2 className="font-semibold text-foreground">Arrange a GP assessment promptly</h2>
+            <p className="mt-2">Persistent soft swelling in small joints or several joints needs assessment for possible inflammatory arthritis. Ask your GP about specialist referral. NICE advises urgent referral for suspected persistent synovitis involving small joints or more than one joint, even when blood tests are normal. This checker cannot rule it out.</p>
+            <a className="underline" href="https://www.nice.org.uk/guidance/ng100/chapter/Recommendations">NICE NG100 recommendation 1.1.1</a>
+          </aside>}
           <div>
             <h2 id={headingId} className="font-display text-xl sm:text-2xl font-bold text-foreground mb-2">
               Guides worth reading next
@@ -756,4 +769,4 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
       )}
     </div>
   );
-}
+    }
