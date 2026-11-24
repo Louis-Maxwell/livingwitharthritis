@@ -7,6 +7,12 @@ export interface BlogVideo {
 }
 
 export const BLOG_VIDEOS: Readonly<Record<string, BlogVideo>> = {
+  'strength-training-arthritis-beginners': {
+    id: 'zIccqNr20b8',
+    title: 'Muscle, metabolism and arthritis: building everyday strength',
+    url: 'https://www.youtube.com/watch?v=zIccqNr20b8',
+    format: 'landscape',
+  },
   'osteoporosis-arthritis-frailty-bone-joint-uk': {
     id: 'XfrDbSSwwjs',
     title: 'Bone health and arthritis: strength, food and safer movement',

@@ -37,8 +37,18 @@ describe('ArticleVideo privacy and reader control', () => {
     expect(screen.getByTitle(long.title)).toHaveAttribute('width', '1280');
     expect(screen.getByTitle(long.title)).toHaveAttribute('height', '720');
   });
+  it('maps the public muscle film only to the matching strength guide with consent unchanged', () => {
+    const muscle = BLOG_VIDEOS['strength-training-arthritis-beginners'];
+    expect(muscle.id).toBe('zIccqNr20b8');
+    expect(muscle.format).toBe('landscape');
+    const { container } = render(<ArticleVideo video={muscle} />);
+    expect(container.querySelector('iframe,img,video,script,link')).toBeNull();
+    fireEvent.click(screen.getByRole('button', { name: /Allow YouTube/ }));
+    expect(screen.getByTitle(muscle.title)).toHaveAttribute('src', 'https://www.youtube-nocookie.com/embed/zIccqNr20b8?rel=0');
+    expect(screen.getByTitle(muscle.title)).toHaveAttribute('width', '1280');
+  });
   it('keeps a small explicit topic map with only checked public films', () => {
-    expect(Object.keys(BLOG_VIDEOS)).toHaveLength(4);
+    expect(Object.keys(BLOG_VIDEOS)).toHaveLength(5);
     for (const item of Object.values(BLOG_VIDEOS)) {
       expect(item.id).toMatch(/^[a-zA-Z0-9_-]{11}$/);
       expect(item.url).toBe(item.format === 'landscape' ? `https://www.youtube.com/watch?v=${item.id}` : `https://www.youtube.com/shorts/${item.id}`);
