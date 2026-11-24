@@ -23,8 +23,8 @@ describe('Article-specific image appropriateness repair', () => {
     const picks = pickArticleImages(cover, post.category, post.title, post.slug, post.keywords);
     expect(picks).toEqual([cover]);
   });
-  it('does not make the title-card-only rule apply to every article', () => {
+  it('does not guess gallery images for an unreviewed article', () => {
     const cover = coverFromFile('arthritis-01-arthritic-hands-in-pain.webp');
-    expect(pickArticleImages(cover, 'Exercise', 'Pilates for arthritis', 'an-unrelated-pilates-guide').length).toBeGreaterThan(1);
+    expect(pickArticleImages(cover, 'Exercise', 'Pilates for arthritis', 'an-unrelated-pilates-guide')).toEqual([cover]);
   });
 });
