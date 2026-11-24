@@ -16,6 +16,7 @@ export default function SupplementSafetyGuide({ slug }: { slug: keyof typeof cop
   return <><Helmet>
     <title>{page.title} | Living With Arthritis</title>
     <meta name="description" content={page.description} />
+    <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "MedicalWebPage", name: page.title, url, about: { "@type": "MedicalEntity", name: page.title } })}</script>
     <link rel="canonical" href={url} />
     <meta property="og:title" content={page.title} />
     <meta property="og:description" content={page.description} />
