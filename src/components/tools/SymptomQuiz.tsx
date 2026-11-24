@@ -88,6 +88,7 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
   const headingId = useId();
   const liveRef = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState<QuizStepId>("intro");
+  const [assessedFlags, setAssessedFlags] = useState<string[]>([]);
   const [answers, setAnswers] = useState<QuizAnswers>(emptyAnswers);
   const [hydrated, setHydrated] = useState(false);
   const [resumeOffer, setResumeOffer] = useState(false);
@@ -128,6 +129,7 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
 
   const restart = () => {
     clearStored();
+    setAssessedFlags([]);
     setAnswers(emptyAnswers());
     setStep("intro");
     setResumeOffer(false);
@@ -163,7 +165,7 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
   };
 
   const finish = () => {
-    if (getAnswerRedFlags(answers).length) {
+    if (getAnswerRedFlags(answers).some(flag => !assessedFlags.includes(flag.id))) {
       go("urgent");
       return;
     }
@@ -375,8 +377,8 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
           </p>
 
           <div className="flex flex-wrap gap-3">
-            {urgentLevel !== "emergency" && <Button type="button" variant="outline" className="min-h-11" onClick={() => go("areas")}>
-              Continue for education only
+            {urgentLevel !== "emergency" && <Button type="button" variant="outline" className="min-h-11" onClick={() => { setAssessedFlags(triggered.map(flag => flag.id)); go("areas"); }}>
+              Already assessed: continue for education
             </Button>}
             <Button type="button" variant="ghost" className="min-h-11" onClick={restart}>
               Start again
@@ -544,7 +546,7 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
                 aria-checked={answers.swelling === opt.id}
                 onClick={() => {
                   setAnswers((a) => ({ ...a, swelling: opt.id as SwellingId }));
-                  if (opt.id === "hot-acute") go("urgent");
+                  if (opt.id === "hot-acute") { setAssessedFlags([]); go("urgent"); }
                 }}
                 className={optionClass(answers.swelling === opt.id)}
               >
@@ -769,4 +771,4 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
       )}
     </div>
   );
-    }
+}
