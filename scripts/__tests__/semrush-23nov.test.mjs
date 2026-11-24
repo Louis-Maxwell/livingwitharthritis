@@ -25,7 +25,7 @@ test('daily tips index, article and short tips have distinct complete static hea
  const index=headDataFor(routes[0]);for(const tip of ['morning-stretches','stay-hydrated','prioritise-sleep'])assert.ok(index.bodyHtml.includes(`/daily-tips/${tip}`),tip);
 });
 test('general supplement guides do not describe a product offer',()=>{
- for(const name of ['Msm','Glucosamine','Turmeric']){const source=read(`src/pages/supplements/${name}.tsx`);assert.match(source,/"@type": "MedicalEntity"/);assert.doesNotMatch(source,/"@type": "(?:Product|Drug|DietarySupplement)"/)}
+ for(const name of ['Msm','Glucosamine','Turmeric']){const wrapper=read(`src/pages/supplements/${name}.tsx`);const source=wrapper.includes("SupplementSafetyGuide")?read("src/components/seo/SupplementSafetyGuide.tsx"):wrapper;assert.match(source,/"@type": "MedicalEntity"/);assert.doesNotMatch(source,/"@type": "(?:Product|Drug|DietarySupplement)"/)}
 });
 test('people lists omit unsupported language and starter plan is not sold as a course',()=>{
  const people=read('src/pages/AuthorsIndex.tsx');const list=people.slice(people.indexOf('const itemListLd'),people.indexOf('  return (',people.indexOf('const itemListLd')));assert.doesNotMatch(list,/inLanguage/);
