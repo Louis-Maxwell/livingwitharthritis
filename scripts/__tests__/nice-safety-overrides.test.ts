@@ -8,7 +8,7 @@ describe('source-checked NICE safety corrections', () => {
       const data = headDataFor(route);
       expect(data.bodyHtml).toBe(safety[route].bodyHtml);
       expect(data.faqs).toEqual([]);
-      expect(data.summaryReviewNote).toContain('Awaiting separate clinical review');
+      expect(data.summaryReviewNote).toBe(safety[route].summaryReviewNote);
       expect(data.reviewedBy).toBeUndefined();
       expect(data.lastReviewed).toBeUndefined();
       expect(JSON.stringify(data)).not.toMatch(/30[–-]50%|1,500|3,000|2,000%/);
