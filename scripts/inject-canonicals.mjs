@@ -204,6 +204,8 @@ const PAGE_AEO_LAYER = Object.fromEntries(
     },
   ]),
 );
+const CHILD_HEAD_DATA = readJson(resolve("scripts/child-health-head-data.json"));
+const CONDITION_HEAD_DATA = readJson(CONDITION_DATA_PATH);
 const HUB_GUIDE_DATA = readJson(HUB_GUIDE_DATA_PATH);
 const NICE_SAFETY = readJson(resolve("scripts/nice-safety-overrides.json"));
 const AI_DATA = mergeHeadLayers(
@@ -493,7 +495,7 @@ function headDataFor(route, override) {
   // A newly source-checked guide must not inherit older captured text, seed
   // answers or clinical-review metadata. Use its generated data as the final
   // authority for this pending revision, including FAQs and visible sources.
-  const pendingGuide = HUB_GUIDE_DATA[route];
+  const pendingGuide = CHILD_HEAD_DATA[route] || (route.startsWith("/conditions/juvenile-arthritis/") ? CONDITION_HEAD_DATA[route] : undefined) || HUB_GUIDE_DATA[route];
   if (pendingGuide?.reviewStatus === "pending" && data) {
     const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
     return { ...editorial, ...pendingGuide };

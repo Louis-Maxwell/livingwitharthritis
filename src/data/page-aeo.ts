@@ -224,15 +224,10 @@ question: "What is knee arthritis?",
   }),
   "/conditions/juvenile-arthritis": withDefaults({
     question: "What is juvenile arthritis?",
-    answer:
-      "Juvenile idiopathic arthritis (JIA) is arthritis starting before age 16, lasting more than 6 weeks. It affects around 1 in 1,000 UK children. First signs include morning limping, a swollen joint or avoiding a favourite activity. Early paediatric rheumatology care and DMARDs help most children live active lives.",
-  
+    answer: "Juvenile idiopathic arthritis (JIA) is a group of conditions causing joint inflammation that starts before age 16. Arrange a GP assessment for a child with joint problems or an unexplained limp. Do not wait for a set number of weeks. Sudden hip, knee or thigh pain, inability to bear weight or an unwell child can need emergency assessment.",
     faqs: [
-      { q: "What are the first signs of arthritis in a child?", a: "Look out for limping (worse in the morning), a swollen joint, a child avoiding a normally favourite activity, or unexplained fevers and rashes. Always see your GP if joint symptoms last more than two weeks." },
-      { q: "Is juvenile arthritis the same as rheumatoid arthritis?", a: "No. JIA is its own group of conditions. Some forms behave similarly to rheumatoid arthritis, but JIA also includes types not seen in adults, such as systemic JIA (Still's disease)." },
-      { q: "Will my child grow out of JIA?", a: "Some children — particularly those with oligoarticular JIA — do go into long-term remission. Others have ongoing disease into adulthood. Modern treatments have transformed the outlook for most." },
-      { q: "Why does my child need eye checks?", a: "JIA can cause silent eye inflammation (uveitis) that, if missed, can damage sight. Regular slit-lamp checks by an ophthalmologist are essential." },
-      { q: "Can my child still play sport?", a: "Yes — sport is encouraged. Swimming and cycling are particularly good. Adapt during flares and work with the rheumatology team and PE staff." },
+      { q: "Should I wait six weeks before seeking help?", a: "No. Arrange a GP assessment for a child with joint problems or an unexplained limp. A duration used to classify arthritis is not a waiting period for parents." },
+      { q: "Can eye inflammation happen without symptoms?", a: "Yes. JIA-related uveitis can occur without symptoms. Keep all specialist screening appointments. New eye pain, light sensitivity, very red eyes or vision changes need urgent GP or NHS 111 advice; loss of vision needs A&E or 999." },
     ],
   }),
   "/conditions/reactive-arthritis": withDefaults({

@@ -442,7 +442,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       intro:
         "Juvenile idiopathic arthritis can cause persistent joint pain, swelling, stiffness or changes in how a child moves. Inflammation can affect joint function and interfere with everyday play and activities. Arrange a GP assessment for a child with joint problems rather than assuming they are ordinary growing pains.",
       commonSymptoms: [
-        "Joint pain, swelling, or warmth lasting more than six weeks",
+        "Joint pain, swelling or warmth: seek assessment rather than waiting six weeks",
         "Morning stiffness or a limp on waking",
         "A reluctance to use a particular limb or joint",
         "Unexplained fevers, rashes, or fatigue (in systemic JIA)",
@@ -450,15 +450,15 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Growth delay or limb-length differences in long-standing disease",
       ],
       whenToSeeGP:
-        "See your GP if your child has joint swelling, persistent limp, or stiffness on waking that hasn't settled in a few weeks. Early referral to paediatric rheumatology is important.",
+        "Arrange a GP assessment for a child with joint problems or an unexplained limp. Do not wait a few weeks or use the six-week JIA classification period as a waiting rule. Follow the emergency and eye advice above when relevant.",
     },
     treatment: {
       headline: "Juvenile arthritis treatment",
       intro:
         "Juvenile arthritis treatment is planned by a paediatric rheumatology team and may include medicines, physiotherapy and practical support. Controlling inflammation helps protect joint function while a child grows and develops. Follow the individual treatment and monitoring plan, and discuss changes in symptoms or activity with the team.",
       approaches: [
-        { name: "Methotrexate", description: "First-line DMARD for most subtypes of JIA." },
-        { name: "Biologic therapies", description: "Anti-TNF and other biologics for moderate-to-severe disease." },
+        { name: "Individual medicine plan", description: "The paediatric rheumatology team chooses treatment for the child and arranges monitoring. Do not use adult doses or change treatment from this page." },
+        { name: "Specialist follow-up", description: "Review symptoms, treatment effects and any new concerns with the child's team." },
         { name: "Steroid joint injections", description: "Targeted treatment for individual swollen joints." },
         { name: "NSAIDs", description: "Used for symptom control alongside disease-modifying treatment." },
         { name: "Paediatric physiotherapy", description: "Maintains range of motion and supports normal physical development." },
@@ -466,7 +466,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       ],
     },
     exercises: {
-      headline: "Best exercises for juvenile arthritis",
+      headline: "Activity and exercise for a child with JIA",
       intro:
         "Children with juvenile arthritis can benefit from activity adapted to their symptoms, abilities and treatment plan. Suitable movement helps maintain joint mobility and muscle strength while supporting participation in play. Ask the paediatric physiotherapy team about appropriate activities and how to adjust them when symptoms change.",
       keyBenefits: [
@@ -483,7 +483,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Children with juvenile arthritis need a varied, age-appropriate diet rather than restrictive arthritis diets or unverified supplements. Adequate energy and nutrients support growth, muscle function and bone health during treatment. Discuss poor appetite, weight changes or supplement questions with the paediatric team or a registered dietitian.",
       foodsToFavor: [
         "Calcium-rich foods (dairy or fortified alternatives) every day",
-        "Oily fish for omega-3s and vitamin D",
+        "Age-appropriate foods and portions, with advice from the paediatric team",
         "Variety of fruit and vegetables",
         "Wholegrains and pulses",
         "Lean protein for growth and muscle development",
@@ -491,7 +491,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       foodsToLimit: [
         "Sugary drinks and ultra-processed snacks",
         "Excess fast food",
-        "Foods that personally trigger flares",
+        "Do not remove food groups or start a supplement without paediatric or dietitian advice",
       ],
     },
   },

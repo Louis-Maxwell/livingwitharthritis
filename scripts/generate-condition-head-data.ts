@@ -3,6 +3,8 @@
 // the first HTML response so /conditions/:slug/:subpage is not an empty
 // SPA shell (the same Soft 404 pattern as blog posts).
 
+import childSafety from "../src/data/childArthritisSafety.json";
+import { childSafetyBodyHtml } from "./lib/child-safety.mjs";
 import { writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import {
@@ -114,6 +116,9 @@ const data: Record<
     about: string;
     bodyHtml: string;
     faqs: { q: string; a: string }[];
+    reviewStatus?: string;
+    summaryReviewNote?: string;
+    sources?: {name: string; url: string}[];
   }
 > = {};
 
@@ -134,7 +139,8 @@ for (const [slug, pages] of Object.entries(conditionSubpages)) {
       answer: sub.intro,
       breadcrumb: sub.headline,
       about: cond.name,
-      bodyHtml: bodyHtml(cond.name, subpage, sub),
+      bodyHtml: (slug === "juvenile-arthritis" ? childSafetyBodyHtml() : "") + bodyHtml(cond.name, subpage, sub),
+      ...(slug === "juvenile-arthritis" ? {reviewStatus: "pending", summaryReviewNote: childSafety.pending, sources: childSafety.sources.map(s => ({name: s.label, url: s.url}))} : {}),
       faqs: faqs.map((f) => ({ q: f.question, a: f.answer })),
     };
   }
