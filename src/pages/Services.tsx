@@ -12,9 +12,9 @@ const Services = () => (
   <>
     <Helmet>
       <title>Arthritis Support Services UK | Living With Arthritis</title>
-      <meta name="description" content="Free arthritis support services in the UK — virtual physiotherapy, personalised exercise plans, anti-inflammatory diet guidance and 24/7 community help." />
+      <meta name="description" content="Arthritis information, educational resources and support services. Contact Living With Arthritis about suitability and current availability." />
       <meta property="og:title" content="Arthritis Support Services UK | Living With Arthritis" />
-      <meta property="og:description" content="Free arthritis support services in the UK — virtual physiotherapy, personalised exercise plans, anti-inflammatory diet guidance and 24/7 community help." />
+      <meta property="og:description" content="Arthritis information, educational resources and support services. Contact Living With Arthritis about suitability and current availability." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/services" />
       <meta property="og:site_name" content="Living With Arthritis" />
@@ -25,7 +25,7 @@ const Services = () => (
         <meta property="og:image:alt" content="Services | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Arthritis Support Services UK | Living With Arthritis" />
-      <meta name="twitter:description" content="Free arthritis support services in the UK — virtual physiotherapy, personalised exercise plans, anti-inflammatory diet guidance and 24/7 community help." />
+      <meta name="twitter:description" content="Arthritis information, educational resources and support services. Contact Living With Arthritis about suitability and current availability." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
     <Header />
@@ -33,7 +33,7 @@ const Services = () => (
       <PageHero
         badge="What we offer"
         title="Arthritis Support Services for Everyone in the UK"
-        subtitle="Free, evidence-based services designed with HCPC-registered clinicians and aligned to national clinical and NICE guidance."
+        subtitle="Explore arthritis information and support. Contact us to check which service is suitable and its current availability."
       />
       <Suspense fallback={<SkeletonSection />}>
         <ServicesGrid />
