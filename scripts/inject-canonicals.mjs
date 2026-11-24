@@ -488,6 +488,7 @@ function headDataFor(route, override) {
     const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
     return editorial;
   }
+  if (route === "/services" && data) data = { ...data, description: "Arthritis information, educational resources and support services. Contact Living With Arthritis about suitability and current availability.", answer: "Explore arthritis information and support. Contact us to check which service is suitable and its current availability.", bodyHtml: String(data.bodyHtml || "").replace(/Every service is clinically reviewed, NICE-compliant and designed by our multidisciplinary team\. No waiting lists, no referrals, no cost\./g, "Explore our educational resources and support services. Contact us about suitability and current availability.") };
   const safety = NICE_SAFETY[route];
   if (safety && data) {
     const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
