@@ -92,6 +92,7 @@ export default function FaqArticle() {
     return <Navigate to="/living-with-arthritis" replace />;
   }
 
+  const safetyUpdated = ["arthritis-and-nutrition", "arthritis-exercise-myths", "reduce-arthritis-pain-naturally"].includes(article.slug);
   const extraLinks = FAQ_CONDITION_LINKS[article.slug] ?? [];
 
   return (
@@ -128,7 +129,7 @@ export default function FaqArticle() {
       </div>
 
 
-      <EducationalDisclaimerBox lastReviewed={article.lastReviewed ?? REVIEW_RECORDS.faqArticleFallback} />
+      <EducationalDisclaimerBox lastReviewed={safetyUpdated ? undefined : article.lastReviewed ?? REVIEW_RECORDS.faqArticleFallback} reviewStatus={safetyUpdated ? "pending" : "reviewed"} />
       {getClusterForPath(`/faq/${article.slug}`) && (
         <TopicClusterNav path={`/faq/${article.slug}`} />
       )}
