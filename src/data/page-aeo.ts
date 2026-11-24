@@ -369,7 +369,7 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
   "/guides/frailty-management-hub": withDefaults({
     question: "How is frailty managed with arthritis?",
     answer:
-      "Frailty and arthritis together respond to comprehensive geriatric assessment: strength training, protein-rich diet, medication review, hearing/vision checks and social connection. Mild and moderate frailty can be reversed with progressive strength training and adequate protein. Ask your GP for a formal frailty (Clinical Frailty Scale) review.",
+      "Frailty and arthritis together respond to comprehensive geriatric assessment: strength training, protein-rich diet, medication review, hearing/vision checks and social connection. Improvement varies and reversal cannot be promised. Care should be tailored to the person. Ask your GP for a formal frailty (Clinical Frailty Scale) review.",
   }),
   "/guides/preventative-msk-health": withDefaults({
     question: "How do I keep my muscles and joints healthy?",
