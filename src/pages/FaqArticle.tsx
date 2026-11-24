@@ -64,8 +64,10 @@ export default function FaqArticle() {
   const linkedSlugs = relatedByPath[`/faq/${slug}`]?.map((row) => row.href.replace('/faq/', ''));
   const relatedSlugs = [...new Set([...(article?.relatedArticles || []), ...(linkedSlugs || [])])];
 
+  const safetyUpdated = ["arthritis-and-nutrition", "arthritis-exercise-myths", "reduce-arthritis-pain-naturally"].includes(article?.slug ?? "");
+
   useEffect(() => {
-    if (!article) return;
+    if (!article || safetyUpdated) return;
     const faq = {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
@@ -87,13 +89,12 @@ export default function FaqArticle() {
     return () => {
       cleanup1();
     };
-  }, [article]);
+  }, [article, safetyUpdated]);
 
   if (!article) {
     return <Navigate to="/living-with-arthritis" replace />;
   }
 
-  const safetyUpdated = ["arthritis-and-nutrition", "arthritis-exercise-myths", "reduce-arthritis-pain-naturally"].includes(article.slug);
   const extraLinks = FAQ_CONDITION_LINKS[article.slug] ?? [];
 
   return (
