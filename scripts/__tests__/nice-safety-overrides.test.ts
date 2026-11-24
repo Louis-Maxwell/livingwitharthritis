@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { headDataFor } from '../inject-canonicals.mjs';
 import safety from '../nice-safety-overrides.json';
@@ -14,7 +15,12 @@ describe('source-checked NICE safety corrections', () => {
       expect(JSON.stringify(data)).not.toMatch(/30[–-]50%|1,500|3,000|2,000%/);
     });
   }
-  it('keeps unrelated clinical overrides', () => {
+  it('does not rebuild FAQ schema from editorial safety headings after hydration', () => {
+    const source = readFileSync('src/pages/FaqArticle.tsx', 'utf8');
+    expect(source).toContain('if (!article || safetyUpdated) return;');
+    expect(source).toContain('}, [article, safetyUpdated]);');
+  });
+  it('keeps unrelated clinical overrides' , () => {
     expect(headDataFor('/guides/dmards-vs-biologics').answer).toContain('JAK inhibitors');
   });
 });
