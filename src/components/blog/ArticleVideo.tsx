@@ -7,14 +7,14 @@ export default function ArticleVideo({ video }: { video: BlogVideo }) {
   return (
     <section aria-label="Related Living With Arthritis video" className="no-print print:hidden my-8 rounded-xl border border-border bg-card p-5" data-testid="article-video">
       <h2 className="text-xl font-semibold text-foreground">Watch: {video.title}</h2>
-      <p className="mt-2 text-sm text-foreground/80">A short video from Living With Arthritis.</p>
-      <div className="mt-4 mx-auto aspect-[9/16] w-full max-w-[320px] overflow-hidden rounded-lg bg-muted flex items-center justify-center">
+      <p className="mt-2 text-sm text-foreground/80">{video.format === 'landscape' ? 'A video from Living With Arthritis.' : 'A short video from Living With Arthritis.'}</p>
+      <div className={`mt-4 mx-auto w-full overflow-hidden rounded-lg bg-muted flex items-center justify-center ${video.format === 'landscape' ? `aspect-video ${loaded ? '' : 'min-h-[360px] sm:min-h-0'}` : 'aspect-[9/16] max-w-[320px]'}`}>
         {loaded ? (
           <iframe
             title={video.title}
             src={`https://www.youtube-nocookie.com/embed/${video.id}?rel=0`}
-            width="320"
-            height="569"
+            width={video.format === 'landscape' ? 1280 : 320}
+            height={video.format === 'landscape' ? 720 : 569}
             loading="lazy"
             referrerPolicy="strict-origin-when-cross-origin"
             allow="encrypted-media; picture-in-picture; fullscreen"
