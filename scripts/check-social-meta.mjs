@@ -32,6 +32,9 @@ for (const file of walk(ROOT)) {
       !/<(?:main|article|h[1-6])\b/.test(src)) continue;
   if (
     src.includes("SeoHead") ||
+    // Supplement detail wrappers delegate their metadata to this shared page.
+    (src.includes('from "@/components/seo/SupplementSafetyGuide"') &&
+      readFileSync("src/components/seo/SupplementSafetyGuide.tsx", "utf8").includes('property="og:title"')) ||
     src.includes("ConditionPageTemplate") ||
     src.includes("StubPage") || // StubPage itself emits og:title internally
     src.includes("GovernancePolicyPage") || // wraps SeoHead

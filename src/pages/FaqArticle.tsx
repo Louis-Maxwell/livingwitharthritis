@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import relatedNavigation from "@/data/relatedNavigationLinks.json";
+import nextStep from '@/data/niceNextStep24.json';
 import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { useParams, Link, Navigate } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
@@ -63,8 +64,10 @@ export default function FaqArticle() {
   const linkedSlugs = relatedByPath[`/faq/${slug}`]?.map((row) => row.href.replace('/faq/', ''));
   const relatedSlugs = [...new Set([...(article?.relatedArticles || []), ...(linkedSlugs || [])])];
 
+  const safetyUpdated = ["arthritis-and-nutrition", "arthritis-exercise-myths", "reduce-arthritis-pain-naturally"].includes(article?.slug ?? "");
+
   useEffect(() => {
-    if (!article) return;
+    if (!article || safetyUpdated) return;
     const faq = {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
@@ -86,7 +89,7 @@ export default function FaqArticle() {
     return () => {
       cleanup1();
     };
-  }, [article]);
+  }, [article, safetyUpdated]);
 
   if (!article) {
     return <Navigate to="/living-with-arthritis" replace />;
@@ -128,7 +131,8 @@ export default function FaqArticle() {
       </div>
 
 
-      <EducationalDisclaimerBox lastReviewed={article.lastReviewed ?? REVIEW_RECORDS.faqArticleFallback} />
+      {safetyUpdated && <section className="my-8"><h2 className="text-2xl font-bold mb-3">{nextStep.heading}</h2>{nextStep.paragraphs.map(text => <p key={text} className="leading-relaxed mb-4">{text}</p>)}</section>}
+      <EducationalDisclaimerBox lastReviewed={safetyUpdated ? undefined : article.lastReviewed ?? REVIEW_RECORDS.faqArticleFallback} reviewStatus={safetyUpdated ? "pending" : "reviewed"} />
       {getClusterForPath(`/faq/${article.slug}`) && (
         <TopicClusterNav path={`/faq/${article.slug}`} />
       )}

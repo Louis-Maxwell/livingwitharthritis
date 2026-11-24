@@ -1,0 +1,155 @@
+{
+  "msm": {
+    "title": "MSM for joint pain: evidence and safety",
+    "description": "MSM evidence is limited. Read about uncertainty, safety and why supplements should not replace recommended osteoarthritis treatment.",
+    "answer": "MSM is a supplement sold for joint pain. Small, short studies suggest possible benefit, but they do not establish reliable long-term benefit or safety. NICE NG226 does not include a recommendation on MSM. It advises against offering glucosamine. Do not replace prescribed treatment with either supplement.",
+    "sections": [
+      {
+        "heading": "What the evidence can tell us",
+        "text": "Arthritis UK describes a small number of short MSM trials, including one study of MSM with glucosamine. This does not establish that the combination is better for everyone, or that MSM is a proven arthritis treatment. NICE NG226 recommends tailored therapeutic exercise and weight management where appropriate. It does not include a recommendation to offer MSM."
+      },
+      {
+        "heading": "No recommended arthritis dose",
+        "text": "We do not recommend an MSM dose, product or trial course for arthritis. Research doses vary and should not be treated as personal dosing advice. Ask a pharmacist or your GP before starting any supplement."
+      },
+      {
+        "heading": "Safety and other treatment",
+        "text": "Short studies cannot establish long-term safety. Tell a pharmacist about your medicines, health conditions, allergies and any supplements you already use. Seek advice before use during pregnancy or breastfeeding. A supplement should not delay assessment or replace exercise, prescribed medicines or other treatment agreed with your healthcare team."
+      }
+    ],
+    "sources": [
+      {
+        "name": "NICE NG226: osteoarthritis recommendations",
+        "url": "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations"
+      },
+      {
+        "name": "Arthritis UK: MSM",
+        "url": "https://www.arthritis-uk.org/information-and-support/understanding-arthritis/arthritis-treatments/complementary-and-alternative-treatments/types-of-complementary-treatments/msm/"
+      }
+    ]
+  },
+  "glucosamine": {
+    "title": "Glucosamine for arthritis: NICE advice and safety",
+    "description": "NICE advises against offering glucosamine for osteoarthritis because there is no strong evidence of benefit. Read the evidence and safety advice.",
+    "answer": "NICE advises healthcare professionals not to offer glucosamine for osteoarthritis because there is no strong evidence of benefit. Some trials report improvements, but results are inconsistent. We do not recommend glucosamine as an arthritis treatment or a substitute for exercise, weight management where appropriate, or prescribed treatment.",
+    "sections": [
+      {
+        "heading": "NICE advice and research uncertainty",
+        "text": "NICE NG226 recommendations 1.4.6 and 1.4.7 advise against offering glucosamine for osteoarthritis and say there is no strong evidence of benefit. Arthritis UK describes mixed trial results and uncertain, generally modest benefits. Its information is more permissive than NICE in places. This website follows NICE's recommendation rather than suggesting a trial course or a preferred formulation."
+      },
+      {
+        "heading": "No treatment dose recommended here",
+        "text": "We do not recommend a glucosamine dose or product for arthritis. Trial doses are not personal dosing advice. If you already take it or are thinking about it, ask a pharmacist or your GP about safety and interactions. Do not stop prescribed treatment to try a supplement."
+      },
+      {
+        "heading": "Safety questions",
+        "text": "Glucosamine can cause stomach upset and other side effects. Some products are made from shellfish. Ask a pharmacist or GP before use if you have diabetes, take warfarin or other medicines, have an allergy, or are pregnant or breastfeeding. Tell your healthcare team about all supplements you take."
+      }
+    ],
+    "sources": [
+      {
+        "name": "NICE NG226: osteoarthritis recommendations",
+        "url": "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations"
+      },
+      {
+        "name": "Arthritis UK: glucosamine",
+        "url": "https://www.arthritis-uk.org/information-and-support/understanding-arthritis/arthritis-treatments/complementary-and-alternative-treatments/types-of-complementary-treatments/glucosamine/"
+      }
+    ]
+  },
+  "turmeric": {
+    "title": "Turmeric and curcumin for arthritis: uncertainty and safety",
+    "description": "Turmeric and curcumin are not proven replacements for arthritis medicines. Read about uncertain benefits, dosing and interactions.",
+    "answer": "Some small studies suggest turmeric or curcumin may help arthritis symptoms, but the evidence does not establish a reliable benefit, an effective dose or equivalence to anti-inflammatory medicines. NICE NG226 does not include a recommendation on turmeric. Do not replace prescribed medicines with a supplement. Ask a pharmacist about interactions.",
+    "sections": [
+      {
+        "heading": "What is known and what remains uncertain",
+        "text": "Curcumin is a component of turmeric. Products and study methods vary, making results difficult to compare. Arthritis UK's 2026 dietitian advice says trials are too few and small to establish whether it works or how much to take. Other Arthritis UK pages discuss possible modest benefits. These differences are a reason for caution, not a basis for promising an effect."
+      },
+      {
+        "heading": "No recommended arthritis dose",
+        "text": "We do not recommend a curcumin dose, brand, enhanced-absorption product or trial course for arthritis. A dose used in a study is not a dose recommendation for you. Do not assume a supplement matches ibuprofen or diclofenac, is safer than these medicines, or needs black pepper to work."
+      },
+      {
+        "heading": "Safety and medicines",
+        "text": "Supplements can cause side effects and interact with medicines. Speak to a pharmacist or GP before use, especially if you take blood thinners or medicines for diabetes, cancer or immune suppression. Do not replace prescribed treatment. Turmeric used as a cooking ingredient is not the same as a concentrated supplement."
+      }
+    ],
+    "sources": [
+      {
+        "name": "NICE NG226: osteoarthritis recommendations",
+        "url": "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations"
+      },
+      {
+        "name": "Arthritis UK: dietitian advice on turmeric",
+        "url": "https://www.arthritis-uk.org/information-and-support/understanding-arthritis/ask-the-experts/ask-the-dietitian-does-turmeric-help-with-aches-and-pains/"
+      }
+    ]
+  },
+  "collagen-vs-glucosamine": {
+    "title": "Collagen vs glucosamine: NICE advice",
+    "description": "NICE advises against offering glucosamine for osteoarthritis. Supplements are not replacements for recommended care.",
+    "answer": "NICE advises healthcare professionals not to offer glucosamine for osteoarthritis because there is no strong evidence of benefit. Some trials report improvements, but results are inconsistent. We do not recommend glucosamine as an arthritis treatment or a substitute for exercise, weight management where appropriate, or prescribed treatment.",
+    "sections": [
+      {
+        "heading": "Do not choose a supplement instead of recommended care",
+        "text": "We do not recommend either supplement as an osteoarthritis treatment. NICE explicitly advises against offering glucosamine because there is no strong evidence of benefit. NICE NG226 does not include a recommendation on collagen. This is not the same as an explicit recommendation against it."
+      },
+      {
+        "heading": "Uncertain evidence is not a treatment promise",
+        "text": "Small studies and mixed findings cannot tell you that a product will work for you. We do not recommend a dose, brand or trial course, or claim that these supplements rebuild cartilage, slow arthritis or match an anti-inflammatory medicine. Ask a pharmacist about side effects and interactions if you already use supplements."
+      },
+      {
+        "heading": "No treatment dose recommended here",
+        "text": "We do not recommend a glucosamine dose or product for arthritis. Trial doses are not personal dosing advice. If you already take it or are thinking about it, ask a pharmacist or your GP about safety and interactions. Do not stop prescribed treatment to try a supplement."
+      },
+      {
+        "heading": "Safety questions",
+        "text": "Glucosamine can cause stomach upset and other side effects. Some products are made from shellfish. Ask a pharmacist or GP before use if you have diabetes, take warfarin or other medicines, have an allergy, or are pregnant or breastfeeding. Tell your healthcare team about all supplements you take."
+      }
+    ],
+    "sources": [
+      {
+        "name": "NICE NG226: osteoarthritis recommendations",
+        "url": "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations"
+      },
+      {
+        "name": "Arthritis UK: glucosamine",
+        "url": "https://www.arthritis-uk.org/information-and-support/understanding-arthritis/arthritis-treatments/complementary-and-alternative-treatments/types-of-complementary-treatments/glucosamine/"
+      }
+    ]
+  },
+  "glucosamine-vs-turmeric-arthritis": {
+    "title": "Glucosamine vs turmeric: NICE advice",
+    "description": "NICE advises against offering glucosamine for osteoarthritis. Supplements are not replacements for recommended care.",
+    "answer": "NICE advises healthcare professionals not to offer glucosamine for osteoarthritis because there is no strong evidence of benefit. Some trials report improvements, but results are inconsistent. We do not recommend glucosamine as an arthritis treatment or a substitute for exercise, weight management where appropriate, or prescribed treatment.",
+    "sections": [
+      {
+        "heading": "Do not choose a supplement instead of recommended care",
+        "text": "We do not recommend either supplement as an osteoarthritis treatment. NICE explicitly advises against offering glucosamine because there is no strong evidence of benefit. NICE NG226 does not include a recommendation on turmeric. This is not the same as an explicit recommendation against it."
+      },
+      {
+        "heading": "Uncertain evidence is not a treatment promise",
+        "text": "Small studies and mixed findings cannot tell you that a product will work for you. We do not recommend a dose, brand or trial course, or claim that these supplements rebuild cartilage, slow arthritis or match an anti-inflammatory medicine. Ask a pharmacist about side effects and interactions if you already use supplements."
+      },
+      {
+        "heading": "No treatment dose recommended here",
+        "text": "We do not recommend a glucosamine dose or product for arthritis. Trial doses are not personal dosing advice. If you already take it or are thinking about it, ask a pharmacist or your GP about safety and interactions. Do not stop prescribed treatment to try a supplement."
+      },
+      {
+        "heading": "Safety questions",
+        "text": "Glucosamine can cause stomach upset and other side effects. Some products are made from shellfish. Ask a pharmacist or GP before use if you have diabetes, take warfarin or other medicines, have an allergy, or are pregnant or breastfeeding. Tell your healthcare team about all supplements you take."
+      }
+    ],
+    "sources": [
+      {
+        "name": "NICE NG226: osteoarthritis recommendations",
+        "url": "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations"
+      },
+      {
+        "name": "Arthritis UK: glucosamine",
+        "url": "https://www.arthritis-uk.org/information-and-support/understanding-arthritis/arthritis-treatments/complementary-and-alternative-treatments/types-of-complementary-treatments/glucosamine/"
+      }
+    ]
+  }
+}

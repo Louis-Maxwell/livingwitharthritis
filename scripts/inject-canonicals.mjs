@@ -204,6 +204,7 @@ const PAGE_AEO_LAYER = Object.fromEntries(
     },
   ]),
 );
+const NICE_SAFETY = readJson(resolve("scripts/nice-safety-overrides.json"));
 const AI_DATA = mergeHeadLayers(
   readJson(BLOG_DATA_PATH),
   readJson(CONDITION_DATA_PATH),
@@ -381,7 +382,7 @@ const textWords = (html) => String(html || '').replace(/<[^>]+>/g, ' ').replace(
 function withRenderedBody(route, data) {
   const rawCapture = RENDERED_BODIES[route];
   const conditionAnswer = CONDITION_ANSWER_LAYER[route]?.answer || LIBRARY_ANSWER_LAYER[route]?.answer || STANDALONE_ANSWER_LAYER[route]?.answer;
-  const correctedCapture = rawCapture?.replace(/<strong>Last checked: 11 November 2026<\/strong> against/g, "<strong>Official sources:</strong>").replace('It is available on prescription and also over-the-counter (in lower doses) at pharmacies.', 'Naproxen is prescribed for arthritis. Some UK pharmacy products have limited indications: Naprosyn Pain Relief 250 mg is for short-term muscle and joint pain in adults aged 18 to 50, for no more than 3 days; period-pain products have separate eligibility rules. Ask a pharmacist which product is suitable, and do not use a pharmacy product as ongoing arthritis treatment without medical advice.');
+  const correctedCapture = rawCapture?.replace(/Band 8 Advanced Practice Physiotherapist/g, 'Band 7 First Contact Practitioner').replace(/<strong>Last checked: 11 November 2026<\/strong> against/g, "<strong>Official sources:</strong>").replace('It is available on prescription and also over-the-counter (in lower doses) at pharmacies.', 'Naproxen is prescribed for arthritis. Some UK pharmacy products have limited indications: Naprosyn Pain Relief 250 mg is for short-term muscle and joint pain in adults aged 18 to 50, for no more than 3 days; period-pain products have separate eligibility rules. Ask a pharmacist which product is suitable, and do not use a pharmacy product as ongoing arthritis treatment without medical advice.');
   const captured = correctedCapture && conditionAnswer
     ? correctedCapture.replace(/<p>[\s\S]*?<\/p>/, `<p>${escText(conditionAnswer)}</p>`) : correctedCapture;
   const exercisePage = EXERCISE_JOINT_BY_ROUTE.get(route);
@@ -486,6 +487,12 @@ function headDataFor(route, override) {
   if (route === "/guides/knee-exercises-for-osteoarthritis" && data) {
     const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
     return editorial;
+  }
+  if (route === "/services" && data) data = { ...data, description: "Arthritis information, educational resources and support services. Contact Living With Arthritis about suitability and current availability.", answer: "Explore arthritis information and support. Contact us to check which service is suitable and its current availability.", bodyHtml: String(data.bodyHtml || "").replace(/Every service is clinically reviewed, NICE-compliant and designed by our multidisciplinary team\. No waiting lists, no referrals, no cost\./g, "Explore our educational resources and support services. Contact us about suitability and current availability.") };
+  const safety = NICE_SAFETY[route];
+  if (safety && data) {
+    const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
+    return { ...editorial, ...safety };
   }
   return data;
 }

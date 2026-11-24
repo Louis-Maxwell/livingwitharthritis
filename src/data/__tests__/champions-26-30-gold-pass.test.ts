@@ -13,6 +13,17 @@ const pages = [
 
 describe("Champions 26–30 gold pass", () => {
   it.each(pages)("%s includes disclaimer, cluster nav, review date and citations", (rel) => {
+    if (rel === "src/pages/supplements/Glucosamine.tsx") {
+      const wrapper = readFileSync(resolve(process.cwd(), rel), "utf8");
+      const shared = readFileSync(resolve(process.cwd(), "src/components/seo/SupplementSafetyGuide.tsx"), "utf8");
+      const copy = JSON.parse(readFileSync(resolve(process.cwd(), "src/data/supplementSafety24.json"), "utf8"));
+      expect(wrapper).toContain('slug="glucosamine"');
+      expect(shared).toContain("EducationalDisclaimerBox");
+      expect(shared).toContain("TopicClusterNav");
+      expect(shared).toContain('reviewStatus="pending"');
+      expect(copy.glucosamine.sources.some((source: { url: string }) => source.url.includes("nice.org.uk/guidance/ng226"))).toBe(true);
+      return;
+    }
     const src = inlineReviewRecords(readFileSync(resolve(process.cwd(), rel), "utf8"));
     expect(src).toContain("EducationalDisclaimerBox");
     expect(src).toContain("TopicClusterNav");
