@@ -19,6 +19,8 @@ describe('source-checked NICE safety corrections', () => {
     const source = readFileSync('src/pages/FaqArticle.tsx', 'utf8');
     expect(source).toContain('if (!article || safetyUpdated) return;');
     expect(source).toContain('}, [article, safetyUpdated]);');
+    const frailty = readFileSync('src/pages/guides/FrailtyManagementHub.tsx', 'utf8');
+    expect(frailty).not.toContain("injectJsonLd('frailty-hub-faq'");
   });
   it('keeps unrelated clinical overrides' , () => {
     expect(headDataFor('/guides/dmards-vs-biologics').answer).toContain('JAK inhibitors');
