@@ -12,10 +12,12 @@ export function materializeEditorialCovers(root = process.cwd()) {
   if (existsSync(additional)) Object.assign(assets, JSON.parse(readFileSync(additional, "utf8")));
   const care = resolve(root, "scripts/data/editorial-care-covers.json");
   if (existsSync(care)) Object.assign(assets, JSON.parse(readFileSync(care, "utf8")));
+  const reviewed = resolve(root, "scripts/data/editorial-reviewed-blog-covers.json");
+  if (existsSync(reviewed)) Object.assign(assets, JSON.parse(readFileSync(reviewed, "utf8")));
   const output = resolve(root, "public/openverse");
   mkdirSync(output, { recursive: true });
   for (const [name, asset] of Object.entries(assets)) {
-    if (!/^lwa-title-[a-z-]+\.webp$/.test(name)) throw new Error("Unexpected editorial cover filename");
+    if (!/^lwa-title-[a-z0-9-]+\.webp$/.test(name)) throw new Error("Unexpected editorial cover filename");
     const bytes = Buffer.from(asset.base64, "base64");
     if (bytes.subarray(0, 4).toString() !== "RIFF" || bytes.subarray(8, 12).toString() !== "WEBP") throw new Error("Invalid editorial WebP");
     if (createHash("sha256").update(bytes).digest("hex") !== asset.sha256) throw new Error("Editorial cover checksum mismatch");
