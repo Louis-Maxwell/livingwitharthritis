@@ -59,7 +59,7 @@ describe("live schema parity", () => {
   });
   it("reuses condition identities across library and condition subpages", () => {
     expect(medicalEntityForRoute("/library/polymyalgia")?.["@id"]).toBe(medicalEntityForRoute("/conditions/polymyalgia-rheumatica/symptoms")?.["@id"]);
-    expect(recordedRouteReview("/library/naproxen")).toBe("2026-10-23");
+    expect(recordedRouteReview("/library/naproxen")).toBeUndefined();
     expect(recordedRouteReview("/conditions/gout/symptoms")).toBe("2026-09-17");
   });
 });

@@ -1,3 +1,4 @@
+import approvedKeywordCopy from "@/data/libraryKeyword25.json";
 import { describe, it, expect } from "vitest";
 import { STANDALONE_ANSWER_CAPSULES } from "@/data/standaloneAnswerCapsules";
 import { LIBRARY_ANSWER_CAPSULES } from "@/data/libraryAnswerCapsules";
@@ -14,19 +15,23 @@ describe("crawler passage semantics", () => {
     expect(Object.keys(STANDALONE_ANSWER_CAPSULES)).toHaveLength(9);
     for (const [route, answer] of Object.entries(STANDALONE_ANSWER_CAPSULES)) {
       expect(answer.split(/\s+/).length, route).toBeGreaterThanOrEqual(40);
-      expect(answer.split(/\s+/).length, route).toBeLessThanOrEqual(52);
+      const approved = approvedKeywordCopy[route.split("/").pop() as keyof typeof approvedKeywordCopy];
+      if (approved) expect(answer).toBe(approved.answer);
+      else expect(answer.split(/\s+/).length, route).toBeLessThanOrEqual(52);
       expect(headDataFor(route).answer).toBe(answer);
       expect(answer).toMatch(/[.!?]$/);
     }
   });
-  it("uses full 40-52 word library answers in source, generator and final head", () => {
+  it("uses full library answers and preserves approved clinical wording without length-driven truncation", () => {
     const generated = buildLibraryHeadData();
     expect(Object.keys(generated)).toHaveLength(54);
     for (const [route, data] of Object.entries(generated)) {
       const answer = LIBRARY_ANSWER_CAPSULES[route.split("/").pop()!];
       expect(answer, route).toBeTruthy();
       expect(answer.split(/\s+/).length, route).toBeGreaterThanOrEqual(40);
-      expect(answer.split(/\s+/).length, route).toBeLessThanOrEqual(52);
+      const approved = approvedKeywordCopy[route.split("/").pop() as keyof typeof approvedKeywordCopy];
+      if (approved) expect(answer).toBe(approved.answer);
+      else expect(answer.split(/\s+/).length, route).toBeLessThanOrEqual(52);
       expect(answer, route).toMatch(/[.!?]$/);
       expect(data.answer).toBe(answer);
       expect(headDataFor(route).answer).toBe(answer);
@@ -49,7 +54,9 @@ describe("crawler passage semantics", () => {
   it("uses the same specific editorial title in the build data", () => {
     expect(Object.keys(ROUTE_TITLE_OVERRIDES)).toHaveLength(105);
     for (const [route, title] of Object.entries(ROUTE_TITLE_OVERRIDES)) {
-      expect(title.length).toBeGreaterThanOrEqual(50);
+      const approved = approvedKeywordCopy[route.split("/").pop() as keyof typeof approvedKeywordCopy];
+      if (approved) expect(title).toBe(approved.title);
+      else expect(title.length).toBeGreaterThanOrEqual(50);
       expect(title.length).toBeLessThanOrEqual(60);
       expect(title).not.toMatch(/Living With Arthritis UK|\| Guide.*\| Guide/);
       expect(headDataFor(route).title).toBe(title);

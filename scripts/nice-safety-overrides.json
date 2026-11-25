@@ -186,5 +186,62 @@
     ],
     "faqs": [],
     "summaryReviewNote": "Editorial safety update: 24 November 2026. Awaiting separate clinical review."
+  },
+  "/library/naproxen": {
+    "title": "Naproxen for Arthritis: Uses, Risks and Safety",
+    "description": "Naproxen is an anti-inflammatory painkiller. Learn how it is used for arthritis, its main risks and when to ask a pharmacist or prescriber for advice.",
+    "question": "Naproxen: uses and safety for arthritis",
+    "answer": "Naproxen is a non-steroidal anti-inflammatory drug (NSAID) that can relieve pain and swelling in conditions including arthritis. It is not suitable for everyone and can cause stomach bleeding, kidney problems and other serious side effects. Ask a pharmacist or prescriber whether it is suitable for you.",
+    "bodyHtml": "<h2>What is Naproxen?</h2><p>Naproxen is a non-steroidal anti-inflammatory drug (NSAID). It is used to relieve pain, reduce inflammation (swelling), and lower fever. Naproxen is commonly used for conditions such as arthritis, gout, menstrual pain, muscle aches, headaches, and back pain. Naproxen is prescribed for arthritis. Some UK pharmacy products have limited indications: Naprosyn Pain Relief 250 mg is for short-term muscle and joint pain in adults aged 18 to 50, for no more than 3 days; period-pain products have separate eligibility rules. Ask a pharmacist which product is suitable, and do not use a pharmacy product as ongoing arthritis treatment without medical advice.</p><h2>How Does it Work?</h2><p>Naproxen works by blocking the production of prostaglandins — chemicals in the body that trigger pain, inflammation, and fever. By reducing prostaglandin production, naproxen reduces pain and swelling at the site of injury or inflammation.</p><h2>Common Uses</h2><ul><li>Osteoarthritis and rheumatoid arthritis</li><li>Gout attacks</li><li>Muscle and joint pain</li><li>Back pain</li><li>Menstrual (period) pain</li><li>Headaches and migraines</li><li>Ankylosing spondylitis</li><li>Tendonitis and bursitis</li></ul><h2>How to Take It</h2><p>Follow your prescription or the product leaflet and ask a pharmacist or prescriber if you are unsure. This page does not provide an adult dosing schedule. Do not take naproxen for longer than directed without medical advice.</p><h2>Side Effects</h2><ul><li>Stomach upset, indigestion, or heartburn</li><li>Nausea</li><li>Headache</li><li>Dizziness</li><li>Drowsiness</li><li>Skin rash</li><li>In rare cases, stomach ulcers or bleeding</li></ul><h2>Who Should Avoid Naproxen?</h2><p>Naproxen is not suitable for everyone. People with stomach ulcers, kidney or liver problems, heart disease, or high blood pressure should use naproxen with caution or avoid it altogether. It is also not recommended during pregnancy, especially in the third trimester. Children under 16 should not take naproxen unless prescribed by a doctor.</p><h2>Naproxen vs Ibuprofen</h2><p>Naproxen and ibuprofen are both NSAIDs. Which is suitable depends on your health, other medicines and the reason for treatment. Do not take them together. Ask a pharmacist or prescriber rather than assuming one is milder or safer for you.</p>",
+    "sources": [
+      {
+        "name": "NHS: Naproxen",
+        "url": "https://www.nhs.uk/medicines/naproxen/"
+      },
+      {
+        "name": "NICE NG226: Osteoarthritis recommendations",
+        "url": "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations"
+      }
+    ],
+    "faqs": [],
+    "summaryReviewNote": "Editorial update: 25 November 2026. The title and opening summary were updated against NHS and NICE sources. This revision is awaiting separate clinical review; older review dates do not attest to it."
+  },
+  "/library/naproxen-side-effects": {
+    "title": "Naproxen Side Effects: Common Problems and Serious Risks",
+    "description": "Naproxen side effects can include stomach pain, nausea and dizziness. Learn about serious risks, warning symptoms and when to seek medical help.",
+    "question": "Naproxen Side Effects: Common Problems and Serious Risks",
+    "answer": "Naproxen side effects can include stomach pain, nausea, dizziness and tiredness. More serious problems include stomach bleeding, kidney problems and severe allergic reactions. If you think you are having a serious side effect, seek urgent medical advice. Call 999 for severe breathing difficulty or swelling of the tongue or throat.",
+    "bodyHtml": "<h2>Overview</h2><p>Naproxen is well-tolerated by many people, but like all NSAIDs, it can cause side effects. The risk of side effects increases with higher doses and longer duration of use. This guide covers the most important side effects to be aware of.</p><h2>Common Side Effects (affect more than 1 in 100 people)</h2><ul><li>Indigestion and heartburn</li><li>Stomach pain or discomfort</li><li>Nausea</li><li>Constipation or diarrhoea</li><li>Headache</li><li>Dizziness</li><li>Drowsiness</li></ul><h2>Serious Side Effects (seek medical advice promptly)</h2><ul><li>Stomach ulcer — symptoms include persistent stomach pain, indigestion that doesn&#x27;t improve, and loss of appetite</li><li>Gastrointestinal bleeding — dark, tarry, or bloody stools; vomiting blood (coffee-ground appearance) — seek emergency help immediately</li><li>Allergic reaction — rash, swelling of the face, lips, or throat, difficulty breathing — seek emergency help</li><li>Kidney problems — reduced urine output, swollen ankles, unusual tiredness</li><li>Liver problems — yellowing of skin or eyes (jaundice)</li><li>Heart attack or stroke symptoms — chest pain, sudden severe headache, facial drooping, arm weakness — call 999</li></ul><h2>How to Reduce Side Effect Risk</h2><ul><li>Always take with food or milk</li><li>Use the lowest effective dose for the shortest time</li><li>Take a stomach-protecting medicine (PPI) if prescribed</li><li>Avoid alcohol</li><li>Stay hydrated</li><li>Inform your doctor of all other medications</li></ul>",
+    "sources": [
+      {
+        "name": "NHS: Naproxen, including side effects",
+        "url": "https://www.nhs.uk/medicines/naproxen/"
+      },
+      {
+        "name": "NHS: Anaphylaxis",
+        "url": "https://www.nhs.uk/conditions/anaphylaxis/"
+      }
+    ],
+    "faqs": [],
+    "summaryReviewNote": "Editorial update: 25 November 2026. The title and opening summary were updated against NHS and NICE sources. This revision is awaiting separate clinical review; older review dates do not attest to it."
+  },
+  "/library/what-is-gout": {
+    "title": "What Is Gout? Symptoms, Diagnosis and Treatment",
+    "description": "What is gout? Learn how urate crystals cause joint inflammation, the symptoms, how gout is diagnosed and treatments for flares and long-term control.",
+    "question": "What is gout?",
+    "answer": "Gout is a type of inflammatory arthritis caused by urate crystals in and around a joint. It often causes sudden, severe pain and swelling, commonly in the big toe but also in other joints. A painful, swollen joint can also be an infection, so do not diagnose gout yourself. Treatment can control flares and lower urate to prevent future problems.",
+    "bodyHtml": "<h2>Overview</h2><p>Gout is a form of inflammatory arthritis that develops when there is too much uric acid in the blood (hyperuricaemia). Uric acid is produced when the body breaks down purines — substances found naturally in the body and in many foods. When uric acid levels are too high, it can crystallise and deposit in joints as needle-like monosodium urate crystals, triggering intense inflammation and pain. Gout is more common in men and becomes increasingly common with age. It affects around 2.5% of the UK population.</p><h2>Why Does Uric Acid Build Up?</h2><p>Uric acid levels rise either because the body produces too much of it, or the kidneys do not excrete enough. Several factors contribute:</p><ul><li>Diet — high intake of red meat, organ meats, shellfish, alcohol, and sugary drinks</li><li>Obesity</li><li>Kidney disease — reduced kidney function means less uric acid is excreted</li><li>Genetic factors</li><li>Certain medications — diuretics (water tablets), low-dose aspirin, ciclosporin</li><li>Dehydration</li></ul><h2>Stages of Gout</h2><ul><li>Asymptomatic hyperuricaemia — high uric acid but no symptoms yet</li><li>Acute gout — sudden, severe joint attacks</li><li>Intercritical gout — periods between attacks with no symptoms</li><li>Chronic tophaceous gout — persistent gout with visible deposits (tophi) if untreated</li></ul><h2>Treatment Goals</h2><p>The two main goals of gout treatment are: (1) treating acute attacks promptly with NSAIDs, colchicine, or corticosteroids, and (2) preventing future attacks and lowering uric acid levels in the long term with medications like allopurinol or febuxostat, combined with lifestyle changes.</p>",
+    "sources": [
+      {
+        "name": "NHS: Gout",
+        "url": "https://www.nhs.uk/conditions/gout/"
+      },
+      {
+        "name": "NICE NG219: Gout diagnosis and management",
+        "url": "https://www.nice.org.uk/guidance/ng219/chapter/Recommendations"
+      }
+    ],
+    "faqs": [],
+    "summaryReviewNote": "Editorial update: 25 November 2026. The title and opening summary were updated against NHS and NICE sources. This revision is awaiting separate clinical review; older review dates do not attest to it."
   }
-  }
+}
