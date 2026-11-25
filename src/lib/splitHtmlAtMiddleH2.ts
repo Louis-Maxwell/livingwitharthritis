@@ -26,3 +26,26 @@ export function splitHtmlAtMiddleH2(
   }
   return best > 0 ? { first: html.slice(0, best), second: html.slice(best) } : { first: html, second: "" };
 }
+
+/** Keep the first heading with its full section before inserting decorative UI.
+ * If authored wrappers do not offer a safe boundary, leave the body intact.
+ */
+export function splitHtmlAfterFirstSection(html: string): { first: string; second: string } {
+  const wrappers = new Set(['section', 'div', 'ul', 'ol', 'table', 'blockquote', 'aside', 'details']);
+  const stack: string[] = [];
+  let sawHeading = false;
+  const tags = /<(\/?)([a-z][\w:-]*)\b[^>]*>/gi;
+  let match: RegExpExecArray | null;
+  while ((match = tags.exec(html))) {
+    const [, closing, rawName] = match;
+    const name = rawName.toLowerCase();
+    if (!closing && stack.length === 0 && sawHeading && (name === 'h2' || name === 'section')) {
+      return { first: html.slice(0, match.index), second: html.slice(match.index) };
+    }
+    if (!closing && name === 'h2') sawHeading = true;
+    if (!wrappers.has(name)) continue;
+    if (!closing && !match[0].endsWith('/>')) stack.push(name);
+    else if (closing && stack.at(-1) === name) stack.pop();
+  }
+  return { first: html, second: '' };
+}

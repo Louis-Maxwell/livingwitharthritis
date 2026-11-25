@@ -1,0 +1,6 @@
+/* Keep the loop full on wide screens and the pause control clear of fixed chat. */
+.motivation-marquee__group { min-width: 100vw; justify-content: space-around; }
+.motivation-marquee__toggle { order: -1; margin: 0 0 0 0.75rem; }
+@media (prefers-reduced-motion: reduce) {
+  .motivation-marquee__group { min-width: 0; }
+}

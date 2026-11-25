@@ -23,6 +23,10 @@ import { patchEnglishAlternates } from './lib/english-alternates.mjs';
 const RENDERED_BODIES_FILE = resolve("scripts/data/rendered-bodies.json");
 const RENDERED_BODIES = existsSync(RENDERED_BODIES_FILE)
   ? JSON.parse(readFileSync(RENDERED_BODIES_FILE, "utf8")) : {};
+// Keep city templates aligned with the referral-information destination.
+for (const route of Object.keys(RENDERED_BODIES)) {
+  RENDERED_BODIES[route] = RENDERED_BODIES[route].replace(/<a href="\/tools\/waiting-time">[\s\S]*?<\/a>/g, '<a href="/tools/waiting-time"><p>Referral information</p><h3>Rheumatology referral information</h3><p>Check your referral and find out who to contact while you wait.</p></a>');
+}
 
 const DIST = resolve("dist");
 

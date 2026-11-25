@@ -54,6 +54,9 @@ jobs:
       - name: Install
         run: npm ci --prefer-offline --no-audit --no-fund
 
+      - name: Generate current content surfaces
+        run: npm run content:generate
+
       - name: Technical SEO regression checks
         run: node --test scripts/tests/technical-seo.test.mjs scripts/tests/growth-seo.test.mjs scripts/tests/built-site-audit.test.mjs scripts/tests/built-status.test.mjs
 

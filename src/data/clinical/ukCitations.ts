@@ -333,6 +333,10 @@ export const CITATIONS_SUPPLEMENTS: Citation[] = [
 
 /** Symptom checker educational tool */
 export const CITATIONS_SYMPTOM_CHECKER: Citation[] = [
+  { label: "NHS: joint pain and urgent help", url: "https://www.nhs.uk/symptoms/joint-pain/" },
+  { label: "NHS: septic arthritis", url: "https://www.nhs.uk/conditions/septic-arthritis/" },
+  { label: "NHS: back pain and emergency symptoms", url: "https://www.nhs.uk/conditions/back-pain/" },
+  { label: "NICE NG100: rheumatoid arthritis referral", url: "https://www.nice.org.uk/guidance/ng100/chapter/Recommendations" },
   NHS_OSTEOARTHRITIS,
   NHS_RHEUMATOID,
   NICE_OA_NG226,

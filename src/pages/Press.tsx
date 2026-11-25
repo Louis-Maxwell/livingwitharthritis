@@ -11,10 +11,10 @@ import { CONTACT_EMAILS } from "@/config/contact";
 const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
 const keyFacts = [
-  { icon: Users, stat: "10M+", label: "UK adults live with arthritis" },
-  { icon: Heart, stat: "100%", label: "Free services — no cost to patients" },
-  { icon: Shield, stat: "Public Health", label: "Aligned with national clinical guidelines" },
-  { icon: Award, stat: "HCPC", label: "Registered physiotherapy team" },
+  { icon: Users, stat: "1218461", label: "Registered charity number (England and Wales)" },
+  { icon: Heart, stat: "Free", label: "Guides and printable resources, no cost to readers" },
+  { icon: Shield, stat: "NHS & NICE", label: "Guides cite NHS and NICE sources" },
+  { icon: Award, stat: "HCPC", label: "Guides reviewed by Louis Maxwell (PH128483)" },
 ];
 
 const spokespeople = [
@@ -91,13 +91,13 @@ export default function Press() {
           <div className="container mx-auto px-4 max-w-3xl">
             <h2 className="text-2xl font-bold text-foreground mb-4">About the Charity</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Living With Arthritis is a registered health charity dedicated to making expert physiotherapy, evidence-based diet plans and self-management tools freely accessible to the 10 million+ people living with arthritis across the United Kingdom.
+              Living With Arthritis is a registered charity in England and Wales (no. 1218461), founded by David Williams. We publish free, educational arthritis information: exercise routines, diet guides, benefits help and self-management tools for people living with arthritis and the people who care for them.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Our services are delivered by HCPC-registered physiotherapists and aligned with current national clinical and NICE clinical guidelines. We believe no one should face arthritis alone, and no one should have to wait months on a public health list for basic support.
+              Our guides are reviewed by Louis Maxwell, Operations Director and HCPC-registered physiotherapist (PH128483), and cite NHS and NICE guidance. They are educational, not a diagnosis, and do not replace advice from your GP, physiotherapist or rheumatology team.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              From printable exercise routines and anti-inflammatory meal plans to an free symptom chat and peer support community, we provide a comprehensive digital platform — entirely free of charge — to help people manage joint pain, improve mobility and live well.
+              From printable exercise routines and flare-up plans to a PIP evidence diary, everything we publish is free to read and share. We are independent of Versus Arthritis (now Arthritis UK).
             </p>
           </div>
         </section>

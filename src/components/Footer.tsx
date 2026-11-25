@@ -1,15 +1,17 @@
+import InstallBanner from '@/components/pwa/InstallBanner';
 import PageDownloads from '@/components/PageDownloads';
 import { Link, useLocation } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import FooterMostRead from "@/components/FooterMostRead";
 import { lazy, Suspense } from "react";
 import DeferredMount from "@/components/DeferredMount";
+import ViewportSection from "@/components/ViewportSection";
 const RelatedGuidesBlock = lazy(() => import("@/components/blog/RelatedGuidesBlock"));
 const PageShareButtons = lazy(() => import('@/components/PageShareButtons'));
 import HelplineWidget from "@/components/HelplineWidget";
 import SiteLogo from "@/components/SiteLogo";
 import HubSpotlight from "@/components/HubSpotlight";
-import SocialLinks from "@/components/SocialLinks";
+import FooterConnect from "@/components/FooterConnect";
 import { CHARITY, hasCharityAddress } from "@/config/charity";
 
 const columns = [
@@ -114,6 +116,7 @@ const Footer = () => {
   const { pathname } = useLocation();
   return (
     <>
+    {(/^\/exercises(?:\/|$)/).test(pathname) && <InstallBanner />}
     <HubSpotlight />
     {/^\/(guides|conditions|exercises|diet|supplements|daily-tips|resources)\//.test(pathname) && (
       <DeferredMount><Suspense fallback={null}>
@@ -122,11 +125,11 @@ const Footer = () => {
     )}
     <footer className="bg-muted/30 border-t border-border/20 pb-20 lg:pb-0" role="contentinfo" aria-label="Site footer">
       {/* Helpline strip — sits above the footer on every page */}
-      <DeferredMount>
-        <Suspense fallback={null}>
-          <RelatedGuidesBlock />
-        </Suspense>
-      </DeferredMount>
+      {/* Keep catalogue-backed recommendations off the initial route request.
+          Mount near the footer, without removing any links or changing their order. */}
+      <ViewportSection>
+        <RelatedGuidesBlock />
+      </ViewportSection>
       <HelplineWidget />
 
       <FooterMostRead />
@@ -180,17 +183,7 @@ const Footer = () => {
             </nav>
           ))}
 
-          {/* Social Media Section */}
-          <nav aria-label="Social and connect">
-            <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-5">Connect</h3>
-            <SocialLinks
-              context="footer"
-              size="md"
-              orientation="vertical"
-              linkClassName="min-h-11 text-xs lg:min-h-0 lg:text-[13px] text-foreground/85 hover:text-primary transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm flex items-center gap-2"
-              showLabels={true}
-            />
-          </nav>
+          <FooterConnect />
         </div>
       </div>
 

@@ -5,6 +5,8 @@ import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
 import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const FAQS = [
@@ -62,6 +64,8 @@ export default function BoneDensityOsteoporosis() {
       <h1 className="text-4xl md:text-5xl font-bold mb-6">Bone Density &amp; Osteoarthritis: Managing Both Conditions</h1>
             <AeoEnhancement route="/guides/bone-density-osteoporosis" />
 
+            <GpPrepSheet />
+            <WhatsAppShare path="/guides/bone-density-osteoporosis" title="Bone density and osteoporosis" />
       <AnswerBox question="Can you have osteoarthritis and osteoporosis at the same time?" reviewed="2026-06-21">
         Yes — they are different conditions but often coexist, especially in post-menopausal women. Osteoarthritis affects joint cartilage; osteoporosis weakens bones. Dual management focuses on calcium (700–1,200 mg/day), vitamin D, weight-bearing exercise, strength training and DEXA screening when appropriate.
       </AnswerBox>

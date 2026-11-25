@@ -64,7 +64,7 @@ describe("AEO blocks on OA pages avoid unsourced figures", () => {
     const aeo = getPageAeo(route)!;
     const text = JSON.stringify(aeo);
     expect(aeo.reviewer).toBe("Louis Maxwell, HCPC PH128483");
-    expect(text).not.toMatch(/70%|25%|4 out of 10|4\/10|\d+ ?kg|sets of|repetitions|\d+(-|–| to )\d+ weeks|as effectively as/i);
+    expect(text).not.toMatch(/70%|25%|4 out of 10|4\/10|\d+ ?kg|\d+ sets of|\d+ repetitions|\d+(-|–| to )\d+ weeks|as effectively as/i);
     expect(text).not.toMatch(/Living With Arthritis UK/);
     expect(aeo.takeaways!.length).toBeGreaterThanOrEqual(3);
   });

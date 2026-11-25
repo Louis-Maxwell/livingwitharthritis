@@ -13,9 +13,24 @@ export const drugGuide: HubGuide = {
     { label: "Treatments", href: "/blog/arthritis-treatment-hub" },
     { label: "Medicines guide", href: "/treatments/drug-guide" },
   ],
-  updated: "2026-09-25",
-  reviewStatus: "reviewed",
+  updated: "2026-11-24",
+  reviewStatus: "pending",
+  sources: [
+    { label: "NHS: methotrexate side effects and urgent help", href: "https://www.nhs.uk/medicines/methotrexate/side-effects-of-methotrexate/" },
+    { label: "NHS: sepsis", href: "https://www.nhs.uk/conditions/sepsis/" },
+    { label: "NHS: septic arthritis", href: "https://www.nhs.uk/conditions/septic-arthritis/" },
+    { label: "NICE NG226: osteoarthritis medicines, recommendations 1.4.1 to 1.4.10", href: "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations" },
+    { label: "NICE NG100: rheumatoid arthritis management", href: "https://www.nice.org.uk/guidance/ng100/chapter/Recommendations" },
+  ],
   sections: [
+    {
+      heading: "When to get urgent help",
+      paragraphs: [
+        "Call 999 for sudden swelling of the lips, mouth, tongue or throat, trouble swallowing, or severe breathing difficulty after a medicine. Call 999 or go to A&E for possible sepsis, including new confusion, very fast breathing, or blue, pale or blotchy skin with an infection. Do not drive yourself.",
+        "A suddenly very painful, hot or swollen joint needs an urgent GP appointment or NHS 111 advice, even without a fever. Do not assume it is your usual arthritis flare or wait for painkillers to work.",
+        "If you take methotrexate, contact your doctor or NHS 111 immediately for a high temperature or feeling hot, cold or shivery, a sore throat, persistent cough, new breathlessness, unexplained bruising or bleeding, or yellow skin or eyes. Other medicines have their own warning signs: read the leaflet and follow your team's plan. Routine blood tests do not replace urgent assessment of symptoms.",
+      ],
+    },
     {
       heading: "Two jobs: easing symptoms and controlling the disease",
       paragraphs: [
@@ -31,9 +46,9 @@ export const drugGuide: HubGuide = {
     {
       heading: "Painkillers and anti-inflammatories",
       paragraphs: [
-        "Paracetamol is widely used, although for osteoarthritis its benefit is often modest. Anti-inflammatory gels rubbed onto a sore knee or hand are a sensible early option for many people, because much less of the medicine reaches the rest of the body than with tablets.",
-        "Anti-inflammatory tablets (NSAIDs) such as ibuprofen and naproxen can ease pain and stiffness, especially in inflammatory conditions. They can irritate the stomach and affect the kidneys, blood pressure and heart, so they are usually given at the lowest dose that helps, for the shortest time needed, sometimes with a stomach-protecting tablet. Check with a pharmacist before combining them with other medicines, including ones bought over the counter.",
-        "Stronger painkillers such as codeine are used cautiously, because they often cause constipation, drowsiness and dependence and tend to help long-term joint pain less than people hope.",
+        "For knee osteoarthritis, NICE NG226 recommends offering a topical NSAID, such as an anti-inflammatory gel. For osteoarthritis in other joints, a topical NSAID can be considered. If medicines are needed, use them alongside non-drug treatment, at the lowest effective dose for the shortest possible time. Ask a pharmacist or clinician what is suitable for you.",
+        "For osteoarthritis, NICE says an oral NSAID may be considered if topical medicines are ineffective or unsuitable. The clinician should assess stomach, kidney, liver and cardiovascular risks, other medicines and health conditions. NICE says to offer gastroprotection, such as a proton pump inhibitor, while taking an NSAID for osteoarthritis (NG226 recommendation 1.4.4). Do not combine NSAIDs or add over-the-counter medicines without checking with a pharmacist.",
+        "NICE advises against routinely offering paracetamol or weak opioids for osteoarthritis. The exception is infrequent short-term relief when all other drug treatments are contraindicated, not tolerated or ineffective. There is no strong evidence of benefit for paracetamol in osteoarthritis. NICE advises against strong opioids because their risks outweigh their benefits (NG226 recommendations 1.4.5 to 1.4.7). Do not stop an existing opioid suddenly; discuss a safe plan with your prescriber.",
       ],
       links: [
         { label: "Painkillers and NSAIDs guide", href: "/guides/painkillers-and-nsaids" },
@@ -141,7 +156,7 @@ export const drugGuide: HubGuide = {
     },
     {
       q: "What should I do if I get an infection while on a DMARD or biologic?",
-      a: "Contact your GP or rheumatology advice line promptly and tell them what you take. Some medicines are paused during an infection, but only on professional advice. Seek urgent help for high fever, breathlessness, confusion or feeling very unwell.",
+      a: "Get prompt advice from your GP, rheumatology team or NHS 111 and say which medicines you take. Follow your medicine-specific infection plan, rather than changing a dose based on this guide. New confusion, very fast breathing or blue, pale or blotchy skin with an infection needs 999 or A&E. A hot or swollen joint or sudden severe joint pain needs an urgent GP appointment or NHS 111, even without a fever.",
     },
     {
       q: "Do I have to pay for arthritis prescriptions?",

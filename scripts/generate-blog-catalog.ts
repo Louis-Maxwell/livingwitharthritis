@@ -18,6 +18,7 @@
  *   bun scripts/generate-blog-catalog.ts          # write
  *   bun scripts/generate-blog-catalog.ts --check  # fail if committed files are stale
  */
+import { materializeEditorialCovers } from "./materialize-editorial-covers";
 import { readFileSync, writeFileSync, existsSync, statSync } from "node:fs";
 import { checkGuideImages } from "../src/lib/blog/imagePolicy";
 import { resolve } from "node:path";
@@ -64,6 +65,7 @@ export function toBlogMeta(post: BlogPost): BlogMeta {
 }
 
 export function buildBlogCatalogArtifacts(root = process.cwd()): BlogCatalogArtifacts {
+  materializeEditorialCovers(root);
   const errors: string[] = [];
   const raw = readAllBlogPosts(root) as unknown[];
   const posts: BlogPost[] = [];
@@ -127,6 +129,7 @@ export function serializeArtifacts(a: BlogCatalogArtifacts): Record<string, stri
     [BLOG_CATALOG_PATH]: `${JSON.stringify(a.catalog, null, 1)}\n`,
     [COVER_MAP_PATH]: `${JSON.stringify(a.coverMap, null, 2)}\n`,
     [CONTENT_STATS_PATH]: `${JSON.stringify(a.contentStats, null, 2)}\n`,
+    ["src/data/blogTitles.generated.json"]: `${JSON.stringify(Object.fromEntries(a.catalog.map((row) => [row.slug, row.title])), null, 1)}\n`,
     [MOST_READ_PATH]: `${JSON.stringify(a.mostRead, null, 2)}\n`,
     [REVIEW_INDEX_PATH]: `${JSON.stringify(a.reviewIndex, null, 1)}\n`,
   };

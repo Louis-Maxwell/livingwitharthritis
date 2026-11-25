@@ -11,9 +11,9 @@ import {
 describe("medicalDisclaimer helpers", () => {
   it("exposes short and tool copy that deny diagnosis", () => {
     expect(MEDICAL_DISCLAIMER_SHORT.toLowerCase()).toContain("not a diagnosis");
-    expect(MEDICAL_DISCLAIMER_TOOL.toLowerCase()).toContain("does not diagnose");
+    expect(MEDICAL_DISCLAIMER_TOOL).toBe(MEDICAL_DISCLAIMER_SHORT);
     expect(MEDICAL_DISCLAIMER_SHORT).toMatch(/999/);
-    expect(MEDICAL_DISCLAIMER_TOOL).toMatch(/NHS 111/);
+    expect(MEDICAL_DISCLAIMER_TOOL.toLowerCase()).toContain("not a diagnosis");
   });
 
   it("flags YMYL clinical paths and skips marketing home", () => {

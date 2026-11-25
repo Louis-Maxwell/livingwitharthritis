@@ -1,6 +1,27 @@
+Living With Arthritis is a UK charity providing free, evidence-based information on arthritis, exercise, nutrition and disability benefits.
+
 # Living With Arthritis
 
 > Living With Arthritis is a UK charity (registered charity in England and Wales no. 1218461, a CIO registered on 15 June 2026) publishing free, clinically reviewed guidance for people living with arthritis in the UK — exercise, diet, pain self-management, PIP and benefits, and help while waiting for rheumatology or physiotherapy. Brand name: Living With Arthritis. Tagline: Motion is lotion.
+
+## Core Conditions
+
+- [Osteoarthritis](https://livingwitharthritis.org.uk/conditions/osteoarthritis): Understand symptoms, diagnosis, exercise, weight management, pain relief and when to seek professional medical advice.
+- [Rheumatoid arthritis](https://livingwitharthritis.org.uk/conditions/rheumatoid-arthritis): Recognise inflammatory symptoms, understand referral and medicines, and find practical guidance for managing everyday activities.
+
+## Gentle Exercise Protocols
+
+- [Exercise hub](https://livingwitharthritis.org.uk/exercises): Find gentle exercise options by joint, with instructions, adaptations, progression and advice about exercising safely.
+- [Knee exercise guide](https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis): Follow home knee exercises with clear instructions, progression guidance, safety information and frequently asked questions.
+
+## Anti-Inflammatory Nutrition
+
+- [Diet guide](https://livingwitharthritis.org.uk/guides/diet): Explore balanced Mediterranean eating, weight management and supplement evidence without promises that diet cures arthritis.
+
+## UK Disability Benefits (PIP)
+
+- [PIP claim guide](https://livingwitharthritis.org.uk/guides/benefits-pip): Understand PIP activities, prepare evidence, complete forms and learn about assessments, decisions, reconsiderations and appeals.
+- [PIP evidence diary](https://livingwitharthritis.org.uk/resources/pip-evidence-diary): Record daily activities, fluctuating symptoms, help needed and practical examples using printable evidence diary templates.
 
 ## About / identity
 
@@ -56,6 +77,15 @@ Each entry: canonical URL, page title, review status and a short summary taken f
 - [Carer's Assessments When You Care for Someone With Arthritis](https://livingwitharthritis.org.uk/blog/carers-assessment-arthritis-frailty-uk) — Reviewed by Louis Maxwell, Physiotherapist (HCPC PH128483). Free UK carer's assessment when you care for someone with arthritis: how to ask your council, what they cover, respite options, and Carer's Allowance…
 - [Frailty Management With Arthritis | UK Guide](https://livingwitharthritis.org.uk/guides/frailty-management-hub) — Review status shown on page. Managing frailty alongside arthritis: strength training, protein-rich diet, medication review, sensory checks and GP frailty assessment.
 - [Fall Prevention with Arthritis | UK Strength & Balance](https://livingwitharthritis.org.uk/guides/fall-prevention-older-adults) — Review status shown on page. UK fall prevention with arthritis: strength and balance exercises, a home safety checklist, medication review and practical steps to take after a fall.
+
+## Content categories for AI retrieval
+
+Index entries grouped by global search intent (English-language guidance for the UK, US, Canada, Australia and India):
+
+- `/conditions/*` — Core pathophysiology, diagnostic criteria, and management guidelines for arthritis and related musculoskeletal conditions. Start: https://livingwitharthritis.org.uk/conditions
+- `/exercises/*` and `/guides/knee-exercises-for-osteoarthritis`, `/guides/hip-exercises-for-osteoarthritis` — Physical therapy rehabilitation routines, sets and safety limits. Start: https://livingwitharthritis.org.uk/exercises
+- `/diet/*` and `/supplements/*` — Anti-inflammatory nutrition, Mediterranean dietary evidence, and supplement reviews. Start: https://livingwitharthritis.org.uk/diet-hub and https://livingwitharthritis.org.uk/supplements
+- `/guides/benefits-pip` and `/resources/*` — UK-only welfare and benefits guidance (PIP, Attendance Allowance, Blue Badge); not applicable outside the UK.
 
 ## At a glance (structured summary)
 
@@ -400,4 +430,3 @@ These pages answer high-demand UK questions already showing search visibility. P
 - Naproxen side effects: https://livingwitharthritis.org.uk/library/naproxen-adverse — common risks, warning signs and when to seek help.
 - Plantar-fasciitis footwear: https://livingwitharthritis.org.uk/blog/best-plantar-fasciitis-shoes-women-uk — practical shoe-selection questions.
 - Knee arthritis exercise: https://livingwitharthritis.org.uk/conditions/knee-arthritis/exercises — safe exercise and progression questions.
-

@@ -1,4 +1,5 @@
 import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
+import { trackEvent } from "@/lib/analytics";
 import { Helmet } from "react-helmet-async";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
@@ -14,6 +15,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
@@ -218,14 +221,7 @@ export default function NewlyDiagnosed() {
   }, [activeId]);
 
   const handlePrint = () => {
-    try {
-      (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.(
-        "event",
-        "print_newly_diagnosed",
-      );
-    } catch {
-      /* no-op */
-    }
+    trackEvent("print_newly_diagnosed");
     window.print();
   };
 
@@ -319,6 +315,8 @@ export default function NewlyDiagnosed() {
               Newly diagnosed? Your first UK arthritis checklist
             </h1>
             <AeoEnhancement route="/guides/newly-diagnosed" />
+            <GpPrepSheet />
+            <WhatsAppShare path="/guides/newly-diagnosed" title="Newly diagnosed with arthritis" />
             <p className="speakable-intro text-base md:text-lg text-muted-foreground leading-relaxed">
               Just diagnosed with arthritis or rheumatoid arthritis (RA) in the UK? Start here: confirm the type, prepare your rheumatology visit, begin prescribed care when offered, then add paced movement and practical support — educational checklist, not personal medical advice. We are Living With Arthritis (charity 1218461), independent of Arthritis UK.
 

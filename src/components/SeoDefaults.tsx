@@ -1,8 +1,10 @@
+import { normaliseRouteSchemaEntries } from "@/lib/routeSchema";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import { cleanJsonLd, cleanBrand } from '@/lib/technicalSeo.mjs';
-import { enforceTitle } from '@/lib/seoMeta';
+import { enforceTitle, enforceDescription } from '@/lib/seoMeta';
+import { ROUTE_TITLE_OVERRIDES } from '@/data/routeTitleOverrides';
 import {
   SUPPORTED_LANGS,
   HREFLANG_CODES,
@@ -75,17 +77,27 @@ function isAppManaged(el: Element): boolean {
 }
 
 function pruneStaticMetaDuplicates() {
-  const safeTitle = enforceTitle(document.title, { includeSiteName: false });
+  const route = window.location.pathname.replace(/\/$/, "") || "/";
+  const editorialTitle = ROUTE_TITLE_OVERRIDES[route];
+  const safeTitle = enforceTitle(editorialTitle || document.title, { includeSiteName: false });
   if (safeTitle !== document.title) document.title = safeTitle;
-  for (const node of document.querySelectorAll('script[type="application/ld+json"]')) {
-    try {
-      const json = JSON.stringify(cleanJsonLd(JSON.parse(node.textContent || '')));
-      if (node.textContent !== json) node.textContent = json;
-    } catch { /* The static validation gate reports malformed JSON. */ }
-  }
+  const scripts = [...document.querySelectorAll('script[type="application/ld+json"]')];
+  const parsed = scripts.map(node => {
+    try { return cleanJsonLd(JSON.parse(node.textContent || '{}')); }
+    catch { return undefined; }
+  });
+  const normalised = normaliseRouteSchemaEntries(parsed, route, scripts.map(isAppManaged));
+  scripts.forEach((node, index) => {
+    if (parsed[index] === undefined) return;
+    const json = JSON.stringify(normalised[index] || {});
+    if (node.textContent !== json) node.textContent = json;
+  });
   for (const node of document.head.querySelectorAll('meta[content]')) {
     const raw = node.getAttribute('content') || '';
-    const safe = cleanBrand(raw);
+    const label = node.getAttribute('name') || node.getAttribute('property');
+    const isTitle = label === 'og:title' || label === 'twitter:title';
+    const isDescription = label === 'description' || label === 'og:description' || label === 'twitter:description';
+    const safe = isTitle && editorialTitle ? editorialTitle : isDescription ? enforceDescription(raw, route) : cleanBrand(raw);
     if (raw !== safe) node.setAttribute('content', safe);
   }
   const languageLinks = Array.from(document.head.querySelectorAll('link[hreflang]'));
@@ -166,8 +178,8 @@ export default function SeoDefaults() {
       {bingVerify && (
         <meta name="msvalidate.01" content={bingVerify} />
       )}
-      <meta name="twitter:site" content="@ArthritisOrg" />
-      <meta name="twitter:creator" content="@ArthritisOrg" />
+      <meta name="twitter:site" content="@ArthritisOrgHQ" />
+      <meta name="twitter:creator" content="@ArthritisOrgHQ" />
       {/* Exactly one self-referencing canonical per page. Emitted here so
           every route gets one, including pages that use raw Helmet rather
           than <SeoHead />. The static index.html canonical is pruned above
@@ -196,4 +208,4 @@ export default function SeoDefaults() {
       <html lang={HREFLANG_CODES[currentLang]} />
     </Helmet>
   );
-}
+    }

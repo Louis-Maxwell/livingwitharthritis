@@ -208,13 +208,13 @@ const RegionHub = () => {
             <div>
               <h2 className="text-xl font-semibold mb-2">Worried about health service waiting times in {r.name}?</h2>
               <p className="text-muted-foreground mb-4">
-                Use our free Arthritis Waiting Time Calculator to estimate your referral wait and discover what to do while you wait.
+                Read our referral information for steps to check your referral and find out who to contact while you wait.
               </p>
               <Link
                 to="/tools/waiting-time"
                 className="inline-flex items-center gap-1.5 text-primary font-medium hover:underline"
               >
-                Open the calculator <ArrowRight className="w-4 h-4" />
+                Read referral information <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>

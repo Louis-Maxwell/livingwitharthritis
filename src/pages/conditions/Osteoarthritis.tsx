@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -39,7 +40,7 @@ const jsonLd = {
   "inLanguage": "en-GB",
   "datePublished": "2025-06-01",
   "dateModified": "2026-11-05",
-  "lastReviewed": "2026-11-05",
+  "lastReviewed": REVIEW_RECORDS.pages["/conditions/osteoarthritis"],
   "author": LOUIS_MAXWELL_REF,
   "reviewedBy": LOUIS_MAXWELL_REF,
   "publisher": {
@@ -78,52 +79,6 @@ const jsonLd = {
   "mainEntityOfPage": URL,
 };
 
-const faqLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is osteoarthritis?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Osteoarthritis is the most common type of arthritis in the UK. It involves changes in the cartilage that cushions the ends of bones, plus other joint tissues, which can cause pain, short-lived stiffness and reduced movement. It is more than simple \"wear and tear\". NICE guideline NG226 covers diagnosis and management for people aged 16 and over.",
-      },
-    },
-    {
-      "@type": "Question",
-      "name": "What is the best treatment for osteoarthritis?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "NICE recommends therapeutic exercise for everyone with osteoarthritis, weight management where it is relevant, and information and support. Pain medicines support those core treatments rather than replace them: for knee osteoarthritis an anti-inflammatory gel is usually tried first; tablets, if used, should be the lowest dose for the shortest time. Imaging is not needed first for most people.",
-      },
-    },
-    {
-      "@type": "Question",
-      "name": "Can osteoarthritis be cured?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "There is no cure that reverses osteoarthritis, but many people manage symptoms well with exercise, pacing, weight advice where relevant, joint protection, and the right pain relief. Severe symptoms that have not improved with core treatments may lead to a discussion about joint surgery.",
-      },
-    },
-    {
-      "@type": "Question",
-      "name": "What is the best exercise for osteoarthritis?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "NICE recommends therapeutic exercise that includes muscle strengthening and general fitness. Walking, swimming, cycling, seated strength work and tai chi are common starting points. Start small, build up gradually, and expect some aching at first.",
-      },
-    },
-    {
-      "@type": "Question",
-      "name": "When should I see a GP about osteoarthritis?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "See your GP if joint pain is not improving after a few weeks of self-care, wakes you most nights, comes with swelling or morning stiffness lasting longer than 30 minutes, or stops you doing everyday things. Get same-day help from NHS 111 or your GP if a joint is suddenly hot, red and swollen, especially with a fever, and call 999 in an emergency.",
-      },
-    },
-  ],
-};
 
 const Section = ({
   icon: Icon,
@@ -188,7 +143,6 @@ const Osteoarthritis = () => (
       <meta name="geo.region" content="GB" />
       <link rel="alternate" hrefLang="en-GB" href={URL} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
@@ -375,6 +329,13 @@ const Osteoarthritis = () => (
             </Link>
             , and see your GP. Painkillers alone are not enough for inflammatory arthritis.
           </p>
+          <p>
+            In depth:{" "}
+            <Link to="/conditions/osteoarthritis/symptoms" className="text-primary underline">
+              osteoarthritis symptoms and what to look for
+            </Link>
+            .
+          </p>
         </Section>
 
         <Section icon={Stethoscope} title="3. Diagnosis: GP first, imaging not always first">
@@ -447,6 +408,17 @@ const Osteoarthritis = () => (
           </ul>
           <p>
             Some aching when you start is normal and should settle; pain that lasts into the next day means do a bit less next time.
+          </p>
+          <p>
+            In depth:{" "}
+            <Link to="/conditions/osteoarthritis/exercises" className="text-primary underline">
+              best exercises for osteoarthritis
+            </Link>{" "}
+            and{" "}
+            <Link to="/conditions/osteoarthritis/treatment" className="text-primary underline">
+              osteoarthritis treatment options
+            </Link>
+            .
           </p>
         </Section>
 
@@ -553,6 +525,13 @@ const Osteoarthritis = () => (
               diet hub
             </Link>
             . Supplements such as glucosamine are not recommended by NICE for osteoarthritis; check any supplement with a pharmacist.
+          </p>
+          <p>
+            In depth:{" "}
+            <Link to="/conditions/osteoarthritis/diet" className="text-primary underline">
+              diet for osteoarthritis
+            </Link>
+            .
           </p>
         </Section>
 
@@ -731,7 +710,7 @@ const Osteoarthritis = () => (
       </nav>
       <ArticleCitations citations={CITATIONS_OA} />
       <UrgentHelpAndSources path="/conditions/osteoarthritis" />
-      <EducationalDisclaimerBox lastReviewed="2026-11-05" />
+      <EducationalDisclaimerBox lastReviewed={REVIEW_RECORDS.pages["/conditions/osteoarthritis"]} />
       <TopicClusterNav path="/conditions/osteoarthritis" />
       <Footer />
     </div>

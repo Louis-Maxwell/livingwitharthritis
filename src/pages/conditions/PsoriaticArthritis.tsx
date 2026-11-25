@@ -347,9 +347,9 @@ const PsoriaticArthritis = () => (
               },
               {
                 to: "/tools/waiting-time",
-                eyebrow: "Free tool",
-                title: "rheumatology waiting time",
-                description: "PsA needs early specialist input — estimate your local 2026 wait now.",
+                eyebrow: "Referral information",
+                title: "Rheumatology referral information",
+                description: "Check your referral and find out who to contact while you wait.",
                 readTime: "2 min",
                 icon: Timer,
                 tint: "bg-tint-sky",

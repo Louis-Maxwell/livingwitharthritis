@@ -1,4 +1,6 @@
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { Suspense, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -78,6 +80,7 @@ const FAQ = () => {
         <script type="application/ld+json">{JSON.stringify(itemListLd)}</script>
       </Helmet>
       <Header />
+      <PageBreadcrumb segments={[{ label: "Arthritis FAQs" }]} />
       <main id="main-content" role="main" tabIndex={-1}>
         <PageHero
           badge="FAQ"
@@ -142,7 +145,7 @@ const FAQ = () => {
               ]}
             />
             <div className="mb-10">
-              <EducationalDisclaimerBox lastReviewed="2026-09-21" />
+              <EducationalDisclaimerBox lastReviewed={REVIEW_RECORDS.pages["/faq"]} />
               <TopicClusterNav path="/faq" />
               <ArticleCitations citations={CITATIONS_FAQ_HUB} />
             </div>

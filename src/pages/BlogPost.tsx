@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
 import blogNoindex from "@/data/blog-noindex.json";
+import { BLOG_VIDEOS } from "@/data/blogVideos";
+import { readableParagraphs } from "@/lib/readableParagraphs.mjs";
 
 const BLOG_NOINDEX = new Set<string>(blogNoindex as string[]);
 import { Helmet } from "react-helmet-async";
@@ -28,10 +30,9 @@ import { useBlogViews } from "@/hooks/useBlogViews";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import ArticleBookmarkButton from "@/components/blog/ArticleBookmarkButton";
-import ClusterRelatedLinks from "@/components/blog/ClusterRelatedLinks";
 import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
 import RecommendedNextStep from "@/components/RecommendedNextStep";
-import { splitHtmlAtMiddleH2 } from "@/lib/splitHtmlAtMiddleH2";
+import { splitHtmlAfterFirstSection, splitHtmlAtMiddleH2 } from "@/lib/splitHtmlAtMiddleH2";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import ViewportSection from "@/components/ViewportSection";
@@ -44,6 +45,7 @@ import {
 } from "@/lib/articleHtmlCodeBlocks.mjs";
 import type { Citation } from "@/components/blog/ArticleCitations";
 import AnswerBox from "@/components/seo/AnswerBox";
+import { PIP_ANSWER_HEADING } from "@/data/reviewedPublicCopy";
 import KeyTakeaways from "@/components/article/KeyTakeaways";
 import ArticleVoiceover from "@/components/article/ArticleVoiceover";
 import { renderCallouts } from "@/components/article/Callouts";
@@ -58,11 +60,13 @@ import { getClusterForPath } from "@/data/topicClusters";
 import { getBlogReviewMeta } from "@/lib/blog/reviewIndex";
 import { blogReviewSchemaFields } from "@/lib/blog/review";
 import { canonicalBlogCategoryKey, BLOG_CATEGORY_LABELS } from "@/data/blogCategories";
-import TopicPrevNext from "@/components/blog/TopicPrevNext";
 import { distinctSeoTitle } from '@/lib/technicalSeo.mjs';
 
 // Below-the-fold article furniture loads as the reader scrolls towards it
 // (ViewportSection), so the first paint only pays for the article itself.
+const ArticleVideo = lazyWithRetry(() => import("@/components/blog/ArticleVideo"));
+const ClusterRelatedLinks = lazyWithRetry(() => import("@/components/blog/ClusterRelatedLinks"));
+const TopicPrevNext = lazyWithRetry(() => import("@/components/blog/TopicPrevNext"));
 const KeywordRelatedLinks = lazyWithRetry(() => import("@/components/seo/KeywordRelatedLinks"));
 const TopicClusterNav = lazyWithRetry(() => import("@/components/seo/TopicClusterNav"));
 const BlogComments = lazyWithRetry(() => import("@/components/BlogComments"));
@@ -188,7 +192,7 @@ function extractFaqs(html: string): { question: string; answer: string }[] {
     const qRaw = htmlToPlainText(m[1]);
     if (!qRaw.endsWith("?")) continue;
     if (/^<h[23][^>]*\bq-heading\b/i.test(m[0])) continue;
-    const aRaw = htmlToPlainText(m[2]).slice(0, 500);
+    const aRaw = htmlToPlainText(m[2]);
     if (qRaw && aRaw && aRaw.length > 30) {
       faqs.push({ question: qRaw, answer: aRaw });
     }
@@ -250,11 +254,9 @@ const BlogPost = () => {
   const faqs = extractFaqs(htmlContent);
   const bodyForRender = renderCallouts(stripQuestionHeadings(htmlContent));
   const htmlWithIds = addHeadingIds(bodyForRender);
-  // Split after the first </h2> so we can inject an inline related-strip mid-article.
-  const firstH2End = htmlWithIds.search(/<\/h2>/i);
-  const splitAt = firstH2End >= 0 ? firstH2End + "</h2>".length : -1;
-  const htmlBeforeStrip = splitAt > 0 ? htmlWithIds.slice(0, splitAt) : htmlWithIds;
-  const htmlAfterStrip = splitAt > 0 ? htmlWithIds.slice(splitAt) : "";
+  // Do not separate a heading from its explanation or cut an authored wrapper.
+  const { first: htmlBeforeStrip, second: htmlAfterStrip } = splitHtmlAfterFirstSection(htmlWithIds);
+  const splitAt = htmlBeforeStrip.length;
   // Second split at the section boundary (<h2>) closest to the halfway point,
   // for the prerendered "Recommended next step" module.
   const { first: htmlAfterA, second: htmlAfterB } = splitHtmlAtMiddleH2(htmlAfterStrip, htmlWithIds.length / 2 - splitAt);
@@ -299,7 +301,8 @@ const BlogPost = () => {
   const reviewerName = isPlaceholderReviewer ? MAXWELL_NAME : rawReviewerName;
   const reviewerCreds = isPlaceholderReviewer ? MAXWELL_CREDS : rawReviewerCreds;
   // Every published guide has been clinically reviewed by Louis Maxwell (Oct 2026).
-  const hasVerifiedReviewer = isVerifiedMaxwellReviewer(reviewerName, reviewerCreds);
+  const editorialReviewNote = article.editorial_review_note;
+  const hasVerifiedReviewer = isVerifiedMaxwellReviewer(reviewerName, reviewerCreds) && !editorialReviewNote;
   const selfReview = isDisclosedSelfReview(authorName, reviewerName);
   const citations = Array.isArray(article.citations)
     ? article.citations.filter(
@@ -309,7 +312,7 @@ const BlogPost = () => {
     : [];
   const dateModifiedIso = updatedAtRaw || article.date;
   // Only an explicitly recorded date establishes when clinical review occurred.
-  const blogLastReviewed =
+  const blogLastReviewed = editorialReviewNote ? undefined :
     (article as { last_reviewed?: string }).last_reviewed || getBlogReviewMeta(slug)?.last_reviewed;
   const topicKey = canonicalBlogCategoryKey(article.category || "");
 
@@ -533,15 +536,15 @@ const BlogPost = () => {
                 {hasVerifiedReviewer && (
                   <>
                     <div className="hidden sm:block w-px h-8 bg-border/40" />
-                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 w-fit">
+                    <div className="flex flex-col items-start gap-2 px-4 py-3 rounded-2xl bg-primary/5 border border-primary/10 w-fit max-w-full">
                       <BookOpen className="w-3.5 h-3.5 text-primary" />
                       <Link to="/authors/maxwell" className="text-xs font-medium text-primary underline-offset-2 hover:underline">
                         {selfReview
-                          ? `Written and reviewed by ${reviewerName} (HCPC PH128483, Band 8 Advanced Practice Physiotherapist). ${SELF_REVIEW_DISCLOSURE}`
-                          : `Clinically reviewed by ${reviewerName} (HCPC PH128483, Band 8 Advanced Practice Physiotherapist)`}
+                          ? `Written and reviewed by ${reviewerName} (HCPC PH128483, Band 7 First Contact Practitioner). ${SELF_REVIEW_DISCLOSURE}`
+                          : `Clinically reviewed by ${reviewerName} (HCPC PH128483, Band 7 First Contact Practitioner)`}
                       </Link>
                       {(blogLastReviewed || dateModifiedIso) && (
-                        <span className="text-xs text-muted-foreground">· Last reviewed {String(blogLastReviewed || dateModifiedIso).slice(0, 10)} · Next review {nextReviewDate(String(blogLastReviewed || dateModifiedIso))}</span>
+                        <span className="text-xs text-muted-foreground">Last reviewed {String(blogLastReviewed || dateModifiedIso).slice(0, 10)} · Next review {nextReviewDate(String(blogLastReviewed || dateModifiedIso))}</span>
                       )}
                     </div>
                   </>
@@ -590,13 +593,13 @@ const BlogPost = () => {
           <div className="min-w-0 max-w-[760px]">
           {directAnswer && (
             <AnswerBox
-              question={article.title.replace(/[?.!]+$/, "").trim() + "?"}
+              question={slug === "pip-for-arthritis-uk" ? PIP_ANSWER_HEADING : article.title.replace(/[?.!]+$/, "").trim() + "?"}
             >
-              {directAnswer}
+              {readableParagraphs(directAnswer).map((paragraph, index) => <p key={index} className="mb-4 last:mb-0">{paragraph}</p>)}
             </AnswerBox>
           )}
           {keyTakeaways.length >= 3 && (
-            <KeyTakeaways html="" title={article.title} items={keyTakeaways} heading="Key clinical takeaways" />
+            <KeyTakeaways html="" title={article.title} items={keyTakeaways} heading={editorialReviewNote ? "Key takeaways" : "Key clinical takeaways"} />
           )}
 
           {/* Print header: only visible when saving to PDF / printing */}
@@ -615,7 +618,7 @@ const BlogPost = () => {
           </div>
 
           <div className="no-print mb-6 flex flex-wrap justify-end gap-2">
-            <BlogPdfDownload title={article.title} html={htmlContent} slug={slug ?? "article"} />
+            <BlogPdfDownload title={article.title} html={htmlContent} slug={slug ?? "article"} dateLine={`${editorialReviewNote || `Last reviewed: ${blogLastReviewed || dateModifiedIso || article.date}`} · Downloaded: ${new Date().toLocaleDateString("en-GB")}`} />
             <Button
               variant="outline"
               size="sm"
@@ -627,6 +630,7 @@ const BlogPost = () => {
             </Button>
           </div>
 
+          {editorialReviewNote && <aside className="my-6 rounded-xl border border-amber-500/30 p-5 text-sm" aria-label="Editorial revision and clinical review">{editorialReviewNote}</aside>}
           {hasVerifiedReviewer && (
             <MedicalReviewBadge
               reviewer={reviewerName}
@@ -717,11 +721,17 @@ const BlogPost = () => {
             )}
           </section>
 
+          {slug && BLOG_VIDEOS[slug] && (
+            <ViewportSection fallback={<div data-testid="article-video-placeholder" className="min-h-[760px]" />} rootMargin="200px 0px">
+              <ArticleVideo key={slug} video={BLOG_VIDEOS[slug]} />
+            </ViewportSection>
+          )}
           <ArticleFaqSection faqs={faqs} />
           {slug && (
             <RecommendedNextStep path={`/blog/${slug}`} context={`${article.title} ${article.keywords ?? ""}`} placement="end" />
           )}
             {slug && (
+              <ViewportSection>
               <ClusterRelatedLinks
                 slug={slug}
                 title={article.title}
@@ -729,6 +739,7 @@ const BlogPost = () => {
                 category={article.category}
                 keywords={article.keywords}
               />
+              </ViewportSection>
             )}
 
 
@@ -781,7 +792,7 @@ const BlogPost = () => {
               html={htmlContent}
               slug={slug ?? "article"}
               label="Download this guide (PDF)"
-              dateLine={`Last reviewed: ${blogLastReviewed || dateModifiedIso || article.date} · Downloaded: ${new Date().toLocaleDateString("en-GB")}`}
+              dateLine={`${editorialReviewNote || `Last reviewed: ${blogLastReviewed || dateModifiedIso || article.date}`} · Downloaded: ${new Date().toLocaleDateString("en-GB")}`}
             />
           </section>
 
@@ -847,7 +858,8 @@ const BlogPost = () => {
             <UrgentHelpAndSources path={`/blog/${slug}`} />
             <EducationalDisclaimerBox
               lastReviewed={blogLastReviewed}
-              reviewStatus="reviewed"
+              reviewStatus={editorialReviewNote ? "pending" : "reviewed"}
+              pendingText={editorialReviewNote}
             />
             {getClusterForPath(`/blog/${slug}`) && (
               <ViewportSection>

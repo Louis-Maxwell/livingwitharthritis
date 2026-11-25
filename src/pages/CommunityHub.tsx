@@ -110,8 +110,8 @@ const CommunityHub = () => {
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <p className="section-label text-primary mb-6">Information at a glance</p>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              <StatCounter value="10M+" label="People with arthritis in the UK" icon={<Users className="w-6 h-6" />} color="primary" />
-              <StatCounter value="24/7" label="help chat availability" icon={<MessageCircle className="w-6 h-6" />} color="sky" />
+              <StatCounter value={formatInventoryCount(CONTENT_INVENTORY.blogArticles)} label="Free articles to read" icon={<Users className="w-6 h-6" />} color="primary" />
+              <StatCounter value="Free" label="No sign-up needed to read" icon={<MessageCircle className="w-6 h-6" />} color="sky" />
               <StatCounter value={formatInventoryCount(CONTENT_INVENTORY.pillarGuides)} label="Free written guides" icon={<BookOpen className="w-6 h-6" />} color="emerald" />
               <StatCounter value={formatInventoryCount(CONTENT_INVENTORY.downloadablePdfs)} label="Starter PDF you can download" icon={<Download className="w-6 h-6" />} color="amber" />
             </div>

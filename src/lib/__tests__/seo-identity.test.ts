@@ -55,7 +55,7 @@ describe("public SEO / AEO identity", () => {
     expect(CONTACT_EMAILS.info).toBe("info@livingwitharthritis.org.uk");
     expect(CONTACT_PHONE).toBe("07760 512 084");
     expect(CONTACT_PHONE_E164).toBe("+447760512084");
-    expect(FACEBOOK_PAGE_ID).toBe("61583723925315");
+    expect(FACEBOOK_PAGE_ID).toBe("862105853655104");
     expect(ORGANIZATION_PAYLOAD.founder.name).toBe("David Williams");
     expect(ORGANIZATION_PAYLOAD.contactPoint[0].telephone.replace(/\D/g, "")).toBe(
       "447760512084",
@@ -158,15 +158,13 @@ describe("public SEO / AEO identity", () => {
   });
 
   it("does not invent social sameAs URLs", () => {
-    expect(cityPage.toLowerCase().includes("twitter.com/livingwarthritis")).toBe(false);
-    expect(indexHtml.toLowerCase().includes("facebook.com/livingwitharthritis")).toBe(
-      false,
-    );
+    expect(cityPage).not.toMatch(/https?:\/\/(?:www\.)?twitter\.com\/livingwarthritis["']/i);
+    expect(indexHtml).not.toMatch(/https?:\/\/(?:www\.)?facebook\.com\/livingwitharthritis["']/i);
     const sameAsHosts = ORGANIZATION_PAYLOAD.sameAs.map((url) => {
       const host = new URL(url).hostname;
       return host.startsWith("www.") ? host.slice(4) : host;
     });
-    expect(sameAsHosts.includes("twitter.com")).toBe(false);
+    expect(sameAsHosts.every((host) => host !== "twitter.com")).toBe(true);
     expect(ORGANIZATION_PAYLOAD.sameAs).not.toContain("https://twitter.com/[your-handle]");
   });
 

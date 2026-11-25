@@ -74,7 +74,7 @@ const HUBS = [
       "/guides/newly-diagnosed",
       "/guides/benefits-pip",
       "/diet/mediterranean-diet-for-arthritis",
-      "/blog/turmeric-for-arthritis",
+      // Safety revision does not promote the older supplement trial-advice blog.
     ],
   },
 ] as const;
@@ -98,7 +98,8 @@ describe("evening visibility pass — unique heads", () => {
       // /benefits-pip gained its financial help directory in Benefits batch 3 (2026-10-10).
       // /benefits-pip merged into /guides/benefits-pip on 2026-10-31 (guide reviewed 2026-10-23).
       // /guides/benefits-pip claim steps + HowTo rechecked against GOV.UK on 2026-11-11.
-      expect(["2026-09-20", "2026-09-29", "2026-10-10", "2026-10-23", "2026-11-04", "2026-11-11"]).toContain(head!.updatedAt);
+      // Louis's round-4 title/meta/capsule copy applied 2026-11-15.
+      expect(["2026-09-20", "2026-09-29", "2026-10-10", "2026-10-23", "2026-11-04", "2026-11-11", "2026-11-15"]).toContain(head!.updatedAt);
     });
   }
 
@@ -112,7 +113,8 @@ describe("evening visibility pass — unique heads", () => {
 describe("evening visibility pass — internal links + TopicClusterNav", () => {
   for (const hub of HUBS) {
     it(`${hub.path} links customer jobs and keeps cluster nav where patterned`, () => {
-      const src = readFileSync(resolve(root, hub.file), "utf8");
+      let src = readFileSync(resolve(root, hub.file), "utf8");
+      if (src.includes("SupplementSafetyGuide")) src += readFileSync(resolve(root, "src/components/seo/SupplementSafetyGuide.tsx"), "utf8");
       for (const href of hub.mustLink) {
         const hit =
           src.includes(`to="${href}"`) ||
@@ -141,7 +143,7 @@ describe("evening visibility pass — crawl + AI discovery", () => {
         window.includes("<lastmod>2026-09-20</lastmod>") ||
         window.includes("<lastmod>2026-09-28</lastmod>") ||
         window.includes("<lastmod>2026-09-29</lastmod>") ||
-        window.includes("<lastmod>2026-10-10</lastmod>") ||        window.includes("<lastmod>2026-10-23</lastmod>") || window.includes("<lastmod>2026-11-04</lastmod>") || window.includes("<lastmod>2026-11-05</lastmod>") || window.includes("<lastmod>2026-11-11</lastmod>");
+        window.includes("<lastmod>2026-10-10</lastmod>") ||        window.includes("<lastmod>2026-10-23</lastmod>") || window.includes("<lastmod>2026-11-04</lastmod>") || window.includes("<lastmod>2026-11-05</lastmod>") || window.includes("<lastmod>2026-11-11</lastmod>") || window.includes("<lastmod>2026-11-15</lastmod>");
       expect(hasLastmod).toBe(true);
     });
   }
@@ -182,7 +184,8 @@ describe("evening visibility pass — soft-404 guard", () => {
     const notFound = readFileSync(resolve(root, "src/pages/NotFound.tsx"), "utf8");
     expect(notFound).toMatch(/noindex/);
     for (const hub of HUBS) {
-      const src = readFileSync(resolve(root, hub.file), "utf8");
+      let src = readFileSync(resolve(root, hub.file), "utf8");
+      if (src.includes("SupplementSafetyGuide")) src += readFileSync(resolve(root, "src/components/seo/SupplementSafetyGuide.tsx"), "utf8");
       expect(src).not.toMatch(/noindex/);
     }
   });

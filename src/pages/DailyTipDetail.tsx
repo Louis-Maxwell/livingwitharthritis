@@ -80,16 +80,17 @@ const DailyTipDetail = () => {
     );
   }
 
-  const title = slug === 'health-tips' ? 'Everyday arthritis tips for joint health' : isOverview ? dailyLivingIntro.title : tip?.title || '';
+  const isTipsIndex = slug === "overview";
+  const title = isTipsIndex ? "Daily Living Tips" : slug === 'health-tips' ? 'Everyday arthritis tips for joint health' : isOverview ? dailyLivingIntro.title : tip?.title || '';
   const metaTitle = isOverview ? title : (tip?.metaTitle || tip?.title || '');
-  const description = slug === 'health-tips'
+  const description = isTipsIndex
+    ? "Browse the published daily-living tips from Living With Arthritis."
+    : slug === 'health-tips'
     ? 'Short, practical everyday tips for living with arthritis in the UK — movement, food, pacing and sleep.'
     : isOverview ? dailyLivingIntro.subtitle : tip?.desc || '';
-  const tipCanonical = slug === 'health-tips'
-    ? 'https://livingwitharthritis.org.uk/daily-tips/daily-living'
-    : `https://livingwitharthritis.org.uk/daily-tips/${slug || 'overview'}`;
-  const content = isOverview
-    ? slug === 'health-tips' ? dailyLivingIntro.tipsOverview : slug === 'daily-living' ? dailyLivingIntro.content : `${dailyLivingIntro.content}\n\n---\n\n## Tips for Every Day\n\n${dailyLivingIntro.tipsOverview}`
+  const tipCanonical = `https://livingwitharthritis.org.uk/daily-tips/${slug || 'overview'}`;
+  const content = isTipsIndex ? "Browse the published daily-living tips from Living With Arthritis." : isOverview
+    ? slug === 'health-tips' ? dailyLivingIntro.tipsOverview : slug === 'daily-living' ? dailyLivingIntro.content : dailyLivingIntro.tipsOverview
     : tip?.detail || '';
   const image = isOverview ? dailyLivingIntro.image : tip?.image || '';
   const IconComponent = !isOverview && tip ? iconMap[tip.icon] : null;
@@ -103,7 +104,7 @@ const DailyTipDetail = () => {
   return (
     <div className="min-h-dvh flex flex-col bg-background">
       <Helmet>
-        <title>{enforceTitle(`${metaTitle} — Daily Living Tips`, { includeSiteName: true })}</title>
+        <title>{enforceTitle(isTipsIndex ? metaTitle : `${metaTitle} — Daily Living Tips`, { includeSiteName: true })}</title>
         <link rel="canonical" href={tipCanonical} />
         <meta name="description" content={description} />
         <meta property="og:title" content={`${metaTitle} — Daily Living Tips`} />
@@ -147,7 +148,7 @@ const DailyTipDetail = () => {
                   </div>
                 )}
                 <div>
-                  <span className="text-xs uppercase tracking-widest text-primary font-semibold mb-1 block">Daily Living</span>
+                  <span className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-1 block">Daily Living</span>
                   <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground leading-tight">
                     {title}
                   </h1>
@@ -179,7 +180,7 @@ const DailyTipDetail = () => {
               </div>
 
               {/* Key Takeaways */}
-              {keyTakeaways.length > 0 && (
+              {!isTipsIndex && keyTakeaways.length > 0 && (
                 <div className="mb-12 p-6 md:p-8 rounded-2xl bg-primary/5 border border-primary/15">
                   <h3 className="text-sm font-bold uppercase tracking-wider text-primary mb-4 flex items-center gap-2">
                     <Heart className="w-4 h-4" /> Key Takeaways
@@ -196,7 +197,7 @@ const DailyTipDetail = () => {
               )}
 
               {/* Overview extra image */}
-              {isOverview && (
+              {isOverview && !isTipsIndex && (
                 <div className="mb-10 rounded-2xl overflow-hidden border border-border/20">
                   <img
                     src={dailyLivingIntro.overviewImage}
@@ -206,15 +207,16 @@ const DailyTipDetail = () => {
                 </div>
               )}
 
-              <ContentRenderer content={content} />
+              {!isTipsIndex && <ContentRenderer content={content} />}
+              {isTipsIndex && <section aria-label="Daily Living Tips" className="grid gap-4 mt-8 sm:grid-cols-2">{dailyTips.map(item => <Link key={item.slug} to={`/daily-tips/${item.slug}`} className="rounded-xl border border-border p-5 hover:bg-accent/30"><h2 className="text-xl font-semibold">{item.title}</h2><p className="mt-2 text-muted-foreground">{item.desc}</p></Link>)}</section>}
 
               {/* CTA section */}
               <div className="mt-16 p-8 md:p-10 rounded-3xl bg-gradient-to-br from-primary/10 via-accent/40 to-primary/5 border border-primary/15 text-center">
                 <h3 className="text-lg md:text-xl font-display font-bold text-foreground mb-3">
-                  Need personalised guidance?
+                  Looking for more information?
                 </h3>
                 <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
-                  Our help chat can help you create a tailored daily routine based on your specific needs and condition.
+                  Our automated chat can help you find educational guides and prepare questions for your clinician. It does not provide a personal treatment plan.
                 </p>
                 <Link to="/chat">
                   <Button className="rounded-full px-8">

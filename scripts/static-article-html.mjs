@@ -3,6 +3,8 @@
 // shell or a homepage-duplicate fallback. Used by inject-canonicals.mjs.
 
 import { marked } from "marked";
+import { readableParagraphs } from "../src/lib/readableParagraphs.mjs";
+import { resolveInternalHref } from "./lib/internal-href.mjs";
 import { keywordRelatedLinks } from "./keyword-related-links.mjs";
 import { conditionTopicLinks } from "./condition-topic-links.mjs";
 import { recommendedNextStepsHtml } from "../src/lib/recommendedNextSteps.mjs";
@@ -17,6 +19,14 @@ import {
 const { window } = new JSDOM("");
 const DOMPurify = createDOMPurify(window);
 
+// Match the hydrated article's explicit header associations in the first HTML.
+// Keep authored scopes, including rowgroup/colgroup, unchanged.
+DOMPurify.addHook("afterSanitizeAttributes", (node) => {
+  if (node.tagName === "TH" && !node.hasAttribute("scope")) {
+    node.setAttribute("scope", node.closest("thead") ? "col" : "row");
+  }
+});
+
 const PURIFY_CONFIG = {
   ALLOWED_TAGS: [
     "p", "br", "strong", "em", "u", "h1", "h2", "h3", "h4", "h5", "h6",
@@ -28,6 +38,9 @@ const PURIFY_CONFIG = {
     "href", "target", "rel", "src", "alt", "title", "class", "id",
     "colspan", "rowspan", "width", "height", "loading", "decoding", "scope",
   ],
+  // Table semantics are plain tokens/numbers, not URLs. Keep the strict URL
+  // policy for actual links and images without stripping authored table metadata.
+  ADD_URI_SAFE_ATTR: ["scope", "colspan", "rowspan"],
   // Explicit schemes only — closes incomplete-url-scheme-check (no data:/vbscript:).
   ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto|tel):|\/|#)/i,
   FORBID_TAGS: ["script", "style", "iframe", "object", "embed", "form", "link", "meta", "base"],
@@ -80,7 +93,9 @@ export function escText(value) {
   return String(value)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 /** Mirror of PENDING_REVIEW_TEXT (src/lib/blog/review.ts); a test keeps them equal. */
@@ -116,18 +131,52 @@ export function composeArticleBody(data) {
   return fromArticle + extra;
 }
 
+// Stable passage boundaries for both authored and captured crawler HTML.
+// Preserve existing section structure and never change the heading/copy itself.
+export function labelArticleSections(html) {
+  const root = window.document.createElement("div");
+  root.innerHTML = html;
+  const used = new Set([...root.querySelectorAll("[id]")].map((el) => el.id));
+  for (const h of root.querySelectorAll("h2")) {
+    if (!h.id) {
+      const base = `passage-${h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "section"}`;
+      let id = base;
+      let n = 2;
+      while (used.has(id)) id = `${base}-${n++}`;
+      h.id = id;
+      used.add(id);
+    }
+    const parent = h.parentElement;
+    if (parent.tagName === "SECTION" && parent.querySelector("h2") === h) {
+      parent.setAttribute("aria-labelledby", h.id);
+      continue;
+    }
+    const section = window.document.createElement("section");
+    section.setAttribute("aria-labelledby", h.id);
+    parent.insertBefore(section, h);
+    let node = h;
+    while (node && !(node !== h && node.nodeType === 1 && node.tagName === "H2")) {
+      const next = node.nextSibling;
+      section.appendChild(node);
+      node = next;
+    }
+  }
+  return root.innerHTML;
+}
+
 export function buildStaticArticleInner(data) {
   const heading = data?.article?.title || data?.question || data?.title || "";
   // The template owns H1. Keep all existing heading words as subordinate H2s.
-  const bodyHtml = composeArticleBody(data);
+  const bodyHtml = labelArticleSections(composeArticleBody(data));
   const answer = data?.answer && !bodyHtml.includes(data.answer)
-    ? `<p class="answer-box"><strong>${escText(data.answer)}</strong></p>`
+    ? `<aside role="region" aria-label="Quick Answer" class="direct-answer-capsule answer-box"><blockquote data-callout="note"><p><strong>Note</strong></p>${readableParagraphs(data.answer).map(paragraph => `<p><strong>${escText(paragraph)}</strong></p>`).join("")}</blockquote></aside>`
     : "";
   const takeawaySource = Array.isArray(data?.article?.key_takeaways) ? data.article.key_takeaways
     : Array.isArray(data?.keyTakeaways) ? data.keyTakeaways : [];
   const takeawayItems = takeawaySource.filter((t) => typeof t === "string" && t.trim());
+  const takeawayHeading = data?.article?.editorial_review_note ? 'Key takeaways' : 'Key clinical takeaways';
   const takeaways = takeawayItems.length >= 3
-    ? `<section class="key-takeaways" aria-label="Key clinical takeaways"><h2>Key clinical takeaways</h2><ul>${takeawayItems.map((t) => `<li>${escText(t)}</li>`).join("")}</ul></section>`
+    ? `<section class="key-takeaways" aria-label="${takeawayHeading}"><h2>${takeawayHeading}</h2><ul>${takeawayItems.map((t) => `<li>${escText(t)}</li>`).join("")}</ul></section>`
     : "";
   const nextStep = data?.article?.slug
     ? recommendedNextStepsHtml(`/blog/${data.article.slug}`, `${data.article.title || ""} ${data.article.keywords || ""}`)
@@ -146,10 +195,15 @@ export function buildStaticArticleInner(data) {
   const creds = article?.reviewer_credentials || article?.author_credentials;
   const author = !selfReview && article?.author && !/placeholder/i.test(article.author)
     ? `<p class="article-byline">Written by ${escText(article.author)}${article.author_credentials ? ` — ${escText(article.author_credentials)}` : ""}.</p>` : "";
-  const reviewer = selfReview
+  const reviewer = article?.editorial_review_note
+    ? `<p class="article-byline editorial-review-note">${escText(article.editorial_review_note)}</p>`
+    : selfReview
     ? `<p class="article-byline">Written and reviewed by ${escText(article.reviewed_by)}${creds ? ` — ${escText(creds)}` : ""}. This is a disclosed self-review by the author, not an independent clinical review.</p>`
     : article?.reviewed_by && !/placeholder/i.test(article.reviewed_by)
     ? `<p>Reviewed by ${escText(article.reviewed_by)}${article.reviewer_credentials ? ` — ${escText(article.reviewer_credentials)}` : ""}.</p>`
+    : !article && data?.reviewLine === "body" ? ""
+    : !article && data?.reviewLine
+    ? `<p class="article-byline review-dates">${data.reviewLine}</p>`
     : !article && data?.reviewedBy
     ? `<p class="article-byline">Clinically reviewed by ${escText(data.reviewedBy)}${data.reviewerCredentials ? `, ${escText(data.reviewerCredentials)}` : ""}${data.lastReviewed ? ` · Last reviewed ${escText(data.lastReviewed)}` : ""}.</p>` : "";
   const citations = (article?.citations || data?.sources || [])
@@ -157,7 +211,10 @@ export function buildStaticArticleInner(data) {
     .filter((c) => /^https?:\/\//i.test(c.url) && c.label);
   const references = citations.length
     ? `<section aria-label="Sources and references"><h2>Sources and references</h2><ol>${citations.map((c) => `<li><a href="${escText(c.url).replace(/"/g, "&quot;")}">${escText(c.label)}</a></li>`).join("")}</ol></section>` : "";
-  const links = (data?.relatedLinks || []).filter((link) => /^\/(?!\/)/.test(link.path) && link.title);
+  const seenLinks = new Set();
+  const links = (data?.relatedLinks || []).filter((link) => /^\/(?!\/)/.test(link.path) && link.title)
+    .map((link) => ({ ...link, path: resolveInternalHref(link.path) }))
+    .filter((link) => !seenLinks.has(link.path) && seenLinks.add(link.path));
   const related = links.length
     ? `<nav aria-label="Related guides"><h2>Related guides</h2><ul>${links.map((link) => `<li><a href="${escText(link.path).replace(/"/g, "&quot;")}">${escText(link.title)}</a></li>`).join("")}</ul></nav>` : "";
 
@@ -165,11 +222,11 @@ export function buildStaticArticleInner(data) {
     ? `<nav aria-label="Arthritis support and guides"><a href="/arthritis-support">Arthritis support</a> · <a href="/guides">Arthritis guides</a> · <a href="/authors">Authors and editorial team</a></nav>`
     : "";
 
-  return (
+  return labelArticleSections(
     `<article id="static-article" class="static-article">` +
     `<h1>${escText(heading)}</h1>` +
     author + reviewer +
-    answer + takeaways +
+    answer + (data?.internationalTerms?.length ? `<details><summary>UK terms explained for international readers</summary><dl>${data.internationalTerms.map(term => `<dt>${escText(term.term)}</dt><dd>${escText(term.explanation)} <a href="${escText(term.source)}">${escText(term.label)}</a></dd>`).join("")}</dl><p>UK care pathways and medicine advice remain UK-specific. Check local advice where you live.</p></details>` : "") + (data?.summaryReviewNote ? `<p class="editorial-review-note">${escText(data.summaryReviewNote)}</p>` : "") + takeaways +
     (bodyHtml ? `<div class="static-article-body">${stripBodyBloat(bodyHtml)}</div>` : "") +
     `<p><em>${updated}This is general information, not a substitute for personalised medical advice.</em></p>` +
     faqHtml +

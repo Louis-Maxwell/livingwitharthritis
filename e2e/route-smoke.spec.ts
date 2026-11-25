@@ -57,3 +57,32 @@ test("recovers from a missing lazy route chunk after a deploy", async ({ page })
   // Cache-busting param from the recovery reload is stripped again.
   await expect.poll(() => new URL(page.url()).searchParams.has("_r")).toBe(false);
 });
+
+// Count-only checks can mistake a leaked homepage trail for the route's trail.
+// Check visible names, positions and canonical item URLs after hydration.
+for (const route of ["/faq", "/pets", "/pets/arthritis-in-dogs", "/pets/arthritis-in-cats", "/pets/arthritis-in-horses", "/pets/arthritis-in-llamas-and-alpacas", "/pets/senior-pet-exercise-guide", "/pets/pet-weight-and-joint-health", "/pets/home-adaptations-for-arthritic-pets", "/pets/when-to-see-the-vet-pet-arthritis"]) {
+  test(`breadcrumb matches visible route at ${route}`, async ({ page }) => {
+    await page.goto(route, { waitUntil: "networkidle" });
+    await expect(page.locator("#breadcrumb-jsonld")).toHaveCount(1);
+    const state = await page.evaluate(() => {
+      const trails: Array<{ itemListElement: Array<{ position: number; name: string; item: string }> }> = [];
+      const walk = (x: unknown) => {
+        if (Array.isArray(x)) return x.forEach(walk);
+        if (!x || typeof x !== "object") return;
+        const node = x as Record<string, unknown>;
+        if ([node["@type"]].flat().includes("BreadcrumbList")) trails.push(node as typeof trails[number]);
+        Object.values(node).forEach(walk);
+      };
+      document.querySelectorAll('script[type="application/ld+json"]').forEach(s => walk(JSON.parse(s.textContent || "{}")));
+      const visible = [...document.querySelectorAll('nav[aria-label="breadcrumb"] li')].map(e => e.textContent?.trim()).filter(Boolean);
+      return { trails, visible, path: location.pathname.replace(/\/$/, "") };
+    });
+    expect(state.trails).toHaveLength(1);
+    const items = state.trails[0].itemListElement;
+    expect(items.map(i => i.name)).toEqual(state.visible);
+    expect(items.map(i => i.position)).toEqual(items.map((_, i) => i + 1));
+    expect(items.at(-1)?.item).toBe(`https://livingwitharthritis.org.uk${state.path}`);
+    expect(items[0].item).toBe("https://livingwitharthritis.org.uk/");
+    if (route.startsWith("/pets/")) expect(items[1]).toMatchObject({ name: "Pets", item: "https://livingwitharthritis.org.uk/pets" });
+  });
+}

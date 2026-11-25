@@ -1,12 +1,13 @@
 import { lazyWithRetry } from "@/lib/chunkRecovery";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { AlertTriangle, Phone, ShieldAlert } from "lucide-react";
+import { AlertTriangle, ShieldAlert } from "lucide-react";
 import Header from "@/components/Header";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { CHARITY } from "@/config/charity";
-import { nhsEscalationLine } from "@/lib/medicalDisclaimer";
+import { MEDICAL_DISCLAIMER_SHORT } from "@/lib/medicalDisclaimer";
+import { MEDICAL_DISCLAIMER_FULL, UK_URGENT_CARE } from "@/data/reviewedPublicCopy";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
@@ -16,6 +17,35 @@ const URL = `${CHARITY.siteUrl}/disclaimer`;
  * Full educational medical disclaimer — not formal legal advice.
  */
 export default function MedicalDisclaimer() {
+  useEffect(() => {
+    // A direct static load already has this page node. Client-side navigation
+    // needs one too, without a second competing MedicalWebPage or review claim.
+    const pageId = `${URL}#webpage`;
+    const alreadyPresent = Array.from(document.querySelectorAll('script[type="application/ld+json"]')).some((script) => {
+      try {
+        const node = JSON.parse(script.textContent || "{}");
+        return [node, ...(Array.isArray(node["@graph"]) ? node["@graph"] : [])]
+          .some((item) => item?.["@id"] === pageId && item?.["@type"] === "WebPage");
+      } catch { return false; }
+    });
+    if (alreadyPresent) return;
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "medical-disclaimer-page-jsonld";
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": pageId,
+      url: URL,
+      name: "Medical disclaimer | Living With Arthritis",
+      description: MEDICAL_DISCLAIMER_SHORT,
+      inLanguage: "en-GB",
+      isPartOf: { "@id": `${CHARITY.siteUrl}/#website` },
+    });
+    document.head.appendChild(script);
+    return () => script.remove();
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -51,57 +81,23 @@ export default function MedicalDisclaimer() {
           </header>
 
           <div className="prose prose-lg max-w-none space-y-8 text-foreground/85 leading-relaxed">
-            <section className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-5 not-prose">
-              <p className="flex items-start gap-3 text-sm sm:text-base">
+            <section aria-labelledby="disclaimer-information">
+              <h2 id="disclaimer-information" className="text-xl font-bold text-foreground">Using this information</h2>
+              {MEDICAL_DISCLAIMER_FULL.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </section>
+
+            <section aria-labelledby="urgent-care" className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-5 not-prose">
+              <h2 id="urgent-care" className="flex items-start gap-3 text-xl font-bold text-foreground">
                 <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" aria-hidden />
-                <span>
-                  <strong>Not a diagnosis. Not personal medical advice.</strong> Nothing on this
-                  website — including condition guides, medicines explainers, exercises, diet notes,
-                  the symptom checker, or the help chat — replaces advice from your GP, pharmacist,
-                  rheumatology team or other qualified clinician.
-                </span>
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold text-foreground">When to seek urgent care</h2>
-              <p className="flex items-start gap-2 mt-3">
-                <Phone className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden />
-                <span>{nhsEscalationLine()}</span>
-              </p>
-              <ul className="list-disc pl-6 mt-3 space-y-2">
-                <li>Suddenly hot, red, swollen joint with fever or feeling very unwell — seek urgent care (possible septic arthritis).</li>
-                <li>New loss of bladder or bowel control with back pain, or progressive leg weakness — call 999.</li>
-                <li>Chest pain, severe shortness of breath, or signs of a severe allergic reaction — call 999.</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold text-foreground">Medicines and treatments</h2>
-              <p>
-                Medicines pages summarise publicly available UK guidance (for example NICE, NHS,
-                BNF / SmPC themes) for education. They do <strong>not</strong> tell you what dose to
-                take, whether to start, stop or change a medicine, or how to taper steroids. Always
-                follow the regimen your rheumatology team or GP has set for you, and check the
-                patient information leaflet / SmPC.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold text-foreground">Tools and chat</h2>
-              <p>
-                The symptom checker and chatbot route you to educational guides. They cannot examine
-                you, order tests, or issue a diagnosis. Do not rely on them in an emergency.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold text-foreground">No clinical relationship</h2>
-              <p>
-                Using this website does not create a clinician–patient relationship with Living With
-                Arthritis or with Louis Maxwell (HCPC PH128483) personally, unless you have a
-                separate, explicit clinical arrangement outside this site.
-              </p>
+                When to seek urgent care
+              </h2>
+              <p className="mt-3">Living With Arthritis does not provide emergency medical care. Do not delay seeking help because of something you read here or while waiting for an online response.</p>
+              <div className="mt-6 space-y-6">
+                {UK_URGENT_CARE.map((item) => <section key={item.q}>
+                  <h3 className="text-base sm:text-lg leading-snug font-bold text-foreground">{item.q}</h3>
+                  <p className="mt-2">{item.a}</p>
+                </section>)}
+              </div>
             </section>
 
             <section>
@@ -136,7 +132,7 @@ export default function MedicalDisclaimer() {
             </section>
 
             <p className="text-sm text-muted-foreground">
-              Last updated: 16 September 2026. This disclaimer is for transparency; it is not a
+              Last updated: 22 November 2026. This disclaimer is for transparency; it is not a
               substitute for solicitor-drafted terms or clinical indemnity arrangements.
             </p>
           </div>

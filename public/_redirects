@@ -1,3 +1,4 @@
+/tracker /resources/symptom-flare-tracker 301
 # HTTP 301s for Google Search Console clean-up (host redirects).
 # Honoured by Netlify and similar static hosts (first matching rule wins).
 # The live Lovable CDN ignores this file and serves the SPA shell as 200 —
@@ -1828,3 +1829,9 @@
 /blog/water-aerobics-for-arthritis-benefits-and-safety /blog/aquatic-therapy-arthritis-guide 301
 /blog/weight-training-with-arthritis /blog/arthritis-friendly-gym-guide 301
 /blog/what-causes-gout /blog/lwa-archive-gout-causes-symptoms-and-treatment 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/best-low-impact-exercises /blog/best-low-impact-exercises 301
+/morning-stiffness-with-arthritis /blog/morning-stiffness-with-arthritis 301
+/walking-with-arthritis /blog/walking-with-arthritis 301
+/what-makes-arthritis-pain-worse /blog/what-makes-arthritis-pain-worse 301

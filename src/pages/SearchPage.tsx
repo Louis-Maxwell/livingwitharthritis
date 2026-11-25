@@ -8,14 +8,14 @@ import PageHero from "@/components/ui/PageHero";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Search, ArrowRight } from "lucide-react";
+import { Search, ArrowRight, X } from "lucide-react";
 import { trackSearch } from "@/lib/analytics";
 import { getSiteSearchCatalog } from "@/lib/siteSearchCatalog";
 import {
   SEARCH_TOPICS,
   filterSearchCatalog,
   normalizeTopic,
-  type SearchTopic,
+  normalizeWordCount,
   type WordCountBucket,
 } from "@/lib/siteSearchFilters";
 
@@ -27,22 +27,26 @@ const WORD_OPTIONS: { value: WordCountBucket; label: string }[] = [
 
 const SearchPage = () => {
   const [params, setParams] = useSearchParams();
-  const [query, setQuery] = useState(params.get("q") || "");
+  // The URL is the source of truth, including browser Back/Forward and same-page links.
+  const query = params.get("q") || "";
+  const topic = normalizeTopic(params.get("topic"));
+  const wordCount = normalizeWordCount(params.get("length"));
   const [visibleCount, setVisibleCount] = useState(50);
-  const [topic, setTopic] = useState<SearchTopic>(normalizeTopic(params.get("topic")));
-  const [wordCount, setWordCount] = useState<WordCountBucket>(
-    (params.get("length") as WordCountBucket) || "any",
-  );
-
+  const inputRef = useRef<HTMLInputElement>(null);
   const catalog = useMemo(() => getSiteSearchCatalog(), []);
-
-  useEffect(() => {
-    const next = new URLSearchParams();
-    if (query.trim()) next.set("q", query.trim());
-    if (topic !== "All") next.set("topic", topic);
-    if (wordCount !== "any") next.set("length", wordCount);
-    setParams(next, { replace: true });
-  }, [query, topic, wordCount, setParams]);
+  const hasFilters = Boolean(query || topic !== "All" || wordCount !== "any");
+  const updateFilter = (key: "q" | "topic" | "length", value: string) => {
+    setParams((previous) => {
+      const next = new URLSearchParams(previous);
+      if (value && (key === "q" || (value !== "All" && value !== "any"))) next.set(key, value);
+      else next.delete(key);
+      return next;
+    }, { replace: true });
+  };
+  const clearSearch = () => {
+    setParams({}, { replace: true });
+    inputRef.current?.focus();
+  };
 
   const results = useMemo(
     () => filterSearchCatalog(catalog, { query, topic, wordCount }),
@@ -128,8 +132,11 @@ const SearchPage = () => {
               aria-hidden="true"
             />
             <Input
+              ref={inputRef}
+              type="search"
+              autoComplete="off"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => updateFilter("q", e.target.value)}
               placeholder="Search PIP, knee exercises, diet..."
               className="ps-12 h-12"
               aria-label="Search articles and hubs"
@@ -143,7 +150,7 @@ const SearchPage = () => {
                 className="w-full min-h-11 h-11 rounded-md border border-input bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 aria-label="Filter by topic"
                 value={topic}
-                onChange={(e) => setTopic(normalizeTopic(e.target.value))}
+                onChange={(e) => updateFilter("topic", normalizeTopic(e.target.value))}
               >
                 {SEARCH_TOPICS.map((t) => (
                   <option key={t} value={t}>
@@ -158,7 +165,7 @@ const SearchPage = () => {
                 className="w-full min-h-11 h-11 rounded-md border border-input bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 aria-label="Filter by word count"
                 value={wordCount}
-                onChange={(e) => setWordCount(e.target.value as WordCountBucket)}
+                onChange={(e) => updateFilter("length", normalizeWordCount(e.target.value))}
               >
                 {WORD_OPTIONS.map((o) => (
                   <option key={o.value} value={o.value}>
@@ -169,9 +176,17 @@ const SearchPage = () => {
             </label>
           </div>
 
-          <p className="text-sm text-muted-foreground" aria-live="polite">
-            {results.length} result{results.length === 1 ? "" : "s"}
-          </p>
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <p className="text-sm text-muted-foreground" aria-live="polite" aria-atomic="true">
+              {results.length} result{results.length === 1 ? "" : "s"}
+            </p>
+            {hasFilters && (
+              <button type="button" onClick={clearSearch}
+                className="inline-flex min-h-11 items-center gap-2 rounded-md border border-border px-4 py-2 text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
+                <X size={16} aria-hidden="true" /> Clear search and filters
+              </button>
+            )}
+          </div>
 
           <div className="space-y-3" role="region" aria-label="Search results">
             {results.slice(0, visibleCount).map((item) => (
@@ -186,16 +201,16 @@ const SearchPage = () => {
                     )}
                   </div>
                   <h2 className="text-lg font-semibold mb-1">
-                    <Link to={item.href} className="hover:text-primary">
+                    <Link to={item.href} className="hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
                       {item.title}
                     </Link>
                   </h2>
                   <p className="text-sm text-muted-foreground mb-3">{item.excerpt}</p>
                   <Link
                     to={item.href}
-                    className="inline-flex items-center gap-1 text-sm font-medium text-primary"
+                    className="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-primary"
                   >
-                    Open <ArrowRight size={14} aria-hidden="true" />
+                    <span className="sr-only">Open {item.title}</span><span aria-hidden="true">Open</span> <ArrowRight size={14} aria-hidden="true" />
                   </Link>
                 </CardContent>
               </Card>

@@ -8,6 +8,9 @@ import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import RoutineBuilder from "@/components/tools/RoutineBuilder";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
 import JointVisualizer from "@/components/exercises/JointVisualizer";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
@@ -16,6 +19,8 @@ import { CITATIONS_KNEE_EXERCISES } from "@/data/clinical/ukCitations";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 import RecommendedNextStep from "@/components/RecommendedNextStep";
+
+import kneeEditorialEnhancement from "@/data/kneeEditorialEnhancement.json";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
@@ -140,6 +145,15 @@ const FAQS = [
 ];
 
 const CONTENT = `
+<h2 id="starter-sequence">A 3-move starter sequence</h2>
+<p>New to knee exercises or coming back after a flare? Start with these three moves, then build up to the full 8-move routine below.</p>
+<ol>
+<li><strong>Quad sets.</strong> Sit or lie with your leg straight and a small rolled towel under the knee. Tighten the front thigh muscle to press the back of the knee into the towel. Hold 5 seconds, relax. Build up to 10 holds.</li>
+<li><strong>Straight-leg raise.</strong> Lie on your back with one knee bent and foot flat. Tighten the thigh of the straight leg and lift it to the height of the bent knee. Hold 2 to 3 seconds, lower slowly. 8 to 12 each leg.</li>
+<li><strong>Mini squat.</strong> Stand holding a worktop, feet hip-width apart. Bend your knees and hips slightly as if starting to sit, keeping your weight through your heels and knees in line with your toes. Go only as far as is comfortable. 8 to 12 repetitions.</li>
+</ol>
+<p>Follow the 4/10 pain rule below: mild discomfort that settles within 24 hours is fine; do less next time if pain stays higher the next day.</p>
+
 <h2 id="who-this-is-for">Who are these knee exercises for?</h2>
 <p>This routine is for adults with knee osteoarthritis (OA), or long-standing knee pain that a GP or physiotherapist has said is likely to be OA. It also suits people waiting for an NHS physiotherapy appointment, people who have been told they are "not ready" for surgery yet, and people preparing for a knee replacement. It is general guidance, not a personal prescription. If a physiotherapist has already given you exercises, do theirs first and use this page to fill in gaps.</p>
 <p>NICE guideline NG226 (2022) recommends therapeutic exercise, tailored to the person, as a core treatment for everyone with osteoarthritis. That means local muscle strengthening around the joint plus general aerobic fitness. NICE also advises against routinely offering paracetamol or weak opioids for OA, and against glucosamine and strong opioids, which puts even more weight on exercise, weight management and self-help as the foundations of care.</p>
@@ -274,9 +288,9 @@ export default function KneeExercisesForOsteoarthritis() {
   const midAt = html.search(/<h2[^>]*id="three-levels"/);
   const htmlFirstHalf = midAt > 0 ? html.slice(0, midAt) : html;
   const htmlSecondHalf = midAt > 0 ? html.slice(midAt) : "";
-  const title = "Knee Osteoarthritis Exercises: 8-Move Home Routine (UK)";
+  const title = "Knee Exercises for Osteoarthritis | Living With Arthritis";
   const description =
-    "Free NICE-aligned knee osteoarthritis exercises: 8 home moves with levels, weekly plan, progression, 4/10 pain rule, stop rules and when to see a physio.";
+    "Evidence-based knee exercises for osteoarthritis. Strengthen quadriceps, ease morning stiffness, and protect joints with gentle, physiotherapist-guided moves.";
   const url = "https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis";
 
   return (
@@ -321,10 +335,13 @@ export default function KneeExercisesForOsteoarthritis() {
           badge="Clinical Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
-          <AeoEnhancement route="/guides/knee-exercises-for-osteoarthritis" />
+          <AeoEnhancement route="/guides/knee-exercises-for-osteoarthritis" reviewer="" />
+          <GpPrepSheet />
+          <RoutineBuilder />
+          <WhatsAppShare path="/guides/knee-exercises-for-osteoarthritis" title="Knee osteoarthritis exercises: 8-move home routine" />
           <JointVisualizer joint="knee" />
           <ArticleCitations citations={CITATIONS_KNEE_EXERCISES} />
-          <EducationalDisclaimerBox lastReviewed="2026-10-23" />
+          <EducationalDisclaimerBox reviewStatus="pending" pendingText="The original 8-move routine retains its prior review record. The separate 16 November 2026 editorial supplement below has not had a fresh clinical review." />
           <TopicClusterNav path="/guides/knee-exercises-for-osteoarthritis" />
           <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
             Free knee exercises for osteoarthritis in the UK. NICE guidance
@@ -340,6 +357,12 @@ export default function KneeExercisesForOsteoarthritis() {
             <RecommendedNextStep path="/guides/knee-exercises-for-osteoarthritis" placement="mid" />
             <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlSecondHalf) }} />
           </article>
+
+          <section id="knee-editorial-supplement" className="prose prose-lg dark:prose-invert max-w-none mt-12 pt-8 border-t border-border/30" aria-label="Enhanced knee arthritis exercise article">
+            <h2>{kneeEditorialEnhancement.title}</h2>
+            <p className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-5 text-sm">{kneeEditorialEnhancement.note}</p>
+            <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(kneeEditorialEnhancement.html) }} />
+          </section>
 
           <div className="mt-12 pt-8 border-t border-border/30">
             <h3 className="font-display font-bold text-lg mb-4">
@@ -387,6 +410,17 @@ export default function KneeExercisesForOsteoarthritis() {
                 </p>
               </Link>
               <Link
+                to="/conditions/knee-arthritis"
+                className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5"
+              >
+                <p className="text-xs text-primary font-bold mb-1">
+                  Condition guide →
+                </p>
+                <p className="font-bold text-foreground">
+                  Knee arthritis: symptoms, best exercises &amp; treatment
+                </p>
+              </Link>
+              <Link
                 to="/guides/free-arthritis-resources-uk"
                 className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5"
               >
@@ -409,4 +443,3 @@ export default function KneeExercisesForOsteoarthritis() {
     </>
   );
 }
-

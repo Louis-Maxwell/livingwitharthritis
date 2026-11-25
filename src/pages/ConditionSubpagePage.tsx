@@ -1,4 +1,6 @@
 ﻿import { useParams, Navigate, Link } from "react-router-dom";
+import ChildArthritisSafety from "@/components/conditions/ChildArthritisSafety";
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
@@ -90,7 +92,7 @@ const ConditionSubpagePage = () => {
         audienceType: "Patient",
         geographicArea: { "@type": "Country", name: "United Kingdom" },
       },
-      dateModified: new Date().toISOString().slice(0, 10),
+      dateModified: cond.slug === "juvenile-arthritis" ? "2026-11-24" : new Date().toISOString().slice(0, 10),
     };
     // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
     // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
@@ -140,7 +142,7 @@ const ConditionSubpagePage = () => {
       <main id="main-content" className="container mx-auto px-6 md:px-10 py-10 max-w-4xl">
         {/* Hero */}
         <header className="mb-10">
-          <div className="flex items-center gap-2 text-primary mb-3">
+          <div className={`flex items-center gap-2 mb-3 ${cond.slug === "juvenile-arthritis" ? "text-foreground" : "text-primary"}`}>
             <Icon className="w-5 h-5" />
             <span className="text-sm font-medium">
               {cond.name} • {subLabel}
@@ -151,6 +153,8 @@ const ConditionSubpagePage = () => {
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">{sub.intro}</p>
         </header>
+
+        {cond.slug === "juvenile-arthritis" && <ChildArthritisSafety />}
 
         {/* Subpage-specific content */}
         {subpage === "symptoms" && (
@@ -211,7 +215,7 @@ const ConditionSubpagePage = () => {
               to="/guides/exercise"
               className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
             >
-              See joint-by-joint exercise guides for {cond.shortName} <ArrowRight className="w-4 h-4" />
+              {cond.slug === "juvenile-arthritis" ? "General exercise information, not a child-specific programme" : <>See joint-by-joint exercise guides for {cond.shortName}</>} <ArrowRight className="w-4 h-4" />
             </Link>
           </section>
         )}
@@ -340,7 +344,7 @@ const ConditionSubpagePage = () => {
         <SocialShareButtons title={title} slug={`conditions/${cond.slug}/${subpage}`} />
 
         <div className="mt-8 space-y-6">
-          <EducationalDisclaimerBox lastReviewed="2026-09-17" />
+          <EducationalDisclaimerBox lastReviewed={cond.slug === "juvenile-arthritis" ? undefined : REVIEW_RECORDS.conditionSubpage} reviewStatus={cond.slug === "juvenile-arthritis" ? "pending" : "reviewed"} pendingText="Editorial safety update: 24 November 2026. Awaiting separate clinical review. Earlier review dates do not attest to this revision." />
           <TopicClusterNav path={path} />
           <MedicalDisclaimerStrip variant="short" />
         </div>

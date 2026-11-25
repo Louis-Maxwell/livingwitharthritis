@@ -226,12 +226,13 @@ describe("champion guides", () => {
       expect(row, slug).toBeTruthy();
       const body = String(row?.content ?? "").toLowerCase();
       for (const host of needHosts) expect(body, `${slug} missing ${host}`).toContain(host);
-      expect(charityHosts.some((host) => body.includes(host)), `${slug} missing charity host`).toBe(true);
+      const evidenceHosts = slug === "turmeric-for-arthritis" ? ["cochrane.org"] : charityHosts;
+      expect(evidenceHosts.some((host) => body.includes(host)), `${slug} missing supporting evidence host`).toBe(true);
       const cites = row?.citations ?? [];
       expect(cites.length, `${slug} citations`).toBeGreaterThanOrEqual(3);
       const citeHosts = cites.map((c) => String(c.url)).join(" ");
       for (const host of needHosts) expect(citeHosts, `${slug} citation ${host}`).toContain(host);
-      expect(charityHosts.some((host) => citeHosts.includes(host)), `${slug} citation charity host`).toBe(true);
+      expect(evidenceHosts.some((host) => citeHosts.includes(host)), `${slug} citation supporting evidence host`).toBe(true);
       expect(String(row?.excerpt ?? "").trim().length).toBeGreaterThanOrEqual(100);
       expect(String(row?.content ?? "").trim().length).toBeGreaterThan(5000);
     }

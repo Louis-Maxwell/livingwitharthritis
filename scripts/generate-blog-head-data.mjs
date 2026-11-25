@@ -28,9 +28,45 @@
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { readPublishedBlogPosts } from './lib/blog-posts.mjs';
+import { resolveInternalHref } from './lib/internal-href.mjs';
 import { stripTags } from './lib/strip-tags.mjs';
+import { htmlToPlainText } from '../src/lib/plainText.mjs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+export function extractBlogFaqs(content) {
+    if (!content) return [];
+    const body = String(content).replace(/\\n/g, '\n');
+    const isHtml = body.trim().startsWith('<');
+    const pairs = [];
+    if (isHtml) {
+      const re = /<h[23][^>]*>([\s\S]*?)<\/h[23]>([\s\S]*?)(?=<h[23][^>]*>|$)/gi;
+      let m;
+      while ((m = re.exec(body)) !== null) {
+        const q = htmlToPlainText(m[1]);
+        const a = htmlToPlainText(m[2]);
+        // class="q-heading" marks search-question body subheadings, not FAQs.
+        if (/^<h[23][^>]*\bq-heading\b/i.test(m[0])) continue;
+        if (q.endsWith('?') && a.length > 30) pairs.push({ q, a });
+        if (pairs.length >= 6) break;
+      }
+      return pairs;
+    }
+    const re = /^#{2,3}\s+(.+\?)\s*$/gm;
+    let m;
+    while ((m = re.exec(body)) !== null) {
+      const q = m[1].trim();
+      const rest = body.slice(m.index + m[0].length);
+      const a = rest
+        .split(/^#{1,3}\s+/m)[0]
+        .replace(/[*_`>#\[\]]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+      if (a.length > 30) pairs.push({ q, a });
+      if (pairs.length >= 6) break;
+    }
+    return pairs;
+  }
 
 const OUT = resolve('scripts/blog-head-data.json');
 const COVER_MAP_PATH = resolve('src/data/blog-cover-map.generated.json');
@@ -68,6 +104,9 @@ export function looksTruncatedMeta(meta, title) {
   const t = String(title ?? '').trim();
   if (!m) return true;
   if (!t) return false;
+  // A meta_title carrying the full brand suffix is intentionally complete,
+  // never a mid-phrase clip.
+  if (m.endsWith(` | ${BRAND}`)) return false;
   // meta is a strict shorter prefix of the full title (common DB / CMS clip)
   if (t.startsWith(m) && t.length > m.length + 3) return true;
   // Suspiciously short vs title, no terminal punctuation
@@ -178,6 +217,7 @@ export function buildEntry(row, extractFaqs, coverMap) {
       keywords: row.keywords ?? null,
       author: row.author ?? null,
       author_credentials: row.author_credentials ?? null,
+      ...(row.editorial_review_note ? { editorial_review_note: row.editorial_review_note } : {}),
       reviewed_by: row.reviewed_by ?? null,
       reviewer_credentials: row.reviewer_credentials ?? null,
       is_published: true,
@@ -213,46 +253,12 @@ async function main() {
     [...redirectSrc.matchAll(/"([^"]+)"\s*:\s*"[^"]+"/g)].map((m) => m[1]),
   );
 
-  const extractFaqs = (content) => {
-    if (!content) return [];
-    const body = String(content).replace(/\\n/g, '\n');
-    const isHtml = body.trim().startsWith('<');
-    const pairs = [];
-    if (isHtml) {
-      const re = /<h[23][^>]*>([\s\S]*?)<\/h[23]>([\s\S]*?)(?=<h[23][^>]*>|$)/gi;
-      let m;
-      while ((m = re.exec(body)) !== null) {
-        const q = stripTags(m[1]);
-        const a = stripTags(m[2]).slice(0, 500);
-        // class="q-heading" marks search-question body subheadings, not FAQs.
-        if (/^<h[23][^>]*\bq-heading\b/i.test(m[0])) continue;
-        if (q.endsWith('?') && a.length > 30) pairs.push({ q, a });
-        if (pairs.length >= 6) break;
-      }
-      return pairs;
-    }
-    const re = /^#{2,3}\s+(.+\?)\s*$/gm;
-    let m;
-    while ((m = re.exec(body)) !== null) {
-      const q = m[1].trim();
-      const rest = body.slice(m.index + m[0].length);
-      const a = rest
-        .split(/^#{1,3}\s+/m)[0]
-        .replace(/[*_`>#\[\]]/g, '')
-        .replace(/\s+/g, ' ')
-        .trim()
-        .slice(0, 500);
-      if (a.length > 30) pairs.push({ q, a });
-      if (pairs.length >= 6) break;
-    }
-    return pairs;
-  };
 
   const data = {};
   const journey = JSON.parse(readFileSync(new URL('../src/data/readerJourneyLinks.json', import.meta.url), 'utf8'));
   for (const row of rows) {
     if (!row.slug || redirectSlugs.has(row.slug)) continue;
-    const entry = buildEntry(row, extractFaqs, coverMap);
+    const entry = buildEntry(row, extractBlogFaqs, coverMap);
     if (entry) {
       // Link every article back into its existing topic and to nearby guides.
       // All destinations come from the same published inventory, never guessed slugs.
@@ -268,6 +274,10 @@ async function main() {
         : [{ path: '/blog/archive', title: 'Browse all arthritis guides' },
         ...(topic ? [{ path: `/blog/category/${topic}`, title: `${row.category} guides` }] : []),
         ...peers.map(({ post }) => ({ path: `/blog/${post.slug}`, title: post.title }))];
+      const seenPaths = new Set();
+      entry.relatedLinks = entry.relatedLinks
+        .map((link) => ({ ...link, path: resolveInternalHref(link.path) }))
+        .filter((link) => !seenPaths.has(link.path) && seenPaths.add(link.path));
       data[`/blog/${row.slug}`] = entry;
     }
   }

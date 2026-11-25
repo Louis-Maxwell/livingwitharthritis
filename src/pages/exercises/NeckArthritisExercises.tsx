@@ -1,3 +1,4 @@
+import { STANDALONE_ANSWER_CAPSULES } from "@/data/standaloneAnswerCapsules";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "@/components/Header";
@@ -138,12 +139,7 @@ export default function NeckArthritisExercises() {
             Neck arthritis exercises: 7 gentle moves for cervical osteoarthritis
           </h1>
           <p className="text-lg text-muted-foreground mb-10">
-            Cervical osteoarthritis (arthritis in the neck) causes stiffness,
-            aching and reduced rotation that can make driving, sleeping and
-            looking up uncomfortable. These seven exercises — used by UK
-            physiotherapy teams and aligned with NICE guidance for joint pain —
-            keep the neck mobile, build the deep stabilising muscles and ease
-            the upper-back tension that often drives symptoms.
+            {STANDALONE_ANSWER_CAPSULES["/exercises/neck-arthritis-exercises"]}
           </p>
 
           <aside className="mb-12 p-5 rounded-xl border border-primary/20 bg-primary/5 flex gap-3 text-sm">
@@ -215,7 +211,7 @@ export default function NeckArthritisExercises() {
               {[
                 { to: "/conditions/osteoarthritis", label: "Osteoarthritis guide" },
                 { to: "/conditions/rheumatoid-arthritis", label: "Rheumatoid arthritis guide" },
-                { to: "/exercises/shoulder-arthritis-exercises", label: "Shoulder arthritis exercises" },
+                { to: "/conditions/shoulder-arthritis/exercises", label: "Shoulder arthritis exercises" },
                 { to: "/exercises/tai-chi-for-arthritis", label: "Tai chi for arthritis" },
                 { to: "/conditions/osteoarthritis", label: "About osteoarthritis" },
                 { to: "/guides/arthritis-pain-relief", label: "Arthritis pain-relief tips" },
@@ -246,4 +242,4 @@ export default function NeckArthritisExercises() {
       <Footer />
     </>
   );
-}
+                          }

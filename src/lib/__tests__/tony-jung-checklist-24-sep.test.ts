@@ -38,7 +38,8 @@ describe("Tony Jung checklist polish — 24 Sep evening (code-side)", () => {
     const map = read("src/components/contact/GbpMapSection.tsx");
     const cfg = read("src/config/gbpMaps.ts");
     expect(contact).toMatch(/GbpMapSection/);
-    expect(map).toMatch(/Map goes live once Google Business Profile is verified/);
+    expect(map).toMatch(/[Ww]e serve the whole UK, not a single/);
+    expect(map).not.toMatch(/once Google Business Profile is verified/i);
     expect(map).toMatch(/Area served: United Kingdom \(GB\)/);
     // UI must not claim Oswestry; config may mention it only as a forbidden example.
     expect(contact).not.toMatch(/Oswestry/i);

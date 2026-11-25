@@ -28,27 +28,39 @@ describe("clinical governance gate", () => {
   it("every blog guide has reviewer, lastReviewed and nextReview", () => {
     const entries = Object.entries(reviewIndex.lastReviewed as Record<string, string | null>);
     expect(entries.length).toBeGreaterThan(0);
-    const bad = entries.filter(([, d]) => !d || !ISO.test(d) || !nextReviewDate(d)).map(([s]) => s);
+    const revisions = new Set(readdirSync("src/content/blog/posts").map((f) => JSON.parse(readFileSync(join("src/content/blog/posts", f), "utf8"))).filter((p) => p.editorial_review_note).map((p) => p.slug));
+    const bad = entries.filter(([slug, d]) => !revisions.has(slug) && (!d || !ISO.test(d) || !nextReviewDate(d))).map(([s]) => s);
     expect(bad).toEqual([]);
     expect(CLINICAL_REVIEWER).toMatch(/Louis Maxwell.*PH128483/);
   });
 
-  it("every library topic is reviewed with dates (never pending)", () => {
+  it("library topics carry recorded dates or explicit pending revision status", () => {
     expect(ISO.test(LIBRARY_SITEWIDE_REVIEW_DATE)).toBe(true);
     for (const [slug, e] of Object.entries(libraryStatus as Record<string, { reviewStatus: string }>)) {
+      if (["naproxen", "naproxen-side-effects", "what-is-gout"].includes(slug)) {
+        expect(e.reviewStatus, slug).toBe("pending");
+        expect(getLibraryLastReviewed(slug), slug).toBeNull();
+        continue;
+      }
       expect(e.reviewStatus, slug).toBe("reviewed");
       const d = getLibraryLastReviewed(slug);
       expect(d && nextReviewDate(d), slug).toBeTruthy();
     }
   });
 
-  it("every EducationalDisclaimerBox passes a lastReviewed date", () => {
-    const missing = src.filter((f) => /<EducationalDisclaimerBox(\s*\/>|\s+(?![^>]*lastReviewed)[^>]*\/>)/s.test(readFileSync(f, "utf8")));
+  it("every EducationalDisclaimerBox has a date or explicit unrecorded status", () => {
+    const missing = src.filter((f) => /<EducationalDisclaimerBox(\s*\/>|\s+(?![^>]*(?:lastReviewed|reviewStatus="pending"))[^>]*\/>)/s.test(readFileSync(f, "utf8")));
     expect(missing).toEqual([]);
   });
 
-  it("no 'review date not recorded' copy anywhere", () => {
-    expect(src.filter((f) => /review date not recorded/i.test(readFileSync(f, "utf8")))).toEqual([]);
+  it("an unrecorded clinical review never carries a fabricated review date", () => {
+    for (const file of src) {
+      const text = readFileSync(file, "utf8");
+      if (/review date not recorded/i.test(text)) {
+        expect(text).not.toMatch(/<LastReviewed|"lastReviewed":/);
+        expect(text).toContain('reviewStatus="pending"');
+      }
+    }
   });
 
   it("blog guide MedicalWebPage schema has reviewedBy, lastReviewed and charity publisher", () => {

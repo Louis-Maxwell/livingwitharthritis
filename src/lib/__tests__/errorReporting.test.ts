@@ -17,24 +17,26 @@ describe("errorReporting", () => {
   let gtag: GtagMock;
 
   beforeEach(() => {
+    localStorage.setItem("lwa_cv3", JSON.stringify({ a: true }));
     resetErrorReportingForTests();
     gtag = vi.fn<(...args: unknown[]) => void>();
     setGtag(gtag);
   });
 
   afterEach(() => {
+    localStorage.clear();
     setGtag(undefined);
   });
 
   it("sends a GA4 exception event with kind, source and page", () => {
     reportFormFailure("newsletter", "FormSubmit HTTP 500");
-    expect(gtag).toHaveBeenCalledWith("event", "exception", {
-      description: "FormSubmit HTTP 500",
+    expect(gtag).toHaveBeenCalledWith("event", "exception", expect.objectContaining({
+      description: "form_submit_failed",
       fatal: false,
       error_kind: "form_submit_failed",
       error_source: "newsletter",
       page_path: window.location.pathname,
-    });
+    }));
   });
 
   it("sends nothing without analytics consent (no gtag)", () => {
@@ -99,7 +101,7 @@ describe("errorReporting", () => {
     await window.fetch("https://formsubmit.co/ajax/x", { method: "POST" });
     expect(gtag).toHaveBeenCalledTimes(1);
     expect((gtag.mock.calls[0][2] as { description: string }).description).toBe(
-      `HTTP 503 POST ${window.location.host}/api/failure`,
+      "fetch_failed",
     );
 
     window.fetch = originalFetch;

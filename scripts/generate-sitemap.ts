@@ -19,8 +19,11 @@ import { writeFileSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { assertSafeBlogInventory } from "../src/lib/seoBuildSafety";
 import { exactRedirectPathSet } from "./seo-redirect-map.mjs";
+// @ts-expect-error plain .mjs helper
+import { reviewRecordFor } from "./lib/review-records.mjs";
 import { readBlogCatalog } from "./lib/blog-posts.mjs";
 import { todayInLondon } from "./lib/london-date.mjs";
+import { blogContentLastmod } from "./lib/content-lastmod.mjs";
 import {
   BLOG_CATEGORY_KEYS,
   canonicalBlogCategoryKey,
@@ -28,6 +31,7 @@ import {
 const BASE_URL = "https://livingwitharthritis.org.uk";
 /** W3C date (YYYY-MM-DD) for URLs with no content date. Stable for this run. */
 const BUILD_DATE = todayInLondon();
+const CONTENT_MODIFICATIONS = JSON.parse(readFileSync(resolve("src/data/content-modifications.json"), "utf8")) as Record<string, { modified: string; change: string }>;
 
 interface SitemapEntry {
   path: string;
@@ -410,7 +414,7 @@ function staticCatalogBlogPosts(): BlogPostEntry[] {
       .filter((r) => r.slug && BLOG_SLUG_PATTERN.test(r.slug))
       .map((r) => ({
         slug: r.slug,
-        lastmod: String(r.updated_at || r.date || "").slice(0, 10) || undefined,
+        lastmod: blogContentLastmod(r, CONTENT_MODIFICATIONS[`/blog/${r.slug}`]?.modified),
         category: r.category,
       }));
   } catch {
@@ -542,6 +546,9 @@ async function main() {
   const hubDates = headDataLastmods("scripts/hub-guide-head-data.json");
   const pageDates = pageSourceLastmods();
   const contentDates = contentLastmods();
+  // Other generated head-data files, read with the same real-dates-only rule.
+  const extraHeadDates = ["scripts/condition-head-data.json", "scripts/library-head-data.json",
+    "scripts/editorial-head-data.json"].map(headDataLastmods);
   // Keep dates already published in sitemap.xml. A fresh run must not drop a
   // real lastmod just because this pass did not re-discover its source.
   const priorDates = new Map<string, string>();
@@ -559,18 +566,25 @@ async function main() {
   }
 
   function lastmodFor(path: string, extra?: string): string {
+    const review = (reviewRecordFor(path) as { lastReviewed?: string } | null)?.lastReviewed;
     return (
       maxIsoDate(
         extra,
+        asIsoDate(CONTENT_MODIFICATIONS[path]?.modified),
         aiDates.get(path),
         hubDates.get(path),
         pageDates.get(path),
         contentDates.get(path),
         priorDates.get(path),
+        review,
+        ...extraHeadDates.map((m) => m.get(path)),
       ) ?? BUILD_DATE
     );
   }
 
+  // A standalone, directly served resource is not declared in the SPA router.
+  // Indexing metadata changed on this date; this is not a clinical-review date.
+  entries.push({ path: "/resources/knee-joint-map.html", lastmod: "2026-11-17" });
   for (const p of parseStaticRoutes()) {
     const lastmod = lastmodFor(p);
     entries.push({ path: p, ...(lastmod ? { lastmod } : {}) });
@@ -793,6 +807,7 @@ async function main() {
   const prerenderable = [...cleaned, ...entries.filter((e) => routeNoindex.has(e.path))];
   const otherPaths = [...new Set(prerenderable.map((e) => e.path))].filter(
     (p) =>
+      !p.endsWith(".html") &&
       (!p.startsWith("/blog/") || p.startsWith("/blog/category/")) &&
       !/^\/arthritis-support\/[^/]+$/.test(p),
   );

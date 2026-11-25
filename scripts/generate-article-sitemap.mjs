@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { todayInLondon } from './lib/london-date.mjs';
+import { readPublishedBlogPosts } from './lib/blog-posts.mjs';
 
 const BASE_URL = 'https://livingwitharthritis.org.uk';
 const SITEMAP_PATH = 'public/sitemap.xml';
@@ -27,6 +28,8 @@ const excludedSlugs = new Set([
   ...(Array.isArray(noindex) ? noindex : []),
 ]);
 
+const publishedSlugs = new Set(readPublishedBlogPosts().map((post) => post.slug));
+
 const BUILD_DATE = todayInLondon();
 if (!/^\d{4}-\d{2}-\d{2}$/.test(BUILD_DATE)) {
   throw new Error('article sitemap build date must be YYYY-MM-DD');
@@ -52,7 +55,7 @@ const entries = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)]
     if (url.origin !== BASE_URL || url.search || url.hash) return false;
 
     const slug = url.pathname.match(/^\/blog\/([a-z0-9]+(?:-[a-z0-9]+)*)\/?$/)?.[1];
-    return Boolean(slug && !excludedSlugs.has(slug));
+    return Boolean(slug && publishedSlugs.has(slug) && !excludedSlugs.has(slug));
   });
 
 if (!entries.length) throw new Error('No canonical article URLs found; refusing to write an empty article sitemap.');

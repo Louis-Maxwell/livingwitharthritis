@@ -87,6 +87,14 @@ export default function ResourceCentre() {
         </PageHero>
 
         <div className="container mx-auto max-w-5xl px-6 md:px-10 pb-16 space-y-10">
+          <section aria-labelledby="illustrated-printables-title" className="rounded-2xl border border-border/40 bg-card p-5 md:p-7">
+            <h2 id="illustrated-printables-title" className="font-display text-xl md:text-2xl font-bold text-foreground">Illustrated printables</h2>
+            <p className="mt-3 text-muted-foreground">Free two-page PDFs to read, print or keep on your phone. General information, not a personal exercise or treatment plan.</p>
+            <ul className="mt-5 grid gap-4 sm:grid-cols-2">
+              <li><a href="/resources/chair-exercise-guide.pdf" download className="block rounded-lg border border-border/40 px-4 py-4 font-semibold underline underline-offset-4 hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">Chair exercise guide (PDF, 2 pages)</a><p className="mt-2 text-sm text-muted-foreground">Illustrated seated movements, chair setup and advice on when to stop or ask for help. Follow your own healthcare team's restrictions.</p></li>
+              <li><a href="/resources/joint-friendly-eating-checklist.pdf" download className="block rounded-lg border border-border/40 px-4 py-4 font-semibold underline underline-offset-4 hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">Joint-friendly eating checklist (PDF, 2 pages)</a><p className="mt-2 text-sm text-muted-foreground">A balanced-food shopping checklist with space for your own choices. No food or supplement is a cure for arthritis.</p></li>
+            </ul>
+          </section>
           {GROUPS.map((group) => {
             const headingId = `rc-${group.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
             return (

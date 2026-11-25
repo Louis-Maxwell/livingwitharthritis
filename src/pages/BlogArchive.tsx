@@ -112,7 +112,7 @@ const BlogArchive = () => {
           badge={
             <Badge className="bg-background text-primary border-0 text-xs font-bold px-3 py-1.5">
               <Archive className="w-3 h-3 mr-1.5" aria-hidden="true" />
-              {formatInventoryCount(CONTENT_INVENTORY.blogArticles)} guides
+              {blogPosts.length > 0 ? String(blogPosts.length) : formatInventoryCount(CONTENT_INVENTORY.blogArticles)} guides
             </Badge>
           }
           title={

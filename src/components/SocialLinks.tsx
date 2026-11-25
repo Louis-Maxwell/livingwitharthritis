@@ -9,9 +9,12 @@ import {
   Linkedin,
   Youtube,
   AtSign,
+  Music2,
+  Cloud,
   Mail,
   Github,
   MessageCircle,
+  ArrowUpRight,
   LucideProps,
 } from 'lucide-react';
 import { getSocialLinksForContext, trackSocialMediaClick } from '@/config/social-media';
@@ -24,6 +27,7 @@ interface SocialLinksProps {
   className?: string;
   linkClassName?: string;
   orientation?: 'horizontal' | 'vertical';
+  cardStyle?: boolean;
 }
 
 const iconMap: Record<SocialPlatform, React.ComponentType<LucideProps>> = {
@@ -33,6 +37,9 @@ const iconMap: Record<SocialPlatform, React.ComponentType<LucideProps>> = {
   linkedin: Linkedin,
   youtube: Youtube,
   threads: AtSign,
+  tiktok: Music2,
+  bluesky: Cloud,
+  mastodon: AtSign,
   pinterest: Github,
   reddit: MessageCircle,
   email: Mail,
@@ -51,9 +58,9 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
   className = '',
   linkClassName,
   orientation = 'horizontal',
+  cardStyle = false,
 }) => {
-  const socialLinks = getSocialLinksForContext(context)
-    .filter((link) => context === 'footer' || !/threads\.com|wa\.me/i.test(link.url));
+  const socialLinks = getSocialLinksForContext(context);
 
   if (socialLinks.length === 0) {
     return null;
@@ -81,15 +88,16 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
               ? {}
               : { target: '_blank', rel: 'nofollow noopener noreferrer' })}
             className={`${linkClassName || defaultLink} ${link.color} group`}
-            aria-label={`Visit ${link.displayName}`}
+            aria-label={`${isMail ? "Email Living With Arthritis" : `Visit ${link.displayName}${cardStyle ? " (opens in a new tab)" : ""}`}`}
             title={link.description}
             onClick={() => trackSocialMediaClick(link.platform, context)}
           >
-            <span className="sr-only">{link.displayName}</span>
-            <Icon className={`${sizeMap[size]} group-hover:scale-110 transition-transform`} />
+            {!showLabels && <span className="sr-only">{link.displayName}</span>}
+            <Icon aria-hidden="true" className={`${sizeMap[size]} ${cardStyle ? "footer-connect__icon" : "group-hover:scale-110 transition-transform"}`} />
             {showLabels && (
               <span className="ml-2 text-sm font-medium">{link.displayName}</span>
             )}
+            {cardStyle && !isMail && <ArrowUpRight aria-hidden="true" className="footer-connect__arrow h-4 w-4" />}
           </a>
         );
       })}

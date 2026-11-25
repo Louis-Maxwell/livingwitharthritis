@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { existsSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
-import { decodeBasicEntities } from "./lib/strip-tags.mjs";
+import { inspectInventoryHtml } from "./lib/inventory-signals.mjs";
 import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
 
 const DIST = resolve(process.argv[2] || "dist");
@@ -17,42 +17,6 @@ const paths = new Set(
   urls.map((url) => new URL(url).pathname.replace(/\/$/, "") || "/"),
 );
 
-const decode = (value = "") =>
-  decodeBasicEntities(value).replace(/\s+/g, " ").trim();
-const textOf = (html, pattern) =>
-  decode((html.match(pattern)?.[1] ?? "").replace(/<[^>]+>/g, " "));
-const tagAttribute = (html, tagPattern, attribute) => {
-  const tag = html.match(tagPattern)?.[0] ?? "";
-  return decode(
-    tag.match(new RegExp(`\\b${attribute}=["']([^"']*)["']`, "i"))?.[1] ??
-      "",
-  );
-};
-const meta = (html, attr, value) =>
-  tagAttribute(
-    html,
-    new RegExp(
-      `<meta\\b(?=[^>]*\\b${attr}=["']${value}["'])[^>]*>`,
-      "i",
-    ),
-    "content",
-  );
-const schemaNodes = (html) => {
-  const nodes = [];
-  for (const match of html.matchAll(
-    /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi,
-  )) {
-    try {
-      const parsed = JSON.parse(match[1]);
-      if (Array.isArray(parsed)) nodes.push(...parsed);
-      else if (Array.isArray(parsed?.["@graph"])) nodes.push(...parsed["@graph"]);
-      else nodes.push(parsed);
-    } catch {
-      // Structured-data syntax has a separate failing validator.
-    }
-  }
-  return nodes;
-};
 const entityName = (value) => {
   if (!value) return "";
   if (typeof value === "string") return value;
@@ -107,6 +71,16 @@ const headers = [
   "child_pages",
   "status",
   "redirect_target",
+  "robots_directives",
+  "canonical_matches_url",
+  "h2_count",
+  "image_count",
+  "images_missing_alt",
+  "internal_link_count",
+  "external_link_count",
+  "article_word_count",
+  "structured_data_types",
+  "html_bytes",
 ];
 const rows = [];
 
@@ -115,7 +89,9 @@ for (const url of urls) {
   const file =
     path === "/"
       ? join(DIST, "index.html")
-      : join(DIST, path.replace(/^\//, ""), "index.html");
+      : path.endsWith(".html")
+        ? join(DIST, path.replace(/^\//, ""))
+        : join(DIST, path.replace(/^\//, ""), "index.html");
   if (!existsSync(file)) {
     rows.push([
       url,
@@ -140,26 +116,23 @@ for (const url of urls) {
   }
 
   const html = readFileSync(file, "utf8");
-  const nodes = schemaNodes(html);
+  const signals = inspectInventoryHtml(html, url);
+  const nodes = signals.nodes;
   const article = nodes.find((node) =>
-    ["Article", "MedicalWebPage", "ProfilePage"].includes(node?.["@type"]),
+    [node?.["@type"]].flat().some(type => ["Article", "MedicalWebPage", "ProfilePage"].includes(type)),
   );
-  const keywords = meta(html, "name", "keywords")
+  const keywords = signals.keywords
     .split(",")
     .map((keyword) => keyword.trim())
     .filter(Boolean);
-  const robots = meta(html, "name", "robots");
-  const canonical = tagAttribute(
-    html,
-    /<link\b(?=[^>]*\brel=["']canonical["'])[^>]*>/i,
-    "href",
-  );
+  const robots = signals.robots;
+  const canonical = signals.canonical;
   rows.push([
     url,
     pageType(path),
-    textOf(html, /<title[^>]*>([\s\S]*?)<\/title>/i),
-    textOf(html, /<h1[^>]*>([\s\S]*?)<\/h1>/i),
-    meta(html, "name", "description"),
+    signals.title,
+    signals.h1,
+    signals.description,
     canonical,
     /noindex/i.test(robots) ? "noindex" : "indexable",
     entityName(article?.author),
@@ -170,8 +143,18 @@ for (const url of urls) {
     keywords.slice(1).join("|"),
     parentFor(path),
     childrenFor(path),
-    "indexable",
+    "present-prerender-output",
     "",
+    robots,
+    signals.canonicalMatchesUrl,
+    signals.h2Count,
+    signals.imageCount,
+    signals.imagesMissingAlt,
+    signals.internalLinkCount,
+    signals.externalLinkCount,
+    signals.articleWordCount,
+    signals.structuredDataTypes,
+    signals.htmlBytes,
   ]);
 }
 
@@ -201,7 +184,7 @@ for (const line of redirectCsv.trim().split(/\r?\n/).slice(1)) {
 mkdirSync(dirname(OUTPUT), { recursive: true });
 writeFileAtomicSync(
   OUTPUT,
-  [headers, ...rows].map((row) => row.map(csvCell).join(",")).join("\n") +
+  [headers, ...rows].map((row) => [...row, ...Array(Math.max(0, headers.length - row.length)).fill("")].map(csvCell).join(",")).join("\n") +
     "\n",
 );
 console.log(

@@ -184,7 +184,7 @@ Ask about exercises, diet, flares, PIP, or browse **/about**.`,
 We are a small independent UK charity (**1218461**). Donations and Gift Aid help keep guides, exercises and this chat free.
 
 **Contact**
-- Email: **info@livingwitharthritis.org.uk** (we aim to reply within two working days)
+- Email: **info@livingwitharthritis.org.uk**
 - Phone / WhatsApp: **07760 512 084**
 - Web forms: **/contact**
 

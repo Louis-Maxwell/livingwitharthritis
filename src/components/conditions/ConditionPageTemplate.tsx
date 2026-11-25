@@ -1,3 +1,6 @@
+import ChildArthritisSafety from "@/components/conditions/ChildArthritisSafety";
+import DirectAnswerCapsule from "@/components/seo/DirectAnswerCapsule";
+import { hasPriorityDirectAnswer } from "@/lib/priorityDirectAnswer";
 import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
 import { Suspense, type ReactNode, type ElementType } from "react";
 import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
@@ -91,6 +94,7 @@ export interface ConditionPageData {
   aeoAnswer?: { question: string; answer: ReactNode; reviewed?: string };
   /** Authoritative, page-specific sources shown to readers. */
   sources?: { label: string; url: string }[];
+  reviewStatus?: "pending" | "reviewed";
 }
 
 // Real Unsplash photographs (free to use) — replaces previous AI-generated webp set.
@@ -108,6 +112,9 @@ function resolveOgImage(slug: string, override?: string): string {
   return path.startsWith("http") ? path : `${BASE}${path}`;
 }
 
+const sectionHeadingId = (title: string) =>
+  `section-${title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}`;
+
 const Section = ({
   icon: Icon,
   title,
@@ -116,19 +123,22 @@ const Section = ({
   icon: ElementType;
   title: string;
   children: ReactNode;
-}) => (
-  <section className="mb-12">
+}) => {
+  const headingId = sectionHeadingId(title);
+  return (
+  <section className="mb-12" aria-labelledby={headingId}>
     <div className="flex items-center gap-3 mb-5">
       <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
         <Icon className="w-5 h-5 text-primary" />
       </div>
-      <h2 className="section-header-left font-display text-2xl md:text-3xl font-bold text-foreground">{title}</h2>
+      <h2 id={headingId} className="section-header-left font-display text-2xl md:text-3xl font-bold text-foreground">{title}</h2>
     </div>
     <div className="prose prose-lg max-w-none text-foreground/85 prose-headings:font-display prose-headings:text-foreground prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:leading-relaxed prose-li:leading-relaxed prose-strong:text-foreground">
       {children}
     </div>
   </section>
-);
+  );
+};
 
 export default function ConditionPageTemplate({ data }: { data: ConditionPageData }) {
   const url = `${BASE}/conditions/${data.slug}`;
@@ -149,8 +159,8 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           signOrSymptom: data.symptoms,
           riskFactor: data.causes,
           image: ogImage,
-          lastReviewed: "2026-10-26",
-          reviewedBy: { name: "Louis Maxwell", jobTitle: "First Contact Practitioner Physiotherapist", identifier: "HCPC PH128483", profileUrl: "https://livingwitharthritis.org.uk/authors/maxwell" },
+          lastReviewed: (data.reviewStatus === "pending" || hasPriorityDirectAnswer(`/conditions/${data.slug}`)) ? undefined : "2026-10-26",
+          reviewedBy: (data.reviewStatus === "pending" || hasPriorityDirectAnswer(`/conditions/${data.slug}`)) ? undefined : { name: "Louis Maxwell", jobTitle: "First Contact Practitioner Physiotherapist", identifier: "HCPC PH128483", profileUrl: "https://livingwitharthritis.org.uk/authors/maxwell" },
         }}
         faqs={data.faqs}
         // No breadcrumbs prop: <PageBreadcrumb> below already injects its
@@ -194,22 +204,24 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           <div className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl relative z-10">
             <Link
               to="/#conditions"
-              className="text-primary text-sm font-medium inline-flex items-center gap-1.5 mb-6 hover:gap-2.5 transition-all"
+              className={`${data.slug === "juvenile-arthritis" ? "text-foreground" : "text-primary"} text-sm font-medium inline-flex items-center gap-1.5 mb-6 hover:gap-2.5 transition-all`}
             >
               <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
             </Link>
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
+            <span className={`inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] ${data.slug === "juvenile-arthritis" ? "text-foreground" : "text-primary"} mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full`}>
               <Activity className="w-3 h-3" /> Condition Guide
             </span>
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
               {data.name}
             </h1>
+            <DirectAnswerCapsule route={`/conditions/${data.slug}`} />
             <p className="text-lg text-muted-foreground leading-relaxed">{data.tagline}</p>
           </div>
         </div>
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
-          {data.aeoAnswer ? (
+          {data.slug === "juvenile-arthritis" && <ChildArthritisSafety />}
+          {data.reviewStatus === "pending" ? null : hasPriorityDirectAnswer(`/conditions/${data.slug}`) ? <AeoEnhancement route={`/conditions/${data.slug}`} /> : data.aeoAnswer ? (
             <AnswerBox question={data.aeoAnswer.question} reviewed={data.aeoAnswer.reviewed}>
               {data.aeoAnswer.answer}
             </AnswerBox>
@@ -265,12 +277,12 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           </Section>
 
           {/* FAQ */}
-          <section className="mb-12">
+          <section className="mb-12" aria-labelledby={`condition-${data.slug}-faq-heading`}>
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <HelpCircle className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="section-header-left font-display text-2xl md:text-3xl font-bold text-foreground">
+              <h2 id={`condition-${data.slug}-faq-heading`} className="section-header-left font-display text-2xl md:text-3xl font-bold text-foreground">
                 Frequently Asked Questions
               </h2>
             </div>
@@ -369,12 +381,12 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           </Suspense>
 
           {/* Curated related-link cards (per-page) */}
-          <section className="mb-12">
+          <section className="mb-12" aria-labelledby={`condition-${data.slug}-continue-reading`}>
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Users className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="section-header-left font-display text-2xl md:text-3xl font-bold text-foreground">
+              <h2 id={`condition-${data.slug}-continue-reading`} className="section-header-left font-display text-2xl md:text-3xl font-bold text-foreground">
                 Continue Reading
               </h2>
             </div>
@@ -426,7 +438,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           </div>
           <ClusterGpAndLinks path={`/conditions/${data.slug}`} badge />
           <UrgentHelpAndSources path={`/conditions/${data.slug}`} />
-          <EducationalDisclaimerBox lastReviewed="2026-09-17" />
+          <EducationalDisclaimerBox lastReviewed={(data.reviewStatus === "pending" || hasPriorityDirectAnswer(`/conditions/${data.slug}`)) ? undefined : "2026-09-17"} reviewStatus={(data.reviewStatus === "pending" || hasPriorityDirectAnswer(`/conditions/${data.slug}`)) ? "pending" : "reviewed"} pendingText="Updated source-based summary: separate clinical review pending. Earlier review dates do not attest to this revision." />
           <TopicClusterNav path={`/conditions/${data.slug}`} />
         </main>
         <Suspense fallback={null}>
@@ -437,4 +449,3 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
     </>
   );
 }
-

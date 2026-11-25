@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -306,7 +307,7 @@ const ShoulderArthritis = () => (
         </div>
       </main>
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
-        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+        <EducationalDisclaimerBox lastReviewed={REVIEW_RECORDS.pages["/conditions/shoulder-arthritis"]} />
         <TopicClusterNav path="/conditions/shoulder-arthritis" />
       </div>
       <InternalLinks />

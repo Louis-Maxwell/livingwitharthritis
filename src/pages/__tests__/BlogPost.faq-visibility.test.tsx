@@ -1,5 +1,5 @@
 import { beforeAll, describe, it, expect, vi } from "vitest";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor, within, fireEvent } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
@@ -80,6 +80,8 @@ beforeAll(async () => {
 
 
 import tens from "@/content/blog/posts/tens-machines-arthritis-uk.json";
+import { htmlToPlainText } from "@/lib/sanitize";
+import { PIP_ANSWER_HEADING } from "@/data/reviewedPublicCopy";
 import pipEligibility from "@/content/blog/posts/pip-for-arthritis-uk.json";
 import hipRecovery from "@/content/blog/posts/hip-replacement-recovery-week-by-week.json";
 
@@ -99,7 +101,7 @@ describe("Article evidence and FAQ visibility", () => {
     });
   });
 
-  it("shows one PIP FAQ heading and names a self-review when the author is the reviewer", async () => {
+  it("shows one PIP FAQ heading and does not inherit author self-review for the revised guide", async () => {
     vi.mocked(useBlogArticle).mockReturnValue({
       data: pipEligibility,
       isLoading: false,
@@ -107,8 +109,40 @@ describe("Article evidence and FAQ visibility", () => {
     renderBlogPost(pipEligibility.slug);
     await waitFor(() => {
       expect(screen.getAllByRole("heading", { name: "Frequently asked questions" })).toHaveLength(1);
-      expect(screen.getAllByText(/disclosed self-review by the author, not an independent clinical review/i).length).toBeGreaterThan(0);
+      expect(screen.getAllByText(/not had a fresh specialist welfare-rights or qualified clinical review/i).length).toBeGreaterThan(0);
+      expect(screen.queryByText(/disclosed self-review by the author, not an independent clinical review/i)).not.toBeInTheDocument();
       expect(screen.getAllByRole("link", { name: /printable PIP evidence diary/i }).length).toBeGreaterThan(0);
+    });
+  });
+
+  it("keeps every complete PIP FAQ answer visible and identical to its schema", async () => {
+    vi.mocked(useBlogArticle).mockReturnValue({ data: pipEligibility, isLoading: false } as unknown as ReturnType<typeof useBlogArticle>);
+    const source = document.createElement("div");
+    source.innerHTML = pipEligibility.content;
+    const expected = Array.from(source.querySelectorAll("h2,h3"))
+      .filter((heading) => heading.textContent?.endsWith("?") && !heading.classList.contains("q-heading"))
+      .map((heading) => {
+        let answerHtml = "";
+        for (let sibling = heading.nextElementSibling; sibling && !/^H[23]$/.test(sibling.tagName); sibling = sibling.nextElementSibling) answerHtml += sibling.outerHTML;
+        return { question: heading.textContent, answer: htmlToPlainText(answerHtml) };
+      });
+    expect(expected).toHaveLength(3);
+    expect(expected.map((faq) => faq.answer.length)).toEqual([845, 1063, 699]);
+    renderBlogPost(pipEligibility.slug);
+    const region = await screen.findByRole("region", { name: "Frequently asked questions" });
+    for (const faq of expected) {
+      const answer = within(region).getByText(faq.answer);
+      const detail = answer.closest("details")!;
+      if (!detail.open) fireEvent.click(detail.querySelector("summary")!);
+      expect(answer).toBeVisible();
+    }
+    expect(screen.getAllByRole("heading", { name: PIP_ANSWER_HEADING })).toHaveLength(1);
+    await waitFor(() => {
+      const faqSchemas = Array.from(document.querySelectorAll('script[type="application/ld+json"]'))
+        .map((script) => JSON.parse(script.textContent || "{}"))
+        .filter((schema) => schema["@type"] === "FAQPage");
+      expect(faqSchemas).toHaveLength(1);
+      expect(faqSchemas[0].mainEntity.map((faq: { name: string; acceptedAnswer: { text: string } }) => ({ question: faq.name, answer: faq.acceptedAnswer.text }))).toEqual(expected);
     });
   });
 
