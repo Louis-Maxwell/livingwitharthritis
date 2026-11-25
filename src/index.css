@@ -1945,6 +1945,6 @@ details[open] > :not(summary) {
 }
 
 /* Keep this reviewed equipment guide within the no-red-body-text brand rule. */
-.blog-prose .assistive-equipment-guide a {
+.blog-prose a.assistive-equipment-link {
   color: inherit;
 }
