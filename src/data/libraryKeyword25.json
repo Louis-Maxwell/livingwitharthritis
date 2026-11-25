@@ -1,0 +1,50 @@
+{
+  "naproxen": {
+    "title": "Naproxen for Arthritis: Uses, Risks and Safety",
+    "h1": "Naproxen: uses and safety for arthritis",
+    "description": "Naproxen is an anti-inflammatory painkiller. Learn how it is used for arthritis, its main risks and when to ask a pharmacist or prescriber for advice.",
+    "answer": "Naproxen is a non-steroidal anti-inflammatory drug (NSAID) that can relieve pain and swelling in conditions including arthritis. It is not suitable for everyone and can cause stomach bleeding, kidney problems and other serious side effects. Ask a pharmacist or prescriber whether it is suitable for you.",
+    "sources": [
+      {
+        "name": "NHS: Naproxen",
+        "url": "https://www.nhs.uk/medicines/naproxen/"
+      },
+      {
+        "name": "NICE NG226: Osteoarthritis recommendations",
+        "url": "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations"
+      }
+    ]
+  },
+  "naproxen-side-effects": {
+    "title": "Naproxen Side Effects: Common Problems and Serious Risks",
+    "h1": "Naproxen Side Effects: Common Problems and Serious Risks",
+    "description": "Naproxen side effects can include stomach pain, nausea and dizziness. Learn about serious risks, warning symptoms and when to seek medical help.",
+    "answer": "Naproxen side effects can include stomach pain, nausea, dizziness and tiredness. More serious problems include stomach bleeding, kidney problems and severe allergic reactions. If you think you are having a serious side effect, seek urgent medical advice. Call 999 for severe breathing difficulty or swelling of the tongue or throat.",
+    "sources": [
+      {
+        "name": "NHS: Naproxen, including side effects",
+        "url": "https://www.nhs.uk/medicines/naproxen/"
+      },
+      {
+        "name": "NHS: Anaphylaxis",
+        "url": "https://www.nhs.uk/conditions/anaphylaxis/"
+      }
+    ]
+  },
+  "what-is-gout": {
+    "title": "What Is Gout? Symptoms, Diagnosis and Treatment",
+    "h1": "What is gout?",
+    "description": "What is gout? Learn how urate crystals cause joint inflammation, the symptoms, how gout is diagnosed and treatments for flares and long-term control.",
+    "answer": "Gout is a type of inflammatory arthritis caused by urate crystals in and around a joint. It often causes sudden, severe pain and swelling, commonly in the big toe but also in other joints. A painful, swollen joint can also be an infection, so do not diagnose gout yourself. Treatment can control flares and lower urate to prevent future problems.",
+    "sources": [
+      {
+        "name": "NHS: Gout",
+        "url": "https://www.nhs.uk/conditions/gout/"
+      },
+      {
+        "name": "NICE NG219: Gout diagnosis and management",
+        "url": "https://www.nice.org.uk/guidance/ng219/chapter/Recommendations"
+      }
+    ]
+  }
+}

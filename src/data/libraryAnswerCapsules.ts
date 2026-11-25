@@ -1,3 +1,4 @@
+import keyword25 from "./libraryKeyword25.json" with { type: "json" };
 import { conditionSubpages } from "./conditionSubpages.ts";
 
 // Complete editorial summaries, never a character-sliced clinical sentence.
@@ -11,9 +12,9 @@ export const LIBRARY_ANSWER_CAPSULES: Record<string, string> = {
   "gout-symptoms": conditionSubpages["gout"].symptoms.intro,
   "psoriatic-arthritis": conditionSubpages["psoriatic-arthritis"].symptoms.intro,
   "polymyalgia": conditionSubpages["polymyalgia-rheumatica"].symptoms.intro,
-  "what-is-gout": conditionSubpages["gout"].symptoms.intro,
+  "what-is-gout": keyword25["what-is-gout"].answer,
   "amitriptyline": "Amitriptyline is a prescription medicine used for some types of persistent pain as well as depression. It affects nerve signalling involved in pain, rather than repairing joint damage or treating every cause of pain. Follow your prescription and ask your pharmacist about side effects, interactions and driving safely.",
-  "naproxen": "Naproxen is a non-steroidal anti-inflammatory medicine used to relieve pain and swelling in conditions including arthritis. It reduces inflammation but can cause stomach, kidney and other side effects, particularly with unsuitable combinations. Check suitability with your pharmacist or prescriber and use only the recommended dose and duration.",
+  "naproxen": keyword25["naproxen"].answer,
   "plantar-fasciitis": "Plantar fasciitis commonly causes pain under the heel or foot, often worse with the first steps after rest. Irritation of the plantar fascia affects the tissue supporting the arch of the foot. Try suitable footwear and appropriate activity changes, and seek assessment if pain persists or worsens.",
   "carpal-tunnel": "Carpal tunnel syndrome can cause tingling, numbness or pain in the hand and fingers, sometimes worse at night. Pressure on the median nerve at the wrist interferes with normal nerve function. See your GP for persistent symptoms, weakness or worsening numbness rather than assuming the cause is arthritis.",
   "collagen": "Collagen supplements are marketed for joint health, but they are not an established way to repair arthritic cartilage. Collagen is a structural protein in connective tissues, and taking it as a supplement does not guarantee joint improvement. Discuss evidence, cost and medicine interactions with your pharmacist before use.",
@@ -52,7 +53,7 @@ export const LIBRARY_ANSWER_CAPSULES: Record<string, string> = {
   "aspirin": "Aspirin is a medicine used for pain relief, while low-dose aspirin is prescribed for some cardiovascular conditions. Its effects on pain and clotting mean dose, purpose and interactions matter, and it is not suitable for everyone. Follow your prescription and ask a pharmacist before combining it with other painkillers.",
   "back-exercises": "Suitable exercise and staying active can help many people manage back pain, but programmes should reflect symptoms and ability. Movement supports function, while strengthening can improve the muscles involved in everyday activities. Start gently and seek medical advice for new neurological symptoms, injury or pain that persists or worsens.",
   "access-to-work": "Access to Work may provide practical support for eligible people whose health condition or disability affects their job. It can help with needs beyond an employer's reasonable adjustments, rather than awarding support solely on a diagnosis. Check current government eligibility guidance and describe the actual barriers you face at work.",
-  "naproxen-side-effects": "Naproxen can cause side effects, including stomach symptoms, dizziness and more serious problems in some people. Its anti-inflammatory action does not remove the risks to the stomach, kidneys or circulation, particularly with unsuitable combinations. Read your leaflet and seek medical advice promptly for possible serious side effects.",
+  "naproxen-side-effects": keyword25["naproxen-side-effects"].answer,
   "knee-support": "Knee supports range from elastic sleeves to fitted braces, and the appropriate choice depends on the problem being managed. Different designs provide compression or mechanical support, but a support does not diagnose or cure arthritis. Ask your physiotherapist about suitability and fit, especially if pain, swelling or instability persists.",
   "collagen-vs-glucosamine": "Collagen and glucosamine supplements are marketed for joint symptoms, but neither should be assumed to repair arthritic cartilage. Their ingredients and proposed actions differ, while clinical evidence and product quality require careful assessment. Discuss likely benefit, cost, side effects and medicine interactions with your pharmacist before choosing either product.",
   "tens-machine": "TENS uses a small device to pass a weak electrical current through pads on the skin for temporary pain relief. It may affect pain messages and natural pain-relieving chemicals, but does not work for everyone. Check safety with a healthcare professional before use, particularly if you have other conditions.",
