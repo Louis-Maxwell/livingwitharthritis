@@ -12,7 +12,11 @@ describe('assistive devices evidence and access',()=>{
   expect(post.content).toContain('does not quote current product prices');
  });
  it('distinguishes assessment, funding and clinical review',()=>{
-  expect(post.content).toContain('£30,000 in England, £36,000 in Wales and £25,000 in Northern Ireland');
+  expect(post.content).toContain('£30,000 in England and £36,000 in Wales');
+  expect(post.content).toContain('up to £35,000');
+  expect(post.content).toContain('£70,000 in some cases');
+  expect(post.content).not.toContain('£25,000');
+  expect(post.citations.some(c=>c.url==='https://www.nidirect.gov.uk/articles/disabled-facilities-grants')).toBe(true);
   expect(post.content).toContain('Scotland has a different');
   expect(post.content).toContain('generally paid service');
   expect(post.content).toContain('starting before approval may mean no grant');
