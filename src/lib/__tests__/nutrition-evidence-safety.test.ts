@@ -8,7 +8,7 @@ describe('source-backed nutrition safety revision', () => {
   expect(post.editorial_review_note).toMatch(/awaiting (?:a )?separate clinical review/i);
   expect(post.last_reviewed).toBeUndefined();
   expect(post.reviewed_by).toBeNull();
-  expect(post.updated_at).toBe(slug === 'best-supplements-joint-pain' ? '2026-11-25T00:40:00.000Z' : '2026-11-17');
+  expect(post.updated_at).toBe(slug === 'best-supplements-joint-pain' ? '2026-11-25T00:40:00.000Z' : slug === 'anti-inflammatory-smoothie-recipes' ? '2026-11-25T04:46:00.000Z' : '2026-11-17');
   expect(post.citations.length).toBeGreaterThanOrEqual(3);
   const data = headDataFor(`/blog/${slug}`);
   const html = rewriteHead('<html><head><title>Home</title></head><body><div id="root"></div></body></html>',`/blog/${slug}`);
