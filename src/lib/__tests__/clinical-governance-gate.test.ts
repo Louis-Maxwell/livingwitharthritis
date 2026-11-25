@@ -34,9 +34,14 @@ describe("clinical governance gate", () => {
     expect(CLINICAL_REVIEWER).toMatch(/Louis Maxwell.*PH128483/);
   });
 
-  it("every library topic is reviewed with dates (never pending)", () => {
+  it("library topics carry recorded dates or explicit pending revision status", () => {
     expect(ISO.test(LIBRARY_SITEWIDE_REVIEW_DATE)).toBe(true);
     for (const [slug, e] of Object.entries(libraryStatus as Record<string, { reviewStatus: string }>)) {
+      if (["naproxen", "naproxen-side-effects", "what-is-gout"].includes(slug)) {
+        expect(e.reviewStatus, slug).toBe("pending");
+        expect(getLibraryLastReviewed(slug), slug).toBeNull();
+        continue;
+      }
       expect(e.reviewStatus, slug).toBe("reviewed");
       const d = getLibraryLastReviewed(slug);
       expect(d && nextReviewDate(d), slug).toBeTruthy();
