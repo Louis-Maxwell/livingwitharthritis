@@ -1,4 +1,4 @@
-﻿import SupplementSafetyGuide from "@/components/seo/SupplementSafetyGuide";
+import SupplementSafetyGuide from "@/components/seo/SupplementSafetyGuide";
 import { Helmet } from "react-helmet-async";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Link, useLocation, Navigate } from "react-router-dom";
@@ -55,6 +55,9 @@ function StandardComparisonPage() {
   }
 
   const article = getComparisonArticle(path);
+  const revisionDate = article?.editorialUpdatedAt ?? LAST_REVIEWED_ISO;
+  const revisionLabel = new Date(revisionDate).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  const isEditorialUpdate = Boolean(article?.editorialUpdatedAt);
   const a = article?.optionA.name ?? prettify(parsed.a);
   const b = article?.optionB.name ?? prettify(parsed.b);
   const context = parsed.context ? prettify(parsed.context) : undefined;
@@ -82,16 +85,16 @@ function StandardComparisonPage() {
     ],
     audience: { "@type": "MedicalAudience", audienceType: "Patient", geographicArea: { "@type": "Country", name: "United Kingdom" } },
     publisher: { "@type": "MedicalOrganization", name: "Living With Arthritis" },
-    dateModified: LAST_REVIEWED_ISO,
+    dateModified: revisionDate,
   };
 
   const fullTitle = enforceTitle(`${title} — Compared`, { route: path });
   const safeDesc = enforceDescription(metaDescription, path);
-  const aeoQuestion = path === "/guides/dmards-vs-biologics"
+  const aeoQuestion = article?.question ?? (path === "/guides/dmards-vs-biologics"
     ? "How do DMARDs and biologics differ for rheumatoid arthritis?"
-    : `How do ${a} and ${b} compare${context ? ` for ${context.toLowerCase()}` : ""}?`;
-  const aeoAnswer = article?.intro ?? metaDescription;
-  const aeoFaqs = article?.takeaways?.slice(0, 4).map((t, i) => ({
+    : `How do ${a} and ${b} compare${context ? ` for ${context.toLowerCase()}` : ""}?`);
+  const aeoAnswer = article?.answer ?? article?.intro ?? metaDescription;
+  const aeoFaqs = article?.faqs ?? article?.takeaways?.slice(0, 4).map((t, i) => ({
     q: `Key point ${i + 1}: ${a} vs ${b}`,
     a: t,
   }));
@@ -133,13 +136,14 @@ function StandardComparisonPage() {
             question={aeoQuestion}
             answer={aeoAnswer}
             faqs={aeoFaqs}
-            updatedAt={LAST_REVIEWED_ISO}
+            updatedAt={revisionDate}
           />
           <p className="text-xs text-muted-foreground mb-4">
-            Last reviewed{" "}
-            <time dateTime={LAST_REVIEWED_ISO} className="font-medium text-foreground/80">
-              {LAST_REVIEWED_LABEL}
+            {isEditorialUpdate ? "Editorial update " : "Last reviewed "}
+            <time dateTime={revisionDate} className="font-medium text-foreground/80">
+              {isEditorialUpdate ? revisionLabel : LAST_REVIEWED_LABEL}
             </time>
+            {isEditorialUpdate && ". Earlier review dates do not attest to this revision."}
           </p>
           <p className="text-lg text-muted-foreground mb-10">
             {article?.intro ??
@@ -159,10 +163,10 @@ function StandardComparisonPage() {
                 {"howItWorks" in opt ? (
                   <ul className="text-sm space-y-2">
                     <li><strong>How it works:</strong> {opt.howItWorks}</li>
-                    <li><strong>Best for:</strong> {opt.bestFor}</li>
-                    <li><strong>Common side-effects:</strong> {opt.sideEffects}</li>
-                    <li><strong>UK healthcare availability:</strong> {opt.nhs}</li>
-                    <li><strong>Typical UK cost:</strong> {opt.cost}</li>
+                    <li><strong>{isEditorialUpdate ? "Who might choose it:" : "Best for:"}</strong> {opt.bestFor}</li>
+                    <li><strong>{isEditorialUpdate ? "Things to consider:" : "Common side-effects:"}</strong> {opt.sideEffects}</li>
+                    <li><strong>{isEditorialUpdate ? "UK guidance:" : "UK healthcare availability:"}</strong> {opt.nhs}</li>
+                    <li><strong>{isEditorialUpdate ? "Cost:" : "Typical UK cost:"}</strong> {opt.cost}</li>
                   </ul>
                 ) : (
                   <p className="text-sm text-muted-foreground">
@@ -228,9 +232,7 @@ function StandardComparisonPage() {
           <section className="rounded-2xl border border-border p-6 bg-secondary/40 mb-12">
             <h2 className="text-lg font-bold mb-2">Talk to your clinician</h2>
             <p className="text-sm text-muted-foreground">
-              This is general information, not medical advice. Discuss {a} and {b} with
-              your GP, rheumatology team or pharmacist before starting, stopping or
-              switching treatment.
+              {article?.disclaimer ?? <>This is general information, not medical advice. Discuss {a} and {b} with your GP, rheumatology team or pharmacist before starting, stopping or switching treatment.</>}
             </p>
           </section>
 
