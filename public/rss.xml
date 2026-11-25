@@ -6,7 +6,15 @@
     <atom:link href="https://livingwitharthritis.org.uk/rss.xml" rel="self" type="application/rss+xml" />
     <description>Free, clinically reviewed arthritis guides from Living With Arthritis, registered charity 1218461.</description>
     <language>en-gb</language>
-    <lastBuildDate>Sun, 25 Oct 2026 09:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 09:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Arthritis Pain Management: What Actually Helps Day by Day?</title>
+      <link>https://livingwitharthritis.org.uk/blog/arthritis-pain-management-day-by-day</link>
+      <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/arthritis-pain-management-day-by-day</guid>
+      <pubDate>Mon, 09 Nov 2026 09:00:00 GMT</pubDate>
+      <category>Pain &amp; flares</category>
+      <description>Practical, day-by-day arthritis pain management: how gentle movement, pacing, rest, heat or cold, everyday adaptations and healthcare support can fit together.</description>
+    </item>
     <item>
       <title>Arthritis Exercise for Beginners: Safe First Steps</title>
       <link>https://livingwitharthritis.org.uk/blog/arthritis-exercise-for-beginners</link>
@@ -2677,7 +2685,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/pip-for-arthritis-how-to-build-a-strong-application</guid>
       <pubDate>Sun, 28 Jun 2026 09:00:00 GMT</pubDate>
       <category>Benefits, PIP &amp; work</category>
-      <description>The post explains that a strong PIP application for arthritis should focus on how symptoms affect daily living and mobility, not just the diagnosis. It…</description>
+      <description>How to describe daily living and mobility in a PIP application for arthritis, with the official points rules and a diary to take into the form.</description>
     </item>
     <item>
       <title>ESA and Universal Credit for Arthritis: Limited Capability for Work, the WCA and What You Could Get</title>
@@ -2861,7 +2869,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/hip-replacement-recovery-week-by-week</guid>
       <pubDate>Mon, 22 Jun 2026 09:00:00 GMT</pubDate>
       <category>Surgery &amp; recovery</category>
-      <description>After hip replacement, most people gradually reduce walking aid reliance over 2-6 weeks. Driving may resume around 6 weeks, depending on comfort and being…</description>
+      <description>NHS advice: recovery can take several months and varies. You need a walking aid at first, should wait at least 6 weeks before driving, and should follow your surgical team rather than a fixed timetable.</description>
     </item>
     <item>
       <title>Prehabilitation: How Pre-Op Exercise Speeds Recovery</title>

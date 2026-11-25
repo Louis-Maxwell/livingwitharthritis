@@ -48,7 +48,8 @@ for (const { name, viewport } of VIEWPORTS) {
 
     await page.goto(`${BASE_URL}/contact`, { waitUntil: "networkidle" });
 
-    const heading = page.getByRole("heading", { name: /a real person will reply/i });
+    const heading = page.locator('#contact-heading');
+    await expect(heading).toHaveText('Contact Living With Arthritis');
     await expect(heading).toBeVisible();
 
     const section = page.locator("#contact");

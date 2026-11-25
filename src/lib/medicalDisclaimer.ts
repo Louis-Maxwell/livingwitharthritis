@@ -3,14 +3,11 @@
  * Not formal legal advice — keep wording educational and escalation-clear.
  */
 
-export const MEDICAL_DISCLAIMER_SHORT =
-  "Educational information for people in the UK living with arthritis — not a diagnosis or personal medical advice. Check medicines and exercises with your GP, pharmacist or rheumatology team. For emergencies call 999; for urgent advice use NHS 111.";
+import { REVIEWED_DISCLAIMER_SHORT, UK_URGENT_CARE } from "../data/reviewedPublicCopy.ts";
 
-export const MEDICAL_DISCLAIMER_TOOL =
-  "This tool is educational only and does not diagnose arthritis or any other condition. It must not delay seeking care. Call 999 for emergencies. For urgent non-emergency advice contact NHS 111 or your GP.";
-
-export const MEDICAL_DISCLAIMER_CHAT =
-  "Educational support only — not a diagnosis or personal treatment plan. Always check with your GP, pharmacist or rheumatology team. Call 999 in an emergency; NHS 111 for urgent advice.";
+export const MEDICAL_DISCLAIMER_SHORT = REVIEWED_DISCLAIMER_SHORT;
+export const MEDICAL_DISCLAIMER_TOOL = REVIEWED_DISCLAIMER_SHORT;
+export const MEDICAL_DISCLAIMER_CHAT = REVIEWED_DISCLAIMER_SHORT;
 
 export const MEDICAL_DISCLAIMER_PATH = "/disclaimer";
 
@@ -71,7 +68,7 @@ export function isYmylPath(pathname: string): boolean {
 }
 
 export function nhsEscalationLine(): string {
-  return "Emergency: 999. Urgent non-emergency: NHS 111. Mental health crisis: Samaritans 116 123.";
+  return `${UK_URGENT_CARE[0].q}. ${UK_URGENT_CARE[UK_URGENT_CARE.length - 1].a}`;
 }
 
 

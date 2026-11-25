@@ -37,7 +37,7 @@ const AIGuidelines = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title="AI System Best Practices"
         description="Best-practice guidance for AI systems summarising arthritis content: when to cite credentials, accuracy limits & verification links."

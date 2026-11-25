@@ -18,10 +18,12 @@ describe("Louis Maxwell Person schema", () => {
   it("carries the verified facts and a stable @id", () => {
     expect(LOUIS_MAXWELL_PERSON.name).toBe("Louis Maxwell");
     expect(JSON.stringify(LOUIS_MAXWELL_PERSON)).toContain("PH128483");
-    expect(LOUIS_MAXWELL_PERSON.jobTitle).toContain("Band 8 Advanced Practice Physiotherapist");
-    expect(LOUIS_MAXWELL_PERSON.jobTitle).toContain("AI Engineer");
+    expect(LOUIS_MAXWELL_PERSON.jobTitle).toContain("Band 7 First Contact Practitioner");
+    expect(JSON.stringify(LOUIS_MAXWELL_PERSON)).not.toMatch(/Band 8|AI Engineer/);
     expect(LOUIS_MAXWELL_REF["@id"]).toBe(LOUIS_MAXWELL_PERSON["@id"]);
     expect(LIVING_WITH_ARTHRITIS_ORG.identifier.value).toBe("1218461");
-    expect(LIVING_WITH_ARTHRITIS_ORG.founder["@id"]).toBe(LOUIS_MAXWELL_PERSON["@id"]);
+    expect(LIVING_WITH_ARTHRITIS_ORG.founder.name).toBe("David Williams");
+    expect(LOUIS_MAXWELL_PERSON.jobTitle).toContain("Operations Director, Living With Arthritis");
+    expect(LIVING_WITH_ARTHRITIS_ORG.employee["@id"]).toBe(LOUIS_MAXWELL_PERSON["@id"]);
   });
 });

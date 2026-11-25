@@ -17,7 +17,7 @@ const meta = (h, k) => (h.match(new RegExp(`<meta\\b[^>]*name="${k}"[^>]*>`, "i"
 const fails = [], titles = new Map(), descs = new Map();
 for (const url of urls) {
   const route = new URL(url).pathname;
-  if (/\.[a-z0-9]{2,5}$/i.test(route)) continue; // assets
+  if (/\.(?!html$)[a-z0-9]{2,5}$/i.test(route)) continue; // non-HTML assets
   const file = routeFile(route, dist);
   if (!file) { fails.push(`${route}: no built HTML`); continue; }
   const h = readFileSync(file, "utf8");

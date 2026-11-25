@@ -1,400 +1,129 @@
-import { submitContactInquiry } from "@/lib/backendSubmit";
-import { CONTACT_EMAILS } from "@/config/contact";
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { Building2, HeartHandshake, Users, ArrowRight, Mail, Check, ShieldCheck } from "lucide-react";
 import Header from "@/components/Header";
+import SeoHead from "@/components/SeoHead";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { motion } from "framer-motion";
-import { Building2, Heart, Users, Award, Handshake, CheckCircle, ArrowRight, Shield, Mail } from "lucide-react";
-import { toast } from "sonner";
-import { z } from "zod";
-import { reportFormFailure } from "@/lib/errorReporting";
+import { CONTACT_EMAILS, mailto } from "@/config/contact";
+import { submitContactInquiry } from "@/lib/backendSubmit";
 
-const inquirySchema = z.object({
-  contact_name: z.string().trim().min(1, "Name is required").max(100),
-  email: z.string().trim().email("Valid email required").max(255),
-  organization_name: z.string().trim().max(200).optional(),
-  inquiry_type: z.string().min(1, "Please select a partnership type"),
-  phone: z.string().trim().max(20).optional(),
-  message: z.string().trim().max(5000).optional(),
-});
-
-const tiers = [
-  {
-    name: "Bronze Partner",
-    amount: "£1,000 – £4,999",
-    color: "from-primary/10 to-primary/5 border-primary/20",
-    icon: "text-primary",
-    benefits: [
-      "Logo on our website",
-      "Social media recognition",
-      "Quarterly impact report",
-      "Certificate of partnership",
-    ],
-  },
-  {
-    name: "Silver Partner",
-    amount: "£5,000 – £14,999",
-    color: "from-primary/10 to-primary/5 border-primary/20",
-    icon: "text-primary",
-    benefits: [
-      "Everything in Bronze",
-      "Featured case study",
-      "Staff wellness workshops",
-      "Co-branded materials",
-      "Annual impact presentation",
-    ],
-  },
-  {
-    name: "Gold Partner",
-    amount: "£15,000 – £49,999",
-    color: "from-primary/10 to-primary/5 border-primary/20",
-    icon: "text-primary",
-    benefits: [
-      "Everything in Silver",
-      "Named programme sponsorship",
-      "VIP event invitations",
-      "Executive board briefings",
-      "PR & media opportunities",
-      "Matched giving programme",
-    ],
-  },
-  {
-    name: "Platinum Partner",
-    amount: "£50,000+",
-    color: "from-primary/10 to-primary/5 border-primary/20",
-    icon: "text-primary",
-    benefits: [
-      "Everything in Gold",
-      "Strategic advisory seat",
-      "Custom impact programme",
-      "National campaign partnership",
-      "Employee volunteering days",
-      "Annual gala table",
-      "Bespoke reporting dashboard",
-    ],
-  },
+const corporateRoutes = [
+  { title: "Company donation or sponsorship", icon: Building2, text: "Explore a company gift or a sponsorship proposal, with the purpose and any recognition agreed in advance.", prompt: "Company donation or sponsorship" },
+  { title: "Charity of the Year", icon: HeartHandshake, text: "Nominate Living With Arthritis and bring your team's fundraising ideas together around a shared cause.", prompt: "Charity of the Year" },
+  { title: "Fund a project or programme", icon: Mail, text: "Discuss funding a specific project, campaign or educational programme. Its scope, budget and any restrictions need to be agreed first.", prompt: "Project, campaign or educational programme" },
+  { title: "Community investment and ESG", icon: Users, text: "Explore support that fits your community investment or environmental, social and governance priorities. Agree meaningful objectives; no ESG rating or reporting credit is promised.", prompt: "Community investment and ESG" },
 ];
+const employeeRoutes = [
+  { title: "Payroll Giving", icon: Building2, text: "Ask whether your employer runs Payroll Giving, then check with its agency that it can accept Living With Arthritis as your chosen charity before authorising deductions.", prompt: "Payroll Giving" },
+  { title: "Monthly employee giving", icon: HeartHandshake, text: "Discuss voluntary monthly gifts of £3, £5 or £10, or another affordable amount. These are suggested amounts, not subscriptions or a confirmed payment scheme.", prompt: "Monthly employee giving (£3–£10)" },
+  { title: "Team fundraising", icon: Users, text: "Bring colleagues together for workplace fundraising activities or a charity challenge. Discuss the idea, practical arrangements and responsibilities before promoting it.", prompt: "Team fundraising" },
+  { title: "Skills and practical support", icon: Mail, text: "Explore employee volunteering where appropriate, including skills such as design, accessibility or technology. Roles, supervision and any checks must be agreed; no placement is guaranteed.", prompt: "Skills and practical support" },
+];
+const matchedRoute = { title: "Employee matched giving", prompt: "Employee matched giving" };
+const routes = [...corporateRoutes, ...employeeRoutes, matchedRoute];
+const empty = { name: "", email: "", organisation: "", interest: "", budget: "", message: "" };
 
-const CorporateGiving = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    contact_name: "",
-    email: "",
-    organization_name: "",
-    inquiry_type: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
+export default function CorporateGiving({ path = "/corporate-giving" }: { path?: string }) {
+  const isPartnerships = path === "/corporate-partnerships";
+  const pageTitle = isPartnerships ? "Corporate Partnerships" : "Corporate Giving";
+  const pageHeading = isPartnerships ? "Company donation or sponsorship" : "Your business can help keep arthritis information free.";
+  const pageDescription = isPartnerships ? corporateRoutes[0].text : "Explore corporate giving, employee donations and matched giving. Discuss sponsorship, fundraising or skills support with Living With Arthritis today.";
+  const [form, setForm] = useState(empty);
+  const [busy, setBusy] = useState(false);
+  const [status, setStatus] = useState("");
+  const change = (key: keyof typeof empty, value: string) => setForm(previous => ({ ...previous, [key]: value }));
+  const choose = (interest: string) => {
+    change("interest", interest);
+    const target = document.getElementById("partnership-form");
+    target?.scrollIntoView({ behavior: window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    document.getElementById("corporate-name")?.focus({ preventScroll: true });
   };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const parsed = inquirySchema.safeParse(formData);
-    if (!parsed.success) {
-      toast.error(parsed.error.issues[0]?.message || "Please check your input");
-      return;
-    }
-
-    setIsSubmitting(true);
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!form.name.trim()) { setStatus("Please enter your name."); return; }
+    setBusy(true);
+    setStatus("");
     try {
       const result = await submitContactInquiry({
-        name: parsed.data.contact_name,
-        email: parsed.data.email,
-        phone: parsed.data.phone || undefined,
-        subject: "Corporate giving enquiry",
-        formId: "corporate-giving",
-        message: [
-          parsed.data.organization_name ? "Organisation: " + parsed.data.organization_name : "",
-          "Type: " + parsed.data.inquiry_type,
-          parsed.data.message ? parsed.data.message : "",
-        ].filter(Boolean).join("\n"),
+        name: form.name.trim(), email: form.email.trim(), subject: "Corporate giving enquiry", formId: "corporate-giving",
+        message: [form.organisation.trim() && `Organisation: ${form.organisation.trim()}`, `Interest: ${form.interest}`, form.budget.trim() && `Indicative budget: ${form.budget.trim()}`, form.message.trim()].filter(Boolean).join("\n"),
       });
-      if (result.via === "mailto") {
-        toast.message(result.message);
-        setFormData({ contact_name: "", email: "", organization_name: "", inquiry_type: "", phone: "", message: "" });
-      } else if (result.via === "throttled") {
-        toast.message(result.message);
-      } else {
-        toast.error(result.message);
-      }
-    } catch (error) {
-      reportFormFailure("corporate_giving", error instanceof Error ? error.message : "submit failed");
-      toast.error(`Something went wrong. Please email ${CONTACT_EMAILS.info}.`);
-    } finally {
-      setIsSubmitting(false);
-    }
+      setStatus(result.via === "mailto" ? "Your email app should open with a draft for you to review and send. Nothing has been sent by this website. If no app opened, use the email link on this page. Your details remain here so you can copy them." : result.message);
+    } catch {
+      setStatus(`The draft could not be opened. Your details are still here. Please email ${CONTACT_EMAILS.info}.`);
+    } finally { setBusy(false); }
   };
-
-  return (
-    <>
-      <Helmet>
-        <title>Corporate Giving & Partnerships UK | Living With Arthritis</title>
-        <meta name="description" content="Partner with Living With Arthritis (charity 1218461) through corporate sponsorship, matched giving, employee wellness and CSR partnerships." />
-        <meta name="keywords" content="corporate giving arthritis UK, arthritis charity partnership, CSR arthritis UK, corporate sponsorship charity, employee wellness arthritis, matched giving UK, arthritis fundraising corporate, charity partnership UK" />
-        <meta property="og:title" content="Corporate Giving & Partnerships UK | Living With Arthritis" />
-        <meta property="og:description" content="Partner with Living With Arthritis through corporate sponsorship, matched giving and employee wellness." />
-        <meta property="og:url" content="https://livingwitharthritis.org.uk/corporate-giving" />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content="en_GB" />
-        <meta property="og:site_name" content="Living With Arthritis" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Corporate Giving & Partnerships | Living With Arthritis" />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Corporate Giving & Partnerships UK" />
-        <meta name="twitter:description" content="Corporate partnerships with Living With Arthritis charity 1218461." />
-        <meta name="geo.region" content="GB" />
-        <meta name="geo.placename" content="United Kingdom" />
-        <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/corporate-giving" />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebPage",
-          "name": "Corporate Giving & Partnerships UK",
-          "description": "Corporate sponsorship and partnership opportunities with Living With Arthritis charity.",
-          "url": "https://livingwitharthritis.org.uk/corporate-giving",
-          "inLanguage": "en-GB",
-          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" },
-          "audience": { "@type": "Audience", "audienceType": "Corporate Partners", "geographicArea": { "@type": "Country", "name": "United Kingdom" } }
-        })}</script>
-      </Helmet>
-      <Header />
-      <main id="main-content" className="min-h-screen bg-background">
-        {/* Hero */}
-        <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/8 via-accent/30 to-background overflow-hidden">
-          <div className="container mx-auto px-6 md:px-10 max-w-5xl text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-            >
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-semibold px-4 py-2 rounded-full mb-6">
-                <Handshake className="w-4 h-4" />
-                Corporate Partnerships
-              </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-foreground mb-5 leading-tight">
-                Together, we can make a <span className="text-primary italic">bigger impact</span>
-              </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Join organisations supporting people in the UK living with arthritis. 
-                From matched giving to employee wellness, we'll tailor a partnership that aligns with your CSR goals.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Stats */}
-        <section className="py-12 border-b border-border/20">
-          <div className="container mx-auto px-6 md:px-10 max-w-4xl">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              {[
-                { value: "10M+", label: "People affected in UK", icon: Users },
-                { value: "88p", label: "Of every £1 to patients", icon: Heart },
-                { value: "100%", label: "Tax deductible", icon: Shield },
-                { value: "CSR", label: "Partnership routes", icon: Building2 },
-              ].map((stat, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="space-y-1"
-                >
-                  <stat.icon className="w-5 h-5 text-primary mx-auto mb-2" />
-                  <p className="text-2xl font-bold text-foreground">{stat.value}</p>
-                  <p className="text-xs text-muted-foreground">{stat.label}</p>
-                </motion.div>
-              ))}
+  return <>
+    <SeoHead title={pageTitle} description={pageDescription} path={path} />
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", name: pageTitle, url: `https://livingwitharthritis.org.uk${path}`, inLanguage: "en-GB" })}</script>
+    </Helmet>
+    <Header />
+    <main id="main-content" className="min-h-dvh bg-background">
+      <section className="border-b border-border bg-gradient-to-br from-primary/5 via-background to-accent/30 py-12 sm:py-20">
+        <div className="container max-w-6xl px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10 items-center">
+          <div>
+            <p className="text-sm font-semibold tracking-widest uppercase mb-4">For businesses and teams</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-tight tracking-tight">{pageHeading}</h1>
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground max-w-2xl">{isPartnerships ? corporateRoutes[2].text : "Support Living With Arthritis through corporate giving, employee giving or matched donations. Start with an idea that fits your organisation."}</p>
+            <div className="flex flex-col sm:flex-row gap-3 mt-8">
+              <Button asChild size="lg" className="rounded-full h-auto min-h-12 whitespace-normal text-center"><a href="#partnership-form">Discuss your idea <ArrowRight aria-hidden="true" className="ml-2 w-4 h-4 shrink-0" /></a></Button>
+              <Button asChild size="lg" variant="outline" className="rounded-full h-auto min-h-12 whitespace-normal text-center"><Link to="/donate">Explore donation options</Link></Button>
             </div>
           </div>
-        </section>
-
-        {/* Partnership Tiers */}
-        <section className="py-16 lg:py-20">
-          <div className="container mx-auto px-6 md:px-10 max-w-6xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-display font-bold text-foreground mb-3">Partnership Tiers</h2>
-              <p className="text-muted-foreground max-w-lg mx-auto">
-                Choose the level that fits your organisation. Every tier includes meaningful impact and recognition.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-              {tiers.map((tier, i) => (
-                <motion.div
-                  key={tier.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className={`rounded-2xl border bg-gradient-to-b ${tier.color} p-6 flex flex-col`}
-                >
-                  <Award className={`w-8 h-8 ${tier.icon} mb-3`} />
-                  <h3 className="text-lg font-bold text-foreground mb-1">{tier.name}</h3>
-                  <p className="text-sm font-semibold text-primary mb-4">{tier.amount}</p>
-                  <ul className="space-y-2 flex-1">
-                    {tier.benefits.map((b) => (
-                      <li key={b} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    variant="outline"
-                    className="mt-5 rounded-full text-sm"
-                    onClick={() => {
-                      handleChange("inquiry_type", `Corporate Partnership - ${tier.name}`);
-                      document.getElementById("partnership-form")?.scrollIntoView({ behavior: "smooth" });
-                    }}
-                  >
-                    Get Started <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
-                  </Button>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Ways to Partner */}
-        <section className="py-16 bg-accent/30">
-          <div className="container mx-auto px-6 md:px-10 max-w-4xl">
-            <h2 className="text-3xl font-display font-bold text-foreground text-center mb-10">Ways to Partner</h2>
-            <div className="grid sm:grid-cols-2 gap-5">
-              {[
-                { title: "Matched Giving", desc: "Double your employees' charitable donations with a company-matched giving programme." },
-                { title: "Payroll Giving", desc: "Enable tax-efficient donations directly from employee salaries through Give As You Earn." },
-                { title: "Charity of the Year", desc: "Nominate us as your Charity of the Year for a focused, high-impact partnership." },
-                { title: "Sponsored Events", desc: "Sponsor or host fundraising events — from corporate runs to gala dinners." },
-                { title: "Employee Wellness", desc: "Arthritis awareness workshops and ergonomic assessments for your workforce." },
-                { title: "Pro Bono Support", desc: "Contribute your team's expertise in marketing, tech, legal, or finance." },
-              ].map((way, i) => (
-                <motion.div
-                  key={way.title}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  className="bg-card rounded-xl border border-border/40 p-5"
-                >
-                  <h3 className="font-bold text-foreground mb-1.5">{way.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{way.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Enquiry Form */}
-        <section id="partnership-form" className="py-16 lg:py-20">
-          <div className="container mx-auto px-6 md:px-10 max-w-xl">
-            <div className="text-center mb-10">
-              <Mail className="w-10 h-10 text-primary mx-auto mb-4" />
-              <h2 className="text-3xl font-display font-bold text-foreground mb-3">Get in Touch</h2>
-              <p className="text-muted-foreground">
-                Tell us about your organisation and we'll design a partnership that works for you.
-              </p>
-            </div>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">Your Name *</label>
-                  <Input
-                    value={formData.contact_name}
-                    onChange={(e) => handleChange("contact_name", e.target.value)}
-                    required
-                    maxLength={100}
-                    className="rounded-xl"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">Email *</label>
-                  <Input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => handleChange("email", e.target.value)}
-                    required
-                    maxLength={255}
-                    className="rounded-xl"
-                  />
-                </div>
-              </div>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">Organisation</label>
-                  <Input
-                    value={formData.organization_name}
-                    onChange={(e) => handleChange("organization_name", e.target.value)}
-                    maxLength={200}
-                    className="rounded-xl"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">Phone</label>
-                  <Input
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => handleChange("phone", e.target.value)}
-                    maxLength={20}
-                    className="rounded-xl"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="text-sm font-medium text-foreground mb-1.5 block">Partnership Type *</label>
-                <Select value={formData.inquiry_type} onValueChange={(v) => handleChange("inquiry_type", v)}>
-                  <SelectTrigger className="rounded-xl">
-                    <SelectValue placeholder="Select a partnership type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Corporate Partnership - Bronze">Bronze Partner (£1k–£5k)</SelectItem>
-                    <SelectItem value="Corporate Partnership - Silver">Silver Partner (£5k–£15k)</SelectItem>
-                    <SelectItem value="Corporate Partnership - Gold">Gold Partner (£15k–£50k)</SelectItem>
-                    <SelectItem value="Corporate Partnership - Platinum">Platinum Partner (£50k+)</SelectItem>
-                    <SelectItem value="Matched Giving">Matched Giving Programme</SelectItem>
-                    <SelectItem value="Charity of the Year">Charity of the Year</SelectItem>
-                    <SelectItem value="Payroll Giving">Payroll Giving</SelectItem>
-                    <SelectItem value="Other">Other / General Enquiry</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div>
-                <label className="text-sm font-medium text-foreground mb-1.5 block">Message</label>
-                <Textarea
-                  value={formData.message}
-                  onChange={(e) => handleChange("message", e.target.value)}
-                  placeholder="Tell us about your CSR goals and how you'd like to partner..."
-                  maxLength={5000}
-                  rows={4}
-                  className="rounded-xl"
-                />
-              </div>
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full h-12 rounded-full btn-primary-cta text-base font-semibold"
-              >
-                {isSubmitting ? "Sending..." : "Send Partnership Enquiry"}
-              </Button>
-              <p className="text-xs text-muted-foreground text-center">
-                We'll respond within 2 business days. Your data is handled per our privacy policy.
-              </p>
-            </form>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </>
-  );
-};
-
-export default CorporateGiving;
+          <aside className="rounded-3xl border border-border bg-card p-6 sm:p-8 shadow-sm" aria-label="About the charity">
+            <HeartHandshake className="w-10 h-10 mb-5 text-primary" aria-hidden="true" />
+            <h2 className="text-2xl font-bold">A practical place to start</h2>
+            <p className="mt-4 leading-relaxed text-muted-foreground">Our website shares educational information about arthritis, movement and everyday life. Explore the resources before deciding how you would like to help.</p>
+            <Link className="inline-block mt-5 underline underline-offset-4 font-medium" to="/guides">See the free guides</Link>
+            <div className="mt-6 pt-5 border-t border-border text-sm space-y-2"><p>Registered charity in England and Wales</p><p className="text-xl font-bold">No. 1218461</p><p className="text-muted-foreground">Independent of Arthritis UK</p></div>
+          </aside>
+        </div>
+      </section>
+      <section className="container max-w-6xl px-5 sm:px-8 py-14 sm:py-20" aria-labelledby="ways-title">
+        <p className="text-sm font-semibold uppercase tracking-widest mb-3">Choose your starting point</p>
+        <h2 id="ways-title" className="text-3xl sm:text-4xl font-display font-bold">More than one way to give</h2>
+        <p className="mt-4 max-w-2xl text-muted-foreground leading-relaxed">These are ideas to discuss, not pre-agreed packages. We agree every partnership in writing, including any sponsorship, recognition, activity or reporting, before you commit.</p>
+        <h3 className="text-2xl font-bold mt-8 mb-5">Corporate Giving</h3><div className="grid grid-cols-1 sm:grid-cols-2 gap-5">{corporateRoutes.map(route => <article key={route.title} className="rounded-2xl border border-border bg-card p-6 flex flex-col"><route.icon className="w-7 h-7 text-primary mb-5" aria-hidden="true" /><h4 className="text-xl font-bold">{route.title}</h4><p className="text-muted-foreground leading-relaxed mt-3 mb-6 flex-1">{route.text}</p><Button variant="outline" className="h-auto min-h-11 whitespace-normal" onClick={() => choose(route.prompt)}>Discuss {route.title.toLowerCase()}</Button></article>)}</div>
+      </section>
+      {!isPartnerships && <><section className="container max-w-6xl px-5 sm:px-8 pb-14 sm:pb-20" aria-labelledby="employee-title"><h2 id="employee-title" className="text-3xl sm:text-4xl font-display font-bold">Employee Giving</h2><p className="mt-4 mb-8 max-w-2xl text-muted-foreground leading-relaxed">Make giving a voluntary choice that works for your colleagues. Start with a small regular gift, a team activity or an offer of time and skills.</p><div className="grid grid-cols-1 sm:grid-cols-2 gap-5">{employeeRoutes.map(route => <article key={route.title} className="rounded-2xl border border-border bg-card p-6 flex flex-col"><route.icon className="w-7 h-7 text-primary mb-5" aria-hidden="true" /><h3 className="text-xl font-bold">{route.title}</h3><p className="text-muted-foreground leading-relaxed mt-3 mb-6 flex-1">{route.text}</p><Button variant="outline" className="h-auto min-h-11 whitespace-normal" onClick={() => choose(route.prompt)}>Discuss {route.title.toLowerCase()}</Button></article>)}</div>
+        <aside className="mt-6 rounded-2xl border border-border p-6 bg-accent/30" aria-label="How UK Payroll Giving works"><h3 className="text-xl font-bold">How UK Payroll Giving works</h3><p className="mt-3 text-muted-foreground leading-relaxed">Through an employer-run scheme and a Payroll Giving agency, donations come from PAYE wages or a pension before Income Tax, but after National Insurance. Tax relief depends on the donor's tax rate. Agency fees may apply and Gift Aid cannot be added.</p><p className="mt-3 text-muted-foreground leading-relaxed">The receiving charity must be recognised by HMRC. Payroll Giving availability for Living With Arthritis is not confirmed on this page; check eligibility with the agency and contact us before setting it up.</p><a className="inline-block mt-4 underline underline-offset-4" href="https://www.gov.uk/payroll-giving">Read the GOV.UK Payroll Giving guidance</a></aside>
+      </section>
+      <section className="container max-w-6xl px-5 sm:px-8 pb-14 sm:pb-20" aria-labelledby="matched-title"><div className="rounded-3xl border border-border bg-card p-6 sm:p-10"><HeartHandshake className="w-9 h-9 text-primary mb-5" aria-hidden="true" /><h2 id="matched-title" className="text-3xl sm:text-4xl font-display font-bold">Matched Giving</h2><p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">Invite your organisation to match employee donations or fundraising. With a full £1-for-£1 match, a £10 employee gift plus £10 from the employer means £20 donated before any fees.</p><p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">Matching can give colleagues a shared fundraising goal. Check the employer's scheme, eligibility, match rate, cap and claim deadline first. No employer match or increase in staff engagement is guaranteed.</p><Button variant="outline" className="mt-6 h-auto min-h-11 whitespace-normal" onClick={() => choose(matchedRoute.prompt)}>Discuss employee matched giving</Button></div></section>
+      </>}
+      {isPartnerships && <section className="container max-w-6xl px-5 sm:px-8 pb-14"><h2 className="text-2xl font-bold">Employee Giving</h2><p className="mt-4 text-muted-foreground">Make giving a voluntary choice that works for your colleagues. Start with a small regular gift, a team activity or an offer of time and skills.</p><Link className="inline-block mt-4 underline underline-offset-4" to="/corporate-giving">Corporate Giving</Link></section>}
+      <section className="bg-accent/30 border-y border-border py-14">
+        <div className="container max-w-6xl px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div><h2 className="text-3xl font-display font-bold">A clear conversation, before a commitment</h2><ol className="mt-7 space-y-5">{[
+            ["Share your idea", "Tell us what your organisation has in mind, your timescale and any indicative budget."],
+            ["Discuss what is possible", "Check the proposed activity, responsibilities and any recognition or reporting you would need."],
+            ["Agree the details", "Do not assume a package, event, service or use of the charity's name is confirmed until the details are agreed in writing."],
+          ].map(([title, text], i) => <li key={title} className="flex gap-4"><span className="shrink-0 flex items-center justify-center rounded-full border border-border bg-background w-9 h-9 font-bold">{i + 1}</span><div><h3 className="font-bold">{title}</h3><p className="mt-1 text-muted-foreground leading-relaxed">{text}</p></div></li>)}</ol></div>
+          <aside className="rounded-2xl bg-card border border-border p-6 sm:p-8"><ShieldCheck aria-hidden="true" className="w-7 h-7 text-primary mb-4" /><h2 className="text-2xl font-bold">Support with clear boundaries</h2><ul className="mt-5 space-y-4">{["A donation or sponsorship is not a clinical endorsement of a product or business.", "Please do not include patient details, health records or other sensitive information in an enquiry.", "Company gifts, sponsorship and employee giving may have different tax treatment. Check with your finance team or professional adviser; no tax saving is promised here."].map(text => <li key={text} className="flex gap-3 text-muted-foreground leading-relaxed"><Check className="w-4 h-4 shrink-0 mt-1 text-primary" aria-hidden="true" />{text}</li>)}</ul><Link className="inline-block underline underline-offset-4 mt-6" to="/governance">Read about our governance</Link></aside>
+        </div>
+      </section>
+      <section id="partnership-form" className="container max-w-6xl px-5 sm:px-8 py-14 sm:py-20 scroll-mt-40" aria-labelledby="enquiry-title">
+        <div className="grid grid-cols-1 lg:grid-cols-[.8fr_1.2fr] gap-10">
+          <div><p className="uppercase tracking-widest text-sm font-semibold mb-3">Take the next step</p><h2 id="enquiry-title" className="text-3xl sm:text-4xl font-display font-bold">Tell us what you have in mind</h2><p className="mt-5 leading-relaxed text-muted-foreground">This form prepares an email draft in your own email app. Review it and press Send there. The website does not send or store your enquiry.</p><a className="inline-block mt-5 underline underline-offset-4 break-all" href={mailto("info", "Corporate giving enquiry")}>{CONTACT_EMAILS.info}</a><p className="text-sm text-muted-foreground mt-4">Prefer not to use the form? Email the same address directly.</p></div>
+          <form onSubmit={submit} className="rounded-2xl border border-border p-5 sm:p-8 bg-card space-y-5">
+            <p className="text-sm text-muted-foreground">Fields marked * are required.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5"><div><label htmlFor="corporate-name" className="block font-medium text-sm mb-2">Your name *</label><Input id="corporate-name" name="name" autoComplete="name" required maxLength={100} value={form.name} onChange={e => change("name", e.target.value)} /></div><div><label htmlFor="corporate-email" className="block font-medium text-sm mb-2">Work email *</label><Input id="corporate-email" name="email" type="email" autoComplete="email" required maxLength={255} value={form.email} onChange={e => change("email", e.target.value)} /></div></div>
+            <div><label htmlFor="corporate-organisation" className="block font-medium text-sm mb-2">Organisation</label><Input id="corporate-organisation" name="organisation" autoComplete="organization" maxLength={200} value={form.organisation} onChange={e => change("organisation", e.target.value)} /></div>
+            <div><label htmlFor="corporate-interest" className="block font-medium text-sm mb-2">I am interested in *</label><select id="corporate-interest" name="interest" required value={form.interest} onChange={e => change("interest", e.target.value)} className="flex min-h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"><option value="">Choose an option</option>{routes.map(route => <option key={route.prompt}>{route.prompt}</option>)}<option>Other / not sure yet</option></select></div>
+            <div><label htmlFor="corporate-budget" className="block font-medium text-sm mb-2">Indicative budget, if known (optional)</label><Input id="corporate-budget" name="budget" maxLength={100} placeholder="For example, an amount or a fundraising goal" value={form.budget} onChange={e => change("budget", e.target.value)} /><p className="text-xs text-muted-foreground mt-2">An indication only, not a pledge or payment.</p></div>
+            <div><label htmlFor="corporate-message" className="block font-medium text-sm mb-2">Your idea</label><Textarea id="corporate-message" name="message" maxLength={3500} rows={5} value={form.message} onChange={e => change("message", e.target.value)} placeholder="What would you like to do, and when? Please leave out sensitive personal information." /></div>
+            <Button type="submit" disabled={busy} className="w-full min-h-12 h-auto whitespace-normal rounded-full">{busy ? "Preparing draft..." : "Prepare enquiry email"}</Button>
+            <p role="status" aria-live="polite" className="text-sm leading-relaxed break-words">{status}</p>
+            <p className="text-xs leading-relaxed text-muted-foreground">Nothing is sent until you send the draft from your email app. <Link to="/privacy" className="underline underline-offset-4">Privacy policy</Link>.</p>
+          </form>
+        </div>
+      </section>
+      <section className="container max-w-6xl px-5 sm:px-8 pb-16"><h2 className="text-2xl font-bold mb-5">Before you get in touch</h2><div className="grid grid-cols-1 md:grid-cols-2 gap-5"><details className="rounded-xl border border-border p-5"><summary className="font-semibold cursor-pointer">Can we discuss support without choosing a tier?</summary><p className="mt-3 text-muted-foreground leading-relaxed">Yes. Use the enquiry form to describe your idea and any budget you have in mind. No package or contribution is agreed by opening a draft.</p></details><details className="rounded-xl border border-border p-5"><summary className="font-semibold cursor-pointer">Can we use the charity's name or logo?</summary><p className="mt-3 text-muted-foreground leading-relaxed">Ask first. Any logo use, publicity or sponsorship wording needs to be agreed before it is used.</p></details></div></section>
+    </main>
+    <Footer />
+  </>;
+}

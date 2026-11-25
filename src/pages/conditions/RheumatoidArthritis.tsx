@@ -119,7 +119,7 @@ const RheumatoidArthritis = () => (
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
     </Helmet>
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <Header />
       <PageBreadcrumb segments={[{ label: "Conditions", href: "/#conditions" }, { label: "Rheumatoid Arthritis" }]} />
       <PageHero
@@ -388,9 +388,9 @@ const RheumatoidArthritis = () => (
               },
               {
                 to: "/tools/waiting-time",
-                eyebrow: "Free tool",
-                title: "rheumatology waiting time",
-                description: "Early RA referral matters — estimate your local 2026 wait and act fast.",
+                eyebrow: "Referral information",
+                title: "Rheumatology referral information",
+                description: "Check your referral and find out who to contact while you wait.",
                 readTime: "2 min",
                 icon: Timer,
                 tint: "bg-tint-sky",

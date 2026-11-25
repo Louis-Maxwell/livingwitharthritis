@@ -1,3 +1,4 @@
+import { STANDALONE_ANSWER_CAPSULES } from "@/data/standaloneAnswerCapsules";
 import ClusterLandingPage, { type ClusterLandingData } from "@/components/conditions/ClusterLandingPage";
 
 const DATA: ClusterLandingData = {
@@ -7,8 +8,7 @@ const DATA: ClusterLandingData = {
   title: "Early Signs of Arthritis: 7 Symptoms & When to See a GP (UK)",
   description: "The early signs of arthritis explained: joint pain, stiffness, swelling and warmth, how osteoarthritis and inflammatory arthritis start differently, and when to see a GP.",
   question: "What are the first signs of arthritis?",
-  answer:
-    "The first signs of arthritis are usually joint pain, stiffness, swelling or reduced movement that lasts for more than a few weeks. In osteoarthritis, symptoms tend to start gradually in one or a few joints, such as the knees, hips or the base of the thumb, with brief stiffness after rest and pain that is worse after activity. Inflammatory arthritis, such as rheumatoid or psoriatic arthritis, more often causes warm, swollen joints, morning stiffness lasting more than 30 minutes and tiredness, sometimes in several joints on both sides of the body. See a GP if a joint is swollen or symptoms are not settling: inflammatory arthritis responds best to early treatment.",
+  answer: STANDALONE_ANSWER_CAPSULES["/conditions/early-arthritis-symptoms"],
   sections: [
     {
       id: "early-signs",

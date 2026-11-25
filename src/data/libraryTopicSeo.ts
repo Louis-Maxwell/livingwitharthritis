@@ -1,3 +1,4 @@
+import keyword25 from "./libraryKeyword25.json" with { type: "json" };
 /**
  * Unique titles, descriptions, extra UK sections and cross-links for
  * high-value library topics. Overlay only — do not rewrite
@@ -385,5 +386,6 @@ export function getLibraryPillarRelated(
 }
 
 export function getLibraryTopicSeo(slug: string): LibraryTopicSeo | undefined {
-  return LIBRARY_TOPIC_SEO[slug];
+  const revised = keyword25[slug as keyof typeof keyword25];
+  return revised ? { ...LIBRARY_TOPIC_SEO[slug], title: revised.title, h1: revised.h1, description: revised.description } : LIBRARY_TOPIC_SEO[slug];
 }

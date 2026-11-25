@@ -39,6 +39,9 @@ vi.mock("framer-motion", () => ({
     span: ({ children, ...props }: any) => <span {...props}>{children}</span>,
   },
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  MotionConfig: ({ children }: any) => <>{children}</>,
+  useReducedMotion: () => true,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   AnimatePresence: ({ children }: any) => <>{children}</>,
 }));
 

@@ -271,6 +271,18 @@ export const CITATIONS_DISABILITY_PIP: Citation[] = [
   VERSUS_ARTHRITIS_OA,
 ];
 
+/** /guides/benefits-pip: the claim itself (GOV.UK + Citizens Advice, checked 11 Nov 2026) */
+export const CITATIONS_PIP_CLAIM: Citation[] = [
+  GOV_UK_PIP,
+  { label: "How to claim PIP", url: "https://www.gov.uk/pip/how-to-claim", publisher: "GOV.UK" },
+  { label: "PIP assessment guide part 1: the assessment process", url: "https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-1-the-assessment-process", publisher: "Department for Work and Pensions" },
+  { label: "PIP assessment guide part 2: the assessment criteria", url: "https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-2-the-assessment-criteria", publisher: "Department for Work and Pensions" },
+  { label: "Challenge a benefit decision (mandatory reconsideration)", url: "https://www.gov.uk/mandatory-reconsideration", publisher: "GOV.UK" },
+  { label: "Appeal a benefit decision", url: "https://www.gov.uk/appeal-benefit-decision", publisher: "GOV.UK" },
+  { label: "Check how to fill in your PIP claim form", url: "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/help-with-your-claim/fill-in-form-pip/", publisher: "Citizens Advice" },
+  { label: "Getting evidence to support your PIP claim", url: "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/pip/help-with-your-claim/your-supporting-evidence/", publisher: "Citizens Advice" },
+];
+
 /** Waiting-list help */
 export const CITATIONS_WAITING_LIST: Citation[] = [
   NHS_REFERRALS,
@@ -282,6 +294,8 @@ export const CITATIONS_WAITING_LIST: Citation[] = [
 /** Exercise hub + exercise pillar */
 export const CITATIONS_EXERCISE_HUB: Citation[] = [
   NICE_OA_NG226,
+  NICE_RA_NG100,
+  NHS_OSTEOARTHRITIS,
   VERSUS_ARTHRITIS_EXERCISE,
   CMO_PHYSICAL_ACTIVITY,
   CSP_HOME,
@@ -319,6 +333,10 @@ export const CITATIONS_SUPPLEMENTS: Citation[] = [
 
 /** Symptom checker educational tool */
 export const CITATIONS_SYMPTOM_CHECKER: Citation[] = [
+  { label: "NHS: joint pain and urgent help", url: "https://www.nhs.uk/symptoms/joint-pain/" },
+  { label: "NHS: septic arthritis", url: "https://www.nhs.uk/conditions/septic-arthritis/" },
+  { label: "NHS: back pain and emergency symptoms", url: "https://www.nhs.uk/conditions/back-pain/" },
+  { label: "NICE NG100: rheumatoid arthritis referral", url: "https://www.nice.org.uk/guidance/ng100/chapter/Recommendations" },
   NHS_OSTEOARTHRITIS,
   NHS_RHEUMATOID,
   NICE_OA_NG226,

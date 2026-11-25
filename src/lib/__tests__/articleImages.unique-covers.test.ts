@@ -54,3 +54,14 @@ describe("coverImage uniqueness", () => {
     expect(cover.src).toBe(`/openverse/${map[slug]}`);
   });
 });
+
+describe("blog cover files are real pictures", () => {
+  it("never maps a published slug to a blank placeholder image", async () => {
+    const { statSync } = await import("node:fs");
+    const map = blogCoverMap as Record<string, string>;
+    const tiny = Object.entries(map)
+      .filter(([, file]) => existsSync(join(OPENVERSE_DIR, file)) && statSync(join(OPENVERSE_DIR, file)).size < 2048)
+      .map(([slug, file]) => `${slug} => ${file}`);
+    expect(tiny, `Placeholder covers:\n${tiny.slice(0, 20).join("\n")}`).toEqual([]);
+  });
+});

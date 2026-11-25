@@ -7,7 +7,12 @@ import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import ArticleHtmlWithNextStep from "@/components/ArticleHtmlWithNextStep";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import RoutineBuilder from "@/components/tools/RoutineBuilder";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
+import JointVisualizer from "@/components/exercises/JointVisualizer";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import ArticleCitations from "@/components/blog/ArticleCitations";
@@ -47,6 +52,21 @@ const FAQS = [
     question: "Can exercise delay a hip replacement?",
     answer:
       "Exercise can improve pain and function for many people, and NICE recommends it before considering surgery. It cannot reverse joint damage, and some people still need a replacement. If you do need surgery, being stronger and fitter beforehand can help your recovery.",
+  },
+  {
+    question: "Can I exercise during a hip flare?",
+    answer:
+      "Yes, gently. Keep moving with smaller, easier movements and reduce how much you do, then build back up as the flare settles. Avoid anything that causes sharp pain, and seek advice if a flare is not settling or you feel unwell.",
+  },
+  {
+    question: "Should I stretch a painful arthritic hip?",
+    answer:
+      "Gentle stretches for the front of the hip and the back of the thigh can ease stiffness. Move slowly and stay within comfort. Stop a stretch that causes sharp or pinching pain in the groin, and ask a physiotherapist for alternatives.",
+  },
+  {
+    question: "Do I need a gym for hip exercises?",
+    answer:
+      "No. Bridges, clamshells, side-lying leg lifts and sit-to-stands can all be done at home with a chair and a mat. A physiotherapist can tailor the routine and help you progress.",
   },
 ];
 
@@ -226,7 +246,7 @@ export default function HipExercisesForOsteoarthritis() {
         idPrefix="hip-oa-exercises"
       />
       <Header />
-      <main id="main-content" className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-dvh bg-background">
         <PageHero
           title="Hip exercises for osteoarthritis"
           subtitle="A safe, physio-aligned home routine — eight moves, a weekly plan, and clear rules for progressing without provoking a flare."
@@ -234,6 +254,10 @@ export default function HipExercisesForOsteoarthritis() {
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/hip-exercises-for-osteoarthritis" />
+          <GpPrepSheet />
+          <RoutineBuilder />
+          <WhatsAppShare path="/guides/hip-exercises-for-osteoarthritis" title="Hip osteoarthritis exercises" />
+          <JointVisualizer joint="hip" />
           <ArticleCitations citations={CITATIONS_HIP_EXERCISES} />
           <EducationalDisclaimerBox lastReviewed="2026-10-23" />
           <TopicClusterNav path="/guides/hip-exercises-for-osteoarthritis" />
@@ -246,10 +270,7 @@ export default function HipExercisesForOsteoarthritis() {
             today.
           </p>
           <TableOfContents html={html} />
-          <article
-            className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary"
-            dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }}
-          />
+          <ArticleHtmlWithNextStep html={html} path="/guides/hip-exercises-for-osteoarthritis" className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" />
 
           <div className="mt-12 pt-8 border-t border-border/30">
             <h3 className="font-display font-bold text-lg mb-4">

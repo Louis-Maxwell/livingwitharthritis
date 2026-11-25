@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./MotivationMarquee.css";
 
 const MESSAGE = "Nothing is impossible until you make it happen !!";
 

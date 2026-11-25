@@ -8,22 +8,26 @@ import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import ArticleHtmlWithNextStep from "@/components/ArticleHtmlWithNextStep";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
-import { FIN_DIR_FAQS, FIN_DIR_HTML } from "@/data/benefitsGuides/financialHelpDirectoryContent";
+import { FIN_DIR_HTML } from "@/data/benefitsGuides/financialHelpDirectoryContent";
 import ArticleCitations from "@/components/blog/ArticleCitations";
-import { CITATIONS_DISABILITY_PIP } from "@/data/clinical/ukCitations";
+import { CITATIONS_PIP_CLAIM } from "@/data/clinical/ukCitations";
+import { pipGuideVisibleFaqs } from "@/data/benefitsGuides/pipGuideHead";
 import {
   PIP_GUIDE_DESCRIPTION,
-  PIP_GUIDE_FAQS,
   PIP_GUIDE_HTML,
   PIP_GUIDE_META_TITLE,
+  PIP_GUIDE_ANSWER,
   PIP_GUIDE_QUICK_ANSWER,
   PIP_GUIDE_TITLE,
+  PIP_HOWTO_STEPS,
 } from "@/data/benefitsGuides/pipGuideContent";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
@@ -36,7 +40,7 @@ const DIRECTORY_HTML = FIN_DIR_HTML.replace(/id="([^"]+)"/g, 'id="dir-$1"').repl
 const RELATED_GUIDES_HTML = `<h2 id="benefits-and-work-guides">More benefits and work guides</h2>
 <ul>
 <li><a href="/faq/arthritis-disability-benefits-uk">FAQ: arthritis disability benefits UK</a>: Short answers on PIP, DLA and when arthritis may count as a disability.</li>
-<li><a href="/blog/pip-for-arthritis-uk">PIP for arthritis in the UK</a>: How PIP is assessed for arthritis, evidence to keep, and where to get help.</li>
+<li><a href="/blog/pip-for-arthritis-uk">Can you get PIP for arthritis?</a>: Eligibility, points and evidence. This claim guide stays separate from that page.</li>
 <li><a href="/resources/pip-evidence-diary">Printable PIP evidence diary</a>: A one-week activity diary to support a PIP discussion with an adviser.</li>
 <li><a href="/guides/disability-support">Disability support</a>: Aids, adaptations and rights when arthritis limits day-to-day life.</li>
 <li><a href="/arthritis-waiting-list-help">Waiting-list help</a>: What to do while waiting for rheumatology, physio or surgery.</li>
@@ -56,13 +60,7 @@ const CONTENT = `${PIP_GUIDE_HTML}
 ${DIRECTORY_HTML}
 ${RELATED_GUIDES_HTML}`;
 
-const seenQuestions = new Set<string>();
-const ALL_FAQS = [...PIP_GUIDE_FAQS, ...FIN_DIR_FAQS].filter((f) => {
-  const key = f.question.trim().toLowerCase();
-  if (seenQuestions.has(key)) return false;
-  seenQuestions.add(key);
-  return true;
-});
+const ALL_FAQS = pipGuideVisibleFaqs();
 
 export default function BenefitsPIPGuide() {
   const html = addHeadingIds(CONTENT);
@@ -105,7 +103,7 @@ export default function BenefitsPIPGuide() {
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "MedicalWebPage",
+        "@type": "WebPage",
         "name": PIP_GUIDE_TITLE,
         "description": PIP_GUIDE_DESCRIPTION,
         "url": "https://livingwitharthritis.org.uk/guides/benefits-pip",
@@ -113,17 +111,26 @@ export default function BenefitsPIPGuide() {
         "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
         "about": { "@type": "MedicalCondition", "name": "Arthritis" },
         "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" },
+        "dateModified": "2026-11-11",
+        "author": LOUIS_MAXWELL_REF,
         "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] }
       })}</script>
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
-          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://livingwitharthritis.org.uk/guides/uk-arthritis" },
-          { "@type": "ListItem", "position": 3, "name": "Benefits & PIP Guide", "item": "https://livingwitharthritis.org.uk/guides/benefits-pip" }
-        ]
+        "@type": "HowTo",
+        "@id": "https://livingwitharthritis.org.uk/guides/benefits-pip#howto",
+        "name": "How to claim PIP for arthritis",
+        "description": PIP_GUIDE_ANSWER,
+        "inLanguage": "en-GB",
+        "step": PIP_HOWTO_STEPS.map((st, i) => ({
+          "@type": "HowToStep",
+          "position": i + 1,
+          "name": st.name,
+          "text": st.text,
+          "url": `https://livingwitharthritis.org.uk/guides/benefits-pip#${st.id}`,
+        })),
       })}</script>
+      {/* PageBreadcrumb below owns the single visible breadcrumb and its JSON-LD. */}
       {/* FAQPage JSON-LD is emitted once by PageSchema (faqs={ALL_FAQS})
           for the questions rendered visibly in the accordion below. The
           second, hand-written FAQPage block that used to sit here duplicated
@@ -131,17 +138,30 @@ export default function BenefitsPIPGuide() {
     </Helmet>
       <Header />
       <PageBreadcrumb segments={[{ label: "Guides", href: "/guides" }, { label: "PIP and benefits" }]} />
-      <main id="main-content" className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-dvh bg-background">
         <PageHero
-          title="Complete PIP guide for arthritis"
-          subtitle="Who can claim, 2026/27 rates, how the points work, the form, the assessment and how to challenge a decision. Facts checked on GOV.UK on 10 October 2026."
+          title="How to claim PIP for arthritis: complete UK guide"
+          subtitle="The phone call, the PIP2 form, the assessment, the decision and how to challenge it, with information about rates and how the points work. Check the linked GOV.UK sources for current rules and amounts."
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/benefits-pip" />
+          <p className="text-sm text-muted-foreground mb-6">Clinical review date not recorded.</p>
+          <section id="pip-start-here" aria-labelledby="pip-start-here-heading" className="my-8 rounded-2xl border border-border/40 bg-card p-5 sm:p-6">
+            <h2 id="pip-start-here-heading" className="font-display font-bold text-xl mt-0 mb-3">Start here: where are you with PIP?</h2>
+            <ul className="space-y-2 text-sm text-muted-foreground m-0 pl-5 list-disc">
+              <li><strong>Thinking about claiming:</strong> check <a href="#eligibility" className="text-primary underline">who can claim</a> and <a href="#points" className="text-primary underline">how the points work</a>, then start a week of notes in the <Link to="/resources/pip-evidence-diary" className="text-primary underline">PIP evidence diary</Link>. In Scotland, new claims are for Adult Disability Payment instead (see <a href="#nations" className="text-primary underline">the nations section</a>).</li>
+              <li><strong>Ready to claim:</strong> follow the <a href="#claim" className="text-primary underline">step-by-step claim</a> and the <a href="#form" className="text-primary underline">form tips</a>.</li>
+              <li><strong>Assessment coming up:</strong> read <a href="#assessment" className="text-primary underline">what happens at the assessment</a> and take your diary with you.</li>
+              <li><strong>Turned down or awarded less than you expected:</strong> see <a href="#challenge" className="text-primary underline">how to challenge the decision</a>. Time limits apply, so act soon.</li>
+              <li><strong>Over State Pension age:</strong> new PIP claims usually need you to be under State Pension age. Read our <Link to="/blog/attendance-allowance-arthritis-frailty-uk" className="text-primary underline">Attendance Allowance guide</Link> instead.</li>
+              <li><strong>Caring for someone with arthritis:</strong> see <Link to="/blog/carers-allowance-help-if-you-care-for-someone" className="text-primary underline">Carer's Allowance</Link> and get <a href="#free-help" className="text-primary underline">free, independent help</a> with the claim.</li>
+            </ul>
+            <p className="text-xs text-muted-foreground mt-4 mb-0">This guide is general information, not benefits advice. A free adviser, such as Citizens Advice, can look at your own situation.</p>
+          </section>
           <TopicClusterNav path="/guides/benefits-pip" />
           <p className="speakable-intro text-muted-foreground text-base leading-relaxed mb-8">
-            <strong>Quick answer:</strong> {PIP_GUIDE_QUICK_ANSWER}
+            <strong>How the points work:</strong> {PIP_GUIDE_QUICK_ANSWER}
           </p>
           <div className="mb-10 rounded-2xl border border-primary/25 bg-primary/5 p-5 sm:p-6 print:hidden">
             <p className="text-sm font-semibold text-foreground m-0 mb-2">Free tool: printable PIP evidence diary</p>
@@ -152,11 +172,11 @@ export default function BenefitsPIPGuide() {
               to="/resources/pip-evidence-diary"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90"
             >
-              Open the PIP evidence diary
+              Printable PIP evidence diary
             </Link>
           </div>
           <TableOfContents html={html} />
-          <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }} />
+          <ArticleHtmlWithNextStep html={html} path="/guides/benefits-pip" className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" />
           <section id="benefits-pip-faq" className="mt-16 pt-8 border-t border-border/30">
             <h2 className="font-display font-bold text-2xl mb-6">Frequently asked questions</h2>
             <FaqAccordion
@@ -183,13 +203,12 @@ export default function BenefitsPIPGuide() {
       </main>
 
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
-        <ArticleCitations citations={CITATIONS_DISABILITY_PIP} />
-        <EducationalDisclaimerBox lastReviewed="2026-10-23" />
+        <ArticleCitations citations={CITATIONS_PIP_CLAIM} />
+        <EducationalDisclaimerBox reviewStatus="pending" pendingText="Clinical review date not recorded." />
       </div>
 <GuideOnwardJourney currentPath="/guides/benefits-pip" />
       <Suspense fallback={null}><Footer /></Suspense>
     </>
   );
 }
-
 

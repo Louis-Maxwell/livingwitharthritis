@@ -1,0 +1,286 @@
+{
+  "/conditions/juvenile-arthritis/symptoms": {
+    "title": "Juvenile Arthritis Symptoms: Early Signs & GP Advice",
+    "description": "Early signs of juvenile arthritis, common symptoms and when to see your GP. Plain-English UK guidance based on NHS and NICE advice. Not a diagnosis.",
+    "question": "Juvenile arthritis symptoms",
+    "answer": "Juvenile idiopathic arthritis can cause persistent joint pain, swelling, stiffness or changes in how a child moves. Inflammation can affect joint function and interfere with everyday play and activities. Arrange a GP assessment for a child with joint problems rather than assuming they are ordinary growing pains.",
+    "breadcrumb": "Juvenile arthritis symptoms",
+    "about": "Juvenile Arthritis",
+    "bodyHtml": "<section aria-label=\"Child joint and eye safety\"><h2>A child with joint symptoms: when to get help</h2><p>Arrange a GP assessment for a child with joint problems or a limp with no obvious cause. Do not wait two or six weeks before asking for help. A duration used to classify arthritis is not a waiting period for parents.</p><h3>Emergency help</h3><p>For a child with a limp, call 999 or go to A&amp;E if they develop sudden hip, knee or thigh pain, cannot put weight on their leg, have a leg that has changed shape, feel generally unwell with a high temperature or shivering, have severe lower tummy pain, or their symptoms get worse. Do not drive to A&amp;E; ask someone to drive or call 999 for an ambulance.</p><h3>Eye symptoms and screening</h3><p>Ask for an urgent GP appointment or NHS 111 advice for eye pain, sensitivity to light, very red eyes or a change in vision. If your child cannot see, go to A&amp;E or call 999. Do not wait for the next screening appointment. JIA-related uveitis can also occur without symptoms, so keep all specialist eye-screening appointments.</p><h3>Exercise must fit the child</h3><p>Activity advice here is for a child whose condition has been assessed. A new unexplained limp, sudden pain or inability to bear weight needs assessment, not an adult exercise programme. The paediatric physiotherapist should tailor activities, loads and repetitions to the child's joints, age, abilities and treatment. During an assessed JIA flare, the team may recommend low-impact activity and avoiding contact or high-impact sport. Follow the child's own plan, including after a procedure.</p><p>Editorial safety update: 24 November 2026. Awaiting separate clinical review. Earlier review dates do not attest to this revision.</p><h3>Sources checked for this update</h3><ul><li><a href=\"https://www.nhs.uk/symptoms/limp-in-children/\">NHS: limping in children and emergency signs</a></li><li><a href=\"https://www.nhs.uk/conditions/arthritis/\">NHS: arthritis</a></li><li><a href=\"https://www.nhs.uk/conditions/uveitis/\">NHS: uveitis and urgent eye advice</a></li><li><a href=\"https://www.cuh.nhs.uk/patient-information/eye-screening-for-uveitis-in-paediatric-rheumatology-patients/\">Cambridge University Hospitals: JIA eye screening</a></li><li><a href=\"https://www.cuh.nhs.uk/patient-information/guide-to-physical-activity-and-exercise-in-juvenile-idiopathic-arthritis-jia/\">Cambridge University Hospitals: physical activity and exercise in JIA</a></li><li><a href=\"https://www.leedsth.nhs.uk/patients/resources/juvenile-idiopathic-arthritis-jia-young-people/\">Leeds Teaching Hospitals: JIA for young people</a></li><li><a href=\"https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/the-eatwell-guide/\">NHS: the Eatwell Guide and age limits</a></li></ul></section><p>Juvenile idiopathic arthritis can cause persistent joint pain, swelling, stiffness or changes in how a child moves. Inflammation can affect joint function and interfere with everyday play and activities. Arrange a GP assessment for a child with joint problems rather than assuming they are ordinary growing pains.</p><h2>Common symptoms of juvenile arthritis</h2><ul><li>Joint pain, swelling or warmth: seek assessment rather than waiting six weeks</li><li>Morning stiffness or a limp on waking</li><li>A reluctance to use a particular limb or joint</li><li>Unexplained fevers, rashes, or fatigue (in systemic JIA)</li><li>Eye inflammation (uveitis) — often without symptoms, so screening is essential</li><li>Growth delay or limb-length differences in long-standing disease</li></ul><h2>When to see your GP</h2><p>Arrange a GP assessment for a child with joint problems or an unexplained limp. Do not wait a few weeks or use the six-week JIA classification period as a waiting rule. Follow the emergency and eye advice above when relevant.</p>",
+    "reviewStatus": "pending",
+    "summaryReviewNote": "Editorial safety update: 24 November 2026. Awaiting separate clinical review. Earlier review dates do not attest to this revision.",
+    "sources": [
+      {
+        "name": "NHS: limping in children and emergency signs",
+        "url": "https://www.nhs.uk/symptoms/limp-in-children/"
+      },
+      {
+        "name": "NHS: arthritis",
+        "url": "https://www.nhs.uk/conditions/arthritis/"
+      },
+      {
+        "name": "NHS: uveitis and urgent eye advice",
+        "url": "https://www.nhs.uk/conditions/uveitis/"
+      },
+      {
+        "name": "Cambridge University Hospitals: JIA eye screening",
+        "url": "https://www.cuh.nhs.uk/patient-information/eye-screening-for-uveitis-in-paediatric-rheumatology-patients/"
+      },
+      {
+        "name": "Cambridge University Hospitals: physical activity and exercise in JIA",
+        "url": "https://www.cuh.nhs.uk/patient-information/guide-to-physical-activity-and-exercise-in-juvenile-idiopathic-arthritis-jia/"
+      },
+      {
+        "name": "Leeds Teaching Hospitals: JIA for young people",
+        "url": "https://www.leedsth.nhs.uk/patients/resources/juvenile-idiopathic-arthritis-jia-young-people/"
+      },
+      {
+        "name": "NHS: the Eatwell Guide and age limits",
+        "url": "https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/the-eatwell-guide/"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Should I wait six weeks before seeking help?",
+        "a": "Arrange a GP assessment for a child with joint problems or a limp with no obvious cause. Do not wait two or six weeks before asking for help. A duration used to classify arthritis is not a waiting period for parents."
+      },
+      {
+        "q": "When does a child's limp need emergency help?",
+        "a": "For a child with a limp, call 999 or go to A&E if they develop sudden hip, knee or thigh pain, cannot put weight on their leg, have a leg that has changed shape, feel generally unwell with a high temperature or shivering, have severe lower tummy pain, or their symptoms get worse. Do not drive to A&E; ask someone to drive or call 999 for an ambulance."
+      },
+      {
+        "q": "Can eye inflammation happen without symptoms?",
+        "a": "Ask for an urgent GP appointment or NHS 111 advice for eye pain, sensitivity to light, very red eyes or a change in vision. If your child cannot see, go to A&E or call 999. Do not wait for the next screening appointment. JIA-related uveitis can also occur without symptoms, so keep all specialist eye-screening appointments."
+      }
+    ]
+  },
+  "/conditions/juvenile-arthritis/treatment": {
+    "title": "Juvenile Arthritis Treatment: NHS Options and Self-Care | Living With Arthritis",
+    "description": "How juvenile arthritis is treated in the UK: NHS care, common medicines, pain relief and self-care. Educational only; your clinician decides treatment.",
+    "question": "Juvenile arthritis treatment",
+    "answer": "Juvenile arthritis treatment is planned by a paediatric rheumatology team and may include medicines, physiotherapy and practical support. Controlling inflammation helps protect joint function while a child grows and develops. Follow the individual treatment and monitoring plan, and discuss changes in symptoms or activity with the team.",
+    "breadcrumb": "Juvenile arthritis treatment",
+    "about": "Juvenile Arthritis",
+    "bodyHtml": "<section aria-label=\"Child joint and eye safety\"><h2>A child with joint symptoms: when to get help</h2><p>Arrange a GP assessment for a child with joint problems or a limp with no obvious cause. Do not wait two or six weeks before asking for help. A duration used to classify arthritis is not a waiting period for parents.</p><h3>Emergency help</h3><p>For a child with a limp, call 999 or go to A&amp;E if they develop sudden hip, knee or thigh pain, cannot put weight on their leg, have a leg that has changed shape, feel generally unwell with a high temperature or shivering, have severe lower tummy pain, or their symptoms get worse. Do not drive to A&amp;E; ask someone to drive or call 999 for an ambulance.</p><h3>Eye symptoms and screening</h3><p>Ask for an urgent GP appointment or NHS 111 advice for eye pain, sensitivity to light, very red eyes or a change in vision. If your child cannot see, go to A&amp;E or call 999. Do not wait for the next screening appointment. JIA-related uveitis can also occur without symptoms, so keep all specialist eye-screening appointments.</p><h3>Exercise must fit the child</h3><p>Activity advice here is for a child whose condition has been assessed. A new unexplained limp, sudden pain or inability to bear weight needs assessment, not an adult exercise programme. The paediatric physiotherapist should tailor activities, loads and repetitions to the child's joints, age, abilities and treatment. During an assessed JIA flare, the team may recommend low-impact activity and avoiding contact or high-impact sport. Follow the child's own plan, including after a procedure.</p><p>Editorial safety update: 24 November 2026. Awaiting separate clinical review. Earlier review dates do not attest to this revision.</p><h3>Sources checked for this update</h3><ul><li><a href=\"https://www.nhs.uk/symptoms/limp-in-children/\">NHS: limping in children and emergency signs</a></li><li><a href=\"https://www.nhs.uk/conditions/arthritis/\">NHS: arthritis</a></li><li><a href=\"https://www.nhs.uk/conditions/uveitis/\">NHS: uveitis and urgent eye advice</a></li><li><a href=\"https://www.cuh.nhs.uk/patient-information/eye-screening-for-uveitis-in-paediatric-rheumatology-patients/\">Cambridge University Hospitals: JIA eye screening</a></li><li><a href=\"https://www.cuh.nhs.uk/patient-information/guide-to-physical-activity-and-exercise-in-juvenile-idiopathic-arthritis-jia/\">Cambridge University Hospitals: physical activity and exercise in JIA</a></li><li><a href=\"https://www.leedsth.nhs.uk/patients/resources/juvenile-idiopathic-arthritis-jia-young-people/\">Leeds Teaching Hospitals: JIA for young people</a></li><li><a href=\"https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/the-eatwell-guide/\">NHS: the Eatwell Guide and age limits</a></li></ul></section><p>Juvenile arthritis treatment is planned by a paediatric rheumatology team and may include medicines, physiotherapy and practical support. Controlling inflammation helps protect joint function while a child grows and develops. Follow the individual treatment and monitoring plan, and discuss changes in symptoms or activity with the team.</p><h2>Treatment approaches</h2><h3>Individual medicine plan</h3><p>The paediatric rheumatology team chooses treatment for the child and arranges monitoring. Do not use adult doses or change treatment from this page.</p><h3>Specialist follow-up</h3><p>Review symptoms, treatment effects and any new concerns with the child's team.</p><h3>Steroid joint injections</h3><p>Targeted treatment for individual swollen joints.</p><h3>NSAIDs</h3><p>Used for symptom control alongside disease-modifying treatment.</p><h3>Paediatric physiotherapy</h3><p>Maintains range of motion and supports normal physical development.</p><h3>Uveitis screening</h3><p>Regular eye checks by ophthalmology to detect silent eye inflammation.</p>",
+    "reviewStatus": "pending",
+    "summaryReviewNote": "Editorial safety update: 24 November 2026. Awaiting separate clinical review. Earlier review dates do not attest to this revision.",
+    "sources": [
+      {
+        "name": "NHS: limping in children and emergency signs",
+        "url": "https://www.nhs.uk/symptoms/limp-in-children/"
+      },
+      {
+        "name": "NHS: arthritis",
+        "url": "https://www.nhs.uk/conditions/arthritis/"
+      },
+      {
+        "name": "NHS: uveitis and urgent eye advice",
+        "url": "https://www.nhs.uk/conditions/uveitis/"
+      },
+      {
+        "name": "Cambridge University Hospitals: JIA eye screening",
+        "url": "https://www.cuh.nhs.uk/patient-information/eye-screening-for-uveitis-in-paediatric-rheumatology-patients/"
+      },
+      {
+        "name": "Cambridge University Hospitals: physical activity and exercise in JIA",
+        "url": "https://www.cuh.nhs.uk/patient-information/guide-to-physical-activity-and-exercise-in-juvenile-idiopathic-arthritis-jia/"
+      },
+      {
+        "name": "Leeds Teaching Hospitals: JIA for young people",
+        "url": "https://www.leedsth.nhs.uk/patients/resources/juvenile-idiopathic-arthritis-jia-young-people/"
+      },
+      {
+        "name": "NHS: the Eatwell Guide and age limits",
+        "url": "https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/the-eatwell-guide/"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Who plans treatment for JIA?",
+        "a": "The paediatric rheumatology team plans treatment and monitoring with the child and family. Do not use adult doses, over-the-counter medicines or supplements based on this page. Ask the child's prescriber or pharmacist what is suitable."
+      },
+      {
+        "q": "Does feeling better mean eye screening can stop?",
+        "a": "No. JIA-related eye inflammation can occur without symptoms. Keep specialist screening appointments and ask the team before changing medicines or follow-up."
+      },
+      {
+        "q": "What if my child develops new joint or eye symptoms?",
+        "a": "For a child with a limp, call 999 or go to A&E if they develop sudden hip, knee or thigh pain, cannot put weight on their leg, have a leg that has changed shape, feel generally unwell with a high temperature or shivering, have severe lower tummy pain, or their symptoms get worse. Do not drive to A&E; ask someone to drive or call 999 for an ambulance. Ask for an urgent GP appointment or NHS 111 advice for eye pain, sensitivity to light, very red eyes or a change in vision. If your child cannot see, go to A&E or call 999. Do not wait for the next screening appointment. JIA-related uveitis can also occur without symptoms, so keep all specialist eye-screening appointments."
+      }
+    ]
+  },
+  "/conditions/juvenile-arthritis/exercises": {
+    "title": "Best Exercises for Juvenile Arthritis: Safe Routines (UK) | Living With Arthritis",
+    "description": "Safe exercises for juvenile arthritis: movements to try, what to ease off and how to build a weekly routine. Check with your GP or physio if unsure.",
+    "question": "Activity and exercise for a child with JIA",
+    "answer": "Children with juvenile arthritis can benefit from activity adapted to their symptoms, abilities and treatment plan. Suitable movement helps maintain joint mobility and muscle strength while supporting participation in play. Ask the paediatric physiotherapy team about appropriate activities and how to adjust them when symptoms change.",
+    "breadcrumb": "Activity and exercise for a child with JIA",
+    "about": "Juvenile Arthritis",
+    "bodyHtml": "<section aria-label=\"Child joint and eye safety\"><h2>A child with joint symptoms: when to get help</h2><p>Arrange a GP assessment for a child with joint problems or a limp with no obvious cause. Do not wait two or six weeks before asking for help. A duration used to classify arthritis is not a waiting period for parents.</p><h3>Emergency help</h3><p>For a child with a limp, call 999 or go to A&amp;E if they develop sudden hip, knee or thigh pain, cannot put weight on their leg, have a leg that has changed shape, feel generally unwell with a high temperature or shivering, have severe lower tummy pain, or their symptoms get worse. Do not drive to A&amp;E; ask someone to drive or call 999 for an ambulance.</p><h3>Eye symptoms and screening</h3><p>Ask for an urgent GP appointment or NHS 111 advice for eye pain, sensitivity to light, very red eyes or a change in vision. If your child cannot see, go to A&amp;E or call 999. Do not wait for the next screening appointment. JIA-related uveitis can also occur without symptoms, so keep all specialist eye-screening appointments.</p><h3>Exercise must fit the child</h3><p>Activity advice here is for a child whose condition has been assessed. A new unexplained limp, sudden pain or inability to bear weight needs assessment, not an adult exercise programme. The paediatric physiotherapist should tailor activities, loads and repetitions to the child's joints, age, abilities and treatment. During an assessed JIA flare, the team may recommend low-impact activity and avoiding contact or high-impact sport. Follow the child's own plan, including after a procedure.</p><p>Editorial safety update: 24 November 2026. Awaiting separate clinical review. Earlier review dates do not attest to this revision.</p><h3>Sources checked for this update</h3><ul><li><a href=\"https://www.nhs.uk/symptoms/limp-in-children/\">NHS: limping in children and emergency signs</a></li><li><a href=\"https://www.nhs.uk/conditions/arthritis/\">NHS: arthritis</a></li><li><a href=\"https://www.nhs.uk/conditions/uveitis/\">NHS: uveitis and urgent eye advice</a></li><li><a href=\"https://www.cuh.nhs.uk/patient-information/eye-screening-for-uveitis-in-paediatric-rheumatology-patients/\">Cambridge University Hospitals: JIA eye screening</a></li><li><a href=\"https://www.cuh.nhs.uk/patient-information/guide-to-physical-activity-and-exercise-in-juvenile-idiopathic-arthritis-jia/\">Cambridge University Hospitals: physical activity and exercise in JIA</a></li><li><a href=\"https://www.leedsth.nhs.uk/patients/resources/juvenile-idiopathic-arthritis-jia-young-people/\">Leeds Teaching Hospitals: JIA for young people</a></li><li><a href=\"https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/the-eatwell-guide/\">NHS: the Eatwell Guide and age limits</a></li></ul></section><p>Children with juvenile arthritis can benefit from activity adapted to their symptoms, abilities and treatment plan. Suitable movement helps maintain joint mobility and muscle strength while supporting participation in play. Ask the paediatric physiotherapy team about appropriate activities and how to adjust them when symptoms change.</p><h2>Key benefits</h2><ul><li>Maintains joint range of motion</li><li>Builds strength to protect affected joints</li><li>Supports normal growth and bone development</li><li>Improves confidence and social participation</li><li>Reduces the deconditioning that comes with chronic illness</li></ul>",
+    "reviewStatus": "pending",
+    "summaryReviewNote": "Editorial safety update: 24 November 2026. Awaiting separate clinical review. Earlier review dates do not attest to this revision.",
+    "sources": [
+      {
+        "name": "NHS: limping in children and emergency signs",
+        "url": "https://www.nhs.uk/symptoms/limp-in-children/"
+      },
+      {
+        "name": "NHS: arthritis",
+        "url": "https://www.nhs.uk/conditions/arthritis/"
+      },
+      {
+        "name": "NHS: uveitis and urgent eye advice",
+        "url": "https://www.nhs.uk/conditions/uveitis/"
+      },
+      {
+        "name": "Cambridge University Hospitals: JIA eye screening",
+        "url": "https://www.cuh.nhs.uk/patient-information/eye-screening-for-uveitis-in-paediatric-rheumatology-patients/"
+      },
+      {
+        "name": "Cambridge University Hospitals: physical activity and exercise in JIA",
+        "url": "https://www.cuh.nhs.uk/patient-information/guide-to-physical-activity-and-exercise-in-juvenile-idiopathic-arthritis-jia/"
+      },
+      {
+        "name": "Leeds Teaching Hospitals: JIA for young people",
+        "url": "https://www.leedsth.nhs.uk/patients/resources/juvenile-idiopathic-arthritis-jia-young-people/"
+      },
+      {
+        "name": "NHS: the Eatwell Guide and age limits",
+        "url": "https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/the-eatwell-guide/"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can I use an adult arthritis exercise plan for my child?",
+        "a": "Activity advice here is for a child whose condition has been assessed. A new unexplained limp, sudden pain or inability to bear weight needs assessment, not an adult exercise programme. The paediatric physiotherapist should tailor activities, loads and repetitions to the child's joints, age, abilities and treatment. During an assessed JIA flare, the team may recommend low-impact activity and avoiding contact or high-impact sport. Follow the child's own plan, including after a procedure."
+      },
+      {
+        "q": "Should my child exercise through a new unexplained limp?",
+        "a": "Arrange a GP assessment for a child with joint problems or a limp with no obvious cause. Do not wait two or six weeks before asking for help. A duration used to classify arthritis is not a waiting period for parents. For a child with a limp, call 999 or go to A&E if they develop sudden hip, knee or thigh pain, cannot put weight on their leg, have a leg that has changed shape, feel generally unwell with a high temperature or shivering, have severe lower tummy pain, or their symptoms get worse. Do not drive to A&E; ask someone to drive or call 999 for an ambulance."
+      },
+      {
+        "q": "Who should adapt school sport?",
+        "a": "Ask the paediatric physiotherapy or occupational therapy team to advise school staff. Activities and rest breaks should fit the child's condition and abilities. A general activity target is not a personalised rehabilitation prescription."
+      }
+    ]
+  },
+  "/conditions/juvenile-arthritis/diet": {
+    "title": "Diet for Juvenile Arthritis: Foods to Eat and Limit | Living With Arthritis",
+    "description": "What to favour and limit with juvenile arthritis: anti-inflammatory eating ideas and evidence notes. General UK guidance, not a personal meal plan.",
+    "question": "Diet for juvenile arthritis",
+    "answer": "Children with juvenile arthritis need a varied, age-appropriate diet rather than restrictive arthritis diets or unverified supplements. Adequate energy and nutrients support growth, muscle function and bone health during treatment. Discuss poor appetite, weight changes or supplement questions with the paediatric team or a registered dietitian.",
+    "breadcrumb": "Diet for juvenile arthritis",
+    "about": "Juvenile Arthritis",
+    "bodyHtml": "<section aria-label=\"Child joint and eye safety\"><h2>A child with joint symptoms: when to get help</h2><p>Arrange a GP assessment for a child with joint problems or a limp with no obvious cause. Do not wait two or six weeks before asking for help. A duration used to classify arthritis is not a waiting period for parents.</p><h3>Emergency help</h3><p>For a child with a limp, call 999 or go to A&amp;E if they develop sudden hip, knee or thigh pain, cannot put weight on their leg, have a leg that has changed shape, feel generally unwell with a high temperature or shivering, have severe lower tummy pain, or their symptoms get worse. Do not drive to A&amp;E; ask someone to drive or call 999 for an ambulance.</p><h3>Eye symptoms and screening</h3><p>Ask for an urgent GP appointment or NHS 111 advice for eye pain, sensitivity to light, very red eyes or a change in vision. If your child cannot see, go to A&amp;E or call 999. Do not wait for the next screening appointment. JIA-related uveitis can also occur without symptoms, so keep all specialist eye-screening appointments.</p><h3>Exercise must fit the child</h3><p>Activity advice here is for a child whose condition has been assessed. A new unexplained limp, sudden pain or inability to bear weight needs assessment, not an adult exercise programme. The paediatric physiotherapist should tailor activities, loads and repetitions to the child's joints, age, abilities and treatment. During an assessed JIA flare, the team may recommend low-impact activity and avoiding contact or high-impact sport. Follow the child's own plan, including after a procedure.</p><p>Editorial safety update: 24 November 2026. Awaiting separate clinical review. Earlier review dates do not attest to this revision.</p><h3>Sources checked for this update</h3><ul><li><a href=\"https://www.nhs.uk/symptoms/limp-in-children/\">NHS: limping in children and emergency signs</a></li><li><a href=\"https://www.nhs.uk/conditions/arthritis/\">NHS: arthritis</a></li><li><a href=\"https://www.nhs.uk/conditions/uveitis/\">NHS: uveitis and urgent eye advice</a></li><li><a href=\"https://www.cuh.nhs.uk/patient-information/eye-screening-for-uveitis-in-paediatric-rheumatology-patients/\">Cambridge University Hospitals: JIA eye screening</a></li><li><a href=\"https://www.cuh.nhs.uk/patient-information/guide-to-physical-activity-and-exercise-in-juvenile-idiopathic-arthritis-jia/\">Cambridge University Hospitals: physical activity and exercise in JIA</a></li><li><a href=\"https://www.leedsth.nhs.uk/patients/resources/juvenile-idiopathic-arthritis-jia-young-people/\">Leeds Teaching Hospitals: JIA for young people</a></li><li><a href=\"https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/the-eatwell-guide/\">NHS: the Eatwell Guide and age limits</a></li></ul></section><p>Children with juvenile arthritis need a varied, age-appropriate diet rather than restrictive arthritis diets or unverified supplements. Adequate energy and nutrients support growth, muscle function and bone health during treatment. Discuss poor appetite, weight changes or supplement questions with the paediatric team or a registered dietitian.</p><h2>Foods to favour</h2><ul><li>Calcium-rich foods (dairy or fortified alternatives) every day</li><li>Age-appropriate foods and portions, with advice from the paediatric team</li><li>Variety of fruit and vegetables</li><li>Wholegrains and pulses</li><li>Lean protein for growth and muscle development</li></ul><h2>Foods to limit</h2><ul><li>Sugary drinks and ultra-processed snacks</li><li>Excess fast food</li><li>Do not remove food groups or start a supplement without paediatric or dietitian advice</li></ul>",
+    "reviewStatus": "pending",
+    "summaryReviewNote": "Editorial safety update: 24 November 2026. Awaiting separate clinical review. Earlier review dates do not attest to this revision.",
+    "sources": [
+      {
+        "name": "NHS: limping in children and emergency signs",
+        "url": "https://www.nhs.uk/symptoms/limp-in-children/"
+      },
+      {
+        "name": "NHS: arthritis",
+        "url": "https://www.nhs.uk/conditions/arthritis/"
+      },
+      {
+        "name": "NHS: uveitis and urgent eye advice",
+        "url": "https://www.nhs.uk/conditions/uveitis/"
+      },
+      {
+        "name": "Cambridge University Hospitals: JIA eye screening",
+        "url": "https://www.cuh.nhs.uk/patient-information/eye-screening-for-uveitis-in-paediatric-rheumatology-patients/"
+      },
+      {
+        "name": "Cambridge University Hospitals: physical activity and exercise in JIA",
+        "url": "https://www.cuh.nhs.uk/patient-information/guide-to-physical-activity-and-exercise-in-juvenile-idiopathic-arthritis-jia/"
+      },
+      {
+        "name": "Leeds Teaching Hospitals: JIA for young people",
+        "url": "https://www.leedsth.nhs.uk/patients/resources/juvenile-idiopathic-arthritis-jia-young-people/"
+      },
+      {
+        "name": "NHS: the Eatwell Guide and age limits",
+        "url": "https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/the-eatwell-guide/"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Should my child follow an adult arthritis diet?",
+        "a": "Do not apply adult weight-loss plans or restrictive arthritis diets to a growing child. NHS Eatwell proportions do not apply below age two; children move towards them after age two. Ask the paediatric team or registered dietitian about age-appropriate food, growth, appetite and any need for supplements."
+      },
+      {
+        "q": "Can supplements replace JIA treatment?",
+        "a": "No. Do not replace the child's prescribed treatment with a supplement or exclusion diet. Check any product with the child's pharmacist or paediatric team first."
+      },
+      {
+        "q": "What if eating or growth becomes a concern?",
+        "a": "Contact the paediatric team about poor appetite, weight changes or concerns about growth. They can assess the cause and whether dietitian support is needed."
+      }
+    ]
+  },
+  "/conditions/juvenile-arthritis": {
+    "title": "Juvenile Arthritis (JIA): Symptoms & Treatment in the UK",
+    "description": "Child-specific JIA information: when to get help for a limp or joint symptoms, eye screening, paediatric treatment and adapted activity. Living With Arthritis.",
+    "question": "What is juvenile arthritis?",
+    "answer": "Juvenile idiopathic arthritis (JIA) is a group of conditions causing joint inflammation that starts before age 16. A child with joint problems or an unexplained limp needs assessment; do not wait for symptoms to last a set number of weeks.",
+    "breadcrumb": "Juvenile Arthritis",
+    "about": "Juvenile Arthritis",
+    "reviewStatus": "pending",
+    "updatedAt": "2026-11-24",
+    "summaryReviewNote": "Editorial safety update: 24 November 2026. Awaiting separate clinical review. Earlier review dates do not attest to this revision.",
+    "bodyHtml": "<section aria-label=\"Child joint and eye safety\"><h2>A child with joint symptoms: when to get help</h2><p>Arrange a GP assessment for a child with joint problems or a limp with no obvious cause. Do not wait two or six weeks before asking for help. A duration used to classify arthritis is not a waiting period for parents.</p><h3>Emergency help</h3><p>For a child with a limp, call 999 or go to A&amp;E if they develop sudden hip, knee or thigh pain, cannot put weight on their leg, have a leg that has changed shape, feel generally unwell with a high temperature or shivering, have severe lower tummy pain, or their symptoms get worse. Do not drive to A&amp;E; ask someone to drive or call 999 for an ambulance.</p><h3>Eye symptoms and screening</h3><p>Ask for an urgent GP appointment or NHS 111 advice for eye pain, sensitivity to light, very red eyes or a change in vision. If your child cannot see, go to A&amp;E or call 999. Do not wait for the next screening appointment. JIA-related uveitis can also occur without symptoms, so keep all specialist eye-screening appointments.</p><h3>Exercise must fit the child</h3><p>Activity advice here is for a child whose condition has been assessed. A new unexplained limp, sudden pain or inability to bear weight needs assessment, not an adult exercise programme. The paediatric physiotherapist should tailor activities, loads and repetitions to the child's joints, age, abilities and treatment. During an assessed JIA flare, the team may recommend low-impact activity and avoiding contact or high-impact sport. Follow the child's own plan, including after a procedure.</p><p>Editorial safety update: 24 November 2026. Awaiting separate clinical review. Earlier review dates do not attest to this revision.</p><h3>Sources checked for this update</h3><ul><li><a href=\"https://www.nhs.uk/symptoms/limp-in-children/\">NHS: limping in children and emergency signs</a></li><li><a href=\"https://www.nhs.uk/conditions/arthritis/\">NHS: arthritis</a></li><li><a href=\"https://www.nhs.uk/conditions/uveitis/\">NHS: uveitis and urgent eye advice</a></li><li><a href=\"https://www.cuh.nhs.uk/patient-information/eye-screening-for-uveitis-in-paediatric-rheumatology-patients/\">Cambridge University Hospitals: JIA eye screening</a></li><li><a href=\"https://www.cuh.nhs.uk/patient-information/guide-to-physical-activity-and-exercise-in-juvenile-idiopathic-arthritis-jia/\">Cambridge University Hospitals: physical activity and exercise in JIA</a></li><li><a href=\"https://www.leedsth.nhs.uk/patients/resources/juvenile-idiopathic-arthritis-jia-young-people/\">Leeds Teaching Hospitals: JIA for young people</a></li><li><a href=\"https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/the-eatwell-guide/\">NHS: the Eatwell Guide and age limits</a></li></ul></section><h2>What is juvenile arthritis?</h2><p>Juvenile idiopathic arthritis (JIA) covers a group of autoimmune conditions that cause joint inflammation in children and young people <strong>under the age of 16</strong>. &quot;Idiopathic&quot; simply means the cause is unknown.</p><p>A paediatric rheumatology team assesses and treats JIA. The outlook and treatment vary between children. This guide cannot predict a child&#x27;s long-term joint function.</p><h2>Symptoms</h2><ul><li><strong>Joint pain, swelling or stiffness</strong>: seek assessment rather than waiting six weeks</li><li>Limping — particularly first thing in the morning</li><li>Reluctance to use a hand, knee or other joint</li><li>Unexplained fevers or rashes (systemic JIA)</li><li>Swollen lymph nodes</li><li>Eye inflammation (uveitis) can be silent; attend screening even without eye symptoms</li><li>Slowed growth or unequal limb length in long-standing disease</li></ul><h2>Causes</h2><ul><li>In JIA the immune system attacks the joints; why this happens is not fully understood</li><li>JIA is not something a child catches from another person</li><li>Nothing a child or parent did or did not do caused their JIA</li></ul><h2>Treatment and support</h2><ul><li>An individual treatment and monitoring plan from paediatric rheumatology</li><li>Medicines to control inflammation, selected and monitored for the child</li><li>Joint steroid injections when the specialist team recommends them</li><li>Paediatric physiotherapy, occupational therapy and pain-management support</li><li>Specialist eye screening even when the eyes look and feel normal</li></ul><h2>Food and growth</h2><p>Children with JIA need a balanced diet that supports growth, bone density and a healthy weight. There is no specific JIA diet.</p><ul><li>Plenty of fruit, vegetables and whole grains</li><li>Calcium-rich foods (milk, yoghurt, fortified plant drinks) and vitamin D</li><li>Discuss food choices and any supplements with the paediatric team</li><li>Limit sugary drinks and ultra-processed snacks</li><li>Speak to a paediatric dietitian if your child is on long-term steroids</li></ul><h2>Activity and school</h2><p>Regular, age-appropriate movement helps maintain strength, flexibility and bone health. Children with JIA can usually take part in PE with sensible adaptations.</p><ul><li>Swimming — gentle on joints and great for full-body strength</li><li>Cycling, scootering and dancing</li><li>Physiotherapy-led stretches for affected joints</li><li>Avoid heavy contact sports during active flares</li><li>Talk to school PE staff so activities can be adapted, not avoided</li></ul>",
+    "faqs": [
+      {
+        "q": "What are the first signs of arthritis in a child?",
+        "a": "Look out for limping, a swollen or stiff joint, or reluctance to use a limb. Arrange a GP assessment for joint problems or an unexplained limp. Do not wait two or six weeks. Use the emergency advice on this page for sudden hip, knee or thigh pain, inability to bear weight or an unwell child."
+      },
+      {
+        "q": "Is juvenile arthritis the same as rheumatoid arthritis?",
+        "a": "No. JIA is its own group of conditions. Some forms behave similarly to rheumatoid arthritis, but JIA also includes types not seen in adults, such as systemic JIA (Still's disease)."
+      },
+      {
+        "q": "Will my child grow out of JIA?",
+        "a": "The course varies between children. Ask the paediatric rheumatology team about your child's condition, treatment goals and follow-up. Improvement is not a reason to stop treatment or eye screening without the team's advice."
+      },
+      {
+        "q": "Why does my child need eye checks?",
+        "a": "JIA can cause silent eye inflammation (uveitis) that, if missed, can damage sight. Regular slit-lamp checks by an ophthalmologist are essential."
+      },
+      {
+        "q": "Can my child still play sport?",
+        "a": "When JIA is assessed and well controlled, children can often take part in activities they enjoy. The paediatric physiotherapist and school should agree adaptations for the individual child, particularly during a flare or after a procedure. Do not apply an adult exercise programme to a child."
+      }
+    ],
+    "sources": [
+      {
+        "name": "NHS: limping in children and emergency signs",
+        "url": "https://www.nhs.uk/symptoms/limp-in-children/"
+      },
+      {
+        "name": "NHS: arthritis",
+        "url": "https://www.nhs.uk/conditions/arthritis/"
+      },
+      {
+        "name": "NHS: uveitis and urgent eye advice",
+        "url": "https://www.nhs.uk/conditions/uveitis/"
+      },
+      {
+        "name": "Cambridge University Hospitals: JIA eye screening",
+        "url": "https://www.cuh.nhs.uk/patient-information/eye-screening-for-uveitis-in-paediatric-rheumatology-patients/"
+      },
+      {
+        "name": "Cambridge University Hospitals: physical activity and exercise in JIA",
+        "url": "https://www.cuh.nhs.uk/patient-information/guide-to-physical-activity-and-exercise-in-juvenile-idiopathic-arthritis-jia/"
+      },
+      {
+        "name": "Leeds Teaching Hospitals: JIA for young people",
+        "url": "https://www.leedsth.nhs.uk/patients/resources/juvenile-idiopathic-arthritis-jia-young-people/"
+      },
+      {
+        "name": "NHS: the Eatwell Guide and age limits",
+        "url": "https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/the-eatwell-guide/"
+      }
+    ]
+  }
+}

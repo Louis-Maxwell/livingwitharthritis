@@ -1,0 +1,38 @@
+{
+  "updated": "2026-11-24",
+  "pending": "Editorial safety update: 24 November 2026. Awaiting separate clinical review. Earlier review dates do not attest to this revision.",
+  "gp": "Arrange a GP assessment for a child with joint problems or a limp with no obvious cause. Do not wait two or six weeks before asking for help. A duration used to classify arthritis is not a waiting period for parents.",
+  "emergency": "For a child with a limp, call 999 or go to A&E if they develop sudden hip, knee or thigh pain, cannot put weight on their leg, have a leg that has changed shape, feel generally unwell with a high temperature or shivering, have severe lower tummy pain, or their symptoms get worse. Do not drive to A&E; ask someone to drive or call 999 for an ambulance.",
+  "eyes": "Ask for an urgent GP appointment or NHS 111 advice for eye pain, sensitivity to light, very red eyes or a change in vision. If your child cannot see, go to A&E or call 999. Do not wait for the next screening appointment. JIA-related uveitis can also occur without symptoms, so keep all specialist eye-screening appointments.",
+  "exercise": "Activity advice here is for a child whose condition has been assessed. A new unexplained limp, sudden pain or inability to bear weight needs assessment, not an adult exercise programme. The paediatric physiotherapist should tailor activities, loads and repetitions to the child's joints, age, abilities and treatment. During an assessed JIA flare, the team may recommend low-impact activity and avoiding contact or high-impact sport. Follow the child's own plan, including after a procedure.",
+  "sources": [
+    {
+      "label": "NHS: limping in children and emergency signs",
+      "url": "https://www.nhs.uk/symptoms/limp-in-children/"
+    },
+    {
+      "label": "NHS: arthritis",
+      "url": "https://www.nhs.uk/conditions/arthritis/"
+    },
+    {
+      "label": "NHS: uveitis and urgent eye advice",
+      "url": "https://www.nhs.uk/conditions/uveitis/"
+    },
+    {
+      "label": "Cambridge University Hospitals: JIA eye screening",
+      "url": "https://www.cuh.nhs.uk/patient-information/eye-screening-for-uveitis-in-paediatric-rheumatology-patients/"
+    },
+    {
+      "label": "Cambridge University Hospitals: physical activity and exercise in JIA",
+      "url": "https://www.cuh.nhs.uk/patient-information/guide-to-physical-activity-and-exercise-in-juvenile-idiopathic-arthritis-jia/"
+    },
+    {
+      "label": "Leeds Teaching Hospitals: JIA for young people",
+      "url": "https://www.leedsth.nhs.uk/patients/resources/juvenile-idiopathic-arthritis-jia-young-people/"
+    },
+    {
+      "label": "NHS: the Eatwell Guide and age limits",
+      "url": "https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/the-eatwell-guide/"
+    }
+  ]
+}

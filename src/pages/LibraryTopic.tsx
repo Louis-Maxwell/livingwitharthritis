@@ -1,4 +1,7 @@
-import { useEffect, useMemo } from "react";
+import keyword25 from "@/data/libraryKeyword25.json";
+import { correctLibraryCopy } from "@/data/libraryCopyCorrections";
+import { LIBRARY_ANSWER_CAPSULES } from "@/data/libraryAnswerCapsules";
+import { useEffect, useMemo, type ReactNode } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import routeNoindex from "@/data/route-noindex.json";
@@ -19,6 +22,16 @@ import {
   getLibraryLastReviewed,
   getLibraryReviewStatus,
 } from "@/data/libraryReview";
+
+function TopicList({ heading, children }: { heading: string; children: ReactNode }) {
+  const actionable = /treat|manag|self.?care|prevent|when to|seek|support|exercise|what you can do|living with/i.test(heading);
+  return actionable ? (
+    <blockquote data-callout="note" className="border-l-4 border-primary pl-5">
+      <p className="font-semibold mb-3">Note</p>
+      {children}
+    </blockquote>
+  ) : <>{children}</>;
+}
 
 const LibraryTopic = () => {
   const { slug = "" } = useParams<{ slug: string }>();
@@ -92,6 +105,7 @@ const LibraryTopic = () => {
     topic.subtitle ||
     `${topic.title} — plain-English information from Living With Arthritis.`;
   const heading = seo?.h1 ?? topic.title;
+  const revision = keyword25[topic.slug as keyof typeof keyword25];
 
   return (
     <>
@@ -110,7 +124,7 @@ const LibraryTopic = () => {
 
       <Header />
 
-      <main id="main-content" className="min-h-screen bg-background text-foreground">
+      <main id="main-content" className="min-h-dvh bg-background text-foreground">
         <PageBreadcrumb
           segments={[
             { label: "Library", href: "/library" },
@@ -124,25 +138,27 @@ const LibraryTopic = () => {
           <h1 className="font-serif text-4xl md:text-5xl font-bold mb-3">
             {heading}
           </h1>
-          {(seo?.description || topic.subtitle) && (
-            <p className="text-lg text-muted-foreground mb-10">
-              {seo?.description || topic.subtitle}
+          {(LIBRARY_ANSWER_CAPSULES[topic.slug] || seo?.description || topic.subtitle) && (
+            <p className="answer-box text-lg text-muted-foreground mb-10">
+              {LIBRARY_ANSWER_CAPSULES[topic.slug] || seo?.description || topic.subtitle}
             </p>
           )}
 
+          {revision && <p className="mb-8 text-sm">Editorial update: 25 November 2026. The title and opening summary were updated against NHS and NICE sources. This revision is awaiting separate clinical review; older review dates do not attest to it.</p>}
           <div className="space-y-10">
             {topic.sections.map((section, i) => (
-              <section key={i}>
-                <h2 className="font-serif text-2xl font-semibold text-primary mb-4">
+              <section key={i} aria-labelledby={`library-section-${i}`}>
+                <h2 id={`library-section-${i}`} className={`font-serif text-2xl font-semibold ${revision ? "text-foreground" : "text-primary"} mb-4`}>
                   {section.heading}
                 </h2>
                 {section.body &&
-                  section.body.split("\n\n").map((para, pi) => (
+                  correctLibraryCopy(section.body).split("\n\n").map((para, pi) => (
                     <p key={pi} className="mb-4 leading-relaxed">
                       {para}
                     </p>
                   ))}
                 {section.bullets && section.bullets.length > 0 && (
+                  <TopicList heading={section.heading}>
                   <ul className="list-disc ps-6 space-y-2">
                     {section.bullets.map((b, bi) => (
                       <li key={bi} className="leading-relaxed">
@@ -150,21 +166,23 @@ const LibraryTopic = () => {
                       </li>
                     ))}
                   </ul>
+                  </TopicList>
                 )}
               </section>
             ))}
             {seo?.extraSections?.map((section, i) => (
-              <section key={`seo-extra-${i}`}>
-                <h2 className="font-serif text-2xl font-semibold text-primary mb-4">
+              <section key={`seo-extra-${i}`} aria-labelledby={`library-extra-${i}`}>
+                <h2 id={`library-extra-${i}`} className="font-serif text-2xl font-semibold text-primary mb-4">
                   {section.heading}
                 </h2>
                 {section.body &&
-                  section.body.split("\n\n").map((para, pi) => (
+                  correctLibraryCopy(section.body).split("\n\n").map((para, pi) => (
                     <p key={pi} className="mb-4 leading-relaxed">
                       {para}
                     </p>
                   ))}
                 {section.bullets && section.bullets.length > 0 && (
+                  <TopicList heading={section.heading}>
                   <ul className="list-disc ps-6 space-y-2">
                     {section.bullets.map((b, bi) => (
                       <li key={bi} className="leading-relaxed">
@@ -172,6 +190,7 @@ const LibraryTopic = () => {
                       </li>
                     ))}
                   </ul>
+                  </TopicList>
                 )}
               </section>
             ))}
@@ -194,6 +213,7 @@ const LibraryTopic = () => {
             </section>
           )}
 
+          {revision && <section className="mt-10"><h2 className="text-2xl font-semibold mb-4">Sources for this update</h2><ul className="list-disc pl-6">{revision.sources.map(source => <li key={source.url}><a className="underline text-foreground" href={source.url}>{source.name}</a></li>)}</ul></section>}
           {topic.disclaimer && (
             <aside className="mt-12 p-5 rounded-xl border border-primary/20 bg-primary/5 flex gap-3 text-sm">
               <AlertTriangle

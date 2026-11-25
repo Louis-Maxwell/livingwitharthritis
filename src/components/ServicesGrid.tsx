@@ -42,11 +42,11 @@ const ServicesGrid = () => {
         <div className="text-center mb-20">
           <span className="section-label text-primary mb-5 block">Comprehensive Care Platform</span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-[3.5rem] font-bold text-foreground mb-7 leading-[1.06] tracking-tight">
-            World-class services,{" "}
+            Arthritis information and support,{" "}
             <span className="text-gradient italic">for everyone</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-            Every service is clinically reviewed, NICE-compliant and designed by our multidisciplinary team. No waiting lists, no referrals, no cost.
+            Explore our educational resources and support services. Contact us to check which service is suitable and its current availability.
           </p>
         </div>
 

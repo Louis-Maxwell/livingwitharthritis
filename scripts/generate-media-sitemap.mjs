@@ -1,14 +1,19 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
+import { todayInLondon } from './lib/london-date.mjs';
 
 /** Reuse only verified image entries from the canonical sitemap, never guess assets. */
-export function imageSitemap(xml) {
+export function imageSitemap(xml, buildDate = todayInLondon()) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(buildDate)) {
+    throw new Error('image sitemap build date must be YYYY-MM-DD');
+  }
   const entries = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].flatMap((match) => {
     const loc = match[1].match(/<loc>([^<]+)<\/loc>/)?.[1];
     const images = match[1].match(/<image:image>[\s\S]*?<\/image:image>/g) ?? [];
     if (!loc || !images.length) return [];
-    return [`  <url><loc>${loc}</loc>${images.join('')}</url>`];
+    const lastmod = match[1].match(/<lastmod>\s*(\d{4}-\d{2}-\d{2})\s*<\/lastmod>/)?.[1] || buildDate;
+    return [`  <url><loc>${loc}</loc><lastmod>${lastmod}</lastmod>${images.join('')}</url>`];
   });
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${entries.join('\n')}\n</urlset>\n`;
 }

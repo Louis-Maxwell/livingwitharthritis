@@ -1,3 +1,4 @@
+import { ORGANIZATION_DESCRIPTION, HOMEPAGE_INTRODUCTION } from "../data/reviewedPublicCopy.ts";
 import { getSchemaOrgSameAs } from "@/config/social-media";
 
 /**
@@ -11,7 +12,7 @@ const REGISTER_URL =
 
 export const ORGANIZATION_PAYLOAD = {
   "@context": "https://schema.org",
-  "@type": ["MedicalOrganization", "NGO", "Organization"],
+  "@type": ["NGO", "Organization"],
   "@id": `${BASE}/#organization`,
   name: "Living With Arthritis",
   legalName: "Living With Arthritis",
@@ -31,22 +32,13 @@ export const ORGANIZATION_PAYLOAD = {
     height: 630,
   },
   disambiguatingDescription:
-    "UK charity 1218461 providing free arthritis guidance, with clinical-review status shown on each page — not Arthritis UK (formerly Versus Arthritis).",
-  foundingDate: "2026-06-15",
+    ORGANIZATION_DESCRIPTION,
   founder: {
     "@type": "Person",
-    name: "Louis Maxwell",
-    alternateName: "Maxwell",
-    jobTitle: "First Contact Practitioner",
-    identifier: {
-      "@type": "PropertyValue",
-      propertyID: "HCPC",
-      value: "PH128483",
-    },
-    url: `${BASE}/authors/maxwell`,
+    name: "David Williams",
   },
   description:
-    "Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, providing free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition guidance and peer support for people living with joint pain across the United Kingdom.",
+    ORGANIZATION_DESCRIPTION,
   keywords:
     "arthritis charity UK, arthritis help UK, osteoarthritis exercises, rheumatoid arthritis support, joint pain advice, frailty support, PIP arthritis guidance, NICE aligned exercise, arthritis pain relief UK, arthritis waiting list help, arthritis disability benefits UK, Mediterranean diet for arthritis",
   email: "info@livingwitharthritis.org.uk",
@@ -58,7 +50,6 @@ export const ORGANIZATION_PAYLOAD = {
     { "@type": "AdministrativeArea", name: "Wales" },
     { "@type": "AdministrativeArea", name: "Northern Ireland" },
   ],
-  medicalSpecialty: ["Rheumatology", "Physiotherapy", "Nutrition"],
   identifier: [
     {
       "@type": "PropertyValue",
@@ -71,68 +62,6 @@ export const ORGANIZATION_PAYLOAD = {
     "@type": "CreativeWork",
     name: "UK Charity Commission Register entry",
     url: REGISTER_URL,
-  },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Free UK arthritis support from Living With Arthritis",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        name: "Arthritis exercise and movement guides",
-        url: `${BASE}/guides/exercise`,
-        availability: "https://schema.org/InStock",
-        price: "0",
-        priceCurrency: "GBP",
-        itemOffered: {
-          "@type": "Service",
-          serviceType: "NICE-aligned arthritis exercise guidance",
-          areaServed: "GB",
-          audience: {
-            "@type": "MedicalAudience",
-            audienceType: "People living with arthritis",
-          },
-        },
-      },
-      {
-        "@type": "Offer",
-        name: "Benefits and PIP guidance for arthritis",
-        url: `${BASE}/guides/benefits-pip`,
-        availability: "https://schema.org/InStock",
-        price: "0",
-        priceCurrency: "GBP",
-        itemOffered: {
-          "@type": "Service",
-          serviceType: "UK benefits information for arthritis and disability",
-          areaServed: "GB",
-        },
-      },
-      {
-        "@type": "Offer",
-        name: "Waiting-list and appointment preparation help",
-        url: `${BASE}/arthritis-waiting-list-help`,
-        availability: "https://schema.org/InStock",
-        price: "0",
-        priceCurrency: "GBP",
-        itemOffered: {
-          "@type": "Service",
-          serviceType: "Plain-English UK healthcare navigation support",
-          areaServed: "GB",
-        },
-      },
-      {
-        "@type": "Offer",
-        name: "AI-readable arthritis content export",
-        url: `${BASE}/llms.txt`,
-        availability: "https://schema.org/InStock",
-        price: "0",
-        priceCurrency: "GBP",
-        itemOffered: {
-          "@type": "DigitalDocument",
-          encodingFormat: "text/plain",
-          name: "Living With Arthritis llms.txt",
-        },
-      },
-    ],
   },
   contactPoint: [
     {
@@ -194,7 +123,7 @@ export const WEBSITE_PAYLOAD = {
   url: `${BASE}/`,
   inLanguage: "en-GB",
   description:
-    "Free UK arthritis guidance from Living With Arthritis (registered charity 1218461), with clinical-review status shown on each page — NICE-aligned exercise, diet, PIP and waiting-list help. Independent of Arthritis UK.",
+    HOMEPAGE_INTRODUCTION,
   about: [
     "Living with arthritis in the United Kingdom",
     "Osteoarthritis",
@@ -208,17 +137,8 @@ export const WEBSITE_PAYLOAD = {
     { "@type": "Thing", name: "NHS rheumatology and physiotherapy pathways" },
     { "@type": "Thing", name: "PIP, Attendance Allowance and Access to Work" },
   ],
-  speakable: {
-    "@type": "SpeakableSpecification",
-    cssSelector: ["h1", ".speakable-intro"],
-  },
   publisher: { "@id": `${BASE}/#organization` },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${BASE}/search?q={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
-  },
+  // No SearchAction: /search is a client-only SPA shell. Semrush "Sitelinks
+  // search box" flags invalid SearchAction targets when JS is off (~1330
+  // structured-data errors). Re-add only when a crawlable HTML search exists.
 };

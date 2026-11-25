@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
-import { pillarScaffolds, tier2OutlinesByPillar } from '@/data/tier2Outlines';
+import { pillarScaffolds } from '@/data/tier2Outlines';
 import FaqAccordion from '@/components/faq/FaqAccordion';
 import EducationalDisclaimerBox from '@/components/seo/EducationalDisclaimerBox';
 import TopicClusterNav from '@/components/seo/TopicClusterNav';
@@ -54,10 +54,52 @@ const sectionCopy: Record<string, string[]> = {
   ],
 };
 
+const mentalHealthArticles = [
+  {
+    "slug": "depression-arthritis-when-to-seek-help",
+    "title": "Depression and Arthritis: When to Ask for Help (UK)"
+  },
+  {
+    "slug": "anxiety-and-arthritis-management",
+    "title": "Anxiety and Arthritis: Why It Happens and How to Manage It"
+  },
+  {
+    "slug": "arthritis-and-mental-health-uk",
+    "title": "Arthritis and Mental Health: Signs, Self-Help and NHS Support in the UK"
+  },
+  {
+    "slug": "mindfulness-chronic-pain-arthritis-guide",
+    "title": "Mindfulness and Chronic Pain: A Practical Guide for Arthritis"
+  },
+  {
+    "slug": "grief-and-loss-after-arthritis-diagnosis",
+    "title": "Grief and Loss After an Arthritis Diagnosis: Processing Change and Rebuilding"
+  },
+  {
+    "slug": "arthritis-relationships-honest-conversations",
+    "title": "Arthritis and relationships: honest conversations that help (UK)"
+  },
+  {
+    "slug": "sleep-quality-arthritis-pain",
+    "title": "Poor sleep and arthritis pain: how to break the cycle (UK)"
+  },
+  {
+    "slug": "talking-therapies-pain-older-arthritis-uk",
+    "title": "Talking therapies for arthritis pain in older age (UK)"
+  },
+  {
+    "slug": "arthritis-fatigue-explained",
+    "title": "Arthritis fatigue explained: why it happens and what helps (UK)"
+  },
+  {
+    "slug": "best-sleep-positions-joint-pain",
+    "title": "The Best Sleeping Positions for Every Joint with Arthritis (UK)"
+  }
+] as const;
+
 export default function ArthritisMentalHealth() {
 
   const pillar = pillarScaffolds.find((p) => p.id === 'mental-health')!;
-  const clusters = tier2OutlinesByPillar('mental-health');
 
   const faqs = [
     {
@@ -162,14 +204,11 @@ export default function ArthritisMentalHealth() {
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-4">In-depth articles</h2>
         <ul className="grid md:grid-cols-2 gap-3">
-          {clusters.map((c) => (
+          {mentalHealthArticles.map((c) => (
             <li key={c.slug} className="rounded-lg border p-4 hover:bg-accent/40 transition-colors">
               <Link to={`/blog/${c.slug}`} className="font-semibold text-primary hover:underline">
                 {c.title}
               </Link>
-              <p className="text-sm text-muted-foreground mt-1">
-                {c.targetKeywords.slice(0, 2).join(' Â· ')}
-              </p>
             </li>
           ))}
         </ul>

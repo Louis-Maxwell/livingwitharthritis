@@ -105,7 +105,7 @@ const ElbowArthritis = () => (
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
     </Helmet>
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <Header />
       <PageBreadcrumb segments={[{ label: "Conditions", href: "/#conditions" }, { label: "Elbow Arthritis" }]} />
 

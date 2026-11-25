@@ -39,7 +39,7 @@ export default function GovernancePolicyPage(props: {
           publisher: { "@id": `${CHARITY.siteUrl}/#organization` },
         })}</script>
       </Helmet>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <Header />
         <PageHero gradient="from-muted/30 via-background to-muted/10" pattern="grid" title={props.heading} subtitle={props.subtitle} />
         <main id="main-content" className="w-full px-6 md:px-10 lg:px-20 py-10 md:py-16 max-w-3xl mx-auto space-y-8 text-foreground/85 leading-relaxed [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-foreground [&_h2]:mb-3 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-1 [&_a]:text-primary [&_a]:underline">

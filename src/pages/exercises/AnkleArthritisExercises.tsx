@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -90,9 +91,10 @@ export default function AnkleArthritisExercises() {
           </h1>
           <p className="text-lg text-muted-foreground mb-6">{FOOT_ANKLE_INTRO}</p>
           <p className="mb-8">
-            <a className="underline font-semibold" href="/resources/ankle-exercise-programme.html">Open the printable five-exercise ankle guide</a>
-            {" or "}
-            <a className="underline font-semibold" href="/resources/ankle-exercise-programme.pdf" download>download the free ankle exercise PDF</a>.
+            <a className="underline font-semibold" href="/resources/ankle-exercise-programme.html">
+              Open the printable ankle exercise guide
+            </a>
+            .
           </p>
           <p className="quick-answer mb-8 p-5 rounded-xl bg-muted/40 leading-relaxed">
             <strong>Quick answer:</strong> {FOOT_ANKLE_QUICK_ANSWER}
@@ -108,7 +110,7 @@ export default function AnkleArthritisExercises() {
             </p>
           </aside>
 
-          <EducationalDisclaimerBox lastReviewed="2026-10-23" />
+          <EducationalDisclaimerBox lastReviewed={REVIEW_RECORDS.pages["/exercises/ankle-arthritis-exercises"]} />
 
           <div className={PROSE} dangerouslySetInnerHTML={{ __html: sanitizeHtml(FOOT_ANKLE_BEFORE_HTML) }} />
 

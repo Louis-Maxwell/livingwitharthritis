@@ -32,8 +32,8 @@ const BASE = "https://livingwitharthritis.org.uk";
 /**
  * Lightweight content stub for navigation destinations that don’t yet have
  * a full editorial page. Renders an AnswerBox, FAQ
- * accordion, and JSON-LD (FAQPage + BreadcrumbList) so the URL is
- * indexable, AI-citable, and not an empty 404 in the meantime.
+ * accordion and breadcrumb context while editorial work is in progress.
+ * Draft stubs are explicitly noindex and emit no FAQ schema until promoted.
  */
 export default function StubPage({
   slug,
@@ -59,27 +59,7 @@ export default function StubPage({
       })),
     };
 
-    const graph: Record<string, unknown>[] = [breadcrumbJsonLd];
-
-    if (faqs.length > 0) {
-      graph.push({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "@id": `${canonical}#faq`,
-        url: canonical,
-        inLanguage: "en-GB",
-        mainEntity: faqs.map((f) => ({
-          "@type": "Question",
-          name: f.q,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: f.a,
-          },
-        })),
-      });
-    }
-
-    const nodes = graph.map((data) => {
+    const nodes = [breadcrumbJsonLd].map((data) => {
       const el = document.createElement("script");
       el.type = "application/ld+json";
       el.text = JSON.stringify(data);
@@ -96,6 +76,7 @@ export default function StubPage({
       <Helmet>
         <title>{title} | Living With Arthritis</title>
         <meta name="description" content={description} />
+        <meta name="robots" content="noindex, follow" />
         
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />

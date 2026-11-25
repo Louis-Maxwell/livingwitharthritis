@@ -1,5 +1,5 @@
 import { lazyWithRetry } from "@/lib/chunkRecovery";
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -259,12 +259,12 @@ const BlogHub = () => {
       numberOfItems: 8,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Living with arthritis", url: `${SITE}/living-with-arthritis` },
-        { "@type": "ListItem", position: 2, name: "Arthritis diet and nutrition", url: `${SITE}/diet` },
+        { "@type": "ListItem", position: 2, name: "Arthritis diet and nutrition", url: `${SITE}/guides/diet` },
         { "@type": "ListItem", position: 3, name: "Arthritis exercises", url: `${SITE}/exercises` },
         { "@type": "ListItem", position: 4, name: "Arthritis flare-ups and daily living", url: `${SITE}/arthritis-flare-ups` },
         { "@type": "ListItem", position: 5, name: "Arthritis treatment and pain relief", url: `${SITE}/blog/category/treatments` },
         { "@type": "ListItem", position: 6, name: "Arthritis conditions", url: `${SITE}/conditions/arthritis` },
-        { "@type": "ListItem", position: 7, name: "Benefits, PIP and work", url: `${SITE}/benefits-pip` },
+        { "@type": "ListItem", position: 7, name: "Benefits, PIP and work", url: `${SITE}/guides/benefits-pip` },
         { "@type": "ListItem", position: 8, name: "Frailty and carer support", url: `${SITE}/guides/frailty-management-hub` },
       ],
     };
@@ -279,6 +279,17 @@ const BlogHub = () => {
 
     return () => scripts.forEach((s) => s.remove());
   }, []);
+
+  const [query, setQuery] = useState("");
+  const q = query.trim().toLowerCase();
+  const visibleClusters = q
+    ? CLUSTERS.map((c) => ({
+        ...c,
+        questions: c.questions.filter((link) => link.label.toLowerCase().includes(q)),
+      })).filter((c) => c.questions.length > 0)
+    : CLUSTERS;
+  const visibleCount = visibleClusters.reduce((n, c) => n + c.questions.length, 0);
+
 
   return (
     <>
@@ -331,6 +342,27 @@ const BlogHub = () => {
           subtitle="Find clear, evidence-informed guidance organised by diet, exercise, flare-ups, treatment, conditions, benefits and frailty support."
         />
 
+        <section className="container mx-auto px-6 md:px-10 pt-8" aria-label="Search articles">
+          <label htmlFor="blog-search" className="block text-sm font-semibold text-foreground mb-2">
+            Search articles by keyword
+          </label>
+          <input
+            id="blog-search"
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Try 'knee pain', 'PIP' or 'diet'"
+            className="w-full max-w-xl rounded-xl border border-border/60 bg-background px-4 py-3 text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+          />
+          {q && (
+            <p className="mt-2 text-sm text-muted-foreground" role="status">
+              {visibleCount === 0
+                ? "No articles match your search - try a different word."
+                : `${visibleCount} article${visibleCount === 1 ? "" : "s"} found`}
+            </p>
+          )}
+        </section>
+
         <section className="container mx-auto px-6 md:px-10 pt-8 md:pt-12">
           <div className="rounded-3xl border border-primary/20 bg-primary/5 p-6 md:p-8">
             <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold mb-2">Start here</p>
@@ -350,7 +382,7 @@ const BlogHub = () => {
 
         <section className="container mx-auto px-6 md:px-10 py-12 md:py-16">
           <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
-            {CLUSTERS.map(({ id, title, intro, Icon, accent, primary, questions, related }) => (
+            {visibleClusters.map(({ id, title, intro, Icon, accent, primary, questions, related }) => (
               <article
                 key={id}
                 id={id}

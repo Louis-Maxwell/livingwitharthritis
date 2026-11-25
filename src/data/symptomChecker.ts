@@ -18,7 +18,7 @@ export type BodyAreaId =
 export type DurationId = "days" | "weeks" | "months" | "years";
 export type SeverityId = "mild" | "moderate" | "severe";
 export type TimingId = "morning" | "after-activity" | "evening" | "constant" | "flares";
-export type SwellingId = "hot-swollen" | "mild" | "bony" | "none";
+export type SwellingId = "hot-acute" | "hot-swollen" | "mild" | "bony" | "none";
 export type SkinId = "psoriasis" | "nodules" | "none" | "unsure";
 
 export type ConditionKey = "oa" | "ra" | "psa" | "gout" | "as" | "fm";
@@ -26,7 +26,7 @@ export type ConditionKey = "oa" | "ra" | "psa" | "gout" | "as" | "fm";
 export interface RedFlagOption {
   id: string;
   label: string;
-  /** Emergency = call 999; urgent = NHS 111 / same-day GP */
+  /** Emergency = A&E / 999 as stated; urgent = NHS 111 / urgent GP. */
   level: "emergency" | "urgent";
   help: string;
 }
@@ -96,6 +96,7 @@ export const TIMING_OPTIONS: { id: TimingId; label: string }[] = [
 ];
 
 export const SWELLING_OPTIONS: { id: SwellingId; label: string }[] = [
+  { id: "hot-acute", label: "New hot swollen joint, or sudden severe joint pain" },
   { id: "hot-swollen", label: "Warm, soft swelling is common" },
   { id: "mild", label: "Mild or occasional swelling" },
   { id: "bony", label: "Hard/bony enlargement more than soft swelling" },
@@ -113,15 +114,15 @@ export const SKIN_OPTIONS: { id: SkinId; label: string }[] = [
 export const RED_FLAGS: RedFlagOption[] = [
   {
     id: "septic",
-    label: "A joint that is suddenly very hot, red, swollen and extremely painful — especially with fever",
-    level: "emergency",
-    help: "This can need emergency assessment for possible joint infection. Call 999 now if you feel very unwell.",
+    label: "Sudden severe joint pain, or a hot swollen joint, with or without fever",
+    level: "urgent",
+    help: "Ask for an urgent GP appointment or contact NHS 111 now. Joint infection needs prompt assessment and fever may be absent. Call 999 if you have life-threatening symptoms.",
   },
   {
     id: "neuro-spine",
-    label: "New loss of bladder or bowel control, or numbness around the saddle/genital area with back pain",
+    label: "Back pain with new bladder/bowel or sexual-function changes, saddle numbness, or symptoms in both legs",
     level: "emergency",
-    help: "These are emergency spinal symptoms. Call 999 immediately.",
+    help: "Go to A&E immediately or call 999. This includes difficulty peeing, loss of bladder/bowel control, genital or anal numbness, changed sexual sensation/function, or pain, weakness, tingling or numbness in both legs. Do not drive yourself.",
   },
   {
     id: "chest",
@@ -137,9 +138,9 @@ export const RED_FLAGS: RedFlagOption[] = [
   },
   {
     id: "trauma",
-    label: "Joint pain after a major fall or injury with deformity or inability to bear weight",
-    level: "urgent",
-    help: "Seek urgent care or call NHS 111 for same-day advice.",
+    label: "Very bad joint pain after a fall/injury, inability to walk or bear weight, a joint out of place, or numbness/tingling after injury",
+    level: "emergency",
+    help: "Go to A&E or call 999. Very bad joint pain after injury, a joint out of place or inability to walk or bear weight needs emergency assessment. Do not drive yourself.",
   },
   {
     id: "systemic",
@@ -162,11 +163,11 @@ export const SYMPTOM_FAQS: { q: string; a: string }[] = [
   },
   {
     q: "When should I call 999 or NHS 111?",
-    a: "Call 999 for emergencies such as a suddenly hot red joint with fever, loss of bladder or bowel control with back pain, chest pain, or sudden weakness. Use NHS 111 for urgent but non-emergency advice, including fever with joint pain or rapid multi-joint swelling.",
+    a: "Call 999 for life-threatening symptoms such as chest pain, severe breathlessness, collapse or stroke symptoms. Go to A&E or call 999 for new bladder or bowel changes with back pain, saddle numbness, or severe joint injury with inability to bear weight. A hot swollen joint or sudden severe joint pain needs an urgent GP appointment or NHS 111, even without fever.",
   },
   {
     q: "Should I still see a GP?",
-    a: "Yes if joint pain, swelling or stiffness lasts more than a few weeks, limits daily life, or keeps returning. Book sooner if small joints of the hands or feet are swollen, morning stiffness lasts over an hour, or symptoms are getting worse.",
+    a: "See a GP if pain affects everyday activities or sleep, swelling persists or returns, pain has not improved after 2 weeks of home care, or morning stiffness lasts more than 30 minutes. Persistent soft swelling in small joints or more than one joint needs prompt assessment for possible inflammatory arthritis; do not wait for a blood test result before seeking help. Children with joint problems should see a GP.",
   },
   {
     q: "What will I get from the results?",
@@ -310,6 +311,19 @@ export function highestRedFlagLevel(
   if (flags.some((f) => f.level === "emergency")) return "emergency";
   if (flags.some((f) => f.level === "urgent")) return "urgent";
   return null;
+}
+
+/** Recheck later answers so a missed initial screen cannot bypass urgent advice. */
+export function getAnswerRedFlags(answers: QuizAnswers): RedFlagOption[] {
+  const ids = new Set(answers.redFlags);
+  if (answers.swelling === "hot-acute") ids.add("septic");
+  return getTriggeredRedFlags([...ids]);
+}
+
+export function needsPromptJointAssessment(answers: QuizAnswers): boolean {
+  return (answers.swelling === "mild" || answers.swelling === "hot-swollen") &&
+    (answers.duration === "weeks" || answers.duration === "months" || answers.duration === "years") &&
+    (answers.areas.some(area => ["hands", "wrists", "feet", "multiple"].includes(area)) || answers.areas.length > 1);
 }
 
 /** Pure educational ranking — never claims a diagnosis. */

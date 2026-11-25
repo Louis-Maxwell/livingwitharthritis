@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import {
   Shield, Award, Users, BookOpen, Heart, ExternalLink,
-  Stethoscope, GraduationCap, Scale, FileCheck, Globe,
+  GraduationCap, Scale, FileCheck, Globe,
   Building2
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -22,7 +22,6 @@ const evidenceSources = [
   { name: "British Medical Journal", desc: "Peer-reviewed evidence on Mediterranean diet and arthritis outcomes", url: "https://www.bmj.com/", icon: BookOpen },
   { name: "Cochrane Library", desc: "Systematic reviews on physiotherapy and exercise interventions", url: "https://www.cochranelibrary.com/", icon: GraduationCap },
   { name: "World Health Organization", desc: "Global musculoskeletal health frameworks and data", url: "https://www.who.int/", icon: Globe },
-  { name: "Arthritis Research UK (legacy)", desc: "Foundational research informing UK arthritis care standards", url: "#", icon: Stethoscope },
 ];
 
 
@@ -35,10 +34,10 @@ const policies = [
 ];
 
 const impactMetrics = [
-  { value: "88p", label: "of every £1 goes directly to patient support" },
-  { value: "10M+", label: "people in the UK affected by arthritis" },
-  { value: "40+", label: "evidence-based articles and guides" },
-  { value: "24/7", label: "help chat availability" },
+  { value: "1218461", label: "registered charity number" },
+  { value: "Free", label: "public guides and resources" },
+  { value: "UK-wide", label: "educational information" },
+  { value: "Independent", label: "not affiliated with Arthritis UK" },
 ];
 
 const TrustCredibility = () => {
@@ -55,7 +54,7 @@ const TrustCredibility = () => {
       value: CHARITY.number,
       url: CHARITY.registerUrl,
     },
-    description: "UK registered charity providing free physiotherapy resources, anti-inflammatory diet plans, and community support for people living with arthritis.",
+    description: "UK registered charity publishing free educational arthritis guidance and practical self-management resources.",
     areaServed: { "@type": "Country", name: "United Kingdom" },
     knowsAbout: ["Arthritis", "Physiotherapy", "Anti-inflammatory diet", "Osteoarthritis", "Rheumatoid arthritis"],
   };
@@ -64,10 +63,10 @@ const TrustCredibility = () => {
     <>
       <Helmet>
         <title>Trust & Credibility | {CHARITY.shortName} Charity</title>
-        <meta name="description" content="Our charity registration, medical advisors, evidence sources, partner organisations and governance. Trusted by the UK arthritis community." />
+        <meta name="description" content="Our charity registration, evidence sources, editorial safeguards and governance information. See how Living With Arthritis supports its public claims." />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <meta property="og:title" content={`Trust & Credibility | ${CHARITY.shortName} Charity`} />
-      <meta property="og:description" content="Our charity registration, medical advisors, evidence sources, partner organisations and governance. Trusted by the UK arthritis community." />
+      <meta property="og:description" content="Our charity registration, evidence sources, editorial safeguards and governance information. See how Living With Arthritis supports its public claims." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`${CHARITY.siteUrl}/trust`} />
       <meta property="og:site_name" content={CHARITY.shortName} />
@@ -78,7 +77,7 @@ const TrustCredibility = () => {
         <meta property="og:image:alt" content="Trust & Credibility | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={`Trust & Credibility | ${CHARITY.shortName} Charity`} />
-      <meta name="twitter:description" content="Our charity registration, medical advisors, evidence sources, partner organisations and governance. Trusted by the UK arthritis community." />
+      <meta name="twitter:description" content="Our charity registration, evidence sources, editorial safeguards and governance information. See how Living With Arthritis supports its public claims." />
       <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
     </Helmet>
 
@@ -87,7 +86,7 @@ const TrustCredibility = () => {
       <PageHero
         badge={<Badge variant="outline" className="bg-primary/5 text-primary border-primary/20"><Shield className="w-3.5 h-3.5 mr-1.5" /> Trust & Governance</Badge>}
         title={<>Why You Can <span className="text-primary">Trust Us</span></>}
-        subtitle="We're a UK registered charity committed to transparency, medical accuracy and patient-centred care. Here's everything you need to know about our governance."
+        subtitle="We're a UK registered charity committed to transparency, medical accuracy and accessible public information. Here is how we describe our governance and evidence standards."
       />
 
       <main id="main-content">
@@ -98,8 +97,8 @@ const TrustCredibility = () => {
               <div className="inline-flex items-center gap-2 bg-background border border-primary/20 text-primary px-5 py-2.5 rounded-full text-sm font-bold mb-6">
                 <Award className="w-4 h-4" /> UK Registered Charity
               </div>
-              <h2 className="text-3xl font-bold text-foreground mb-3">Our Impact at a Glance</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">Registered with the Charity Commission for England and Wales. Every donation is accounted for and reported.</p>
+              <h2 className="text-3xl font-bold text-foreground mb-3">Verified charity facts</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">Registered with the Charity Commission for England and Wales. Our public policies explain how the charity is governed and how claims are checked.</p>
             </div>
             <div className="max-w-3xl mx-auto mb-12">
               <CharityRegBadge variant="card" />
@@ -136,13 +135,13 @@ const TrustCredibility = () => {
                 <Users className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">Board of Trustees & Medical Advisors</h2>
-                <p className="text-sm text-muted-foreground">Qualified professionals overseeing our charity governance and clinical accuracy</p>
+                <h2 className="text-2xl font-bold text-foreground">Governance and clinical review</h2>
+                <p className="text-sm text-muted-foreground">Governance and clinical-review information</p>
               </div>
             </div>
             <div className="border border-dashed border-border rounded-lg p-6 bg-muted/30 text-center">
               <p className="text-muted-foreground text-sm">
-                Trustee and medical advisor names will be published here once confirmed.
+                We publish only confirmed trustee, adviser and reviewer information. Clinical review is led by Louis Maxwell (HCPC PH128483); each guide records its own review status.
               </p>
             </div>
           </div>
@@ -157,7 +156,7 @@ const TrustCredibility = () => {
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-foreground">Evidence Sources</h2>
-                <p className="text-sm text-muted-foreground">All our content is informed by reputable, peer-reviewed medical sources</p>
+                <p className="text-sm text-muted-foreground">Our medical content cites relevant authoritative and peer-reviewed sources</p>
               </div>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
@@ -223,7 +222,7 @@ const TrustCredibility = () => {
               <p className="text-sm text-muted-foreground leading-relaxed">
                 The information provided on this website is for general educational purposes only and should not replace professional medical advice. 
                 Always consult your GP, rheumatologist or healthcare professional before making changes to your treatment, exercise or diet. 
-                Our content is reviewed by qualified medical advisors but is not a substitute for individual clinical assessment.
+                A page should be treated as clinically reviewed only when it names the reviewer and records a review date. Information on this site is not a substitute for individual clinical assessment.
               </p>
             </div>
           </div>

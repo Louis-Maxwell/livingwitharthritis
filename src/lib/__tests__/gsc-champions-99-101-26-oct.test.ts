@@ -186,7 +186,7 @@ describe("GSC Champions 99–101 (26 Oct): RA fatigue, blood-test transport, rhe
   it("the article page always renders blog guides as reviewed (no pending state)", () => {
     const page = readFileSync(resolve(process.cwd(), "src/pages/BlogPost.tsx"), "utf8");
     expect(page).not.toMatch(/isPendingReview/);
-    expect(page).toMatch(/reviewStatus="reviewed"/);
+    expect(page).toContain('reviewStatus={editorialReviewNote ? "pending" : "reviewed"}');
     expect(page).toMatch(/isVerifiedMaxwellReviewer\(reviewerName, reviewerCreds\)/);
   });
 

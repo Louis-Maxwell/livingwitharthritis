@@ -1,0 +1,20 @@
+[
+  {
+    "term": "Paracetamol",
+    "explanation": "Paracetamol is known as acetaminophen in the US. Check the active ingredients so you do not take the same medicine twice.",
+    "source": "https://www.fda.gov/drugs/safe-use-over-counter-pain-relievers-and-fever-reducers/acetaminophen",
+    "label": "FDA: acetaminophen"
+  },
+  {
+    "term": "Physiotherapist",
+    "explanation": "Physiotherapists are called physical therapists in many countries.",
+    "source": "https://world.physio/resources/what-is-physiotherapy",
+    "label": "World Physiotherapy: terminology"
+  },
+  {
+    "term": "GP",
+    "explanation": "GP means general practitioner, a doctor who treats common conditions and refers people for specialist care in the UK.",
+    "source": "https://www.healthcareers.nhs.uk/explore-roles/doctors/roles-doctors/general-practitioner",
+    "label": "NHS: general practitioners"
+  }
+]

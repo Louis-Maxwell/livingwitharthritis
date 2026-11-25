@@ -14,6 +14,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 
 import Header from "@/components/Header";
+import { HOMEPAGE_INTRODUCTION, CHARITY_MISSION } from "@/data/reviewedPublicCopy";
 import MotivationMarquee from "@/components/landing/MotivationMarquee";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
@@ -25,8 +26,8 @@ import ViewportSection from "@/components/ViewportSection";
 import OAHero from "@/components/landing/OAHero";
 import HomeTrustStrip from "@/components/landing/HomeTrustStrip";
 import HomeJobRouter from "@/components/landing/HomeJobRouter";
-import TopicClusterLinksHome from "@/components/seo/TopicClusterLinks";
 import HomeTopicGuides from "@/components/landing/HomeTopicGuides";
+import InteractiveStartPath from "@/components/landing/InteractiveStartPath";
 const HomeGuidesShowcase = lazy(() => import("@/components/blog/HomeGuidesShowcase"));
 
 // Everything below the router mounts only when scrolled near, so it never
@@ -125,7 +126,7 @@ function HomePage() {
         />
       </Helmet>
 
-      <div className="min-h-screen bg-background text-foreground">
+      <div className="min-h-dvh bg-background text-foreground">
         <Header />
         <ScrollProgress />
 
@@ -135,10 +136,10 @@ function HomePage() {
           <MotivationMarquee />
 
           {/* 02 — Trust strip: verifiable facts only */}
-          <HomeTrustStrip />
 
           {/* 03 — Visitor-job router: the main way into the site */}
           <HomeJobRouter />
+          <HomeTrustStrip />
           <ViewportSection>
             <Suspense fallback={null}>
               <HomeGuidesShowcase />
@@ -147,7 +148,9 @@ function HomePage() {
 
           {/* Topic links stay rendered without waiting for a scroll event. */}
           <HomeTopicGuides />
-          <TopicClusterLinksHome />
+
+          {/* Symptoms navigator: pick a joint and a need, routed to real guides */}
+          <InteractiveStartPath />
 
           {/* 04 — Motion is Lotion: pick a joint for a home exercise plan */}
           <ViewportSection rootMargin="200px 0px" fallback={<SectionFallback />}>
@@ -157,6 +160,8 @@ function HomePage() {
 
           {/* 05 — Answer-first summary + FAQ (single FAQPage JSON-LD) */}
           <div className="container mx-auto px-5 md:px-10 max-w-3xl py-6">
+            <p className="text-base leading-relaxed text-foreground">{HOMEPAGE_INTRODUCTION}</p>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">{CHARITY_MISSION}</p>
             <Suspense fallback={null}>
               <AeoEnhancement route="/" />
             </Suspense>

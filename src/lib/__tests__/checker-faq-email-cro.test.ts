@@ -1,6 +1,7 @@
 /// <reference types="node" />
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { inlineReviewRecords } from "@/test/inlineReviewRecords";
 import { describe, expect, it } from "vitest";
 
 const root = process.cwd();
@@ -19,14 +20,15 @@ describe("M1 checker→email + FAQ hub CRO (21 Sep 2026)", () => {
     expect(quiz).toContain("1218461");
   });
 
-  it("symptom checker page bumps clinical review to 2026-09-21", () => {
+  it("symptom checker safety revision awaits a separate clinical review", () => {
     const page = read("src/pages/SymptomChecker.tsx");
-    expect(page).toContain('lastReviewed="2026-09-21"');
+    expect(page).toContain('reviewStatus="pending"');
+    expect(page).not.toContain('lastReviewed=');
     expect(page).toMatch(/not a diagnosis/i);
   });
 
   it("FAQ hub surfaces customer-job paths, email CTA, and fresh review date", () => {
-    const faq = read("src/pages/FAQ.tsx");
+    const faq = inlineReviewRecords(read("src/pages/FAQ.tsx"));
     expect(faq).toContain('lastReviewed="2026-09-21"');
     expect(faq).toContain('sequence="faq-hub"');
     for (const href of [

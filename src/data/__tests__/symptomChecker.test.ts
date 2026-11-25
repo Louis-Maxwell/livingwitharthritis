@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import {
   emptyAnswers,
+  getAnswerRedFlags,
+  needsPromptJointAssessment,
   getTriggeredRedFlags,
   highestRedFlagLevel,
   NEXT_STEP_RESOURCES,
@@ -49,9 +51,9 @@ describe("symptomChecker educational ranking", () => {
     expect(guides.some((g) => g.key === "psa" && g.relevance >= 70)).toBe(true);
   });
 
-  it("treats septic-style red flags as emergency", () => {
+  it("routes possible joint infection to urgent assessment even without fever", () => {
     const flags = getTriggeredRedFlags(["septic", "systemic"]);
-    expect(highestRedFlagLevel(flags)).toBe("emergency");
+    expect(highestRedFlagLevel(flags)).toBe("urgent");
   });
 
   it("treats fever/weight-loss alone as urgent not emergency", () => {
@@ -59,6 +61,27 @@ describe("symptomChecker educational ranking", () => {
     expect(highestRedFlagLevel(flags)).toBe("urgent");
   });
 
+  it("does not under-triage major injury or neurological emergencies", () => {
+    for (const id of ["trauma", "neuro-spine", "chest", "weakness"]) {
+      expect(highestRedFlagLevel(getTriggeredRedFlags([id]))).toBe("emergency");
+    }
+  });
+  it("rechecks warm swelling selected after the first screen", () => {
+    const answers = emptyAnswers();
+    answers.swelling = "hot-acute";
+    expect(getAnswerRedFlags(answers).map(flag => flag.id)).toContain("septic");
+  });
+  it("flags persistent small-joint or multi-joint swelling for prompt assessment", () => {
+    const answers = emptyAnswers();
+    answers.areas = ["hands"];
+    answers.swelling = "mild";
+    answers.duration = "weeks";
+    expect(needsPromptJointAssessment(answers)).toBe(true);
+    answers.areas = ["knees", "shoulders"];
+    expect(needsPromptJointAssessment(answers)).toBe(true);
+    answers.swelling = "none";
+    expect(needsPromptJointAssessment(answers)).toBe(false);
+  });
   it("reports progress at boundaries", () => {
     expect(progressPercent("intro")).toBe(0);
     expect(progressPercent("results")).toBe(100);

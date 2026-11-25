@@ -150,7 +150,7 @@ describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection",
 
   it("pip/osteoarthritis topicClusters front the three champion spokes", () => {
     const pip = TOPIC_CLUSTERS.find((c) => c.id === "pip")!;
-    expect(pip.supportingPaths.slice(0, 7)).toEqual(
+    expect(pip.supportingPaths.slice(0, 8)).toEqual(
       expect.arrayContaining([
         "/blog/sick-pay-fit-notes-time-off-work-arthritis",
         "/blog/carers-allowance-help-if-you-care-for-someone",

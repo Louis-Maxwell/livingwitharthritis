@@ -7,19 +7,35 @@ export const complementaryTherapies: HubGuide = {
   description:
     "Acupuncture, massage, supplements, tai chi and more: an honest guide to complementary therapies for arthritis, their evidence, costs, safety and interactions.",
   answer:
-    "Some complementary approaches, such as tai chi, yoga, mindfulness and massage, can help people with arthritis feel and move better alongside usual care. Others, including many supplements, have weak or mixed evidence. None should replace medicines prescribed for inflammatory arthritis. Check safety and interactions first, use regulated practitioners, and judge a therapy by whether it helps you do more.",
+    "Recommendations depend on the condition. For osteoarthritis, NICE recommends tailored exercise and advises against offering acupuncture, dry needling, TENS or glucosamine. For rheumatoid arthritis, some complementary therapies may give short-term symptom relief, but evidence for long-term benefit is limited. None should replace prescribed treatment. Ask your pharmacist or healthcare team about safety and interactions before trying a therapy.",
   breadcrumbs: [
     { label: "Home", href: "/" },
     { label: "Treatments", href: "/blog/arthritis-treatment-hub" },
     { label: "Complementary therapies", href: "/treatments/complementary-therapies" },
   ],
-  updated: "2026-09-25",
-  reviewStatus: "reviewed",
+  updated: "2026-11-24",
+  reviewStatus: "pending",
+  sources: [
+    { label: "NICE NG226: osteoarthritis, sections 1.3 and 1.4", href: "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations" },
+    { label: "NICE NG100: rheumatoid arthritis, recommendations 1.8.1 and 1.8.9 to 1.8.10", href: "https://www.nice.org.uk/guidance/ng100/chapter/Recommendations" },
+    { label: "NHS: herbal medicines and complementary therapies", href: "https://www.nhs.uk/conditions/complementary-and-alternative-medicine/" },
+    { label: "MHRA: traditional herbal registration and evidence", href: "https://www.gov.uk/government/groups/herbal-medicines-advisory-committee" },
+    { label: "NHS: septic arthritis", href: "https://www.nhs.uk/conditions/septic-arthritis/" },
+    { label: "NHS: joint pain", href: "https://www.nhs.uk/conditions/joint-pain/" },
+    { label: "NHS: vitamin D", href: "https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/" },
+  ],
   sections: [
+    {
+      heading: "When not to try self-care",
+      paragraphs: [
+        "Sudden severe joint pain, a newly hot or swollen joint, or difficulty moving a joint needs an urgent GP appointment or NHS 111 advice. A joint infection can occur without a fever. Do not delay assessment to try massage, heat, cold, exercise or a supplement.",
+        "Call 999 or go to A&E for very bad joint pain after an injury, a joint that is out of place, or inability to walk or put weight on a joint after an injury. Do not drive yourself. Persistent or recurring swelling, especially in the small joints of the hands or feet or in several joints, needs prompt GP assessment rather than a complementary-therapy trial.",
+      ],
+    },
     {
       heading: "Complementary, not alternative",
       paragraphs: [
-        "Complementary therapies are used alongside standard treatment. Alternative therapies are used instead of it. For osteoarthritis, trying a gentle complementary approach alongside exercise and pain relief is often reasonable. For inflammatory arthritis such as rheumatoid or psoriatic arthritis, replacing disease-modifying medicines with an alternative remedy can allow permanent joint damage, so please do not stop prescribed treatment without talking to your rheumatology team.",
+        "Complementary therapies are used alongside standard treatment. Alternative therapies are used instead of it. For osteoarthritis, NICE recommends therapeutic exercise tailored to your needs. A complementary label does not establish that a treatment works or is suitable. For inflammatory arthritis such as rheumatoid or psoriatic arthritis, replacing disease-modifying medicines with an alternative remedy can allow permanent joint damage, so please do not stop prescribed treatment without talking to your rheumatology team.",
         "Many people try something complementary because they want more control, fewer tablets, or help with stress and sleep. Those are good reasons. The aim of this guide is to help you spend your time and money where it is most likely to help.",
       ],
     },
@@ -40,7 +56,7 @@ export const complementaryTherapies: HubGuide = {
     {
       heading: "Movement-based approaches",
       paragraphs: [
-        "Tai chi, yoga, Pilates and water-based exercise are among the best-supported options because they combine gentle strengthening, balance and relaxation. They count as exercise, which is a core treatment for osteoarthritis and helps people with inflammatory arthritis too. Classes adapted for arthritis or for older adults are widely available, and many sessions can be done seated.",
+        "NICE NG226 recommends therapeutic exercise tailored to the person, including local muscle strengthening and aerobic activity, and says supervised sessions can be considered. It does not establish that every yoga, Pilates or tai chi class is suitable for every person with arthritis. Ask a physiotherapist about an exercise plan that fits your symptoms and abilities.",
       ],
       links: [
         { label: "Tai chi for arthritis joint pain", href: "/blog/tai-chi-arthritis-joint-pain" },
@@ -52,15 +68,15 @@ export const complementaryTherapies: HubGuide = {
     {
       heading: "Hands-on therapies",
       paragraphs: [
-        "Massage can ease muscle tension and help some people relax and sleep, although effects on joint pain tend to be short-lived. Avoid firm pressure over a hot, swollen joint during a flare.",
-        "Osteopaths and chiropractors use manipulation and mobilisation, mainly for back and neck pain. In the UK both professions are regulated by law, so check your practitioner is registered with the General Osteopathic Council or the General Chiropractic Council. High-velocity manipulation of the neck is not suitable for everyone, particularly people with inflammatory arthritis affecting the neck or with osteoporosis, so mention your diagnosis first.",
+        "For hip or knee osteoarthritis, NICE NG226 says manual therapy, such as manipulation, mobilisation or soft tissue techniques, should only be considered alongside therapeutic exercise. There is not enough evidence to support manual therapy on its own for osteoarthritis. Ask your physiotherapist or clinician whether it is appropriate for you.",
+        "Do not use hands-on treatment on a newly hot or swollen joint while waiting to see if it settles. Get urgent advice first. Tell any practitioner about your diagnosis, medicines and other health conditions before treatment.",
       ],
     },
     {
       heading: "Acupuncture and TENS",
       paragraphs: [
-        "Acupuncture involves fine needles placed at specific points. Some people with back or knee pain find it helps for a while. NICE does not recommend acupuncture as a treatment for osteoarthritis, because trials have not shown a meaningful benefit over sham treatment. If you decide to try it, choose a practitioner registered with a recognised professional body and agree a limited number of sessions.",
-        "A TENS machine delivers mild electrical pulses through pads on the skin. It is cheap, drug-free and under your control, and some people find it takes the edge off pain. It is not suitable for everyone, for example if you have a pacemaker, so check first.",
+        "NICE NG226 recommendation 1.3.8 says not to offer acupuncture or dry needling to manage osteoarthritis. We do not recommend a trial course for osteoarthritis. Advice for a different pain condition should not be treated as an osteoarthritis recommendation.",
+        "For osteoarthritis, NICE NG226 recommendation 1.3.9 says not to offer TENS because evidence of benefit is insufficient. Rheumatoid arthritis guidance is different: NICE NG100 recommendation 1.8.1 includes learning about short-term relief from methods such as TENS within specialist physiotherapy. This is not evidence of a long-term benefit or a recommendation to buy a device without advice.",
       ],
       links: [
         { label: "Acupuncture library note", href: "/library/acupuncture" },
@@ -70,8 +86,8 @@ export const complementaryTherapies: HubGuide = {
     {
       heading: "Supplements and herbal remedies",
       paragraphs: [
-        "Supplements are the area where money is most easily wasted. Glucosamine and chondroitin have been studied a lot with mixed results, and NICE does not recommend glucosamine for osteoarthritis. Turmeric (curcumin) and fish oils have some encouraging small studies but are not a substitute for medical treatment. Vitamin D is worth checking if you rarely get outdoors, as low levels are common in the UK.",
-        "Natural does not mean harmless. Several herbal products can affect the liver, interact with methotrexate or blood thinners, or change how other medicines work. Supplements are also not regulated as strictly as medicines, so the dose and purity can vary. Tell your pharmacist and rheumatology team before starting anything new.",
+        "NICE NG226 recommendations 1.4.6 and 1.4.7 say not to offer glucosamine for osteoarthritis because there is no strong evidence of benefit. We do not recommend a dose, product or trial course. The absence of an NG226 recommendation about another supplement is not proof that it works, is safe or is recommended.",
+        "The NHS warns that herbal products may interact with medicines and are not suitable for everyone. Tell your pharmacist and healthcare team about all medicines and supplements you take. A traditional herbal registration concerns traditional use and safety standards, not proof that a product treats arthritis.",
       ],
       links: [
         { label: "Turmeric and curcumin: the evidence", href: "/blog/turmeric-curcumin-arthritis-evidence" },
@@ -80,6 +96,12 @@ export const complementaryTherapies: HubGuide = {
         { label: "Vitamin D and arthritis", href: "/blog/vitamin-d-arthritis-uk" },
         { label: "Supplement and medicine interactions", href: "/blog/medication-supplement-interactions-arthritis" },
         { label: "Turmeric and methotrexate", href: "/blog/turmeric-and-methotrexate-interaction" },
+      ],
+    },
+    {
+      heading: "Vitamin D is a separate nutritional question",
+      paragraphs: [
+        "NHS advice on vitamin D concerns bone and muscle health, not a claim that it treats arthritis. Everyone should consider a daily supplement in autumn and winter; some people need one throughout the year. Follow the NHS advice for your age and circumstances and ask a pharmacist if you have a medical condition or take other medicines.",
       ],
     },
     {
@@ -95,7 +117,7 @@ export const complementaryTherapies: HubGuide = {
     {
       heading: "Heat, cold and simple home remedies",
       paragraphs: [
-        "Warmth, such as a warm bath, a heat pack or a hot water bottle wrapped in a cover, often eases stiffness. Cold packs wrapped in a towel can calm a hot, swollen joint. These are cheap, low-risk and easy to test. Protect your skin, limit each session to around the length recommended on the product, and avoid heat on numb skin.",
+        "Warmth, such as a warm bath, a heat pack or a hot water bottle wrapped in a cover, often eases stiffness. Cold packs wrapped in a towel can calm a hot, swollen joint. These are symptom-relief measures, not treatment for a possible joint infection. Do not put heat or ice directly on your skin, and check with a clinician first if you have reduced sensation or poor circulation. Follow product instructions.",
       ],
       links: [
         { label: "Heat vs cold for arthritis pain", href: "/guides/heat-vs-cold-arthritis-pain" },
@@ -113,7 +135,7 @@ export const complementaryTherapies: HubGuide = {
     },
     {
       q: "Is glucosamine worth taking for osteoarthritis?",
-      a: "The evidence is mixed and NICE does not recommend glucosamine for osteoarthritis. Some people still choose to try it. If you do, tell your pharmacist, check it will not interact with your medicines, and stop if you notice no benefit after a fair trial.",
+      a: "NICE says not to offer glucosamine for osteoarthritis because there is no strong evidence of benefit. We do not recommend an arthritis dose or trial course. If you already take it, ask a pharmacist about safety and interactions, and do not replace prescribed treatment.",
     },
     {
       q: "How do I find a safe practitioner?",
@@ -121,11 +143,11 @@ export const complementaryTherapies: HubGuide = {
     },
     {
       q: "Do copper bracelets or magnets help arthritis?",
-      a: "Trials have not shown copper or magnetic bracelets to be better than dummy bracelets for arthritis pain. They are unlikely to cause harm, but it is worth putting your money towards approaches with better evidence.",
+      a: "Do not treat copper or magnetic bracelets as a substitute for arthritis care. This guide does not recommend them as an arthritis treatment. Ask your healthcare team about options with evidence for your condition, and check device safety advice if you have an implanted medical device.",
     },
     {
       q: "How long should I try a therapy before deciding?",
-      a: "Agree a sensible trial in advance, for example a set number of sessions or a few weeks of a supplement, and note how your pain and daily activities change. If you cannot see a clear benefit by the end, it is reasonable to stop.",
+      a: "Do not use a trial period to justify a treatment NICE advises against for your condition. Discuss the evidence, risks, total cost and alternatives with your healthcare team first. If you agree an appropriate complementary approach, decide what benefit you are looking for and when to review it.",
     },
   ],
   related: [

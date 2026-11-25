@@ -13,7 +13,7 @@ export { useBlogArticle } from "./useBlogArticle";
 export function useBlogArticlesList() {
   return useQuery({
     queryKey: ["blog_articles_list"],
-    queryFn: async () => (await import("@/lib/blog/catalog")).getBlogCatalog(),
+    queryFn: async () => (await import("@/lib/blog/catalog")).getListedBlogCatalog(),
   });
 }
 
@@ -21,7 +21,7 @@ export function useBlogArticlesList() {
 export function useFeaturedArticles(limit = 3) {
   return useQuery({
     queryKey: ["blog_articles_featured", limit],
-    queryFn: async () => (await import("@/lib/blog/catalog")).getBlogCatalog().slice(0, limit),
+    queryFn: async () => (await import("@/lib/blog/catalog")).getListedBlogCatalog().slice(0, limit),
   });
 }
 
@@ -30,9 +30,9 @@ export function useConditionArticles(categories: string[] = [], limit = 4) {
   return useQuery({
     queryKey: ["blog_articles_by_categories", categories, limit],
     queryFn: async () => {
-      const { expandCategoryAliases, getBlogCatalog } = await import("@/lib/blog/catalog");
+      const { expandCategoryAliases, getListedBlogCatalog } = await import("@/lib/blog/catalog");
       const aliases = expandCategoryAliases(categories);
-      return getBlogCatalog()
+      return getListedBlogCatalog()
         .filter((article) => (categories.length === 0 ? true : aliases.has(article.category)))
         .slice(0, limit);
     },
@@ -76,7 +76,7 @@ export function useRelatedArticles(currentSlug: string, options: RelatedArticles
       seedTitle ?? null,
     ],
     queryFn: async () => {
-      const { getBlogCatalog, getBlogMeta } = await import("@/lib/blog/catalog");
+      const { getListedBlogCatalog, getBlogMeta } = await import("@/lib/blog/catalog");
       let sourceClusters: string[] = seedClusters ?? [];
       let sourceCategory: string | null = seedCategory ?? null;
 
@@ -94,7 +94,7 @@ export function useRelatedArticles(currentSlug: string, options: RelatedArticles
         });
       }
 
-      const candidates: RelatedArticle[] = getBlogCatalog()
+      const candidates: RelatedArticle[] = getListedBlogCatalog()
         .filter((a) => a.slug !== currentSlug)
         .map((a) => ({
           slug: a.slug,
@@ -116,7 +116,16 @@ export function useRelatedArticles(currentSlug: string, options: RelatedArticles
       if (top.length >= 3) return top.map((s) => s.article);
 
       const picked = new Set(top.map((t) => t.article.slug));
-      const filler = candidates.filter((c) => !picked.has(c.slug)).slice(0, 3 - top.length);
+      const rest = candidates.filter((c) => !picked.has(c.slug));
+      const sameCategory = sourceCategory
+        ? rest.filter((c) => c.category === sourceCategory)
+        : [];
+      const byDate = [...rest].sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
+      const filler: RelatedArticle[] = [];
+      for (const article of [...sameCategory, ...byDate]) {
+        if (filler.length >= 3 - top.length) break;
+        if (!filler.some((item) => item.slug === article.slug)) filler.push(article);
+      }
       return [...top.map((s) => s.article), ...filler];
     },
   });

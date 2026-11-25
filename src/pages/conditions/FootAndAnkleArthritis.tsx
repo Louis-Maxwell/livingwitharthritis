@@ -11,9 +11,7 @@ import ConditionBlogStrip from "@/components/ConditionBlogStrip";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
-import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 import AnswerBox from "@/components/seo/AnswerBox";
-import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 
@@ -107,7 +105,7 @@ const FootAndAnkleArthritis = () => (
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
     </Helmet>
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <Header />
       <PageBreadcrumb segments={[{ label: "Conditions", href: "/#conditions" }, { label: "Foot & Ankle Arthritis" }]} />
 
@@ -125,7 +123,7 @@ const FootAndAnkleArthritis = () => (
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
               Foot & Ankle Arthritis
             </h1>
-            <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
+            <p className="text-xs text-muted-foreground mb-5">Clinical review date not recorded.</p>
             <AeoEnhancement route="/conditions/foot-and-ankle-arthritis" />
             <p className="text-lg text-muted-foreground leading-relaxed">
               Each foot has dozens of joints, so arthritis here changes every step — from a stiff big toe that blocks push-off to deep ankle ache after an old fracture. This UK educational guide covers the common patterns, footwear and orthotics that help, gentle exercises, and how NHS podiatry and physiotherapy fit in. It is not a diagnosis.
@@ -137,16 +135,14 @@ const FootAndAnkleArthritis = () => (
       <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-10">
         <AnswerBox
           question="What helps foot and ankle arthritis most day to day?"
-          reviewed="2026-09-21"
         >
           <p>
-            Most people do best with a combination of <strong>supportive footwear</strong> (wide toe box, cushioned or rocker sole),
+            Options to discuss include <strong>supportive footwear</strong> (wide toe box, cushioned or rocker sole),
             {" "}daily <strong>gentle range-of-motion and balance work</strong>, and — where needed —{" "}
             <strong>podiatry orthotics</strong> plus activity pacing. Topical NSAID gel, heat before walking and rest after flares
-            settle many symptoms. See a GP or podiatrist if pain limits walking for weeks or a joint is hot and swollen.
+            may help symptoms. See a GP or podiatrist if pain limits walking. A hot, swollen joint or sudden severe pain needs urgent GP or NHS 111 advice.
           </p>
         </AnswerBox>
-        <MedicalReviewBadge compact reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="September 2026" />
       </section>
 
       <section className="py-12 lg:py-16 bg-tint-green">
@@ -272,7 +268,7 @@ const FootAndAnkleArthritis = () => (
           </ul>
         </Section>
 
-        <EducationalDisclaimerBox lastReviewed="2026-09-21" />
+        <EducationalDisclaimerBox reviewStatus="pending" pendingText="Clinical review date not recorded." />
 
         <ArticleFaqSection
           faqs={faqLd.mainEntity.map((f) => ({
