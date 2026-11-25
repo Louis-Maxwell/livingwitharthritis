@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { transformSync } from 'esbuild';
@@ -11,7 +11,6 @@ export function minifyStaticScripts(dist = resolve('dist')) {
   const result = [];
   for (const name of STATIC_SCRIPTS) {
     const file = resolve(dist, 'security', name);
-    if (!existsSync(file)) throw new Error(`Missing built security script: ${name}`);
     const source = readFileSync(file, 'utf8');
     const { code } = transformSync(source, { minify: true, target: 'es2020', legalComments: 'none' });
     writeFileSync(file, code);
