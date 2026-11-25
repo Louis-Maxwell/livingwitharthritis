@@ -1,4 +1,4 @@
-﻿// Long-form comparison content for high-value /guides/*-vs-* routes.
+// Long-form comparison content for high-value /guides/*-vs-* routes.
 // Each entry is 800–1200 words of evidence-informed, UK-focused copy.
 // The ComparisonPage falls back to a lightweight template when a slug
 // is not defined here.
@@ -37,6 +37,11 @@ export interface ComparisonArticle {
   table: ComparisonKeyPoint[];
   /** Short bullet takeaways. */
   takeaways: string[];
+  editorialUpdatedAt?: string;
+  question?: string;
+  answer?: string;
+  faqs?: { q: string; a: string }[];
+  disclaimer?: string;
 }
 
 export const COMPARISON_CONTENT: Record<string, ComparisonArticle> = {
@@ -475,86 +480,117 @@ export const COMPARISON_CONTENT: Record<string, ComparisonArticle> = {
   },
 
   "/guides/mediterranean-diet-vs-anti-inflammatory-diet": {
-    path: "/guides/mediterranean-diet-vs-anti-inflammatory-diet",
-    title: "Mediterranean vs Anti-Inflammatory Diet for Arthritis",
-    metaDescription:
-      "Mediterranean diet vs anti-inflammatory diet for arthritis — how they overlap, where they differ, and what UK evidence really supports.",
-    intro:
-      "'Anti-inflammatory' has become a marketing word attached to almost every food trend. The Mediterranean diet is one of the few eating patterns with genuinely strong evidence for reducing arthritis pain and cardiovascular risk. This guide compares the two, for UK readers who want to eat in a way that actually helps their joints — without buying £40 supplements.",
-    optionA: {
-      name: "Mediterranean diet",
-      howItWorks:
-        "A defined dietary pattern rich in vegetables, fruit, wholegrains, legumes, olive oil, nuts and oily fish, with modest dairy and low red meat.",
-      bestFor:
-        "Anyone with arthritis (particularly RA and OA), and anyone reducing cardiovascular risk alongside joint health.",
-      sideEffects:
-        "None; may cost slightly more if extra virgin olive oil and oily fish are new to your weekly shop.",
-      nhs: "Explicitly recommended by UK healthcare Eatwell and by NICE for cardiovascular prevention.",
-      cost: "£40–£70 per person per week; overlaps with normal UK shopping.",
+    "path": "/guides/mediterranean-diet-vs-anti-inflammatory-diet",
+    "title": "Mediterranean vs Anti-Inflammatory Diet for Arthritis",
+    "metaDescription": "Compare Mediterranean and 'anti-inflammatory' diets for arthritis: NICE advice, uncertain symptom benefits, balanced meals and supplement safety.",
+    "intro": "Mediterranean-style eating and diets labelled 'anti-inflammatory' often include similar foods, but the labels do not prove that a diet will reduce arthritis pain. This guide explains the overlap, what NICE says about rheumatoid arthritis and osteoarthritis, and how to make balanced food choices without unnecessary restrictions or supplement promises.",
+    "optionA": {
+      "name": "Mediterranean diet",
+      "howItWorks": "An eating pattern based on vegetables, fruit, wholegrains, beans, nuts, unsaturated oils and fish, with less red and processed meat.",
+      "bestFor": "People looking for a balanced eating pattern. Having arthritis does not mean it will relieve their symptoms.",
+      "sideEffects": "Adapt meals for allergies, dietary needs and your budget. Ask for individual advice if eating is difficult, you are losing weight unintentionally or you need a restricted diet.",
+      "nhs": "NICE encourages Mediterranean principles for adults with rheumatoid arthritis while explaining that there is no strong evidence their arthritis will benefit. The NHS Eatwell Guide supports balanced eating; it is not an arthritis-treatment endorsement.",
+      "cost": "It can use everyday foods such as oats, beans and frozen vegetables. There is no fixed weekly cost or need for specialist products."
     },
-    optionB: {
-      name: "'Anti-inflammatory' diet",
-      howItWorks:
-        "Not a single defined pattern — usually a set of principles emphasising oily fish, turmeric, ginger, berries, leafy greens, while cutting sugar, ultra-processed food and, sometimes, gluten or nightshades.",
-      bestFor:
-        "People who want a framework beyond Mediterranean, or who tolerate elimination approaches.",
-      sideEffects:
-        "Risk of over-restriction, especially if nightshades or wheat are cut without clinical need.",
-      nhs: "Not a formal UK healthcare pattern; individual foods align with Mediterranean advice.",
-      cost: "Can be expensive if it relies on speciality supplements and superfoods.",
+    "optionB": {
+      "name": "Diet labelled 'anti-inflammatory'",
+      "howItWorks": "A broad label that can describe quite different food plans. Some overlap with Mediterranean eating; others add food exclusions or supplements.",
+      "bestFor": "Judge the actual food plan rather than its name. A label alone does not establish an arthritis benefit.",
+      "sideEffects": "Cutting out food groups without a clinical reason can make balanced eating harder. Check proposed restrictions with a registered dietitian or your healthcare team.",
+      "nhs": "Do not treat the label as a NICE or NHS recommendation. Follow condition-specific advice and check individual claims.",
+      "cost": "Costs vary. Special foods, tests and supplements are not needed simply because a plan uses this label."
     },
-    sections: [
+    "sections": [
       {
-        heading: "How much overlap is there?",
-        paragraphs: [
-          "In practice, most versions of 'anti-inflammatory eating' are 90% Mediterranean plus a few extras — turmeric, ginger, green tea, sometimes limiting nightshades, wheat or dairy. Both patterns emphasise vegetables, fruit, nuts, seeds, oily fish, olive oil and legumes, and both discourage ultra-processed food, sugary drinks and excess red or processed meat.",
-          "The real difference is that the Mediterranean diet is defined by decades of research — including large randomised trials like PREDIMED — whereas 'anti-inflammatory' as a label is looser and often driven by supplement marketing.",
-        ],
+        "heading": "How much overlap is there?",
+        "paragraphs": [
+          "Both approaches may emphasise vegetables, fruit, wholegrains, beans, nuts and unsaturated oils. There is no reliable percentage that describes every 'anti-inflammatory' diet because there is no single agreed version.",
+          "Look at whether the plan is balanced, affordable and suitable for your health needs. The name of the diet does not tell you how well it treats arthritis."
+        ]
       },
       {
-        heading: "What the arthritis evidence actually shows",
-        paragraphs: [
-          "For rheumatoid arthritis, several trials of Mediterranean-style eating show modest but real reductions in joint pain, tender joint count and CRP. Effects are smaller than DMARDs but real, and improve cardiovascular risk — important because RA itself raises heart-attack risk.",
-          "For osteoarthritis, evidence is weaker but consistent: people eating a Mediterranean-style diet report less pain and better function, largely mediated by weight loss and reduced systemic inflammation.",
-          "Individual 'anti-inflammatory' foods (turmeric/curcumin, omega-3, ginger, green tea) each have trials of variable quality, generally showing small pain-relief effects. Nothing comes close to the effect size of Mediterranean eating as a whole pattern.",
-        ],
+        "heading": "What the arthritis guidance actually says",
+        "paragraphs": [
+          "For rheumatoid arthritis, NICE says there is no strong evidence that experimenting with diet will benefit the arthritis. Mediterranean principles can still be encouraged. Continue prescribed treatment and do not delay a rheumatology review while trying food changes.",
+          "For osteoarthritis, NICE identifies tailored therapeutic exercise and weight management, when appropriate, as core treatments alongside information and support. It does not establish a Mediterranean diet as a proven arthritis-pain treatment.",
+          "There is no supported promise here that you will feel better in 8-12 weeks. Changes in symptoms can have several causes, so do not use a short dietary trial as proof that a food treats your arthritis."
+        ]
       },
       {
-        heading: "Where they genuinely differ",
-        paragraphs: [
-          "Some anti-inflammatory approaches recommend cutting nightshades (tomatoes, aubergine, peppers, potatoes), gluten or dairy. There is no consistent evidence these help arthritis in general — although a small subset of people with coeliac disease or genuine intolerances do improve. Blanket elimination risks nutritional gaps and lower quality of life.",
-          "Some approaches lean heavily on supplements — turmeric capsules, high-dose fish oil, MSM, glucosamine. The evidence for these is patchy: high-dose omega-3 has modest RA benefit; curcumin has some knee osteoarthritis trials; glucosamine's effect is small and inconsistent.",
-        ],
+        "heading": "Food exclusions and supplements",
+        "paragraphs": [
+          "Do not routinely cut out gluten, dairy or nightshade vegetables to treat arthritis. If you have a diagnosed allergy, coeliac disease or another condition needing a special diet, follow your own clinical advice. Otherwise, discuss a proposed exclusion with a registered dietitian before removing a food group.",
+          "Food and supplement capsules are not interchangeable. This comparison does not recommend an arthritis supplement or dose. NICE says not to offer glucosamine for osteoarthritis because there is no strong evidence of benefit. Ask a pharmacist or your healthcare team about supplement safety and interactions, and do not replace prescribed medicines with supplements."
+        ]
       },
       {
-        heading: "Building it in real UK life",
-        paragraphs: [
-          "You don't need to buy anything exotic. A Mediterranean-style shopping list in the UK looks like: bags of frozen berries, tinned tomatoes and beans, oats, rye or wholewheat bread, extra virgin olive oil, mixed nuts, plain yoghurt, two portions of oily fish a week (tinned sardines and mackerel are cheap), plenty of vegetables and occasional lean chicken or eggs. Red meat and processed meat move to the edge of the plate.",
-          "If you want to add 'anti-inflammatory' extras, safe additions are turmeric with black pepper in cooking, fresh or powdered ginger, and green tea. Skip the £30 pill bottles unless a rheumatologist or dietitian specifically recommends them.",
-        ],
+        "heading": "Building balanced meals in UK life",
+        "paragraphs": [
+          "You do not need exotic ingredients. Oats, wholegrain bread, beans, lentils, frozen vegetables, fruit and unsalted nuts can fit a balanced pattern. Choose foods you can afford, prepare and enjoy, allowing for allergies and dietary needs.",
+          "The NHS advises at least two portions of fish a week, including one oily fish portion, for people who eat fish. This is general healthy-eating advice, not a proven arthritis-pain dose. Follow the NHS's separate limits for pregnancy and particular fish, or ask for advice if you do not eat fish.",
+          "Choose unsaturated oils in small amounts. Olive, rapeseed and sunflower oils can all fit NHS advice; there is no need to describe ordinary vegetable oils as a cause of arthritis inflammation."
+        ]
       },
       {
-        heading: "What to prioritise if you can only change one thing",
-        paragraphs: [
-          "For arthritis, the highest-yield change is usually: eat oily fish twice a week, swap sunflower/vegetable oil for olive oil, and eat vegetables at every meal. Do just that and you're already Mediterranean, already anti-inflammatory, and likely to feel a difference over 8–12 weeks.",
-          "Weight loss, where relevant, amplifies everything: each kilogram off reduces load on the knee joint by roughly 4 kg per step, and losing 10% of body weight can rival the pain relief of common medication in obese OA patients.",
-        ],
-      },
+        "heading": "What to prioritise",
+        "paragraphs": [
+          "Start with one manageable balanced-eating change rather than a restrictive plan or a supplement purchase. If pain, fatigue, hand problems or your budget make food preparation difficult, ask your healthcare team about practical support or a dietitian referral.",
+          "For people with osteoarthritis who are living with overweight or obesity, NICE says weight loss can reduce pain and improve function and quality of life. Any amount is likely to help, and losing 10% is likely to help more than 5%. Weight loss is not appropriate for everyone, particularly people who are underweight, frail or losing weight unintentionally. Agree an individual plan rather than following a generic target."
+        ]
+      }
     ],
-    table: [
-      { label: "Evidence in arthritis", a: "Strong (RA and OA)", b: "Mixed, mostly single-food studies" },
-      { label: "Defined pattern?", a: "Yes", b: "Loose set of principles" },
-      { label: "Cost", a: "Everyday supermarket", b: "Higher if supplement-heavy" },
-      { label: "Elimination-based?", a: "No", b: "Sometimes (nightshades, gluten)" },
-      { label: "NHS-endorsed?", a: "Yes (via Eatwell + NICE)", b: "Not formally" },
+    "table": [
+      {
+        "label": "Proven arthritis-pain benefit?",
+        "a": "Not established by the NICE advice discussed here",
+        "b": "The label does not establish a benefit"
+      },
+      {
+        "label": "Defined pattern?",
+        "a": "Recognisable principles with room for adaptation",
+        "b": "No single agreed definition"
+      },
+      {
+        "label": "Everyday food possible?",
+        "a": "Yes",
+        "b": "Depends on the plan"
+      },
+      {
+        "label": "Food exclusions needed for arthritis?",
+        "a": "Not routinely",
+        "b": "Some plans add restrictions without a clear clinical reason"
+      },
+      {
+        "label": "NICE position",
+        "a": "Mediterranean principles can be encouraged in RA, with uncertainty about arthritis benefit explained",
+        "b": "Check the actual plan and its claims; do not assume endorsement"
+      }
     ],
-    takeaways: [
-      "Mediterranean eating has the strongest evidence for arthritis.",
-      "Most 'anti-inflammatory' diets are Mediterranean plus optional extras.",
-      "Skip elimination diets unless clinically indicated.",
-      "Two portions of oily fish and olive oil are the biggest single wins.",
-      "Weight loss magnifies the benefit of any dietary change.",
+    "takeaways": [
+      "Mediterranean-style eating can be a balanced choice, but it is not a replacement for arthritis treatment.",
+      "NICE says there is no strong evidence that diet experimentation will benefit rheumatoid arthritis.",
+      "For osteoarthritis, tailored exercise and weight management when appropriate remain core treatments.",
+      "Avoid unnecessary exclusions and do not buy supplements on the promise of an arthritis cure.",
+      "Ask for advice tailored to your medicines, nutritional needs and circumstances."
     ],
+    "editorialUpdatedAt": "2026-11-25",
+    "question": "Is the Mediterranean diet the same as an anti-inflammatory diet?",
+    "answer": "No. A Mediterranean-style diet is an eating pattern based on vegetables, fruit, wholegrains, beans, nuts and unsaturated oils. 'Anti-inflammatory diet' is a broad label without one agreed definition. NICE says there is no strong evidence that changing diet will benefit rheumatoid arthritis, although Mediterranean principles can be encouraged. Food changes do not replace arthritis treatment.",
+    "faqs": [
+      {
+        "q": "Which eating pattern should I choose?",
+        "a": "Choose a balanced, affordable pattern you can sustain and adapt to your needs. Mediterranean principles are one option. NICE advises explaining the uncertainty about arthritis benefit rather than promising pain relief."
+      },
+      {
+        "q": "Should I try an elimination diet or supplements?",
+        "a": "Not routinely for arthritis. Discuss a proposed exclusion with a registered dietitian and check supplements with a pharmacist or your healthcare team. Follow specific advice for a diagnosed allergy, coeliac disease or another condition."
+      },
+      {
+        "q": "How long before my arthritis improves?",
+        "a": "There is no reliable time-to-benefit promise for either label. Continue your arthritis treatment and seek a review for persistent or worsening symptoms rather than waiting for a diet to work."
+      }
+    ],
+    "disclaimer": "This is general information, not individual medical advice. Talk to your GP, rheumatology team, pharmacist or a registered dietitian if you want to change your diet, have nutritional concerns or are considering supplements. Do not stop or change prescribed treatment because of a diet plan."
   },
 
   "/guides/nhs-vs-private-rheumatology": {
