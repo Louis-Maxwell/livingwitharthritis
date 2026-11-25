@@ -63,7 +63,10 @@ const PRIORITY_ANSWERS = JSON.parse(readFileSync(resolve("src/data/priority-dire
 const template = existsSync(SRC) ? readFileSync(SRC, "utf8") : "";
 
 const readJson = (path) =>
-  existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : {};
+  existsSync(path) ? JSON.parse(readFileSync(path, "utf8").replaceAll(
+    "https://www.nhsinform.scot/waiting-times/outpatient-waiting-times/",
+    "https://www.nhsinform.scot/care-support-and-rights/health-rights/access/nhs-scotland-waiting-times",
+  )) : {};
 
 // Vite build manifest (build.manifest in vite.config.ts). Used to preload a
 // route's own chunk from its static HTML so it downloads alongside the entry
@@ -1117,4 +1120,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-}
+    }
