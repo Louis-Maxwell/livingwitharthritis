@@ -69,5 +69,45 @@
     ],
     "updatedAt": "2026-11-22",
     "summaryReviewNote": "Educational resource. This editorial safety update is not independent clinical review."
+  },
+  "/guides/mediterranean-diet-vs-anti-inflammatory-diet": {
+    "title": "Mediterranean vs Anti-Inflammatory Diet for Arthritis",
+    "description": "Compare Mediterranean and 'anti-inflammatory' diets for arthritis: NICE advice, uncertain symptom benefits, balanced meals and supplement safety.",
+    "breadcrumb": "Mediterranean Diet vs Anti-Inflammatory Diet",
+    "question": "Is the Mediterranean diet the same as an anti-inflammatory diet?",
+    "answer": "No. A Mediterranean-style diet is an eating pattern based on vegetables, fruit, wholegrains, beans, nuts and unsaturated oils. 'Anti-inflammatory diet' is a broad label without one agreed definition. NICE says there is no strong evidence that changing diet will benefit rheumatoid arthritis, although Mediterranean principles can be encouraged. Food changes do not replace arthritis treatment.",
+    "updatedAt": "2026-11-25",
+    "faqs": [
+      {
+        "q": "Which eating pattern should I choose?",
+        "a": "Choose a balanced, affordable pattern you can sustain and adapt to your needs. Mediterranean principles are one option. NICE advises explaining the uncertainty about arthritis benefit rather than promising pain relief."
+      },
+      {
+        "q": "Should I try an elimination diet or supplements?",
+        "a": "Not routinely for arthritis. Discuss a proposed exclusion with a registered dietitian and check supplements with a pharmacist or your healthcare team. Follow specific advice for a diagnosed allergy, coeliac disease or another condition."
+      },
+      {
+        "q": "How long before my arthritis improves?",
+        "a": "There is no reliable time-to-benefit promise for either label. Continue your arthritis treatment and seek a review for persistent or worsening symptoms rather than waiting for a diet to work."
+      }
+    ],
+    "sources": [
+      {
+        "name": "NICE rheumatoid arthritis guidance",
+        "url": "https://www.nice.org.uk/guidance/ng100/chapter/recommendations"
+      },
+      {
+        "name": "NICE osteoarthritis guidance",
+        "url": "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations"
+      },
+      {
+        "name": "NHS Eatwell Guide",
+        "url": "https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/the-eatwell-guide/"
+      },
+      {
+        "name": "NHS fish advice",
+        "url": "https://www.nhs.uk/live-well/eat-well/food-types/fish-and-shellfish-nutrition/"
+      }
+    ]
   }
-}
+      }
