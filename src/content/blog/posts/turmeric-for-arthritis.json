@@ -2,47 +2,132 @@
   "slug": "turmeric-for-arthritis",
   "title": "Turmeric for Arthritis: Evidence, Dose Context and UK Safety",
   "meta_title": "Turmeric for Arthritis: Evidence, Dose & UK Safety",
-  "meta_description": "Turmeric and curcumin for arthritis: what trials show, absorption tips, typical studied doses, medicine interactions and how it fits alongside NHS care.",
-  "excerpt": "Does turmeric help arthritis? What curcumin trials show, why absorption matters, safety with medicines, and how it fits UK diet and pain-care plans.",
-  "direct_answer": "Curcumin extracts have some evidence for osteoarthritis pain over 8–12 weeks when absorption is enhanced. Culinary turmeric is not the same as trial doses. It does not replace prescribed care — check interactions with your GP or pharmacist first.",
+  "meta_description": "Turmeric for arthritis: the November 2026 Cochrane findings, NICE scope, liver injury, medicine interactions and why no universal dose is recommended.",
+  "excerpt": "Turmeric for arthritis: the November 2026 Cochrane findings, NICE scope, liver injury, medicine interactions and why no universal dose is recommended.",
+  "direct_answer": "A November 2026 Cochrane review found low-certainty evidence that turmeric supplements may make little or no difference to knee osteoarthritis pain, function or quality of life versus placebo. Rare liver injury and medicine interactions matter. NICE does not recommend a turmeric product or dose. Do not replace prescribed arthritis treatment.",
   "date": "2026-03-08",
-  "updated_at": "2026-09-20T12:00:00.000Z",
-  "last_reviewed": "2026-10-23",
+  "updated_at": "2026-11-25T00:40:00.000Z",
   "category": "Diet & lifestyle",
   "cover": "lwa-title-turmeric-for-arthritis.webp",
   "author": "Louis Maxwell",
   "author_credentials": "First Contact Practitioner, HCPC PH128483",
-  "reviewed_by": "Louis Maxwell",
-  "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
+  "reviewed_by": null,
+  "reviewer_credentials": null,
   "keywords": "turmeric for arthritis, curcumin arthritis UK, turmeric dosage joints, turmeric and methotrexate, natural anti-inflammatory arthritis",
   "display_order": 964,
   "is_published": true,
   "citations": [
     {
-      "label": "Osteoarthritis in over 16s: diagnosis and management (NG226)",
-      "url": "https://www.nice.org.uk/guidance/ng226",
+      "label": "Cochrane: Turmeric for osteoarthritis, 19 November 2026",
+      "url": "https://www.cochrane.org/evidence/CD014683_what-are-benefits-and-risks-turmeric-curcuma-longa-supplements-people-osteoarthritis",
+      "publisher": "Cochrane"
+    },
+    {
+      "label": "NICE NG226: Osteoarthritis recommendations",
+      "url": "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations",
       "publisher": "NICE"
     },
     {
-      "label": "Osteoarthritis",
-      "url": "https://www.nhs.uk/conditions/osteoarthritis/",
+      "label": "NICE NG100: Rheumatoid arthritis recommendations",
+      "url": "https://www.nice.org.uk/guidance/ng100/chapter/Recommendations",
+      "publisher": "NICE"
+    },
+    {
+      "label": "NHS: Osteoarthritis treatment",
+      "url": "https://www.nhs.uk/conditions/osteoarthritis/treatment/",
       "publisher": "NHS"
     },
     {
-      "label": "Diet and arthritis",
-      "url": "https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/eating-well-with-arthritis/",
-      "publisher": "Arthritis UK"
+      "label": "NHS: Rheumatoid arthritis treatment",
+      "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/",
+      "publisher": "NHS"
     },
     {
-      "label": "NSAIDs (non-steroidal anti-inflammatory drugs)",
+      "label": "NHS: NSAIDs",
       "url": "https://www.nhs.uk/conditions/nsaids/",
       "publisher": "NHS"
     },
     {
-      "label": "Complementary and alternative medicines report",
-      "url": "https://www.arthritis-uk.org/media/1337/complementary-and-alternative-medicines-report.pdf",
-      "publisher": "Arthritis UK"
+      "label": "Committee on Toxicity: Turmeric and curcumin safety",
+      "url": "https://www.gov.uk/government/publications/turmeric-and-curcumin-supplements/statement-on-the-potential-risk-to-human-health-of-turmeric-and-curcumin-supplements-lay-summary",
+      "publisher": "GOV.UK"
+    },
+    {
+      "label": "NCCIH: Turmeric",
+      "url": "https://www.nccih.nih.gov/health/turmeric",
+      "publisher": "NCCIH"
+    },
+    {
+      "label": "Welsh Medicines Advice Service: Turmeric interactions",
+      "url": "https://www.wmic.wales.nhs.uk/turmeric-potential-interactions/",
+      "publisher": "NHS"
+    },
+    {
+      "label": "Welsh Medicines Advice Service: Turmeric adverse effects",
+      "url": "https://www.wmic.wales.nhs.uk/turmeric-potential-adverse-effects/",
+      "publisher": "NHS"
+    },
+    {
+      "label": "NHS: Methotrexate and supplements",
+      "url": "https://www.nhs.uk/medicines/methotrexate/taking-methotrexate-with-other-medicines-and-herbal-supplements/",
+      "publisher": "NHS"
+    },
+    {
+      "label": "TGA: Turmeric and liver injury",
+      "url": "https://www.tga.gov.au/safety/safety-monitoring-and-information/safety-alerts/medicines-containing-turmeric-or-curcumin-risk-liver-injury",
+      "publisher": "TGA"
+    },
+    {
+      "label": "NHS: Herbal medicines",
+      "url": "https://www.nhs.uk/conditions/herbal-medicines/",
+      "publisher": "NHS"
+    },
+    {
+      "label": "MHRA: Traditional herbal registration",
+      "url": "https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr",
+      "publisher": "MHRA"
+    },
+    {
+      "label": "2021 knee osteoarthritis systematic review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34216044/",
+      "publisher": "PubMed"
+    },
+    {
+      "label": "2025 critical review of systematic reviews",
+      "url": "https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2025.1664319/full",
+      "publisher": "Frontiers in Pharmacology"
+    },
+    {
+      "label": "NHS: Jaundice",
+      "url": "https://www.nhs.uk/conditions/jaundice/",
+      "publisher": "NHS"
+    },
+    {
+      "label": "NHS: Septic arthritis",
+      "url": "https://www.nhs.uk/conditions/septic-arthritis/",
+      "publisher": "NHS"
+    },
+    {
+      "label": "NHS: Anaphylaxis",
+      "url": "https://www.nhs.uk/conditions/anaphylaxis/",
+      "publisher": "NHS"
+    },
+    {
+      "label": "NHS: Sepsis",
+      "url": "https://www.nhs.uk/conditions/sepsis/",
+      "publisher": "NHS"
+    },
+    {
+      "label": "nidirect: GP out-of-hours",
+      "url": "https://www.nidirect.gov.uk/articles/gp-out-hours-service",
+      "publisher": "nidirect"
     }
   ],
-  "content": "<p class=\"quick-answer\"><strong>Quick answer:</strong> Curcumin (from turmeric) has some clinical evidence for osteoarthritis pain when taken as an enhanced-absorption extract for several weeks. Plain culinary turmeric delivers little curcumin. It is not a substitute for prescribed treatment. Tell your GP or pharmacist before starting high-dose supplements — especially if you take anticoagulants or have gallbladder disease.</p>\n\n<p>Turmeric is widely marketed for “joint inflammation”. Some of the interest is justified; much of the marketing is not. This page summarises what UK patients and carers usually need to know, with links to diet, pain relief and medicines safety. Educational information only — not personal medical advice.</p>\n\n<h2>What UK sources emphasise first</h2>\n<p><a href=\"https://www.nice.org.uk/guidance/ng226\" rel=\"noopener noreferrer\">NICE osteoarthritis guidance (NG226)</a> centres on exercise, weight management where relevant, and carefully chosen topical or oral medicines — not turmeric. <a href=\"https://www.nhs.uk/conditions/osteoarthritis/\" rel=\"noopener noreferrer\">NHS osteoarthritis information</a> and <a href=\"https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/eating-well-with-arthritis/\" rel=\"noopener noreferrer\">Arthritis UK (formerly Versus Arthritis) diet advice</a> treat food patterns as supportive, while <a href=\"https://www.arthritis-uk.org/information-and-support/understanding-arthritis/managing-arthritis-symptoms/managing-arthritis-pain/\" rel=\"noopener noreferrer\">Arthritis UK complementary treatments pages</a> urge caution with supplements that lack strong evidence or clear regulation. Use those pages as your baseline; treat curcumin as an optional adjunct you discuss with a clinician.</p>\n\n<h2>What the evidence actually says</h2>\n<p>Curcumin can influence inflammatory signalling pathways that also matter in arthritis care. Speak to your GP or pharmacist about the right dose for you. Results vary by product quality and study design.</p>\n<p>Treat curcumin as an optional adjunct — not a replacement for <a href=\"/guides/arthritis-pain-relief\">evidence-based pain relief</a>, topical or oral <a href=\"https://www.nhs.uk/conditions/nsaids/\" rel=\"noopener noreferrer\">NSAIDs when appropriate</a>, or DMARD therapy in inflammatory arthritis.</p>\n\n<h2>Absorption: why powder in tea is not the same as a trial dose</h2>\n<ul>\n<li>Curcumin alone is poorly absorbed</li>\n<li>Formulations with piperine (black pepper extract), phytosomes or lipids are used in many studies</li>\n<li>Cooking with turmeric powder is pleasant and low-risk for most people, but it is not equivalent to standardised trial extracts</li>\n<li>“Golden milk” and supermarket spice jars are food, not a clinical dose</li>\n</ul>\n\n<h2>Practical dosing context (not a prescription)</h2>\n<p>Trial products often use standardised curcuminoid extracts rather than raw powder. Labels differ. Do not stack multiple “joint blends”. If you try a supplement, pick one clear product, take it with food as directed, and review after 8–12 weeks whether pain, stiffness or function actually changed. Stop and seek advice if you develop stomach pain, easy bruising, yellowing of the skin/eyes, or allergic symptoms.</p>\n\n<h2>Safety and medicine interactions</h2>\n<ul>\n<li>May interact with anticoagulants / antiplatelets — check with a pharmacist</li>\n<li>Use caution with gallstones or bile duct problems</li>\n<li>High doses can upset the gut</li>\n<li>Always list supplements on your rheumatology and GP records</li>\n</ul>\n<p>If you take methotrexate or other DMARDs, read our note on <a href=\"/blog/turmeric-and-methotrexate-interaction\">turmeric and methotrexate</a> and confirm with your specialist nurse before combining.</p>\n\n<h2>Where turmeric fits with diet and lifestyle</h2>\n<p>No spice reverses arthritis. Patterns matter more: vegetables, pulses, wholegrains, olive oil and oily fish — see the <a href=\"/guides/diet\">diet hub</a> and <a href=\"/guides/diet\">diet guide</a>. Pair any supplement experiment with movement from the <a href=\"/guides/exercise\">exercise guide</a> and flare tactics in the <a href=\"/guides/arthritis-pain-relief\">pain relief guide</a>.</p>\n\n<h2>If you are newly diagnosed</h2>\n<p>Supplements can distract from the first jobs that matter: understanding your arthritis type, starting prescribed treatment when offered, and learning pacing. Use the <a href=\"/guides/newly-diagnosed\">newly diagnosed guide</a> first. Curcumin can wait until your core plan is clear.</p>\n\n<h2>Money and realistic expectations</h2>\n<p>Premium curcumin products are expensive. If cost is tight, prioritise NHS-prescribed care, footwear/exercise that help daily function, and benefits advice via the <a href=\"/guides/benefits-pip\">Benefits &amp; PIP hub</a> rather than unproven stacks. Arthritis UK and NHS pages remain the safest first reads for condition basics. For a deeper evidence walk-through, see <a href=\"/blog/turmeric-curcumin-arthritis-evidence\">turmeric and curcumin evidence</a> and <a href=\"/blog/ginger-vs-turmeric-for-arthritis\">ginger vs turmeric</a>.</p>\n\n<h2>Bottom line</h2>\n<p>Curcumin extracts have plausible, modest evidence for some osteoarthritis symptoms. Culinary turmeric is fine as food. Neither replaces clinical care. Review any supplement with your NHS team and keep expectations honest.</p>\n\n<h2>Quick questions</h2>\n<p><strong>Can turmeric replace ibuprofen?</strong> No. Follow NICE/NHS medicines advice; ask a pharmacist before mixing supplements and painkillers.</p>\n<p><strong>How long before I judge it?</strong> Give a single product several weeks unless side effects appear sooner.</p>\n<p><strong>Who should avoid high-dose curcumin?</strong> People on blood thinners, with gallbladder disease, or who are pregnant should get individual advice first.</p>\n\n<section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n<h2 id=\"continue-reading\">Continue with related help</h2>\n<ul>\n<li><a href=\"/supplements/turmeric\">Turmeric supplement hub</a> — focused supplement page</li>\n<li><a href=\"/guides/diet\">Diet hub</a> — Mediterranean-style patterns for joints</li>\n<li><a href=\"/guides/arthritis-pain-relief\">Arthritis pain relief</a> — movement, topical NSAIDs and pacing</li>\n<li><a href=\"/guides/newly-diagnosed\">Newly diagnosed</a> — first steps after diagnosis</li>\n<li><a href=\"/guides/benefits-pip\">Benefits &amp; PIP hub</a> — when symptoms affect daily living</li>\n<li><a href=\"/blog/turmeric-curcumin-arthritis-evidence\">Turmeric &amp; curcumin evidence deep-dive</a></li>\n<li><a href=\"/blog/nsaids-and-arthritis-benefits-risks-and-safer-use\">NSAIDs: benefits, risks and safer use</a></li>\n</ul>\n</section>\n<h2>When to get urgent help</h2><p>Call <strong>999</strong> or go to A&amp;E if you have chest pain, sudden weakness or numbness, severe breathlessness, a suspected broken bone after a fall, or back pain with new loss of bladder or bowel control or numbness around your bottom or genitals.</p><p>Contact <strong>NHS 111</strong> or your GP urgently if a joint suddenly becomes hot, red, swollen and very painful, especially if you feel unwell or have a fever, or if your symptoms are getting rapidly worse.</p>\n\n<section class=\"speakable-faq\" aria-label=\"Frequently asked questions\">\n<h2>Frequently asked questions</h2>\n<h3>Does turmeric help arthritis pain?</h3>\n<p>Some curcumin extract trials show modest pain and function improvements in osteoarthritis over about 8–12 weeks. Results vary by product and dose. Culinary turmeric alone is unlikely to match trial doses.</p>\n<h3>What turmeric dose is used in arthritis studies?</h3>\n<p>Studies often use standardised curcumin extracts (sometimes with piperine or other absorption aids), not teaspoon measures of kitchen spice. Follow product labelling and clinician advice; more is not always safer.</p>\n<h3>Is turmeric safe with blood thinners or diabetes medicines?</h3>\n<p>Curcumin can interact with anticoagulants and affect blood sugar or liver enzymes in some people. Check with a pharmacist or clinician before combining turmeric supplements with prescription medicines.</p>\n<h3>Is golden milk enough turmeric for joint pain?</h3>\n<p>Golden milk and cooking spices add flavour and polyphenols but rarely deliver the curcumin amounts used in positive trials. They can still be part of a healthy diet without acting as a treatment dose.</p>\n<h3>How long should I try turmeric for arthritis?</h3>\n<p>If you and your clinician agree to try a quality extract, reassess after 8–12 weeks. Stop if you get stomach upset, rash, yellowing of skin/eyes, or no meaningful benefit.</p>\n<h3>Can turmeric replace arthritis medication?</h3>\n<p>No. Do not stop DMARDs, steroids or other prescribed treatment for turmeric. Use it only as a possible adjunct after checking safety with your care team.</p>\n</section>\n<p><em>Living With Arthritis is independent of Arthritis UK, formerly Versus Arthritis.</em></p>"
+  "content": "<p>Turmeric is a cooking spice. Curcumin is one of its constituents, and concentrated turmeric or curcumin products are sold as supplements. These are not interchangeable exposures. A capsule with an absorption enhancer is not equivalent to turmeric used to flavour a meal.</p>\n<p>This guide separates evidence of benefit from evidence of harm. It does not recommend a brand, a dose or a supplement trial. Do not stop prescribed arthritis treatment to try turmeric.</p>\n<h2 class=\"q-heading\" id=\"evidence\">Does turmeric help osteoarthritis?</h2>\n<p>A <a href=\"https://www.cochrane.org/evidence/CD014683_what-are-benefits-and-risks-turmeric-curcuma-longa-supplements-people-osteoarthritis\">Cochrane review published on 19 November 2026</a> included nine studies with 1,245 people, all with knee osteoarthritis. Compared with placebo, turmeric supplements may make little or no difference to pain, function or quality of life. People may be more likely to describe treatment as successful, but these findings were based on low-certainty evidence. The review was very uncertain about adverse events.</p>\n<p>In four placebo-controlled studies, the average difference in pain improvement was 0.72 points on a 0-to-10 scale in favour of turmeric. This is an average across the studied products, not a prediction of what a particular supplement will do for you. The studies lasted four weeks to three months. They do not establish long-term safety, an effective retail product or a treatment for hand, hip or inflammatory arthritis.</p>\n<h3 class=\"q-heading\">Why do some sources sound more positive?</h3>\n<p>Earlier reviews, including a <a href=\"https://pubmed.ncbi.nlm.nih.gov/34216044/\">2021 review of knee osteoarthritis trials</a>, reported symptom benefits. Different reviews include different studies and formulations. A <a href=\"https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2025.1664319/full\">2025 review of reviews</a> found major weaknesses in the underlying review methods and mostly low or very low certainty. The later Cochrane review also screened trials for trustworthiness before including them in its analyses. It is not sound to select the most positive pooled result and call turmeric a proven pain treatment.</p>\n<p>The <a href=\"https://www.nccih.nih.gov/health/turmeric\">US National Center for Complementary and Integrative Health</a> describes promising early findings but says there is not enough evidence for definite conclusions. Its page was updated in April 2025, before the November 2026 Cochrane review. Neither source establishes that turmeric repairs cartilage, prevents joint damage or replaces arthritis medicines.</p>\n<h2 class=\"q-heading\" id=\"nice\">What does NICE recommend instead?</h2>\n<p><a href=\"https://www.nice.org.uk/guidance/ng226/chapter/Recommendations\">NICE NG226, recommendations 1.3.1 to 1.3.4</a>, supports therapeutic exercise tailored to the person with osteoarthritis, including strengthening and aerobic fitness. Weight management is part of care where relevant. Recommendations 1.4.1 to 1.4.5 explain how medicines may support this care, including topical NSAIDs for knee osteoarthritis and consideration of risks before oral NSAIDs. The guideline does not provide a recommended turmeric product or dose. This is not the same as an explicit NICE recommendation against turmeric; NICE's recommendation not to offer glucosamine is a separate decision about another supplement.</p>\n<p><a href=\"https://www.nhs.uk/conditions/osteoarthritis/treatment/\">NHS osteoarthritis treatment information</a> explains the main options. Ask your clinician or pharmacist about persistent pain rather than replacing a treatment plan with supplements. <a href=\"https://www.nhs.uk/conditions/nsaids/\">NSAIDs also have risks and interactions</a>, so this guide does not suggest taking them without checking suitability.</p>\n<h3 class=\"q-heading\">What about rheumatoid arthritis?</h3>\n<p>Knee osteoarthritis findings cannot be transferred to rheumatoid arthritis. <a href=\"https://www.nice.org.uk/guidance/ng100/chapter/Recommendations\">NICE NG100, recommendations 1.4.1 and 1.8.8 to 1.8.10</a>, addresses disease-modifying treatment and the limits of diet and complementary therapies. Do not use a supplement instead of conventional treatment. The <a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/\">NHS explains how DMARDs help limit joint damage</a>. Symptom relief alone would not show that a product controls the disease.</p>\n<h2 class=\"q-heading\" id=\"absorption\">Does adding black pepper make it better?</h2>\n<p>Piperine, an extract of black pepper, can increase curcumin absorption. That does not establish better overall benefit or safety. <a href=\"https://www.gov.uk/government/publications/turmeric-and-curcumin-supplements/statement-on-the-potential-risk-to-human-health-of-turmeric-and-curcumin-supplements-lay-summary\">The UK Committee on Toxicity</a> notes that altered formulations can change potential toxicity. Do not choose an enhanced-absorption product simply because it promises that more curcumin will reach the bloodstream.</p>\n<p>Food use is different from concentrated supplementation. <a href=\"https://www.tga.gov.au/safety/safety-monitoring-and-information/safety-alerts/medicines-containing-turmeric-or-curcumin-risk-liver-injury\">Australia's medicines regulator</a> says the rare liver-injury risk associated with medicinal products does not appear to apply to typical dietary amounts. That is not a reason to drink large quantities of turmeric preparations or convert food-additive safety limits into a personal supplement dose.</p>\n<h2 class=\"q-heading\" id=\"dose\">Is there a recommended arthritis dose or trial period?</h2>\n<p>No universal dose or trial period can be recommended from these sources. Trials tested different extracts and formulations, and the amount printed on one label may not describe the same preparation as another. A study lasting several weeks is not an instruction for everyone to take a product for 8 to 12 weeks.</p>\n<p>Ask a pharmacist or your treating team about the exact ingredients and your medicines before starting. Do not copy a trial dose, combine several joint blends or increase a dose because you have not noticed a benefit. There is no tested safe spacing rule that makes a supplement compatible with methotrexate or another medicine.</p>\n<h2 class=\"q-heading\" id=\"liver\">Can turmeric harm the liver?</h2>\n<p>Rare but potentially serious liver injury has been reported with turmeric and curcumin supplements. The UK Committee on Toxicity found reasonable evidence of a link with liver toxicity. Unpredictable individual reactions have occurred, including below dietary acceptable-intake limits. A label-compliant dose therefore cannot guarantee that you will avoid liver injury.</p>\n<p><a href=\"https://www.wmic.wales.nhs.uk/turmeric-potential-adverse-effects/\">Welsh Medicines Advice Service</a> advises avoiding medicinal turmeric or curcumin in people with liver disease, gallstones, bile-duct obstruction or other biliary disease. Australia's regulator also advises avoidance with current or previous liver problems. It says risk may be higher with enhanced-absorption products or higher doses, while noting that the evidence cannot identify conclusively which products are higher risk.</p>\n<p><strong>Stop the turmeric or curcumin supplement and seek medical advice immediately</strong> if you develop yellow skin or eyes, dark urine, unusual tiredness, nausea or vomiting, abdominal pain or loss of appetite. Tell the clinician the exact product and all medicines you take. Do not independently stop prescribed arthritis medicines. <a href=\"https://www.nhs.uk/conditions/jaundice/\">NHS jaundice advice</a> treats yellow skin or eyes as a reason for urgent help.</p>\n<h2 class=\"q-heading\" id=\"interactions\">Which medicines need a check?</h2>\n<p><a href=\"https://www.wmic.wales.nhs.uk/turmeric-potential-interactions/\">Welsh Medicines Advice Service's interaction review</a> says much of the evidence comes from test-tube or animal research and may not be clinically relevant in humans. Possible interactions should not be described as proven for every patient. Equally, limited evidence is not proof that a combination is safe.</p>\n<ul>\n<li><strong>Blood thinners:</strong> a possible bleeding effect matters with anticoagulants and antiplatelets. A raised INR has been reported after a person taking warfarin started a turmeric-containing product.</li>\n<li><strong>Diabetes medicines:</strong> turmeric or curcumin might lower blood glucose. Discuss the combination before use rather than changing your diabetes medicine yourself.</li>\n<li><strong>Immunosuppressants and cancer treatment:</strong> get specialist advice. Small changes in the effect of some medicines can be serious.</li>\n<li><strong>Other arthritis medicines:</strong> the exact medicine matters. The interaction review includes limited human evidence involving sulfasalazine; it does not establish a safe general DMARD combination.</li>\n</ul>\n<p>The <a href=\"https://www.nhs.uk/medicines/methotrexate/taking-methotrexate-with-other-medicines-and-herbal-supplements/\">NHS says there is not enough information to establish the safety of herbal remedies or supplements with methotrexate</a>. Our <a href=\"/blog/turmeric-and-methotrexate-interaction\">turmeric and methotrexate guide</a> separates this uncertainty from the known liver-injury concern. Give your team the product label; do not assume that avoiding your methotrexate day removes the risk.</p>\n<h2 class=\"q-heading\" id=\"other-safety\">Who else should avoid self-starting a supplement?</h2>\n<p>Turmeric can cause stomach upset, reflux, nausea, diarrhoea or other digestive symptoms. Supplements may be unsafe in pregnancy, and there is little information about amounts above normal food use while breastfeeding. <a href=\"https://www.nhs.uk/conditions/herbal-medicines/\">NHS herbal-medicine advice</a> advises against use in pregnancy or breastfeeding and recommends a pharmacist check when taking other medicines. Children and people with kidney or liver problems also need particular caution. Tell a surgical team about supplements before an operation so it can give you stopping instructions.</p>\n<p>In the UK, a <a href=\"https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr\">traditional herbal registration</a> concerns the quality, safety and traditional use of a herbal medicine. It is not a clinical demonstration that a turmeric product treats arthritis, and it is not a universal approval mark for food supplements. A product being available in a pharmacy does not settle its benefit or suitability.</p>\n<h2 class=\"q-heading\" id=\"urgent-help\">When do symptoms need urgent care?</h2>\n<p>A suddenly very painful or hot, swollen joint needs urgent assessment, even without a fever. Do not label it an arthritis flare or delay assessment while trying turmeric. <a href=\"https://www.nhs.uk/conditions/septic-arthritis/\">NHS septic arthritis advice</a> explains that fever is not always present.</p>\n<p>In England, Scotland and Wales, ask for an urgent GP appointment or call 111 for urgent advice. In Northern Ireland, contact your GP or <a href=\"https://www.nidirect.gov.uk/articles/gp-out-hours-service\">GP out-of-hours service</a>. Call <strong>999</strong> for sudden mouth or throat swelling or difficulty breathing after a product, as these may be signs of <a href=\"https://www.nhs.uk/conditions/anaphylaxis/\">anaphylaxis</a>. Confusion, severe breathing difficulty or blue, pale or blotchy skin during a possible infection also need emergency help; see <a href=\"https://www.nhs.uk/conditions/sepsis/\">NHS sepsis advice</a>.</p>\n<h2 id=\"faqs\">Frequently asked questions</h2>\n<h3>Does turmeric work as well as ibuprofen?</h3>\n<p>The evidence does not establish that a retail supplement is an equivalent, safer replacement for an NSAID. Do not swap medicines on the basis of a positive trial or advertisement. Discuss pain relief with your pharmacist or clinician.</p>\n<h3>Is golden milk an arthritis treatment?</h3>\n<p>A drink made with a cooking spice is not the same preparation as an extract tested in a trial. Enjoying turmeric as food does not establish a treatment effect.</p>\n<h3>Should I try it for 8 to 12 weeks?</h3>\n<p>This guide does not recommend a supplement trial. Study lengths do not establish a personal course, and rare liver injury is not excluded by short studies. Discuss benefit, cost and safety before deciding whether to use any product.</p>\n<h3>Can I stop methotrexate if turmeric helps my pain?</h3>\n<p>No. Symptom changes do not show that rheumatoid arthritis is controlled. Do not reduce or stop prescribed treatment without your treating team's advice.</p>\n<p class=\"educational-disclaimer\"><em>General UK information, not a prescription or an individual interaction assessment. Ask your pharmacist or treating team about your own medicines and supplements.</em></p>\n<h2>Related support</h2><p>Use our <a href=\"/guides/arthritis-pain-relief\">pain relief guide</a>, <a href=\"/guides/newly-diagnosed\">newly diagnosed guide</a>, <a href=\"/guides/benefits-pip\">benefits and PIP guide</a> and <a href=\"/guides/diet\">diet guide</a> to prepare questions about your wider care. Linked articles are further reading, not proof of a separate clinical review.</p>\n",
+  "editorial_review_note": "Editorial source check: 25 November 2026. Awaiting separate clinical review. This is not clinical sign-off: the revised article has not yet had a fresh clinical review by Louis Maxwell.",
+  "key_takeaways": [
+    "The latest Cochrane review found low-certainty evidence of little or no improvement in knee OA pain, function or quality of life.",
+    "Turmeric supplements can cause rare liver injury; enhanced absorption is not a safety advantage.",
+    "No universal dose or supplement trial period is recommended here."
+  ]
 }

@@ -20,7 +20,7 @@ type Row = {
 // (best-walking-shoes-arthritis-uk was rewritten in content batch 6, 11 Oct 2026).
 const REVIEW_DATES: Record<string, string> = {
   "best-walking-shoes-arthritis-uk": "2026-10-11",
-  "turmeric-for-arthritis": "2026-09-20",
+  "turmeric-for-arthritis": "2026-11-25",
 };
 
 const SLUGS = [
@@ -34,6 +34,13 @@ const ALLOWED_HOSTS = [
   "www.arthritis-uk.org",
   "arthritis-uk.org",
   "www.gov.uk",
+  "www.cochrane.org",
+  "pubmed.ncbi.nlm.nih.gov",
+  "www.frontiersin.org",
+  "www.nccih.nih.gov",
+  "www.tga.gov.au",
+  "www.nidirect.gov.uk",
+  "www.wmic.wales.nhs.uk",
 ];
 
 const CUSTOMER_JOB_HREFS = [
