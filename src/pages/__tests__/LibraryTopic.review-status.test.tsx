@@ -60,11 +60,11 @@ function pageJsonLd(): string {
 }
 
 describe("library review status data", () => {
-  it("has no pending topics left (all clinically reviewed)", () => {
+  it("keeps the three November25 revisions pending separate clinical review", () => {
     const pending = Object.entries(LIBRARY_REVIEW_STATUS)
       .filter(([, e]) => e.reviewStatus === "pending")
       .map(([slug]) => slug);
-    expect(pending).toEqual([]);
+    expect(pending).toEqual(["naproxen", "naproxen-side-effects", "what-is-gout"]);
   });
 
   it("expanded and undocumented topics carry a completed review date", () => {
