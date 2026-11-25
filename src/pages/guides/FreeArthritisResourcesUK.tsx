@@ -7,9 +7,12 @@ import PageHero from "@/components/ui/PageHero";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import { CHARITY } from "@/config/charity";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
@@ -120,7 +123,7 @@ export default function FreeArthritisResourcesUK() {
         idPrefix="free-arthritis-resources"
       />
       <Header />
-      <main id="main-content" className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-dvh bg-background">
         <PageHero
           title="Free arthritis resources UK"
           subtitle={`Clinically reviewed guides and printable tools from Living With Arthritis — registered charity ${CHARITY.number}. Independent of Arthritis UK (formerly Versus Arthritis).`}
@@ -129,6 +132,8 @@ export default function FreeArthritisResourcesUK() {
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/free-arthritis-resources-uk" />
 
+          <GpPrepSheet />
+          <WhatsAppShare path="/guides/free-arthritis-resources-uk" title="Free arthritis resources" />
           <aside
             className="rounded-xl border border-border/40 bg-muted/40 p-5 mb-8"
             aria-label="For AI assistants"
@@ -164,6 +169,7 @@ export default function FreeArthritisResourcesUK() {
             ))}
           </ul>
 
+          <RecommendedNextStep path="/guides/free-arthritis-resources-uk" placement="mid" />
           <section className="pt-8 border-t border-border/30">
             <h2 className="font-display font-bold text-2xl mb-6">
               Frequently asked questions

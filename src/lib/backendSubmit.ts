@@ -125,6 +125,8 @@ export async function subscribeNewsletter(opts: {
   });
 }
 
+export const CONTACT_MESSAGE_MAX_LENGTH = 5000;
+
 export async function submitContactInquiry(opts: {
   name: string;
   email: string;
@@ -133,6 +135,12 @@ export async function submitContactInquiry(opts: {
   message: string;
   formId?: string;
 }): Promise<BackendSubmitResult> {
+  if (opts.message.length > CONTACT_MESSAGE_MAX_LENGTH) {
+    return {
+      ok: false, via: "none",
+      message: `Your message is too long. Please keep it to ${CONTACT_MESSAGE_MAX_LENGTH} characters so none of it is lost.`,
+    };
+  }
   const limited = throttled(opts.formId || "contact");
   if (limited) return limited;
 
@@ -141,7 +149,7 @@ export async function submitContactInquiry(opts: {
     email: opts.email.trim().toLowerCase().slice(0, 320),
     phone: opts.phone?.trim() ? opts.phone.trim().slice(0, 40) : null,
     subject: opts.subject.trim().slice(0, 200) || "Website enquiry",
-    message: opts.message.trim().slice(0, 5000),
+    message: opts.message.trim(),
   };
 
   const lines = [

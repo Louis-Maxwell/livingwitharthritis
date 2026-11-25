@@ -3,6 +3,10 @@
   "heading": "More exercise and movement guides",
   "links": [
    {
+    "href": "/campaigns/exercise-circuit-500",
+    "title": "Exercise Circuit 500"
+   },
+   {
     "href": "/exercises/pilates-for-back-arthritis",
     "title": "Exercises — pilates for back arthritis"
    },
@@ -928,6 +932,14 @@
  "/guides": {
   "heading": "More practical arthritis guides",
   "links": [
+   {
+    "href": "/daily-tips/daily-living",
+    "title": "Daily Living for Joint Health"
+   },
+   {
+    "href": "/daily-tips/health-tips",
+    "title": "Tips for Every Day"
+   },
    {
     "href": "/library/musculoskeletal",
     "title": "Musculoskeletal Health"

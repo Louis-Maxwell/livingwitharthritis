@@ -1,9 +1,10 @@
 import { test, expect } from "vitest";
 import { patchEnglishAlternates } from "../lib/english-alternates.mjs";
 const base = "https://livingwitharthritis.org.uk";
-test("English articles get their own catch-all, British and default URLs", () => {
+test("Universal clinical articles get the full UK/US/CA/AU/IN cluster", () => {
   const html = patchEnglishAlternates('<head><link rel="canonical" href="keep"></head>', "/conditions/osteoarthritis/", base);
-  for (const lang of ["en", "en-GB", "x-default"]) expect(html).toContain(`hreflang="${lang}" href="${base}/conditions/osteoarthritis"`);
+  for (const lang of ["en-GB", "en-US", "en-CA", "en-AU", "en-IN", "x-default"]) expect(html).toContain(`hreflang="${lang}" href="${base}/conditions/osteoarthritis"`);
+  expect(html).not.toContain('hreflang="en"');
   expect(html).toContain('rel="canonical" href="keep"');
 });
 test("replaces inherited English links, preserves real translations, avoids duplicates", () => {

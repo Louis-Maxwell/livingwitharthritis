@@ -6,6 +6,7 @@ import { getClusterForPath, TOPIC_CLUSTERS } from "@/data/topicClusters";
 
 type Post = {
   last_reviewed?: string;
+  editorial_review_note?: string;
   reviewStatus?: string;
   reviewed_by?: string | null;
   reviewer_credentials?: string | null;
@@ -112,13 +113,25 @@ const cases: Array<{
 
 describe("GSC Champions 94–96 (22 Oct): methotrexate in later life + RA first months + RA monitoring", () => {
   for (const c of cases) {
-    it(`${c.name} blog is clinically reviewed by Louis Maxwell with CTR meta, UK cites and customer-job links`, () => {
+    it(`${c.name} blog preserves honest review provenance, CTR meta, UK cites and customer-job links`, () => {
       const raw = read(c.slug);
       const json = JSON.parse(raw) as Post;
       expect(json.reviewStatus).toBeUndefined();
-      expect(json.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-      expect(json.reviewed_by).toMatch(/Louis Maxwell/);
-      expect(json.reviewer_credentials).toMatch(/PH128483/);
+      const limitedSafetyCorrection = ["late-onset-ra-frailty-first-months-uk", "ra-monitoring-older-frail-adults-uk"].includes(c.slug);
+      if (limitedSafetyCorrection) {
+        expect(json).not.toHaveProperty("last_reviewed");
+        expect(json.reviewed_by).toBeNull();
+        expect(json.reviewer_credentials).toBeNull();
+        expect(json.editorial_review_note).toContain("not yet had a fresh clinical review");
+        expect(json.editorial_review_note).toContain("limited correction");
+        expect(json.content).not.toContain("Reviewed by Louis Maxwell");
+        expect(json.content).toMatch(/Call 999|call 999/);
+        expect((json.citations || []).some(x => x.url === "https://www.nhs.uk/conditions/confusion/")).toBe(true);
+      } else {
+        expect(json.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+        expect(json.reviewed_by).toMatch(/Louis Maxwell/);
+        expect(json.reviewer_credentials).toMatch(/PH128483/);
+      }
             expect(json.content).not.toMatch(/Pending clinical review/i);
       expect(json.category).toBe(c.category);
       expect(json.meta_title).toMatch(c.title);

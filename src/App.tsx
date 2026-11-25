@@ -1,4 +1,4 @@
-import { analyticsUrl } from "@/lib/analytics-url";
+import { useAnalyticsPageView } from "@/hooks/useAnalyticsPageView";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
@@ -18,10 +18,13 @@ import { ThemeProvider } from "next-themes";
 import { DeferredMount } from "@/components/DeferredMount";
 import SeoDefaults from "@/components/SeoDefaults";
 import RootOrganizationSchema from "@/components/seo/RootOrganizationSchema";
+import CrawlableResourceLinks from "@/components/seo/CrawlableResourceLinks";
 import SkipToContent from "@/components/SkipToContent";
 import RouteFocus from "@/components/RouteFocus";
 import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
 import { isPrerenderDocumentReady } from "@/lib/prerenderReady";
+import SiteMotion from "@/components/motion/SiteMotion";
+import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 // Home is eager — it's the top entry point (~36% of pageviews) so
@@ -139,6 +142,7 @@ const PainkillersNsaidsGuide = lazyWithRetry(() => import("./pages/pillar/Painki
 const BenefitsPIPGuide = lazyWithRetry(() => import("./pages/pillar/BenefitsPIPGuide"));
 const KneeReplacementSurgeryGuide = lazyWithRetry(() => import("./pages/pillar/KneeReplacementSurgeryGuide"));
 const Press = lazyWithRetry(() => import("./pages/Press"));
+const Magazine = lazyWithRetry(() => import("./pages/Magazine"));
 const Partners = lazyWithRetry(() => import("./pages/Partners"));
 const LivedExperiences = lazyWithRetry(() => import("./pages/LivedExperiences"));
 const ExpertArticles = lazyWithRetry(() => import("./pages/ExpertArticles"));
@@ -270,37 +274,15 @@ function withRouteBoundary(node: ReactNode) {
 function AnimatedRoutes() {
   const location = useLocation();
 
-  // GA4 SPA pageview tracker. GA4 is loaded with send_page_view:false and only
-  // after analytics consent, so this sends every pageview — including the first
-  // one, which is re-sent when `analytics-ready` fires post-consent.
-  useEffect(() => {
-    let lastKey = "";
-    let lastAt = 0;
-    const sendPageView = () => {
-      const w = window as unknown as { gtag?: (...a: unknown[]) => void };
-      if (typeof w.gtag !== "function") return;
-      const page_location = analyticsUrl(window.location.href);
-      const page_path = page_location ? new URL(page_location).pathname : location.pathname;
-      const now = Date.now();
-      if (page_path === lastKey && now - lastAt < 1000) return;
-      lastKey = page_path;
-      lastAt = now;
-      w.gtag("event", "page_view", {
-        page_path,
-        page_location,
-        page_referrer: analyticsUrl(document.referrer) || "",
-        page_title: document.title,
-        send_to: "G-ZLLSD3PXZ9",
-      });
-    };
-    sendPageView();
-    window.addEventListener("analytics-ready", sendPageView);
-    return () => window.removeEventListener("analytics-ready", sendPageView);
-  }, [location.pathname, location.search]);
+  useAnalyticsPageView(location.pathname);
 
+  // One reading-progress bar for every blog post and guide (homepage mounts its own).
+  const showReadingProgress = /^\/(blog|guides)\/[^/]+\/?$/.test(location.pathname);
 
   return (
     <ErrorBoundary resetKey={location.pathname}>
+    {showReadingProgress && <ScrollProgress />}
+    <SiteMotion key={location.pathname} />
     <SeoRedirectGate>
     <PageTransition key={location.pathname}>
       <Routes location={location}>
@@ -461,6 +443,7 @@ function AnimatedRoutes() {
         <Route path="/guides/febuxostat-for-gout" element={<FebuxostatGoutGuide />} />
         <Route path="/guides/painkillers-and-nsaids" element={<PainkillersNsaidsGuide />} />
         <Route path="/press" element={<Press />} />
+        <Route path="/magazine" element={<Magazine />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/stories" element={<LivedExperiences />} />
         <Route path="/expert-articles" element={<ExpertArticles />} />
@@ -574,6 +557,7 @@ function AppWithSync() {
       <SkipToContent />
       <RouteFocus />
       <RootOrganizationSchema />
+      <CrawlableResourceLinks />
       <AnimatedRoutes />
     </>
   );

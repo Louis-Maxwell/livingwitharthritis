@@ -1,19 +1,19 @@
-﻿import { useState, useEffect, useRef, useCallback, Suspense, type MouseEvent, type KeyboardEvent } from "react";
+import HomeSupportStrip from "@/components/landing/HomeSupportStrip";
+import { useState, useEffect, useRef, useCallback, useMemo, Suspense, type MouseEvent, type KeyboardEvent } from "react";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search, ShoppingBag } from "lucide-react";
+import { Menu, X, Heart, BookOpen, BookMarked, ChevronDown, Stethoscope, Activity, Newspaper, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search, ShoppingBag } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { createPortal } from "react-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import SiteLogo from "@/components/SiteLogo";
-import ErrorBoundary from "@/components/ErrorBoundary";
 
 
 const SHOP_URL = "https://shop.brandangels.co.uk/living-with-arthritis";
 
 const ResourceLibraryDrawer = lazyWithRetry(() => import("@/components/ResourceLibraryDrawer"));
 const SiteSearch = lazyWithRetry(() => import("@/components/SiteSearch"));
-const DonationQuickBar = lazyWithRetry(() => import("@/components/DonationQuickBar"));
 import { useExclusiveOverlay } from "@/hooks/useExclusiveOverlay";
 import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 
@@ -38,6 +38,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [resourceDrawerOpen, setResourceDrawerOpen] = useState(false);
   // Mount the drawer on first open, then keep it mounted so its close
@@ -78,21 +79,7 @@ const Header = () => {
     return () => observer.disconnect();
   }, [pathname]);
 
-  /* Determine if a top-level nav link is active (route OR hash match,
-     including any of its sub-items routes). */
-  const isLinkActive = useCallback(
-    (link: NavLink): boolean => {
-      const matchHref = (href: string) => {
-        if (!href) return false;
-        if (href.startsWith("#")) return activeHash === href;
-        if (href === "/") return pathname === "/";
-        return pathname === href || pathname.startsWith(`${href}/`);
-      };
-      if (matchHref(link.href)) return true;
-      return Boolean(link.subs?.some((s) => matchHref(s.href)));
-    },
-    [pathname, activeHash]
-  );
+
 
   const handleScroll = useCallback(() => {
     const currentY = window.scrollY;
@@ -171,11 +158,12 @@ const Header = () => {
       action: () => navigate("/community"),
       subs: [
         { label: "Connect Groups", desc: "Free peer-support communities", icon: HandHeart, href: "/community/connect-groups", action: () => navigate("/community/connect-groups"), color: "text-primary bg-primary/10" },
-        { label: "Helpline & Support", desc: "Real people, 2-day response", icon: MessageCircle, href: "/helpline", action: () => navigate("/helpline"), color: "text-primary bg-primary/10" },
+        { label: "Helpline & Support", desc: "Talk to a real person", icon: MessageCircle, href: "/helpline", action: () => navigate("/helpline"), color: "text-primary bg-primary/10" },
         { label: "Events & Webinars", desc: "Free monthly online events", icon: Globe, href: "/events", action: () => navigate("/events"), color: "text-primary bg-primary/10" },
         { label: "Patient Stories", desc: "Lived experience from real people", icon: Heart, href: "/stories", action: () => navigate("/stories"), color: "text-primary bg-primary/10" },
         { label: "Guides Hub", desc: "PIP, exercise, diet & pain relief", icon: BookOpen, href: "/guides", action: () => navigate("/guides"), color: "text-primary bg-primary/10" },
         { label: "Resource Centre", desc: "Guides, tools, PIP, exercise & chat", icon: BookOpen, href: "/resource-centre", action: () => navigate("/resource-centre"), color: "text-primary bg-primary/10" },
+        { label: "Monthly Magazine", desc: "Free NGO magazine to download", icon: BookMarked, href: "/magazine", action: () => navigate("/magazine"), color: "text-primary bg-primary/10" },
         { label: "Healthcare Professionals", desc: "Clinic pack & shareable patient pages", icon: Stethoscope, href: "/healthcare-professionals", action: () => navigate("/healthcare-professionals"), color: "text-primary bg-primary/10" },
         { label: "Search articles", desc: "Filter by topic and length", icon: Search, href: "/search", action: () => navigate("/search"), color: "text-primary bg-primary/10" },
         { label: "Blog & Library", desc: "100+ evidence-based articles", icon: BookOpen, href: "/blog", action: () => navigate("/blog"), color: "text-primary bg-primary/10" },
@@ -213,6 +201,37 @@ const Header = () => {
     { label: "Resources", href: "#resources", action: () => setResourceDrawerOpen(true) },
   ];
 
+  /* Exactly one top-level nav item shows active at a time. Dropdowns share
+     destinations (e.g. "Guides Hub" lives under both Guides and Community &
+     Support), so per-item matching highlighted several items on most pages.
+     Score every item and let the single best match win: an exact route match
+     beats a prefix match, a longer href beats a shorter one, and ties go to
+     the earliest item in nav order. Everything else stays neutral. Dropdown
+     membership and routes are unchanged. */
+  // Computed inline each render: navLinks is a per-render literal anyway,
+  // so memoizing would add hook-deps noise without saving work.
+  const activeNavLabel = (() => {
+    const score = (href: string): number => {
+      if (!href) return 0;
+      if (href.startsWith("#")) return activeHash === href ? 1 : 0;
+      if (href === "/") return pathname === "/" ? 1 : 0;
+      if (pathname === href) return 1000 + href.length;
+      if (pathname.startsWith(`${href}/`)) return href.length;
+      return 0;
+    };
+    let winner: string | null = null;
+    let best = 0;
+    for (const link of navLinks) {
+      let s = score(link.href);
+      for (const sub of link.subs ?? []) s = Math.max(s, score(sub.href));
+      if (s > best) {
+        best = s;
+        winner = link.label;
+      }
+    }
+    return winner;
+  })();
+
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
@@ -244,9 +263,9 @@ const Header = () => {
     { label: "Newly Diagnosed", icon: Sparkles, desc: "Your essential first steps guide", href: "/guides/newly-diagnosed", action: () => navigate("/guides/newly-diagnosed") },
     { label: "Self Help Tool", icon: Activity, desc: "Interactive joint exercise diagram", href: "/self-help", action: () => navigate("/self-help") },
     { label: "Exercises & Diet", icon: Dumbbell, desc: "Physio exercises & nutrition plans", href: "/exercises", action: () => navigate("/exercises") },
-    { label: "Pets & Arthritis", icon: HeartPulse, desc: "Dogs, cats, horses & more", href: "/pets", action: () => navigate("/pets") },
     { label: "Conditions", icon: HeartPulse, desc: "OA, RA, Gout, PsA & more", href: "#conditions" },
-    { label: "Blog & Stories", icon: Newspaper, desc: "40+ evidence-based articles", href: "/blog", action: () => navigate("/blog") },
+    { label: "Blog & Stories", icon: Newspaper, desc: "Practical guides and personal stories", href: "/blog", action: () => navigate("/blog") },
+    { label: "Pets & Arthritis", icon: HeartPulse, desc: "Dogs, cats, horses & more", href: "/pets", action: () => navigate("/pets") },
     { label: "Glossary", icon: BookOpen, desc: "Plain-English arthritis A–Z", href: "/glossary", action: () => navigate("/glossary") },
     { label: "Trust & Credibility", icon: ShieldCheck, desc: "Evidence, authors & governance", href: "/trust", action: () => navigate("/trust") },
     { label: "Support Us", icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
@@ -275,6 +294,8 @@ const Header = () => {
     const onKeyDown = (e: globalThis.KeyboardEvent) => {
       if (e.key === "Escape") {
         setMobileMenuOpen(false);
+        // Return focus to the control that opened the menu.
+        window.setTimeout(() => menuButtonRef.current?.focus(), 0);
         return;
       }
       if (e.key !== "Tab" || !panel) return;
@@ -304,33 +325,22 @@ const Header = () => {
 
   return (
     <>
+      {/* Scrolls away with the page so the sticky bar stays short on phones. */}
+      <aside aria-label="Clinical review information" className="w-full border-b border-primary/20 bg-accent text-foreground">
+        <p className="container mx-auto max-w-7xl px-3 py-1.5 text-center text-[11px] leading-snug sm:px-6 sm:py-2 sm:text-sm sm:leading-relaxed">Clinical review status and review dates are shown on each guide. We update content when relevant evidence or guidance changes.</p>
+      </aside>
+      {pathname === "/" && <HomeSupportStrip />}
       {/* â”€â”€ STICKY WRAPPER — entire header block sticks together â”€â”€ */}
       <div
         className={`sticky top-0 z-50 transition-transform duration-300 ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
       >
 
-        <aside aria-label="Clinical review information" className="w-full border-b border-primary/20 bg-accent text-foreground">
-          <p className="container mx-auto max-w-7xl px-4 py-2 text-center text-xs leading-relaxed sm:px-6 sm:text-sm">Clinical review status and review dates are shown on each guide. We update content when relevant evidence or guidance changes.</p>
-        </aside>
-
-        {/* Donation Quick Bar — top of sticky header */}
-        {/* Placeholder reserves the bar's real (flex-wrapped) height per
-            viewport width so the lazy bar mounting doesn't shift the page
-            (was a fixed 52px → CLS ~0.12 on phones). See
-            .donation-quickbar-placeholder in index.css. */}
-        <aside aria-label="Support the charity">
-          <ErrorBoundary fallback={null} resetKey={pathname}>
-            <Suspense fallback={<div className="bg-primary donation-quickbar-placeholder" aria-hidden="true" />}>
-              <DonationQuickBar />
-            </Suspense>
-          </ErrorBoundary>
-        </aside>
 
         {/* Logo Bar */}
         <div
           className={`transition-all duration-300 ${
             scrolled
-              ? "bg-background/95 backdrop-blur-xl border-b border-border/30"
+              ? "bg-background/95 backdrop-blur-xl border-b border-border/30 shadow-sm"
               : "bg-background border-b border-border/15"
           }`}
         >
@@ -383,6 +393,7 @@ const Header = () => {
                 variant="ghost"
                 size="icon"
                 className="rounded-lg h-11 w-11 min-h-11 min-w-11 shrink-0 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                ref={menuButtonRef}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileMenuOpen}
@@ -420,7 +431,7 @@ const Header = () => {
               {/* Desktop nav */}
               <nav className="hidden lg:flex items-center gap-0.5 mx-auto" aria-label="Main navigation">
                 {navLinks.map((link) => {
-                  const active = isLinkActive(link);
+                  const active = link.label === activeNavLabel;
                   const open = activeDropdown === link.label;
                   const isHash = link.href.startsWith("#");
                   const isExternal = /^https?:\/\//.test(link.href);
@@ -587,18 +598,20 @@ const Header = () => {
       </div>
 
       {/* Mobile menu — id ties to menu button aria-controls */}
-      {mobileMenuOpen && (
+      {/* Portalled to <body>: a transformed ancestor would otherwise make this
+          "fixed" drawer page-tall, and it must sit above the bottom nav (z-80). */}
+      {mobileMenuOpen && typeof document !== "undefined" && createPortal(
         <>
           <div
-            className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-[60] lg:hidden animate-in fade-in duration-200"
+            className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-[85] lg:hidden animate-in fade-in duration-200"
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
-          <div className="fixed inset-y-0 end-0 w-[min(80%,24rem)] max-w-sm bg-background z-[70] lg:hidden shadow-2xl flex flex-col border-s border-border/30 animate-in slide-in-from-right rtl:slide-in-from-left duration-300 pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]" id="mobile-primary-nav" role="dialog" aria-modal="true" aria-label="Navigation menu" data-mobile-nav-panel>
-            <div className="flex items-center justify-between p-6 border-b border-border/20">
-              <div className="flex items-center gap-2.5">
+          <div className="fixed inset-y-0 end-0 w-[min(88%,24rem)] max-w-sm bg-background z-[90] lg:hidden shadow-2xl flex flex-col border-s border-border/30 animate-in slide-in-from-right rtl:slide-in-from-left duration-300 pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]" id="mobile-primary-nav" role="dialog" aria-modal="true" aria-label="Navigation menu" data-mobile-nav-panel>
+            <div className="flex items-center justify-between gap-2 px-4 py-4 sm:p-6 border-b border-border/20">
+              <div className="flex min-w-0 items-center gap-2.5">
                 <SiteLogo variant="mark" markClassName="h-8 w-auto" />
-                <span className="text-lg font-extrabold text-primary">Menu</span>
+                <span className="text-lg font-extrabold text-primary max-[359px]:sr-only">Menu</span>
               </div>
               <div className="flex items-center gap-1.5">
                 {/* On narrow phones these controls live here instead of the
@@ -655,7 +668,7 @@ const Header = () => {
                   className: `relative flex items-center gap-3 w-full text-left px-4 py-4 text-[15px] font-semibold rounded-xl transition-all cursor-pointer group min-h-[56px] ${
                     active
                       ? "text-primary bg-primary/5 ring-1 ring-primary/15"
-                      : "text-muted-foreground hover:text-foreground hover:bg-accent active:bg-accent/80"
+                      : "text-foreground hover:bg-accent active:bg-accent/80"
                   }`,
                   style: { animationDelay: `${index * 50}ms` },
                 };
@@ -669,7 +682,7 @@ const Header = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <span className="block truncate">{item.label}{isExternalItem && <span className="sr-only"> (opens in a new tab)</span>}</span>
-                      <span className="text-[11px] font-normal text-muted-foreground truncate block">{item.desc}</span>
+                      <span className="text-sm font-normal text-foreground leading-relaxed block">{item.desc}</span>
                     </div>
                   </>
                 );
@@ -707,7 +720,8 @@ const Header = () => {
               </Button>
             </div>
           </div>
-        </>
+        </>,
+        document.body,
       )}
 
       {resourceDrawerMounted && <Suspense fallback={null}><ResourceLibraryDrawer open={resourceDrawerOpen} onOpenChange={setResourceDrawerOpen} /></Suspense>}

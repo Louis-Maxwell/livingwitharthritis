@@ -35,7 +35,7 @@ const cases: Array<{ name: string; slug: string; title: RegExp; cites: string[];
       "/blog/gout-medication-uk",
       "/guides/febuxostat-for-gout",
       "/blog/gout-flare-up-diet-foods-avoid",
-      "/blog/gout-older-people-frailty-hydration-uk",
+      "/blog/hydration-gout-frailty-older-adults-uk",
       "/blog/winter-arthritis-frailty-cold-houses-uk",
       "/guides/diet",
     ],

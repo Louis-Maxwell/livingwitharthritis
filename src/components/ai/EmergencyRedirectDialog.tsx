@@ -20,7 +20,7 @@ const COPY: Record<string, string> = {
   self_harm: "It sounds like you're going through something incredibly difficult. You are not alone — please reach out now.",
   cardiac: "These symptoms can indicate a heart problem. Please get help immediately.",
   stroke: "These symptoms can indicate a stroke. Time is critical — call 999 now.",
-  septic_joint: "A hot, swollen joint with fever needs urgent assessment — please contact 999 or 112 or your GP today.",
+  septic_joint: "A hot, swollen joint with fever needs urgent assessment. Ask for an urgent GP appointment or get help from NHS 111 now. Call 999 for a life-threatening emergency.",
   anaphylaxis: "These symptoms may indicate a severe allergic reaction. Call 999 immediately.",
   severe_bleed: "Please get urgent medical help.",
   default: "Some of what you described needs a real person, not online information. Please use one of the contacts below.",
@@ -60,7 +60,7 @@ export default function EmergencyRedirectDialog({
             className="flex items-center justify-between rounded-xl border border-border bg-card p-4 transition-colors hover:bg-muted/40"
           >
             <div>
-              <div className="font-semibold text-foreground">999 or 112</div>
+              <div className="font-semibold text-foreground">NHS 111</div>
               <div className="text-xs text-muted-foreground">Urgent but not life-threatening</div>
             </div>
             <Phone className="h-5 w-5 text-primary" aria-hidden="true" />

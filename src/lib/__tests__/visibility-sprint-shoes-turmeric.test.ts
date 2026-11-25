@@ -20,7 +20,7 @@ type Row = {
 // (best-walking-shoes-arthritis-uk was rewritten in content batch 6, 11 Oct 2026).
 const REVIEW_DATES: Record<string, string> = {
   "best-walking-shoes-arthritis-uk": "2026-10-11",
-  "turmeric-for-arthritis": "2026-09-20",
+  "turmeric-for-arthritis": "2026-11-25",
 };
 
 const SLUGS = [
@@ -34,6 +34,13 @@ const ALLOWED_HOSTS = [
   "www.arthritis-uk.org",
   "arthritis-uk.org",
   "www.gov.uk",
+  "www.cochrane.org",
+  "pubmed.ncbi.nlm.nih.gov",
+  "www.frontiersin.org",
+  "www.nccih.nih.gov",
+  "www.tga.gov.au",
+  "www.nidirect.gov.uk",
+  "www.wmic.wales.nhs.uk",
 ];
 
 const CUSTOMER_JOB_HREFS = [
@@ -122,10 +129,11 @@ describe("visibility sprint: customer-job hub polish", () => {
     expect(newly).toContain("/guides/benefits-pip");
     expect(newly).toContain("/resources/pip-evidence-diary");
 
-    expect(pip).toMatch(/lastReviewed="2026-(09-20|09-28|10-23)"/);
+    expect(pip).toContain('EducationalDisclaimerBox reviewStatus="pending"');
+    expect(pip).not.toContain('"lastReviewed":');
     expect(pip).toContain("/guides/benefits-pip");
     // /benefits-pip merged into the pillar guide (2026-10-31); canonical comes from PageSchema.
-    expect(pip).toContain("Complete PIP guide for arthritis");
+    expect(pip).toContain("How to claim PIP for arthritis: complete UK guide");
     expect(pip).toContain("PageSchema");
   });
 });

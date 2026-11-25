@@ -68,7 +68,7 @@ Pair stretches with your first drink of water, then ease into the day rather tha
     slug: "stay-hydrated",
     icon: "Droplets",
     title: "Stay Hydrated",
-    desc: "Aim for 6-8 glasses of water daily — dehydration can worsen joint stiffness.",
+    desc: "Keep a reusable bottle with you. Steady sipping through the day beats large gulps only when you remember.",
     image: tipStayHydrated,
     detail: `Aim for about 6–8 glasses of fluid a day (more if you are active or it is hot). Dehydration can leave you more fatigued and joints feeling stiffer.
 
@@ -124,7 +124,7 @@ Consistency matters more than speed. If pain spikes sharply during or after walk
     slug: "prioritise-sleep",
     icon: "Moon",
     title: "Prioritise Sleep",
-    desc: "Quality sleep reduces inflammation — aim for 7-9 hours with a consistent schedule.",
+    desc: "Keep the same bedtime and wake time where possible. If pain regularly wakes you, talk to your GP.",
     image: tipSleep,
     detail: `Aim for 7–9 hours with a regular bedtime and wake time. Poor sleep often heightens pain sensitivity and next-day fatigue.
 

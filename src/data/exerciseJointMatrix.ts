@@ -27,7 +27,7 @@ const jointLabels: Record<Joint, string> = {
 };
 
 const benefitsMap: Record<Exercise, string[]> = {
-  swimming: ["Zero joint impact — water supports body weight", "Improves cardiovascular fitness", "Increases range of motion", "Reduces stiffness and swelling", "Strengthens muscles around joints"],
+  swimming: ["Low-impact activity — water supports body weight", "Improves cardiovascular fitness", "Increases range of motion", "Reduces stiffness and swelling", "Strengthens muscles around joints"],
   yoga: ["Improves flexibility and range of motion", "Strengthens supporting muscles gently", "Reduces stress and pain perception", "Improves balance and coordination", "Adaptable to all fitness levels"],
   cycling: ["Low-impact cardiovascular exercise", "Strengthens quadriceps and hamstrings", "Improves joint mobility", "Burns calories for weight management", "Can be done indoors on a stationary bike"],
   walking: ["Most accessible form of exercise", "Maintains joint function and mobility", "Supports bone density", "Improves mood and reduces fatigue", "Can be done anywhere, no equipment needed"],
@@ -304,7 +304,7 @@ const safetyTipsMap: Record<Exercise, string[]> = {
 };
 
 const whenToAvoidMap: Record<Exercise, string[]> = {
-  swimming: ["During an active flare — rest and let it settle first", "If you have open wounds or skin infections", "If chlorine irritates your skin significantly"],
+  swimming: ["A hot, swollen joint or sudden severe joint pain needs urgent GP or NHS 111 advice, not routine exercise adaptation", "If you have open wounds or skin infections", "If chlorine irritates your skin significantly"],
   yoga: ["During severe flares — wait until inflammation subsides", "If any pose causes sharp, shooting pain", "Hot yoga — excess heat can worsen some inflammatory conditions"],
   cycling: ["During a knee or hip flare with significant swelling", "If you cannot maintain proper bike posture without pain", "In extreme cold without proper warm-up"],
   walking: ["During severe foot, ankle, or knee flares", "On uneven or icy surfaces that increase fall risk", "If weight-bearing causes sharp pain — try swimming instead"],
@@ -326,7 +326,7 @@ export function generateExerciseJointPages(): ExerciseJointPage[] {
         joint: jo,
         title: `${ex} for ${jo} Arthritis — Exercises, Benefits & Safety Tips`,
         metaDescription: `Discover how ${ex.toLowerCase()} can help manage ${jo.toLowerCase()} arthritis. Step-by-step exercises, benefits, and safety tips from UK physiotherapy guidance.`,
-        intro: `${ex} is one of the most recommended activities for managing ${jo.toLowerCase()} arthritis. It helps reduce stiffness, strengthen the muscles around the ${jo.toLowerCase()} joint, and improve your overall mobility — all with minimal joint impact. This guide provides step-by-step exercises, benefits, and safety considerations specifically for ${jo.toLowerCase()} arthritis, based on UK physiotherapy guidelines.`,
+        intro: `${ex} can be part of an activity plan for ${jo.toLowerCase()} arthritis, adapted to your symptoms and ability. Appropriate movement helps maintain joint mobility, while strengthening exercise supports surrounding muscles. Start with a short, comfortable session, build up gradually and ask a physiotherapist which movements suit you.`,
         benefits: benefitsMap[exercise],
         instructions: jointInstructions[joint][exercise],
         safetyTips: safetyTipsMap[exercise],

@@ -57,8 +57,7 @@ export default function GbpMapSection({ embedUrl: override }: GbpMapSectionProps
               className="text-primary underline underline-offset-2"
             >
               {CONTACT_PHONE}
-            </a>{" "}
-            (Mon–Fri, 9am–5pm)
+            </a>
           </li>
           <li>Area served: United Kingdom (GB)</li>
         </ul>
@@ -85,9 +84,8 @@ export default function GbpMapSection({ embedUrl: override }: GbpMapSectionProps
             className="rounded-xl border border-dashed border-border bg-card/60 px-4 py-6 text-sm text-muted-foreground"
             data-testid="gbp-map-placeholder"
           >
-            Map goes live once Google Business Profile is verified. Until then,
-            use the email and phone above — we serve the whole UK, not a single
-            shopfront.
+            We serve the whole UK, not a single shopfront. To get in touch,
+            use the contact details above.
           </p>
         )}
       </div>

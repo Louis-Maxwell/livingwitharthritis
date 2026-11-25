@@ -69,7 +69,7 @@ const NotFound = () => {
   }, [query]);
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-dvh bg-background flex flex-col">
       <SeoHead
         title="Page not found | Living With Arthritis"
         includeSiteName={false}

@@ -50,7 +50,7 @@ const Chat = () => {
           ]
         })}</script>
       </Helmet>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <div className="relative bg-gradient-to-br from-primary/6 via-background to-primary/4 border-b border-border/20 overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/5 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none" />
@@ -95,9 +95,41 @@ const Chat = () => {
         </div>
 
         <div className="container max-w-4xl mx-auto py-8 px-4">
+          <p className="mb-4 text-sm">
+            <a href="#chat-resource-guide" className="text-primary underline underline-offset-4">Prefer to browse? Find guides and resources.</a>
+          </p>
           <ErrorBoundary>
             <ChatBot />
           </ErrorBoundary>
+
+          <section aria-labelledby="chat-resource-guide" className="mt-10 rounded-2xl border border-border bg-card p-5 sm:p-8">
+            <h2 id="chat-resource-guide" tabIndex={-1} className="scroll-mt-28 text-xl font-bold text-foreground mb-3">
+              Find information that fits your question
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              You can read our guides without using the chat. Choose a starting point below if you would rather browse, or if you want a resource to return to after asking a question.
+            </p>
+
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Everyday living with arthritis</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Browse the exercise library to find routines by joint or activity. Read the guidance for the routine you choose rather than treating a chat answer as a personal exercise prescription. The symptom and flare tracker offers a way to organise notes about how you feel and what you want to discuss at an appointment.
+            </p>
+            <ul className="list-disc pl-5 mt-3 space-y-2">
+              <li><Link to="/exercises" className="text-primary underline underline-offset-4">Browse exercise guides</Link></li>
+              <li><Link to="/resources/symptom-flare-tracker" className="text-primary underline underline-offset-4">Open the symptom and flare tracker</Link></li>
+            </ul>
+
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">UK benefits and support</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Start with the benefits guide for information about PIP and describing the effect of arthritis on daily activities. Check the official sources linked from the guide before making an application. Benefits rules and services depend on where you live. UK benefits and NHS information should not be treated as guidance for another country.
+            </p>
+            <p className="mt-3"><Link to="/guides/benefits-pip" className="text-primary underline underline-offset-4">Read the PIP and benefits guide</Link></p>
+
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">Ask a focused question</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Try one question at a time, such as where to find a guide or how to prepare questions for your healthcare team. Do not share identifying medical records, passwords or contact details. This chat cannot examine you or provide a diagnosis or personal treatment plan. Do not wait for a chat reply if you need medical attention; follow the medical disclaimer and urgent-care guidance above.
+            </p>
+          </section>
         </div>
       </div>
     </>

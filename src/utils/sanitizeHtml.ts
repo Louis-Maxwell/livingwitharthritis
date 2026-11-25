@@ -29,7 +29,8 @@ function installHooks() {
     if (node.tagName === "A") {
       const href = node.getAttribute("href") || "";
       if (node.getAttribute("target") === "_blank" || /^https?:/i.test(href)) {
-        node.setAttribute("rel", "noopener noreferrer");
+        const shareTarget = /^(?:https:\/\/)?(?:api\.whatsapp\.com|wa\.me|www\.threads\.net|threads\.net|www\.threads\.com|threads\.com)(?:\/|$)/i.test(href);
+        node.setAttribute("rel", shareTarget ? "nofollow noopener noreferrer" : "noopener noreferrer");
       }
     }
     if (node.tagName === "IMG") {

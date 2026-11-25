@@ -61,6 +61,19 @@ describe("OptimizedImage", () => {
     expect(img).toHaveAttribute("height", "200");
   });
 
+  it("uses lazy loading and async decoding for below-the-fold images", async () => {
+    render(<OptimizedImage src="/below-fold.jpg" alt="Below fold" />);
+    const img = await screen.findByAltText("Below fold");
+    expect(img).toHaveAttribute("loading", "lazy");
+    expect(img).toHaveAttribute("decoding", "async");
+    expect(img).not.toHaveAttribute("fetchpriority", "high");
+  });
+
+  it("reserves the supplied aspect ratio before the image loads", () => {
+    const { container } = render(<OptimizedImage src="/ratio.jpg" alt="Ratio" aspectRatio="16 / 9" />);
+    expect(container.firstChild).toHaveStyle({ aspectRatio: "16 / 9" });
+  });
+
   it("applies custom className", async () => {
     const { container } = render(
       <OptimizedImage
@@ -86,5 +99,6 @@ describe("OptimizedImage", () => {
     expect(img.className).not.toContain("opacity-0");
     expect(img).toHaveAttribute("loading", "eager");
     expect(img.getAttribute("fetchpriority")).toBe("high");
+    expect(img).toHaveAttribute("decoding", "async");
   });
 });

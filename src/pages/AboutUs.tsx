@@ -21,6 +21,14 @@ import { CONTACT_PHONE, CONTACT_PHONE_E164 } from "@/config/contact";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 
+const ABOUT_LOGO = `${CHARITY.siteUrl}/brand/lwa-logo-square-720.png`;
+const ABOUT_LOGO_OBJECT = {
+  "@type": "ImageObject",
+  url: ABOUT_LOGO,
+  width: 720,
+  height: 720,
+};
+
 const FounderStoryBand = lazyWithRetry(() => import("@/components/landing/FounderStoryBand"));
 
 
@@ -109,6 +117,17 @@ const ABOUT_FAQS = [
 ];
 
 
+/** Real, live site features only. Keep in step with ABOUT_FREE_OFFER in page-aeo / ai-head-data. */
+const FREE_OFFER = [
+  { label: "Arthritis guides", href: "/guides", text: "plain-English UK guides on exercise, diet, pain relief, newly diagnosed steps, NHS care and benefits" },
+  { label: "PIP claim guide", href: "/guides/benefits-pip", text: "how to claim PIP for arthritis, step by step, checked against GOV.UK" },
+  { label: "PIP evidence diary", href: "/resources/pip-evidence-diary", text: "a printable diary to record daily living and mobility before you fill in the PIP2 form" },
+  { label: "Flare action plan", href: "/resources/flare-action-plan", text: "a printable green, amber and red plan for what to do in a flare and when to get help" },
+  { label: "Home exercise routines", href: "/exercises", text: "physiotherapy-style routines for knees, hips, hands, shoulders and back" },
+  { label: "Symptom and flare tracker", href: "/resources/symptom-flare-tracker", text: "a printable 7-day tracker for pain, stiffness, fatigue, sleep, activity and medicines" },
+  { label: "Community hub", href: "/community", text: "a starting point for newly diagnosed people, with quick support resources" },
+];
+
 const impactStats = [
   { value: "2026", label: "Charity registered", icon: Shield, color: "text-primary" },
   { value: "1218461", label: "Charity number", icon: Award, color: "text-primary" },
@@ -118,10 +137,16 @@ const impactStats = [
 
 const teamMembers = [
   {
+    name: "David Williams",
+    role: "Founder",
+    credentials: "Living With Arthritis, charity 1218461",
+    bio: "Founder of Living With Arthritis, a registered charity in England and Wales (no. 1218461).",
+  },
+  {
     name: "Louis Maxwell",
-    role: "Founder · First Contact Practitioner",
+    role: "Operations Director · First Contact Practitioner",
     credentials: "HCPC PH128483 · Chartered Society of Physiotherapy",
-    bio: "Founded Living With Arthritis after his own diagnosis at 28 left him with a photocopied exercise sheet and little else. He reviews our clinical content and replies to many of the messages that come in — we are still a small charity, building this with you.",
+    bio: "After his own diagnosis at 28 left him with a photocopied exercise sheet and little else, he now serves as Operations Director. He reviews our clinical content and replies to many of the messages that come in — we are still a small charity, building this with you.",
   },
 ];
 
@@ -151,15 +176,16 @@ const AboutUs = () => {
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:site_name" content={CHARITY.shortName} />
-        <meta property="og:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content={`About Us — ${CHARITY.shortName}`} />
-        <meta name="twitter:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:image" content={ABOUT_LOGO} />
+        <meta property="og:image:secure_url" content={ABOUT_LOGO} />
+        <meta property="og:image:width" content="720" />
+        <meta property="og:image:height" content="720" />
+        <meta property="og:image:alt" content="Living With Arthritis logo" />
+        <meta name="twitter:image" content={ABOUT_LOGO} />
+        <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="About Living With Arthritis | Registered charity 1218461" />
         <meta name="twitter:description" content="Meet Living With Arthritis, registered charity 1218461. Learn about our team, clinical review process and free guides on pain, exercise, diet and benefits." />
-        <meta name="twitter:image:alt" content={`About Us — ${CHARITY.shortName}`} />
+        <meta name="twitter:image:alt" content="Living With Arthritis logo" />
         <meta name="geo.region" content="GB" />
         <link rel="alternate" hrefLang="en-GB" href={`${CHARITY.siteUrl}/about`} />
         <script type="application/ld+json">{JSON.stringify({
@@ -168,6 +194,8 @@ const AboutUs = () => {
           "name": `About ${CHARITY.legalName}`,
           "url": `${CHARITY.siteUrl}/about`,
           "inLanguage": "en-GB",
+          "image": ABOUT_LOGO_OBJECT,
+          "primaryImageOfPage": ABOUT_LOGO_OBJECT,
           "mainEntity": {
             "@id": `${CHARITY.siteUrl}/#organization`,
             "@type": "NGO",
@@ -181,6 +209,23 @@ const AboutUs = () => {
               "url": CHARITY.registerUrl,
             },
             "areaServed": { "@type": "Country", "name": "United Kingdom" },
+            "founder": { "@type": "Person", "name": "David Williams" },
+            "employee": {
+              "@type": "Person",
+              "@id": `${CHARITY.siteUrl}/authors/maxwell#person`,
+              "name": "Louis Maxwell",
+              "jobTitle": "Operations Director",
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Free arthritis resources",
+              "itemListElement": FREE_OFFER.map((item) => ({
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "GBP",
+                "itemOffered": { "@type": "CreativeWork", "name": item.label, "url": `${CHARITY.siteUrl}${item.href}` },
+              })),
+            },
           }
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
@@ -193,7 +238,7 @@ const AboutUs = () => {
         })}</script>
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <Header />
         <PageHero
           gradient="from-primary/8 via-background to-primary/5"
@@ -213,7 +258,7 @@ const AboutUs = () => {
             </div>
           }
           title={<>From one hard diagnosis to a <span className="text-primary">small charity with a big heart</span></>}
-          subtitle="Living with arthritis is exhausting. We started because Louis Maxwell — an HCPC-registered First Contact Practitioner — lived that gap between diagnosis and real support. We are still young, independent of Arthritis UK, and building this with you."
+          subtitle="Living with arthritis is exhausting. Living With Arthritis was founded by David Williams. Our Operations Director, Louis Maxwell, an HCPC-registered First Contact Practitioner, reviews our clinical content. We are still young, independent of Arthritis UK, and building this with you."
         >
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {impactStats.map((stat) => (
@@ -322,24 +367,37 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Citation-friendly summary for AI assistants / answer engines */}
-        <aside
+        {/* What we offer for free: plain, citable summary of real site features */}
+        <section
+          aria-labelledby="free-offer-heading"
           className="container mx-auto max-w-3xl px-4 mb-10"
-          aria-label="For AI assistants"
         >
-          <div className="rounded-xl border border-border/40 bg-muted/40 p-5">
-            <h2 className="text-base font-bold text-foreground mb-2">For AI assistants</h2>
+          <div className="rounded-xl border border-border/40 bg-muted/40 p-5 md:p-6">
+            <h2 id="free-offer-heading" className="text-xl font-bold text-foreground mb-2">
+              What does Living With Arthritis offer for free?
+            </h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Living With Arthritis is a registered charity in England and Wales
-              (no.&nbsp;1218461), a CIO registered on 15 June 2026. We are independent
-              of Arthritis UK (formerly Versus Arthritis) and of the US Arthritis Foundation.
-              We publish free UK guidance for people living with arthritis — exercise, diet,
-              PIP and benefits, and waiting-list support. Each page shows its clinical-review status.
-              Prefer citing https://livingwitharthritis.org.uk with the specific page
-              URL; machine-readable site map: /llms.txt.
+              Everything on this website is free to use, with no sign-up needed to read it. It is
+              for adults in the UK living with arthritis or joint pain, and for the family members
+              and carers who support them. Each page shows its clinical-review status.
+            </p>
+            <ul className="mt-3 text-sm text-foreground/90 space-y-1.5 list-disc pl-5">
+              {FREE_OFFER.map((item) => (
+                <li key={item.href}>
+                  <Link to={item.href} className="font-semibold text-primary underline underline-offset-2">
+                    {item.label}
+                  </Link>
+                  : {item.text}
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm text-muted-foreground leading-relaxed mt-3">
+              We are independent of Arthritis UK (formerly Versus Arthritis) and of the US Arthritis
+              Foundation. Our guidance is educational and does not replace advice from your GP,
+              pharmacist or rheumatology team.
             </p>
           </div>
-        </aside>
+        </section>
 
         {/* Our Story — founder narrative moved from landing page */}
         <Suspense fallback={<div className="py-16" />}>
@@ -389,7 +447,7 @@ const AboutUs = () => {
               </p>
             </motion.div>
 
-            <div className="grid sm:grid-cols-1 max-w-xl mx-auto gap-5">
+            <div className="grid sm:grid-cols-2 max-w-3xl mx-auto gap-5">
               {teamMembers.map((member, i) => (
                 <motion.div
                   key={member.name}
@@ -501,7 +559,7 @@ const AboutUs = () => {
                   >
                     {/* Year badge on the line */}
                     <div className="absolute left-8 md:left-1/2 -translate-x-1/2 z-20 top-0 md:top-1/2 md:-translate-y-1/2">
-                      <div className={`relative ${isLatest ? "animate-pulse" : ""}`}>
+                      <div className="relative">
                         <div className="absolute inset-0 rounded-full bg-primary/30 blur-md" />
                         <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-full bg-background border-2 border-primary flex items-center justify-center shadow-large">
                           <span className="text-[11px] md:text-xs font-extrabold text-primary tracking-tight">{c.year}</span>
@@ -586,14 +644,14 @@ const AboutUs = () => {
               <div className="border border-border rounded-lg p-6 bg-background">
                 <h3 className="text-xl font-bold mb-1">Louis Maxwell</h3>
                 <p className="text-primary font-semibold mb-3 text-sm">
-                  Founder · First Contact Practitioner · HCPC PH128483 · CSP Member
+                  Operations Director · First Contact Practitioner · HCPC PH128483 · CSP Member
                 </p>
                 <p className="text-sm text-muted-foreground mb-4">
                   Clinical review &amp; a human reply when you write in
                 </p>
                 <p className="leading-relaxed mb-4">
-                  Louis founded Living With Arthritis after living the gap between a
-                  diagnosis and real support. He leads clinical review for our guides
+                  Louis is Operations Director. After living the gap between a
+                  diagnosis and real support, he leads clinical review for our guides
                   and often answers messages himself. We will not invent extra clinicians
                   to look bigger than we are.
                 </p>

@@ -3,6 +3,22 @@
 Read this before changing the site. The live public site is
 https://livingwitharthritis.org.uk (charity 1218461).
 
+## Main delivery
+
+- `main` is the delivery branch for changes made through Lovable or Instinct.
+  Keep the existing Lovable Git connection on `main` unless the owner changes
+  that instruction.
+- Use a working branch and pull request when needed. Branch-only work is not
+  a completed delivery: merge approved changes to `main` after the required
+  checks and independent review pass on the exact final head.
+- Preserve branch protections, required checks and security controls. Do not
+  bypass them to make an old branch appear merged.
+- Reconcile stale or conflicting branches against current `main`. Preserve
+  newer fixes and the owner's instructions instead of overwriting them.
+- Merge only within the owner's current approval. This process does not
+  authorise spending, new automation, repository visibility changes or branch
+  deletion. Do not re-enable the suspended Cursor GitHub installation.
+
 ## Money: Cursor / Claude only
 
 - Do **all** writing, coding and review on the Cursor subscription (Claude or
@@ -50,5 +66,17 @@ Token-thrift on **this** repo:
 
 ## Humans only
 
-Hosting moves, dashboard clicks (GSC, Stripe, Lovable billing), merging,
+Hosting moves, dashboard clicks (GSC, Stripe, Lovable billing),
 force-pushing, and anything that spends money.
+
+For owner-approved merges, follow Main delivery above. All other restrictions
+in this section remain unchanged.
+
+## Technical SEO
+
+- Share/canonical URL and JSON-LD sanitation rules live in technicalSeo.mjs;
+  static and React metadata must use the same rules to prevent drift.
+- Static route heads are finalised after generation, including reused
+  snapshots and city documents, so inherited homepage tags cannot survive.
+- Keep redirects in the existing shared redirect map; Lovable hosting does
+  not execute `_redirects`, so never claim those rules deliver HTTP 301s here.

@@ -20,15 +20,15 @@ const prettify = (slug: string) =>
 /**
  * /glossary — Arthritis & MSK terminology hub.
  *
- * Terms come from the auto-generated GLOSSARY_ROUTES dataset. Each slug maps
- * to /glossary/:term, rendered by GlossaryTerm.tsx.
+ * Show only written definitions, matching the sitemap. Reserved routes that
+ * still show placeholders are not published answers or DefinedTerm entries.
  */
 export default function Glossary() {
   const terms = useMemo(
     () =>
-      GLOSSARY_ROUTES.filter((r) => r !== "/glossary").map((r) => {
+      GLOSSARY_ROUTES.filter((r) => r !== "/glossary" && GLOSSARY_CONTENT[r.replace("/glossary/", "")]).map((r) => {
         const slug = r.replace("/glossary/", "");
-        return { slug, label: prettify(slug), href: r };
+        return { slug, label: GLOSSARY_CONTENT[slug].label || prettify(slug), href: r };
       }),
     [],
   );
@@ -60,6 +60,8 @@ export default function Glossary() {
             "Plain-English UK definitions of arthritis, rheumatology and musculoskeletal terminology reviewed for patients.",
           url: "https://livingwitharthritis.org.uk/glossary",
           inLanguage: "en-GB",
+          // Inventory, visible links and DefinedTermSet aligned on this date.
+          dateModified: "2026-11-17",
           publisher: {
             "@type": "Organization",
             name: "Living With Arthritis",

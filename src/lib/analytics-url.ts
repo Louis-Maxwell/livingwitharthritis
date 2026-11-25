@@ -8,8 +8,11 @@ export function analyticsUrl(value: string, base = 'https://livingwitharthritis.
     url.password = '';
     url.search = '';
     url.hash = '';
-    // Contact details occasionally appear in path segments too.
-    if (/@|%40/i.test(url.pathname)) url.pathname = '/';
+    // Public @handles (for example YouTube/Mastodon) are not email addresses.
+    // Decode for the check so encoded contact details cannot bypass it.
+    let path = url.pathname;
+    try { path = decodeURIComponent(path); } catch { return undefined; }
+    if (/[^\s/@]+@[^\s/@]+\.[^\s/@]+/.test(path) || /\+?\d[\d ()-]{8,}\d/.test(path)) url.pathname = '/';
     return url.href;
   } catch {
     return undefined;

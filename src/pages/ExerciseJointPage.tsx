@@ -7,6 +7,7 @@ import SocialShareButtons from "@/components/SocialShareButtons";
 import { exerciseJointPages } from "@/data/exerciseJointMatrix";
 import { Dumbbell, CheckCircle, AlertTriangle, ShieldAlert, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
+import { EXERCISE_URGENT_ADVICE, EXERCISE_EMERGENCY_ADVICE, EXERCISE_ROUTINE_ADVICE } from "@/data/exerciseSafety";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -110,8 +111,8 @@ const ExerciseJointPage = () => {
           </div>
 
           {/* Benefits */}
-          <section className="mb-10">
-            <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+          <section aria-labelledby="exercisejointpage-section-1" className="mb-10">
+            <h2 id="exercisejointpage-section-1" className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-primary" /> Benefits of {page.exercise} for {page.joint} Arthritis
             </h2>
             <ul className="space-y-2">
@@ -125,10 +126,11 @@ const ExerciseJointPage = () => {
           </section>
 
           {/* Exercises */}
-          <section className="mb-10">
-            <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+          <section aria-labelledby="exercisejointpage-section-2" className="mb-10">
+            <h2 id="exercisejointpage-section-2" className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-primary" /> Recommended {page.joint} Exercises
             </h2>
+            <p className="text-sm text-muted-foreground mb-4">Repetitions below are examples, not a personal prescription. Start with what is comfortable and ask your physiotherapist how to adapt them.</p>
             <div className="space-y-4">
               {page.instructions.map((instr, i) => (
                 <div key={i} id={`step-${i + 1}`} className="bg-card border border-border rounded-xl p-5">
@@ -143,11 +145,15 @@ const ExerciseJointPage = () => {
           </section>
 
           {/* Safety Tips */}
-          <section className="mb-10">
-            <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+          <section aria-labelledby="exercisejointpage-section-3" className="mb-10">
+            <h2 id="exercisejointpage-section-3" className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
               <AlertTriangle className="w-5 h-5 text-destructive" /> Safety Tips
             </h2>
-            <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-5">
+            <blockquote data-callout="note" className="bg-destructive/5 border border-destructive/20 rounded-xl p-5">
+              <p className="font-semibold mb-3">Note</p>
+              <p className="text-sm mb-3">{EXERCISE_URGENT_ADVICE}</p>
+              <p className="text-sm mb-3">{EXERCISE_EMERGENCY_ADVICE}</p>
+              <p className="text-sm mb-3">{EXERCISE_ROUTINE_ADVICE} <a className="underline" href="https://www.nhs.uk/conditions/joint-pain/">NHS joint-pain advice</a></p>
               <ul className="space-y-2">
                 {page.safetyTips.map((tip, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-foreground">
@@ -155,12 +161,12 @@ const ExerciseJointPage = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </blockquote>
           </section>
 
           {/* When to Avoid */}
-          <section className="mb-10">
-            <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+          <section aria-labelledby="exercisejointpage-section-4" className="mb-10">
+            <h2 id="exercisejointpage-section-4" className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
               <ShieldAlert className="w-5 h-5 text-destructive" /> When to Avoid {page.exercise}
             </h2>
             <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-5">
@@ -175,8 +181,8 @@ const ExerciseJointPage = () => {
           </section>
 
           {/* Related Pages */}
-          <section className="mb-10">
-            <h2 className="text-xl font-semibold text-foreground mb-4">More {page.exercise} Guides</h2>
+          <section aria-labelledby="exercisejointpage-section-5" className="mb-10">
+            <h2 id="exercisejointpage-section-5" className="text-xl font-semibold text-foreground mb-4">More {page.exercise} Guides</h2>
             <div className="flex flex-wrap gap-2 mb-6">
               {sameExercise.map((p) => (
                 <Link

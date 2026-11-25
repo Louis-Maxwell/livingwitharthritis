@@ -1,3 +1,4 @@
+import { STANDALONE_ANSWER_CAPSULES } from "@/data/standaloneAnswerCapsules";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CheckCircle2, Clock, Activity, Heart, Shield, Sparkles, ArrowRight, AlertTriangle } from "lucide-react";
@@ -125,7 +126,7 @@ export default function TaiChiForBalance() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title="Tai Chi for Balance (Arthritis)"
         description="An evidence-based tai chi routine for arthritis. Reduce pain, improve balance and lower fall risk in 15 minutes a day. NICE-recommended, beginner-friendly."
@@ -160,7 +161,7 @@ export default function TaiChiForBalance() {
       <PageHero
         badge={<Badge variant="secondary" className="bg-background text-primary border-0">Evidence-based · NICE-recommended</Badge>}
         title="Tai Chi for Balance"
-        subtitle="A 15-minute, low-impact routine to ease joint pain, steady your balance and rebuild confidence on your feet — supported by Cochrane and BMJ evidence."
+        subtitle={STANDALONE_ANSWER_CAPSULES["/exercises/tai-chi-for-balance"]}
       >
         <div className="flex flex-wrap gap-3">
           <Button asChild size="lg"><a href="#routine">Start the routine <ArrowRight className="ml-2 h-4 w-4" /></a></Button>
@@ -207,7 +208,7 @@ export default function TaiChiForBalance() {
           <div className="max-w-2xl mb-10">
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">15 minutes · 5 movements</Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">The beginner routine</h2>
-            <p className="text-muted-foreground leading-relaxed">Move through these in order. Each posture has an animated demonstration on the right — follow the figure at your own pace. Breathe slowly through the nose throughout.</p>
+            <p className="text-muted-foreground leading-relaxed">Move through these in order. Where a matching illustrative clip is available, you can open it alongside the written steps. Breathe slowly through the nose throughout.</p>
           </div>
 
           <ol className="space-y-5">
@@ -228,7 +229,11 @@ export default function TaiChiForBalance() {
                         <p className="text-sm text-muted-foreground leading-relaxed"><span className="font-medium text-foreground">Why it helps:</span> {m.why}</p>
                       </div>
                       <div className="md:sticky md:top-4">
-                        <ExerciseVideoModal src={video.src} poster={video.poster} title={`${i + 1}. ${m.name}`} description={m.how}>
+                        {m.anim === "rooted-stance" ? (
+                          <div className="rounded-xl border p-4 text-sm">
+                            <p>No matching standing demonstration is available for this movement. Follow the written steps and seek individual advice if you are unsure about standing balance work.</p>
+                          </div>
+                        ) : <ExerciseVideoModal src={video.src} poster={video.poster} title={`${i + 1}. ${m.name}`} description={m.how}>
                           <button
                             type="button"
                             aria-label={`Play ${m.name}`}
@@ -241,7 +246,7 @@ export default function TaiChiForBalance() {
                               </span>
                             </span>
                           </button>
-                        </ExerciseVideoModal>
+                        </ExerciseVideoModal>}
                         <p className="mt-2 text-xs italic leading-snug text-foreground/80 bg-muted/40 border border-border/40 rounded-lg px-3 py-2 flex items-start gap-2" title="Tap the video to watch full size · loops while you follow along">
                           <Sparkles className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
                           <span>{m.cue}</span>

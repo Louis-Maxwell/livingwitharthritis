@@ -7,7 +7,7 @@
  * Pattern / splat rules (locale prefixes, city×condition) stay in
  * public/_redirects + SeoRedirectGate. This module only lists finite
  * exact URLs we can drop as real files so a host that ignores _redirects
- * still serves a noindex+canonical+refresh document instead of the
+ * still serves a canonical+instant-refresh document instead of the
  * homepage SPA shell.
  */
 import { readFileSync } from "node:fs";
@@ -148,25 +148,42 @@ export function normalizePath(pathname) {
   return collapsed || "/";
 }
 
-export function buildRedirectHtml(from, to) {
+export function buildRedirectHtml(from, to, social = null) {
   const dest = normalizePath(to);
   const abs = `${SITE}${dest}`;
   const safeDest = dest.replace(/</g, "");
   const jsDest = JSON.stringify(dest);
   const fromPath = normalizePath(from);
+  const escapeHtml = (value) => String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  const title = social?.title || `Moved permanently to ${abs} | Living With Arthritis`;
+  const description = social?.description || `This URL (${fromPath}) has permanently moved to ${abs}. Use the destination page on Living With Arthritis.`;
+  // Social crawlers may not follow meta-refresh. Describe the canonical article,
+  // while keeping this document a redirect, not a second article page.
+  const socialTags = social ? `
+    <meta property="og:title" content="${escapeHtml(title)}" />
+    <meta property="og:description" content="${escapeHtml(description)}" />
+    <meta property="og:url" content="${escapeHtml(abs)}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Living With Arthritis" />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="${social.ogImage ? "summary_large_image" : "summary"}" />
+    <meta name="twitter:title" content="${escapeHtml(title)}" />
+    <meta name="twitter:description" content="${escapeHtml(description)}" />${social.ogImage ? `
+    <meta property="og:image" content="${escapeHtml(social.ogImage)}" />
+    <meta property="og:image:secure_url" content="${escapeHtml(social.ogImage)}" />
+    <meta name="twitter:image" content="${escapeHtml(social.ogImage)}" />` : ""}` : "";
   // Lovable CDN ignores HTTP 301 files. These stubs must:
   // 1) never look like empty homepage soft-404s
-  // 2) stay out of the index while permitting destination discovery
+  // 2) permit crawling and destination discovery without a conflicting noindex
   // 3) point Google at the live destination via canonical + refresh
   return `<!DOCTYPE html>
 <html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Moved permanently to ${abs} | Living With Arthritis</title>
-    <meta name="description" content="This URL (${fromPath}) has permanently moved to ${abs}. Use the destination page on Living With Arthritis." />
-    <meta name="robots" content="noindex, follow" />
-    <meta name="googlebot" content="noindex, follow" />
+    <title>${escapeHtml(title)}</title>
+    <meta name="description" content="${escapeHtml(description)}" />${socialTags}
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="${abs}" />
     <meta http-equiv="refresh" content="0;url=${safeDest}" />
     <script>location.replace(${jsDest}+location.search+location.hash);</script>
@@ -203,4 +220,3 @@ export function hostRedirectRules() {
   const seen = new Set(exact.map((r) => r.source));
   return [...exact, ...patterns.filter((r) => !seen.has(r.source))];
 }
-

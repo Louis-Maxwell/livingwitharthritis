@@ -11,9 +11,20 @@ import {
 } from "../../../scripts/seo-redirect-map.mjs";
 import { writeRedirectHtml } from "../../../scripts/write-redirect-html.mjs";
 import { hostRedirectsDrift } from "../../../scripts/sync-host-redirects.mjs";
-import { collectRoutes, rewriteHead } from "../../../scripts/inject-canonicals.mjs";
+import { collectRoutes, rewriteHead, headDataFor } from "../../../scripts/inject-canonicals.mjs";
 
 describe("host + client SEO redirects", () => {
+  it("marks unknown blog and category slugs as not found and noindex", () => {
+    for (const path of [
+      "/blog/this-article-does-not-exist-12345",
+      "/blog/category/not-a-real-category-12345",
+    ]) {
+      const head = headDataFor(path);
+      expect(head?.noindex).toBe(true);
+      expect(head?.title).toContain("Page not found");
+    }
+  });
+
   it("maps the live GSC soft-404s onto real pages", () => {
     expect(resolveSeoRedirect("/arthritis-support/stockport")).toBe(
       "/arthritis-support/manchester",
@@ -35,13 +46,13 @@ describe("host + client SEO redirects", () => {
     }
   });
 
-  it("writes stub HTML with noindex, canonical, refresh and no article body", () => {
+  it("writes crawlable redirect HTML with canonical, instant refresh and no article body", () => {
     const html = buildRedirectHtml(
       "/blog/mindfulness-meditation-chronic-pain",
       "/blog/mindfulness-chronic-pain-arthritis-guide",
     );
-    expect(html).toContain('name="robots" content="noindex, follow"');
-    expect(html).toContain('name="googlebot" content="noindex, follow"');
+    expect(html).toContain('name="robots" content="index, follow"');
+    expect(html).not.toContain("noindex");
     expect(html).not.toContain("nofollow");
     expect(html).toContain(
       'rel="canonical" href="https://livingwitharthritis.org.uk/blog/mindfulness-chronic-pain-arthritis-guide"',

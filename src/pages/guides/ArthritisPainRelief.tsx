@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import ArticleCitations from "@/components/blog/ArticleCitations";
@@ -14,6 +16,7 @@ import { CITATIONS_PAIN_RELIEF } from "@/data/clinical/ukCitations";
 import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import LastReviewed from "@/components/LastReviewed";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/guides/arthritis-pain-relief`;
@@ -89,7 +92,7 @@ const ArthritisPainRelief = () => (
       {/* BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it. */}
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
     </Helmet>
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <Header />
       <PageBreadcrumb segments={[{ label: "Guides", href: "/blog" }, { label: "Arthritis pain relief" }]} />
 
@@ -105,6 +108,8 @@ const ArthritisPainRelief = () => (
             Arthritis pain relief: start here when joints hurt
           </h1>
             <AeoEnhancement route="/guides/arthritis-pain-relief" />
+            <GpPrepSheet />
+            <WhatsAppShare path="/guides/arthritis-pain-relief" title="Arthritis pain relief guide" />
           <p className="speakable-intro text-lg text-muted-foreground leading-relaxed">
             If your joints hurt today: use heat on stiff joints or a wrapped cold pack on hot, swollen ones, keep moving gently rather than resting completely, and use a pain relief option your pharmacist or GP has said is right for you. Then build a plan for flares, sleep and exercise so pain is easier to manage over time. This guide follows NHS and NICE advice and tells you when to get help.
           </p>
@@ -215,6 +220,8 @@ const ArthritisPainRelief = () => (
           </ul>
           <p>More in <Link to="/blog/pacing-techniques-arthritis-pain" className="text-primary underline">pacing techniques</Link> and <Link to="/blog/pacing-housework-arthritis-frailty-uk" className="text-primary underline">pacing housework</Link>.</p>
         </Section>
+
+        <RecommendedNextStep path="/guides/arthritis-pain-relief" placement="mid" />
 
         <Section icon={Moon} title="7. Protect your sleep">
           <p>Pain disturbs sleep, and poor sleep can make pain feel worse.</p>

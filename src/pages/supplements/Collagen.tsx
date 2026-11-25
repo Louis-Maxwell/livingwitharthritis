@@ -68,7 +68,7 @@ export default function Collagen() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title={COLLAGEN_META_TITLE}
         description={COLLAGEN_DESCRIPTION}

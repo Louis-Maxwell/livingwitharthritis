@@ -1,6 +1,7 @@
 /// <reference types="node" />
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { inlineReviewRecords } from "@/test/inlineReviewRecords";
 import { describe, expect, it } from "vitest";
 import { TOPIC_CLUSTERS, getClusterForPath } from "@/data/topicClusters";
 
@@ -45,18 +46,18 @@ const PIP_LINKS = [
 ];
 
 describe("GSC Champions 47–48 (28 Sep): early M3 pillar deepen (pain / OA / exercise / PIP)", () => {
-  const oa = readFileSync(
+  const oa = inlineReviewRecords(readFileSync(
     resolve(process.cwd(), "src/pages/conditions/Osteoarthritis.tsx"),
     "utf8",
-  );
+  ));
   const pain = readFileSync(
     resolve(process.cwd(), "src/pages/guides/ArthritisPainRelief.tsx"),
     "utf8",
   );
-  const exercise = readFileSync(
+  const exercise = inlineReviewRecords(readFileSync(
     resolve(process.cwd(), "src/pages/ExerciseHub.tsx"),
     "utf8",
-  );
+  ));
   const pip = readFileSync(
     resolve(process.cwd(), "src/pages/pillar/BenefitsPIPGuide.tsx"),
     "utf8",
@@ -67,7 +68,7 @@ describe("GSC Champions 47–48 (28 Sep): early M3 pillar deepen (pain / OA / ex
   );
 
   it("OA pillar has review 2026-09-28 and customer-job cross-links", () => {
-    expect(oa).toContain(`EducationalDisclaimerBox lastReviewed="${REVIEW}"`);
+    expect(oa).toMatch(/EducationalDisclaimerBox lastReviewed="2026-(09-28|11-05)"/);
     for (const href of OA_LINKS) {
       expect(oa.includes(`"${href}"`) || oa.includes(`'${href}'`) || oa.includes(`to="${href}"`), `OA missing ${href}`).toBe(true);
     }
@@ -90,7 +91,7 @@ describe("GSC Champions 47–48 (28 Sep): early M3 pillar deepen (pain / OA / ex
   });
 
   it("Exercise hub has review 2026-09-28 and surfaces swimming + walking", () => {
-    expect(exercise).toContain(`EducationalDisclaimerBox lastReviewed="${REVIEW}"`);
+    expect(exercise).toMatch(/EducationalDisclaimerBox lastReviewed="2026-(09-28|11-10)"/);
     for (const href of EXERCISE_LINKS) {
       expect(
         exercise.includes(`"${href}"`) || exercise.includes(`to="${href}"`) || exercise.includes(`href: "${href}"`),
@@ -100,8 +101,9 @@ describe("GSC Champions 47–48 (28 Sep): early M3 pillar deepen (pain / OA / ex
     expect(getClusterForPath("/exercises")?.id).toBe("exercises");
   });
 
-  it("PIP hub has review 2026-09-28 and work/carer support blogs", () => {
-    expect(pip).toMatch(/EducationalDisclaimerBox lastReviewed="2026-(09-28|10-23)"/);
+  it("PIP hub labels unrecorded review and retains work/carer support blogs", () => {
+    expect(pip).toContain('EducationalDisclaimerBox reviewStatus="pending"');
+    expect(pip).not.toContain('"lastReviewed":');
     for (const href of PIP_LINKS) {
       expect(pip.includes(`"${href}"`) || pip.includes(`href: "${href}"`), `PIP missing ${href}`).toBe(true);
     }

@@ -41,6 +41,13 @@ jobs:
       - name: Install (npm ci only)
         run: npm ci --prefer-offline --no-audit --no-fund
 
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Generate current content surfaces
+        run: npm run content:generate
+
       - name: Typecheck
         run: npm run typecheck
 

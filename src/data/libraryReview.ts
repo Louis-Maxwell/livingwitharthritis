@@ -12,6 +12,7 @@
  * after Louis has reviewed it with `npm run library:mark-reviewed -- <slug>`.
  */
 import reviewStatusJson from "./libraryReviewStatus.json";
+import REVIEW_RECORDS from "./reviewRecords.json";
 import type { BlogReviewStatus } from "@/lib/blog/review";
 
 export interface LibraryReviewEntry {
@@ -29,7 +30,7 @@ export const LIBRARY_PENDING_REVIEW_TEXT =
 export const LIBRARY_REVIEW_STATUS = reviewStatusJson as Record<string, LibraryReviewEntry>;
 
 /** Date Louis Maxwell confirmed every published library topic was clinically reviewed. */
-export const LIBRARY_SITEWIDE_REVIEW_DATE = "2026-10-23";
+export const LIBRARY_SITEWIDE_REVIEW_DATE = REVIEW_RECORDS.librarySitewide;
 
 export function getLibraryReviewStatus(slug: string): BlogReviewStatus {
   const entry = LIBRARY_REVIEW_STATUS[slug];
@@ -58,7 +59,7 @@ export function libraryAboutNote(slug: string): { heading: string; body: string 
   return {
     heading: "About this page",
     body: isLibraryReviewPending(slug)
-      ? `Written by Louis Maxwell, First Contact Practitioner (HCPC PH128483), and clinically reviewed. ${safety}`
+      ? `This updated page is awaiting separate clinical review. ${safety}`
       : `Written by Louis Maxwell, First Contact Practitioner (HCPC PH128483), and clinically reviewed. ${safety}`,
   };
 }

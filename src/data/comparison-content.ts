@@ -1,4 +1,4 @@
-﻿// Long-form comparison content for high-value /guides/*-vs-* routes.
+// Long-form comparison content for high-value /guides/*-vs-* routes.
 // Each entry is 800–1200 words of evidence-informed, UK-focused copy.
 // The ComparisonPage falls back to a lightweight template when a slug
 // is not defined here.
@@ -37,6 +37,11 @@ export interface ComparisonArticle {
   table: ComparisonKeyPoint[];
   /** Short bullet takeaways. */
   takeaways: string[];
+  editorialUpdatedAt?: string;
+  question?: string;
+  answer?: string;
+  faqs?: { q: string; a: string }[];
+  disclaimer?: string;
 }
 
 export const COMPARISON_CONTENT: Record<string, ComparisonArticle> = {
@@ -210,86 +215,103 @@ export const COMPARISON_CONTENT: Record<string, ComparisonArticle> = {
   },
 
   "/guides/dmards-vs-biologics": {
-    path: "/guides/dmards-vs-biologics",
-    title: "DMARDs vs Biologics for Arthritis",
-    metaDescription:
-      "DMARDs vs biologics — how they differ in how they work, who gets them on the UK healthcare system, side-effects and cost. A plain-English UK guide.",
-    intro:
-      "For rheumatoid, psoriatic and axial spondyloarthritis, DMARDs and biologics are the two families of medicines that actually change the disease. They are not painkillers — they suppress the immune activity driving joint damage. This guide compares them for UK patients navigating UK healthcare rheumatology.",
-    optionA: {
-      name: "Conventional DMARDs",
-      howItWorks:
-        "Broadly damp down the immune system. Methotrexate is the anchor drug; others include sulfasalazine, hydroxychloroquine and leflunomide.",
-      bestFor:
-        "First-line treatment for rheumatoid, psoriatic and juvenile arthritis. Often used long-term.",
-      sideEffects:
-        "Nausea, mouth ulcers, hair thinning, raised liver enzymes, low blood counts. Reversible with dose changes.",
-      nhs: "Freely prescribed on the UK healthcare system, usually started by rheumatology and monitored with regular blood tests.",
-      cost: "Very cheap — methotrexate tablets cost the UK healthcare system pennies per week.",
+    "path": "/guides/dmards-vs-biologics",
+    "title": "DMARDs vs Biologics for Arthritis",
+    "metaDescription": "DMARDs vs biologics — how they differ in how they work, who gets them on the UK healthcare system, side-effects and cost. A plain-English UK guide.",
+    "intro": "Biologics are a type of disease-modifying anti-rheumatic drug (DMARD). This guide compares conventional DMARDs, such as methotrexate, with biological DMARDs for inflammatory arthritis. JAK inhibitors are a separate group called targeted synthetic DMARDs, not biologics. Conventional DMARDs can help rheumatoid arthritis and peripheral joint disease, but are not recommended for purely axial spondyloarthritis affecting the spine.",
+    "optionA": {
+      "name": "Conventional DMARDs",
+      "howItWorks": "Broadly damp down the immune system. Methotrexate is the anchor drug; others include sulfasalazine, hydroxychloroquine and leflunomide.",
+      "bestFor": "First-line treatment for rheumatoid, psoriatic and juvenile arthritis. Often used long-term.",
+      "sideEffects": "Nausea, mouth ulcers, hair thinning, raised liver enzymes, low blood counts. Reversible with dose changes.",
+      "nhs": "Freely prescribed on the UK healthcare system, usually started by rheumatology and monitored with regular blood tests.",
+      "cost": "Very cheap — methotrexate tablets cost the UK healthcare system pennies per week."
     },
-    optionB: {
-      name: "Biologics",
-      howItWorks:
-        "Target one specific step of the immune response — TNF, IL-6, IL-17, JAK, B cells — using engineered proteins or small molecules.",
-      bestFor:
-        "People whose disease stays active despite two conventional DMARDs, or who cannot tolerate them.",
-      sideEffects:
-        "Increased infection risk, injection-site reactions; specific classes carry other risks (e.g. shingles, cardiovascular).",
-      nhs: "Prescribed by rheumatology under NICE-approved criteria after DMARD failure, monitored by hospital.",
-      cost: "£8,000–£15,000+/year — usually free to eligible UK healthcare patients; biosimilars have reduced the price significantly.",
+    "optionB": {
+      "name": "Biologics",
+      "howItWorks": "Use engineered proteins to target parts of the immune response, such as TNF, IL-6, IL-17 or B cells. JAK inhibitors are targeted synthetic DMARDs, not biological medicines.",
+      "bestFor": "Selected people with active inflammatory arthritis when other suitable treatments have not controlled it. The treatment pathway depends on the condition and medicine.",
+      "sideEffects": "Infections and injection-site reactions are possible; other risks depend on the medicine. JAK inhibitors have separate safety warnings and should not be treated as biologics.",
+      "nhs": "Prescribed by specialist rheumatology under medicine- and condition-specific eligibility criteria, with ongoing monitoring.",
+      "cost": "£8,000–£15,000+/year — usually free to eligible UK healthcare patients; biosimilars have reduced the price significantly."
     },
-    sections: [
+    "sections": [
       {
-        heading: "How the two families really differ",
-        paragraphs: [
+        "heading": "How the two families really differ",
+        "paragraphs": [
           "Conventional DMARDs are old-school immune suppressants: they slow down a wide range of immune activity, which is why they work but also why they need blood monitoring. Methotrexate — the most-used arthritis medicine in the world — is safe and effective for most people at once-weekly doses.",
-          "Biologics are precision tools. Instead of dampening the whole immune system, they block one signal — for example TNF-Î± (adalimumab, etanercept, infliximab), IL-6 (tocilizumab), IL-17 (secukinumab) or B-cells (rituximab). Newer 'targeted synthetic DMARDs' (JAK inhibitors like tofacitinib and baricitinib) are tablets rather than injections but work in the same targeted way.",
-        ],
+          "Biological DMARDs target parts of the immune response. Examples include adalimumab, etanercept and infliximab (TNF inhibitors), tocilizumab (an IL-6 inhibitor), secukinumab (an IL-17 inhibitor) and rituximab (which targets B cells). They are given by injection or infusion. JAK inhibitors, such as tofacitinib and baricitinib, are tablets in the separate targeted synthetic DMARD group."
+        ]
       },
       {
-        heading: "How the UK healthcare system decides who gets what",
-        paragraphs: [
-          "NICE sets clear criteria. For rheumatoid arthritis, biologics are approved after a person has failed to respond to at least two conventional DMARDs (one of which is usually methotrexate) and still has moderate to severe disease activity — measured by DAS28 score. Similar rules apply to psoriatic arthritis and ankylosing spondylitis.",
-          "This means most UK patients start on methotrexate, add hydroxychloroquine or sulfasalazine, and only move to biologics if disease activity stays high. It's not a matter of newer being 'better' — for a large minority of patients, DMARDs alone give excellent control.",
-        ],
+        "heading": "How the UK healthcare system decides who gets what",
+        "paragraphs": [
+          "The NHS treatment pathway depends on the diagnosis, disease activity, previous treatments and the particular medicine. In rheumatoid arthritis, conventional DMARDs are usually tried before a biological treatment. The same sequence should not be assumed for every inflammatory arthritis condition.",
+          "For purely axial spondyloarthritis, conventional DMARDs are not recommended because they do not effectively treat spinal disease. They may still be used for peripheral arthritis, such as swollen joints in the arms or legs. Biological medicines or JAK inhibitors may be considered by a specialist when appropriate for axial disease."
+        ]
       },
       {
-        heading: "Side-effect trade-offs",
-        paragraphs: [
+        "heading": "Side-effect trade-offs",
+        "paragraphs": [
           "DMARDs need regular blood tests (fortnightly at start, then every 8–12 weeks) to catch liver, kidney or blood-count problems early. Common day-to-day side-effects — nausea, mouth ulcers, tiredness the day after methotrexate — often improve with folic acid, dose splitting or an anti-sickness tablet.",
-          "Biologics have lower rates of these particular issues but a higher risk of serious infection, TB reactivation and, for some classes, shingles or blood clots. That's why patients are screened for TB, hepatitis and vaccinated before starting, and told to hold doses during active infections.",
-        ],
+          "Biological medicines can increase infection risk, including reactivation of infections such as TB. Screening and monitoring depend on the medicine and your health history. JAK inhibitors are a different medicine group with separate warnings, including cardiovascular problems and blood clots. Ask your rheumatology team what to do if you develop an infection; do not apply one stopping or restarting rule to every medicine."
+        ]
       },
       {
-        heading: "Cost and access",
-        paragraphs: [
+        "heading": "Cost and access",
+        "paragraphs": [
           "For the individual patient, both are free on the UK healthcare system if criteria are met (though there's a prescription charge in England for DMARD tablets unless you're exempt). To the UK healthcare system, however, biologics cost thousands per patient per year — mitigated significantly by the rise of biosimilars, which are cheaper 'generic' versions with equivalent effect.",
-          "Privately, methotrexate and other DMARDs can be prescribed for a few pounds a month; biologics privately cost hundreds to a few thousand a month, so almost all UK patients access them through the UK healthcare system.",
-        ],
+          "Privately, methotrexate and other DMARDs can be prescribed for a few pounds a month; biologics privately cost hundreds to a few thousand a month, so almost all UK patients access them through the UK healthcare system."
+        ]
       },
       {
-        heading: "Which is 'better'?",
-        paragraphs: [
+        "heading": "Which is 'better'?",
+        "paragraphs": [
           "For most newly-diagnosed rheumatoid arthritis, methotrexate remains the anchor drug — often combined with a short course of steroids to bridge until it kicks in. Roughly half of patients get durable low disease activity or remission on DMARDs alone.",
-          "For those with persistent activity or specific features (like severe skin psoriasis or axial disease), biologics are transformative and now expected in the UK healthcare system treatment pathway. Increasingly, rheumatologists tailor the choice of biologic to the disease pattern and personal factors like pregnancy, cardiovascular risk and needle tolerance.",
-        ],
+          "For those with persistent activity or specific features (like severe skin psoriasis or axial disease), biologics are transformative and now expected in the UK healthcare system treatment pathway. Increasingly, rheumatologists tailor the choice of biologic to the disease pattern and personal factors like pregnancy, cardiovascular risk and needle tolerance."
+        ]
+      }
+    ],
+    "table": [
+      {
+        "label": "Type of medicine",
+        "a": "Broad immune suppressants",
+        "b": "Targeted immune blockers"
       },
+      {
+        "label": "First-line?",
+        "a": "Often in rheumatoid or peripheral arthritis; not purely axial disease",
+        "b": "Depends on the condition and previous treatment"
+      },
+      {
+        "label": "How given",
+        "a": "Tablets or weekly injection",
+        "b": "Injection or infusion"
+      },
+      {
+        "label": "Monitoring",
+        "a": "Regular bloods",
+        "b": "Screening + infection watch"
+      },
+      {
+        "label": "UK healthcare cost/year",
+        "a": "Under £100",
+        "b": "£8,000–£15,000+"
+      },
+      {
+        "label": "Access on NHS",
+        "a": "Freely prescribed",
+        "b": "NICE criteria required"
+      }
     ],
-    table: [
-      { label: "Type of medicine", a: "Broad immune suppressants", b: "Targeted immune blockers" },
-      { label: "First-line?", a: "Yes", b: "After DMARD failure" },
-      { label: "How given", a: "Tablets or weekly injection", b: "Injection or infusion (some tablets)" },
-      { label: "Monitoring", a: "Regular bloods", b: "Screening + infection watch" },
-      { label: "UK healthcare cost/year", a: "Under £100", b: "£8,000–£15,000+" },
-      { label: "Access on NHS", a: "Freely prescribed", b: "NICE criteria required" },
-    ],
-    takeaways: [
-      "Most UK patients start on methotrexate — cheap, effective, and well understood.",
-      "Biologics come in after two DMARDs haven't controlled disease.",
-      "Both need infection awareness, but biologics carry a higher infection risk.",
+    "takeaways": [
+      "Biologics are DMARDs too. This comparison is conventional versus biological DMARDs.",
+      "JAK inhibitors are targeted synthetic DMARD tablets, not biologics.",
+      "Conventional DMARDs are not recommended for purely axial spinal disease, although they may help peripheral arthritis.",
+      "Side effects, infection precautions and monitoring depend on the individual medicine and your health history.",
       "Biosimilars have made biologics far more affordable for the UK healthcare system.",
-      "The goal for either family is remission or low disease activity, not just pain relief.",
-    ],
+      "The goal for either family is remission or low disease activity, not just pain relief."
+    ]
   },
 
   "/guides/swimming-vs-walking-arthritis": {
@@ -458,86 +480,117 @@ export const COMPARISON_CONTENT: Record<string, ComparisonArticle> = {
   },
 
   "/guides/mediterranean-diet-vs-anti-inflammatory-diet": {
-    path: "/guides/mediterranean-diet-vs-anti-inflammatory-diet",
-    title: "Mediterranean vs Anti-Inflammatory Diet for Arthritis",
-    metaDescription:
-      "Mediterranean diet vs anti-inflammatory diet for arthritis — how they overlap, where they differ, and what UK evidence really supports.",
-    intro:
-      "'Anti-inflammatory' has become a marketing word attached to almost every food trend. The Mediterranean diet is one of the few eating patterns with genuinely strong evidence for reducing arthritis pain and cardiovascular risk. This guide compares the two, for UK readers who want to eat in a way that actually helps their joints — without buying £40 supplements.",
-    optionA: {
-      name: "Mediterranean diet",
-      howItWorks:
-        "A defined dietary pattern rich in vegetables, fruit, wholegrains, legumes, olive oil, nuts and oily fish, with modest dairy and low red meat.",
-      bestFor:
-        "Anyone with arthritis (particularly RA and OA), and anyone reducing cardiovascular risk alongside joint health.",
-      sideEffects:
-        "None; may cost slightly more if extra virgin olive oil and oily fish are new to your weekly shop.",
-      nhs: "Explicitly recommended by UK healthcare Eatwell and by NICE for cardiovascular prevention.",
-      cost: "£40–£70 per person per week; overlaps with normal UK shopping.",
+    "path": "/guides/mediterranean-diet-vs-anti-inflammatory-diet",
+    "title": "Mediterranean vs Anti-Inflammatory Diet for Arthritis",
+    "metaDescription": "Compare Mediterranean and 'anti-inflammatory' diets for arthritis: NICE advice, uncertain symptom benefits, balanced meals and supplement safety.",
+    "intro": "Mediterranean-style eating and diets labelled 'anti-inflammatory' often include similar foods, but the labels do not prove that a diet will reduce arthritis pain. This guide explains the overlap, what NICE says about rheumatoid arthritis and osteoarthritis, and how to make balanced food choices without unnecessary restrictions or supplement promises.",
+    "optionA": {
+      "name": "Mediterranean diet",
+      "howItWorks": "An eating pattern based on vegetables, fruit, wholegrains, beans, nuts, unsaturated oils and fish, with less red and processed meat.",
+      "bestFor": "People looking for a balanced eating pattern. Having arthritis does not mean it will relieve their symptoms.",
+      "sideEffects": "Adapt meals for allergies, dietary needs and your budget. Ask for individual advice if eating is difficult, you are losing weight unintentionally or you need a restricted diet.",
+      "nhs": "NICE encourages Mediterranean principles for adults with rheumatoid arthritis while explaining that there is no strong evidence their arthritis will benefit. The NHS Eatwell Guide supports balanced eating; it is not an arthritis-treatment endorsement.",
+      "cost": "It can use everyday foods such as oats, beans and frozen vegetables. There is no fixed weekly cost or need for specialist products."
     },
-    optionB: {
-      name: "'Anti-inflammatory' diet",
-      howItWorks:
-        "Not a single defined pattern — usually a set of principles emphasising oily fish, turmeric, ginger, berries, leafy greens, while cutting sugar, ultra-processed food and, sometimes, gluten or nightshades.",
-      bestFor:
-        "People who want a framework beyond Mediterranean, or who tolerate elimination approaches.",
-      sideEffects:
-        "Risk of over-restriction, especially if nightshades or wheat are cut without clinical need.",
-      nhs: "Not a formal UK healthcare pattern; individual foods align with Mediterranean advice.",
-      cost: "Can be expensive if it relies on speciality supplements and superfoods.",
+    "optionB": {
+      "name": "Diet labelled 'anti-inflammatory'",
+      "howItWorks": "A broad label that can describe quite different food plans. Some overlap with Mediterranean eating; others add food exclusions or supplements.",
+      "bestFor": "Judge the actual food plan rather than its name. A label alone does not establish an arthritis benefit.",
+      "sideEffects": "Cutting out food groups without a clinical reason can make balanced eating harder. Check proposed restrictions with a registered dietitian or your healthcare team.",
+      "nhs": "Do not treat the label as a NICE or NHS recommendation. Follow condition-specific advice and check individual claims.",
+      "cost": "Costs vary. Special foods, tests and supplements are not needed simply because a plan uses this label."
     },
-    sections: [
+    "sections": [
       {
-        heading: "How much overlap is there?",
-        paragraphs: [
-          "In practice, most versions of 'anti-inflammatory eating' are 90% Mediterranean plus a few extras — turmeric, ginger, green tea, sometimes limiting nightshades, wheat or dairy. Both patterns emphasise vegetables, fruit, nuts, seeds, oily fish, olive oil and legumes, and both discourage ultra-processed food, sugary drinks and excess red or processed meat.",
-          "The real difference is that the Mediterranean diet is defined by decades of research — including large randomised trials like PREDIMED — whereas 'anti-inflammatory' as a label is looser and often driven by supplement marketing.",
-        ],
+        "heading": "How much overlap is there?",
+        "paragraphs": [
+          "Both approaches may emphasise vegetables, fruit, wholegrains, beans, nuts and unsaturated oils. There is no reliable percentage that describes every 'anti-inflammatory' diet because there is no single agreed version.",
+          "Look at whether the plan is balanced, affordable and suitable for your health needs. The name of the diet does not tell you how well it treats arthritis."
+        ]
       },
       {
-        heading: "What the arthritis evidence actually shows",
-        paragraphs: [
-          "For rheumatoid arthritis, several trials of Mediterranean-style eating show modest but real reductions in joint pain, tender joint count and CRP. Effects are smaller than DMARDs but real, and improve cardiovascular risk — important because RA itself raises heart-attack risk.",
-          "For osteoarthritis, evidence is weaker but consistent: people eating a Mediterranean-style diet report less pain and better function, largely mediated by weight loss and reduced systemic inflammation.",
-          "Individual 'anti-inflammatory' foods (turmeric/curcumin, omega-3, ginger, green tea) each have trials of variable quality, generally showing small pain-relief effects. Nothing comes close to the effect size of Mediterranean eating as a whole pattern.",
-        ],
+        "heading": "What the arthritis guidance actually says",
+        "paragraphs": [
+          "For rheumatoid arthritis, NICE says there is no strong evidence that experimenting with diet will benefit the arthritis. Mediterranean principles can still be encouraged. Continue prescribed treatment and do not delay a rheumatology review while trying food changes.",
+          "For osteoarthritis, NICE identifies tailored therapeutic exercise and weight management, when appropriate, as core treatments alongside information and support. It does not establish a Mediterranean diet as a proven arthritis-pain treatment.",
+          "There is no supported promise here that you will feel better in 8-12 weeks. Changes in symptoms can have several causes, so do not use a short dietary trial as proof that a food treats your arthritis."
+        ]
       },
       {
-        heading: "Where they genuinely differ",
-        paragraphs: [
-          "Some anti-inflammatory approaches recommend cutting nightshades (tomatoes, aubergine, peppers, potatoes), gluten or dairy. There is no consistent evidence these help arthritis in general — although a small subset of people with coeliac disease or genuine intolerances do improve. Blanket elimination risks nutritional gaps and lower quality of life.",
-          "Some approaches lean heavily on supplements — turmeric capsules, high-dose fish oil, MSM, glucosamine. The evidence for these is patchy: high-dose omega-3 has modest RA benefit; curcumin has some knee osteoarthritis trials; glucosamine's effect is small and inconsistent.",
-        ],
+        "heading": "Food exclusions and supplements",
+        "paragraphs": [
+          "Do not routinely cut out gluten, dairy or nightshade vegetables to treat arthritis. If you have a diagnosed allergy, coeliac disease or another condition needing a special diet, follow your own clinical advice. Otherwise, discuss a proposed exclusion with a registered dietitian before removing a food group.",
+          "Food and supplement capsules are not interchangeable. This comparison does not recommend an arthritis supplement or dose. NICE says not to offer glucosamine for osteoarthritis because there is no strong evidence of benefit. Ask a pharmacist or your healthcare team about supplement safety and interactions, and do not replace prescribed medicines with supplements."
+        ]
       },
       {
-        heading: "Building it in real UK life",
-        paragraphs: [
-          "You don't need to buy anything exotic. A Mediterranean-style shopping list in the UK looks like: bags of frozen berries, tinned tomatoes and beans, oats, rye or wholewheat bread, extra virgin olive oil, mixed nuts, plain yoghurt, two portions of oily fish a week (tinned sardines and mackerel are cheap), plenty of vegetables and occasional lean chicken or eggs. Red meat and processed meat move to the edge of the plate.",
-          "If you want to add 'anti-inflammatory' extras, safe additions are turmeric with black pepper in cooking, fresh or powdered ginger, and green tea. Skip the £30 pill bottles unless a rheumatologist or dietitian specifically recommends them.",
-        ],
+        "heading": "Building balanced meals in UK life",
+        "paragraphs": [
+          "You do not need exotic ingredients. Oats, wholegrain bread, beans, lentils, frozen vegetables, fruit and unsalted nuts can fit a balanced pattern. Choose foods you can afford, prepare and enjoy, allowing for allergies and dietary needs.",
+          "The NHS advises at least two portions of fish a week, including one oily fish portion, for people who eat fish. This is general healthy-eating advice, not a proven arthritis-pain dose. Follow the NHS's separate limits for pregnancy and particular fish, or ask for advice if you do not eat fish.",
+          "Choose unsaturated oils in small amounts. Olive, rapeseed and sunflower oils can all fit NHS advice; there is no need to describe ordinary vegetable oils as a cause of arthritis inflammation."
+        ]
       },
       {
-        heading: "What to prioritise if you can only change one thing",
-        paragraphs: [
-          "For arthritis, the highest-yield change is usually: eat oily fish twice a week, swap sunflower/vegetable oil for olive oil, and eat vegetables at every meal. Do just that and you're already Mediterranean, already anti-inflammatory, and likely to feel a difference over 8–12 weeks.",
-          "Weight loss, where relevant, amplifies everything: each kilogram off reduces load on the knee joint by roughly 4 kg per step, and losing 10% of body weight can rival the pain relief of common medication in obese OA patients.",
-        ],
-      },
+        "heading": "What to prioritise",
+        "paragraphs": [
+          "Start with one manageable balanced-eating change rather than a restrictive plan or a supplement purchase. If pain, fatigue, hand problems or your budget make food preparation difficult, ask your healthcare team about practical support or a dietitian referral.",
+          "For people with osteoarthritis who are living with overweight or obesity, NICE says weight loss can reduce pain and improve function and quality of life. Any amount is likely to help, and losing 10% is likely to help more than 5%. Weight loss is not appropriate for everyone, particularly people who are underweight, frail or losing weight unintentionally. Agree an individual plan rather than following a generic target."
+        ]
+      }
     ],
-    table: [
-      { label: "Evidence in arthritis", a: "Strong (RA and OA)", b: "Mixed, mostly single-food studies" },
-      { label: "Defined pattern?", a: "Yes", b: "Loose set of principles" },
-      { label: "Cost", a: "Everyday supermarket", b: "Higher if supplement-heavy" },
-      { label: "Elimination-based?", a: "No", b: "Sometimes (nightshades, gluten)" },
-      { label: "NHS-endorsed?", a: "Yes (via Eatwell + NICE)", b: "Not formally" },
+    "table": [
+      {
+        "label": "Proven arthritis-pain benefit?",
+        "a": "Not established by the NICE advice discussed here",
+        "b": "The label does not establish a benefit"
+      },
+      {
+        "label": "Defined pattern?",
+        "a": "Recognisable principles with room for adaptation",
+        "b": "No single agreed definition"
+      },
+      {
+        "label": "Everyday food possible?",
+        "a": "Yes",
+        "b": "Depends on the plan"
+      },
+      {
+        "label": "Food exclusions needed for arthritis?",
+        "a": "Not routinely",
+        "b": "Some plans add restrictions without a clear clinical reason"
+      },
+      {
+        "label": "NICE position",
+        "a": "Mediterranean principles can be encouraged in RA, with uncertainty about arthritis benefit explained",
+        "b": "Check the actual plan and its claims; do not assume endorsement"
+      }
     ],
-    takeaways: [
-      "Mediterranean eating has the strongest evidence for arthritis.",
-      "Most 'anti-inflammatory' diets are Mediterranean plus optional extras.",
-      "Skip elimination diets unless clinically indicated.",
-      "Two portions of oily fish and olive oil are the biggest single wins.",
-      "Weight loss magnifies the benefit of any dietary change.",
+    "takeaways": [
+      "Mediterranean-style eating can be a balanced choice, but it is not a replacement for arthritis treatment.",
+      "NICE says there is no strong evidence that diet experimentation will benefit rheumatoid arthritis.",
+      "For osteoarthritis, tailored exercise and weight management when appropriate remain core treatments.",
+      "Avoid unnecessary exclusions and do not buy supplements on the promise of an arthritis cure.",
+      "Ask for advice tailored to your medicines, nutritional needs and circumstances."
     ],
+    "editorialUpdatedAt": "2026-11-25",
+    "question": "Is the Mediterranean diet the same as an anti-inflammatory diet?",
+    "answer": "No. A Mediterranean-style diet is an eating pattern based on vegetables, fruit, wholegrains, beans, nuts and unsaturated oils. 'Anti-inflammatory diet' is a broad label without one agreed definition. NICE says there is no strong evidence that changing diet will benefit rheumatoid arthritis, although Mediterranean principles can be encouraged. Food changes do not replace arthritis treatment.",
+    "faqs": [
+      {
+        "q": "Which eating pattern should I choose?",
+        "a": "Choose a balanced, affordable pattern you can sustain and adapt to your needs. Mediterranean principles are one option. NICE advises explaining the uncertainty about arthritis benefit rather than promising pain relief."
+      },
+      {
+        "q": "Should I try an elimination diet or supplements?",
+        "a": "Not routinely for arthritis. Discuss a proposed exclusion with a registered dietitian and check supplements with a pharmacist or your healthcare team. Follow specific advice for a diagnosed allergy, coeliac disease or another condition."
+      },
+      {
+        "q": "How long before my arthritis improves?",
+        "a": "There is no reliable time-to-benefit promise for either label. Continue your arthritis treatment and seek a review for persistent or worsening symptoms rather than waiting for a diet to work."
+      }
+    ],
+    "disclaimer": "This is general information, not individual medical advice. Talk to your GP, rheumatology team, pharmacist or a registered dietitian if you want to change your diet, have nutritional concerns or are considering supplements. Do not stop or change prescribed treatment because of a diet plan."
   },
 
   "/guides/nhs-vs-private-rheumatology": {
@@ -626,100 +679,6 @@ export const COMPARISON_CONTENT: Record<string, ComparisonArticle> = {
       "Shared care lets you move DMARDs back to UK healthcare to control costs.",
       "Biologics are hardest to transfer privately â†’ NHS; plan accordingly.",
       "A one-off private consult can be a smart bridge into the UK healthcare system pathway.",
-    ],
-  },
-
-  "/guides/collagen-vs-glucosamine": {
-    path: "/guides/collagen-vs-glucosamine",
-    title: "Collagen vs Glucosamine for Arthritis",
-    metaDescription:
-      "Collagen vs glucosamine for arthritis: which supplement has better evidence for joint pain, UK doses, side effects, cost and who each one actually suits.",
-    intro:
-      "Collagen and glucosamine are the two supplements people ask about most when they want to try something over the counter for arthritis. Both claim to support cartilage and reduce joint pain, both are sold in every UK pharmacy and health shop, and both have a mixed evidence base that's easy to misread. This guide compares them honestly — what each one is, what the trials actually show, sensible UK doses, safety, cost, and who each one tends to suit.",
-    optionA: {
-      name: "Hydrolysed collagen",
-      howItWorks:
-        "Collagen peptides are absorbed as small amino-acid fragments. Some reach cartilage and connective tissue, where they may stimulate the body's own collagen production and reduce inflammatory signalling.",
-      bestFor:
-        "Mild to moderate osteoarthritis with aching joints, people who also want skin, hair and tendon benefits, and those who cannot tolerate shellfish-derived glucosamine.",
-      sideEffects:
-        "Generally very well tolerated. Occasional mild bloating or an unpleasant aftertaste. Not suitable for vegetarians or vegans (usually bovine or marine).",
-      nhs: "Not prescribed on the UK healthcare system for arthritis. NICE does not recommend it, but it is not discouraged either — considered a personal choice.",
-      cost: "£10–£25 per month for a 10 g/day hydrolysed collagen powder or peptide capsules.",
-    },
-    optionB: {
-      name: "Glucosamine (sulfate)",
-      howItWorks:
-        "A building block of cartilage. Taken orally, glucosamine sulfate may modestly slow cartilage breakdown and reduce pain signalling in the joint over several weeks.",
-      bestFor:
-        "Mild to moderate knee osteoarthritis, particularly in people willing to trial a supplement for at least 8–12 weeks before judging effect.",
-      sideEffects:
-        "Mild stomach upset, heartburn, occasional headaches. Caution in shellfish allergy, warfarin users (may raise INR), and poorly controlled diabetes.",
-      nhs: "Not prescribed on the UK healthcare system. NICE 2022 osteoarthritis guidance specifically recommends against routine use, citing inconsistent evidence.",
-      cost: "£8–£20 per month for 1,500 mg/day glucosamine sulfate; combined glucosamine + chondroitin products cost more (£15–£30).",
-    },
-    sections: [
-      {
-        heading: "What each one actually is",
-        paragraphs: [
-          "Collagen is the main structural protein in cartilage, tendon, skin and bone. Supplements are almost always 'hydrolysed collagen' or 'collagen peptides' — long chains broken down into short fragments the gut can absorb. Sources are usually bovine (cow hide), marine (fish skin) or, less commonly, chicken (type II collagen).",
-          "Glucosamine is a natural amino sugar the body uses to build the sticky, cushioning parts of cartilage (glycosaminoglycans). Supplements are extracted mainly from shellfish shells, though shellfish-free versions from fermented corn are now available. The sulfate form is the one used in most positive trials — the hydrochloride form has weaker evidence.",
-        ],
-      },
-      {
-        heading: "What the evidence actually shows",
-        paragraphs: [
-          "For glucosamine, the picture is genuinely mixed. Early European trials of pharmaceutical-grade glucosamine sulfate (usually 1,500 mg once daily) reported modest but real improvements in knee osteoarthritis pain and function over 6 months. Larger, more rigorous US trials (notably GAIT, 2006) found no meaningful difference over placebo. The most likely explanation is that a subset of people — often those with moderate knee OA — respond, while others don't. That's why NICE 2022 no longer recommends it routinely, but many patients still find it useful.",
-          "For collagen, the evidence is younger but more consistently positive for symptoms. Randomised trials of 10 g/day hydrolysed collagen or 40 mg/day undenatured type II collagen have shown reductions in knee OA pain and stiffness after 3–6 months, with effect sizes broadly comparable to glucosamine in some head-to-head studies. A 2019 meta-analysis in the International Journal of Rheumatic Diseases concluded collagen hydrolysate produced a significant reduction in joint pain versus placebo. Study sizes are still smaller than the glucosamine literature, so cautious optimism is the fair read.",
-          "Neither supplement has been shown to slow the underlying structural progression of osteoarthritis reliably. What they may do is reduce symptoms — pain, stiffness, morning discomfort — enough to keep you active, which is itself protective.",
-        ],
-      },
-      {
-        heading: "How quickly you'd notice a difference",
-        paragraphs: [
-          "Both supplements work slowly. Neither is a painkiller. A fair trial period is 8–12 weeks at a proper dose, taken daily. If you've had no benefit at all by three months, it's unlikely to start working later — stop and try something else.",
-          "Collagen often shows its earliest effects on non-joint tissues (skin firmness, nail strength, tendon comfort) within 4–6 weeks, with joint benefits appearing later. Glucosamine tends to be joint-specific — you either notice a reduction in that background knee ache after 6–10 weeks or you don't.",
-        ],
-      },
-      {
-        heading: "Sensible UK doses",
-        paragraphs: [
-          "Glucosamine: 1,500 mg glucosamine sulfate once daily, ideally with food. Splitting into 500 mg three times a day has no proven advantage. Combined glucosamine + chondroitin (1,500 mg + 1,200 mg) products are more expensive and the evidence for adding chondroitin is weaker than for glucosamine alone.",
-          "Collagen: 10 g/day of hydrolysed collagen peptides is the dose used in most positive trials, taken in water, coffee or a smoothie. Undenatured type II collagen (UC-II) uses a much smaller dose — 40 mg/day — and works by a different immune-modulating mechanism.",
-        ],
-      },
-      {
-        heading: "Safety, allergies and interactions",
-        paragraphs: [
-          "Both are among the safer supplements on the market, but not risk-free. Glucosamine can raise INR in people on warfarin — a genuine bleeding risk that's easy to miss. It may also nudge fasting glucose slightly higher, which matters if diabetes is poorly controlled. Anyone with a serious shellfish allergy should use a shellfish-free (fermented) glucosamine.",
-          "Collagen has very few interactions. Marine collagen shouldn't be used by anyone with a fish allergy, and bovine collagen is not suitable for vegetarians or those avoiding animal products for religious reasons (halal- and kosher-certified collagen exists, but you have to look for it).",
-        ],
-      },
-      {
-        heading: "So which should you try first?",
-        paragraphs: [
-          "If your main problem is knee osteoarthritis pain and you want the option with the longest evidence base — even if that evidence is mixed — start with 1,500 mg/day glucosamine sulfate for 12 weeks. It's the cheaper of the two, and if you're going to respond, you'll likely know by then.",
-          "If your joint pain is more generalised (hands, hips, back, tendons), if you also want potential skin and connective-tissue benefits, or if glucosamine has already failed for you, hydrolysed collagen at 10 g/day is the more sensible next step.",
-          "Some people take both. There's no known interaction and no reason not to — but it doubles the monthly cost, so it's worth trialling them one at a time first to see which (if either) is actually doing something for you.",
-        ],
-      },
-    ],
-    table: [
-      { label: "Typical UK dose", a: "10 g/day hydrolysed peptides", b: "1,500 mg/day sulfate" },
-      { label: "Time to judge effect", a: "8–12 weeks", b: "8–12 weeks" },
-      { label: "Best evidence for", a: "Knee OA pain, tendon comfort", b: "Knee OA pain in responders" },
-      { label: "NICE 2022 guidance", a: "Not recommended, not discouraged", b: "Recommend against routine use" },
-      { label: "Main safety flag", a: "Fish/beef allergies; not vegan", b: "Warfarin, shellfish allergy" },
-      { label: "Monthly cost", a: "£10–£25", b: "£8–£20" },
-      { label: "Slows joint damage?", a: "No proven structural effect", b: "No proven structural effect" },
-    ],
-    takeaways: [
-      "Both are symptom supplements, not disease-modifiers.",
-      "Give either one a fair 12-week trial at a real dose before judging it.",
-      "Glucosamine sulfate 1,500 mg/day suits knee-only osteoarthritis best.",
-      "Hydrolysed collagen 10 g/day suits broader joint and tendon aches.",
-      "Check with a pharmacist if you take warfarin or have a shellfish allergy.",
-      "Neither replaces exercise, weight management or clinician-guided treatment.",
     ],
   },
 
@@ -928,7 +887,7 @@ export const COMPARISON_META_DESCRIPTIONS: Record<string, string> = {
   "/guides/yoga-vs-pilates-arthritis":
     "Yoga vs Pilates for arthritis: how each affects joint pain, flexibility and core strength, which is gentler on knees and hips, and how to choose the safer starting point for UK beginners.",
   "/guides/glucosamine-vs-turmeric-arthritis":
-    "Glucosamine vs turmeric for arthritis: what the evidence actually shows for joint pain, typical UK doses, side effects and interactions — and which is worth trying first.",
+    "Glucosamine vs turmeric: NICE advice, uncertain benefits and supplement safety. Neither should replace recommended arthritis care.",
   "/guides/walking-stick-vs-crutch-arthritis":
     "Walking stick vs crutch for arthritis: which mobility aid best fits knee, hip or ankle joint pain, correct height and side, and how UK UK healthcare physiotherapists decide between the two.",
   "/guides/rollator-vs-walking-frame":
@@ -972,4 +931,3 @@ export const COMPARISON_META_DESCRIPTIONS: Record<string, string> = {
 export function getComparisonMetaDescription(path: string): string | undefined {
   return COMPARISON_CONTENT[path]?.metaDescription ?? COMPARISON_META_DESCRIPTIONS[path];
 }
-

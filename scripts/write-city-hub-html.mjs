@@ -16,11 +16,17 @@ import { CITY_HUBS, SITE } from "./seo-redirect-map.mjs";
 // Near-duplicate city templates Google never crawled: noindex,follow and out of the sitemap.
 const ROUTE_NOINDEX = new Set(JSON.parse(readFileSync(resolve("src/data/route-noindex.json"), "utf8")));
 import { normalizeStaticMeta } from "./lib/meta-lengths.mjs";
+import { finalizeTechnicalHead } from './lib/technical-head.mjs';
+import { patchEnglishAlternates } from './lib/english-alternates.mjs';
 
 // Each hub's own rendered content (scripts/snapshot-rendered-bodies.mjs).
 const RENDERED_BODIES_FILE = resolve("scripts/data/rendered-bodies.json");
 const RENDERED_BODIES = existsSync(RENDERED_BODIES_FILE)
   ? JSON.parse(readFileSync(RENDERED_BODIES_FILE, "utf8")) : {};
+// Keep city templates aligned with the referral-information destination.
+for (const route of Object.keys(RENDERED_BODIES)) {
+  RENDERED_BODIES[route] = RENDERED_BODIES[route].replace(/<a href="\/tools\/waiting-time">[\s\S]*?<\/a>/g, '<a href="/tools/waiting-time"><p>Referral information</p><h3>Rheumatology referral information</h3><p>Check your referral and find out who to contact while you wait.</p></a>');
+}
 
 const DIST = resolve("dist");
 
@@ -78,7 +84,7 @@ export function buildCityHubHtml(city, assetTags = "") {
       { "@type": "ListItem", position: 3, name: city.name, item: abs },
     ],
   };
-  return `<!DOCTYPE html>
+  const html = `<!DOCTYPE html>
 <html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
@@ -112,7 +118,7 @@ ${assetTags}
     <div id="root">
       <main id="main-content" role="main" tabindex="-1" style="max-width:42rem;margin:0 auto;padding:4rem 1.5rem;font-family:Inter,system-ui,sans-serif;">
         <h1>Arthritis Support in ${escapeHtml(city.name)}</h1>
-        ${RENDERED_BODIES[`/arthritis-support/${city.slug}`] || `<p>${escapeHtml(description)}</p>`}
+        ${(RENDERED_BODIES[`/arthritis-support/${city.slug}`] || `<p>${escapeHtml(description)}</p>`).replace(/<(\/?)h1\b/gi, '<$1h2')}
         <p>Living With Arthritis is a <strong>UK national charity</strong> offering free educational guides for people in ${escapeHtml(city.name)}${regionBit} and across the country. We do not run a local clinic list on this page — use the hubs below for evidence-based information, then speak with your GP or rheumatology team about local care.</p>
         <ul>
           <li><a href="/exercises">Exercise hub</a> — joint-friendly movement guides</li>
@@ -128,6 +134,8 @@ ${assetTags}
   </body>
 </html>
 `;
+  return finalizeTechnicalHead(patchEnglishAlternates(html, path, SITE),
+    path, { title, description }, SITE);
 }
 
 export function writeCityHubHtml(distDir = DIST) {

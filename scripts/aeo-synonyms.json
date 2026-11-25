@@ -1,0 +1,60 @@
+{
+  "/conditions/osteoarthritis": [
+    {
+      "term": "Wear-and-tear arthritis",
+      "variants": "Common informal name for osteoarthritis."
+    },
+    {
+      "term": "Degenerative joint disease",
+      "variants": "Older medical term for osteoarthritis."
+    }
+  ],
+  "/conditions/rheumatoid-arthritis": [
+    {
+      "term": "RA",
+      "variants": "Common abbreviation for rheumatoid arthritis."
+    }
+  ],
+  "/conditions/gout": [
+    {
+      "term": "Gouty arthritis",
+      "variants": "Older term for gout."
+    }
+  ],
+  "/conditions/knee-arthritis": [
+    {
+      "term": "Genu varum",
+      "variants": "Clinical term for bow-legs, often linked to inner-knee (medial) osteoarthritis."
+    },
+    {
+      "term": "Total knee arthroplasty (TKA)",
+      "variants": "Medical name for a total knee replacement."
+    }
+  ],
+  "/guides/newly-diagnosed": [
+    {
+      "term": "GP and NHS consultant",
+      "variants": "UK route to specialist care; in the US and Canada the equivalent is a primary care physician referring to a rheumatologist."
+    }
+  ],
+  "/guides/arthritis-pain-relief": [
+    {
+      "term": "Paracetamol",
+      "variants": "Called acetaminophen in the US and Canada; Tylenol is a common US and Canada brand name."
+    },
+    {
+      "term": "GP",
+      "variants": "Family doctor in the UK and Australia; called a primary care physician in the US and Canada."
+    }
+  ],
+  "/guides/knee-exercises-for-osteoarthritis": [
+    {
+      "term": "Genu varum",
+      "variants": "Clinical term for bow-legs, often linked to inner-knee (medial) osteoarthritis."
+    },
+    {
+      "term": "Total knee arthroplasty (TKA)",
+      "variants": "Medical name for a total knee replacement."
+    }
+  ]
+}

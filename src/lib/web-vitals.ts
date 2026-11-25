@@ -1,4 +1,5 @@
 import { onCLS, onFCP, onLCP, onINP, onTTFB } from 'web-vitals';
+import { trackEvent } from './analytics';
 
 export interface CoreWebVitalsMetrics {
   cls?: number; // Cumulative Layout Shift
@@ -13,12 +14,7 @@ const metrics: CoreWebVitalsMetrics = {};
 
 // Send to Google Analytics if configured
 const sendToGoogleAnalytics = (name: string, value: number) => {
-  if (typeof window === 'undefined' || !('gtag' in window)) return;
-
-  const analyticsWindow = window as Window & {
-    gtag?: (...args: unknown[]) => void;
-  };
-  analyticsWindow.gtag?.('event', name, {
+  trackEvent(name, {
     value: Math.round(value),
     event_category: 'Web Vitals',
     event_label: name,

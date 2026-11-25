@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   installErrorReporting,
+  isBenignBrowserError,
   reportError,
   reportFormFailure,
   resetErrorReportingForTests,
@@ -16,24 +17,26 @@ describe("errorReporting", () => {
   let gtag: GtagMock;
 
   beforeEach(() => {
+    localStorage.setItem("lwa_cv3", JSON.stringify({ a: true }));
     resetErrorReportingForTests();
     gtag = vi.fn<(...args: unknown[]) => void>();
     setGtag(gtag);
   });
 
   afterEach(() => {
+    localStorage.clear();
     setGtag(undefined);
   });
 
   it("sends a GA4 exception event with kind, source and page", () => {
     reportFormFailure("newsletter", "FormSubmit HTTP 500");
-    expect(gtag).toHaveBeenCalledWith("event", "exception", {
-      description: "FormSubmit HTTP 500",
+    expect(gtag).toHaveBeenCalledWith("event", "exception", expect.objectContaining({
+      description: "form_submit_failed",
       fatal: false,
       error_kind: "form_submit_failed",
       error_source: "newsletter",
       page_path: window.location.pathname,
-    });
+    }));
   });
 
   it("sends nothing without analytics consent (no gtag)", () => {
@@ -58,21 +61,47 @@ describe("errorReporting", () => {
     expect(params.description.length).toBeLessThanOrEqual(100);
   });
 
-  it("reports failed fetch calls but not HEAD probes or aborted requests", async () => {
+  it("filters ResizeObserver and extension errors", () => {
+    expect(isBenignBrowserError("ResizeObserver loop limit exceeded")).toBe(true);
+    expect(isBenignBrowserError(new Error("broken"), "chrome-extension://abc/file.js")).toBe(true);
+    reportError("js_error", "ResizeObserver loop completed with undelivered notifications.");
+    reportError("js_error", new Error("broken"), { source: "moz-extension://abc/file.js" });
+    expect(gtag).not.toHaveBeenCalled();
+  });
+
+  it("deduplicates the same failure across React and window handlers", () => {
+    const error = new Error("render failed");
+    reportError("react_render", error, { fatal: true });
+    reportError("js_error", error, { source: "/assets/app.js" });
+    expect(gtag).toHaveBeenCalledTimes(1);
+    expect(gtag.mock.calls[0][2]).toMatchObject({ fatal: true, error_kind: "react_render" });
+  });
+
+  it("does not exhaust the reporting budget before consent", () => {
+    setGtag(undefined);
+    for (let i = 0; i < 30; i++) reportError("js_error", new Error(`before ${i}`));
+    setGtag(gtag);
+    reportError("js_error", new Error("after consent"));
+    expect(gtag).toHaveBeenCalledTimes(1);
+  });
+
+  it("reports unexpected same-origin server failures, not ordinary 4xx or third-party responses", async () => {
     const responses = [
       new Response("nope", { status: 503 }),
       new Response("", { status: 404 }),
+      new Response("nope", { status: 503 }),
     ];
     const fake = vi.fn(async () => responses.shift() as Response);
     const originalFetch = window.fetch;
     window.fetch = fake as unknown as typeof window.fetch;
     installErrorReporting();
 
+    await window.fetch("/api/failure", { method: "POST" });
+    await window.fetch("/audio/guide.mp3");
     await window.fetch("https://formsubmit.co/ajax/x", { method: "POST" });
-    await window.fetch("/audio/guide.mp3", { method: "HEAD" });
     expect(gtag).toHaveBeenCalledTimes(1);
     expect((gtag.mock.calls[0][2] as { description: string }).description).toBe(
-      "HTTP 503 POST formsubmit.co/ajax/x",
+      "fetch_failed",
     );
 
     window.fetch = originalFetch;

@@ -1,4 +1,4 @@
-﻿import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Suspense } from "react";
@@ -8,6 +8,7 @@ import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { GLOSSARY_ROUTES } from "@/data/glossary-routes.generated";
 import { getGlossaryEntry, GLOSSARY_CONTENT } from "@/data/glossary-content";
 import SeoHead from "@/components/SeoHead";
+import relatedNavigation from "@/data/relatedNavigationLinks.json";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
@@ -39,6 +40,10 @@ export default function GlossaryTerm() {
   }
 
   const entry = getGlossaryEntry(slug);
+  const updatedIso = entry?.editorialUpdatedAt ?? LAST_REVIEWED_ISO;
+  const updatedLabel = entry?.editorialUpdatedAt
+    ? new Date(`${entry.editorialUpdatedAt}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })
+    : LAST_REVIEWED_LABEL;
   const label = entry?.label ?? prettify(slug);
   const description =
     entry?.short?.trim() ||
@@ -46,14 +51,15 @@ export default function GlossaryTerm() {
 
   const relatedSlugs =
     entry?.related?.filter((s) => GLOSSARY_CONTENT[s]) ??
-    GLOSSARY_ROUTES.filter((r) => r !== "/glossary" && r !== href)
+    GLOSSARY_ROUTES.filter((r) => r !== "/glossary" && r !== href && GLOSSARY_CONTENT[r.replace("/glossary/", "")])
       .slice(0, 6)
       .map((r) => r.replace("/glossary/", ""));
 
-  const related = relatedSlugs.map((s) => ({
-    href: `/glossary/${s}`,
-    label: GLOSSARY_CONTENT[s]?.label ?? prettify(s),
-  }));
+  const relatedByPath = relatedNavigation as Record<string, { href: string; title: string }[]>;
+  const related = [...new Map([
+    ...relatedSlugs.map((s) => ({ href: `/glossary/${s}`, label: GLOSSARY_CONTENT[s]?.label ?? prettify(s) })),
+    ...(relatedByPath[href] || []).map((row) => ({ href: row.href, label: row.title })),
+  ].map((row) => [row.href, row])).values()];
 
   return (
     <>
@@ -104,14 +110,16 @@ export default function GlossaryTerm() {
             route={href}
             question={`What is ${label}?`}
             answer={entry?.short ?? description}
-            updatedAt={LAST_REVIEWED_ISO}
+            updatedAt={updatedIso}
           />
           <p className="text-xs text-muted-foreground mb-6">
             Page updated{" "}
-            <time dateTime={LAST_REVIEWED_ISO} className="font-medium text-foreground/80">
-              {LAST_REVIEWED_LABEL}
+            <time dateTime={updatedIso} className="font-medium text-foreground/80">
+              {updatedLabel}
             </time>
           </p>
+
+          {entry?.reviewNote && <p className="text-sm text-muted-foreground mb-6">{entry.reviewNote}</p>}
 
           {entry ? (
             <>
@@ -132,10 +140,19 @@ export default function GlossaryTerm() {
             <h2 className="text-lg font-bold mb-2">Talk to your team</h2>
             <p className="text-sm text-muted-foreground">
               This page is general information, not medical advice. If you've seen{" "}
-              <strong>{label}</strong> mentioned in an UK healthcare letter or clinic and want it
+              <strong>{label}</strong> mentioned in a UK healthcare letter or clinic and want it
               explained for your situation, ask your GP, rheumatology nurse or pharmacist.
             </p>
           </section>
+
+          {!!entry?.sources?.length && (
+            <section aria-label="Sources and references" className="mb-10">
+              <h2 className="text-xl font-bold mb-4">Sources and references</h2>
+              <ul className="list-disc pl-5 space-y-2">
+                {entry.sources.map((source) => <li key={source.url}><a className="underline underline-offset-4" href={source.url}>{source.name}</a></li>)}
+              </ul>
+            </section>
+          )}
 
           {related.length > 0 && (
             <>
@@ -162,4 +179,4 @@ export default function GlossaryTerm() {
       </Suspense>
     </>
   );
-}
+      }

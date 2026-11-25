@@ -1,11 +1,11 @@
+import { STANDALONE_ANSWER_CAPSULES } from "@/data/standaloneAnswerCapsules";
 import ConditionPageTemplate, { type ConditionPageData } from "@/components/conditions/ConditionPageTemplate";
 
 const data: ConditionPageData = {
   blogCategories: ["Inflammatory", "Shoulder"],
   slug: "calcific-periarthritis",
   name: "Calcific Periarthritis",
-  tagline:
-    "Calcific periarthritis causes sudden, severe pain when calcium crystals build up in a tendon — most often around the shoulder. It looks alarming on an X-ray, but it usually settles completely with the right treatment.",
+  tagline: STANDALONE_ANSWER_CAPSULES["/conditions/calcific-periarthritis"],
   metaTitle: "Calcific Periarthritis: Symptoms, Causes & Treatment",
   metaDescription:
     "UK guide to calcific periarthritis — sudden shoulder or joint pain from calcium deposits in a tendon. Symptoms, causes, X-ray findings, treatment and recovery time.",

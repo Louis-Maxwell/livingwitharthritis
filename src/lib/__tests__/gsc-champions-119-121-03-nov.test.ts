@@ -16,6 +16,7 @@ type Post = {
   keywords?: string;
   category?: string;
   citations?: Array<{ url: string }>;
+  editorial_review_note?: string;
   content: string;
 };
 
@@ -26,25 +27,18 @@ const cases = [
   {
     name: "Hospital appointments",
     slug: "hospital-appointments-frailty-arthritis-uk",
-    title: /Hospital Appointments With Arthritis \(UK\)/i,
+    title: /Hospital Appointments With Arthritis: Travel and Access/i,
     category: "Treatments & medicines",
     cluster: "treatments",
     cites: [
       "https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/how-to-organise-transport-to-and-from-hospital/",
       "https://www.nhs.uk/nhs-services/help-with-health-costs/healthcare-travel-costs-scheme-htcs/",
-      "https://www.gov.uk/government/publications/nhs-patient-visitor-and-staff-car-parking-principles",
+      "https://www.gov.uk/government/publications/nhs-patient-visitor-and-staff-car-parking-principles/nhs-patient-visitor-and-staff-car-parking-principles",
       "https://www.nhs.uk/nhs-services/hospitals/what-is-pals-patient-advice-and-liaison-service/",
     ],
-    links: [
-      "/blog/blood-test-transport-arthritis-frailty-uk",
-      "/blog/rheumatology-appointment-what-to-expect-uk",
-      "/blog/hospital-stay-arthritis-frailty-what-to-pack-uk",
-      "/blog/community-transport-arthritis-frailty-uk",
-      "/blog/blue-badge-frailty-arthritis-uk",
-      "/blog/carers-assessment-arthritis-frailty-uk",
-    ],
-    early: ["/blog/blood-test-transport-arthritis-frailty-uk", "/blog/rheumatology-appointment-what-to-expect-uk"],
-    must: [/Eye clinic days/, /do not plan to drive yourself home/, /free parking to people in greatest need/, /If you cannot get there/],
+    links: ["/blog/rheumatology-appointment-what-to-expect-uk", "/resources/symptom-flare-tracker"],
+    early: [],
+    must: [/does not by itself confirm eligibility/, /only if your preparation instructions allow it/, /valid Blue Badge holders/, /If you cannot attend/],
   },
   {
     name: "Council needs assessment",
@@ -96,15 +90,22 @@ const cases = [
 
 describe("GSC Champions 119–121 (3 Nov): hospital appointments, council needs assessments, loneliness", () => {
   for (const c of cases) {
-    it(`${c.name} is reviewed by Louis Maxwell with CTR meta, UK cites and customer-job links`, () => {
+    it(`${c.name} has honest review status, useful meta, UK cites and task links`, () => {
       const raw = read(c.slug);
       const json = JSON.parse(raw) as Post;
       expect(json.reviewStatus).toBeUndefined();
+      if(c.slug === "hospital-appointments-frailty-arthritis-uk") {
+        expect(json.reviewed_by).toBeNull();
+        expect(json.reviewer_credentials).toBeNull();
+        expect(json.last_reviewed).toBeUndefined();
+        expect(json.editorial_review_note).toContain("not yet had a fresh clinical review");
+      } else {
       expect(json.reviewed_by).toBe("Louis Maxwell");
       expect(json.reviewer_credentials).toMatch(/PH128483/);
       expect(json.last_reviewed).toBe("2026-11-03");
       expect(json.content).toMatch(/Clinically reviewed by Louis Maxwell \(HCPC PH128483\) on 3 November 2026/);
       expect(raw).not.toMatch(/pending clinical review/i);
+      }
       expect(json.category).toBe(c.category);
       expect(json.meta_title).toMatch(c.title);
       expect(json.meta_title).not.toMatch(/(for|with) Arthritis UK/i);
@@ -117,10 +118,12 @@ describe("GSC Champions 119–121 (3 Nov): hospital appointments, council needs 
       for (const href of c.links) {
         expect(json.content.includes(`href="${href}"`), `${c.name} missing ${href}`).toBe(true);
       }
+      if(c.slug !== "hospital-appointments-frailty-arthritis-uk") {
       expect(json.content).toMatch(/1218461/);
+      }
       expect(json.content).toMatch(/999/);
-      expect(json.content).toMatch(/NHS 111/);
-      expect(json.content).toMatch(/never stop or change a prescribed medicine yourself/i);
+      if(c.slug !== "hospital-appointments-frailty-arthritis-uk") expect(json.content).toMatch(/NHS 111/);
+      expect(json.content).toMatch(/(?:never stop or change a prescribed medicine yourself|Do not stop or change a prescribed medicine)/i);
       expect(raw).not.toMatch(/Oswestry/i);
       expect(raw).not.toMatch(/George Dingley|Crewe CW1/i);
       expect(raw).not.toMatch(/Living With Arthritis UK/);

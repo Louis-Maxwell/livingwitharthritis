@@ -18,6 +18,7 @@ import { execSync } from 'child_process';
 import { join, resolve } from 'path';
 import { tmpdir } from 'os';
 
+import { routeFile } from './lib/route-words.mjs';
 const DIST_DIR = process.env.DIST_DIR ? resolve(process.env.DIST_DIR) : '';
 const BASE_URL = (process.env.BASE_URL || process.env.SITE_URL || 'http://localhost:8080').replace(/\/$/, '');
 const PROD_HOST = 'https://livingwitharthritis.org.uk';
@@ -75,17 +76,7 @@ function extractLdJsonBlocks(html) {
 }
 
 function routeToDistFile(route) {
-  const clean = (route || '/').replace(/\/$/, '') || '/';
-  if (clean === '/') return join(DIST_DIR, 'index.html');
-  const rel = clean.replace(/^\//, '');
-  const candidates = [
-    join(DIST_DIR, rel, 'index.html'),
-    join(DIST_DIR, `${rel}.html`),
-  ];
-  for (const c of candidates) {
-    if (fs.existsSync(c)) return c;
-  }
-  return null;
+  return routeFile(route || '/', DIST_DIR);
 }
 
 function validateBlocks(rawBlocks, entry) {

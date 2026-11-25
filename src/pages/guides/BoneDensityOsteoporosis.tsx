@@ -5,6 +5,9 @@ import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const FAQS = [
   { q: 'What is the difference between osteoporosis and osteoarthritis?', a: 'Osteoporosis weakens bones, raising fracture risk. Osteoarthritis wears the cartilage in joints, causing pain and stiffness. Both can co-exist but have different causes and treatments.' },
@@ -61,6 +64,8 @@ export default function BoneDensityOsteoporosis() {
       <h1 className="text-4xl md:text-5xl font-bold mb-6">Bone Density &amp; Osteoarthritis: Managing Both Conditions</h1>
             <AeoEnhancement route="/guides/bone-density-osteoporosis" />
 
+            <GpPrepSheet />
+            <WhatsAppShare path="/guides/bone-density-osteoporosis" title="Bone density and osteoporosis" />
       <AnswerBox question="Can you have osteoarthritis and osteoporosis at the same time?" reviewed="2026-06-21">
         Yes — they are different conditions but often coexist, especially in post-menopausal women. Osteoarthritis affects joint cartilage; osteoporosis weakens bones. Dual management focuses on calcium (700–1,200 mg/day), vitamin D, weight-bearing exercise, strength training and DEXA screening when appropriate.
       </AnswerBox>
@@ -93,6 +98,7 @@ export default function BoneDensityOsteoporosis() {
         </ul>
       </section>
 
+      <RecommendedNextStep path="/guides/bone-density-osteoporosis" placement="mid" />
       <section id="exercise" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">5. Load-bearing exercise for bone and joint health</h2>
         <p className="leading-relaxed mb-4">Bones respond to load. Walking, dancing, tai chi, stair climbing and progressive resistance training all stimulate bone formation. Aim for 30 minutes of weight-bearing activity most days plus 2 strength sessions weekly. Avoid high-impact loading on inflamed or already-damaged joints.</p>

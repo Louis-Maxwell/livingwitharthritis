@@ -57,19 +57,19 @@ const CONDITION_BY_JOINT: Record<JointId, ResultLink> = {
     sub: "Fingers, thumbs and everyday grip — in plain English.",
   },
   back: {
-    href: "/living-with-arthritis",
-    label: "Living with arthritis",
-    sub: "A calm overview if back stiffness is part of a wider picture.",
+    href: "/conditions",
+    label: "Browse condition guides",
+    sub: "Back pain has many causes; a GP can help find yours.",
   },
   neck: {
-    href: "/living-with-arthritis",
-    label: "Living with arthritis",
-    sub: "General guidance when neck pain sits alongside other joints.",
+    href: "/conditions",
+    label: "Browse condition guides",
+    sub: "Neck pain has many causes; a GP can help find yours.",
   },
   "all-over": {
-    href: "/conditions/osteoarthritis",
-    label: "Osteoarthritis guide",
-    sub: "The most common form of arthritis in the UK.",
+    href: "/conditions",
+    label: "Browse condition guides",
+    sub: "Widespread pain needs a proper assessment; start with the guide that fits.",
   },
 };
 
@@ -77,12 +77,12 @@ const EXERCISE_BY_JOINT: Record<JointId, ResultLink> = {
   knee: {
     href: "/guides/knee-exercises-for-osteoarthritis",
     label: "Free knee exercises for osteoarthritis",
-    sub: "NICE-aligned 8-move home routine for knee OA.",
+    sub: "Free 8-move home routine for knee osteoarthritis.",
   },
   hip: {
     href: "/guides/hip-exercises-for-osteoarthritis",
     label: "Hip exercises for osteoarthritis",
-    sub: "Clinically reviewed movements for hip OA.",
+    sub: "Gentle movements for hip osteoarthritis.",
   },
   hands: {
     href: "/exercises/stretching-for-hand-arthritis",
@@ -160,12 +160,6 @@ const DONATE_LINKS: ResultLink[] = [
   },
 ];
 
-const ON_PAGE_EXERCISES: ResultLink = {
-  href: "#joint-exercises",
-  label: "Home plan on this page",
-  sub: "Tap a joint chip or the figure for a short exercise plan.",
-};
-
 const EXERCISE_HUB: ResultLink = {
   href: "/exercises",
   label: "Exercise hub",
@@ -199,14 +193,14 @@ function buildResults(joint: JointId, need: NeedId): { links: ResultLink[]; next
   if (need === "diet") {
     return {
       links: DIET_LINKS,
-      nextStep: `Read the diet hub first, then try one small change that fits ${area} pain. Food can support joints; it does not replace your clinician.`,
+      nextStep: "Read the diet hub first, then try one small change that fits you. Food can support joints; it does not replace your clinician.",
     };
   }
 
   if (need === "benefits") {
     return {
       links: BENEFITS_LINKS,
-      nextStep: `Start with the PIP guide. Awards look at how ${area} pain affects daily life — not at a diagnosis from this website.`,
+      nextStep: "Start with the PIP guide. Awards look at how your condition affects daily life — not at a diagnosis from this website.",
     };
   }
 
@@ -220,7 +214,7 @@ function buildResults(joint: JointId, need: NeedId): { links: ResultLink[]; next
 
   if (need === "exercises") {
     return {
-      links: uniqueLinks([EXERCISE_BY_JOINT[joint], ON_PAGE_EXERCISES, EXERCISE_HUB]).slice(0, 3),
+      links: uniqueLinks([EXERCISE_BY_JOINT[joint], EXERCISE_HUB]),
       nextStep: `Try one gentle movement for your ${area} today. Stop if it hurts. This is not a prescribed physio programme.`,
     };
   }
@@ -237,6 +231,11 @@ const chipBase =
 
 const chipIdle = "bg-card text-foreground border-border hover:border-primary/50";
 const chipOn = "bg-primary text-primary-foreground border-primary";
+
+// Diet, benefits and donate answers do not depend on a joint, so they
+// show without forcing a joint choice; exercise and condition routes
+// stay joint-specific on purpose.
+const JOINT_FREE_NEEDS = new Set<NeedId>(["diet", "benefits", "donate"]);
 
 function ChoiceChip<T extends string>({
   id,
@@ -267,7 +266,10 @@ const InteractiveStartPath = memo(() => {
   const [need, setNeed] = useState<NeedId | null>(null);
 
   const results = useMemo(
-    () => (joint && need ? buildResults(joint, need) : null),
+    () =>
+      need && (JOINT_FREE_NEEDS.has(need) || joint)
+        ? buildResults(joint ?? "all-over", need)
+        : null,
     [joint, need],
   );
 
@@ -298,7 +300,7 @@ const InteractiveStartPath = memo(() => {
     <section
       id="start-here"
       aria-labelledby="start-here-heading"
-      className="scroll-mt-24 w-full max-w-full overflow-x-hidden border-y border-border/40 bg-secondary/30 py-10 lg:py-12"
+      className="scroll-mt-24 w-full max-w-full overflow-x-hidden border-y border-border/40 bg-accent py-10 lg:py-12"
     >
       <div className="container mx-auto max-w-3xl px-4 sm:px-6">
         <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary mb-2">
@@ -445,7 +447,7 @@ const InteractiveStartPath = memo(() => {
             </motion.div>
           ) : (
             <p className="mt-5 text-sm text-muted-foreground">
-              Choose a joint and what you need — we will show two or three honest next pages.
+              Pick what you need — choosing a joint makes exercise and condition suggestions specific.
             </p>
           )}
       </div>

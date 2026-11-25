@@ -12,6 +12,8 @@ interface MedicalReviewBadgeProps {
   authorSlug?: string;
   /** Compact variant — single line, smaller padding */
   compact?: boolean;
+  /** Author and reviewer are the same person. */
+  selfReview?: boolean;
 }
 
 type AuthorRecord = { kind: "author" | "reviewer"; slug: string };
@@ -35,18 +37,24 @@ export default function MedicalReviewBadge({
   credential,
   authorSlug = "maxwell",
   compact = false,
+  selfReview = false,
 }: MedicalReviewBadgeProps) {
+  const reviewLead = selfReview ? "Written and reviewed by" : "Medically reviewed by";
+  const reviewScope = selfReview
+    ? " This is a disclosed self-review by the author, not an independent clinical review."
+    : "";
   const href = bioHref(authorSlug);
   if (compact) {
     return (
       <div className="flex items-start gap-2 text-xs text-muted-foreground my-4">
         <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
         <span>
-          Medically reviewed by{" "}
+          {reviewLead}{" "}
           <Link to={href} className="font-semibold text-foreground underline hover:text-primary">
             {reviewer}
           </Link>{" "}
           — {title} • {credential}
+          {reviewScope}
           {date ? ` • Last updated ${date}. ` : ". "}
           <Link to="/editorial-standards" className="underline hover:text-primary">
             Editorial standards
@@ -65,10 +73,11 @@ export default function MedicalReviewBadge({
         <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
         <div>
           <p className="font-semibold text-sm text-foreground">
-            Medically reviewed by{" "}
+            {reviewLead}{" "}
             <Link to={href} className="underline hover:text-primary">
               {reviewer}
             </Link>
+            {reviewScope}
           </p>
           <p className="text-xs text-muted-foreground mt-1">
             {title} • {credential}

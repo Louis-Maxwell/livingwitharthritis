@@ -2,20 +2,22 @@ import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { nextReviewDate, GUIDE_PUBLISHER_SCHEMA } from "@/lib/reviewDates";
 import BlogPdfDownload from '@/components/BlogPdfDownload';
-import { isVerifiedMaxwellReviewer } from "@/lib/blog/review";
+import { isDisclosedSelfReview, isVerifiedMaxwellReviewer, SELF_REVIEW_DISCLOSURE } from "@/lib/blog/review";
 import CaudaEquinaQuestions from '@/components/CaudaEquinaQuestions';
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
 import blogNoindex from "@/data/blog-noindex.json";
+import { BLOG_VIDEOS } from "@/data/blogVideos";
+import { readableParagraphs } from "@/lib/readableParagraphs.mjs";
 
 const BLOG_NOINDEX = new Set<string>(blogNoindex as string[]);
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
 import { DisclaimerStripShown } from "@/components/disclaimerChrome";
-import Footer from "@/components/Footer";
+import DeferredMount from '@/components/DeferredMount';
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import { BookOpen, ChevronRight, Download, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -28,11 +30,11 @@ import { useBlogViews } from "@/hooks/useBlogViews";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import ArticleBookmarkButton from "@/components/blog/ArticleBookmarkButton";
-import ClusterRelatedLinks from "@/components/blog/ClusterRelatedLinks";
 import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
+import { splitHtmlAfterFirstSection, splitHtmlAtMiddleH2 } from "@/lib/splitHtmlAtMiddleH2";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import ScrollProgress from "@/components/ScrollProgress";
 import ViewportSection from "@/components/ViewportSection";
 import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 import { getMarkdownParser, loadMarkdownParser } from "@/lib/markdownParser";
@@ -43,6 +45,7 @@ import {
 } from "@/lib/articleHtmlCodeBlocks.mjs";
 import type { Citation } from "@/components/blog/ArticleCitations";
 import AnswerBox from "@/components/seo/AnswerBox";
+import { PIP_ANSWER_HEADING } from "@/data/reviewedPublicCopy";
 import KeyTakeaways from "@/components/article/KeyTakeaways";
 import ArticleVoiceover from "@/components/article/ArticleVoiceover";
 import { renderCallouts } from "@/components/article/Callouts";
@@ -57,10 +60,13 @@ import { getClusterForPath } from "@/data/topicClusters";
 import { getBlogReviewMeta } from "@/lib/blog/reviewIndex";
 import { blogReviewSchemaFields } from "@/lib/blog/review";
 import { canonicalBlogCategoryKey, BLOG_CATEGORY_LABELS } from "@/data/blogCategories";
-import TopicPrevNext from "@/components/blog/TopicPrevNext";
+import { distinctSeoTitle } from '@/lib/technicalSeo.mjs';
 
 // Below-the-fold article furniture loads as the reader scrolls towards it
 // (ViewportSection), so the first paint only pays for the article itself.
+const ArticleVideo = lazyWithRetry(() => import("@/components/blog/ArticleVideo"));
+const ClusterRelatedLinks = lazyWithRetry(() => import("@/components/blog/ClusterRelatedLinks"));
+const TopicPrevNext = lazyWithRetry(() => import("@/components/blog/TopicPrevNext"));
 const KeywordRelatedLinks = lazyWithRetry(() => import("@/components/seo/KeywordRelatedLinks"));
 const TopicClusterNav = lazyWithRetry(() => import("@/components/seo/TopicClusterNav"));
 const BlogComments = lazyWithRetry(() => import("@/components/BlogComments"));
@@ -77,18 +83,23 @@ const ArticleClosingCTA = lazyWithRetry(() => import("@/components/article/Artic
 const MidArticleNextSteps = lazyWithRetry(() => import("@/components/article/MidArticleNextSteps"));
 const EndNextArticleCard = lazyWithRetry(() => import("@/components/article/EndNextArticleCard"));
 const ArticleCitations = lazyWithRetry(() => import("@/components/blog/ArticleCitations"));
+const Footer = lazyWithRetry(() => import('@/components/Footer'));
 
 
 /**
  * Remove any H2/H3 whose text ends in "?" plus everything up to the next
  * heading. These get rendered as a dedicated FAQ block below the body, so
  * we drop them from the main prose to prevent duplicate content.
+ * Headings marked class="q-heading" are search-question subheadings that
+ * belong to the body, so they stay in the prose and out of the FAQ.
  */
 function stripQuestionHeadings(html: string): string {
-  return html.replace(
-    /<h([23])[^>]*>([^<]*\?)\s*<\/h\1>[\s\S]*?(?=<h[1-3][^>]*>|$)/gi,
-    "",
-  );
+  return html
+    .replace(
+      /<h([23])(?![^>]*\bq-heading\b)[^>]*>([^<]*\?)\s*<\/h\1>[\s\S]*?(?=<h[1-3][^>]*>|$)/gi,
+      "",
+    )
+    .replace(/<h2[^>]*>\s*Frequently asked questions\s*<\/h2>/gi, "");
 }
 
 /** Build a fallback direct-answer sentence from the first substantive paragraph. */
@@ -180,7 +191,8 @@ function extractFaqs(html: string): { question: string; answer: string }[] {
   while ((m = headingRe.exec(html)) !== null) {
     const qRaw = htmlToPlainText(m[1]);
     if (!qRaw.endsWith("?")) continue;
-    const aRaw = htmlToPlainText(m[2]).slice(0, 500);
+    if (/^<h[23][^>]*\bq-heading\b/i.test(m[0])) continue;
+    const aRaw = htmlToPlainText(m[2]);
     if (qRaw && aRaw && aRaw.length > 30) {
       faqs.push({ question: qRaw, answer: aRaw });
     }
@@ -222,14 +234,14 @@ const BlogPost = () => {
 
   if (isLoading || (article && !markdownReady)) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <Header />
         <main id="main-content" role="main" tabIndex={-1} className="container mx-auto px-6 md:px-10 py-24 max-w-[860px] outline-none">
           <Skeleton className="h-8 w-3/4 mb-4" />
           <Skeleton className="h-4 w-1/2 mb-8" />
           <Skeleton className="h-64 w-full" />
         </main>
-        <Footer />
+        <DeferredMount><ViewportSection><Footer /></ViewportSection></DeferredMount>
       </div>
     );
   }
@@ -238,15 +250,16 @@ const BlogPost = () => {
     return <NotFound />;
   }
 
-  const htmlContent = markdownToHtml(article.content);
+  const htmlContent = markdownToHtml(article.content).replace(/<(\/?)h1\b/gi, '<$1h2');
   const faqs = extractFaqs(htmlContent);
   const bodyForRender = renderCallouts(stripQuestionHeadings(htmlContent));
   const htmlWithIds = addHeadingIds(bodyForRender);
-  // Split after the first </h2> so we can inject an inline related-strip mid-article.
-  const firstH2End = htmlWithIds.search(/<\/h2>/i);
-  const splitAt = firstH2End >= 0 ? firstH2End + "</h2>".length : -1;
-  const htmlBeforeStrip = splitAt > 0 ? htmlWithIds.slice(0, splitAt) : htmlWithIds;
-  const htmlAfterStrip = splitAt > 0 ? htmlWithIds.slice(splitAt) : "";
+  // Do not separate a heading from its explanation or cut an authored wrapper.
+  const { first: htmlBeforeStrip, second: htmlAfterStrip } = splitHtmlAfterFirstSection(htmlWithIds);
+  const splitAt = htmlBeforeStrip.length;
+  // Second split at the section boundary (<h2>) closest to the halfway point,
+  // for the prerendered "Recommended next step" module.
+  const { first: htmlAfterA, second: htmlAfterB } = splitHtmlAtMiddleH2(htmlAfterStrip, htmlWithIds.length / 2 - splitAt);
   // The loaded guide carries its own cover file (the same value the listing
   // cover map is generated from), so the article page never needs that map.
   const cover = coverFromFile(article.cover);
@@ -256,6 +269,7 @@ const BlogPost = () => {
     ? `https://livingwitharthritis.org.uk${cover.src}`
     : `https://livingwitharthritis.org.uk${DEFAULT_OG_PATH}`;
   const directAnswer = article.direct_answer || firstParagraphSummary(htmlContent);
+  const keyTakeaways = Array.isArray(article.key_takeaways) ? article.key_takeaways.filter(Boolean) : [];
   const readingTime = getReadingTime(htmlContent);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
   const updatedAtRaw = (article as { updated_at?: string | null }).updated_at ?? null;
@@ -263,10 +277,10 @@ const BlogPost = () => {
     ? new Date(updatedAtRaw).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
     : null;
   const showUpdated = !!updatedAtRaw && new Date(updatedAtRaw).toDateString() !== new Date(article.date).toDateString();
-  const metaTitle = enforceTitle(article.meta_title || article.title, {
+  const metaTitle = distinctSeoTitle(enforceTitle(article.meta_title || article.title, {
     includeSiteName: false,
     route: `/blog/${slug}`,
-  });
+  }), article.title);
   const metaDesc = enforceDescription(
     article.meta_description || article.excerpt || "",
     `/blog/${slug}`,
@@ -287,7 +301,9 @@ const BlogPost = () => {
   const reviewerName = isPlaceholderReviewer ? MAXWELL_NAME : rawReviewerName;
   const reviewerCreds = isPlaceholderReviewer ? MAXWELL_CREDS : rawReviewerCreds;
   // Every published guide has been clinically reviewed by Louis Maxwell (Oct 2026).
-  const hasVerifiedReviewer = isVerifiedMaxwellReviewer(reviewerName, reviewerCreds);
+  const editorialReviewNote = article.editorial_review_note;
+  const hasVerifiedReviewer = isVerifiedMaxwellReviewer(reviewerName, reviewerCreds) && !editorialReviewNote;
+  const selfReview = isDisclosedSelfReview(authorName, reviewerName);
   const citations = Array.isArray(article.citations)
     ? article.citations.filter(
         (citation): citation is Citation =>
@@ -296,7 +312,7 @@ const BlogPost = () => {
     : [];
   const dateModifiedIso = updatedAtRaw || article.date;
   // Only an explicitly recorded date establishes when clinical review occurred.
-  const blogLastReviewed =
+  const blogLastReviewed = editorialReviewNote ? undefined :
     (article as { last_reviewed?: string }).last_reviewed || getBlogReviewMeta(slug)?.last_reviewed;
   const topicKey = canonicalBlogCategoryKey(article.category || "");
 
@@ -377,7 +393,6 @@ const BlogPost = () => {
           "about": { "@type": "MedicalCondition", "name": "Arthritis" },
           "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
           ...reviewSchemaFields,
-          "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
           "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro", ".speakable-takeaways", ".speakable-faq"] },
           ...(citationSchema.length ? { "citation": citationSchema } : {})
         })}</script>
@@ -398,7 +413,6 @@ const BlogPost = () => {
           "isAccessibleForFree": true,
           "articleSection": article.category || "Health",
           "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro", ".speakable-takeaways", ".speakable-faq"] },
-          ...reviewSchemaFields,
           ...(citationSchema.length ? { "citation": citationSchema } : {})
         })}</script>
 
@@ -428,8 +442,7 @@ const BlogPost = () => {
           })}</script>
         )}
       </Helmet>
-      <div className="min-h-screen bg-background">
-        <div className="no-print print:hidden"><ScrollProgress /></div>
+      <div className="min-h-dvh bg-background">
         <div className="no-print print:hidden"><Header /></div>
 
         <main id="main-content" tabIndex={-1} className="outline-none">
@@ -458,12 +471,12 @@ const BlogPost = () => {
                 topicKey ? (
                   <Link
                     to={`/blog/category/${topicKey}`}
-                    className="mb-3 inline-flex min-h-8 items-center rounded-full bg-primary/[0.07] px-3 text-xs font-semibold text-primary hover:bg-primary/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:bg-primary/15 no-print print:hidden"
+                    className="mb-3 inline-flex min-h-11 items-center rounded-full bg-primary/[0.07] px-3 text-xs font-semibold text-primary hover:bg-primary/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:bg-primary/15 no-print print:hidden"
                   >
                     {article.category}
                   </Link>
                 ) : (
-                  <span className="mb-3 inline-flex min-h-8 items-center rounded-full bg-primary/[0.07] px-3 text-xs font-semibold text-primary">
+                  <span className="mb-3 inline-flex min-h-11 items-center rounded-full bg-primary/[0.07] px-3 text-xs font-semibold text-primary">
                     {article.category}
                   </span>
                 )
@@ -523,13 +536,15 @@ const BlogPost = () => {
                 {hasVerifiedReviewer && (
                   <>
                     <div className="hidden sm:block w-px h-8 bg-border/40" />
-                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 w-fit">
+                    <div className="flex flex-col items-start gap-2 px-4 py-3 rounded-2xl bg-primary/5 border border-primary/10 w-fit max-w-full">
                       <BookOpen className="w-3.5 h-3.5 text-primary" />
                       <Link to="/authors/maxwell" className="text-xs font-medium text-primary underline-offset-2 hover:underline">
-                        Clinically reviewed by {reviewerName} (HCPC PH128483, Band 8 Advanced Practice Physiotherapist)
+                        {selfReview
+                          ? `Written and reviewed by ${reviewerName} (HCPC PH128483, Band 7 First Contact Practitioner). ${SELF_REVIEW_DISCLOSURE}`
+                          : `Clinically reviewed by ${reviewerName} (HCPC PH128483, Band 7 First Contact Practitioner)`}
                       </Link>
                       {(blogLastReviewed || dateModifiedIso) && (
-                        <span className="text-xs text-muted-foreground">· Last reviewed {String(blogLastReviewed || dateModifiedIso).slice(0, 10)} · Next review {nextReviewDate(String(blogLastReviewed || dateModifiedIso))}</span>
+                        <span className="text-xs text-muted-foreground">Last reviewed {String(blogLastReviewed || dateModifiedIso).slice(0, 10)} · Next review {nextReviewDate(String(blogLastReviewed || dateModifiedIso))}</span>
                       )}
                     </div>
                   </>
@@ -546,7 +561,7 @@ const BlogPost = () => {
 
               {slug && (
                 <div className="no-print print:hidden mt-4">
-                  <SocialShareButtons title={article.title} slug={slug} excerpt={metaDesc} instance="header" variant="compact" />
+                  <SocialShareButtons title={article.title} slug={slug} image={coverAbsolute} excerpt={metaDesc} instance="header" variant="compact" />
                 </div>
               )}
 
@@ -578,10 +593,13 @@ const BlogPost = () => {
           <div className="min-w-0 max-w-[760px]">
           {directAnswer && (
             <AnswerBox
-              question={article.title.replace(/[?.!]+$/, "").trim() + "?"}
+              question={slug === "pip-for-arthritis-uk" ? PIP_ANSWER_HEADING : article.title.replace(/[?.!]+$/, "").trim() + "?"}
             >
-              {directAnswer}
+              {readableParagraphs(directAnswer).map((paragraph, index) => <p key={index} className="mb-4 last:mb-0">{paragraph}</p>)}
             </AnswerBox>
+          )}
+          {keyTakeaways.length >= 3 && (
+            <KeyTakeaways html="" title={article.title} items={keyTakeaways} heading={editorialReviewNote ? "Key takeaways" : "Key clinical takeaways"} />
           )}
 
           {/* Print header: only visible when saving to PDF / printing */}
@@ -592,13 +610,15 @@ const BlogPost = () => {
             </div>
             {hasVerifiedReviewer && (
               <div className="text-[10px] mt-1">
-                Reviewed by {reviewerName}, {reviewerCreds}
+                {selfReview
+                  ? `Written and reviewed by ${reviewerName}, ${reviewerCreds}. ${SELF_REVIEW_DISCLOSURE}`
+                  : `Reviewed by ${reviewerName}, ${reviewerCreds}`}
               </div>
             )}
           </div>
 
           <div className="no-print mb-6 flex flex-wrap justify-end gap-2">
-            <BlogPdfDownload title={article.title} html={htmlContent} slug={slug ?? "article"} />
+            <BlogPdfDownload title={article.title} html={htmlContent} slug={slug ?? "article"} dateLine={`${editorialReviewNote || `Last reviewed: ${blogLastReviewed || dateModifiedIso || article.date}`} · Downloaded: ${new Date().toLocaleDateString("en-GB")}`} />
             <Button
               variant="outline"
               size="sm"
@@ -610,6 +630,7 @@ const BlogPost = () => {
             </Button>
           </div>
 
+          {editorialReviewNote && <aside className="my-6 rounded-xl border border-amber-500/30 p-5 text-sm" aria-label="Editorial revision and clinical review">{editorialReviewNote}</aside>}
           {hasVerifiedReviewer && (
             <MedicalReviewBadge
               reviewer={reviewerName}
@@ -617,11 +638,12 @@ const BlogPost = () => {
               credential="HCPC PH128483"
               authorSlug="maxwell"
               date={updatedDate ?? publishDate}
+              selfReview={selfReview}
             />
           )}
 
           {slug === 'cauda-equina-warning-signs-uk' && <CaudaEquinaQuestions />}
-          <KeyTakeaways html={htmlContent} title={article.title} />
+          {keyTakeaways.length < 3 && <KeyTakeaways html={htmlContent} title={article.title} />}
           <div className="lg:hidden">
             <TableOfContents html={htmlWithIds} variant="inline" />
           </div>
@@ -670,8 +692,14 @@ const BlogPost = () => {
                 />
               </ViewportSection>
             )}
-            {htmlAfterStrip && (
-              <div dangerouslySetInnerHTML={{ __html: withImageDefaults(sanitizeHtml(htmlAfterStrip)) }} />
+            {htmlAfterA && (
+              <div dangerouslySetInnerHTML={{ __html: withImageDefaults(sanitizeHtml(htmlAfterA)) }} />
+            )}
+            {slug && htmlAfterB && (
+              <RecommendedNextStep path={`/blog/${slug}`} context={`${article.title} ${article.keywords ?? ""}`} placement="mid" />
+            )}
+            {htmlAfterB && (
+              <div dangerouslySetInnerHTML={{ __html: withImageDefaults(sanitizeHtml(htmlAfterB)) }} />
             )}
 
             {relatedImages[1] && (
@@ -693,8 +721,17 @@ const BlogPost = () => {
             )}
           </section>
 
+          {slug && BLOG_VIDEOS[slug] && (
+            <ViewportSection fallback={<div data-testid="article-video-placeholder" className="min-h-[760px]" />} rootMargin="200px 0px">
+              <ArticleVideo key={slug} video={BLOG_VIDEOS[slug]} />
+            </ViewportSection>
+          )}
           <ArticleFaqSection faqs={faqs} />
+          {slug && (
+            <RecommendedNextStep path={`/blog/${slug}`} context={`${article.title} ${article.keywords ?? ""}`} placement="end" />
+          )}
             {slug && (
+              <ViewportSection>
               <ClusterRelatedLinks
                 slug={slug}
                 title={article.title}
@@ -702,6 +739,7 @@ const BlogPost = () => {
                 category={article.category}
                 keywords={article.keywords}
               />
+              </ViewportSection>
             )}
 
 
@@ -754,7 +792,7 @@ const BlogPost = () => {
               html={htmlContent}
               slug={slug ?? "article"}
               label="Download this guide (PDF)"
-              dateLine={`Last reviewed: ${blogLastReviewed || dateModifiedIso || article.date} · Downloaded: ${new Date().toLocaleDateString("en-GB")}`}
+              dateLine={`${editorialReviewNote || `Last reviewed: ${blogLastReviewed || dateModifiedIso || article.date}`} · Downloaded: ${new Date().toLocaleDateString("en-GB")}`}
             />
           </section>
 
@@ -820,7 +858,8 @@ const BlogPost = () => {
             <UrgentHelpAndSources path={`/blog/${slug}`} />
             <EducationalDisclaimerBox
               lastReviewed={blogLastReviewed}
-              reviewStatus="reviewed"
+              reviewStatus={editorialReviewNote ? "pending" : "reviewed"}
+              pendingText={editorialReviewNote}
             />
             {getClusterForPath(`/blog/${slug}`) && (
               <ViewportSection>
@@ -851,7 +890,7 @@ const BlogPost = () => {
             />
             <NextReadStrip currentPath={`/blog/${slug}`} heading="Keep reading arthritis insights" />
           </ViewportSection>
-          <Footer />
+          <ViewportSection><Footer /></ViewportSection>
         </div>
 
       </div>
