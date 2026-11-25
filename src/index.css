@@ -1958,3 +1958,8 @@ details[open] > :not(summary) {
 .blog-prose a.weather-source-link {
   color: inherit;
 }
+
+/* Keep reviewed activity diary body links within the brand text palette. */
+.blog-prose a.activity-diary-source-link {
+  color: inherit;
+}
