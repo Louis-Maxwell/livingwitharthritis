@@ -11,7 +11,7 @@ import {
   Loader2,
 } from "lucide-react";
 import { CONTACT_EMAILS, CONTACT_PHONE, CONTACT_PHONE_TEL } from "@/config/contact";
-import { submitContactInquiry } from "@/lib/backendSubmit";
+import { submitContactInquiry, CONTACT_MESSAGE_MAX_LENGTH } from "@/lib/backendSubmit";
 import { trackEvent } from "@/lib/analytics";
 import { reportFormFailure } from "@/lib/errorReporting";
 
@@ -27,6 +27,7 @@ function validateContact(f: ContactForm): FieldErr {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.trim())) e.email = "Please enter a valid email address.";
   if (!f.subject.trim()) e.subject = "Please choose a subject.";
   if (f.message.trim().length < 20) e.message = "Message must be at least 20 characters.";
+  if (f.message.length > CONTACT_MESSAGE_MAX_LENGTH) e.message = `Message must be ${CONTACT_MESSAGE_MAX_LENGTH} characters or fewer.`;
   return e;
 }
 
@@ -55,21 +56,21 @@ const channels: ChannelCard[] = [
     Icon: Phone,
     label: "Call us",
     value: CONTACT_PHONE,
-    sub: "Mon–Fri, 9am – 5pm",
+    sub: "Opens your phone app",
     href: `tel:${CONTACT_PHONE_TEL}`,
   },
   {
     Icon: Mail,
     label: "Email us",
     value: CONTACT_EMAIL,
-    sub: "Opens your email app — we reply in 2 working days",
+    sub: "Opens your email app",
     href: `mailto:${CONTACT_EMAIL}`,
   },
   {
     Icon: MessageCircle,
     label: "WhatsApp",
     value: "Chat with us",
-    sub: "Fast, friendly replies",
+    sub: "Go to the WhatsApp link",
     href: WHATSAPP_URL,
     internal: true,
   },
@@ -77,7 +78,7 @@ const channels: ChannelCard[] = [
     Icon: FileText,
     label: "Contact form",
     value: "Send a message",
-    sub: "A human will read it",
+    sub: "Prepare an email draft",
     href: "/contact",
     internal: true,
   },
@@ -89,6 +90,16 @@ const ContactSection = memo(() => {
   const [errors, setErrors] = useState<FieldErr>({});
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const draftHeadingRef = useRef<HTMLHeadingElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement | null>(null);
+  const restoreMessageFocus = useRef(false);
+  useEffect(() => {
+    if (submitted) draftHeadingRef.current?.focus();
+    else if (restoreMessageFocus.current) {
+      restoreMessageFocus.current = false;
+      messageRef.current?.focus();
+    }
+  }, [submitted]);
   const [honeypot, setHoneypot] = useState("");
   const firstErrRef = useRef<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null>(null);
   // Bumped on each failed submit; focus moves after React has rendered the
@@ -127,7 +138,7 @@ const ContactSection = memo(() => {
         // Keep personal form fields out of analytics.
         trackEvent("contact_email_draft_open", { method: "mailto", source: "contact_section" });
         // Mailto-only — not delivery confirmation
-        toast.message(result.message);
+        // Persistent inline guidance replaces a long toast that can cover mobile controls.
         setSubmitted(true);
       } else if (result.via === "throttled") {
         setErrors({});
@@ -159,13 +170,11 @@ const ContactSection = memo(() => {
             Get in touch
           </span>
           <h2 id="contact-heading" className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
-            A real person will reply.
+            Contact Living With Arthritis
           </h2>
           <p className="mt-5 text-muted-foreground text-base sm:text-lg leading-relaxed">
-            Living with arthritis can feel lonely. Messages open in your email app as a draft
-            to our inbox — nothing is stored on this website. When you press Send, a human reads it
-            (usually Louis or someone on our small UK team) and we aim to reply within
-            two working days (Monday to Friday, 9am – 5pm).
+            Use the contact options below or prepare an email draft. The form opens your email app,
+            where you can review your message before sending it. Nothing is sent automatically.
           </p>
         </div>
 
@@ -226,22 +235,31 @@ const ContactSection = memo(() => {
               <div className="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle2 className="w-8 h-8 text-primary" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">
-                Email draft ready — please press Send
+              <h3 ref={draftHeadingRef} tabIndex={-1} className="text-xl font-bold text-foreground mb-2">
+                Email draft ready, please press Send
               </h3>
               <p className="text-muted-foreground mb-6">
                 Your email app should have opened with a draft to{" "}
                 <strong>{CONTACT_EMAIL}</strong>. We only receive your message after you press
-                Send there — nothing was submitted automatically. A real person will reply within
-                two working days once it arrives.
+                Send there. Nothing was submitted automatically.
               </p>
+              <p className="text-sm text-muted-foreground mb-6">If your email app did not open, return to your message to copy the details into your own email. Your text is kept here until you clear it or leave this page.</p>
+              <div className="flex flex-wrap justify-center gap-3">
+              <button
+                onClick={() => { restoreMessageFocus.current = true; setSubmitted(false); }}
+                type="button"
+                className="min-h-11 px-6 py-2.5 text-sm font-semibold text-primary border border-primary/20 rounded-xl hover:bg-primary/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              >
+                Back to your message
+              </button>
               <button
                 onClick={() => { setForm(blank); setSubmitted(false); }}
                 type="button"
                 className="min-h-11 px-6 py-2.5 text-sm font-semibold text-primary border border-primary/20 rounded-xl hover:bg-primary/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
-                Send another message
+                Clear and start a new message
               </button>
+              </div>
             </div>
           ) : (
             <div className="space-y-5">
@@ -281,6 +299,7 @@ const ContactSection = memo(() => {
                   id="c-subject" value={form.subject} onChange={set("subject")}
                   aria-required="true" aria-describedby={errors.subject ? "c-subject-err" : undefined}
                   aria-invalid={!!errors.subject} className={errors.subject ? inputErr : inputOk}
+                  ref={!errors.name && !errors.email && errors.subject ? (el) => { firstErrRef.current = el; } : undefined}
                 >
                   <option value="" disabled>Select a subject…</option>
                   {subjects.map((s) => <option key={s} value={s}>{s}</option>)}
@@ -292,13 +311,17 @@ const ContactSection = memo(() => {
                   Your message <span className="text-destructive" aria-hidden="true">*</span><span className="sr-only"> (required)</span>
                 </label>
                 <textarea
-                  id="c-message" rows={5} value={form.message} onChange={set("message")}
+                  id="c-message" rows={5} value={form.message} onChange={set("message")} maxLength={CONTACT_MESSAGE_MAX_LENGTH}
                   placeholder="Tell us how we can help…" aria-required="true"
-                  aria-describedby={errors.message ? "c-message-err" : undefined}
-                  aria-invalid={!!errors.message} className={`resize-none ${errors.message ? inputErr : inputOk}`}
+                  aria-describedby={errors.message ? "c-message-err c-message-count" : "c-message-count"}
+                  aria-invalid={!!errors.message} className={`resize-y ${errors.message ? inputErr : inputOk}`}
+                  ref={(el) => {
+                    messageRef.current = el;
+                    if (!errors.name && !errors.email && !errors.subject && errors.message) firstErrRef.current = el;
+                  }}
                 />
                 {errors.message && <p id="c-message-err" role="alert" className="mt-1 text-xs text-destructive">{errors.message}</p>}
-                <p className="text-xs text-muted-foreground mt-1">{form.message.trim().length} / 1000 characters</p>
+                <p id="c-message-count" className="text-xs text-muted-foreground mt-1">{form.message.length} / {CONTACT_MESSAGE_MAX_LENGTH} characters</p>
               </div>
 
               <div className="hidden" aria-hidden="true">
@@ -337,7 +360,7 @@ const ContactSection = memo(() => {
                   }}
                   className="text-primary underline underline-offset-2 break-all [overflow-wrap:anywhere]"
                 >{CONTACT_EMAIL}</a>
-                . Press Send there and we will reply within 2 working days.
+                . Review your draft and press Send there to send your message.
               </p>
             </div>
           )}

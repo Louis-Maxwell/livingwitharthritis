@@ -121,10 +121,15 @@ describe("AEO on priority pages", () => {
     expect(words(p.direct_answer)).toBeLessThanOrEqual(58);
     expect(p.key_takeaways.length).toBeGreaterThanOrEqual(3);
     expect(p.key_takeaways.length).toBeLessThanOrEqual(4);
-    // Search-question subheadings stay in the body (q-heading), FAQ section keeps >= 4 questions.
-    expect((p.content.match(/class="q-heading"/g) || []).length).toBeGreaterThanOrEqual(4);
-    const faq = p.content.slice(p.content.search(/<h2>Frequently asked questions<\/h2>/));
-    expect((faq.match(/<h3>[^<]*\?<\/h3>/g) || []).length).toBeGreaterThanOrEqual(4);
+    if (slug === "pip-for-arthritis-uk") {
+      // The revised guide uses three real question headings. BlogPost extracts these
+      // into its visible FAQ block; do not require a second, duplicated FAQ in source.
+      expect((p.content.match(/<h2>[^<]*\?<\/h2>/g) || []).length).toBeGreaterThanOrEqual(3);
+    } else {
+      expect((p.content.match(/class="q-heading"/g) || []).length).toBeGreaterThanOrEqual(4);
+      const faq = p.content.slice(p.content.search(/<h2>Frequently asked questions<\/h2>/));
+      expect((faq.match(/<h3>[^<]*\?<\/h3>/g) || []).length).toBeGreaterThanOrEqual(4);
+    }
     expect(JSON.stringify(p)).not.toMatch(/Living With Arthritis UK/);
   });
 
@@ -139,22 +144,32 @@ describe("AEO on priority pages", () => {
   it("static article HTML shows takeaways and the next step", () => {
     const p = post("pip-for-arthritis-uk");
     const html = buildStaticArticleInner({ article: p, answer: p.direct_answer, title: p.title });
-    expect(html).toContain("Key clinical takeaways");
+    expect(html).toContain("Key takeaways");
+    expect(html).not.toContain("Key clinical takeaways");
     expect(html).toContain('aria-label="Recommended next step"');
   });
 });
 
 describe("schema and crawler HTML", () => {
   it("binds the reviewer to Louis Maxwell with his HCPC number on the MedicalWebPage", () => {
-    const p = post("hip-replacement-recovery-week-by-week");
+    const p = { ...post("hip-replacement-recovery-week-by-week"), editorial_review_note: undefined, reviewed_by: "Louis Maxwell", reviewer_credentials: "First Contact Practitioner, HCPC PH128483" };
     const out = buildJsonLd("/blog/x", "https://livingwitharthritis.org.uk/blog/x", { title: p.title, description: "d", article: p });
     const graphs = out.split("\n").filter(Boolean).map((line) => JSON.parse(line.slice(line.indexOf(">") + 1, line.lastIndexOf("<"))));
     const page = graphs.find((g) => g["@type"] === "MedicalWebPage");
     const article = graphs.find((g) => g["@type"] === "Article");
     expect(page.reviewedBy).toMatchObject({ "@type": "Person", name: "Louis Maxwell", jobTitle: "Physiotherapist" });
     expect(page.reviewedBy.identifier.value).toBe("PH128483");
-    expect(article.citation.some((c: { url: string }) => c.url === "https://www.nice.org.uk/guidance/ng157")).toBe(true);
+    expect(article.citation.some((c: { url: string }) => c.url === "https://www.nice.org.uk/guidance/ng157/chapter/Recommendations")).toBe(true);
     expect(out).not.toMatch(/speakable|medicalAudience/);
+  });
+
+  it("does not invent reviewer attestation for the revised hip recovery article", () => {
+    const p = post("hip-replacement-recovery-week-by-week");
+    const out = buildJsonLd("/blog/" + p.slug, "https://livingwitharthritis.org.uk/blog/" + p.slug, { title: p.title, description: "d", article: p });
+    const graphs = out.split("\n").filter(Boolean).map((line) => JSON.parse(line.slice(line.indexOf(">") + 1, line.lastIndexOf("<"))));
+    const page = graphs.find((g) => g["@type"] === "MedicalWebPage");
+    expect(page.reviewedBy).toBeUndefined();
+    expect(p.editorial_review_note).toContain("not yet had a fresh clinical review");
   });
 
   it("strips decorative SVG, comments and stray JSON from body only", () => {

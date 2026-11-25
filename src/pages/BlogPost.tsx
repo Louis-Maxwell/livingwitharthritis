@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
 import blogNoindex from "@/data/blog-noindex.json";
+import { BLOG_VIDEOS } from "@/data/blogVideos";
+import { readableParagraphs } from "@/lib/readableParagraphs.mjs";
 
 const BLOG_NOINDEX = new Set<string>(blogNoindex as string[]);
 import { Helmet } from "react-helmet-async";
@@ -28,7 +30,6 @@ import { useBlogViews } from "@/hooks/useBlogViews";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import ArticleBookmarkButton from "@/components/blog/ArticleBookmarkButton";
-import ClusterRelatedLinks from "@/components/blog/ClusterRelatedLinks";
 import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
 import RecommendedNextStep from "@/components/RecommendedNextStep";
 import { splitHtmlAfterFirstSection, splitHtmlAtMiddleH2 } from "@/lib/splitHtmlAtMiddleH2";
@@ -44,6 +45,7 @@ import {
 } from "@/lib/articleHtmlCodeBlocks.mjs";
 import type { Citation } from "@/components/blog/ArticleCitations";
 import AnswerBox from "@/components/seo/AnswerBox";
+import { PIP_ANSWER_HEADING } from "@/data/reviewedPublicCopy";
 import KeyTakeaways from "@/components/article/KeyTakeaways";
 import ArticleVoiceover from "@/components/article/ArticleVoiceover";
 import { renderCallouts } from "@/components/article/Callouts";
@@ -58,11 +60,13 @@ import { getClusterForPath } from "@/data/topicClusters";
 import { getBlogReviewMeta } from "@/lib/blog/reviewIndex";
 import { blogReviewSchemaFields } from "@/lib/blog/review";
 import { canonicalBlogCategoryKey, BLOG_CATEGORY_LABELS } from "@/data/blogCategories";
-import TopicPrevNext from "@/components/blog/TopicPrevNext";
 import { distinctSeoTitle } from '@/lib/technicalSeo.mjs';
 
 // Below-the-fold article furniture loads as the reader scrolls towards it
 // (ViewportSection), so the first paint only pays for the article itself.
+const ArticleVideo = lazyWithRetry(() => import("@/components/blog/ArticleVideo"));
+const ClusterRelatedLinks = lazyWithRetry(() => import("@/components/blog/ClusterRelatedLinks"));
+const TopicPrevNext = lazyWithRetry(() => import("@/components/blog/TopicPrevNext"));
 const KeywordRelatedLinks = lazyWithRetry(() => import("@/components/seo/KeywordRelatedLinks"));
 const TopicClusterNav = lazyWithRetry(() => import("@/components/seo/TopicClusterNav"));
 const BlogComments = lazyWithRetry(() => import("@/components/BlogComments"));
@@ -188,7 +192,7 @@ function extractFaqs(html: string): { question: string; answer: string }[] {
     const qRaw = htmlToPlainText(m[1]);
     if (!qRaw.endsWith("?")) continue;
     if (/^<h[23][^>]*\bq-heading\b/i.test(m[0])) continue;
-    const aRaw = htmlToPlainText(m[2]).slice(0, 500);
+    const aRaw = htmlToPlainText(m[2]);
     if (qRaw && aRaw && aRaw.length > 30) {
       faqs.push({ question: qRaw, answer: aRaw });
     }
@@ -536,8 +540,8 @@ const BlogPost = () => {
                       <BookOpen className="w-3.5 h-3.5 text-primary" />
                       <Link to="/authors/maxwell" className="text-xs font-medium text-primary underline-offset-2 hover:underline">
                         {selfReview
-                          ? `Written and reviewed by ${reviewerName} (HCPC PH128483, Band 8 Advanced Practice Physiotherapist). ${SELF_REVIEW_DISCLOSURE}`
-                          : `Clinically reviewed by ${reviewerName} (HCPC PH128483, Band 8 Advanced Practice Physiotherapist)`}
+                          ? `Written and reviewed by ${reviewerName} (HCPC PH128483, Band 7 First Contact Practitioner). ${SELF_REVIEW_DISCLOSURE}`
+                          : `Clinically reviewed by ${reviewerName} (HCPC PH128483, Band 7 First Contact Practitioner)`}
                       </Link>
                       {(blogLastReviewed || dateModifiedIso) && (
                         <span className="text-xs text-muted-foreground">Last reviewed {String(blogLastReviewed || dateModifiedIso).slice(0, 10)} · Next review {nextReviewDate(String(blogLastReviewed || dateModifiedIso))}</span>
@@ -589,9 +593,9 @@ const BlogPost = () => {
           <div className="min-w-0 max-w-[760px]">
           {directAnswer && (
             <AnswerBox
-              question={article.title.replace(/[?.!]+$/, "").trim() + "?"}
+              question={slug === "pip-for-arthritis-uk" ? PIP_ANSWER_HEADING : article.title.replace(/[?.!]+$/, "").trim() + "?"}
             >
-              {directAnswer}
+              {readableParagraphs(directAnswer).map((paragraph, index) => <p key={index} className="mb-4 last:mb-0">{paragraph}</p>)}
             </AnswerBox>
           )}
           {keyTakeaways.length >= 3 && (
@@ -717,11 +721,17 @@ const BlogPost = () => {
             )}
           </section>
 
+          {slug && BLOG_VIDEOS[slug] && (
+            <ViewportSection fallback={<div data-testid="article-video-placeholder" className="min-h-[760px]" />} rootMargin="200px 0px">
+              <ArticleVideo key={slug} video={BLOG_VIDEOS[slug]} />
+            </ViewportSection>
+          )}
           <ArticleFaqSection faqs={faqs} />
           {slug && (
             <RecommendedNextStep path={`/blog/${slug}`} context={`${article.title} ${article.keywords ?? ""}`} placement="end" />
           )}
             {slug && (
+              <ViewportSection>
               <ClusterRelatedLinks
                 slug={slug}
                 title={article.title}
@@ -729,6 +739,7 @@ const BlogPost = () => {
                 category={article.category}
                 keywords={article.keywords}
               />
+              </ViewportSection>
             )}
 
 

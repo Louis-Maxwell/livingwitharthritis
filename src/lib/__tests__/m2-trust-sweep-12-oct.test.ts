@@ -29,7 +29,7 @@ describe("M2 trust sweep — unnamed reviewer labels", () => {
       expect(p.reviewStatus, p.slug).toBeUndefined();
       expect(p.content, p.slug).not.toMatch(/pending clinical review/i);
       if (p.is_published) {
-        if (p.editorial_review_note) { expect(p.reviewed_by, p.slug).toBeNull(); expect(p.editorial_review_note).toMatch(/not (?:yet )?had a fresh (?:independent benefits or legal |clinical )review/); expect(p.reviewer_credentials, p.slug).toBeNull(); expect(p.last_reviewed, p.slug).toBeUndefined(); }
+        if (p.editorial_review_note) { expect(p.reviewed_by, p.slug).toBeNull(); expect(p.editorial_review_note).toMatch(/not (?:yet )?had a fresh (?:independent benefits or legal |clinical |specialist welfare-rights or qualified clinical )review/); expect(p.reviewer_credentials, p.slug).toBeNull(); expect(p.last_reviewed, p.slug).toBeUndefined(); }
         else expect(p.reviewed_by, p.slug).toBe("Louis Maxwell");
       }
     }

@@ -74,7 +74,7 @@ const HUBS = [
       "/guides/newly-diagnosed",
       "/guides/benefits-pip",
       "/diet/mediterranean-diet-for-arthritis",
-      "/blog/turmeric-for-arthritis",
+      // Safety revision does not promote the older supplement trial-advice blog.
     ],
   },
 ] as const;
@@ -113,7 +113,8 @@ describe("evening visibility pass — unique heads", () => {
 describe("evening visibility pass — internal links + TopicClusterNav", () => {
   for (const hub of HUBS) {
     it(`${hub.path} links customer jobs and keeps cluster nav where patterned`, () => {
-      const src = readFileSync(resolve(root, hub.file), "utf8");
+      let src = readFileSync(resolve(root, hub.file), "utf8");
+      if (src.includes("SupplementSafetyGuide")) src += readFileSync(resolve(root, "src/components/seo/SupplementSafetyGuide.tsx"), "utf8");
       for (const href of hub.mustLink) {
         const hit =
           src.includes(`to="${href}"`) ||
@@ -183,7 +184,8 @@ describe("evening visibility pass — soft-404 guard", () => {
     const notFound = readFileSync(resolve(root, "src/pages/NotFound.tsx"), "utf8");
     expect(notFound).toMatch(/noindex/);
     for (const hub of HUBS) {
-      const src = readFileSync(resolve(root, hub.file), "utf8");
+      let src = readFileSync(resolve(root, hub.file), "utf8");
+      if (src.includes("SupplementSafetyGuide")) src += readFileSync(resolve(root, "src/components/seo/SupplementSafetyGuide.tsx"), "utf8");
       expect(src).not.toMatch(/noindex/);
     }
   });

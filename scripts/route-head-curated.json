@@ -122,7 +122,7 @@
     "title": "Contact Us | Living With Arthritis",
     "description": "Contact Living With Arthritis: Get in touch with our team. WhatsApp, email & helpline support for arthritis questions & guidance.",
     "question": "Contact Living With Arthritis",
-    "answer": "Living with pain is hard enough — you should not have to shout into the void. Email, phone or message us; a real person in the UK will reply within two working days.",
+    "answer": "Living with pain is hard enough — you should not have to shout into the void. Email, phone or message us.",
     "breadcrumb": "Contact Living With Arthritis"
   },
   "/cookies": {
@@ -133,18 +133,18 @@
     "breadcrumb": "Cookies Policy"
   },
   "/corporate-giving": {
-    "title": "Corporate Giving & Partnerships UK | Living With Arthritis",
-    "description": "Partner with Living With Arthritis (charity 1218461) through corporate sponsorship, matched giving, employee wellness and CSR partnerships.",
-    "question": "Together, we can make a bigger impact",
-    "answer": "Join organisations supporting people in the UK living with arthritis. From matched giving to employee wellness, we'll tailor a partnership that aligns with your CSR goals.",
-    "breadcrumb": "Together, we can make a bigger impact"
+    "title": "Corporate Giving | Living With Arthritis",
+    "description": "Explore corporate giving, employee donations and matched giving. Discuss sponsorship, fundraising or skills support with Living With Arthritis today.",
+    "question": "Your business can help keep arthritis information free.",
+    "answer": "Support Living With Arthritis through corporate giving, employee giving or matched donations. Start with an idea that fits your organisation.",
+    "breadcrumb": "Corporate Giving"
   },
   "/corporate-partnerships": {
     "title": "Corporate Partnerships | Living With Arthritis",
-    "description": "Partner with Living With Arthritis to support arthritis education and employee wellbeing. Explore corporate partnerships that fund free UK resources.",
-    "question": "Partner With Living With Arthritis",
-    "answer": "Fund evidence-based, clinically reviewed arthritis support. Make a measurable difference.",
-    "breadcrumb": "Partner With Living With Arthritis"
+    "description": "Explore a company gift or a sponsorship proposal, with the purpose and any recognition agreed in advance.",
+    "question": "Company donation or sponsorship",
+    "answer": "Discuss funding a specific project, campaign or educational programme. Its scope, budget and any restrictions need to be agreed first.",
+    "breadcrumb": "Corporate Partnerships"
   },
   "/corrections-policy": {
     "title": "Corrections Policy | Living With Arthritis",
@@ -847,11 +847,11 @@
     "breadcrumb": "Terms & Conditions"
   },
   "/tools/waiting-time": {
-    "title": "Arthritis Waiting Time Calculator | Free UK Tool",
-    "description": "Free rheumatology waiting time calculator for UK patients. Estimate your wait by region, urgency and condition — get a personalised action plan.",
-    "question": "Arthritis Waiting Time Calculator",
-    "answer": "Estimate your rheumatology wait based on your region, urgency and condition. Get a free, personalised plan for what to do while you wait — built for UK patients.",
-    "breadcrumb": "Arthritis Waiting Time Calculator"
+    "title": "Arthritis Referral and Waiting Time Information",
+    "description": "Check your referral, find out who to contact about your appointment and keep a symptom record while you wait for rheumatology.",
+    "question": "Who can I ask about my rheumatology referral?",
+    "answer": "This page does not calculate or predict your appointment date. Ask your GP surgery or the hospital's booking team about your referral and expected wait.",
+    "breadcrumb": "Referral and Waiting Time Information"
   },
   "/trust": {
     "title": "Trust & Credibility | Living With Arthritis Charity",
@@ -880,5 +880,12 @@
     "question": "Zakat Appeal",
     "answer": "In Gaza, thousands of people are living with crushed joints, amputations, nerve damage and pain that never lets go. Hospitals that survived are overwhelmed, and rehabilitation — the slow, patient work of learning to move again — is one of the first things to disappear.",
     "breadcrumb": "Zakat Appeal"
+  },
+  "/helpline": {
+    "title": "Support & Helpline: Talk to a Real Person | Living With Arthritis",
+    "description": "UK arthritis helpline — call 07760 512 084 (weekdays). Individual advice about your diagnosis and benefits, and help finding information on this website.",
+    "question": "Support & Helpline: Talk to a Real Person",
+    "answer": "Call 07760 512 084 on weekdays to reach our helpline: a real person, not a chatbot. We offer individual advice about your diagnosis and benefits, and help finding information on this website. We don't advise on medicines.",
+    "breadcrumb": "Helpline"
   }
 }

@@ -1,3 +1,4 @@
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import REVIEW_RECORDS from "@/data/reviewRecords.json";
 import { Suspense, useMemo } from "react";
@@ -79,6 +80,7 @@ const FAQ = () => {
         <script type="application/ld+json">{JSON.stringify(itemListLd)}</script>
       </Helmet>
       <Header />
+      <PageBreadcrumb segments={[{ label: "Arthritis FAQs" }]} />
       <main id="main-content" role="main" tabIndex={-1}>
         <PageHero
           badge="FAQ"

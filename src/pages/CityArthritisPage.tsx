@@ -282,9 +282,9 @@ const CityArthritisPage = () => {
             items={[
               {
                 to: "/tools/waiting-time",
-                eyebrow: "Free tool",
-                title: `${cityData.region} rheumatology waiting time`,
-                description: `Estimate current rheumatology waiting times for ${cityData.name} and plan ahead.`,
+                eyebrow: "Referral information",
+                title: "Rheumatology referral information",
+                description: "Check your referral and find out who to contact while you wait.",
                 readTime: "2 min",
                 icon: Timer,
                 tint: "bg-tint-amber",

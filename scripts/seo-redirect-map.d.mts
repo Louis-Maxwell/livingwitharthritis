@@ -6,5 +6,10 @@ export declare const CITY_SLUGS: Set<string>;
 export declare function exactRedirects(...args: unknown[]): { from: string; to: string }[];
 export declare function exactRedirectPathSet(...args: unknown[]): Set<string>;
 export declare function normalizePath(pathname: string): string;
-export declare function buildRedirectHtml(from: string, to: string): string;
+export interface RedirectSocialMetadata {
+  title: string;
+  description: string;
+  ogImage?: string;
+}
+export declare function buildRedirectHtml(from: string, to: string, social?: RedirectSocialMetadata | null): string;
 export declare function hostRedirectRules(...args: unknown[]): unknown[];

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ArrowDown, HeartPulse } from "lucide-react";
 import { onCoverImgError } from "@/lib/coverFallback";
 import { trackStartHereCard } from "@/lib/ga-events";
+import { MEDICAL_DISCLAIMER_SHORT } from "@/lib/medicalDisclaimer";
 
 /**
  * Homepage hero — customer-first.
@@ -35,19 +36,19 @@ import hero800 from "../../../public/openverse/hero-friends-800.webp";
 import hero400 from "../../../public/openverse/hero-friends-400.webp";
 const HERO_IMG = hero800;
 const HERO_SRCSET = `${hero400} 400w, ${hero800} 800w`;
-const HERO_SIZES = "(min-width: 1024px) 240px, (min-width: 640px) 160px, 112px";
+const HERO_SIZES = "(min-width: 1024px) 300px, (min-width: 640px) 240px, 160px";
 
 const OAHero = memo(() => (
-  <section aria-labelledby="oa-hero" className="home-practical-hero bg-white text-black [&_h1]:text-black [&_p]:text-black relative w-full max-w-full overflow-hidden">
-    <div className="container mx-auto px-5 sm:px-8 lg:px-16 max-w-7xl py-8 sm:py-10 lg:py-14">
-      <div className="grid lg:grid-cols-[minmax(0,1.5fr)_minmax(0,0.5fr)] gap-6 lg:gap-12 items-center w-full">
+  <section aria-labelledby="oa-hero" className="home-practical-hero band-red relative w-full max-w-full overflow-hidden">
+    <div className="container mx-auto px-5 sm:px-8 lg:px-16 max-w-7xl py-7 sm:py-9 lg:py-12">
+      <div className="grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] gap-6 lg:gap-12 items-center w-full">
         <div className="min-w-0">
           <h1 id="oa-hero" className="text-balance break-words leading-[1.12]">
             <span className="block text-[0.7rem] sm:text-sm font-bold uppercase tracking-[0.08em] sm:tracking-[0.16em] opacity-95">
-              Living With Arthritis | practical support
+              Living With Arthritis - evidence-based health guides
             </span>
-            <span className="mt-3 block max-w-2xl text-[clamp(2rem,4.2vw,3.25rem)] font-bold">
-              Practical help for life with arthritis.
+            <span className="mt-2 sm:mt-3 block text-[clamp(1.6rem,4.2vw,3rem)] font-bold">
+              Providing practical advice, support and evidence-based guidance for people living with arthritis and frailty.
             </span>
           </h1>
 
@@ -63,7 +64,7 @@ const OAHero = memo(() => (
               onClick={() =>
                 trackStartHereCard("Hero: I'm in pain — help now", "/guides/arthritis-pain-relief")
               }
-              className="btn-map group w-full sm:w-auto justify-center min-h-12 bg-primary text-primary-foreground focus-visible:outline-black"
+              className="btn-map group w-full sm:w-auto justify-center min-h-12 hero-help-primary focus-visible:outline-white"
             >
               <HeartPulse className="w-4 h-4 mr-2" aria-hidden="true" />
               I&apos;m in pain — help now
@@ -78,7 +79,7 @@ const OAHero = memo(() => (
                 trackStartHereCard("Hero: find help for my situation", `#${ROUTER_ID}`);
                 scrollToRouter(e);
               }}
-              className="btn-map w-full sm:w-auto justify-center min-h-12 border border-black/30 bg-white text-black hover:bg-black/5 focus-visible:outline-black"
+              className="btn-map w-full sm:w-auto justify-center min-h-12 hero-help-secondary focus-visible:outline-white"
             >
               Find help for my situation
               <ArrowDown className="w-4 h-4 ml-2" aria-hidden="true" />
@@ -86,14 +87,13 @@ const OAHero = memo(() => (
           </div>
 
           <p className="mt-4 text-sm max-w-xl leading-relaxed">
-            Evidence-based guidance for people with arthritis and frailty. Educational information only - not a diagnosis or personal medical advice. If
-            you have an emergency, call 999. For urgent non-emergency advice contact your GP or NHS 111.
+            {MEDICAL_DISCLAIMER_SHORT}
           </p>
         </div>
 
         {/* Octagon image — MAP signature shape. Sits after the copy on mobile
             (small) so the CTAs stay above the fold. */}
-        <div className="relative aspect-square w-full max-w-[112px] sm:max-w-[160px] lg:max-w-[240px] mx-auto lg:mx-0 lg:justify-self-end min-w-0">
+        <div className="relative aspect-square w-full max-w-[160px] sm:max-w-[240px] lg:max-w-[300px] mx-auto lg:mx-0 lg:justify-self-end min-w-0">
           <img
             src={HERO_IMG}
             srcSet={HERO_SRCSET}

@@ -7,6 +7,7 @@ import { getClusterForPath, TOPIC_CLUSTERS } from "@/data/topicClusters";
 type Post = {
   title: string;
   last_reviewed?: string;
+  editorial_review_note?: string;
   reviewStatus?: string;
   reviewed_by?: string | null;
   reviewer_credentials?: string | null;
@@ -90,15 +91,25 @@ const cases = [
 
 describe("GSC Champions 109–111 (30 Oct): inflammatory arthritis flare week, dosette boxes with sore hands, hand osteoarthritis day to day", () => {
   for (const c of cases) {
-    it(`${c.name} is reviewed by Louis Maxwell with CTR meta, UK cites and customer-job links`, () => {
+    it(`${c.name} preserves honest review provenance with CTR meta, UK cites and customer-job links`, () => {
       const raw = read(c.slug);
       const json = JSON.parse(raw) as Post;
       expect(json.reviewStatus).toBeUndefined();
+      if (c.slug === "inflammatory-arthritis-frailty-flare-week-uk") {
+        expect(json).not.toHaveProperty("last_reviewed");
+        expect(json.reviewed_by).toBeNull();
+        expect(json.reviewer_credentials).toBeNull();
+        expect(json.editorial_review_note).toContain("not yet had a fresh clinical review");
+        expect(json.editorial_review_note).toContain("limited correction");
+        expect(json.content).toContain("awaiting separate clinical review");
+        expect((json.citations || []).some(x => x.url === "https://www.nhs.uk/conditions/confusion/")).toBe(true);
+      } else {
       expect(json.reviewed_by).toBe("Louis Maxwell");
       expect(json.reviewer_credentials).toMatch(/PH128483/);
       expect(json.last_reviewed).toBe("2026-10-30");
       expect(json.content).toMatch(/Clinically reviewed by Louis Maxwell \(HCPC PH128483\) on 30 October 2026/);
       expect(raw).not.toMatch(/pending clinical review/i);
+      }
       expect(json.category).toBe(c.category);
       expect(json.meta_title).toMatch(c.title);
       expect(json.meta_title).not.toMatch(/(for|with) Arthritis UK/i);

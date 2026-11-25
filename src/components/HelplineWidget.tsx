@@ -1,5 +1,6 @@
 import { Phone, Mail, MessageCircle, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
+import { trackHelplineEngagement, type ContactChannel } from "@/lib/analytics";
 import {
   CONTACT_PHONE,
   CONTACT_PHONE_TEL,
@@ -8,17 +9,6 @@ import {
 
 const WHATSAPP_URL = `https://wa.me/44${CONTACT_PHONE_TEL.replace(/^0/, "")}`;
 
-const trackClick = (channel: string) => {
-  try {
-    (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.(
-      "event",
-      "helpline_click",
-      { channel },
-    );
-  } catch {
-    /* no-op */
-  }
-};
 
 /**
  * Full-width helpline strip — placed above the footer on every page.
@@ -33,7 +23,7 @@ type Channel = {
   sub: string;
   href: string;
   external?: boolean;
-  track: string;
+  track: ContactChannel;
 };
 
 const channels: Channel[] = [
@@ -41,7 +31,7 @@ const channels: Channel[] = [
     Icon: Phone,
     eyebrow: "Call",
     value: CONTACT_PHONE,
-    sub: "Mon–Fri, 9am–5pm",
+    sub: "Opens your phone app",
     href: `tel:${CONTACT_PHONE_TEL}`,
     track: "phone",
   },
@@ -49,7 +39,7 @@ const channels: Channel[] = [
     Icon: Mail,
     eyebrow: "Email",
     value: CONTACT_EMAILS.info,
-    sub: "Reply within 2 working days",
+    sub: "Opens your email app",
     href: `mailto:${CONTACT_EMAILS.info}`,
     track: "email",
   },
@@ -57,7 +47,7 @@ const channels: Channel[] = [
     Icon: MessageCircle,
     eyebrow: "WhatsApp",
     value: "Chat with us",
-    sub: "Fast, friendly replies",
+    sub: "Opens WhatsApp in a new tab",
     href: WHATSAPP_URL,
     external: true,
     track: "whatsapp",
@@ -65,10 +55,10 @@ const channels: Channel[] = [
   {
     Icon: MessageSquare,
     eyebrow: "Contact form",
-    value: "Send a message",
-    sub: "We’ll get back to you",
+    value: "Prepare a message",
+    sub: "Prepare an email draft to review and send",
     href: "/contact",
-    track: "form",
+    track: "contact_form",
   },
 ];
 
@@ -87,8 +77,8 @@ export default function HelplineWidget() {
             We’re here to help
           </h2>
           <p className="mt-3 text-sm md:text-base text-primary-foreground/90 max-w-2xl mx-auto">
-            A real person — not a chatbot — replies within 2 working days.
-            Available Monday to Friday, 9am – 5pm.
+            Choose a contact option below. Our contact form prepares an email
+            draft for you to review and send from your own email app.
           </p>
         </div>
 
@@ -108,7 +98,11 @@ export default function HelplineWidget() {
                   {eyebrow}
                 </span>
                 <span className="w-full min-w-0 font-bold text-sm md:text-base text-foreground [overflow-wrap:anywhere] leading-snug">
-                  {value}
+                  {track === "email" ? (
+                    value.split(/([@.])/).map((part, index) => (
+                      <span key={index}>{part}{/[@.]/.test(part) && <wbr />}</span>
+                    ))
+                  ) : value}
                 </span>
                 <span className="text-xs text-muted-foreground">{sub}</span>
               </>
@@ -121,17 +115,17 @@ export default function HelplineWidget() {
                     href={href}
                     target="_blank"
                     rel="nofollow noopener noreferrer"
-                    onClick={() => trackClick(track)}
+                    onClick={() => trackHelplineEngagement(track)}
                     className={cardClass}
                   >
                     {inner}
                   </a>
                 ) : href.startsWith("/") ? (
-                  <Link to={href} onClick={() => trackClick(track)} className={cardClass}>
+                  <Link to={href} onClick={() => trackHelplineEngagement(track)} className={cardClass}>
                     {inner}
                   </Link>
                 ) : (
-                  <a href={href} onClick={() => trackClick(track)} className={cardClass}>
+                  <a href={href} onClick={() => trackHelplineEngagement(track)} className={cardClass}>
                     {inner}
                   </a>
                 )}

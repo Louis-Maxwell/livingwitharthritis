@@ -30,6 +30,8 @@ vi.mock("framer-motion", () => ({
     div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
     button: ({ children, ...props }: any) => <button {...props}>{children}</button>,
   },
+  MotionConfig: ({ children }: any) => <>{children}</>,
+  useReducedMotion: () => true,
   AnimatePresence: ({ children }: any) => <>{children}</>,
 }));
 
@@ -38,6 +40,12 @@ describe("ChatBot", () => {
     vi.clearAllMocks();
     mockMessages = [];
     mockIsLoading = false;
+  });
+
+  it("does not ask for unused health profile details or promise personalisation", () => {
+    render(<ChatBot />);
+    expect(screen.queryByText("About you")).not.toBeInTheDocument();
+    expect(screen.queryByText(/tailored answers/i)).not.toBeInTheDocument();
   });
 
   it("renders the header with title", () => {
@@ -61,7 +69,7 @@ describe("ChatBot", () => {
   it("sends message on quick suggestion click", () => {
     render(<ChatBot />);
     fireEvent.click(screen.getByText("What is rheumatoid arthritis?"));
-    expect(mockSendMessage).toHaveBeenCalledWith("What is rheumatoid arthritis?", expect.any(Object));
+    expect(mockSendMessage).toHaveBeenCalledWith("What is rheumatoid arthritis?");
   });
 
   it("has a text input placeholder", () => {
@@ -74,7 +82,15 @@ describe("ChatBot", () => {
     const textarea = screen.getByPlaceholderText("Type a message…");
     fireEvent.change(textarea, { target: { value: "Hello" } });
     fireEvent.submit(textarea.closest("form")!);
-    expect(mockSendMessage).toHaveBeenCalledWith("Hello", expect.any(Object));
+    expect(mockSendMessage).toHaveBeenCalledWith("Hello");
+  });
+
+  it("does not submit an Enter press while an IME composition is active", () => {
+    render(<ChatBot />);
+    const textarea = screen.getByPlaceholderText("Type a message…");
+    fireEvent.change(textarea, { target: { value: "a message still composing" } });
+    fireEvent.keyDown(textarea, { key: "Enter", code: "Enter", isComposing: true });
+    expect(mockSendMessage).not.toHaveBeenCalled();
   });
 
   it("does not send empty message", () => {
@@ -84,9 +100,9 @@ describe("ChatBot", () => {
     expect(mockSendMessage).not.toHaveBeenCalled();
   });
 
-  it("shows Online status when not loading", () => {
+  it("shows honest ready status when not loading", () => {
     render(<ChatBot />);
-    expect(screen.getByText("Online")).toBeInTheDocument();
+    expect(screen.getByText("Guidance ready")).toBeInTheDocument();
   });
 
   it("shows Searching guidance status when loading", () => {

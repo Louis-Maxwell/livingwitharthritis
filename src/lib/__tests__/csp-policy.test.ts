@@ -45,6 +45,14 @@ describe("Content-Security-Policy", () => {
     expect(allows(meta, "frame-src", "https://www.google.com/maps/embed?pb=x")).toBe(true);
   });
 
+  it("allows the consent-gated privacy player but no YouTube scripts or connections in the parent", () => {
+    for (const policy of [meta, directives(headerCsp)]) {
+      expect(allows(policy, "frame-src", "https://www.youtube-nocookie.com/embed/i5scWVhB-ZY")).toBe(true);
+      expect(allows(policy, "frame-src", "https://www.youtube.com/embed/i5scWVhB-ZY")).toBe(false);
+      expect(allows(policy, "script-src", "https://www.youtube.com/iframe_api")).toBe(false);
+    }
+  });
+
   it("requires hardened baseline directives and disallows unsafe eval", () => {
     for (const policy of [meta, directives(headerCsp)]) {
       expect(policy.get("default-src")).toEqual(["'self'"]);

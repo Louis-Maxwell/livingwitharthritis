@@ -47,20 +47,25 @@ export function recordedRouteReview(route: string): string | undefined {
 type Node = Record<string, unknown>;
 /** Keep one page and one FAQ node after hydration, with recorded review only. */
 export function normaliseRouteSchemaEntries(entries: unknown[], route: string, preferred: boolean[] = []): unknown[] {
-  if (!/^\/(conditions|library|exercises)(\/|$)/.test(route) && route !== "/guides/benefits-pip") return entries;
+  const normaliseMedical = /^\/(conditions|library|exercises)(\/|$)/.test(route) || route === "/guides/benefits-pip";
   const review = recordedRouteReview(route);
   let pageSeen = false;
   let faqSeen = false;
+  let breadcrumbSeen = false;
   const visit = (value: unknown): unknown => {
     if (Array.isArray(value)) return value.map(visit).filter(x => x !== null);
     if (!value || typeof value !== "object") return value;
     const node = { ...value } as Node;
     const types = [node["@type"]].flat();
-    if (types.includes("FAQPage")) {
+    if (types.includes("BreadcrumbList")) {
+      if (breadcrumbSeen) return null;
+      breadcrumbSeen = true;
+    }
+    if (normaliseMedical && types.includes("FAQPage")) {
       if (faqSeen) return null;
       faqSeen = true;
     }
-    if (types.some(t => ["WebPage", "MedicalWebPage"].includes(String(t)))) {
+    if (normaliseMedical && types.some(t => ["WebPage", "MedicalWebPage"].includes(String(t)))) {
       if (pageSeen) return null;
       pageSeen = true;
       node["@id"] = `${BASE}${route}#webpage`;
@@ -85,4 +90,4 @@ export function normaliseRouteSchemaEntries(entries: unknown[], route: string, p
     .sort((a, b) => Number(Boolean(preferred[b.index])) - Number(Boolean(preferred[a.index])))
     .forEach(({ value, index }) => { output[index] = visit(value); });
   return output;
-        }
+                                                          }

@@ -2,10 +2,13 @@
   "carpal-tunnel": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-23" },
   "hydroxychloroquine": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-23" },
   "knee-pain": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-23" },
+  "naproxen": { "reviewStatus": "pending" },
+  "naproxen-side-effects": { "reviewStatus": "pending" },
   "osteoporosis": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-23" },
   "plantar-fasciitis": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-23" },
   "raynauds": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-23" },
   "shoulder-pain": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-23" },
   "sjogrens": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-23" },
-  "vasculitis": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-23" }
+  "vasculitis": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-23" },
+  "what-is-gout": { "reviewStatus": "pending" }
 }

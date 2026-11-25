@@ -2,6 +2,7 @@
 // Produces 5 question-based long-tail keyword variations per page,
 // applied to all 13 conditions Ã— 4 sub-pages = 52 unique FAQ blocks.
 
+import { childSubpageFaqs } from "./childSubpageFaqs";
 import type { SubpageSlug } from "./conditionSubpages";
 
 export interface SubpageFaq {
@@ -189,6 +190,7 @@ export function buildSubpageFaqs(
   subpage: SubpageSlug,
   slug?: string,
 ): SubpageFaq[] {
+  if (slug === "juvenile-arthritis") return childSubpageFaqs[subpage];
   if (slug && UNIQUE_SUBPAGE_FAQS[slug]?.[subpage]) {
     return UNIQUE_SUBPAGE_FAQS[slug][subpage]!;
   }

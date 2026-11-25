@@ -47,10 +47,10 @@ export const avatarPriya = "/openverse/cover-0128-two-colorful-elderly-women.web
 export const avatarJames = "/openverse/cover-0108-old-runner-a3.webp";
 
 // ── Chat suggestions ────────────────────────────────────────
-export const chatRheumatoid = "/og/conditions-rheumatoid-arthritis.png"; // medical / RA
-export const chatFoods = "/openverse/nutrition-06-fruit-salad-or-fruit-bowl.webp"; // healthy food bowl
+export const chatRheumatoid = "/images/chat/rheumatoid-640.svg"; // resized from /og/conditions-rheumatoid-arthritis.png
+export const chatFoods = "/images/chat/food-640.svg"; // resized from /openverse/nutrition-06-fruit-salad-or-fruit-bowl.webp
 export const chatExercise = "/openverse/cover-0269-stretching-exercises.webp"; // stretching exercise
-export const chatDoctor = "/openverse/community-09-us-navy-100306-n-5319a-020-occupational-therapist-.webp"; // clinician
+export const chatDoctor = "/images/chat/support-640.svg"; // resized from /openverse/community-09-us-navy-100306-n-5319a-020-occupational-therapist-.webp
 
 // ── Physio myths ────────────────────────────────────────────
 export const physioMyth1 = "/images/hero-walking-group-1600.webp"; // older person exercising / walking

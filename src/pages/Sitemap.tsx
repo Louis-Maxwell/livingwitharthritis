@@ -183,7 +183,7 @@ const ALL_LINKS: SitemapLink[] = [
 
   // Waiting list & tools
   { label: "Arthritis Waiting List Help", href: "/arthritis-waiting-list-help" },
-  { label: "Waiting Time Calculator", href: "/tools/waiting-time" },
+  { label: "Referral and Waiting Time Information", href: "/tools/waiting-time" },
 
   // Buddy
   { label: "Connect groups", href: "/community/connect-groups" },

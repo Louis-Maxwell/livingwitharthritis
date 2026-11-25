@@ -59,7 +59,7 @@ export function libraryAboutNote(slug: string): { heading: string; body: string 
   return {
     heading: "About this page",
     body: isLibraryReviewPending(slug)
-      ? `Written by Louis Maxwell, First Contact Practitioner (HCPC PH128483), and clinically reviewed. ${safety}`
+      ? `This updated page is awaiting separate clinical review. ${safety}`
       : `Written by Louis Maxwell, First Contact Practitioner (HCPC PH128483), and clinically reviewed. ${safety}`,
   };
 }

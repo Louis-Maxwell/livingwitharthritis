@@ -5,14 +5,14 @@ const slugs = ['ginger-vs-turmeric-for-arthritis','anti-inflammatory-smoothie-re
 describe('source-backed nutrition safety revision', () => {
  it.each(slugs)('does not extend an old review claim to revised %s', slug => {
   const post = JSON.parse(readFileSync(`src/content/blog/posts/${slug}.json`, 'utf8'));
-  expect(post.editorial_review_note).toContain('awaiting a separate clinical review');
+  expect(post.editorial_review_note).toMatch(/awaiting (?:a )?separate clinical review/i);
   expect(post.last_reviewed).toBeUndefined();
   expect(post.reviewed_by).toBeNull();
-  expect(post.updated_at).toBe('2026-11-17');
+  expect(post.updated_at).toBe(slug === 'best-supplements-joint-pain' ? '2026-11-25T00:40:00.000Z' : slug === 'anti-inflammatory-smoothie-recipes' ? '2026-11-25T04:46:00.000Z' : '2026-11-17');
   expect(post.citations.length).toBeGreaterThanOrEqual(3);
   const data = headDataFor(`/blog/${slug}`);
   const html = rewriteHead('<html><head><title>Home</title></head><body><div id="root"></div></body></html>',`/blog/${slug}`);
-  expect(html).toContain('awaiting a separate clinical review');
+  expect(html).toMatch(/awaiting (?:a )?separate clinical review/i);
   expect(html).not.toContain('"reviewedBy"');
   expect((data.article as { content: string }).content).toBe(post.content);
  });

@@ -3,6 +3,7 @@ import {
   filterSearchCatalog,
   mapBlogCategoryToTopic,
   normalizeTopic,
+  normalizeWordCount,
   wordCountInBucket,
   type SearchCatalogItem,
 } from "@/lib/siteSearchFilters";
@@ -48,6 +49,9 @@ describe("siteSearchFilters", () => {
     expect(normalizeTopic("pip")).toBe("Finances & Benefits");
     expect(normalizeTopic("Guides")).toBe("Guides & hubs");
     expect(normalizeTopic("")).toBe("All");
+    expect(normalizeTopic("invalid-topic")).toBe("All");
+    expect(normalizeWordCount("bogus")).toBe("any");
+    expect(normalizeWordCount("over1000")).toBe("over1000");
   });
 
   it("filters by topic", () => {

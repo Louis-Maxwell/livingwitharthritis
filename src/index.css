@@ -1411,6 +1411,61 @@ details[open] > :not(summary) {
   }
 }
 
+/* Site-wide 3D depth. Only cards/actions move, never long-form paragraphs,
+   form fields, navigation, live messages or the page/LCP wrapper. Content is
+   fully visible in every frame. Native CSS handles reduced-motion changes. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-site-depth="card"],
+  [data-site-depth="card"][data-site-lift][data-site-reveal],
+  .reveal[data-site-depth="card"][data-reveal],
+  .reveal.hover-lift[data-site-depth="card"][data-reveal] {
+    transform-origin: center center;
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+      translate 450ms cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 250ms ease, border-color 250ms ease;
+  }
+  [data-site-depth="card"][data-site-reveal="armed"],
+  .reveal[data-site-depth="card"][data-reveal="armed"]:not(.is-visible) {
+    transform: perspective(1000px) rotateX(5deg) translateZ(-8px);
+  }
+  [data-site-depth="action"] {
+    transition: transform 180ms ease, scale 150ms ease, box-shadow 180ms ease, background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+  }
+  [data-site-depth="action"]:not(:disabled):not(:focus-visible):active {
+    transform: perspective(800px) translateZ(-5px) rotateX(2deg);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    [data-site-depth="card"][data-site-lift]:not([data-site-reveal="armed"]):not(:focus-within):hover {
+      transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateZ(8px);
+      box-shadow: 4px 10px 0 hsl(var(--primary) / 0.12), var(--shadow-large);
+    }
+    [data-site-depth="action"]:not(:disabled):not(:focus-visible):hover {
+      transform: perspective(800px) translateZ(5px) rotateX(-2deg);
+      box-shadow: 0 4px 0 hsl(var(--foreground) / 0.16);
+    }
+  }
+  /* Stable focus on fine, coarse and hybrid pointer devices. Override the
+     existing higher-specificity hover translate as well as the new tilt. */
+  [data-site-depth]:focus-visible,
+  [data-site-depth="card"]:focus-within {
+    transform: none !important;
+    translate: none !important;
+    scale: none !important;
+    transition: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce), print {
+  [data-site-depth],
+  [data-site-depth]:hover,
+  [data-site-depth]:active,
+  .reveal[data-site-depth][data-reveal="armed"]:not(.is-visible) {
+    transform: none !important;
+    translate: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+  }
+}
+
 /* Text split reveal */
 .text-split-word {
   opacity: 0;
@@ -1642,6 +1697,17 @@ details[open] > :not(summary) {
     outline-offset: 3px;
   }
 
+  /* Restore the requested red/white hero in both the boot and hydrated page.
+     Scope the palette here so other sections and theme colours stay unchanged. */
+  .home-practical-hero.band-red { background: #d60000; color: #fff; }
+  .home-practical-hero.band-red h1,
+  .home-practical-hero.band-red p { color: #fff; }
+  .home-practical-hero .hero-help-primary { background: #fff; color: #000; }
+  .home-practical-hero .hero-help-primary:hover { background: #f2f2f2; color: #000; }
+  .home-practical-hero .hero-help-secondary { background: transparent; color: #fff; border: 2px solid #fff; }
+  .home-practical-hero .hero-help-secondary:hover { background: #b30000; color: #fff; }
+  .home-practical-hero.band-red a:focus-visible { outline-color: #fff; }
+
   /* Softer octagon for inline cards / thumbnails */
   .clip-octagon-soft {
     clip-path: polygon(8% 0%, 92% 0%, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0% 92%, 0% 8%);
@@ -1767,6 +1833,7 @@ details[open] > :not(summary) {
    users who request reduced motion, and avoid transition/animation work that
    can otherwise contribute to poor INP on low-powered devices. */
 @media (prefers-reduced-motion: reduce) {
+  .footer-connect *, .footer-connect *::before, .footer-connect *::after { animation: none !important; transition: none !important; transform: none !important; }
   .reveal {
     transition: none !important;
     translate: none !important;
@@ -1821,4 +1888,78 @@ details[open] > :not(summary) {
 @media print {
   body.gp-prep-printing #main-content > *:not(:has(.gp-prep-sheet-root)) { display: none !important; }
   body.gp-prep-printing .gp-sheet-keep > *:not(.gp-prep-sheet-root) { display: none !important; }
+}
+
+
+/* Footer Connect: quiet, pointer-triggered movement only. No new script,
+   autoplay, hidden links or layout changes during interaction. */
+.footer-connect { padding-top: 1.75rem; border-top: 1px solid hsl(var(--border)); }
+.footer-connect .footer-connect__links {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.625rem;
+}
+.footer-connect .footer-connect__link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 52px;
+  min-width: 0;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  text-decoration: none;
+}
+.footer-connect .footer-connect__link > span { margin-left: 0; }
+.footer-connect__icon { flex-shrink: 0; color: hsl(var(--primary)); }
+.footer-connect__arrow { margin-left: auto; flex-shrink: 0; color: hsl(var(--muted-foreground)); }
+.footer-connect .footer-connect__link:focus-visible {
+  outline: 3px solid hsl(var(--primary));
+  outline-offset: 3px;
+  background: hsl(var(--muted));
+}
+@media (min-width: 480px) {
+  .footer-connect .footer-connect__links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 640px) {
+  .footer-connect .footer-connect__links { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .footer-connect .footer-connect__links { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .footer-connect .footer-connect__link:hover {
+    color: hsl(var(--foreground));
+    background: hsl(var(--muted));
+    border-color: hsl(var(--primary));
+  }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .footer-connect .footer-connect__link,
+  .footer-connect__arrow { transition: transform 160ms ease-out, background-color 160ms ease-out, border-color 160ms ease-out; }
+  .footer-connect .footer-connect__link:hover { transform: translateY(-2px); }
+  .footer-connect .footer-connect__link:hover .footer-connect__arrow { transform: translate(2px, -2px); }
+  .footer-connect .footer-connect__link:active { transform: translateY(0); }
+}
+
+/* Keep this reviewed equipment guide within the no-red-body-text brand rule. */
+.blog-prose a.assistive-equipment-link {
+  color: inherit;
+}
+
+/* Scope no-red body links to the reviewed knee osteoarthritis PIP guide. */
+.blog-prose a.pip-knees-source-link {
+  color: inherit;
+}
+
+/* Keep reviewed weather article body links within the brand text palette. */
+.blog-prose a.weather-source-link {
+  color: inherit;
+}
+
+/* Keep reviewed activity diary body links within the brand text palette. */
+.blog-prose a.activity-diary-source-link {
+  color: inherit;
 }

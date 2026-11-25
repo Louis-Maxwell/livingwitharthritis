@@ -1,29 +1,28 @@
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { trackSearch as trackAnalyticsSearch } from "@/lib/analytics";
 import { trackSearch as trackLegacySearch } from "@/lib/ga-events";
 
-afterEach(() => { delete window.gtag; delete window.dataLayer; });
+beforeEach(() => localStorage.setItem("lwa_cv3", JSON.stringify({ a: true })));
+afterEach(() => { localStorage.clear(); delete window.gtag; delete window.dataLayer; });
 
 describe("search tracking privacy", () => {
-  it("retains usage counts without sending typed health or contact text", () => {
+  it("standardises both helpers to counts without typed health or contact text", () => {
     const gtag = vi.fn();
     window.gtag = gtag;
     const privateText = "example-condition example@example.com";
     trackAnalyticsSearch(privateText, 7);
-    trackLegacySearch(privateText, 9);
+    trackLegacySearch(privateText, 0);
     expect(gtag.mock.calls).toEqual([
-      ["event", "search", { search_result_count: 7, event_category: "engagement", page_location: expect.any(String), page_title: expect.any(String) }],
-      ["event", "search", { results_found: 9, page_location: expect.any(String), page_title: expect.any(String) }],
+      ["event", "site_search", { result_count: 7, zero_results: false, page_location: expect.any(String), page_title: expect.any(String) }],
+      ["event", "site_search", { result_count: 0, zero_results: true, page_location: expect.any(String), page_title: expect.any(String) }],
     ]);
     expect(JSON.stringify(gtag.mock.calls)).not.toContain(privateText);
   });
 
-  it("also excludes typed text from the dataLayer fallback", () => {
+  it("does not queue searches when gtag is unavailable", () => {
     window.dataLayer = [];
     trackAnalyticsSearch("private-example", 0);
     trackLegacySearch("private-example", 0);
-    expect(window.dataLayer).toHaveLength(2);
-    expect(JSON.stringify(window.dataLayer)).not.toContain("private-example");
-    expect(JSON.stringify(window.dataLayer)).not.toContain("search_term");
+    expect(window.dataLayer).toEqual([]);
   });
 });

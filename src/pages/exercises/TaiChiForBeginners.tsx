@@ -70,17 +70,15 @@ const SITE = "https://livingwitharthritis.org.uk";
 
 const courseJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Course",
+  "@type": ["CreativeWork", "LearningResource"],
   name: "Tai Chi for Beginners — Your First 7 Days",
   description: "A free 7-day at-home introduction to tai chi for UK beginners. Gentle on arthritic joints, ~10 minutes per day, no equipment.",
   provider: { "@type": "Organization", name: "Living With Arthritis", sameAs: SITE },
   educationalLevel: "Beginner",
   inLanguage: "en-GB",
-  hasCourseInstance: {
-    "@type": "CourseInstance",
-    courseMode: "Self-paced online",
-    courseWorkload: "PT70M",
-  },
+  learningResourceType: "Self-paced starter plan",
+  isAccessibleForFree: true,
+  timeRequired: "PT70M",
 };
 
 const howToJsonLd = {
@@ -313,4 +311,4 @@ export default function TaiChiForBeginners() {
       <Footer />
     </div>
   );
-   }
+                          }

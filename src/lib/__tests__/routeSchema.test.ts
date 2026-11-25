@@ -44,9 +44,22 @@ describe("live schema parity", () => {
     expect(page).not.toHaveProperty("reviewedBy");
     expect(page).not.toHaveProperty("lastReviewed");
   });
+  it("keeps one app-owned breadcrumb across hydration without changing other page types", () => {
+    const staticTrail = { "@type": "BreadcrumbList", itemListElement: [{ name: "Static" }] };
+    const appTrail = { "@type": "BreadcrumbList", itemListElement: [{ name: "Visible page" }] };
+    for (const route of ["/library", "/conditions/hip-arthritis/treatment", "/exercises", "/about"]) {
+      const input = [staticTrail, { "@graph": [appTrail, { "@type": "Organization", name: "Charity" }] }];
+      const output = normaliseRouteSchemaEntries(input, route, [false, true]);
+      expect(output[0]).toBeNull();
+      expect(output[1]).toEqual(input[1]);
+      expect(normaliseRouteSchemaEntries(output, route, [false, true])).toEqual(output);
+    }
+    const about = { "@type": "WebPage", name: "About", lastReviewed: "unchanged" };
+    expect(normaliseRouteSchemaEntries([about], "/about")).toEqual([about]);
+  });
   it("reuses condition identities across library and condition subpages", () => {
     expect(medicalEntityForRoute("/library/polymyalgia")?.["@id"]).toBe(medicalEntityForRoute("/conditions/polymyalgia-rheumatica/symptoms")?.["@id"]);
-    expect(recordedRouteReview("/library/naproxen")).toBe("2026-10-23");
+    expect(recordedRouteReview("/library/naproxen")).toBeUndefined();
     expect(recordedRouteReview("/conditions/gout/symptoms")).toBe("2026-09-17");
   });
 });

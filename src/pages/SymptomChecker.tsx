@@ -119,9 +119,10 @@ export default function SymptomChecker() {
           >
             <p className="text-base sm:text-lg text-foreground leading-relaxed">
               Use this checker to organise symptoms and open relevant Living With Arthritis guides on conditions,
-              exercise, diet and PIP. If you have emergency symptoms such as a suddenly hot red joint with fever, or
-              loss of bladder or bowel control with back pain, call <strong>999</strong>. For urgent non-emergency
-              advice, contact <strong>NHS 111</strong>. This tool does not diagnose arthritis.
+              exercise, diet and PIP. A hot swollen joint or sudden severe joint pain needs an urgent GP
+              appointment or NHS 111, even without fever. Go to A&amp;E or call 999 for severe joint injury
+              with inability to bear weight, or new bladder/bowel changes or saddle numbness with back pain.
+              Call 999 for life-threatening symptoms. This tool cannot diagnose arthritis or rule out an emergency.
             </p>
           </aside>
 
@@ -129,7 +130,7 @@ export default function SymptomChecker() {
             <MedicalDisclaimerStrip variant="tool" />
           </div>
           <DisclaimerStripShown>
-          <EducationalDisclaimerBox lastReviewed="2026-09-21" />
+          <EducationalDisclaimerBox reviewStatus="pending" />
           <TopicClusterNav path="/symptom-checker" />
           </DisclaimerStripShown>
           <ArticleCitations citations={CITATIONS_SYMPTOM_CHECKER} />

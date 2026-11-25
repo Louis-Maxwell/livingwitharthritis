@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
-import { auditPrioritySocialMeta, PRIORITY_SOCIAL_ROUTES } from "../check-social-meta.mjs";
+import { auditPrioritySocialMeta, PRIORITY_SOCIAL_ROUTES, CORPORATE_SOCIAL_ROUTES } from "../check-social-meta.mjs";
 
 const temporaryDirectories = [];
 afterEach(() => {
@@ -17,7 +17,7 @@ function fixture(route, index) {
   return [
     "<html><head>",
     meta("property", "og:site_name", "Living With Arthritis"),
-    meta("property", "og:type", route === "/faq" ? "website" : "article"),
+    meta("property", "og:type", route === "/faq" || CORPORATE_SOCIAL_ROUTES.includes(route) ? "website" : "article"),
     meta("property", "og:title", title),
     meta("name", "twitter:title", title),
     meta("property", "og:description", description),
@@ -32,7 +32,7 @@ function fixture(route, index) {
 function buildFixtures() {
   const dist = mkdtempSync(join(tmpdir(), "lwa-social-meta-"));
   temporaryDirectories.push(dist);
-  for (const [index, route] of PRIORITY_SOCIAL_ROUTES.entries()) {
+  for (const [index, route] of [...PRIORITY_SOCIAL_ROUTES, ...CORPORATE_SOCIAL_ROUTES].entries()) {
     const file = join(dist, route.slice(1), "index.html");
     mkdirSync(dirname(file), { recursive: true });
     writeFileSync(file, fixture(route, index), "utf8");
@@ -51,6 +51,17 @@ describe("priority prerender social metadata", () => {
       "/guides/benefits-pip",
       "/guides/dmards-vs-biologics",
     ]);
+  });
+
+  it("also audits both preserved corporate URLs and rejects missing or incomplete crawler heads", () => {
+    expect(CORPORATE_SOCIAL_ROUTES).toEqual(["/corporate-giving", "/corporate-partnerships"]);
+    const dist = buildFixtures();
+    expect(auditPrioritySocialMeta(dist, CORPORATE_SOCIAL_ROUTES)).toEqual([]);
+    const file = join(dist, "corporate-partnerships/index.html");
+    writeFileSync(file, readFileSync(file, "utf8").replace('<meta name="twitter:card" content="summary_large_image">', ""));
+    expect(auditPrioritySocialMeta(dist, CORPORATE_SOCIAL_ROUTES)).toContain("/corporate-partnerships: expected exactly one twitter:card, found 0");
+    rmSync(join(dist, "corporate-giving/index.html"));
+    expect(auditPrioritySocialMeta(dist, CORPORATE_SOCIAL_ROUTES)).toContain("/corporate-giving: missing prerendered index.html");
   });
 
   it("accepts valid, route-specific HTML for all seven URLs", () => {

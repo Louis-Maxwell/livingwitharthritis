@@ -19,6 +19,7 @@ import {
   submitBlogComment,
   submitVolunteerEnquiry,
   NEWSLETTER_FORMSUBMIT_URL,
+  CONTACT_MESSAGE_MAX_LENGTH,
 } from "../backendSubmit";
 
 describe("backendSubmit newsletter + mailto", () => {
@@ -105,6 +106,17 @@ describe("backendSubmit newsletter + mailto", () => {
     expect(result.ok).toBe(false);
     expect(result.via).toBe("mailto");
     expect(hrefs.some((h) => h.startsWith("mailto:"))).toBe(true);
+  });
+
+  it("does not silently truncate an oversized contact message or start the cooldown", async () => {
+    const fields = { name: 'Jane', email: 'jane@example.com', subject: 'General enquiry' };
+    const rejected = await submitContactInquiry({...fields, message: 'x'.repeat(CONTACT_MESSAGE_MAX_LENGTH + 1)});
+    expect(rejected.via).toBe('none'); expect(hrefs).toHaveLength(0);
+    const accepted = await submitContactInquiry({...fields, message: 'x'.repeat(CONTACT_MESSAGE_MAX_LENGTH)});
+    expect(accepted.via).toBe('mailto');
+    const body = new URL(hrefs[0]).searchParams.get('body');
+    expect(body).toContain('x'.repeat(CONTACT_MESSAGE_MAX_LENGTH));
+    expect(fetch).not.toHaveBeenCalled();
   });
 
   it("opens mailto for volunteer enquiry with interest in subject", async () => {

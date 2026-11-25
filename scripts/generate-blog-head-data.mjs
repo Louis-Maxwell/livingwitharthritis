@@ -30,8 +30,43 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { readPublishedBlogPosts } from './lib/blog-posts.mjs';
 import { resolveInternalHref } from './lib/internal-href.mjs';
 import { stripTags } from './lib/strip-tags.mjs';
+import { htmlToPlainText } from '../src/lib/plainText.mjs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+export function extractBlogFaqs(content) {
+    if (!content) return [];
+    const body = String(content).replace(/\\n/g, '\n');
+    const isHtml = body.trim().startsWith('<');
+    const pairs = [];
+    if (isHtml) {
+      const re = /<h[23][^>]*>([\s\S]*?)<\/h[23]>([\s\S]*?)(?=<h[23][^>]*>|$)/gi;
+      let m;
+      while ((m = re.exec(body)) !== null) {
+        const q = htmlToPlainText(m[1]);
+        const a = htmlToPlainText(m[2]);
+        // class="q-heading" marks search-question body subheadings, not FAQs.
+        if (/^<h[23][^>]*\bq-heading\b/i.test(m[0])) continue;
+        if (q.endsWith('?') && a.length > 30) pairs.push({ q, a });
+        if (pairs.length >= 6) break;
+      }
+      return pairs;
+    }
+    const re = /^#{2,3}\s+(.+\?)\s*$/gm;
+    let m;
+    while ((m = re.exec(body)) !== null) {
+      const q = m[1].trim();
+      const rest = body.slice(m.index + m[0].length);
+      const a = rest
+        .split(/^#{1,3}\s+/m)[0]
+        .replace(/[*_`>#\[\]]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+      if (a.length > 30) pairs.push({ q, a });
+      if (pairs.length >= 6) break;
+    }
+    return pairs;
+  }
 
 const OUT = resolve('scripts/blog-head-data.json');
 const COVER_MAP_PATH = resolve('src/data/blog-cover-map.generated.json');
@@ -218,46 +253,12 @@ async function main() {
     [...redirectSrc.matchAll(/"([^"]+)"\s*:\s*"[^"]+"/g)].map((m) => m[1]),
   );
 
-  const extractFaqs = (content) => {
-    if (!content) return [];
-    const body = String(content).replace(/\\n/g, '\n');
-    const isHtml = body.trim().startsWith('<');
-    const pairs = [];
-    if (isHtml) {
-      const re = /<h[23][^>]*>([\s\S]*?)<\/h[23]>([\s\S]*?)(?=<h[23][^>]*>|$)/gi;
-      let m;
-      while ((m = re.exec(body)) !== null) {
-        const q = stripTags(m[1]);
-        const a = stripTags(m[2]).slice(0, 500);
-        // class="q-heading" marks search-question body subheadings, not FAQs.
-        if (/^<h[23][^>]*\bq-heading\b/i.test(m[0])) continue;
-        if (q.endsWith('?') && a.length > 30) pairs.push({ q, a });
-        if (pairs.length >= 6) break;
-      }
-      return pairs;
-    }
-    const re = /^#{2,3}\s+(.+\?)\s*$/gm;
-    let m;
-    while ((m = re.exec(body)) !== null) {
-      const q = m[1].trim();
-      const rest = body.slice(m.index + m[0].length);
-      const a = rest
-        .split(/^#{1,3}\s+/m)[0]
-        .replace(/[*_`>#\[\]]/g, '')
-        .replace(/\s+/g, ' ')
-        .trim()
-        .slice(0, 500);
-      if (a.length > 30) pairs.push({ q, a });
-      if (pairs.length >= 6) break;
-    }
-    return pairs;
-  };
 
   const data = {};
   const journey = JSON.parse(readFileSync(new URL('../src/data/readerJourneyLinks.json', import.meta.url), 'utf8'));
   for (const row of rows) {
     if (!row.slug || redirectSlugs.has(row.slug)) continue;
-    const entry = buildEntry(row, extractFaqs, coverMap);
+    const entry = buildEntry(row, extractBlogFaqs, coverMap);
     if (entry) {
       // Link every article back into its existing topic and to nearby guides.
       // All destinations come from the same published inventory, never guessed slugs.

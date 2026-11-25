@@ -5,7 +5,7 @@
  *
  * Privacy: never sends the phone number, email address or query strings.
  */
-import { trackEvent } from "@/lib/analytics";
+import { beginAnalyticsGesture, trackEvent } from "@/lib/analytics";
 
 const FILE_RE = /\.(pdf|docx?|xlsx?|pptx?|csv|zip|epub|txt|mp3)$/i;
 const SHARE_RE =
@@ -34,8 +34,14 @@ export function classifyLink(a: Pick<HTMLAnchorElement, "getAttribute" | "textCo
     ];
   }
   if (SHARE_RE.test(raw)) {
-    const host = new URL(raw, origin).hostname.replace(/^www\./, "");
-    return [{ name: "social_share", params: { method: host.split(".")[0] === "wa" ? "whatsapp" : host.split(".")[0], link_text: label } }];
+    const target = new URL(raw, origin);
+    const host = target.hostname.replace(/^www\./, "");
+    const whatsapp = host === "wa.me" || host === "api.whatsapp.com";
+    if (whatsapp && ((host === "wa.me" && /\d/.test(target.pathname)) || target.searchParams.has("phone"))) {
+      return [{ name: "helpline_engagement", params: { channel: "whatsapp", interaction_type: "intent" } }];
+    }
+    const platform = whatsapp ? "whatsapp" : /^(twitter|x)\./.test(host) ? "x" : host.split(".")[0] === "bsky" ? "bluesky" : host.split(".")[0];
+    return [{ name: "social_media_click", params: { platform, link_location: a.getAttribute("data-analytics-location") || "article_share_bar", target_url: `${target.origin}${target.pathname}`, interaction_type: "share_intent" } }];
   }
   let url: URL;
   try { url = new URL(raw, origin); } catch { return []; }
@@ -76,6 +82,7 @@ export function installAutoEvents(doc: Document = document): void {
   if (installed || typeof window === "undefined") return;
   installed = true;
   doc.addEventListener("click", (e) => {
+    beginAnalyticsGesture(e);
     const a = (e.target as Element | null)?.closest?.("a[href]") as HTMLAnchorElement | null;
     if (!a) return;
     for (const ev of classifyLink(a, window.location.origin)) trackEvent(ev.name, ev.params);

@@ -7,6 +7,8 @@
  * Sources: NICE clinical guidelines clinical topics, project medical reviewer.
  */
 
+import { ORGANIZATION_DESCRIPTION, HOMEPAGE_FAQS } from "./reviewedPublicCopy.ts";
+
 export interface AeoPage {
   question: string;
   answer: string;
@@ -222,15 +224,10 @@ question: "What is knee arthritis?",
   }),
   "/conditions/juvenile-arthritis": withDefaults({
     question: "What is juvenile arthritis?",
-    answer:
-      "Juvenile idiopathic arthritis (JIA) is arthritis starting before age 16, lasting more than 6 weeks. It affects around 1 in 1,000 UK children. First signs include morning limping, a swollen joint or avoiding a favourite activity. Early paediatric rheumatology care and DMARDs help most children live active lives.",
-  
+    answer: "Juvenile idiopathic arthritis (JIA) is a group of conditions causing joint inflammation that starts before age 16. Arrange a GP assessment for a child with joint problems or an unexplained limp. Do not wait for a set number of weeks. Sudden hip, knee or thigh pain, inability to bear weight or an unwell child can need emergency assessment.",
     faqs: [
-      { q: "What are the first signs of arthritis in a child?", a: "Look out for limping (worse in the morning), a swollen joint, a child avoiding a normally favourite activity, or unexplained fevers and rashes. Always see your GP if joint symptoms last more than two weeks." },
-      { q: "Is juvenile arthritis the same as rheumatoid arthritis?", a: "No. JIA is its own group of conditions. Some forms behave similarly to rheumatoid arthritis, but JIA also includes types not seen in adults, such as systemic JIA (Still's disease)." },
-      { q: "Will my child grow out of JIA?", a: "Some children — particularly those with oligoarticular JIA — do go into long-term remission. Others have ongoing disease into adulthood. Modern treatments have transformed the outlook for most." },
-      { q: "Why does my child need eye checks?", a: "JIA can cause silent eye inflammation (uveitis) that, if missed, can damage sight. Regular slit-lamp checks by an ophthalmologist are essential." },
-      { q: "Can my child still play sport?", a: "Yes — sport is encouraged. Swimming and cycling are particularly good. Adapt during flares and work with the rheumatology team and PE staff." },
+      { q: "Should I wait six weeks before seeking help?", a: "No. Arrange a GP assessment for a child with joint problems or an unexplained limp. A duration used to classify arthritis is not a waiting period for parents." },
+      { q: "Can eye inflammation happen without symptoms?", a: "Yes. JIA-related uveitis can occur without symptoms. Keep all specialist screening appointments. New eye pain, light sensitivity, very red eyes or vision changes need urgent GP or NHS 111 advice; loss of vision needs A&E or 999." },
     ],
   }),
   "/conditions/reactive-arthritis": withDefaults({
@@ -367,7 +364,7 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
   "/guides/frailty-management-hub": withDefaults({
     question: "How is frailty managed with arthritis?",
     answer:
-      "Frailty and arthritis together respond to comprehensive geriatric assessment: strength training, protein-rich diet, medication review, hearing/vision checks and social connection. Mild and moderate frailty can be reversed with progressive strength training and adequate protein. Ask your GP for a formal frailty (Clinical Frailty Scale) review.",
+      "Frailty and arthritis together respond to comprehensive geriatric assessment: strength training, protein-rich diet, medication review, hearing/vision checks and social connection. Improvement varies and reversal cannot be promised. Care should be tailored to the person. Ask your GP for a formal frailty (Clinical Frailty Scale) review.",
   }),
   "/guides/preventative-msk-health": withDefaults({
     question: "How do I keep my muscles and joints healthy?",
@@ -450,15 +447,11 @@ question: "What are the best free knee exercises for osteoarthritis in the UK?",
 
   // --- Priority UK hubs (AEO / GEO) -----------------------------------------
   "/": withDefaults({
-    updatedAt: "2026-09-23",
+    updatedAt: "2026-11-22",
+    reviewer: "", // Wording update, not a claim of specialist clinical review.
     question: "What is Living With Arthritis?",
-    answer:
-      "Living With Arthritis is a registered charity in England and Wales (no. 1218461) publishing free, evidence-informed guidance for people living with arthritis across the UK — NICE-aligned exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.",
-    faqs: [
-      { q: "Is Living With Arthritis the same as Arthritis UK?", a: "No. We are a separate CIO (charity 1218461). Do not attribute our content to Arthritis UK (formerly Versus Arthritis) or the US Arthritis Foundation." },
-      { q: "Is the guidance free?", a: "Yes. Guides, exercises and tools are free. Clinical content stays editorially independent of funders." },
-      { q: "Who reviews your medical content?", a: "Clinical review is led by Louis Maxwell, First Contact Practitioner (HCPC PH128483), Chartered Society of Physiotherapy." },
-    ],
+    answer: ORGANIZATION_DESCRIPTION,
+    faqs: HOMEPAGE_FAQS,
   }),
   "/about": withDefaults({
     question: "Who is Living With Arthritis?",

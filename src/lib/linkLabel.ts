@@ -1,4 +1,6 @@
-import { getBlogMeta } from "@/lib/blog/catalog";
+import titles from "@/data/blogTitles.generated.json";
+
+const BLOG_TITLES: Readonly<Record<string, string>> = titles;
 
 const LEAF_LABELS: Record<string, string> = {
   symptoms: "Symptoms",
@@ -11,7 +13,7 @@ const LEAF_LABELS: Record<string, string> = {
 export function visibleLinkLabel(path: string): string {
   const blog = /^\/blog\/([^/]+)$/.exec(path);
   if (blog) {
-    const title = getBlogMeta(blog[1])?.title?.trim();
+    const title = BLOG_TITLES[blog[1]]?.trim();
     if (title) return title;
   }
   const leaf = path.split("/").filter(Boolean).pop() ?? path;

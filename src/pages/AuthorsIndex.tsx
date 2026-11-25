@@ -66,7 +66,6 @@ export default function AuthorsIndex({ variant }: AuthorsIndexProps) {
     '@type': 'ItemList',
     name: heading,
     url: `${BASE}/${prefix}`,
-    inLanguage: 'en-GB',
     itemListElement: records.map((record, index) => ({
       '@type': 'ListItem',
       position: index + 1,

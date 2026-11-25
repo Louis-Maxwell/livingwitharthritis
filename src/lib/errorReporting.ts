@@ -19,6 +19,7 @@
  * logs; there is no backend log to collect.
  */
 import { isChunkLoadError } from "@/lib/chunkRecovery";
+import { hasAnalyticsConsent, trackEvent } from "@/lib/analytics";
 
 export type ErrorKind =
   | "js_error"
@@ -37,8 +38,6 @@ export interface ErrorReport {
   /** Extra low-cardinality detail, e.g. the form name or request host. */
   source?: string;
 }
-
-type Gtag = (command: "event", name: string, params: Record<string, unknown>) => void;
 
 const MAX_REPORTS_PER_PAGE = 10;
 const GA4_VALUE_LIMIT = 100;
@@ -81,15 +80,14 @@ function describe(error: unknown): string {
   }
 }
 
-function sendToProvider(report: ErrorReport): void {
-  const gtag = (window as Window & { gtag?: Gtag }).gtag;
-  if (typeof gtag !== "function") return;
-  gtag("event", "exception", {
-    description: report.description.slice(0, GA4_VALUE_LIMIT),
+function sendToProvider(report: ErrorReport): boolean {
+  return trackEvent("exception", {
+    // Error messages can contain submitted form data. Send categories, not free text.
+    description: report.kind,
     fatal: report.fatal,
     error_kind: report.kind,
     error_source: (report.source ?? "").slice(0, GA4_VALUE_LIMIT),
-    page_path: window.location.pathname.slice(0, GA4_VALUE_LIMIT),
+    page_path: window.location.pathname,
   });
 }
 
@@ -106,17 +104,17 @@ export function reportError(
     const key = errorIdentity(error, description);
     if (seen.has(key) || sentCount >= MAX_REPORTS_PER_PAGE) return;
     // Do not consume the reporting budget before the visitor grants consent.
-    if (typeof (window as Window & { gtag?: Gtag }).gtag !== "function") return;
-    seen.add(key);
-    sentCount++;
+    if (!hasAnalyticsConsent() || typeof window.gtag !== "function") return;
     const report: ErrorReport = {
       kind,
       description,
       fatal: options.fatal ?? false,
       source: options.source ? scrub(options.source) : undefined,
     };
-    if (import.meta.env.DEV) console.warn("[error-report]", report);
-    sendToProvider(report);
+    if (!sendToProvider(report)) return;
+    seen.add(key);
+    sentCount++;
+    if (import.meta.env.DEV) console.warn("[error-report]", { kind, source: report.source });
   } catch {
     // Reporting must never break the page.
   }

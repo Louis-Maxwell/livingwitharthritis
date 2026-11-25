@@ -3,6 +3,9 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 
+import { MEDICAL_DISCLAIMER_SHORT } from "@/lib/medicalDisclaimer";
+import { htmlToPlainText } from "@/lib/sanitize";
+
 const here = dirname(fileURLToPath(import.meta.url));
 const hero = readFileSync(resolve(here, "../OAHero.tsx"), "utf8");
 const html = readFileSync(resolve(here, "../../../../index.html"), "utf8");
@@ -21,14 +24,33 @@ describe("homepage boot hero", () => {
     expect(compact(html)).toContain(LCP_SENTENCE);
   });
 
-  it("keeps the calm headline and accessible help actions in both shells", () => {
+  it("keeps the current headline and accessible help actions in both shells", () => {
     for (const source of [compact(hero), compact(html)]) {
-      expect(source).toContain("Practical help for life with arthritis.");
+      expect(source).toContain("Providing practical advice, support and evidence-based guidance for people living with arthritis and frailty.");
       expect(source).toContain("home-practical-hero");
       expect(source).toContain("/guides/arthritis-pain-relief");
       expect(source).toContain("Find help for my situation");
-      expect(source).toContain("call 999");
+
     }
+  });
+
+  it("keeps the exact shared safety warning in both shells", () => {
+    expect(hero).toContain("{MEDICAL_DISCLAIMER_SHORT}");
+    expect(htmlToPlainText(html)).toContain(MEDICAL_DISCLAIMER_SHORT);
+    expect(MEDICAL_DISCLAIMER_SHORT).toContain("Call 999 for a life-threatening emergency");
+  });
+
+  it("restores red and white without reverting the current content or help routes", () => {
+    for (const source of [hero, html]) {
+      expect(source).toContain("home-practical-hero band-red");
+      expect(source).toContain("hero-help-primary");
+      expect(source).toContain("hero-help-secondary");
+      expect(source).not.toContain("home-practical-hero bg-white");
+    }
+    const css = readFileSync(resolve(here, "../../../index.css"), "utf8");
+    expect(css).toContain(".home-practical-hero.band-red { background: #d60000; color: #fff; }");
+    expect(css).toContain(".home-practical-hero .hero-help-primary { background: #fff; color: #000; }");
+    expect(css).toContain(".home-practical-hero.band-red a:focus-visible { outline-color: #fff; }");
   });
 
   it("does not preload the hero photo ahead of the entry scripts", () => {

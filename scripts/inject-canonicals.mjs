@@ -63,7 +63,10 @@ const PRIORITY_ANSWERS = JSON.parse(readFileSync(resolve("src/data/priority-dire
 const template = existsSync(SRC) ? readFileSync(SRC, "utf8") : "";
 
 const readJson = (path) =>
-  existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : {};
+  existsSync(path) ? JSON.parse(readFileSync(path, "utf8").replaceAll(
+    "https://www.nhsinform.scot/waiting-times/outpatient-waiting-times/",
+    "https://www.nhsinform.scot/care-support-and-rights/health-rights/access/nhs-scotland-waiting-times",
+  )) : {};
 
 // Vite build manifest (build.manifest in vite.config.ts). Used to preload a
 // route's own chunk from its static HTML so it downloads alongside the entry
@@ -204,11 +207,15 @@ const PAGE_AEO_LAYER = Object.fromEntries(
     },
   ]),
 );
+const CHILD_HEAD_DATA = readJson(resolve("scripts/child-health-head-data.json"));
+const CONDITION_HEAD_DATA = readJson(CONDITION_DATA_PATH);
+const HUB_GUIDE_DATA = readJson(HUB_GUIDE_DATA_PATH);
+const NICE_SAFETY = readJson(resolve("scripts/nice-safety-overrides.json"));
 const AI_DATA = mergeHeadLayers(
   readJson(BLOG_DATA_PATH),
   readJson(CONDITION_DATA_PATH),
   readJson(LIBRARY_DATA_PATH),
-  readJson(HUB_GUIDE_DATA_PATH),
+  HUB_GUIDE_DATA,
   readJson(resolve("scripts/editorial-head-data.json")),
   authorHeadData(),
   readJson(resolve("scripts/route-head-curated.json")),
@@ -220,6 +227,8 @@ const AI_DATA = mergeHeadLayers(
   STANDALONE_ANSWER_LAYER,
   EDITORIAL_TITLE_LAYER,
   readJson(resolve("scripts/pip-head-overrides.json")),
+  // Narrow source-checked clinical corrections override older seed answers.
+  readJson(resolve("scripts/clinical-head-overrides.json")),
   // Source-checked glossary replacements must win over the older seed answers.
   // Restrict this to definitions carrying their explicit pending-review note.
   Object.fromEntries(Object.entries(readJson(resolve("scripts/editorial-head-data.json")))
@@ -379,7 +388,7 @@ const textWords = (html) => String(html || '').replace(/<[^>]+>/g, ' ').replace(
 function withRenderedBody(route, data) {
   const rawCapture = RENDERED_BODIES[route];
   const conditionAnswer = CONDITION_ANSWER_LAYER[route]?.answer || LIBRARY_ANSWER_LAYER[route]?.answer || STANDALONE_ANSWER_LAYER[route]?.answer;
-  const correctedCapture = rawCapture?.replace(/<strong>Last checked: 11 November 2026<\/strong> against/g, "<strong>Official sources:</strong>").replace('It is available on prescription and also over-the-counter (in lower doses) at pharmacies.', 'Naproxen is prescribed for arthritis. Some UK pharmacy products have limited indications: Naprosyn Pain Relief 250 mg is for short-term muscle and joint pain in adults aged 18 to 50, for no more than 3 days; period-pain products have separate eligibility rules. Ask a pharmacist which product is suitable, and do not use a pharmacy product as ongoing arthritis treatment without medical advice.');
+  const correctedCapture = rawCapture?.replace(/Band 8 Advanced Practice Physiotherapist/g, 'Band 7 First Contact Practitioner').replace(/<strong>Last checked: 11 November 2026<\/strong> against/g, "<strong>Official sources:</strong>").replace('It is available on prescription and also over-the-counter (in lower doses) at pharmacies.', 'Naproxen is prescribed for arthritis. Some UK pharmacy products have limited indications: Naprosyn Pain Relief 250 mg is for short-term muscle and joint pain in adults aged 18 to 50, for no more than 3 days; period-pain products have separate eligibility rules. Ask a pharmacist which product is suitable, and do not use a pharmacy product as ongoing arthritis treatment without medical advice.');
   const captured = correctedCapture && conditionAnswer
     ? correctedCapture.replace(/<p>[\s\S]*?<\/p>/, `<p>${escText(conditionAnswer)}</p>`) : correctedCapture;
   const exercisePage = EXERCISE_JOINT_BY_ROUTE.get(route);
@@ -403,16 +412,18 @@ function withRenderedBody(route, data) {
 // (src/data/hub-spotlight.json, also rendered by <HubSpotlight /> in React).
 const HUB_SPOTLIGHT = existsSync(resolve('src/data/hub-spotlight.json'))
   ? JSON.parse(readFileSync(resolve('src/data/hub-spotlight.json'), 'utf8')) : {};
+const RELATED_NAVIGATION = JSON.parse(readFileSync(resolve('src/data/relatedNavigationLinks.json'), 'utf8'));
 const READER_JOURNEY = existsSync(resolve('src/data/readerJourneyLinks.json'))
   ? JSON.parse(readFileSync(resolve('src/data/readerJourneyLinks.json'), 'utf8')) : {};
 function withIntentLinks(route, data) {
-  const rows = READER_JOURNEY[route];
+  const rows = RELATED_NAVIGATION[route] || READER_JOURNEY[route];
   if (!data || !Array.isArray(rows) || !rows.length) return data;
   return {
     ...data,
-    relatedLinks: rows
-      .filter((row) => row?.href && row?.title)
-      .map((row) => ({ path: row.href, title: row.title })),
+    relatedLinks: [...new Map([
+      ...(data.relatedLinks || []),
+      ...rows.filter((row) => row?.href && row?.title).map((row) => ({ path: row.href, title: row.title })),
+    ].map((row) => [row.path, row])).values()],
   };
 }
 function withHubSpotlight(route, data) {
@@ -430,6 +441,8 @@ const STATIC_RESOURCES = new Set([
   "/resources/knee-joint-map.html",
   "/resources/gp-appointment-symptom-medication-tracker.pdf",
   "/resources/flare-up-daily-log.pdf",
+  "/resources/chair-exercise-guide.pdf",
+  "/resources/joint-friendly-eating-checklist.pdf",
 ]);
 // Keep known sitemap pages and the explicit published resources; others become text.
 function unwrapUnknownLinks(html) {
@@ -480,6 +493,20 @@ function headDataFor(route, override) {
   if (route === "/guides/knee-exercises-for-osteoarthritis" && data) {
     const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
     return editorial;
+  }
+  if (route === "/services" && data) data = { ...data, description: "Arthritis information, educational resources and support services. Contact Living With Arthritis about suitability and current availability.", answer: "Explore arthritis information and support. Contact us to check which service is suitable and its current availability.", bodyHtml: String(data.bodyHtml || "").replace(/Every service is clinically reviewed, NICE-compliant and designed by our multidisciplinary team\. No waiting lists, no referrals, no cost\./g, "Explore our educational resources and support services. Contact us about suitability and current availability.") };
+  // A newly source-checked guide must not inherit older captured text, seed
+  // answers or clinical-review metadata. Use its generated data as the final
+  // authority for this pending revision, including FAQs and visible sources.
+  const pendingGuide = CHILD_HEAD_DATA[route] || (route.startsWith("/conditions/juvenile-arthritis/") ? CONDITION_HEAD_DATA[route] : undefined) || HUB_GUIDE_DATA[route];
+  if (pendingGuide?.reviewStatus === "pending" && data) {
+    const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
+    return { ...editorial, ...pendingGuide };
+  }
+  const safety = NICE_SAFETY[route];
+  if (safety && data) {
+    const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
+    return { ...editorial, ...safety };
   }
   return data;
 }
@@ -884,10 +911,11 @@ export function buildJsonLd(route, url, d) {
 }
 
 function enrichHead(html, route, url, override) {
+  // Strip the root-only trail even when a route has no curated metadata.
+  // Preserve a token boundary rather than joining surrounding HTML fragments.
+  let out = route === "/" ? html : html.replace(/<script\b[^>]*id=["']ld-home-breadcrumb["'][^>]*>[\s\S]*?<\/script>\s*/gi, "\n");
   const d = normalizeStaticMeta(headDataFor(route, override));
-  if (!d) return html;
-
-  let out = html;
+  if (!d) return out;
 
   if (d.title) {
     out = out.replace(/<title>[^<]*<\/title>/i, `<title>${escText(d.title)}</title>`);
@@ -996,7 +1024,21 @@ export function rewriteHead(html, route, dataOverride) {
   }
 
   // AI-visibility enrichment (title, description, JSON-LD) for curated routes.
-  out = enrichHead(out, route, url, dataOverride);
+  // This printable route needs the same table regions and scoped stylesheet
+  // before React loads, including when JavaScript is disabled.
+  let staticOverride = dataOverride;
+  if (route === "/resources/flare-action-plan" && headMeta?.bodyHtml) {
+    let tableNumber = 0;
+    const body = headMeta.bodyHtml.replace(/<table\b[^>]*>[\s\S]*?<\/table>/gi, (table) => {
+      tableNumber += 1;
+      const label = tableNumber === 1 ? "Scrollable data table" : `Scrollable data table ${tableNumber}`;
+      return `<div class="table-scroll" tabindex="0" role="region" aria-label="${label}">${table}</div>`;
+    });
+    staticOverride = { ...headMeta, bodyHtml: `<div class="flare-plan-static flare-plan-content prose prose-neutral max-w-none">${body}</div>` };
+    const css = readFileSync(resolve("src/pages/resources/FlareActionPlan.css"), "utf8");
+    out = out.replace(/<\/head>/i, `<style id="flare-plan-static-layout">${css}</style>\n</head>`);
+  }
+  out = enrichHead(out, route, url, staticOverride);
   return finalizeTechnicalHead(out, route, normalizeStaticMeta(headMeta), BASE);
 }
 

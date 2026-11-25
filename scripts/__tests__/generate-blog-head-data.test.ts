@@ -3,6 +3,7 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   buildPageTitle,
+  extractBlogFaqs,
   looksTruncatedMeta,
   pickHeadline,
   resolveOgImage,
@@ -58,5 +59,23 @@ describe("generate-blog-head-data catalog preference", () => {
     expect(src).toMatch(/Catalog is source of truth/);
     expect(src).toMatch(/readPublishedBlogPosts/);
     expect(src).not.toMatch(/blogArticles\.json/);
+  });
+});
+
+
+describe("complete build-side FAQ answers", () => {
+  it("keeps all authored PIP wording beyond 500 characters", () => {
+    const pip = JSON.parse(readFileSync(resolve("src/content/blog/posts/pip-for-arthritis-uk.json"), "utf8"));
+    const actual = extractBlogFaqs(pip.content);
+    expect(actual).toHaveLength(3);
+    expect(actual.map((faq: { a: string }) => faq.a.length)).toEqual([845, 1063, 699]);
+    const head = JSON.parse(readFileSync(resolve("scripts/blog-head-data.json"), "utf8"));
+    expect(head["/blog/pip-for-arthritis-uk"].faqs).toEqual(actual);
+  });
+
+  it("does not cut a long Markdown answer mid-word", () => {
+    const answer = "Complete authored sentence. ".repeat(30).trim();
+    const faqs = extractBlogFaqs("## Does this preserve the whole answer?\n\n" + answer + "\n\n## Next section\nOther text.");
+    expect(faqs).toEqual([{ q: "Does this preserve the whole answer?", a: answer }]);
   });
 });

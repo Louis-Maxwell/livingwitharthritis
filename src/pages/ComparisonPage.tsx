@@ -1,4 +1,5 @@
-﻿import { Helmet } from "react-helmet-async";
+import SupplementSafetyGuide from "@/components/seo/SupplementSafetyGuide";
+import { Helmet } from "react-helmet-async";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Link, useLocation, Navigate } from "react-router-dom";
 import { Suspense, useMemo } from "react";
@@ -9,6 +10,7 @@ import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
 import { getComparisonArticle, COMPARISON_META_DESCRIPTIONS } from "@/data/comparison-content";
 import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
+import relatedComparisons from "@/data/relatedNavigationLinks.json";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
@@ -42,7 +44,7 @@ function parseComparison(slug: string): { a: string; b: string; context?: string
  * Uses long-form COMPARISON_CONTENT when available, with a lightweight
  * fallback for slugs not yet fleshed out.
  */
-export default function ComparisonPage() {
+function StandardComparisonPage() {
   const location = useLocation();
   const path = location.pathname;
   const slug = path.replace(/^\/guides\//, "");
@@ -53,6 +55,9 @@ export default function ComparisonPage() {
   }
 
   const article = getComparisonArticle(path);
+  const revisionDate = article?.editorialUpdatedAt ?? LAST_REVIEWED_ISO;
+  const revisionLabel = new Date(revisionDate).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  const isEditorialUpdate = Boolean(article?.editorialUpdatedAt);
   const a = article?.optionA.name ?? prettify(parsed.a);
   const b = article?.optionB.name ?? prettify(parsed.b);
   const context = parsed.context ? prettify(parsed.context) : undefined;
@@ -62,7 +67,8 @@ export default function ComparisonPage() {
     COMPARISON_META_DESCRIPTIONS[path] ??
     `${title}: an evidence-informed side-by-side comparison for UK arthritis patients, covering effectiveness, safety and cost.`;
 
-  const others = COMPARISON_ROUTES.filter((r) => r !== path).slice(0, 6);
+  const relatedByPath = relatedComparisons as Record<string, { href: string; title: string }[]>;
+  const others = relatedByPath[path] ?? COMPARISON_ROUTES.filter((r) => r !== path).slice(0, 6).map((href) => ({ href, title: getComparisonArticle(href)?.title ?? prettify(href.replace(/^\/guides\//, "")) }));
 
   const canonicalUrl = `https://livingwitharthritis.org.uk${path}`;
   const medicalWebPageLd = {
@@ -79,16 +85,16 @@ export default function ComparisonPage() {
     ],
     audience: { "@type": "MedicalAudience", audienceType: "Patient", geographicArea: { "@type": "Country", name: "United Kingdom" } },
     publisher: { "@type": "MedicalOrganization", name: "Living With Arthritis" },
-    dateModified: LAST_REVIEWED_ISO,
+    dateModified: revisionDate,
   };
 
   const fullTitle = enforceTitle(`${title} — Compared`, { route: path });
   const safeDesc = enforceDescription(metaDescription, path);
-  const aeoQuestion = path === "/guides/dmards-vs-biologics"
+  const aeoQuestion = article?.question ?? (path === "/guides/dmards-vs-biologics"
     ? "How do DMARDs and biologics differ for rheumatoid arthritis?"
-    : `How do ${a} and ${b} compare${context ? ` for ${context.toLowerCase()}` : ""}?`;
-  const aeoAnswer = article?.intro ?? metaDescription;
-  const aeoFaqs = article?.takeaways?.slice(0, 4).map((t, i) => ({
+    : `How do ${a} and ${b} compare${context ? ` for ${context.toLowerCase()}` : ""}?`);
+  const aeoAnswer = article?.answer ?? article?.intro ?? metaDescription;
+  const aeoFaqs = article?.faqs ?? article?.takeaways?.slice(0, 4).map((t, i) => ({
     q: `Key point ${i + 1}: ${a} vs ${b}`,
     a: t,
   }));
@@ -130,13 +136,14 @@ export default function ComparisonPage() {
             question={aeoQuestion}
             answer={aeoAnswer}
             faqs={aeoFaqs}
-            updatedAt={LAST_REVIEWED_ISO}
+            updatedAt={revisionDate}
           />
           <p className="text-xs text-muted-foreground mb-4">
-            Last reviewed{" "}
-            <time dateTime={LAST_REVIEWED_ISO} className="font-medium text-foreground/80">
-              {LAST_REVIEWED_LABEL}
+            {isEditorialUpdate ? "Editorial update " : "Last reviewed "}
+            <time dateTime={revisionDate} className="font-medium text-foreground/80">
+              {isEditorialUpdate ? revisionLabel : LAST_REVIEWED_LABEL}
             </time>
+            {isEditorialUpdate && ". Earlier review dates do not attest to this revision."}
           </p>
           <p className="text-lg text-muted-foreground mb-10">
             {article?.intro ??
@@ -156,10 +163,10 @@ export default function ComparisonPage() {
                 {"howItWorks" in opt ? (
                   <ul className="text-sm space-y-2">
                     <li><strong>How it works:</strong> {opt.howItWorks}</li>
-                    <li><strong>Best for:</strong> {opt.bestFor}</li>
-                    <li><strong>Common side-effects:</strong> {opt.sideEffects}</li>
-                    <li><strong>UK healthcare availability:</strong> {opt.nhs}</li>
-                    <li><strong>Typical UK cost:</strong> {opt.cost}</li>
+                    <li><strong>{isEditorialUpdate ? "Who might choose it:" : "Best for:"}</strong> {opt.bestFor}</li>
+                    <li><strong>{isEditorialUpdate ? "Things to consider:" : "Common side-effects:"}</strong> {opt.sideEffects}</li>
+                    <li><strong>{isEditorialUpdate ? "UK guidance:" : "UK healthcare availability:"}</strong> {opt.nhs}</li>
+                    <li><strong>{isEditorialUpdate ? "Cost:" : "Typical UK cost:"}</strong> {opt.cost}</li>
                   </ul>
                 ) : (
                   <p className="text-sm text-muted-foreground">
@@ -225,21 +232,13 @@ export default function ComparisonPage() {
           <section className="rounded-2xl border border-border p-6 bg-secondary/40 mb-12">
             <h2 className="text-lg font-bold mb-2">Talk to your clinician</h2>
             <p className="text-sm text-muted-foreground">
-              This is general information, not medical advice. Discuss {a} and {b} with
-              your GP, rheumatology team or pharmacist before starting, stopping or
-              switching treatment.
+              {article?.disclaimer ?? <>This is general information, not medical advice. Discuss {a} and {b} with your GP, rheumatology team or pharmacist before starting, stopping or switching treatment.</>}
             </p>
           </section>
 
           <h2 className="text-xl font-bold mb-4">Other comparisons</h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {others.map((r) => {
-              const p = parseComparison(r.replace(/^\/guides\//, ""));
-              const label = p
-                ? p.context
-                  ? `${prettify(p.a)} vs ${prettify(p.b)} for ${prettify(p.context)}`
-                  : `${prettify(p.a)} vs ${prettify(p.b)}`
-                : r;
+            {others.map(({ href: r, title: label }) => {
               return (
                 <li key={r}>
                   <Link
@@ -260,4 +259,11 @@ export default function ComparisonPage() {
       </Suspense>
     </>
   );
+}
+
+export default function ComparisonPage() {
+  const { pathname } = useLocation();
+  if (pathname === "/guides/collagen-vs-glucosamine") return <SupplementSafetyGuide slug="collagen-vs-glucosamine" />;
+  if (pathname === "/guides/glucosamine-vs-turmeric-arthritis") return <SupplementSafetyGuide slug="glucosamine-vs-turmeric-arthritis" />;
+  return <StandardComparisonPage />;
 }
