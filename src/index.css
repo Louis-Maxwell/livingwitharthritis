@@ -1953,3 +1953,8 @@ details[open] > :not(summary) {
 .blog-prose a.pip-knees-source-link {
   color: inherit;
 }
+
+/* Keep reviewed weather article body links within the brand text palette. */
+.blog-prose a.weather-source-link {
+  color: inherit;
+}
