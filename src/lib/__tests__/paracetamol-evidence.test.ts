@@ -19,7 +19,7 @@ describe('paracetamol evidence and UK safety',()=>{
  it('keeps strength, duplication and UK urgent routes',()=>{
   expect(post.content).toContain('1 g tablet');expect(post.content).toContain('less than 50 kg');
   expect(post.content).toContain('Co-codamol contains paracetamol');
-  expect(post.content).toContain('GP out-of-hours service');expect(post.content).toContain('Call 999');
+  expect(post.content).toContain('GP out-of-hours service');expect(post.content).toContain('Call 999');expect(post.content).toContain('if you have no symptoms and appear well');expect(post.content).toContain('If you cannot get advice quickly');expect(post.content).toContain('vomiting, drowsiness, loss of consciousness or seizures');
   expect(post.content).toContain('not everyone has a fever');
  });
  it('injects source safety and pending-review copy into crawler HTML',()=>{
