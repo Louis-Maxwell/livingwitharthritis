@@ -1,3 +1,4 @@
+import keyword25 from "@/data/libraryKeyword25.json";
 import { correctLibraryCopy } from "@/data/libraryCopyCorrections";
 import { LIBRARY_ANSWER_CAPSULES } from "@/data/libraryAnswerCapsules";
 import { useEffect, useMemo, type ReactNode } from "react";
@@ -104,6 +105,7 @@ const LibraryTopic = () => {
     topic.subtitle ||
     `${topic.title} — plain-English information from Living With Arthritis.`;
   const heading = seo?.h1 ?? topic.title;
+  const revision = keyword25[topic.slug as keyof typeof keyword25];
 
   return (
     <>
@@ -142,10 +144,11 @@ const LibraryTopic = () => {
             </p>
           )}
 
+          {revision && <p className="mb-8 text-sm">Editorial update: 25 November 2026. The title and opening summary were updated against NHS and NICE sources. This revision is awaiting separate clinical review; older review dates do not attest to it.</p>}
           <div className="space-y-10">
             {topic.sections.map((section, i) => (
               <section key={i} aria-labelledby={`library-section-${i}`}>
-                <h2 id={`library-section-${i}`} className="font-serif text-2xl font-semibold text-primary mb-4">
+                <h2 id={`library-section-${i}`} className={`font-serif text-2xl font-semibold ${revision ? "text-foreground" : "text-primary"} mb-4`}>
                   {section.heading}
                 </h2>
                 {section.body &&
@@ -210,6 +213,7 @@ const LibraryTopic = () => {
             </section>
           )}
 
+          {revision && <section className="mt-10"><h2 className="text-2xl font-semibold mb-4">Sources for this update</h2><ul className="list-disc pl-6">{revision.sources.map(source => <li key={source.url}><a className="underline text-foreground" href={source.url}>{source.name}</a></li>)}</ul></section>}
           {topic.disclaimer && (
             <aside className="mt-12 p-5 rounded-xl border border-primary/20 bg-primary/5 flex gap-3 text-sm">
               <AlertTriangle
