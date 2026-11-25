@@ -17,7 +17,7 @@ describe("benefits editorial quality batch two", () => {
       expect(post.reviewer_credentials).toBeNull();
       expect(post.last_reviewed).toBeUndefined();
       expect(post.editorial_review_note).toContain("has not had a fresh independent benefits or legal review");
-      expect(post.content).toContain("17 November 2026");
+      expect(post.content).toContain(slug === "pip-osteoarthritis-both-knees" ? "25 November 2026" : "17 November 2026");
       expect(post.citations.some((c: { url: string }) => c.url.includes("assessment-criteria"))).toBe(true);
       expect(post.content).toContain("better and worse days");
       expect(post.content).toContain("by phone, letter or the official form");
