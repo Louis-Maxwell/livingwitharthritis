@@ -1,4 +1,5 @@
 import {describe,it,expect} from 'vitest';
+import {splitHtmlAfterFirstSection,splitHtmlAtMiddleH2} from '../splitHtmlAtMiddleH2';
 import post from '@/content/blog/posts/assistive-devices-arthritis-uk.json';
 import {headDataFor,rewriteHead} from '../../../scripts/inject-canonicals.mjs';
 describe('assistive devices evidence and access',()=>{
@@ -18,6 +19,15 @@ describe('assistive devices evidence and access',()=>{
   expect(post.reviewed_by).toBeNull();
   expect(post.editorial_review_note).toContain('not yet had a fresh clinical review');
   expect(post.content).toContain('Go to A&amp;E or call 999');
+ });
+ it('keeps safe boundaries for mid-article modules',()=>{
+  const initial=splitHtmlAfterFirstSection(post.content);
+  expect(initial.second).toMatch(/^<h2/);
+  const middle=splitHtmlAtMiddleH2(initial.second);
+  expect(middle.first).not.toBe('');
+  expect(middle.second).toMatch(/^<h2/);
+  expect(post.content).not.toContain('assistive-equipment-guide');
+  expect(post.content).toContain('class="assistive-equipment-link"');
  });
  it('preserves the corrected article in final static output',()=>{
   const route='/blog/assistive-devices-arthritis-uk';
