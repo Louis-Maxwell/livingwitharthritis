@@ -31,7 +31,7 @@ describe('paracetamol substantive source revision', () => {
     expect(p.content).toContain('18 November 2026');
   });
   it('separates OA evidence and NICE exceptional use from rheumatoid disease treatment', () => {
-    expect(p.citations).toHaveLength(7);
+    expect(p.citations).toHaveLength(10);
     expect(p.content).toContain('overall adverse events were similar to placebo');
     expect(p.content).toContain('only one at a time and no more than four in 24 hours');
     expect(p.content).toContain('10 trials with 3,541');
@@ -42,7 +42,7 @@ describe('paracetamol substantive source revision', () => {
     expect(p.content).not.toContain('1000 mg/day');
   });
   it('prioritises overdose and sudden swollen-joint help over waiting', () => {
-    expect(p.content).toContain('Get help from NHS 111 if you have taken more paracetamol than the packet or leaflet says');
+    expect(p.content).toContain('Get urgent medical advice now if you have taken more paracetamol than the packet or leaflet says');
     expect(p.content).toContain('Do not wait for symptoms');
     expect(p.content).toContain('not everyone has a fever');
     expect(p.content).toContain('Do not wait a week');
