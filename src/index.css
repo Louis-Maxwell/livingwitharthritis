@@ -1948,3 +1948,8 @@ details[open] > :not(summary) {
 .blog-prose a.assistive-equipment-link {
   color: inherit;
 }
+
+/* Scope no-red body links to the reviewed knee osteoarthritis PIP guide. */
+.blog-prose a.pip-knees-source-link {
+  color: inherit;
+}
