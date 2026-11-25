@@ -235,7 +235,7 @@ const Pedometer = () => {
               )}
 
               {isTracking && (
-                <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20 animate-pulse">
+                <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
                   ● Tracking active — keep your phone in your pocket
                 </Badge>
               )}

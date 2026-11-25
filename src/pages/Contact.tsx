@@ -14,9 +14,9 @@ const Contact = () => (
   <>
     <Helmet>
       <title>Contact Us | Living With Arthritis</title>
-      <meta name="description" content="Contact Living With Arthritis: Get in touch with our team. WhatsApp, email & helpline support for arthritis questions & guidance." />
+      <meta name="description" content="Contact Living With Arthritis by email, phone or WhatsApp. Prepare an email draft to review and send from your own email app." />
       <meta property="og:title" content="Contact Us | Living With Arthritis" />
-      <meta property="og:description" content="Contact Living With Arthritis: Get in touch with our team. WhatsApp, email & helpline support for arthritis questions & guidance." />
+      <meta property="og:description" content="Contact Living With Arthritis by email, phone or WhatsApp. Prepare an email draft to review and send from your own email app." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/contact" />
       <meta property="og:site_name" content="Living With Arthritis" />
@@ -27,7 +27,7 @@ const Contact = () => (
         <meta property="og:image:alt" content="Contact Us | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Contact Us | Living With Arthritis" />
-      <meta name="twitter:description" content="Contact Living With Arthritis: Get in touch with our team. WhatsApp, email & helpline support for arthritis questions & guidance." />
+      <meta name="twitter:description" content="Contact Living With Arthritis by email, phone or WhatsApp. Prepare an email draft to review and send from your own email app." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
@@ -49,13 +49,7 @@ const Contact = () => (
             "email": "info@livingwitharthritis.org.uk",
             "telephone": "+44-7760-512-084",
             "availableLanguage": ["English", "en-GB"],
-            "areaServed": "GB",
-            "hoursAvailable": {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-              "opens": "09:00",
-              "closes": "17:00"
-            }
+            "areaServed": "GB"
           }]
         }
       })}</script>
@@ -67,7 +61,7 @@ const Contact = () => (
       <PageHero
         badge="Contact"
         title="Contact Living With Arthritis"
-        subtitle="Living with pain is hard enough — you should not have to shout into the void. Email, phone or message us; a real person in the UK will reply within two working days."
+        subtitle="Choose a contact option below or prepare an email draft to review and send from your own email app."
       />
       <Suspense fallback={<SkeletonSection />}>
         <ContactSection />

@@ -1,27 +1,45 @@
 #!/usr/bin/env node
 /**
- * Generates public/llms-full.txt from two already-reviewed sources:
- *  1. scripts/ai-head-data.json — condition/guide/city/glossary/pet pages
- *     (238 routes), the same data used for on-page schema injection.
- *  2. scripts/blog-head-data.json — each article's existing `direct_answer`
- *     or `excerpt` from the checked-in snapshot.
- *
- * This does NOT invent new content — every line here already exists,
- * reviewed, on a live page. It just re-exports it in the plain-text Q&A
- * format AI assistants read from /llms-full.txt, closing the gap where
- * ~230 blog articles previously had zero presence in this file.
- *
- * Run manually: node scripts/generate-llms-full.mjs
- * Wired into predev/prebuild alongside the sitemap generator.
+ * Generate the AI answer digest from established answers plus the checked
+ * priority summaries used by initial HTML and the existing blog snapshot. No new answers,
+ * review dates or clinical claims are authored by this generator.
+ * Run: node scripts/generate-llms-full.mjs (also runs during prebuild).
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { pathToFileURL } from "node:url";
+import { resolveInternalHref, isRedirectedPath } from "./lib/internal-href.mjs";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
-const headData = JSON.parse(
-  readFileSync(resolve("scripts/ai-head-data.json"), "utf8"),
-);
+const routeInventory = JSON.parse(readFileSync(resolve("scripts/ai-head-data.json"), "utf8"));
+const priorityAnswers = JSON.parse(readFileSync(resolve('src/data/priority-direct-answers.json'), 'utf8'));
+// Preserve established answers outside the checked source-based priority layer.
+// Current route metadata supplies sources and review status, not permission to
+// replace a cautious feed answer with stronger old on-page copy.
+export function currentFeedEntries(paths = Object.keys(routeInventory)) {
+  return Object.fromEntries([...new Set(paths.map(resolveInternalHref))]
+    .filter((route) => !isExcludedRoute(route) && !isRedirectedPath(route))
+    .map((route) => {
+      const existing = routeInventory[route];
+      if (!existing || existing.noindex) return [route, null];
+      const priority = priorityAnswers[route];
+      // Do not infer clinical review from older metadata. The five checked
+      // summaries carry the same explicit pending-review note as the page.
+      const aligned = { ...existing, reviewedBy: undefined, lastReviewed: undefined,
+        ...(priority ? {
+          question: priority.question,
+          answer: priority.answer,
+          summaryReviewNote: "Source-based educational summary. This updated summary is awaiting a separate clinical review.",
+          sources: [...new Map([...(existing.sources || []), ...(priority.sources || [])]
+            .filter((source) => source.url).map((source) => [source.url, source])).values()],
+        } : {}),
+      };
+      return [route, aligned];
+    })
+    .filter(([, entry]) => entry?.answer));
+}
+const headData = currentFeedEntries();
 
 // City doorway pages (/arthritis-support/{city} and city x condition grids)
 // and pet-arthritis pages are templated, near-duplicate content. They are
@@ -33,14 +51,18 @@ function isExcludedRoute(route) {
   return false;
 }
 
-function buildHeadDataSections() {
-  const routes = Object.keys(headData).filter((r) => !isExcludedRoute(r)).sort();
+export function buildHeadDataSections(data = headData) {
+  const routes = Object.keys(data).filter((r) => !isExcludedRoute(r)).sort();
   return routes.map((route) => {
-    const entry = headData[route];
+    const entry = data[route];
     const lines = [
       `## ${entry.title ?? entry.about ?? route}`,
       `URL: ${BASE}${route}`,
       ...(entry.updatedAt ? [`Last updated: ${entry.updatedAt}`] : []),
+      ...(entry.reviewedBy && entry.lastReviewed
+        ? [`Clinical review: ${entry.reviewedBy}; last reviewed ${entry.lastReviewed}.`]
+        : ["Clinical review: check the status displayed on the source page."]),
+      ...(entry.summaryReviewNote ? [`Review note: ${entry.summaryReviewNote}`] : []),
     ];
     const seenQuestions = new Set();
     const addQA = (q, a) => {
@@ -51,8 +73,39 @@ function buildHeadDataSections() {
     };
     addQA(entry.question, entry.answer);
     for (const f of entry.faqs ?? []) addQA(f.q, f.a);
+    for (const source of entry.sources ?? []) {
+      if (/^https:\/\//.test(source.url || "")) lines.push(`Reference: ${source.name || source.label || source.url} — ${source.url}`);
+    }
     return lines.join("\n");
   });
+}
+
+// Core guidance digest: the four topics people ask about most (diet evidence,
+// exercise, flare steps, PIP), drawn verbatim from each guide's own head data
+// (direct answer + key takeaways + sources) with the canonical link.
+const CORE_DIGEST = [
+  ["Diet and arthritis: what the evidence says", "/guides/diet"],
+  ["Exercise for arthritis", "/exercises"],
+  ["Knee osteoarthritis exercises", "/guides/knee-exercises-for-osteoarthritis"],
+  ["What to do in an arthritis flare-up", "/arthritis-flare-ups"],
+  ["Claiming PIP with arthritis", "/guides/benefits-pip"],
+];
+
+export function buildCoreDigest(data = headData) {
+  const parts = ["## Core guidance digest", "",
+    "Plain-English summaries of our core guidance, taken from each guide. Cite the canonical URL shown."];
+  for (const [heading, route] of CORE_DIGEST) {
+    const e = data[route];
+    if (!e?.answer) continue;
+    parts.push("", `### ${heading}`, `Canonical: ${BASE}${route}`);
+    if (e.reviewedBy && e.lastReviewed) parts.push(`Clinically reviewed by ${e.reviewedBy}${e.reviewerCredentials ? `, ${e.reviewerCredentials}` : ""}${e.lastReviewed ? ` (last reviewed ${e.lastReviewed})` : ""}.`);
+    parts.push("", e.answer);
+    const tk = Array.isArray(e.keyTakeaways) ? e.keyTakeaways : [];
+    if (tk.length) parts.push("", "> [!TIP]", ...tk.map((t) => `> - ${t}`));
+    const src = (e.sources || []).filter((x) => /^https?:\/\//.test(x.url));
+    if (src.length) parts.push("", `Sources: ${src.map((x) => `[${x.name || x.label}](${x.url})`).join("; ")}`);
+  }
+  return parts.join("\n");
 }
 
 function readLocalBlogArticles() {
@@ -74,6 +127,7 @@ function readLocalBlogArticles() {
       reviewer_credentials: a.reviewer_credentials,
       last_reviewed: a.last_reviewed,
       citations: a.citations,
+      key_takeaways: a.key_takeaways,
     }));
 }
 
@@ -101,6 +155,7 @@ function buildBlogSections(rows) {
               ...(r.last_reviewed ? [`Last clinically reviewed: ${r.last_reviewed}`] : [])] : ['Clinical review: no named reviewer recorded.']),
         `Q: ${r.title ?? r.slug}`,
         `A: ${answer}`,
+        ...((Array.isArray(r.key_takeaways) ? r.key_takeaways : []).map((t) => `> [!NOTE]\n> ${t}`)),
         ...((r.citations || []).map((c) => `Reference: ${c.label} — ${c.url}`)),
       ];
       return lines.join("\n");
@@ -144,7 +199,19 @@ async function main() {
     }
   }
 
-  const allSections = [...headDataSections, ...finalBlogSections];
+  // Reuse the hand-reviewed structured summary from llms.txt (mission,
+  // condition hubs, rehabilitation, welfare) so both files say the same thing.
+  let glance = "";
+  try {
+    const llms = readFileSync(resolve("public/llms.txt"), "utf8");
+    const m = llms.match(/## At a glance[\s\S]*?(?=\n## (?!#))/);
+    if (m) glance = m[0].trim();
+  } catch {
+    glance = "";
+  }
+
+  const digest = buildCoreDigest();
+  const allSections = [...(glance ? [glance] : []), digest, ...headDataSections, ...finalBlogSections];
   const output = [header, "", allSections.join("\n\n"), ""].join("\n");
 
   writeFileSync(resolve("public/llms-full.txt"), output);
@@ -153,4 +220,4 @@ async function main() {
   );
 }
 
-main();
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) main();

@@ -1,3 +1,4 @@
+import { captureInstallPrompt } from './lib/installPrompt';
 import React from "react"; // v18
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
@@ -14,6 +15,7 @@ import "./index.css";
 installErrorReporting();
 installImageFallback();
 installChunkRecovery();
+captureInstallPrompt();
 installAutoEvents();
 removeStaleServiceWorkers();
 
@@ -25,7 +27,7 @@ afterPageLoad(() => {
 
 
 const AppCrashFallback = (
-  <div className="min-h-screen flex items-center justify-center bg-background p-6">
+  <div className="min-h-dvh flex items-center justify-center bg-background p-6">
     <div className="text-center max-w-md space-y-4">
       <h1 className="font-display text-2xl font-bold text-foreground">
         Something went wrong

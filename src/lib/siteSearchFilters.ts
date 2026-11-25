@@ -63,7 +63,11 @@ const TOPIC_ALIASES: Record<string, SearchTopic> = {
 export function normalizeTopic(raw: string | undefined | null): SearchTopic {
   if (!raw) return "All";
   const key = raw.trim().toLowerCase();
-  return TOPIC_ALIASES[key] ?? (raw as SearchTopic);
+  return TOPIC_ALIASES[key] ?? "All";
+}
+
+export function normalizeWordCount(raw: string | undefined | null): WordCountBucket {
+  return raw === "under1000" || raw === "over1000" ? raw : "any";
 }
 
 export function mapBlogCategoryToTopic(category: string | null | undefined): SearchTopic {

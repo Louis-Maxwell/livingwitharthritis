@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { resolveSeoRedirect } from "@/lib/seoRedirects";
 import { subpageSlugs, subpageLabel, conditionSubpages } from "@/data/conditionSubpages";
 
 interface Props {
@@ -26,7 +27,7 @@ export default function ConditionSubpageLinks({ conditionSlug, conditionName }: 
         {subpageSlugs.map((s) => (
           <Link
             key={s}
-            to={`/conditions/${conditionSlug}/${s}`}
+            to={resolveSeoRedirect(`/conditions/${conditionSlug}/${s}`) ?? `/conditions/${conditionSlug}/${s}`}
             className="block p-4 rounded-xl border border-border hover:border-primary hover:bg-accent transition-colors"
           >
             <span className="block font-semibold text-foreground">{subpageLabel[s]}</span>

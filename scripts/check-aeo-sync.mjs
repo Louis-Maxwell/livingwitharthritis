@@ -10,10 +10,14 @@
  * hand-curated runtime subset (28 routes: question/answer/faqs/reviewer/
  * updatedAt) — deliberately NOT merged into one file, since importing the
  * full 365KB dataset into the client bundle would bloat every page that
- * renders <AeoEnhancement>. Instead, this check ensures every route
- * page-aeo.ts DOES cover stays byte-for-byte aligned with
- * ai-head-data.json's question/answer/faqs for that same route, so the
- * two can't silently disagree about what a page says.
+ * renders <AeoEnhancement>.
+ *
+ * At build time scripts/inject-canonicals.mjs layers page-aeo.ts over
+ * ai-head-data.json for question/answer (and faqs when page-aeo has them),
+ * so the static crawler head always matches the visible runtime block.
+ * This check therefore asserts build coverage — every page-aeo.ts route
+ * must exist in ai-head-data.json — rather than raw field equality, which
+ * the layering makes unnecessary.
  *
  * Run manually: node scripts/check-aeo-sync.mjs
  */
@@ -36,39 +40,27 @@ for (const [route, page] of Object.entries(PAGE_AEO)) {
     mismatches.push(`${route}: present in page-aeo.ts but missing from ai-head-data.json`);
     continue;
   }
-  if (page.question !== build.question) {
-    mismatches.push(`${route}: question differs`);
-  }
-  if (page.answer !== build.answer) {
-    mismatches.push(`${route}: answer differs`);
-  }
-  const pageFaqs = page.faqs ?? [];
-  const buildFaqs = build.faqs ?? [];
-  if (pageFaqs.length !== buildFaqs.length) {
-    mismatches.push(
-      `${route}: faq count differs (page-aeo.ts=${pageFaqs.length}, ai-head-data.json=${buildFaqs.length})`,
-    );
-  } else {
-    pageFaqs.forEach((f, i) => {
-      const b = buildFaqs[i];
-      if (f.q !== b?.q || f.a !== b?.a) {
-        mismatches.push(`${route}: faq #${i + 1} text differs`);
-      }
-    });
-  }
+  // scripts/inject-canonicals.mjs layers page-aeo.ts over ai-head-data.json
+  // for question/answer (and faqs when page-aeo has them), so the effective
+  // static head always matches the visible runtime block on those fields.
+  // Raw differences between the two files are expected there and no longer
+  // fail this check. What still must hold: the route exists in the
+  // build-time data (checked above), so its static head is enriched at all.
+  // Routes with no faqs on either side are fine: a page without visible
+  // FAQs must not carry FAQPage schema.
 }
 
 if (mismatches.length) {
   console.error(`[aeo-sync] ${mismatches.length} mismatch(es) found:`);
   for (const m of mismatches) console.error(`  - ${m}`);
   console.error(
-    "\nFix: update whichever file is stale so both agree, or remove the " +
-      "route from page-aeo.ts if it's no longer meant to have a runtime " +
-      "AeoEnhancement block.",
+    "\nFix: add the route to ai-head-data.json, restore its build-side faqs, " +
+      "or remove the route from page-aeo.ts if it's no longer meant to have a " +
+      "runtime AeoEnhancement block.",
   );
   process.exit(1);
 }
 
 console.log(
-  `[aeo-sync] OK — all ${Object.keys(PAGE_AEO).length} page-aeo.ts routes match ai-head-data.json.`,
+  `[aeo-sync] OK - all ${Object.keys(PAGE_AEO).length} page-aeo.ts routes are covered by the build head (page-aeo fields layered on top at build time).`,
 );

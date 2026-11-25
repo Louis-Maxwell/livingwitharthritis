@@ -13,6 +13,7 @@ export default function RouteFocus() {
   useEffect(() => {
     // React owns route schema after mounting; stale build-time page entities
     // must not remain in the head after SPA navigation.
+    if (pathname !== "/") document.getElementById("ld-home-breadcrumb")?.remove();
     document.querySelectorAll('script[data-static-route-schema]').forEach((node) => node.remove());
     if (initialRender.current) {
       initialRender.current = false;

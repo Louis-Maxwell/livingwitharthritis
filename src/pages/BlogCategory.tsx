@@ -1,4 +1,5 @@
 import { useParams, Navigate } from "react-router-dom";
+import NotFound from "./NotFound";
 import { Helmet } from "react-helmet-async";
 import BlogIndex from "./BlogIndex";
 import SeoHead from "@/components/SeoHead";
@@ -31,7 +32,7 @@ const BlogCategory = () => {
 
   if (!category || !canonicalKey) {
     const legacy = LEGACY_BLOG_CATEGORY_KEYS[key];
-    return <Navigate to={legacy ? `/blog/category/${legacy}` : "/blog"} replace />;
+    return legacy ? <Navigate to={`/blog/category/${legacy}`} replace /> : <NotFound />;
   }
 
   const meta = CATEGORY_META[canonicalKey];

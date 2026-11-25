@@ -1,11 +1,8 @@
 ﻿/**
  * Route stubs for navigation destinations that don't yet have full
  * editorial pages. Each export is a thin wrapper around `StubPage` so the
- * URL is indexable (AnswerBox + FAQ + Breadcrumb JSON-LD + MedicalReviewBadge)
- * instead of a 404 while we expand the content.
- *
- * Adding a new stub: add a new exported component below, then register
- * the route in `src/App.tsx` and append the URL to `public/sitemap.xml`.
+ * URL remains useful to visitors while editorial work is in progress.
+ * StubPage enforces noindex; do not add a stub URL to any sitemap.
  */
 import StubPage, { type StubPageFAQ } from "@/components/StubPage";
 import HubGuidePage from "@/components/HubGuidePage";
@@ -115,14 +112,45 @@ export const ConnectGroupsStub = () => (
     slug="community/connect-groups"
     title="Connect Groups: UK Arthritis Peer Support Communities"
     description="Free, volunteer-led peer support groups for people with arthritis across the UK — meet online or in person, by condition, life stage or location."
-    answer="Connect groups are free, facilitated peer communities for people living with arthritis. They meet online or in person, organised by condition (OA, RA, gout, lupus) or life stage (young adults, parents, retirees). Every group is moderated, and joining is free."
+    answer="Connect groups are free, facilitated peer communities for people living with arthritis. They meet online or in person, organised by condition (OA, RA, gout, lupus) or life stage (young adults, parents, retirees). Every group is moderated, and joining is free. The former buddy programme now points here."
     breadcrumbs={[home, communityCrumb, { label: "Connect Groups", href: "/community/connect-groups" }]}
     faqs={CONNECT_GROUPS_FAQS}
+    intro={
+      <>
+        <section aria-labelledby="connect-enquiry-heading" className="mb-8 rounded-xl border border-primary/20 bg-primary/5 p-5 sm:p-6">
+          <h2 id="connect-enquiry-heading" className="text-xl font-semibold text-foreground">Ask about a group</h2>
+          <p className="mt-3">Tell us whether you are looking for online or in-person peer support, and your area if relevant. You do not need to share your medical history to ask.</p>
+          <a href="/contact" className="mt-4 inline-flex min-h-11 items-center justify-center rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">Ask about Connect Groups</a>
+          <p className="mt-3 text-sm text-muted-foreground">This is an enquiry, not a group booking or confirmation of a place. The contact form opens a draft in your email app. Check it and press Send there.</p>
+        </section>
+        <p>
+          Peer support helps when medical appointments are short and friends or family do not fully understand flares, pacing or treatment side effects.
+          Our connect groups give you a regular, moderated space to share what is working, ask practical questions and feel less isolated — online or in person.
+        </p>
+        <p>
+          Groups are organised by condition and by life stage, so you can join an osteoarthritis or rheumatoid arthritis circle and also a young-adult or carer group if that fits.
+          Facilitators are trained volunteers; they do not give medical advice, and they will signpost to clinical or helpline support when needed.
+        </p>
+        <h2 className="text-xl font-semibold text-foreground mt-8 mb-3">Looking for a buddy?</h2>
+        <p>
+          One-to-one buddy matching has moved into connect groups so support stays moderated and sustainable.
+          Bookmarks to <code>/buddy</code> redirect here. Join a small group first; facilitators can help you find a regular peer contact within that community.
+        </p>
+        <p className="mt-4">
+          Alongside groups, explore <a href="/guides/exercise" className="text-primary underline">exercise guides</a>,{" "}
+          <a href="/guides/diet" className="text-primary underline">diet guidance</a>,{" "}
+          <a href="/advocacy" className="text-primary underline">patient advocacy</a>, and the{" "}
+          <a href="/helpline" className="text-primary underline">helpline</a> if you need a quieter conversation.
+        </p>
+      </>
+    }
     relatedLinks={[
       { label: "Community hub", href: "/community" },
-      { label: "Buddy programme", href: "/buddy" },
+      { label: "Patient advocacy", href: "/advocacy" },
       { label: "Patient stories", href: "/stories" },
       { label: "Helpline & support", href: "/helpline" },
+      { label: "Exercise hub", href: "/guides/exercise" },
+      { label: "Diet hub", href: "/guides/diet" },
     ]}
   />
 );
@@ -180,11 +208,11 @@ export const PodcastsStub = () => (
 );
 
 const HELPLINE_FAQS: StubPageFAQ[] = [
-  { q: "How do I contact the helpline?", a: "Email info@livingwitharthritis.org.uk, call 07760 512 084 (Mon–Fri, 9am–5pm), or message us on WhatsApp. A real person — not a chatbot — responds within 2 working days." },
-  { q: "What can the helpline help with?", a: "Signposting to UK services, understanding your diagnosis, questions about medications, support during a flare, accessing benefits and equipment, and general emotional support. We don't replace your clinical team but help you navigate the system." },
+  { q: "How do I contact the helpline?", a: "Call 07760 512 084 (weekdays) and you'll speak to a real person, not a chatbot." },
+  { q: "What can the helpline help with?", a: "Individual advice about your diagnosis and benefits, and help finding information on this website. We don't advise on medicines — your GP or pharmacist is the right contact — and we don't replace your clinical team." },
   { q: "Is the helpline confidential?", a: "Yes. Conversations are private and only shared if there's a safeguarding concern. We don't share your contact details with third parties." },
-  { q: "Can you give me medical advice?", a: "No — we can't diagnose, prescribe or recommend specific treatments. We can explain what your clinician has told you, suggest questions to ask, and signpost evidence-based resources." },
-  { q: "How quickly will I get a reply?", a: "Email and WhatsApp: within 2 working days. Phone: within office hours, or leave a voicemail and we'll call back. Complex queries that need research may take longer — we'll let you know." },
+  { q: "Can you give me medical advice?", a: "We can't diagnose, prescribe or advise on medicines. We can talk through what your diagnosis means and your benefits options, and help you find evidence-based information on this website." },
+  { q: "When can I call?", a: "The helpline is staffed on weekdays." },
   { q: "Is there a cost?", a: "No — all our support is free. We're funded by donations and grants, never by selling your data or by advertising." },
 ];
 
@@ -192,8 +220,8 @@ export const HelplineStub = () => (
   <StubPage
     slug="helpline"
     title="Support & Helpline: Talk to a Real Person"
-    description="Free UK arthritis helpline — email, call or WhatsApp. A real person responds within 2 working days for signposting, emotional support and help navigating services."
-    answer="Our free helpline is staffed by trained people, not a chatbot. Email info@livingwitharthritis.org.uk, call 07760 512 084 (Mon–Fri 9–5), or message us on WhatsApp. We respond within 2 working days for signposting, emotional support and help understanding your diagnosis."
+    description="UK arthritis helpline — call 07760 512 084 (weekdays). Individual advice about your diagnosis and benefits, and help finding information on this website."
+    answer="Call 07760 512 084 on weekdays to reach our helpline: a real person, not a chatbot. We offer individual advice about your diagnosis and benefits, and help finding information on this website. We don't advise on medicines."
     breadcrumbs={[home, communityCrumb, { label: "Helpline", href: "/helpline" }]}
     faqs={HELPLINE_FAQS}
     relatedLinks={[
@@ -245,15 +273,44 @@ const ADVOCACY_FAQS: StubPageFAQ[] = [
 export const AdvocacyStub = () => (
   <StubPage
     slug="advocacy"
-    title="Patient Advocacy & Awareness"
-    description="Help shape arthritis research, services and public understanding by sharing your story, joining patient panels and contributing to consultations — strictly non-partisan."
-    answer="Our advocacy work amplifies patient voices in research and service design — sharing stories, joining research panels and contributing to UK consultations. We're strictly non-partisan and never use your story without explicit, withdrawable consent."
+    title="Patient Advocacy & Awareness for Arthritis"
+    description="Shape UK arthritis research and services: share your story, join patient panels, respond to consultations and raise awareness — strictly non-partisan, consent-first."
+    answer="Advocacy here means putting lived experience at the centre of arthritis research, NHS service design and public understanding. You can share a story, join a patient panel, answer a consultation or help a local awareness event — always non-partisan, and never without your consent."
     breadcrumbs={[home, involvedCrumb, { label: "Advocacy", href: "/advocacy" }]}
     faqs={ADVOCACY_FAQS}
+    intro={
+      <>
+        <p>
+          Living with arthritis often means navigating long waits, fragmented services and advice that does not match day-to-day life with pain, fatigue or flares.
+          Patient advocacy closes that gap: it brings real experience into research priorities, clinic design and public conversation so decisions reflect what people actually need.
+        </p>
+        <p>
+          You do not need to be a campaigner. Most people start with one small step — a short story, a survey, a research panel meeting, or feedback on a local rheumatology pathway.
+          We are strictly non-partisan. We do not endorse parties or candidates. Stories are used only with explicit, withdrawable consent, and anonymous contributions are welcome.
+        </p>
+        <h2 className="text-xl font-semibold text-foreground mt-8 mb-3">Ways to take part</h2>
+        <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
+          <li><strong className="text-foreground">Share your story</strong> — help others feel less alone and show clinicians what good support looks like. Start on our <a href="/stories" className="text-primary underline">patient stories</a> page or contact us.</li>
+          <li><strong className="text-foreground">Join a patient panel</strong> — advise researchers and service teams on plain-English materials, trial design and access barriers.</li>
+          <li><strong className="text-foreground">Respond to consultations</strong> — when UK musculoskeletal or disability policy asks for public input, we summarise the ask and how to reply.</li>
+          <li><strong className="text-foreground">Local awareness</strong> — talks, workplace education or community events that explain arthritis without stigma.</li>
+        </ul>
+        <p className="mt-4">
+          Advocacy sits alongside practical support: <a href="/community/connect-groups" className="text-primary underline">connect groups</a>, the{" "}
+          <a href="/helpline" className="text-primary underline">helpline</a>, and guides on{" "}
+          <a href="/guides/exercise" className="text-primary underline">exercise</a> and{" "}
+          <a href="/guides/diet" className="text-primary underline">diet</a>. If you want to get involved, email{" "}
+          <a href="mailto:info@livingwitharthritis.org.uk" className="text-primary underline">info@livingwitharthritis.org.uk</a>.
+        </p>
+      </>
+    }
     relatedLinks={[
       { label: "Patient stories", href: "/stories" },
+      { label: "Connect groups", href: "/community/connect-groups" },
       { label: "Volunteer", href: "/volunteer" },
       { label: "Research", href: "/research" },
+      { label: "Exercise hub", href: "/guides/exercise" },
+      { label: "Diet hub", href: "/guides/diet" },
       { label: "Contact us", href: "/contact" },
     ]}
   />

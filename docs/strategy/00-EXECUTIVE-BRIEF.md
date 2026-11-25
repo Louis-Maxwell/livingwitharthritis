@@ -20,7 +20,7 @@ It is **not** yet a peer of Arthritis Foundation (US) or Arthritis UK (formerly 
 
 | Strength | Evidence |
 |---|---|
-| Clinician-founded E-E-A-T core | Louis Maxwell, HCPC PH128483, FCP / advanced physio practice |
+| Clinician-reviewed E-E-A-T core (founder: David Williams) | Louis Maxwell, Operations Director, HCPC PH128483, FCP / advanced physio practice |
 | Content volume | ~505 articles; hubs for OA/RA, exercise, diet, mental health, PIP |
 | UK pathway language | NHS / FCP / MSK / PIP framing (competitive vs US publishers) |
 | Product experiments | Symptom checker, joint picker, local chatbot, research fund meter |

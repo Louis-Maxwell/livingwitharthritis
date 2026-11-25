@@ -124,6 +124,7 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Health Tools", href: "/health-tools" },
   { label: "Impact Stories", href: "/impact" },
   { label: "Library", href: "/library" },
+  { label: "Monthly Magazine", href: "/magazine" },
   { label: "Lived Experiences", href: "/stories" },
   { label: "Partners", href: "/partners" },
   { label: "Pedometer", href: "/pedometer" },
@@ -182,7 +183,7 @@ const ALL_LINKS: SitemapLink[] = [
 
   // Waiting list & tools
   { label: "Arthritis Waiting List Help", href: "/arthritis-waiting-list-help" },
-  { label: "Waiting Time Calculator", href: "/tools/waiting-time" },
+  { label: "Referral and Waiting Time Information", href: "/tools/waiting-time" },
 
   // Buddy
   { label: "Connect groups", href: "/community/connect-groups" },
@@ -312,7 +313,7 @@ const Sitemap = () => {
         <meta property="og:locale" content="en_GB" />
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <Header />
 
         <main id="main-content" className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl pt-12 pb-20 md:pt-20 md:pb-28">

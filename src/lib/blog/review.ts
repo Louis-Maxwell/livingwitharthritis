@@ -39,3 +39,25 @@ export function isVerifiedMaxwellReviewer(
   const n = (name || "").replace(/\s+/g, " ").trim();
   return /\bmaxwell\b/i.test(n) && /\bPH128483\b/i.test(credentials || "");
 }
+
+function personKey(name: string | null | undefined): string {
+  return (name || "").toLowerCase().replace(/[^a-z]+/g, " ").trim();
+}
+
+/**
+ * True when the named author and reviewer are the same person.
+ * That review is a disclosed self-review, not an independent clinical review.
+ */
+export function isDisclosedSelfReview(
+  author: string | null | undefined,
+  reviewer: string | null | undefined,
+): boolean {
+  const a = personKey(author);
+  const r = personKey(reviewer);
+  if (!a || !r) return false;
+  if (a === r) return true;
+  return /\bmaxwell\b/.test(a) && /\bmaxwell\b/.test(r);
+}
+
+export const SELF_REVIEW_DISCLOSURE =
+  "This is a disclosed self-review by the author, not an independent clinical review.";

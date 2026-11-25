@@ -66,7 +66,7 @@ const BlogSoftCTAs = ({ variant = "banner", className = "" }: BlogSoftCTAsProps)
       aria-label="Newsletter and donate"
       className={`mt-14 rounded-2xl border border-primary/20 bg-primary/[0.04] p-6 md:p-8 ${className}`}
     >
-      <div className="grid gap-8 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
         <div>
           <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-2 inline-flex items-center gap-1.5">
             <Mail className="w-3.5 h-3.5" aria-hidden="true" /> Free updates

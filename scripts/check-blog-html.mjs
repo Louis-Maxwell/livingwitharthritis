@@ -24,11 +24,24 @@ if (!existsSync(SLUGS_PATH)) {
   process.exit(1);
 }
 
-const slugs = JSON.parse(readFileSync(SLUGS_PATH, 'utf8'));
-if (!Array.isArray(slugs) || slugs.length === 0) {
+const allSlugs = JSON.parse(readFileSync(SLUGS_PATH, 'utf8'));
+if (!Array.isArray(allSlugs) || allSlugs.length === 0) {
   console.error('✗ blog-slugs.generated.json is empty');
   process.exit(1);
 }
+
+// Permanent SEO redirects ship thin noindex stubs via write-redirect-html.mjs.
+// Hold only still-published articles to the og/canonical/word-count gates.
+const redirectsSrc = readFileSync(join(ROOT, 'src/lib/seoRedirects.ts'), 'utf8');
+const seoRedirectBlogPaths = new Set(
+  [...redirectsSrc.matchAll(/["'](\/blog\/[^"']+)["']\s*:/g)].map((m) => m[1]),
+);
+const slugs = allSlugs.filter((slug) => !seoRedirectBlogPaths.has(`/blog/${slug}`));
+const skippedRedirects = allSlugs.length - slugs.length;
+if (skippedRedirects) {
+  console.log(`blog:html-gate: skipping ${skippedRedirects} SEO-redirected blog slug(s)`);
+}
+
 
 const HOMEPAGE_TITLE_SNIPPETS = [
   'Living With Arthritis | Charity for arthritis',
@@ -117,4 +130,4 @@ if (fail) {
   process.exit(1);
 }
 
-console.log(`✓ blog:html-gate — ${slugs.length} dist/blog/*/index.html files have article head`);
+console.log(`✓ blog:html-gate — ${slugs.length} dist/blog/*/index.html files have article head` + (skippedRedirects ? ` (${skippedRedirects} redirect stubs skipped)` : ''));

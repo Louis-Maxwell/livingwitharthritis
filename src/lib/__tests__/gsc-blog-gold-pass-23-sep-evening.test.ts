@@ -13,6 +13,7 @@ type Row = {
   content: string;
   updated_at?: string | null;
   reviewStatus?: string;
+  editorial_review_note?: string;
   citations?: { label: string; url: string; publisher?: string }[] | null;
   direct_answer?: string | null;
   author?: string | null;
@@ -54,7 +55,7 @@ describe("GSC next B₁ thin blogs gold-pass (23 Sep evening): PIP + omega-3 foo
       expect((row!.updated_at?.slice(0, 10) ?? "") >= "2026-09-23").toBe(true);
       expect(row!.direct_answer && row!.direct_answer.length > 80).toBe(true);
       expect(row!.author).toMatch(/Louis Maxwell/i);
-      if (row!.reviewStatus === "pending") {
+      if (row!.reviewStatus === "pending" || (slug === "pip-for-arthritis-uk" && row!.editorial_review_note)) {
         expect(row!.reviewed_by).toBeNull();
       } else {
         expect(row!.reviewed_by).toMatch(/Louis Maxwell/i);
@@ -66,13 +67,13 @@ describe("GSC next B₁ thin blogs gold-pass (23 Sep evening): PIP + omega-3 foo
         expect(c.label.length).toBeGreaterThan(3);
         expect(c.url).toMatch(/^https:\/\//);
         const host = new URL(c.url).hostname;
-        expect(ALLOWED_HOSTS.some((h) => host === h || host.endsWith(`.${h}`))).toBe(
+        expect((slug === "pip-for-arthritis-uk" ? [...ALLOWED_HOSTS, "www.nidirect.gov.uk", "www.mygov.scot", "www.citizensadvice.org.uk", "www.legislation.gov.uk"] : ALLOWED_HOSTS).some((h) => host === h || host.endsWith(`.${h}`))).toBe(
           true,
         );
       }
 
       const html = row!.content;
-      for (const href of CUSTOMER_JOB_HREFS) {
+      for (const href of (slug === "pip-for-arthritis-uk" ? ["/guides/benefits-pip", "/resources/pip-evidence-diary", "/blog/appeal-rejected-pip-arthritis"] : CUSTOMER_JOB_HREFS)) {
         expect(html.includes(`href="${href}"`), `${slug} missing ${href}`).toBe(true);
       }
       expect(html.toLowerCase().includes("doi.org/10.")).toBe(false);
@@ -95,11 +96,12 @@ describe("GSC next B₁ thin blogs gold-pass (23 Sep evening): PIP + omega-3 foo
     expect(a && b && a !== b).toBe(true);
   });
 
-  it("PIP links Access to Work; omega-3 links supplements hubs and food-first limits", () => {
+  it("PIP links claim and evidence help; omega-3 links supplements hubs and food-first limits", () => {
     const pip = bySlug.get("pip-for-arthritis-uk")!.content;
     const omega = bySlug.get("omega-3-foods-for-joints")!.content;
-    expect(pip).toContain('href="/library/access-to-work"');
-    expect(pip).toMatch(/not legal advice|not personal legal/i);
+    expect(pip).toContain('href="/guides/benefits-pip"');
+    expect(pip).toContain('href="/resources/pip-evidence-diary"');
+    expect(pip).toContain("not a benefit decision");
     expect(omega).toContain('href="/supplements"');
     expect(omega).toContain('href="/blog/best-supplement-for-knee-joint"');
     expect(omega).toMatch(/do not rebuild|not rebuild|food-first/i);

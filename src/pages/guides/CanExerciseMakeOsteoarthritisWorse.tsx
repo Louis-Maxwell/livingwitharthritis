@@ -7,11 +7,14 @@ import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import ArticleHtmlWithNextStep from "@/components/ArticleHtmlWithNextStep";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_EXERCISE_OA_SAFETY } from "@/data/clinical/ukCitations";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import GpPrepSheet from "@/components/tools/GpPrepSheet";
+import WhatsAppShare from "@/components/share/WhatsAppShare";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
@@ -137,7 +140,7 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
         idPrefix="oa-exercise-myth"
       />
       <Header />
-      <main id="main-content" className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-dvh bg-background">
         <PageHero
           title="Can exercise make osteoarthritis worse?"
           subtitle="The short answer is no. NICE puts exercise ahead of medication for osteoarthritis. Here's how to move with confidence — and how to tell productive soreness from a flare."
@@ -145,6 +148,8 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/can-exercise-make-osteoarthritis-worse" />
+          <GpPrepSheet />
+          <WhatsAppShare path="/guides/can-exercise-make-osteoarthritis-worse" title="Can exercise make osteoarthritis worse?" />
           <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
             Exercise does not wear osteoarthritis joints out. UK NICE guidance
             (NG226) places structured movement <em>ahead of</em> medication as
@@ -153,10 +158,7 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
             learn to read your joints.
           </p>
           <TableOfContents html={html} />
-          <article
-            className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary"
-            dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }}
-          />
+          <ArticleHtmlWithNextStep html={html} path="/guides/can-exercise-make-osteoarthritis-worse" className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" />
           <div className="mt-16 pt-8 border-t border-border/30">
             <h3 className="font-display font-bold text-lg mb-4">Continue reading</h3>
             <div className="grid sm:grid-cols-2 gap-4">

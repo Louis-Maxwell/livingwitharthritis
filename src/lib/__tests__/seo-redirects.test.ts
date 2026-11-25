@@ -58,7 +58,7 @@ describe("resolveSeoRedirect", () => {
       "/arthritis-support/glasgow",
     );
     expect(resolveSeoRedirect("/arthritis-support/winchester")).toBe(
-      "/arthritis-support/southampton",
+      "/arthritis-support/portsmouth",
     );
   });
 
@@ -186,8 +186,10 @@ describe("resolveSeoRedirect", () => {
     expect(resolveSeoRedirect("/exercises/knee")).toBe(
       "/guides/knee-exercises-for-osteoarthritis",
     );
-    // Published slug: App Navigate + _redirects (not EXACT — keeps prerender catalog green)
-    expect(resolveSeoRedirect("/blog/knee-arthritis-exercises-uk")).toBeNull();
+    // Non-canonical published alias is excluded from both sitemap variants.
+    expect(resolveSeoRedirect("/blog/knee-arthritis-exercises-uk")).toBe(
+      "/guides/knee-exercises-for-osteoarthritis",
+    );
     expect(resolveSeoRedirect("/blog/knee-osteoarthritis-exercises")).toBe(
       "/guides/knee-exercises-for-osteoarthritis",
     );

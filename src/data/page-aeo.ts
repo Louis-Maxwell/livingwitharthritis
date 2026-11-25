@@ -7,10 +7,16 @@
  * Sources: NICE clinical guidelines clinical topics, project medical reviewer.
  */
 
+import { ORGANIZATION_DESCRIPTION, HOMEPAGE_FAQS } from "./reviewedPublicCopy.ts";
+
 export interface AeoPage {
   question: string;
   answer: string;
   faqs?: { q: string; a: string }[];
+  /** Optional 3-4 "Key clinical takeaways" shown under the answer. */
+  takeaways?: string[];
+  /** Cross-market terminology equivalents (no new clinical claims). */
+  synonyms?: { term: string; variants: string }[];
   reviewer?: string;
   updatedAt?: string; // ISO YYYY-MM-DD
 }
@@ -27,20 +33,41 @@ const withDefaults = (p: Omit<AeoPage, "reviewer" | "updatedAt"> & Partial<Pick<
 export const PAGE_AEO: Record<string, AeoPage> = {
   // â”€â”€ Conditions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   "/conditions/osteoarthritis": withDefaults({
-    question: "What is osteoarthritis?",
+        synonyms: [
+      { term: "Wear-and-tear arthritis", variants: "Common informal name for osteoarthritis." },
+      { term: "Degenerative joint disease", variants: "Older medical term for osteoarthritis." },
+    ],
+question: "What is osteoarthritis?",
     answer:
-      "Osteoarthritis (OA) is the most common form of arthritis in the UK. It happens when protective cartilage on the ends of your bones wears down over time, most often in knees, hips, hands and spine. Symptoms include joint pain that worsens with activity, morning stiffness under 30 minutes, swelling and reduced movement. It's manageable with exercise, weight control, and, when needed, medication or joint replacement.",
+      "Osteoarthritis (OA) is the UK's most common arthritis, involving changes in cartilage and other joint tissues, most often in knees, hips, hands and spine. Pain is usually worse with use; morning stiffness typically lasts under 30 minutes. NICE NG226 recommends therapeutic exercise and weight management where relevant as core care.",
+    updatedAt: "2026-11-11",
+    takeaways: [
+      "There is no cure that reverses osteoarthritis, but exercise, pacing, weight advice where relevant and the right pain relief help many people.",
+      "NICE recommends therapeutic exercise, including muscle strengthening and general fitness, as core care.",
+      "Osteoarthritis can usually be diagnosed without an X-ray if you are 45 or over, have activity-related joint pain and morning stiffness of 30 minutes or less (NICE NG226).",
+      "A suddenly hot, red, swollen joint with fever needs same-day help from NHS 111 or your GP."
+    ],
     faqs: [
-      { q: "Can osteoarthritis be reversed?", a: "No, cartilage loss can't currently be reversed, but symptoms and progression can be significantly slowed with exercise, weight management and joint-friendly activity." },
-      { q: "What's the best exercise for osteoarthritis?", a: "Low-impact aerobic exercise (walking, cycling, swimming) plus strength training around the affected joint. NICE recommends 30 minutes most days." },
-      { q: "Does osteoarthritis show on an X-ray?", a: "Yes — X-rays show joint space narrowing and bone spurs, though symptoms don't always match imaging severity." },
-      { q: "When should I see a GP?", a: "If joint pain limits daily activity, wakes you at night, or hasn't improved after 6 weeks of self-management, book a GP appointment." },
+      { q: "Can osteoarthritis be cured?", a: "There is no cure that reverses osteoarthritis, but many people manage symptoms with exercise, pacing, weight advice where relevant and the right pain relief. Severe symptoms may lead to a discussion about joint surgery." },
+      { q: "What's the best exercise for osteoarthritis?", a: "NICE recommends therapeutic exercise including muscle strengthening and general fitness. Walking, swimming, cycling, seated strength and tai chi are common starting points — start small and build up." },
+      { q: "Do I need an X-ray for osteoarthritis?", a: "Often no. NICE says osteoarthritis can usually be diagnosed clinically; imaging is used when the diagnosis is unclear, red flags are present, or surgery is being planned." },
+      { q: "What pain relief does NICE recommend for osteoarthritis?", a: "NICE says medicines should be used alongside exercise, at the lowest effective dose for the shortest time. A topical NSAID is offered first for knee osteoarthritis and can be considered for other joints. Paracetamol and weak opioids are not routinely recommended, as there is no strong evidence that paracetamol helps. Ask a pharmacist or GP before starting any medicine." },
+      { q: "When should I see a GP?", a: "If joint pain is not improving after a few weeks, wakes you most nights, comes with swelling or morning stiffness over 30 minutes, or limits daily life. A suddenly hot, red, swollen joint with fever needs same-day help from NHS 111 or your GP." },
     ],
   }),
   "/conditions/rheumatoid-arthritis": withDefaults({
-    question: "What is rheumatoid arthritis?",
+        synonyms: [
+      { term: "RA", variants: "Common abbreviation for rheumatoid arthritis." },
+    ],
+question: "What is rheumatoid arthritis?",
     answer:
-      "Rheumatoid arthritis (RA) is an autoimmune condition where the immune system attacks the joint lining, causing pain, swelling and stiffness, usually first in the small joints of the hands and feet (NHS). If you are newly diagnosed, NICE NG100 says you should be offered a DMARD such as methotrexate as soon as possible, ideally within 3 months of persistent symptoms.",
+      "Rheumatoid arthritis (RA) is an autoimmune condition where the immune system attacks the joint lining, causing pain, swelling and stiffness, usually in the small joints of the hands and feet. If newly diagnosed, NICE NG100 says you should be offered a DMARD such as methotrexate, ideally within 3 months of persistent symptoms.",
+    takeaways: [
+      "Rheumatoid arthritis is an autoimmune condition: the immune system attacks the joint lining, causing pain, swelling and stiffness.",
+      "NICE NG100 recommends starting a DMARD such as methotrexate as soon as possible, ideally within 3 months of persistent symptoms.",
+      "Treatment aims for remission or low disease activity, checked with regular blood tests and disease activity scores.",
+      "Ask for your rheumatology advice line number so you can get rapid help with flares."
+    ],
   }),
   "/conditions/psoriatic-arthritis": withDefaults({
     question: "What is psoriatic arthritis?",
@@ -66,7 +93,10 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     ],
   }),
   "/conditions/gout": withDefaults({
-    question: "What is gout?",
+        synonyms: [
+      { term: "Gouty arthritis", variants: "Older term for gout." },
+    ],
+question: "What is gout?",
     answer:
       "Gout is a type of inflammatory arthritis caused by high uric acid crystallising inside joints — usually the big toe — triggering sudden severe pain, redness and swelling. UK guidelines recommend urate-lowering therapy (allopurinol) after a second attack to prevent joint damage. Diet and alcohol adjustments help.",
   
@@ -83,7 +113,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/conditions/fibromyalgia": withDefaults({
     question: "What is fibromyalgia?",
     answer:
-      "Fibromyalgia is a long-term condition causing widespread pain, fatigue, sleep problems and 'fibro fog'. It's a disorder of pain processing rather than joint damage. NICE recommends graded exercise, CBT and paced activity as first-line management.",
+      "Fibromyalgia is a long-term condition causing widespread pain, fatigue, sleep problems and 'fibro fog'. It's a disorder of pain processing rather than joint damage. Diagnosis is clinical, based on widespread pain lasting over three months. NICE recommends graded exercise, CBT and paced activity as first-line management.",
   
     faqs: [
       { q: "Is fibromyalgia a form of arthritis?", a: "No. Fibromyalgia doesn't damage joints or cause inflammation. However, it commonly occurs alongside arthritis and is treated by similar rheumatology teams." },
@@ -96,7 +126,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/conditions/lupus": withDefaults({
     question: "What is lupus?",
     answer:
-      "Lupus (systemic lupus erythematosus, SLE) is an autoimmune disease that can affect skin, joints, kidneys, heart and lungs. Common symptoms include joint pain, a butterfly rash, fatigue and sun sensitivity. Hydroxychloroquine is the mainstay of treatment.",
+      "Lupus (systemic lupus erythematosus, SLE) is an autoimmune disease that can affect skin, joints, kidneys, heart and lungs. Common symptoms include joint pain, a butterfly rash, fatigue and sun sensitivity. Hydroxychloroquine is the mainstay of treatment, and there is no cure, but modern treatments control symptoms and reduce flares.",
   
     faqs: [
       { q: "Is lupus a form of arthritis?", a: "Lupus isn't classed as arthritis but it commonly causes joint pain and stiffness. Many people are managed by the same rheumatology teams that treat rheumatoid arthritis." },
@@ -107,12 +137,23 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     ],
   }),
   "/conditions/knee-arthritis": withDefaults({
-    question: "What is knee arthritis?",
+        synonyms: [
+      { term: "Genu varum", variants: "Clinical term for bow-legs, often linked to inner-knee (medial) osteoarthritis." },
+      { term: "Total knee arthroplasty (TKA)", variants: "Medical name for a total knee replacement." },
+    ],
+question: "What is knee arthritis?",
     answer:
-      "Knee arthritis is joint damage in the knee — most often osteoarthritis — causing pain when standing, walking or climbing stairs, stiffness after rest, and swelling. NICE recommends exercise and weight loss as first-line treatment; every 5 kg lost cuts knee load by roughly 20 kg.",
+      "Knee arthritis is most often osteoarthritis, typically causing knee pain with activity such as walking or stairs, stiffness after rest and sometimes swelling. NICE NG226 recommends therapeutic exercise and, if living with overweight, weight loss as core treatment, with a topical NSAID as the first medicine for knee osteoarthritis.",
+    updatedAt: "2026-11-11",
+    takeaways: [
+      "Osteoarthritis can usually be diagnosed without an X-ray if you are 45 or over, have activity-related joint pain and have no morning stiffness or stiffness lasting 30 minutes or less (NICE NG226).",
+      "If you are living with overweight, any weight loss is likely to help; NICE says losing 10% of body weight is likely to be better than 5%.",
+      "NICE recommends offering a topical NSAID for knee osteoarthritis and does not routinely recommend paracetamol or weak opioids.",
+      "Joint replacement may be considered when symptoms substantially affect your quality of life and non-surgical treatment has not worked or is unsuitable.",
+    ],
     faqs: [
-      { q: "What's the best exercise for knee arthritis?", a: "Quadriceps strengthening (straight-leg raises, wall sits) plus low-impact aerobic (cycling, swimming). 3-5 sessions a week for 8+ weeks shows meaningful pain reduction." },
-      { q: "Should I use a walking stick?", a: "Use it in the opposite hand to the painful knee — this reduces load by up to 25%." },
+      { q: "What's the best exercise for knee arthritis?", a: "Exercise that strengthens the muscles around the knee, such as straight-leg raises, sit-to-stands and mini squats, plus general fitness such as walking, cycling or swimming. NICE recommends therapeutic exercise tailored to your needs for everyone with osteoarthritis. Start gently and build up gradually." },
+      { q: "Should I use a walking stick?", a: "A stick can help some people walk more comfortably and steadily. NICE suggests considering walking aids, such as walking sticks, for knee or hip osteoarthritis. A physiotherapist can check the height and show you which hand to hold it in." },
     ],
   }),
   "/conditions/hip-arthritis": withDefaults({
@@ -132,7 +173,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/conditions/hand-arthritis": withDefaults({
     question: "What is hand arthritis?",
     answer:
-      "Hand arthritis affects the small joints of the fingers, thumbs and wrists. Osteoarthritis typically causes bony bumps and thumb-base pain; rheumatoid usually causes symmetrical knuckle swelling. Splints, hand exercises and topical NSAID gels help most people.",
+      "Hand arthritis affects the small joints of the fingers, thumbs and wrists. Osteoarthritis typically causes bony bumps and thumb-base pain; rheumatoid usually causes symmetrical knuckle swelling. Early signs include morning finger stiffness and a dull ache at the base of the thumb. Splints, hand exercises and topical NSAID gels help most people.",
   
     faqs: [
       { q: "What are the first signs of hand arthritis?", a: "Early signs include stiffness in the fingers in the morning, a dull ache at the base of the thumb when opening jars or turning keys, and small bony lumps on the end finger joints (Heberden's nodes)." },
@@ -145,7 +186,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/conditions/shoulder-arthritis": withDefaults({
     question: "What is shoulder arthritis?",
     answer:
-      "Shoulder arthritis is cartilage loss in the glenohumeral or acromioclavicular joints, causing deep aching pain, reduced reach and night pain when lying on the affected side. Physio, corticosteroid injections and, if severe, shoulder replacement are options.",
+      "Shoulder arthritis is cartilage loss in the glenohumeral or acromioclavicular joints, causing deep aching pain, reduced reach and night pain when lying on the affected side. It is not the same as a frozen shoulder, which usually resolves within 1-3 years. Physio, corticosteroid injections and, if severe, shoulder replacement are options.",
   
     faqs: [
       { q: "What does shoulder arthritis feel like?", a: "Most people describe a deep ache at the back of the shoulder that worsens when reaching overhead, behind the back, or lying on that side at night. Stiffness limits putting on coats and reaching seatbelts." },
@@ -158,7 +199,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/conditions/elbow-arthritis": withDefaults({
     question: "What is elbow arthritis?",
     answer:
-      "Elbow arthritis is joint damage in the elbow causing pain, stiffness, locking or grating during movement. Osteoarthritis and rheumatoid arthritis are the main causes. Treatment ranges from activity modification and NSAIDs to arthroscopy or elbow replacement.",
+      "Elbow arthritis is joint damage in the elbow causing pain, stiffness, locking or grating during movement. Osteoarthritis and rheumatoid arthritis are the main causes, though tennis elbow and golfer's elbow are more common causes of elbow pain. Treatment ranges from activity modification and NSAIDs to arthroscopy or elbow replacement.",
   
     faqs: [
       { q: "What does elbow arthritis feel like?", a: "Most people describe a deep ache on the outside or back of the elbow that worsens when straightening the arm fully or carrying a heavy bag. Many lose the last few degrees of extension, so the arm no longer goes completely straight." },
@@ -171,7 +212,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/conditions/foot-and-ankle-arthritis": withDefaults({
     question: "What is foot and ankle arthritis?",
     answer:
-      "Foot and ankle arthritis is joint damage in the ankle, midfoot or big toe that causes pain with walking, morning stiffness and difficulty finding comfortable shoes. Hallux rigidus, post-traumatic ankle OA and rheumatoid foot involvement are common UK patterns. Supportive footwear, orthotics, gentle exercises and podiatry help most people.",
+      "Foot and ankle arthritis can cause pain, stiffness and difficulty walking or finding comfortable shoes. Osteoarthritis and inflammatory arthritis can affect these joints in different ways. Supportive footwear and suitable exercise may help symptoms; ask your GP, physiotherapist or podiatrist which options fit your condition.",
   
     faqs: [
       { q: "What are the first signs of foot or ankle arthritis?", a: "Morning stiffness in the ankle or big toe, a deep ache with the first steps of the day, swelling after walking, and shoes that feel tight over a bony bump on the big toe joint." },
@@ -183,21 +224,16 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   }),
   "/conditions/juvenile-arthritis": withDefaults({
     question: "What is juvenile arthritis?",
-    answer:
-      "Juvenile idiopathic arthritis (JIA) is arthritis starting before age 16, lasting more than 6 weeks. It affects around 1 in 1,000 UK children. Early paediatric rheumatology care and DMARDs help most children live active lives.",
-  
+    answer: "Juvenile idiopathic arthritis (JIA) is a group of conditions causing joint inflammation that starts before age 16. Arrange a GP assessment for a child with joint problems or an unexplained limp. Do not wait for a set number of weeks. Sudden hip, knee or thigh pain, inability to bear weight or an unwell child can need emergency assessment.",
     faqs: [
-      { q: "What are the first signs of arthritis in a child?", a: "Look out for limping (worse in the morning), a swollen joint, a child avoiding a normally favourite activity, or unexplained fevers and rashes. Always see your GP if joint symptoms last more than two weeks." },
-      { q: "Is juvenile arthritis the same as rheumatoid arthritis?", a: "No. JIA is its own group of conditions. Some forms behave similarly to rheumatoid arthritis, but JIA also includes types not seen in adults, such as systemic JIA (Still's disease)." },
-      { q: "Will my child grow out of JIA?", a: "Some children — particularly those with oligoarticular JIA — do go into long-term remission. Others have ongoing disease into adulthood. Modern treatments have transformed the outlook for most." },
-      { q: "Why does my child need eye checks?", a: "JIA can cause silent eye inflammation (uveitis) that, if missed, can damage sight. Regular slit-lamp checks by an ophthalmologist are essential." },
-      { q: "Can my child still play sport?", a: "Yes — sport is encouraged. Swimming and cycling are particularly good. Adapt during flares and work with the rheumatology team and PE staff." },
+      { q: "Should I wait six weeks before seeking help?", a: "No. Arrange a GP assessment for a child with joint problems or an unexplained limp. A duration used to classify arthritis is not a waiting period for parents." },
+      { q: "Can eye inflammation happen without symptoms?", a: "Yes. JIA-related uveitis can occur without symptoms. Keep all specialist screening appointments. New eye pain, light sensitivity, very red eyes or vision changes need urgent GP or NHS 111 advice; loss of vision needs A&E or 999." },
     ],
   }),
   "/conditions/reactive-arthritis": withDefaults({
     question: "What is reactive arthritis?",
     answer:
-      "Reactive arthritis is joint inflammation that develops after an infection elsewhere in the body — usually gut or urinary. Symptoms include joint pain, eye inflammation and urinary symptoms. Most cases resolve within 3-12 months.",
+      "Reactive arthritis is joint inflammation that develops after an infection elsewhere in the body — usually gut or urinary. Symptoms include joint pain, eye inflammation and urinary symptoms. Most cases resolve within 3-12 months once the triggering infection clears and inflammation is treated, though around 1 in 5 develop longer-lasting joint problems.",
   
     faqs: [
       { q: "How long does reactive arthritis last?", a: "Most people recover fully within 3 to 6 months. Around 1 in 5 develop longer-lasting joint problems, and a smaller number go on to develop a chronic inflammatory arthritis, which is why early specialist input matters." },
@@ -211,7 +247,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/conditions/polymyalgia-rheumatica": withDefaults({
     question: "What is polymyalgia rheumatica?",
     answer:
-      "Polymyalgia rheumatica (PMR) causes sudden shoulder and hip stiffness and pain, mainly in adults over 50. Low-dose steroids (prednisolone 15 mg) usually give dramatic relief within days. Treatment typically continues for 1-2 years.",
+      "Polymyalgia rheumatica (PMR) causes sudden shoulder and hip stiffness and pain, mainly in adults over 50. Low-dose steroids (prednisolone 15 mg) usually give dramatic relief within days. Diagnosis involves a GP examination and blood tests (CRP and ESR) for inflammation. Treatment typically continues for 1-2 years.",
   
     faqs: [
       { q: "How is polymyalgia rheumatica diagnosed in the UK?", a: "Your GP will check your symptoms, examine your shoulders and hips, and arrange blood tests (CRP and ESR) to look for inflammation. A dramatic improvement within a few days of starting prednisolone helps confirm the diagnosis." },
@@ -225,7 +261,10 @@ export const PAGE_AEO: Record<string, AeoPage> = {
 
   // â”€â”€ Guides â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   "/guides/newly-diagnosed": withDefaults({
-    question: "I've just been diagnosed with arthritis — what should I do?",
+        synonyms: [
+      { term: "GP and NHS consultant", variants: "UK route to specialist care; in the US and Canada the equivalent is a primary care physician referring to a rheumatologist." },
+    ],
+question: "I've just been diagnosed with arthritis — what should I do?",
     answer:
       "Book a rheumatology follow-up if not already arranged, start gentle daily movement, and read up on your specific type. NICE recommends beginning exercise and joint protection within weeks of diagnosis for best long-term outcomes. Track symptoms, ask your GP about pain relief options, and consider our free virtual physiotherapy triage.",
     faqs: [
@@ -237,7 +276,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/understanding-pain": withDefaults({
     question: "What are the main types of pain?",
     answer:
-      "Pain can be inflammatory or mechanical, focal or systemic, bilateral, fibromyalgia-type, acute or chronic, or neuropathic. Matching the pattern helps your GP choose the right next steps. Describe location, timing, morning stiffness and nerve-like burning or tingling clearly.",
+      "Pain can be inflammatory or mechanical, focal or systemic, bilateral, fibromyalgia-type, acute or chronic, or neuropathic. Matching the pattern helps your GP choose the right next steps. Pain lasting longer than about three months is usually called chronic. Describe location, timing, morning stiffness and nerve-like burning or tingling clearly.",
     faqs: [
       { q: "Is inflammatory pain the same as arthritis?", a: "Not always — inflammatory pain can come from autoimmune arthritis and other causes. Mechanical pain is more linked to load, injury or wear. A clinical assessment sorts them out." },
       { q: "When is pain chronic?", a: "Pain lasting longer than about three months is usually called chronic. See your GP if pain persists, wakes you at night, or comes with hot swollen joints." },
@@ -245,9 +284,13 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     ],
   }),
   "/guides/arthritis-pain-relief": withDefaults({
-    question: "How do I relieve arthritis pain?",
+        synonyms: [
+      { term: "Paracetamol", variants: "Called acetaminophen in the US and Canada; Tylenol is a common US and Canada brand name." },
+      { term: "GP", variants: "Family doctor in the UK and Australia; called a primary care physician in the US and Canada." },
+    ],
+question: "How do I relieve arthritis pain?",
     answer:
-      "Use heat for stiff joints or a wrapped cold pack for hot, swollen ones, keep moving gently and build up exercise, which NICE recommends as a core treatment for osteoarthritis. For knee osteoarthritis NICE advises trying an NSAID gel first; NSAID tablets may be added at the lowest dose for the shortest time. NICE says paracetamol and weak opioids should not be offered routinely for osteoarthritis. Inflammatory arthritis needs specialist treatment. Check with a pharmacist or GP what is safe for you.",
+      "Use heat for stiff joints or a wrapped cold pack for hot, swollen ones, and keep moving gently. For knee osteoarthritis NICE advises an NSAID gel first, with tablets at the lowest dose for the shortest time; paracetamol and weak opioids should not be offered routinely. Inflammatory arthritis needs specialist treatment.",
     faqs: [
       { q: "What is the fastest way to ease an arthritis flare?", a: "Use heat for stiffness or a cold pack wrapped in a cloth for a hot swollen joint, reduce rather than stop activity, and use only medicines your GP or pharmacist has advised. Full rest often increases stiffness." },
       { q: "Does exercise help arthritis pain?", a: "Yes. NICE recommends therapeutic exercise, including strengthening and general fitness, as a core treatment for osteoarthritis. Start small and build up gradually." },
@@ -257,22 +300,35 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/hip-exercises-for-osteoarthritis": withDefaults({
     question: "What are the best hip exercises for osteoarthritis?",
     answer:
-      "Evidence-based hip OA exercises include glute bridges, clamshells, standing hip abduction, wall squats and stationary cycling. Aim for 3 sessions per week of 30 minutes; expect meaningful pain reduction after 8-12 weeks. NICE guideline NG226 recommends supervised programmes.",
-    faqs: [
-      { q: "Can I exercise during a hip flare?", a: "Use gentle range-of-motion and avoid sharp pain. Reduce load, then rebuild. Seek advice if pain lasts more than 24 hours after activity." },
-      { q: "How often should I strengthen my hip?", a: "Most people do well with two to three short strength sessions each week plus daily walking as tolerated." },
-      { q: "Do I need a gym?", a: "No — bridges, clamshells and sit-to-stands can be done at home. A physiotherapist can tailor progression." },
+      "NICE guideline NG226 recommends therapeutic exercise tailored to you, such as local muscle strengthening and general aerobic fitness, as a core treatment for hip osteoarthritis. Useful home moves include glute bridges, clamshells, side-lying leg lifts, sit-to-stands and mini squats, alongside walking, cycling or swimming. NICE also suggests considering supervised exercise sessions.",
+    takeaways: [
+      "NICE NG226 lists therapeutic exercise, and weight management if appropriate, as core treatments for osteoarthritis.",
+      "Joint pain may increase when you first start; NICE says regular, consistent exercise is still beneficial for your joints.",
+      "NICE suggests considering walking aids, such as a walking stick, for hip or knee osteoarthritis.",
+      "Get urgent help for a hot, red, swollen joint with fever, or if you cannot put weight on the leg after a fall.",
     ],
+    updatedAt: "2026-11-11",
   }),
   "/guides/knee-exercises-for-osteoarthritis": withDefaults({
-    question: "What are the best free knee exercises for osteoarthritis in the UK?",
+        synonyms: [
+      { term: "Genu varum", variants: "Clinical term for bow-legs, often linked to inner-knee (medial) osteoarthritis." },
+      { term: "Total knee arthroplasty (TKA)", variants: "Medical name for a total knee replacement." },
+    ],
+question: "What are the best free knee exercises for osteoarthritis in the UK?",
     answer:
-      "NICE guideline NG226 recommends therapeutic exercise, including local muscle strengthening and general aerobic fitness, as a core treatment for knee osteoarthritis, and the NHS advises regular low-impact activity. This 8-move home routine builds thigh and hip strength: aim for 2 to 3 sets of 8 to 12 repetitions, two or three times a week, keeping pain at 4/10 or less.",
+      "The most effective knee osteoarthritis exercises strengthen the quadriceps and hamstrings to offload the joint. NICE guideline NG226 recommends therapeutic exercise as core treatment. Start with straight-leg raises, seated knee extensions, and shallow sit-to-stands. Aim for two to three sets of ten repetitions daily, stopping if sharp pain or sudden swelling occurs.",
+    takeaways: [
+      "NICE NG226 lists therapeutic exercise, and weight management if appropriate, as core treatments for osteoarthritis.",
+      "Long-term, regular exercise increases the benefits, reducing pain and improving function and quality of life (NICE NG226).",
+      "Stop that session if pain is sharp or catching, the knee locks or gives way, or new swelling lasts overnight.",
+      "Get urgent help for a hot, red, swollen knee with fever, or a painful, swollen calf.",
+    ],
+    updatedAt: "2026-11-11",
   }),
   "/guides/free-arthritis-resources-uk": withDefaults({
     question: "What free arthritis resources do UK charities offer?",
     answer:
-      "Living With Arthritis (charity 1218461) offers free home exercise routines, diet advice, PIP claim tools and newly diagnosed checklists. Arthritis UK and NRAS also provide free information. Living With Arthritis is independent of Arthritis UK.",
+      "Living With Arthritis (charity 1218461) offers free home exercise routines, diet advice, PIP claim tools and newly diagnosed checklists. Arthritis UK and NRAS also provide free information. All guides, home physio routines and the PIP evidence diary are free to use. Living With Arthritis is independent of Arthritis UK.",
     faqs: [
       { q: "Is Living With Arthritis the same as Arthritis UK?", a: "No — it is an independent UK charity (1218461), not Arthritis UK (formerly Versus Arthritis)." },
       { q: "Are the exercise and PIP tools free?", a: "Yes. Guides, home physio routines, the PIP evidence diary and flare plan are free to use." },
@@ -293,54 +349,73 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/sarcopenia-muscle-loss": withDefaults({
     question: "What is sarcopenia?",
     answer:
-      "Sarcopenia is age-related muscle loss that accelerates after 60 and worsens arthritis symptoms. Resistance training (2-3 sessions per week) plus 1.0-1.2 g protein/kg body weight/day reverses much of it, even in your 80s.",
+      "Sarcopenia is age-related muscle loss that accelerates after 60 and worsens arthritis symptoms. Struggling to open jars or carry shopping is an early sign. Resistance training (2-3 sessions per week) plus 1.0-1.2 g protein/kg body weight/day reverses much of it, even in your 80s.",
   }),
   "/guides/bone-density-osteoporosis": withDefaults({
     question: "How do I improve bone density?",
     answer:
-      "Weight-bearing exercise (walking, jogging, dancing), resistance training, calcium 700 mg/day and vitamin D 10 mcg/day support bone density. If your FRAX score is high, your GP may prescribe bisphosphonates.",
+      "Weight-bearing exercise (walking, jogging, dancing), resistance training, calcium 700 mg/day and vitamin D 10 mcg/day support bone density. Osteoporosis weakens bones rather than joint cartilage and often coexists with osteoarthritis, especially in post-menopausal women. If your FRAX score is high, your GP may prescribe bisphosphonates.",
   }),
   "/guides/disability-support": withDefaults({
     question: "What are my disability rights in the UK if I have arthritis?",
     answer:
-      "Under the Equality Act 2010 (England, Scotland and Wales), arthritis counts as a disability if it has a substantial and long-term negative effect on your normal daily activities. If it does, employers, shops, services, schools, colleges and landlords must not discriminate against you, and many must make reasonable adjustments. Northern Ireland has similar protection under the Disability Discrimination Act 1995.",
+      "Under the Equality Act 2010 (England, Scotland and Wales), arthritis counts as a disability if it has a substantial, long-term negative effect on daily activities. Employers, shops, services, schools and landlords must not discriminate against you, and many must make reasonable adjustments. Northern Ireland has protection under the Disability Discrimination Act 1995.",
   }),
   "/guides/frailty-management-hub": withDefaults({
     question: "How is frailty managed with arthritis?",
     answer:
-      "Frailty and arthritis together respond to comprehensive geriatric assessment: strength training, protein-rich diet, medication review, hearing/vision checks and social connection. Ask your GP for a formal frailty (Clinical Frailty Scale) review.",
+      "Frailty and arthritis together respond to comprehensive geriatric assessment: strength training, protein-rich diet, medication review, hearing/vision checks and social connection. Improvement varies and reversal cannot be promised. Care should be tailored to the person. Ask your GP for a formal frailty (Clinical Frailty Scale) review.",
   }),
   "/guides/preventative-msk-health": withDefaults({
     question: "How do I keep my muscles and joints healthy?",
     answer:
-      "The three pillars are: 150 minutes moderate aerobic activity per week, 2 strength sessions per week, and 7-9 hours of sleep. Add Mediterranean-style diet, don't smoke, and keep BMI under 27 for lowest lifetime arthritis risk.",
+      "The three pillars are: 150 minutes moderate aerobic activity per week, 2 strength sessions per week, and 7-9 hours of sleep. Add Mediterranean-style diet, don't smoke, and keep BMI under 27 for lowest lifetime arthritis risk. Early intervention, within weeks rather than years, significantly reduces joint damage.",
   }),
   "/guides/musculoskeletal-health": withDefaults({
     question: "What is musculoskeletal health?",
     answer:
-      "Musculoskeletal (MSK) health means healthy bones, joints, muscles, tendons and ligaments. MSK conditions affect 20 million people in the UK. Movement, strength, sleep and weight management are the four proven levers to protect it.",
+      "Musculoskeletal (MSK) health means healthy bones, joints, muscles, tendons and ligaments. MSK conditions affect 20 million people in the UK. They are the single biggest cause of years lived with disability in the UK. Movement, strength, sleep and weight management are the four proven levers to protect it.",
   }),
 
   // â”€â”€ Hubs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   "/arthritis-flare-ups": withDefaults({
     question: "What should I do during an arthritis flare-up?",
     answer:
-      "Pace activity, use heat or cold as appropriate, take only medicines advised by your GP or pharmacist, and track triggers. Seek urgent care for a single hot joint with fever or sudden inability to weight-bear. This is educational guidance, not personal medical advice.",
+      "During a flare, pace activity and keep gently moving within comfort, use heat or cold, take only medicines advised by your GP or pharmacist, and note possible triggers. Seek urgent care for a single hot, swollen joint with fever or sudden inability to weight-bear. This is educational guidance, not personal medical advice.",
+    takeaways: [
+      "Pace activity and avoid boom-and-bust; keep gentle range-of-motion movement unless advised otherwise.",
+      "Use heat or cold for comfort and take only medicines your GP or pharmacist has advised.",
+      "Many osteoarthritis flares settle over days to a couple of weeks; inflammatory flares vary, so follow your rheumatology care plan.",
+      "A single hot, swollen joint with fever, or sudden inability to bear weight, needs urgent care."
+    ],
     faqs: [
       { q: "How long do arthritis flares last?", a: "Many OA flares settle over days to a couple of weeks with pacing and usual treatments. Inflammatory disease flares vary — contact your rheumatology team if your care plan says to." },
       { q: "Should I stop all exercise in a flare?", a: "Avoid boom-and-bust. Keep gentle range-of-motion unless advised otherwise; rebuild load gradually as pain settles." },
       { q: "Where is the printable flare plan?", a: "Use our free printable flare action plan under Resources, then read the full flare-ups guide for detail." },
+      { q: "When is a flare an emergency?", a: "Seek urgent care for a single hot, swollen joint with fever or a sudden inability to bear weight." },
     ],
   }),
   "/guides/benefits-pip": withDefaults({
-    question: "Can I get PIP for arthritis in the UK?",
+    question: "Can you claim PIP for arthritis?",
     answer:
-      "PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.",
+      "Yes, you can claim Personal Independence Payment (PIP) for arthritis if joint pain, stiffness, or fatigue limits your daily living or mobility. Eligibility depends entirely on how arthritis impairs functional activities—such as washing, dressing, cooking, and walking—not on diagnosis alone. Claims require medical evidence and completing the DWP PIP2 questionnaire.",
+    takeaways: [
+      "PIP depends on how arthritis affects daily living and mobility, not on the diagnosis alone.",
+      "Daily living and mobility are scored separately: 8 to 11 points gives the standard rate and 12 or more the enhanced rate.",
+      "PIP is not means-tested and you can claim while working.",
+      "Return the PIP2 form within 1 month; challenge a decision with mandatory reconsideration within 1 month, then a tribunal appeal."
+    ],
   }),
   "/diet/mediterranean-diet-for-arthritis": withDefaults({
     question: "Does the Mediterranean diet help arthritis?",
     answer:
-      "A Mediterranean-style diet, rich in vegetables, fruit, beans, wholegrains, fish and olive or rapeseed oil, may modestly help some people with arthritis, especially rheumatoid arthritis, and is good for heart health. NICE says there is no strong evidence diet changes benefit RA, but people can be encouraged to follow Mediterranean principles. It is not a cure and does not replace medicines.",
+      "A Mediterranean-style diet, rich in vegetables, fruit, beans, wholegrains, fish and olive or rapeseed oil, may modestly help some people with arthritis, especially rheumatoid arthritis. NICE finds no strong evidence diet changes benefit RA but encourages people to follow Mediterranean principles. It is not a cure and does not replace medicines.",
+    takeaways: [
+      "NICE NG100 says adults with rheumatoid arthritis can be encouraged to follow Mediterranean diet principles, while explaining there is no strong evidence their arthritis will benefit.",
+      "A Mediterranean-style diet is rich in vegetables, fruit, beans, wholegrains, fish and olive or rapeseed oil, and supports heart health.",
+      "No diet cures arthritis, and no diet replaces prescribed medicines.",
+      "Vegans need reliable sources of vitamin B12, iodine and calcium; ask a pharmacist or dietitian if you are unsure your diet is balanced."
+    ],
     faqs: [
       { q: "Does the Mediterranean diet help arthritis?", a: "It may help some people, particularly with rheumatoid arthritis, but the evidence is limited. A small 12-week trial found modest improvements in disease activity and physical function, and NICE says adults with RA can be encouraged to follow Mediterranean diet principles, while explaining there is no strong evidence their arthritis will benefit. It is not a cure and does not replace medicines." },
       { q: "Is the Mediterranean diet good for osteoarthritis?", a: "There is only limited research in osteoarthritis. The main dietary step NICE recommends for osteoarthritis is weight management if you are living with overweight or obesity. A Mediterranean-style pattern can be a sustainable way to support weight loss and heart health." },
@@ -348,25 +423,20 @@ export const PAGE_AEO: Record<string, AeoPage> = {
       { q: "Do I need to drink red wine?", a: "No. You do not need to drink alcohol to follow the pattern. If you drink, the UK guideline is no more than 14 units a week spread over 3 or more days. If you take methotrexate, ask your rheumatology team what is safe for you." },
     ],
   }),
-  "/blog/knee-arthritis-exercises-uk": withDefaults({
-    question: "What are the best knee arthritis exercises in the UK?",
-    answer:
-      "Quadriceps strengthening, sit-to-stands, straight-leg raises, gentle cycling and walking as tolerated are commonly recommended for knee osteoarthritis. Start low, progress slowly, and stop sharp pain. Educational only — check with a physiotherapist if unsure.",
-    faqs: [
-      { q: "Should I squat with knee OA?", a: "Shallow sit-to-stands are often fine; deep loaded squats may aggravate some knees. Individual assessment is best." },
-      { q: "How many days per week?", a: "Two to three strength sessions plus daily gentle movement suits many people, adjusted for flares." },
-      { q: "Where else can I read about knee OA?", a: "See our knee arthritis condition page and the osteoarthritis pillar guide." },
-    ],
-  }),
   "/diet-hub": withDefaults({
     question: "What's the best diet for arthritis?",
     answer:
       "A Mediterranean diet — oily fish twice a week, olive oil, nuts, wholegrains, plenty of vegetables and fruit — consistently reduces inflammation markers and joint pain in trials. Cut ultra-processed foods, sugary drinks and excess red meat. Weight loss of 5-10% substantially reduces knee OA pain.",
+    takeaways: [
+      "The NHS advises a healthy, balanced diet and keeping to a healthy weight, because extra weight strains your joints.",
+      "If you have osteoarthritis and are living with overweight, NICE NG226 says any weight loss is likely to help, and losing 10% of body weight is likely better than 5%.",
+      "No diet cures arthritis; a balanced diet supports exercise, medicines and the rest of your treatment."
+    ],
   }),
   "/exercises": withDefaults({
     question: "What are good free physiotherapy exercises for arthritis at home?",
     answer:
-      "NICE guideline NG226 recommends therapeutic exercise tailored to you, such as local muscle strengthening and general aerobic fitness, as a core treatment for osteoarthritis. The NHS advises regular low-impact activity like walking, swimming or yoga. Start with a few gentle repetitions, keep effort around 4 out of 10, and build up slowly; next-day soreness means do less, not stop.",
+      "NICE NG226 recommends therapeutic exercise tailored to you, such as local muscle strengthening and aerobic fitness, as a core osteoarthritis treatment. The NHS advises regular low-impact activity like walking, swimming or yoga. Start gently, keep effort around 4 out of 10, and build up slowly; next-day soreness means do less, not stop.",
     faqs: [
       { q: "Can I do physio exercises at home without a referral?", a: "Yes, for most people with stable joint pain. The NHS says that in many areas you can refer yourself to community musculoskeletal (MSK) physiotherapy without seeing a GP, and you can start gentle home exercise while you wait." },
       { q: "How often should I do arthritis exercises?", a: "Strength exercises are usually done two or three times a week, with gentle range-of-movement exercises daily, as in our knee routine. NICE NG226 advises exercise tailored to you, so build up slowly and adjust to how your joints respond." },
@@ -377,29 +447,34 @@ export const PAGE_AEO: Record<string, AeoPage> = {
 
   // --- Priority UK hubs (AEO / GEO) -----------------------------------------
   "/": withDefaults({
-    updatedAt: "2026-09-23",
+    updatedAt: "2026-11-22",
+    reviewer: "", // Wording update, not a claim of specialist clinical review.
     question: "What is Living With Arthritis?",
-    answer:
-      "Living With Arthritis is a registered charity in England and Wales (no. 1218461) publishing free, evidence-informed guidance for people living with arthritis across the UK — NICE-aligned exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.",
-    faqs: [
-      { q: "Is Living With Arthritis the same as Arthritis UK?", a: "No. We are a separate CIO (charity 1218461). Do not attribute our content to Arthritis UK (formerly Versus Arthritis) or the US Arthritis Foundation." },
-      { q: "Is the guidance free?", a: "Yes. Guides, exercises and tools are free. Clinical content stays editorially independent of funders." },
-      { q: "Who reviews your medical content?", a: "Clinical review is led by Louis Maxwell, First Contact Practitioner (HCPC PH128483), Chartered Society of Physiotherapy." },
-    ],
+    answer: ORGANIZATION_DESCRIPTION,
+    faqs: HOMEPAGE_FAQS,
   }),
   "/about": withDefaults({
     question: "Who is Living With Arthritis?",
     answer:
-      "Living With Arthritis is a Charitable Incorporated Organisation registered in England and Wales on 15 June 2026 (charity no. 1218461). We publish free UK arthritis guidance online and are independent of Arthritis UK.",
+      "Living With Arthritis is an independent UK charity (no. 1218461), founded by David Williams. Free resources support adults with arthritis and their carers through practical information, not personal medical advice. Explore arthritis and PIP guides, an evidence diary, flare plans, home exercises, a symptom tracker and community support.",
     faqs: [
-      { q: "Where is the charity based?", a: "We are a UK charity (England and Wales, no. 1218461) serving people across the United Kingdom online. A new registered office address will be published when confirmed — contact info@livingwitharthritis.org.uk or 07760 512 084." },
+      { q: "What does Living With Arthritis offer for free?", a: "Free arthritis guides, a step-by-step PIP claim guide, a printable PIP evidence diary, a flare action plan, home exercise routines, a printable symptom and flare tracker and a community hub. Everything is free to read, with no sign-up needed." },
+      { q: "Who is Living With Arthritis for?", a: "Adults in the UK living with arthritis or joint pain, and the family members and carers who support them. Our guidance is educational and does not replace advice from your GP, pharmacist or rheumatology team." },
+      { q: "Who runs Living With Arthritis?", a: "Living With Arthritis was founded by David Williams. Louis Maxwell, a physiotherapist and First Contact Practitioner registered with the HCPC (PH128483), is Operations Director and reviews our clinical content." },
       { q: "What is the charity number?", a: "1218461 (England and Wales)." },
+      { q: "Where is the charity based?", a: "We are a UK charity (England and Wales, no. 1218461) serving people across the United Kingdom online. A new registered office address will be published when confirmed — contact info@livingwitharthritis.org.uk or 07760 512 084." },
     ],
   }),
   "/guides/diet": withDefaults({
     question: "What is the best diet for arthritis?",
     answer:
-      "The NHS advises a healthy, balanced diet and keeping to a healthy weight, because extra weight strains your joints. NICE NG226 says any weight loss helps people with osteoarthritis who are overweight, and NICE NG100 encourages people with rheumatoid arthritis to follow Mediterranean diet principles: more fruit, vegetables, fish and plant oils, less meat. No diet cures arthritis.",
+      "The NHS advises a healthy, balanced diet and keeping to a healthy weight, because extra weight strains your joints. NICE NG226 says any weight loss helps people with osteoarthritis who are overweight, and NG100 encourages people with rheumatoid arthritis to follow Mediterranean principles: more fruit, vegetables, fish and plant oils, less meat.",
+    takeaways: [
+      "No diet cures arthritis; a balanced diet supports exercise, medicines and your other treatment.",
+      "If you have osteoarthritis and are overweight, any weight loss helps, and losing 10% of body weight is likely better than 5% (NICE NG226).",
+      "NICE NG100 encourages Mediterranean diet principles for rheumatoid arthritis: more fruit, vegetables, fish and plant oils, less meat.",
+      "Don't drink too much alcohol, and follow your rheumatology team's limits if you take methotrexate."
+    ],
     faqs: [
       { q: "Can diet cure arthritis?", a: "No. The NHS says there is currently no cure for arthritis, and NICE NG100 says there is no strong evidence that changing your diet will improve rheumatoid arthritis. A balanced diet supports exercise, medicines and the other treatment your clinical team recommends." },
       { q: "How much weight should I lose for knee or hip osteoarthritis?", a: "NICE NG226 says any amount of weight loss is likely to help if you are overweight, and losing 10% of your body weight is likely to be better than 5%. Ask your GP about local NHS weight management support." },
@@ -419,7 +494,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/arthritis-waiting-list-help": withDefaults({
     question: "What can I do while waiting for a rheumatology appointment?",
     answer:
-      "While you wait, check your referral has been received, track your symptoms weekly, keep active, and ask about NHS physiotherapy self-referral. In England you have a legal right to start consultant-led treatment within 18 weeks, with exceptions; Scotland, Wales and Northern Ireland have different rules. Contact your GP if symptoms get worse so the referral can be reviewed.",
+      "While you wait, check your referral has been received, track your symptoms weekly, keep active, and ask about NHS physiotherapy self-referral. In England you have a legal right to start consultant-led treatment within 18 weeks, with exceptions; Scotland, Wales and Northern Ireland differ. Contact your GP if symptoms worsen.",
     faqs: [
       { q: "How long will I wait for a rheumatology appointment?", a: "It depends on where you live, the hospital and how urgent your referral is. Check the official sites: My Planned Care in England, NHS inform in Scotland, your health board and GOV.WALES statistics in Wales, and My Waiting Times NI in Northern Ireland. Suspected inflammatory arthritis should be referred urgently." },
       { q: "What is the 18-week rule?", a: "In England you have a legal right to start non-urgent, consultant-led treatment within 18 weeks of your referral being received or booked, with some exceptions. If you are likely to wait longer, you can ask to be offered a different provider. Scotland, Wales and Northern Ireland have different rules." },

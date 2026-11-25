@@ -116,7 +116,7 @@ export default function DebugSchema() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <Helmet>
         <title>Schema Debug Inspector</title>
         <meta name="robots" content="noindex,nofollow" />

@@ -21,7 +21,7 @@ const Credits = () => {
   }));
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title="Image Credits & Attribution"
         description="Full attribution for the 50 Creative Commons images used across Living With Arthritis. Each entry credits the original creator, license and source."

@@ -1,3 +1,4 @@
+import { OFFLINE_WORKER } from './offlinePrintables';
 import { lazy, type ComponentType, type LazyExoticComponent } from "react";
 
 /**
@@ -146,21 +147,24 @@ export function installChunkRecovery(): void {
   });
 }
 
-/**
- * This site has never shipped a service worker, but a stale registration
- * (from a previous build tool, a browser extension test, or an old host) would
- * serve cached HTML pointing at deleted chunks. Unregister anything found and
- * drop its caches so the network is always the source of truth.
+/** Retire legacy page-caching workers without removing the opt-in blank-record worker.
+ * Fresh HTML/chunks remain network-owned; only this worker's narrow cache is kept.
  */
 export function removeStaleServiceWorkers(): void {
   if (typeof navigator === "undefined" || !("serviceWorker" in navigator)) return;
   navigator.serviceWorker
     .getRegistrations()
     .then((registrations) => {
-      if (registrations.length === 0) return;
-      registrations.forEach((registration) => registration.unregister());
+      const legacy = registrations.filter((registration) => {
+        const worker = registration.active || registration.waiting || registration.installing;
+        if (!worker) return true;
+        const script = new URL(worker.scriptURL);
+        return script.origin !== window.location.origin || script.pathname + script.search !== OFFLINE_WORKER;
+      });
+      if (legacy.length === 0) return;
+      legacy.forEach((registration) => registration.unregister());
       if ("caches" in window) {
-        caches.keys().then((keys) => keys.forEach((key) => caches.delete(key)));
+        caches.keys().then((keys) => keys.filter((key) => !key.startsWith('lwa-blank-records-')).forEach((key) => caches.delete(key)));
       }
     })
     .catch(() => {

@@ -22,5 +22,5 @@ export const HUB_GUIDES_BY_SLUG: Record<string, HubGuide> = Object.fromEntries(
 export const HUB_GUIDE_REVIEWER = {
   name: "Louis Maxwell",
   credentials: "First Contact Practitioner, HCPC PH128483",
-  profileHref: "/reviewers/maxwell",
+  profileHref: "/authors/maxwell",
 };

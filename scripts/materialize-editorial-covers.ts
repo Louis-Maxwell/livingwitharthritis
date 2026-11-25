@@ -1,0 +1,37 @@
+// Exact reviewed title-card bytes stored as text for deterministic builds.
+// No network request, image conversion or new dependency is needed.
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { resolve } from "node:path";
+
+export function materializeEditorialCovers(root = process.cwd()) {
+  const source = resolve(root, "scripts/data/editorial-covers.json");
+  if (!existsSync(source)) return;
+  const assets = JSON.parse(readFileSync(source, "utf8")) as Record<string, { sha256: string; base64: string }>;
+  const additional = resolve(root, "scripts/data/editorial-herbs-cover.json");
+  if (existsSync(additional)) Object.assign(assets, JSON.parse(readFileSync(additional, "utf8")));
+  const care = resolve(root, "scripts/data/editorial-care-covers.json");
+  if (existsSync(care)) Object.assign(assets, JSON.parse(readFileSync(care, "utf8")));
+  const reviewed = resolve(root, "scripts/data/editorial-reviewed-blog-covers.json");
+  if (existsSync(reviewed)) Object.assign(assets, JSON.parse(readFileSync(reviewed, "utf8")));
+  const imageAudit1 = resolve(root, "scripts/data/editorial-image-audit-25nov-1.json");
+  if (existsSync(imageAudit1)) Object.assign(assets, JSON.parse(readFileSync(imageAudit1, "utf8")));
+  const imageAudit2 = resolve(root, "scripts/data/editorial-image-audit-25nov-2.json");
+  if (existsSync(imageAudit2)) Object.assign(assets, JSON.parse(readFileSync(imageAudit2, "utf8")));
+  const imageAudit3 = resolve(root, "scripts/data/editorial-image-audit-25nov-3.json");
+  if (existsSync(imageAudit3)) Object.assign(assets, JSON.parse(readFileSync(imageAudit3, "utf8")));
+  const imageAudit4 = resolve(root, "scripts/data/editorial-image-audit-25nov-4.json");
+  if (existsSync(imageAudit4)) Object.assign(assets, JSON.parse(readFileSync(imageAudit4, "utf8")));
+  const imageAudit5 = resolve(root, "scripts/data/editorial-image-audit-25nov-5.json");
+  if (existsSync(imageAudit5)) Object.assign(assets, JSON.parse(readFileSync(imageAudit5, "utf8")));
+  const output = resolve(root, "public/openverse");
+  mkdirSync(output, { recursive: true });
+  for (const [name, asset] of Object.entries(assets)) {
+    if (!/^lwa-title-[a-z0-9-]+\.webp$/.test(name)) throw new Error("Unexpected editorial cover filename");
+    const bytes = Buffer.from(asset.base64, "base64");
+    if (bytes.subarray(0, 4).toString() !== "RIFF" || bytes.subarray(8, 12).toString() !== "WEBP") throw new Error("Invalid editorial WebP");
+    if (createHash("sha256").update(bytes).digest("hex") !== asset.sha256) throw new Error("Editorial cover checksum mismatch");
+    const target = resolve(output, name);
+    writeFileSync(target, bytes);
+  }
+}

@@ -26,7 +26,11 @@
 // and re-running this script refreshes crawler meta without a full vite build.
 
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
+import { trimDescription } from "./route-head-fallback.mjs";
+import { withReviewRecord } from "./lib/review-records.mjs";
 import { patchEnglishAlternates } from "./lib/english-alternates.mjs";
+import { aboutShareMeta, finalizeTechnicalHead } from './lib/technical-head.mjs';
+import { canonicalPath, cleanJsonLd, isHealthAdviceGuide } from '../src/lib/technicalSeo.mjs';
 import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
 import { normalizeStaticMeta } from "./lib/meta-lengths.mjs";
 import { articleJsonLd, ensureArticleJsonLd } from "./article-jsonld.mjs";
@@ -37,10 +41,12 @@ import { deriveHeadData } from "./route-head-fallback.mjs";
 import {
   buildStaticArticleInner,
   embedArticleJson,
+  stripDocumentBodyBloat,
   htmlHasFullArticle,
   replaceSeoFallback,
   stripToText,
 } from "./static-article-html.mjs";
+import { isRedirectedPath, rewriteRedirectedHrefs } from "./lib/internal-href.mjs";
 import { exactRedirectPathSet, CITY_HUBS, CITY_SLUGS } from "./seo-redirect-map.mjs";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -51,6 +57,8 @@ const BLOG_DATA_PATH = resolve("scripts/blog-head-data.json");
 const CONDITION_DATA_PATH = resolve("scripts/condition-head-data.json");
 const LIBRARY_DATA_PATH = resolve("scripts/library-head-data.json");
 const HUB_GUIDE_DATA_PATH = resolve("scripts/hub-guide-head-data.json");
+const INTERNATIONAL_LEXICON = JSON.parse(readFileSync(resolve("src/data/international-lexicon.json"), "utf8"));
+const PRIORITY_ANSWERS = JSON.parse(readFileSync(resolve("src/data/priority-direct-answers.json"), "utf8"));
 
 const template = existsSync(SRC) ? readFileSync(SRC, "utf8") : "";
 
@@ -112,9 +120,10 @@ function authorHeadData() {
           : `Author profile`;
       out[`/${prefix}/${record.slug}`] = {
         title: `${record.name} — ${label}: ${record.title} | Living With Arthritis`.slice(0, 115),
-        description: `${role}: ${record.name}, ${record.title}${credential ? ` (${credential})` : ""}. ${bio}`
-          .replace(/\s+/g, " ")
-          .slice(0, 158),
+        description: trimDescription(
+          `${role}: ${record.name}, ${record.title}${credential ? ` (${credential})` : ""}. ${bio}`
+            .replace(/\s+/g, " "),
+        ),
         question: `${record.name} — ${label.toLowerCase()} profile`,
         answer: [
           prefix === "reviewers"
@@ -163,16 +172,64 @@ export function mergeHeadLayers(...layers) {
   return out;
 }
 
+
 // Curated entries win over auto-generated blog/author entries; all of them
 // win over the slug-derived fallback applied in headDataFor().
+// Runtime AEO layer: src/data/page-aeo.ts is the question/answer/FAQ content
+// that <AeoEnhancement> renders visibly on its routes, so it is layered last
+// to keep the static crawler head byte-identical with what the page shows.
+// Empty fields are omitted so richer build-side data (e.g. a page's own
+// visible FAQ set mirrored in ai-head-data.json) is never wiped.
+import { medicalEntityForRoute } from "../src/lib/routeSchema.ts";
+import { PAGE_AEO } from "../src/data/page-aeo.ts";
+import { STANDALONE_ANSWER_CAPSULES } from "../src/data/standaloneAnswerCapsules.ts";
+const STANDALONE_ANSWER_LAYER = Object.fromEntries(Object.entries(STANDALONE_ANSWER_CAPSULES).map(([route, answer]) => [route, { answer }]));
+import { LIBRARY_ANSWER_CAPSULES } from "../src/data/libraryAnswerCapsules.ts";
+const LIBRARY_ANSWER_LAYER = Object.fromEntries(Object.entries(LIBRARY_ANSWER_CAPSULES).map(([slug, answer]) => [`/library/${slug}`, { answer }]));
+import { conditionSubpages } from "../src/data/conditionSubpages.ts";
+const CONDITION_ANSWER_LAYER = Object.fromEntries(Object.entries(conditionSubpages).flatMap(([condition, sections]) => Object.entries(sections).map(([section, data]) => [`/conditions/${condition}/${section}`, { answer: data.intro }])));
+import { ROUTE_TITLE_OVERRIDES } from "../src/data/routeTitleOverrides.ts";
+const EDITORIAL_TITLE_LAYER = Object.fromEntries(Object.entries(ROUTE_TITLE_OVERRIDES).map(([route, title]) => [route, { title }]));
+import { exerciseJointPages } from "../src/data/exerciseJointMatrix.ts";
+import { EXERCISE_URGENT_ADVICE, EXERCISE_EMERGENCY_ADVICE, EXERCISE_ROUTINE_ADVICE } from "../src/data/exerciseSafety.ts";
+const EXERCISE_JOINT_BY_ROUTE = new Map(exerciseJointPages.map((page) => [`/exercises/${page.slug}`, page]));
+const EXERCISE_ANSWER_LAYER = Object.fromEntries([...EXERCISE_JOINT_BY_ROUTE].map(([route, page]) => [route, { answer: page.intro }]));
+const PAGE_AEO_LAYER = Object.fromEntries(
+  Object.entries(PAGE_AEO).map(([route, page]) => [
+    route,
+    {
+      ...(page.question ? { question: page.question } : {}),
+      ...(page.answer ? { answer: page.answer } : {}),
+      ...(Array.isArray(page.faqs) && page.faqs.length ? { faqs: page.faqs } : {}),
+    },
+  ]),
+);
+const CHILD_HEAD_DATA = readJson(resolve("scripts/child-health-head-data.json"));
+const CONDITION_HEAD_DATA = readJson(CONDITION_DATA_PATH);
+const HUB_GUIDE_DATA = readJson(HUB_GUIDE_DATA_PATH);
+const NICE_SAFETY = readJson(resolve("scripts/nice-safety-overrides.json"));
 const AI_DATA = mergeHeadLayers(
   readJson(BLOG_DATA_PATH),
   readJson(CONDITION_DATA_PATH),
   readJson(LIBRARY_DATA_PATH),
-  readJson(HUB_GUIDE_DATA_PATH),
+  HUB_GUIDE_DATA,
   readJson(resolve("scripts/editorial-head-data.json")),
   authorHeadData(),
+  readJson(resolve("scripts/route-head-curated.json")),
   readJson(AI_DATA_PATH),
+  PAGE_AEO_LAYER,
+  EXERCISE_ANSWER_LAYER,
+  CONDITION_ANSWER_LAYER,
+  LIBRARY_ANSWER_LAYER,
+  STANDALONE_ANSWER_LAYER,
+  EDITORIAL_TITLE_LAYER,
+  readJson(resolve("scripts/pip-head-overrides.json")),
+  // Narrow source-checked clinical corrections override older seed answers.
+  readJson(resolve("scripts/clinical-head-overrides.json")),
+  // Source-checked glossary replacements must win over the older seed answers.
+  // Restrict this to definitions carrying their explicit pending-review note.
+  Object.fromEntries(Object.entries(readJson(resolve("scripts/editorial-head-data.json")))
+    .filter(([route, entry]) => route.startsWith("/glossary/") && entry.summaryReviewNote)),
 );
 
 const BLOG_SLUGS_PATH = resolve("src/data/blog-slugs.generated.json");
@@ -184,7 +241,7 @@ const STATIC_APP_ROUTES = new Set(appRoutes());
 function blogArchiveHeadData() {
   const posts = readJson(resolve("src/content/blog/catalog.generated.json"));
   const guides = (Array.isArray(posts) ? posts : [])
-    .filter((post) => BLOG_SLUGS.has(post.slug))
+    .filter((post) => BLOG_SLUGS.has(post.slug) && !isRedirectedPath(`/blog/${post.slug}`))
     .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
   return {
     title: "Arthritis blog archive — browse by date and topic | Living With Arthritis",
@@ -229,7 +286,8 @@ function blogCategoryHeadData(key) {
   if (!meta) return null;
   const posts = readJson(resolve("src/content/blog/catalog.generated.json"));
   const guides = (Array.isArray(posts) ? posts : []).filter(
-    (post) => BLOG_SLUGS.has(post.slug) && BLOG_CATEGORY_LABEL_TO_KEY[post.category] === key,
+    (post) => BLOG_SLUGS.has(post.slug) && !isRedirectedPath(`/blog/${post.slug}`)
+      && BLOG_CATEGORY_LABEL_TO_KEY[post.category] === key,
   );
   const label = Object.entries(BLOG_CATEGORY_LABEL_TO_KEY).find(([, k]) => k === key)?.[0] ?? key;
   const others = Object.entries(BLOG_CATEGORY_LABEL_TO_KEY).filter(([, k]) => k !== key);
@@ -252,7 +310,11 @@ function baseHeadDataFor(route, override) {
   if (override) return override;
   if (route === "/blog/archive") return blogArchiveHeadData();
   const catMatch = /^\/blog\/category\/([^/]+)$/.exec(route);
-  if (catMatch && BLOG_CATEGORY_META[catMatch[1]]) return blogCategoryHeadData(catMatch[1]);
+  if (catMatch) {
+    return BLOG_CATEGORY_META[catMatch[1]]
+      ? blogCategoryHeadData(catMatch[1])
+      : NOT_FOUND_HEAD;
+  }
   // Soft-404: /blog/:slug not in the published catalog must not ship
   // homepage OG or a fabricated article title.
   const blogMatch = /^\/blog\/([^/]+)$/.exec(route);
@@ -296,23 +358,71 @@ const SITEMAP_PATHS = existsSync(resolve('public/sitemap.xml'))
       .map((m) => new URL(m[1]).pathname) : [];
 // Rendered-body snapshots (scripts/snapshot-rendered-bodies.mjs): each page's
 // own rendered content, used when its static data body is thin (soft-404 fix).
-const RENDERED_BODIES = existsSync(resolve('scripts/data/rendered-bodies.json'))
-  ? JSON.parse(readFileSync(resolve('scripts/data/rendered-bodies.json'), 'utf8')) : {};
+// Cross-market terminology blocks (src/data/page-aeo.ts synonyms, exported by
+// scripts/generate-aeo-synonyms.ts in prebuild). Static <dl> so answer engines
+// and no-JS readers see the regional equivalents without hydration.
+const AEO_SYNONYMS = existsSync(resolve('scripts/aeo-synonyms.json'))
+  ? JSON.parse(readFileSync(resolve('scripts/aeo-synonyms.json'), 'utf8')) : {};
+function withSynonyms(route, data) {
+  const rows = AEO_SYNONYMS[route];
+  if (!data || !Array.isArray(rows) || !rows.length) return data;
+  const items = rows
+    .filter((row) => row?.term && row?.variants)
+    .map((row) => `<dt>${escText(row.term)}</dt><dd>${escText(row.variants)}</dd>`);
+  if (!items.length) return data;
+  return { ...data, bodyHtml: `${data.bodyHtml || ''}<h2>Also known as</h2><dl>${items.join('')}</dl>` };
+}
+// rendered-bodies.overrides.json (small, per-route) is layered over the large
+// committed snapshot so a few routes can be re-captured without rewriting it.
+const RENDERED_BODIES = {
+  ...(existsSync(resolve('scripts/data/rendered-bodies.json'))
+    ? JSON.parse(readFileSync(resolve('scripts/data/rendered-bodies.json'), 'utf8')) : {}),
+  ...(existsSync(resolve('scripts/data/rendered-bodies.overrides.json'))
+    ? JSON.parse(readFileSync(resolve('scripts/data/rendered-bodies.overrides.json'), 'utf8')) : {}),
+};
 // Same counting rule as scripts/lib/route-words.mjs (the word gate).
 const textWords = (html) => String(html || '').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ').split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
 function withRenderedBody(route, data) {
-  const snap = RENDERED_BODIES[route];
+  const rawCapture = RENDERED_BODIES[route];
+  const conditionAnswer = CONDITION_ANSWER_LAYER[route]?.answer || LIBRARY_ANSWER_LAYER[route]?.answer || STANDALONE_ANSWER_LAYER[route]?.answer;
+  const correctedCapture = rawCapture?.replace(/Band 8 Advanced Practice Physiotherapist/g, 'Band 7 First Contact Practitioner').replace(/<strong>Last checked: 11 November 2026<\/strong> against/g, "<strong>Official sources:</strong>").replace('It is available on prescription and also over-the-counter (in lower doses) at pharmacies.', 'Naproxen is prescribed for arthritis. Some UK pharmacy products have limited indications: Naprosyn Pain Relief 250 mg is for short-term muscle and joint pain in adults aged 18 to 50, for no more than 3 days; period-pain products have separate eligibility rules. Ask a pharmacist which product is suitable, and do not use a pharmacy product as ongoing arthritis treatment without medical advice.');
+  const captured = correctedCapture && conditionAnswer
+    ? correctedCapture.replace(/<p>[\s\S]*?<\/p>/, `<p>${escText(conditionAnswer)}</p>`) : correctedCapture;
+  const exercisePage = EXERCISE_JOINT_BY_ROUTE.get(route);
+  // Keep the captured exercise body while replacing its stale opening copy
+  // with the same answer now rendered by the React matrix page.
+  const snap = captured && exercisePage
+    ? captured.replace(/<p>[\s\S]*?<\/p>/, `<p>${escText(exercisePage.intro)}</p><blockquote data-callout="note"><p><strong>Note</strong></p><p>${escText(EXERCISE_URGENT_ADVICE)}</p><p>${escText(EXERCISE_EMERGENCY_ADVICE)}</p><p>${escText(EXERCISE_ROUTINE_ADVICE)} <a href="https://www.nhs.uk/conditions/joint-pain/">NHS joint-pain advice</a></p></blockquote>`)
+      .replace("During an active flare — rest and let it settle first", "A hot, swollen joint or sudden severe joint pain needs urgent GP or NHS 111 advice, not routine exercise adaptation") : captured;
   if (!data || data.noindex) return data;
   let out = data;
   if (snap && !(textWords(data.bodyHtml) + textWords(data.answer) >= 300 && textWords(data.bodyHtml) >= textWords(snap))) {
     out = { ...data, bodyHtml: unwrapUnknownLinks(snap) };
   }
-  return withHubSpotlight(route, withLinkedSummaries(route, out));
+  if (route === "/guides/knee-exercises-for-osteoarthritis") {
+    const supplement = readJson(resolve("src/data/kneeEditorialEnhancement.json"));
+    out = { ...out, bodyHtml: `${out.bodyHtml || ""}<section id="knee-editorial-supplement"><h2>${escText(supplement.title)}</h2><p>${escText(supplement.note)}</p>${supplement.html || ""}</section>` };
+  }
+  return withSynonyms(route, withHubSpotlight(route, withLinkedSummaries(route, withIntentLinks(route, out))));
 }
 // Strong hubs link to related guides Google had discovered but never crawled
 // (src/data/hub-spotlight.json, also rendered by <HubSpotlight /> in React).
 const HUB_SPOTLIGHT = existsSync(resolve('src/data/hub-spotlight.json'))
   ? JSON.parse(readFileSync(resolve('src/data/hub-spotlight.json'), 'utf8')) : {};
+const RELATED_NAVIGATION = JSON.parse(readFileSync(resolve('src/data/relatedNavigationLinks.json'), 'utf8'));
+const READER_JOURNEY = existsSync(resolve('src/data/readerJourneyLinks.json'))
+  ? JSON.parse(readFileSync(resolve('src/data/readerJourneyLinks.json'), 'utf8')) : {};
+function withIntentLinks(route, data) {
+  const rows = RELATED_NAVIGATION[route] || READER_JOURNEY[route];
+  if (!data || !Array.isArray(rows) || !rows.length) return data;
+  return {
+    ...data,
+    relatedLinks: [...new Map([
+      ...(data.relatedLinks || []),
+      ...rows.filter((row) => row?.href && row?.title).map((row) => ({ path: row.href, title: row.title })),
+    ].map((row) => [row.path, row])).values()],
+  };
+}
 function withHubSpotlight(route, data) {
   const spot = HUB_SPOTLIGHT[route];
   if (!spot || !data) return data;
@@ -322,21 +432,37 @@ function withHubSpotlight(route, data) {
   if (!items.length) return data;
   return { ...data, bodyHtml: `${data.bodyHtml || ''}<h2>${escText(spot.heading)}</h2><ul>${items.join('')}</ul>` };
 }
-// Keep only internal links that resolve to a sitemap page; others become text.
+// Standalone resources are served directly, not rewritten as SPA route folders.
+// PDFs remain downloads; the knee tool is an indexable supplemental page.
+const STATIC_RESOURCES = new Set([
+  "/resources/knee-joint-map.html",
+  "/resources/gp-appointment-symptom-medication-tracker.pdf",
+  "/resources/flare-up-daily-log.pdf",
+  "/resources/chair-exercise-guide.pdf",
+  "/resources/joint-friendly-eating-checklist.pdf",
+]);
+// Keep known sitemap pages and the explicit published resources; others become text.
 function unwrapUnknownLinks(html) {
   return String(html).replace(/<a href="(\/[^"#?]*)[^"]*">([\s\S]*?)<\/a>/g, (all, path, inner) =>
-    SITEMAP_PATHS.includes(path.replace(/\/$/, '') || '/') ? all : inner);
+    (SITEMAP_PATHS.includes(path.replace(/\/$/, '') || '/') || STATIC_RESOURCES.has(path)) ? all : inner);
 }
 // Still-thin pages (interactive tools, contact screens): describe the pages
 // they already link to, using each target's own meta description.
 function withLinkedSummaries(route, data) {
-  // Count the body only: the answer box is not always repeated in the body.
-  const have = textWords(data.bodyHtml);
+  if (!data) return data;
+  // Count the authored article as well as bodyHtml. A full guide is not a
+  // thin shell, even when bodyHtml is empty and the answer box is short.
+  const have = textWords(data.bodyHtml) + textWords(data.article?.content);
   if (have >= 300) return data;
+  // Every blog URL shares the /blog/ prefix. Using that as a sibling list
+  // repeated the same intimacy and carer guides on unrelated articles.
+  const section = `/${String(route || "").split("/").filter(Boolean)[0] || ""}`;
+  const siblingPrefix = section && section !== "/blog" ? `${section}/` : "";
   const paths = [
     ...[...String(data.bodyHtml || '').matchAll(/href="(\/[^"#?]*)"/g)].map((m) => m[1]),
+    ...[...String(data.article?.content || '').matchAll(/href="(\/[^"#?]*)"/g)].map((m) => m[1]),
     ...(data.relatedLinks || []).map((l) => l.path),
-    ...SITEMAP_PATHS.filter((p) => p !== route && p.startsWith(`${route.split('/').slice(0, 2).join('/')}/`)),
+    ...(siblingPrefix ? SITEMAP_PATHS.filter((p) => p !== route && p.startsWith(siblingPrefix)) : []),
     '/guides/newly-diagnosed', '/conditions/osteoarthritis', '/conditions/rheumatoid-arthritis', '/exercises', '/guides/diet', '/guides/benefits-pip', '/helpline', '/arthritis-waiting-list-help', '/living-with-arthritis', '/guides/arthritis-pain-relief',
   ];
   const items = [];
@@ -355,6 +481,33 @@ function withLinkedSummaries(route, data) {
 }
 export { withRenderedBody };
 function headDataFor(route, override) {
+  let data = withReviewRecord(route, headDataForInner(route, override));
+  const priority = PRIORITY_ANSWERS[route];
+  if (priority && data) {
+    const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
+    data = { ...editorial, question: priority.question, answer: priority.answer, internationalTerms: INTERNATIONAL_LEXICON.filter(term => term.term !== "Paracetamol" || route.includes("arthritis")), summaryReviewNote: "Source-based educational summary. This updated summary is awaiting a separate clinical review.", sources: [...(data.sources || []), ...priority.sources] };
+  }
+  if (route === "/guides/knee-exercises-for-osteoarthritis" && data) {
+    const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
+    return editorial;
+  }
+  if (route === "/services" && data) data = { ...data, description: "Arthritis information, educational resources and support services. Contact Living With Arthritis about suitability and current availability.", answer: "Explore arthritis information and support. Contact us to check which service is suitable and its current availability.", bodyHtml: String(data.bodyHtml || "").replace(/Every service is clinically reviewed, NICE-compliant and designed by our multidisciplinary team\. No waiting lists, no referrals, no cost\./g, "Explore our educational resources and support services. Contact us about suitability and current availability.") };
+  // A newly source-checked guide must not inherit older captured text, seed
+  // answers or clinical-review metadata. Use its generated data as the final
+  // authority for this pending revision, including FAQs and visible sources.
+  const pendingGuide = CHILD_HEAD_DATA[route] || (route.startsWith("/conditions/juvenile-arthritis/") ? CONDITION_HEAD_DATA[route] : undefined) || HUB_GUIDE_DATA[route];
+  if (pendingGuide?.reviewStatus === "pending" && data) {
+    const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
+    return { ...editorial, ...pendingGuide };
+  }
+  const safety = NICE_SAFETY[route];
+  if (safety && data) {
+    const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
+    return { ...editorial, ...safety };
+  }
+  return data;
+}
+function headDataForInner(route, override) {
   const data = withRenderedBody(route, baseHeadDataFor(route, override));
   if (override || !data || data.noindex || route.startsWith('/blog/')) return data;
   const children = SITEMAP_PATHS.filter((path) =>
@@ -534,24 +687,104 @@ function compact(obj) {
   );
 }
 
+// Health /guides routes that are medical information pages (MedicalWebPage).
+// Benefits, admin and pet guides deliberately stay WebPage.
+export const MEDICAL_GUIDE_ROUTES = new Set([
+  "/guides/hip-exercises-for-osteoarthritis",
+  "/guides/frailty-management-hub",
+  "/guides/sarcopenia-muscle-loss",
+  "/guides/preventative-msk-health",
+  "/guides/bone-density-osteoporosis",
+  "/guides/fall-prevention-older-adults",
+  "/guides/musculoskeletal-health",
+  "/guides/uk-arthritis",
+  "/guides/exercise",
+  "/guides/arthritis-pain-relief",
+  "/guides/understanding-pain",
+  "/guides/can-exercise-make-osteoarthritis-worse",
+  "/guides/shoulder-pain-relief",
+  "/guides/knee-replacement-surgery",
+  "/guides/steroids-for-arthritis",
+  "/guides/azathioprine-for-arthritis",
+  "/guides/febuxostat-for-gout",
+  "/guides/painkillers-and-nsaids",
+  "/guides/newly-diagnosed",
+  "/guides/febuxostat-vs-allopurinol",
+  "/guides/paracetamol-vs-ibuprofen-for-arthritis",
+  "/guides/topical-nsaid-vs-oral-nsaid-arthritis",
+  "/guides/physiotherapy-vs-surgery-knee-arthritis",
+  "/guides/swimming-vs-walking-arthritis",
+  "/guides/yoga-vs-pilates-arthritis",
+  "/guides/glucosamine-vs-turmeric-arthritis",
+  "/guides/heat-vs-cold-arthritis-pain",
+  "/guides/walking-stick-vs-crutch-arthritis",
+  "/guides/rollator-vs-walking-frame",
+  "/guides/dmards-vs-biologics",
+  "/guides/steroid-injection-vs-hyaluronic-acid",
+  "/guides/gout-vs-pseudogout",
+  "/guides/osteoarthritis-vs-rheumatoid-arthritis",
+  "/guides/arthritis-vs-fibromyalgia",
+  "/guides/tendonitis-vs-arthritis",
+  "/guides/bursitis-vs-arthritis",
+  "/guides/sciatica-vs-hip-arthritis",
+  "/guides/wet-vs-dry-heat-therapy",
+  "/guides/resistance-bands-vs-weights",
+  "/guides/mediterranean-diet-vs-anti-inflammatory-diet",
+  "/guides/magnesium-vs-vitamin-d",
+  "/guides/chair-yoga-vs-tai-chi",
+  "/guides/meditation-vs-cbt-arthritis-pain",
+  "/guides/cold-plunge-vs-warm-bath-arthritis",
+  "/guides/collagen-vs-glucosamine",
+]);
+
 export function buildJsonLd(route, url, d) {
   const graphs = [];
   const article = d.article;
-  const medical = Boolean(article) || /^\/(conditions|library|exercises|diet|supplements|faq)(\/|$)/.test(route);
-  const person = (name, credentials, prefix) => name && !/placeholder/i.test(name)
-    ? { "@type": /louis.*maxwell|^maxwell$/i.test(name) ? "Person" : "Organization", name,
-        ...(/louis.*maxwell|^maxwell$/i.test(name) ? {
-          ...(credentials ? { jobTitle: credentials } : {}), url: `${BASE}/${prefix}/maxwell` } : {}) } : undefined;
-  const author = person(article?.author, article?.author_credentials, "authors");
-  const reviewer = person(article?.reviewed_by, article?.reviewer_credentials, "reviewers");
+  const medical = Boolean(article) || Boolean(d.condition) || Boolean(d.reviewedBy)
+    || isHealthAdviceGuide(route)
+    || /^\/(conditions|library|exercises|diet|supplements|faq)(\/|$)/.test(route)
+    || MEDICAL_GUIDE_ROUTES.has(route);
+  // Louis Maxwell is the only registered clinician: one stable Person node
+  // (same @id as src/lib/louisMaxwell.ts) with his HCPC registration.
+  const person = (name) => name && !/placeholder/i.test(name)
+    ? /louis.*maxwell|^maxwell$/i.test(name)
+      ? { "@type": "Person", "@id": `${BASE}/authors/maxwell#person`, name: "Louis Maxwell",
+          jobTitle: "Physiotherapist", url: `${BASE}/authors/maxwell`,
+          identifier: { "@type": "PropertyValue", propertyID: "HCPC", value: "PH128483" },
+          hasCredential: {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "Professional registration",
+            name: "HCPC registered physiotherapist (PH128483)",
+            recognizedBy: { "@type": "Organization", name: "Health and Care Professions Council", url: "https://www.hcpc-uk.org/" },
+          } }
+      : { "@type": "Organization", name }
+    : undefined;
+  const author = person(article?.author);
+  const reviewer = article?.editorial_review_note ? undefined : person(article?.reviewed_by);
   const citations = (article?.citations || []).filter((c) => /^https?:\/\//i.test(c.url) && c.label)
     .map((c) => ({ "@type": "CreativeWork", name: c.label, url: c.url }));
+  // Non-article guides: reviewer only when the page itself states the review
+  // (d.reviewedBy), condition entity with verified ICD-10 codes and sameAs
+  // (d.condition), and the page's verified sources as citations.
+  const pageReviewer = !article ? person(d.reviewedBy) : undefined;
+  const pageCitations = !article && Array.isArray(d.sources)
+    ? d.sources.filter((c) => /^https?:\/\//i.test(c.url) && (c.name || c.label))
+      .map((c) => ({ "@type": "CreativeWork", name: c.name || c.label, url: c.url }))
+    : [];
+  const conditionNode = d.condition ? {
+    "@type": "MedicalCondition",
+    name: d.condition.name,
+    ...(Array.isArray(d.condition.icd10) && d.condition.icd10.length ? {
+      code: d.condition.icd10.map((c) => ({ "@type": "MedicalCode", codeValue: c, codingSystem: "ICD-10" })),
+    } : {}),
+    ...(Array.isArray(d.condition.sameAs) && d.condition.sameAs.length ? { sameAs: d.condition.sameAs } : {}),
+  } : undefined;
 
   // 1) MedicalWebPage — the page entity itself, tied to the sitewide
   //    Organization/WebSite nodes already present in the static head.
   graphs.push({
     "@context": "https://schema.org",
-    "@type": medical ? "MedicalWebPage" : "WebPage",
+    "@type": d.pageType || (medical ? "MedicalWebPage" : "WebPage"),
     "@id": `${url}#webpage`,
     url,
     name: d.title,
@@ -559,13 +792,22 @@ export function buildJsonLd(route, url, d) {
     description: d.description,
     inLanguage: "en-GB",
     isPartOf: { "@id": `${BASE}/#website` },
-    about: article ? { "@type": "MedicalCondition", name: "Arthritis" }
-      : d.about ? { "@type": "Thing", name: d.about } : undefined,
+    about: medicalEntityForRoute(route, d.condition?.name || d.about || d.question || d.title) || (article ? { "@type": "MedicalCondition", name: "Arthritis" }
+      : conditionNode ? conditionNode
+      : d.about ? { "@type": "Thing", name: d.about } : undefined),
     dateModified: d.updatedAt,
     publisher: { "@id": `${BASE}/#organization` },
     ...(medical ? { audience: { "@type": "MedicalAudience", audienceType: "Patient" } } : {}),
     ...(article ? { mainEntity: { "@id": `${url}#article` }, author, reviewedBy: reviewer,
       ...(reviewer && article.last_reviewed ? { lastReviewed: article.last_reviewed } : {}) } : {}),
+    ...(pageReviewer ? { reviewedBy: pageReviewer, ...(d.lastReviewed ? { lastReviewed: d.lastReviewed } : {}) } : {}),
+    ...(pageCitations.length ? { citation: pageCitations } : {}),
+    ...(d.organization ? { mainEntity: { "@id": d.organization["@id"] } } : {}),
+    ...((d.pageType === "AboutPage" || canonicalPath(route) === "/about") ? (() => {
+      const share = aboutShareMeta(BASE);
+      const img = { "@type": "ImageObject", url: share.ogImage, width: share.ogImageWidth, height: share.ogImageHeight };
+      return { image: img, primaryImageOfPage: img };
+    })() : {}),
     speakable: d.answer
       ? { "@type": "SpeakableSpecification", cssSelector: ["h1", ".answer-box"] }
       : undefined,
@@ -609,6 +851,12 @@ export function buildJsonLd(route, url, d) {
     });
   }
 
+  // Organization — the About page restates the charity entity (founder,
+  // Operations Director, charity number, free offer) as its main entity.
+  if (d.organization && d.organization["@id"]) {
+    graphs.push({ "@context": "https://schema.org", ...d.organization });
+  }
+
   // HowTo — only for routes whose head data carries a howTo that mirrors
   // visible numbered steps on the page (e.g. the knee exercise routine).
   if (d.howTo && Array.isArray(d.howTo.steps) && d.howTo.steps.length > 0) {
@@ -625,7 +873,7 @@ export function buildJsonLd(route, url, d) {
         position: i + 1,
         name: st.name,
         text: st.text,
-        url: `${url}#ex-${i + 1}`,
+        url: `${url}#${st.id || `ex-${i + 1}`}`,
       })),
     });
   }
@@ -654,16 +902,17 @@ export function buildJsonLd(route, url, d) {
   return graphs
     .map(
       (g) =>
-        `  <script type="application/ld+json" data-static-route-schema>${JSON.stringify(compact(g)).replace(/</g, "\\u003c")}</script>`,
+        `  <script type="application/ld+json" data-static-route-schema>${JSON.stringify(cleanJsonLd(compact(g))).replace(/</g, "\\u003c")}</script>`,
     )
     .join("\n");
 }
 
 function enrichHead(html, route, url, override) {
+  // Strip the root-only trail even when a route has no curated metadata.
+  // Preserve a token boundary rather than joining surrounding HTML fragments.
+  let out = route === "/" ? html : html.replace(/<script\b[^>]*id=["']ld-home-breadcrumb["'][^>]*>[\s\S]*?<\/script>\s*/gi, "\n");
   const d = normalizeStaticMeta(headDataFor(route, override));
-  if (!d) return html;
-
-  let out = html;
+  if (!d) return out;
 
   if (d.title) {
     out = out.replace(/<title>[^<]*<\/title>/i, `<title>${escText(d.title)}</title>`);
@@ -717,24 +966,18 @@ function enrichHead(html, route, url, override) {
   // Unique visible article for non-JS readers. Replaces the entire
   // homepage #seo-fallback (not just the first H1) so Google cannot
   // treat the URL as an empty SPA shell or a homepage duplicate.
-  const sources = Array.isArray(d.sources) ? d.sources : [];
-  const sourcesHtml = sources.length
-    ? `<section><h2>Sources and further reading</h2><ul>${sources
-        .map(
-          (s) =>
-            `<li><a href="${escAttr(s.url)}" rel="noopener">${escText(s.name)}</a></li>`,
-        )
-        .join("")}</ul></section>`
-    : "";
-
   // Keep unique article HTML for crawlers, but clip it so JS visitors never
   // see a wall of unstyled text before React paints the designed page.
-  out = replaceSeoFallback(out, `${buildStaticArticleInner(d)}${sourcesHtml}`, {
+  out = replaceSeoFallback(out, `${buildStaticArticleInner(d)}`, {
     visible: false,
   });
   if (d.article) {
+    // Lean first response for crawlers/LLMs: drop decorative SVG icons,
+    // comments and stray JSON from <body>. JSON-LD lives in <head>, and the
+    // #static-article-data hydration payload is kept (it avoids a second
+    // network request before the article can paint).
+    out = stripDocumentBodyBloat(out);
     out = embedArticleJson(out, d.article);
-
   }
 
   // Discover the requested route and its dependencies in the first response,
@@ -747,6 +990,7 @@ function enrichHead(html, route, url, override) {
 // ---------- head rewrite (og:url + self-referencing canonical; keep AEO injection) ----------
 
 export function rewriteHead(html, route, dataOverride) {
+  route = canonicalPath(route);
   const url = `${BASE}${route}`;
   // Replace homepage og:url with route-specific og:url.
   let out = html.replace(
@@ -777,8 +1021,22 @@ export function rewriteHead(html, route, dataOverride) {
   }
 
   // AI-visibility enrichment (title, description, JSON-LD) for curated routes.
-  out = enrichHead(out, route, url, dataOverride);
-  return out;
+  // This printable route needs the same table regions and scoped stylesheet
+  // before React loads, including when JavaScript is disabled.
+  let staticOverride = dataOverride;
+  if (route === "/resources/flare-action-plan" && headMeta?.bodyHtml) {
+    let tableNumber = 0;
+    const body = headMeta.bodyHtml.replace(/<table\b[^>]*>[\s\S]*?<\/table>/gi, (table) => {
+      tableNumber += 1;
+      const label = tableNumber === 1 ? "Scrollable data table" : `Scrollable data table ${tableNumber}`;
+      return `<div class="table-scroll" tabindex="0" role="region" aria-label="${label}">${table}</div>`;
+    });
+    staticOverride = { ...headMeta, bodyHtml: `<div class="flare-plan-static flare-plan-content prose prose-neutral max-w-none">${body}</div>` };
+    const css = readFileSync(resolve("src/pages/resources/FlareActionPlan.css"), "utf8");
+    out = out.replace(/<\/head>/i, `<style id="flare-plan-static-layout">${css}</style>\n</head>`);
+  }
+  out = enrichHead(out, route, url, staticOverride);
+  return finalizeTechnicalHead(out, route, normalizeStaticMeta(headMeta), BASE);
 }
 
 function isDirectRun() {
@@ -799,7 +1057,11 @@ function writeRouteFiles() {
   // collectRoutes excludes the root: enrich its English signals separately.
   // Homepage: append its hub spotlight to the static main body only.
   const rootSpot = withHubSpotlight("/", { bodyHtml: "" });
-  let rootHtml = patchEnglishAlternates(template, "/", BASE);
+  const rootData = {
+    title: 'Living With Arthritis: Pain Relief & Flare-Up Help',
+    description: 'Free arthritis exercises, PIP guidance and practical support for joint pain and frailty, from Living With Arthritis, registered charity 1218461.',
+  };
+  let rootHtml = finalizeTechnicalHead(patchEnglishAlternates(template, "/", BASE), '/', rootData, BASE);
   if (rootSpot?.bodyHtml && rootHtml.includes("</main>")) {
     rootHtml = rootHtml.replace("</main>", `<section aria-label="Popular practical guides">${rootSpot.bodyHtml}</section></main>`);
   }
@@ -813,7 +1075,7 @@ function writeRouteFiles() {
 
   for (const route of routes) {
     // Sitemap entries may include downloadable assets; keep them as files.
-    if (/\.(?:pdf|mp4|mov|webm|png|jpe?g|svg|xml|txt)$/i.test(route)) continue;
+    if (STATIC_RESOURCES.has(route) || /\.(?:pdf|mp4|mov|webm|png|jpe?g|svg|xml|txt)$/i.test(route)) continue;
     const dir = join(DIST, route.replace(/^\//, ""));
     const file = join(dir, "index.html");
     const data = headDataFor(route);
@@ -825,13 +1087,14 @@ function writeRouteFiles() {
       // social crawlers pick up cover images after blog-head-data regen.
       const hasSupportDiscovery = !data?.article?.slug || existing.includes('aria-label="Arthritis support and guides"');
       if (!existing.includes('data-static-route-schema') && htmlHasFullArticle(existing, data) && hasSupportDiscovery) {
-        let patched = data ? patchShareMeta(existing, data) : existing;
+        let patched = data ? finalizeTechnicalHead(patchShareMeta(existing, data), route, normalizeStaticMeta(data), BASE) : existing;
         if (!isNoindexRoute(route) && !data?.noindex) {
           patched = patchEnglishAlternates(patched, route, BASE);
         }
         if (isNoindexRoute(route) || data?.noindex) {
           patched = applyNoindexMeta(patched);
         }
+        patched = rewriteRedirectedHrefs(patched);
         if (patched !== existing) {
           writeFileAtomicSync(file, patched);
           headPatched++;
@@ -842,7 +1105,7 @@ function writeRouteFiles() {
       rebuilt++;
     }
     mkdirSync(dirname(file), { recursive: true });
-    writeFileAtomicSync(file, rewriteHead(template, route));
+    writeFileAtomicSync(file, rewriteRedirectedHrefs(rewriteHead(template, route)));
     written++;
     if (data) enriched++;
   }
