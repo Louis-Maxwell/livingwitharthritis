@@ -15,8 +15,10 @@ describe('supplements evidence and safety boundaries', () => {
     expect(post.editorial_review_note).toContain('Awaiting separate clinical review');
   });
   it('distinguishes conditions and the scope of NICE recommendations', () => {
-    expect(post.direct_answer).toContain('omega-3 in rheumatoid arthritis');
-    expect(post.direct_answer).toContain('collagen products in osteoarthritis');
+    expect(post.content).toContain('rheumatoid arthritis');
+    expect(post.content).toContain('collagen');
+    expect(post.direct_answer).toContain('Cochrane');
+    expect(post.direct_answer).toContain('little or no difference');
     expect(post.content).toContain('not to offer glucosamine');
     expect(post.content).toContain('should not be presented as a NICE recommendation against every supplement');
     expect(post.content).toContain('little or no evidence for their long-term effectiveness');
@@ -50,6 +52,6 @@ describe('supplements evidence and safety boundaries', () => {
     expect(html).toContain('Do not choose added piperine');
     expect(html).toContain('Awaiting separate clinical review');
     expect(html).not.toMatch(/Written and reviewed by|Clinically reviewed by|most research behind them/);
-    expect(post.citations).toHaveLength(16);
+    expect(post.citations).toHaveLength(17);
   });
 });
