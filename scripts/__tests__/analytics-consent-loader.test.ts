@@ -1,9 +1,11 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { runInNewContext } from "node:vm";
+import { execFileSync } from "node:child_process";
 import { describe, expect, it } from "vitest";
 
-const source = readFileSync(resolve("public/security/analytics-consent.js"), "utf8");
+const readableSource = readFileSync(resolve("public/security/analytics-consent.js"), "utf8");
+const source = execFileSync(process.execPath, ["--input-type=module", "-e", 'import { transformSync } from "esbuild"; import { readFileSync } from "node:fs"; process.stdout.write(transformSync(readFileSync(0, "utf8"), { minify: true, target: "es2020", legalComments: "none" }).code);'], { input: readableSource, encoding: "utf8" });
 
 // Execute the actual shipped loader with inert script nodes. No network, DOM
 // navigation or analytics requests are possible in this harness.
