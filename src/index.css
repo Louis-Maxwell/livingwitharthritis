@@ -1943,3 +1943,8 @@ details[open] > :not(summary) {
   .footer-connect .footer-connect__link:hover .footer-connect__arrow { transform: translate(2px, -2px); }
   .footer-connect .footer-connect__link:active { transform: translateY(0); }
 }
+
+/* Keep this reviewed equipment guide within the no-red-body-text brand rule. */
+.blog-prose a.assistive-equipment-link {
+  color: inherit;
+}
