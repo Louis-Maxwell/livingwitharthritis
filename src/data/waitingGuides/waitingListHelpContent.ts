@@ -14,7 +14,7 @@ export const WAIT_LIST_QUICK_ANSWER = "While you wait, check your referral has b
 
 export const WAIT_LIST_CHECKED = "10 October 2026";
 
-export const WAIT_LIST_HTML = `<p class="checked-note"><strong>Checked on 10 October 2026</strong> against the <a href="https://www.nhs.uk/nhs-services/hospitals/guide-to-nhs-waiting-times-in-england/" rel="noopener">NHS guide to waiting times in England</a>, <a href="https://www.nhsinform.scot/waiting-times/outpatient-waiting-times/" rel="noopener">NHS inform (Scotland)</a>, GOV.WALES, My Waiting Times NI and NICE guidance. Waiting times change month to month, so always check the official pages for your area.</p>
+export const WAIT_LIST_HTML = `<p class="checked-note"><strong>Checked on 10 October 2026</strong> against the <a href="https://www.nhs.uk/nhs-services/hospitals/guide-to-nhs-waiting-times-in-england/" rel="noopener">NHS guide to waiting times in England</a>, <a href="https://www.nhsinform.scot/care-support-and-rights/health-rights/access/nhs-scotland-waiting-times" rel="noopener">NHS inform (Scotland)</a>, GOV.WALES, My Waiting Times NI and NICE guidance. Waiting times change month to month, so always check the official pages for your area.</p>
 
 <h2 id="first-steps">Your first five steps after being referred</h2>
 <ol>
@@ -145,7 +145,7 @@ export const WAIT_LIST_HTML = `<p class="checked-note"><strong>Checked on 10 Oct
 <ul>
 <li><a href="https://www.nhs.uk/nhs-services/hospitals/guide-to-nhs-waiting-times-in-england/" rel="noopener">NHS: Guide to NHS waiting times in England</a></li>
 <li><a href="https://www.nhs.uk/using-the-nhs/about-the-nhs/your-choices-in-the-nhs/" rel="noopener">NHS: Your choices in the NHS</a></li>
-<li><a href="https://www.nhsinform.scot/waiting-times/outpatient-waiting-times/" rel="noopener">NHS inform: NHS Scotland waiting times</a></li>
+<li><a href="https://www.nhsinform.scot/care-support-and-rights/health-rights/access/nhs-scotland-waiting-times" rel="noopener">NHS inform: NHS Scotland waiting times</a></li>
 <li><a href="https://www.gov.scot/publications/nhsscotland-waiting-times-guidance-november-2023/pages/6/" rel="noopener">Scottish Government: NHSScotland waiting times guidance (November 2023) – offers of appointment</a></li>
 <li><a href="https://www.gov.wales/nhs-activity-and-performance-summary-may-and-june-2026-html" rel="noopener">GOV.WALES: NHS activity and performance summary</a></li>
 <li><a href="https://belfasttrust.hscni.net/waiting-times/my-waiting-times-ni/" rel="noopener">Belfast HSC Trust: My Waiting Times NI</a></li>
