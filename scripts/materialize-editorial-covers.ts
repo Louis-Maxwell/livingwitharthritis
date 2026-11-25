@@ -14,6 +14,16 @@ export function materializeEditorialCovers(root = process.cwd()) {
   if (existsSync(care)) Object.assign(assets, JSON.parse(readFileSync(care, "utf8")));
   const reviewed = resolve(root, "scripts/data/editorial-reviewed-blog-covers.json");
   if (existsSync(reviewed)) Object.assign(assets, JSON.parse(readFileSync(reviewed, "utf8")));
+  const imageAudit1 = resolve(root, "scripts/data/editorial-image-audit-25nov-1.json");
+  if (existsSync(imageAudit1)) Object.assign(assets, JSON.parse(readFileSync(imageAudit1, "utf8")));
+  const imageAudit2 = resolve(root, "scripts/data/editorial-image-audit-25nov-2.json");
+  if (existsSync(imageAudit2)) Object.assign(assets, JSON.parse(readFileSync(imageAudit2, "utf8")));
+  const imageAudit3 = resolve(root, "scripts/data/editorial-image-audit-25nov-3.json");
+  if (existsSync(imageAudit3)) Object.assign(assets, JSON.parse(readFileSync(imageAudit3, "utf8")));
+  const imageAudit4 = resolve(root, "scripts/data/editorial-image-audit-25nov-4.json");
+  if (existsSync(imageAudit4)) Object.assign(assets, JSON.parse(readFileSync(imageAudit4, "utf8")));
+  const imageAudit5 = resolve(root, "scripts/data/editorial-image-audit-25nov-5.json");
+  if (existsSync(imageAudit5)) Object.assign(assets, JSON.parse(readFileSync(imageAudit5, "utf8")));
   const output = resolve(root, "public/openverse");
   mkdirSync(output, { recursive: true });
   for (const [name, asset] of Object.entries(assets)) {

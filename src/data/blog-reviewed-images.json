@@ -23,18 +23,7 @@
   "gabapentinoids-unsteadiness-arthritis-frailty-uk": [],
   "neck-osteoarthritis-frailty-balance-looking-down-uk": [],
   "medication-management-travel-arthritis": [],
-  "rheumatology-appointment-what-to-expect-uk": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "alt": "Photograph of a hand with visible joint deformity",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "rheumatology-appointment-what-to-expect-uk": [],
   "deconditioning-after-arthritis-flare-uk": [],
   "activity-diary-arthritis-frailty-uk": [],
   "expert-qa-track-progress-without-measuring": [],
@@ -47,24 +36,13 @@
       "src": "/openverse/arthritis-01-arthritic-hands-in-pain.webp",
       "alt": "Hands clasped around a painful finger",
       "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-02-arthritis-on-the-right-hand.webp",
-      "alt": "Photograph of a right hand with joint changes",
-      "credit": "Openly licensed image via Openverse"
     }
   ],
   "ra-steroids-frailty-infection-watch-uk": [],
   "lwa-archive-joint-swelling": [],
   "vaccines-on-dmards-and-biologics-uk-guide": [],
   "shopping-online-arthritis-frailty-uk": [],
-  "pacing-techniques-arthritis-pain": [
-    {
-      "src": "/openverse/arthritis-01-arthritic-hands-in-pain.webp",
-      "alt": "Hands clasped around a painful finger",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "pacing-techniques-arthritis-pain": [],
   "parenting-with-arthritis-hacks-for-babies-and-toddlers": [],
   "protein-painful-joints-frailty-uk": [],
   "hydrotherapy-pools-uk": [],
@@ -175,18 +153,7 @@
   "disability-rights-workplace-arthritis": [],
   "lwa-archive-blue-badge-scheme-and-arthritis": [],
   "garden-raised-beds-arthritis-frailty-uk": [],
-  "nutrition-strategies-reduce-frailty-risk": [
-    {
-      "src": "/openverse/nutrition-06-fruit-salad-or-fruit-bowl.webp",
-      "alt": "Bowls of mixed fruit",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/nutrition-04-healthy-meal-prep-with-fresh-salad-fruits-and-plan.webp",
-      "alt": "Salad, fruit and vegetables",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "nutrition-strategies-reduce-frailty-risk": [],
   "ankylosing-spondylitis-in-men-signs-and-age-of-onset": [],
   "chair-based-exercise-ra-frailty-uk": [],
   "physiotherapy-home-visit-frail-oa-uk": [],
@@ -195,18 +162,7 @@
   "shoulder-pain-causes-treatment": [],
   "exam-adjustments-for-students-with-arthritis": [],
   "pip-fibromyalgia-denied-reapply": [],
-  "biologics-for-ra-a-realistic-year-one-roadmap": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-05-rheumatoid-arthritis.webp",
-      "alt": "Clinical photograph of a hand affected by rheumatoid arthritis",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "biologics-for-ra-a-realistic-year-one-roadmap": [],
   "ankylosing-spondylitis-meaning-and-symptoms": [],
   "anti-inflammatory-diet-for-knee-and-hip-arthritis": [],
   "polymyalgia-rheumatica-alternatives-and-safe-treatment": [],
@@ -214,45 +170,17 @@
   "expert-qa-is-it-worth-paying-for-a-second-opinion": [],
   "preventing-falls-guide-frail-adults": [],
   "hip-and-knee-oa-frailty-transfers-uk": [],
-  "steroid-injections-vs-oral-steroids-when-each-makes-sense": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-06-osteoarthritis-left-knee.webp",
-      "alt": "Knee X-ray showing osteoarthritis",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "steroid-injections-vs-oral-steroids-when-each-makes-sense": [],
   "ot-assessment-arthritis-frailty-uk": [],
   "holiday-at-home-arthritis-frailty-uk": [],
   "lwa-archive-falls-prevention-for-people-living-with-arthritis": [],
   "arthritis-health-guides": [],
-  "walking-with-arthritis-start-build-up-keep-going": [
-    {
-      "src": "/openverse/wellness-04-a-woman-supporting-herself-with-a-walking-frame.webp",
-      "alt": "A person using a walking frame beside a bed",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "walking-with-arthritis-start-build-up-keep-going": [],
   "psoriatic-vs-rheumatoid-arthritis": [],
   "nhs-access-to-biologics-how-the-approval-pathway-works": [],
   "lwa-archive-omega-3-and-arthritis": [],
   "private-treatment-costs-uk-arthritis": [],
-  "weight-loss-injections-arthritis-wegovy-mounjaro": [
-    {
-      "src": "/openverse/nutrition-06-fruit-salad-or-fruit-bowl.webp",
-      "alt": "Bowls of mixed fruit",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/nutrition-04-healthy-meal-prep-with-fresh-salad-fruits-and-plan.webp",
-      "alt": "Salad, fruit and vegetables",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "weight-loss-injections-arthritis-wegovy-mounjaro": [],
   "osteoarthritis-symptoms-uk": [],
   "community-physio-wait-frail-arthritis-uk": [],
   "ra-fatigue-frailty-energy-envelope-uk": [],
@@ -265,11 +193,6 @@
     {
       "src": "/openverse/arthritis-01-arthritic-hands-in-pain.webp",
       "alt": "Hands clasped around a painful finger",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-09-rheumatoid-arthritis-with-carpal-ankylosis-2017.webp",
-      "alt": "Wrist and hand X-ray showing joint damage in rheumatoid arthritis",
       "credit": "Openly licensed image via Openverse"
     }
   ],
@@ -290,33 +213,11 @@
   "all-over-body-pain-possible-causes": [],
   "prescription-costs-and-arthritis-nhs-prepayment-certificates": [],
   "expert-qa-why-did-my-arthritis-come-back": [],
-  "leflunomide-for-arthritis-blood-tests-side-effects": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-09-rheumatoid-arthritis-with-carpal-ankylosis-2017.webp",
-      "alt": "Wrist and hand X-ray showing joint damage in rheumatoid arthritis",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "leflunomide-for-arthritis-blood-tests-side-effects": [],
   "pacing-housework-arthritis-frailty-uk": [],
   "dnacpr-conversations-arthritis-frailty-uk": [],
   "expert-qa-how-do-i-know-if-surgery-is-right-for-me": [],
-  "arthritis-pain-map-by-joint": [
-    {
-      "src": "/openverse/arthritis-01-arthritic-hands-in-pain.webp",
-      "alt": "Hands clasped around a painful finger",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "arthritis-pain-map-by-joint": [],
   "yoga-for-arthritis-beginners": [],
   "carers-allowance-help-if-you-care-for-someone": [],
   "kitchen-adaptations-arthritis-frailty-uk": [],
@@ -350,18 +251,7 @@
   "footwear-indoor-slippers-frailty-arthritis-uk": [],
   "understanding-frailty-older-adults": [],
   "lwa-archive-holidays-with-arthritis": [],
-  "cooking-with-arthritis-uk": [
-    {
-      "src": "/openverse/nutrition-06-fruit-salad-or-fruit-bowl.webp",
-      "alt": "Bowls of mixed fruit",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/nutrition-04-healthy-meal-prep-with-fresh-salad-fruits-and-plan.webp",
-      "alt": "Salad, fruit and vegetables",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "cooking-with-arthritis-uk": [],
   "30-day-arthritis-pain-reduction-challenge": [],
   "two-walking-aids-arthritis-frailty-uk": [],
   "bed-lever-arthritis-frailty-uk": [],
@@ -403,18 +293,7 @@
   "foot-and-ankle-arthritis-uk": [],
   "spinal-osteoarthritis-frailty-standing-pacing-uk": [],
   "bunions-arthritis-frailty-shoes-uk": [],
-  "topical-nsaids-often-overlooked-often-effective": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "alt": "Photograph of a hand with visible joint deformity",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "topical-nsaids-often-overlooked-often-effective": [],
   "social-care-needs-assessment-arthritis-uk": [],
   "lwa-archive-turmeric-for-arthritis": [],
   "lwa-archive-inflammation-and-arthritis": [
@@ -431,31 +310,9 @@
   ],
   "vitamin-d-arthritis-uk": [],
   "sleep-apnoea-arthritis-frailty-uk": [],
-  "clinical-trials-for-arthritis-how-to-find-and-join-one": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "alt": "Photograph of a hand with visible joint deformity",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "clinical-trials-for-arthritis-how-to-find-and-join-one": [],
   "arthritis-fatigue-management-uk": [],
-  "thumb-base-osteoarthritis-frailty-daily-grip-uk": [
-    {
-      "src": "/openverse/arthritis-02-arthritis-on-the-right-hand.webp",
-      "alt": "Photograph of a right hand with joint changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "thumb-base-osteoarthritis-frailty-daily-grip-uk": [],
   "lwa-archive-employment-rights-for-people-with-arthritis": [],
   "heat-packs-frail-arthritis-uk": [],
   "lwa-archive-when-is-surgery-needed-for-osteoarthritis": [],
@@ -510,18 +367,7 @@
   ],
   "pets-arthritis-frailty-walking-dogs-uk": [],
   "travel-insurance-arthritis-uk": [],
-  "topical-nsaids-frail-hand-knee-oa-uk": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-02-arthritis-on-the-right-hand.webp",
-      "alt": "Photograph of a right hand with joint changes",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "topical-nsaids-frail-hand-knee-oa-uk": [],
   "comprehensive-geriatric-assessment-arthritis-uk": [],
   "lwa-archive-when-should-you-go-to-a-e-for-joint-or-back-pain": [],
   "lwa-archive-shoulder-exercises-for-arthritis": [],
@@ -545,18 +391,7 @@
     }
   ],
   "rise-recline-chair-arthritis-frailty-uk": [],
-  "ra-monitoring-older-frail-adults-uk": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-05-rheumatoid-arthritis.webp",
-      "alt": "Clinical photograph of a hand affected by rheumatoid arthritis",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "ra-monitoring-older-frail-adults-uk": [],
   "your-workplace-rights-with-arthritis-the-equality-act-2010": [],
   "hydrotherapy-arthritis-uk": [],
   "exercise-for-energy-arthritis-fatigue": [],
@@ -591,11 +426,6 @@
     {
       "src": "/openverse/arthritis-02-arthritis-on-the-right-hand.webp",
       "alt": "Photograph of a right hand with joint changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "alt": "Photograph of a hand with visible joint deformity",
       "credit": "Openly licensed image via Openverse"
     }
   ],
@@ -673,18 +503,7 @@
       "credit": "Openly licensed image via Openverse"
     }
   ],
-  "exercises-rheumatoid-arthritis-hands-wrists": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "alt": "Photograph of a hand with visible joint deformity",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "exercises-rheumatoid-arthritis-hands-wrists": [],
   "arthritis-and-omega-3-fish-oil": [],
   "motivation-after-setback-arthritis-frailty-uk": [],
   "yoga-ankylosing-spondylitis-stiffness": [],
@@ -725,18 +544,7 @@
       "credit": "Original illustration: Living With Arthritis. Based on NHS pressure-ulcer prevention advice."
     }
   ],
-  "paracetamol-for-arthritis-pain-what-the-evidence-says": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "alt": "Photograph of a hand with visible joint deformity",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "paracetamol-for-arthritis-pain-what-the-evidence-says": [],
   "blue-badge-arthritis-scotland": [],
   "exercise-for-hip-arthritis": [],
   "generalised-oa-frailty-whole-body-day-uk": [
@@ -774,18 +582,7 @@
   "hospital-deconditioning-arthritis-stay-uk": [],
   "how-to-choose-the-right-exercise-for-arthritis": [],
   "living-with-gout": [],
-  "expert-qa-should-you-start-dmards-at-diagnosis": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "alt": "Photograph of a hand with visible joint deformity",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "expert-qa-should-you-start-dmards-at-diagnosis": [],
   "lwa-archive-massage-for-arthritis": [],
   "reablement-team-arthritis-home-practice-uk": [],
   "hand-osteoarthritis-frailty-dressing-cooking-uk": [],
@@ -827,11 +624,6 @@
       "src": "/openverse/arthritis-01-arthritic-hands-in-pain.webp",
       "alt": "Hands clasped around a painful finger",
       "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-09-rheumatoid-arthritis-with-carpal-ankylosis-2017.webp",
-      "alt": "Wrist and hand X-ray showing joint damage in rheumatoid arthritis",
-      "credit": "Openly licensed image via Openverse"
     }
   ],
   "reablement-after-discharge-arthritis-uk": [],
@@ -852,11 +644,6 @@
       "src": "/openverse/arthritis-01-arthritic-hands-in-pain.webp",
       "alt": "Hands clasped around a painful finger",
       "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
     }
   ],
   "sit-to-stand-practice-frail-arthritis-uk": [],
@@ -867,28 +654,12 @@
       "src": "/openverse/arthritis-01-arthritic-hands-in-pain.webp",
       "alt": "Hands clasped around a painful finger",
       "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-09-rheumatoid-arthritis-with-carpal-ankylosis-2017.webp",
-      "alt": "Wrist and hand X-ray showing joint damage in rheumatoid arthritis",
-      "credit": "Openly licensed image via Openverse"
     }
   ],
   "carer-burnout-arthritis-frailty-uk": [],
   "lwa-archive-psoriatic-arthritis-early-signs-and-treatment": [],
   "staying-active-arthritis-winter-uk": [],
-  "hand-exercises-for-arthritis": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "alt": "Photograph of a hand with visible joint deformity",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "hand-exercises-for-arthritis": [],
   "hydration-gout-frailty-older-adults-uk": [],
   "lwa-archive-access-to-work-and-arthritis": [],
   "extra-care-housing-arthritis-frailty-uk": [],
@@ -971,36 +742,14 @@
   "daily-arthritis-planner-printable": [],
   "night-lights-arthritis-falls-frailty-uk": [],
   "lwa-archive-best-exercises-for-arthritis": [],
-  "straight-leg-raises-knee-osteoarthritis": [
-    {
-      "src": "/openverse/arthritis-10-varus-knee-osteoarthritis-xray.webp",
-      "alt": "X-ray of both knees with osteoarthritis",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-06-osteoarthritis-left-knee.webp",
-      "alt": "Knee X-ray showing osteoarthritis",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "straight-leg-raises-knee-osteoarthritis": [],
   "free-arthritis-exercise-classes-england": [],
   "swimming-frail-arthritis-changing-rooms-uk": [],
   "faith-groups-arthritis-frailty-access-uk": [],
   "turmeric-curcumin-arthritis-evidence": [],
   "mindfulness-pain-arthritis-frailty-uk": [],
   "grandparenting-arthritis-frailty-uk": [],
-  "joint-fusion-vs-replacement-how-surgeons-choose": [
-    {
-      "src": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "alt": "Photograph of a hand with visible joint deformity",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "joint-fusion-vs-replacement-how-surgeons-choose": [],
   "pmr-frailty-morning-stiffness-uk": [],
   "expert-qa-will-my-children-inherit-my-arthritis": [],
   "arthritis-exercise-programme": [],
@@ -1013,11 +762,6 @@
       "src": "/openverse/arthritis-01-arthritic-hands-in-pain.webp",
       "alt": "Hands clasped around a painful finger",
       "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "alt": "Photograph of a hand with visible joint deformity",
-      "credit": "Openly licensed image via Openverse"
     }
   ],
   "dmards-vs-biologics-arthritis-treatment-explained": [],
@@ -1029,18 +773,7 @@
       "credit": "Openly licensed image via Openverse"
     }
   ],
-  "methotrexate-older-frail-adults-uk": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "alt": "Photograph of a hand with visible joint deformity",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "methotrexate-older-frail-adults-uk": [],
   "sleep-quality-arthritis-pain": [],
   "enthesitis-and-arthritis-why-tendon-attachments-hurt": [],
   "widowhood-meals-arthritis-frailty-uk": [],
@@ -1117,18 +850,7 @@
   "swimming-exercises-hip-osteoarthritis": [],
   "expert-qa-returning-to-work-after-a-bad-flare": [],
   "lwa-archive-disability-living-allowance-and-arthritis": [],
-  "starting-a-new-arthritis-medicine-questions-to-ask": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-09-rheumatoid-arthritis-with-carpal-ankylosis-2017.webp",
-      "alt": "Wrist and hand X-ray showing joint damage in rheumatoid arthritis",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "starting-a-new-arthritis-medicine-questions-to-ask": [],
   "walking-with-arthritis": [
     {
       "src": "/openverse/wellness-04-a-woman-supporting-herself-with-a-walking-frame.webp",
@@ -1156,18 +878,7 @@
   "anti-inflammatory-herbs-spices-arthritis": [],
   "sex-and-intimacy-with-arthritis": [],
   "lwa-archive-morning-stiffness": [],
-  "arthritis-and-sleep-problems": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "alt": "Photograph of a hand with visible joint deformity",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "arthritis-and-sleep-problems": [],
   "stairlifts-arthritis-frailty-uk-home": [],
   "short-breaks-accessible-arthritis-frailty-uk": [],
   "ginger-root-for-arthritis-pain-evidence-and-precautions": [],
@@ -1178,32 +889,10 @@
   "lwa-archive-tens-machines-for-arthritis": [],
   "olive-oil-polyphenols-pain-management": [],
   "polyarticular-oa-frailty-pacing-several-joints-uk": [],
-  "dosette-boxes-arthritis-frailty-hands-uk": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-02-arthritis-on-the-right-hand.webp",
-      "alt": "Photograph of a right hand with joint changes",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "dosette-boxes-arthritis-frailty-hands-uk": [],
   "early-signs-of-arthritis": [],
   "gene-therapy-and-arthritis-where-are-we-in-2026": [],
-  "food-drink-and-arthritis-medicines-interactions": [
-    {
-      "src": "/openverse/nutrition-06-fruit-salad-or-fruit-bowl.webp",
-      "alt": "Bowls of mixed fruit",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/nutrition-04-healthy-meal-prep-with-fresh-salad-fruits-and-plan.webp",
-      "alt": "Salad, fruit and vegetables",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "food-drink-and-arthritis-medicines-interactions": [],
   "hip-oa-frailty-getting-into-car-uk": [],
   "lwa-archive-driving-with-arthritis": [],
   "caregiver-burnout-warning-signs-prevention": [],
@@ -1217,18 +906,7 @@
   "anxiety-arthritis-uk-guide": [],
   "packing-list-arthritis-traveller": [],
   "wrist-osteoarthritis-frailty-walking-aids-uk": [],
-  "berries-antioxidants-inflammation": [
-    {
-      "src": "/openverse/nutrition-06-fruit-salad-or-fruit-bowl.webp",
-      "alt": "Bowls of mixed fruit",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/nutrition-04-healthy-meal-prep-with-fresh-salad-fruits-and-plan.webp",
-      "alt": "Salad, fruit and vegetables",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "berries-antioxidants-inflammation": [],
   "foot-ankle-osteoarthritis-frailty-indoor-walking-uk": [],
   "older-adults-arthritis-frailty-northern-ireland-uk": [],
   "protein-and-joint-pain-what-you-need-to-know": [],
@@ -1236,11 +914,6 @@
     {
       "src": "/openverse/arthritis-01-arthritic-hands-in-pain.webp",
       "alt": "Hands clasped around a painful finger",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "alt": "Photograph of a hand with visible joint deformity",
       "credit": "Openly licensed image via Openverse"
     }
   ],
@@ -1269,18 +942,7 @@
   "fear-of-falling-hip-oa-frailty-uk": [],
   "diabetes-arthritis-frailty-feet-uk": [],
   "flying-with-arthritis-uk-airports": [],
-  "meal-delivery-arthritis-frailty-uk": [
-    {
-      "src": "/openverse/nutrition-06-fruit-salad-or-fruit-bowl.webp",
-      "alt": "Bowls of mixed fruit",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/nutrition-04-healthy-meal-prep-with-fresh-salad-fruits-and-plan.webp",
-      "alt": "Salad, fruit and vegetables",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "meal-delivery-arthritis-frailty-uk": [],
   "lwa-archive-best-exercise-for-rheumatoid-arthritis": [],
   "best-mattress-for-arthritis-uk": [],
   "swelling-legs-arthritis-frailty-uk": [],
@@ -1310,34 +972,12 @@
       "credit": "Openly licensed image via Openverse"
     }
   ],
-  "lwa-archive-is-arthritis-hereditary": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-05-rheumatoid-arthritis.webp",
-      "alt": "Clinical photograph of a hand affected by rheumatoid arthritis",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "lwa-archive-is-arthritis-hereditary": [],
   "access-to-work-scheme-arthritis-guide": [],
   "anxiety-and-arthritis-management": [],
   "lwa-archive-living-well-with-arthritis": [],
   "expert-qa-choosing-a-career-friendly-to-arthritis": [],
-  "splints-night-hand-oa-frailty-uk": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "alt": "Photograph of a hand with visible joint deformity",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "splints-night-hand-oa-frailty-uk": [],
   "travelling-with-arthritis-uk": [],
   "evening-routine-arthritis-frailty-uk": [],
   "grants-for-adapting-your-home-with-arthritis": [],
@@ -1355,36 +995,14 @@
     }
   ],
   "lwa-archive-heat-vs-ice-for-arthritis": [],
-  "weight-loss-exercise-plan-arthritis": [
-    {
-      "src": "/openverse/nutrition-06-fruit-salad-or-fruit-bowl.webp",
-      "alt": "Bowls of mixed fruit",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/nutrition-04-healthy-meal-prep-with-fresh-salad-fruits-and-plan.webp",
-      "alt": "Salad, fruit and vegetables",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "weight-loss-exercise-plan-arthritis": [],
   "physiotherapy-arthritis": [],
   "lwa-archive-muscle-weakness-and-arthritis": [],
   "resistance-band-workouts-arthritis": [],
   "building-strength-resilience-exercise-frailty-prevention": [],
   "pip-for-arthritis-how-to-build-a-strong-application": [],
   "geriatric-clinic-plus-arthritis-uk": [],
-  "lwa-archive-steroid-side-effects-what-people-with-arthritis-should-know": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "alt": "Photograph of a hand with visible joint deformity",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "lwa-archive-steroid-side-effects-what-people-with-arthritis-should-know": [],
   "lwa-archive-hip-exercises-for-arthritis": [],
   "what-sustained-remission-means-in-ra": [],
   "depression-osteoarthritis-frailty-uk": [],
@@ -1392,18 +1010,7 @@
   "wet-rooms-arthritis-frailty-washing-uk": [],
   "back-arthritis-exercises-uk": [],
   "winter-arthritis-frailty-cold-houses-uk": [],
-  "sulfasalazine-for-arthritis-what-to-expect": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "alt": "Photograph of a hand with visible joint deformity",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "sulfasalazine-for-arthritis-what-to-expect": [],
   "sick-pay-fit-notes-time-off-work-arthritis": [],
   "pip-arthritis-frailty-honest-uk": [],
   "is-arthritis-a-disability-uk": [],
@@ -1431,25 +1038,9 @@
       "src": "/openverse/arthritis-01-arthritic-hands-in-pain.webp",
       "alt": "Hands clasped around a painful finger",
       "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-09-rheumatoid-arthritis-with-carpal-ankylosis-2017.webp",
-      "alt": "Wrist and hand X-ray showing joint damage in rheumatoid arthritis",
-      "credit": "Openly licensed image via Openverse"
     }
   ],
-  "foods-to-avoid-with-arthritis": [
-    {
-      "src": "/openverse/nutrition-06-fruit-salad-or-fruit-bowl.webp",
-      "alt": "Bowls of mixed fruit",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/nutrition-04-healthy-meal-prep-with-fresh-salad-fruits-and-plan.webp",
-      "alt": "Salad, fruit and vegetables",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "foods-to-avoid-with-arthritis": [],
   "lwa-archive-lupus-and-arthritis-understanding-joint-symptoms": [],
   "lwa-archive-pain-medication-for-arthritis": [],
   "gout-winter-dehydration-frailty-uk": [],
@@ -1486,18 +1077,7 @@
   "arthritis-in-young-adults": [],
   "loneliness-arthritis-frailty-social-contact-uk": [],
   "tens-machine-cancer-safety": [],
-  "flare-management-pain-spikes": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-05-rheumatoid-arthritis.webp",
-      "alt": "Clinical photograph of a hand affected by rheumatoid arthritis",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "flare-management-pain-spikes": [],
   "expert-qa-is-it-too-soon-for-joint-replacement": [],
   "second-hand-equipment-arthritis-frailty-uk": [],
   "carers-how-to-help-without-taking-over-uk": [],
@@ -1515,18 +1095,7 @@
   ],
   "arthritis-and-work-uk": [],
   "lwa-archive-occupational-therapy-for-arthritis": [],
-  "jak-inhibitors-the-next-wave-of-ra-treatment": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-05-rheumatoid-arthritis.webp",
-      "alt": "Clinical photograph of a hand affected by rheumatoid arthritis",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "jak-inhibitors-the-next-wave-of-ra-treatment": [],
   "outdoor-steps-handrails-arthritis-uk": [],
   "codeine-drowsiness-falls-arthritis-uk": [],
   "joint-protection-easier-everyday-tasks": [],
@@ -1536,24 +1105,13 @@
   "mobility-scooter-arthritis-frailty-uk": [],
   "omega-3-foods-for-joints": [],
   "medical-management-of-arthritis": [],
-  "spinal-stenosis-oa-frailty-walking-stops-uk": [
-    {
-      "src": "/openverse/wellness-04-a-woman-supporting-herself-with-a-walking-frame.webp",
-      "alt": "A person using a walking frame beside a bed",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "spinal-stenosis-oa-frailty-walking-stops-uk": [],
   "intermediate-care-arthritis-frailty-uk": [],
   "arthritis-pain-tracking-journal-template": [],
   "what-makes-arthritis-pain-worse": [
     {
       "src": "/openverse/arthritis-01-arthritic-hands-in-pain.webp",
       "alt": "Hands clasped around a painful finger",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
       "credit": "Openly licensed image via Openverse"
     }
   ],
@@ -1588,27 +1146,11 @@
       "credit": "Openly licensed image via Openverse"
     }
   ],
-  "knee-osteoarthritis-frailty-staying-steady-home-uk": [
-    {
-      "src": "/openverse/arthritis-10-varus-knee-osteoarthritis-xray.webp",
-      "alt": "X-ray of both knees with osteoarthritis",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-06-osteoarthritis-left-knee.webp",
-      "alt": "Knee X-ray showing osteoarthritis",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "knee-osteoarthritis-frailty-staying-steady-home-uk": [],
   "morning-stiffness-with-arthritis": [
     {
       "src": "/openverse/arthritis-01-arthritic-hands-in-pain.webp",
       "alt": "Hands clasped around a painful finger",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
       "credit": "Openly licensed image via Openverse"
     }
   ],
@@ -1633,18 +1175,7 @@
   ],
   "arthritis-flare-management": [],
   "pendant-alarm-arthritis-swollen-fingers-uk": [],
-  "arthritis-friendly-recipes-uk": [
-    {
-      "src": "/openverse/nutrition-04-healthy-meal-prep-with-fresh-salad-fruits-and-plan.webp",
-      "alt": "Salad, fruit and vegetables",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/nutrition-06-fruit-salad-or-fruit-bowl.webp",
-      "alt": "Bowls of mixed fruit",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "arthritis-friendly-recipes-uk": [],
   "inclusive-arthritis-frailty-support-plan-uk": [],
   "rebuilding-intimacy-after-arthritis-diagnosis": [],
   "tens-machines-arthritis-uk": [],
@@ -1652,18 +1183,7 @@
   "gadgets-aids-arthritis-uk": [],
   "expert-brief-activity-safety-knee-arthritis": [],
   "lwa-archive-anti-inflammatory-medicines": [],
-  "arthritis-medication-guide": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-09-rheumatoid-arthritis-with-carpal-ankylosis-2017.webp",
-      "alt": "Wrist and hand X-ray showing joint damage in rheumatoid arthritis",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "arthritis-medication-guide": [],
   "turmeric-for-arthritis": [],
   "pressure-cushion-arthritis-frailty-uk": [],
   "spiritual-care-arthritis-frailty-uk": [],
@@ -1673,18 +1193,7 @@
   "lwa-archive-daily-living-tips-for-arthritis": [],
   "alcohol-arthritis-uk-guidance": [],
   "lwa-archive-travelling-with-arthritis": [],
-  "tapering-biologics-what-the-latest-trials-show": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-09-rheumatoid-arthritis-with-carpal-ankylosis-2017.webp",
-      "alt": "Wrist and hand X-ray showing joint damage in rheumatoid arthritis",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "tapering-biologics-what-the-latest-trials-show": [],
   "lwa-archive-home-exercise-programme-for-arthritis": [],
   "can-you-work-with-osteoarthritis-practical-uk-advice": [],
   "arthritis-and-pets-uk": [],
@@ -1692,11 +1201,6 @@
     {
       "src": "/openverse/arthritis-01-arthritic-hands-in-pain.webp",
       "alt": "Hands clasped around a painful finger",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
       "credit": "Openly licensed image via Openverse"
     }
   ],
@@ -1724,18 +1228,7 @@
   "podiatry-nails-diabetes-arthritis-uk": [],
   "juvenile-arthritis-school-support-parents": [],
   "best-supplements-arthritis-uk": [],
-  "managing-methotrexate-side-effects-practical-tips": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-09-rheumatoid-arthritis-with-carpal-ankylosis-2017.webp",
-      "alt": "Wrist and hand X-ray showing joint damage in rheumatoid arthritis",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "managing-methotrexate-side-effects-practical-tips": [],
   "anti-inflammatory-shopping-list-uk": [
     {
       "src": "/openverse/nutrition-06-fruit-salad-or-fruit-bowl.webp",
@@ -1756,11 +1249,6 @@
     {
       "src": "/openverse/arthritis-01-arthritic-hands-in-pain.webp",
       "alt": "Hands clasped around a painful finger",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-02-arthritis-on-the-right-hand.webp",
-      "alt": "Photograph of a right hand with joint changes",
       "credit": "Openly licensed image via Openverse"
     }
   ],
@@ -1792,20 +1280,9 @@
   ],
   "expert-qa-are-steroid-tapers-always-necessary": [],
   "free-arthritis-support-northern-ireland": [],
-  "morning-routine-multi-joint-arthritis": [
-    {
-      "src": "/openverse/wellness-07-cane-walker-cane-hybrid-walker.webp",
-      "alt": "A walking stick and two walking frames",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "morning-routine-multi-joint-arthritis": [],
   "lwa-archive-calcium-and-bone-health": [],
   "lwa-archive-sudden-joint-swelling-causes-and-when-to-seek-help": [
-    {
-      "src": "/openverse/arthritis-10-varus-knee-osteoarthritis-xray.webp",
-      "alt": "X-ray of both knees with osteoarthritis",
-      "credit": "Openly licensed image via Openverse"
-    },
     {
       "src": "/openverse/arthritis-01-arthritic-hands-in-pain.webp",
       "alt": "Hands clasped around a painful finger",
@@ -1843,13 +1320,7 @@
       "credit": "Openly licensed image via Openverse"
     }
   ],
-  "vision-falls-arthritis-frailty-uk": [
-    {
-      "src": "/openverse/wellness-07-cane-walker-cane-hybrid-walker.webp",
-      "alt": "A walking stick and two walking frames",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "vision-falls-arthritis-frailty-uk": [],
   "lwa-archive-clicking-joints": [],
   "tens-machine-older-frail-arthritis-uk": [],
   "nsaid-stomach-protection-when-you-need-a-ppi": [],
@@ -1866,13 +1337,7 @@
     }
   ],
   "blood-pressure-tablets-falls-arthritis-uk": [],
-  "expert-qa-how-to-talk-to-your-gp-about-medication-worries": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "expert-qa-how-to-talk-to-your-gp-about-medication-worries": [],
   "bed-exercises-hospital-arthritis-frailty-uk": [],
   "flu-jab-arthritis-frailty-uk": [],
   "best-supplements-joint-pain": [],
@@ -1898,13 +1363,7 @@
     }
   ],
   "lwa-archive-yoga-for-arthritis": [],
-  "walking-30-minutes-a-day-while-on-dmards-a-practical-plan": [
-    {
-      "src": "/openverse/wellness-04-a-woman-supporting-herself-with-a-walking-frame.webp",
-      "alt": "A person using a walking frame beside a bed",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "walking-30-minutes-a-day-while-on-dmards-a-practical-plan": [],
   "compression-stockings-hand-oa-frailty-uk": [],
   "juvenile-arthritis-uk": [],
   "walking-sport-too-much-frail-arthritis-uk": [],
@@ -1937,18 +1396,7 @@
   "respite-care-arthritis-frailty-carers-uk": [],
   "lwa-archive-weight-loss-and-arthritis": [],
   "glucosamine-vs-collagen": [],
-  "expert-qa-occupational-therapy-hand-pain": [
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "alt": "Photograph of a hand with visible joint deformity",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "expert-qa-occupational-therapy-hand-pain": [],
   "universal-credit-and-arthritis-limited-capability-for-work": [],
   "lwa-archive-arthritis-treatment-options": [],
   "best-breakfast-for-arthritis-uk": [
@@ -1991,18 +1439,7 @@
   "bone-clinic-arthritis-frailty-uk": [],
   "lwa-archive-mental-health-and-arthritis": [],
   "lwa-archive-reasonable-adjustments-for-arthritis": [],
-  "prehabilitation-frail-arthritis-before-surgery-uk": [
-    {
-      "src": "/openverse/arthritis-10-varus-knee-osteoarthritis-xray.webp",
-      "alt": "X-ray of both knees with osteoarthritis",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-06-osteoarthritis-left-knee.webp",
-      "alt": "Knee X-ray showing osteoarthritis",
-      "credit": "Openly licensed image via Openverse"
-    }
-  ],
+  "prehabilitation-frail-arthritis-before-surgery-uk": [],
   "lwa-archive-how-to-apply-for-pip-with-arthritis": [],
   "lwa-archive-foods-to-avoid-with-arthritis": [],
   "local-wheelchair-service-arthritis-uk": [],
@@ -2010,11 +1447,6 @@
     {
       "src": "/openverse/arthritis-01-arthritic-hands-in-pain.webp",
       "alt": "Hands clasped around a painful finger",
-      "credit": "Openly licensed image via Openverse"
-    },
-    {
-      "src": "/openverse/arthritis-08-rheumatoid-arthritis-hand.webp",
-      "alt": "Photograph of a hand with rheumatoid arthritis changes",
       "credit": "Openly licensed image via Openverse"
     }
   ],
