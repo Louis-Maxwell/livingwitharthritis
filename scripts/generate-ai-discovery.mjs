@@ -27,6 +27,9 @@ export function buildDiscovery({ posts, routes, priorityAnswers }) {
     '- About and identity: https://livingwitharthritis.org.uk/about',
     '- Editorial standards and review process: https://livingwitharthritis.org.uk/editorial-standards',
     '- Start here: https://livingwitharthritis.org.uk/living-with-arthritis', '',
+    '### Welfare and benefits pathways', '',
+    '- PIP and benefits: https://livingwitharthritis.org.uk/guides/benefits-pip',
+    '- Printable evidence diary: https://livingwitharthritis.org.uk/resources/pip-evidence-diary', '',
     '## Source-based priority answers', '',
   ];
   for (const [path, entry] of Object.entries(priorityAnswers)) {
@@ -62,7 +65,7 @@ export function buildDiscovery({ posts, routes, priorityAnswers }) {
     if (post.direct_answer || post.excerpt) lines.push(`Summary: ${text(post.direct_answer || post.excerpt)}`);
     lines.push('');
   }
-  return lines.join('\n');
+  return lines.join('\n').trimEnd() + '\n';
 }
 
 export function main({ check = process.argv.includes('--check') } = {}) {
