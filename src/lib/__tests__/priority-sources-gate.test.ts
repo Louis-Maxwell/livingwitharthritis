@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import flagship from "@/data/arthritisFlagshipApproved.json";
 import { readFileSync, readdirSync } from "node:fs";
 import { PRIORITY_SOURCES, RED_FLAGS, VERIFIED_SOURCE_URLS } from "@/data/prioritySources";
 import { EXACT_SEO_REDIRECTS } from "@/lib/seoRedirects";
@@ -36,7 +37,11 @@ describe("priority pages: NHS + NICE sources and urgent-help red flags", () => {
     expect(readFileSync("src/pages/conditions/Osteoarthritis.tsx","utf8")).toContain("ApprovedClinicalArticle");
     for (const f of ["src/pages/BlogPost.tsx", "src/components/conditions/ConditionPageTemplate.tsx", "src/pages/ArthritisFlareUps.tsx"])
       expect(readFileSync(f, "utf8")).toContain("<UrgentHelpAndSources");
-    for (const f of ["Arthritis", "RheumatoidArthritis", "PsoriaticArthritis", "KneeArthritis", "HipArthritis", "HandArthritis"])
+    expect(flagship.sources.some(s => s.url.startsWith("https://www.nhs.uk/"))).toBe(true);
+    expect(flagship.sources.some(s => s.url.startsWith("https://www.nice.org.uk/"))).toBe(true);
+    expect(JSON.stringify(flagship.sections)).toContain("Not everyone with a joint infection has a fever.");
+    expect(readFileSync("src/pages/conditions/Arthritis.tsx", "utf8")).toContain("copy.sections.map");
+    for (const f of ["RheumatoidArthritis", "PsoriaticArthritis", "KneeArthritis", "HipArthritis", "HandArthritis"])
       expect(readFileSync(`src/pages/conditions/${f}.tsx`, "utf8")).toContain("<UrgentHelpAndSources");
   });
 });
