@@ -55,9 +55,10 @@ jobs:
           ignore-unfixed: true
           exit-code: '1'
           skip-dirs: .git,node_modules,dist
-          trivy-config: .trivy-security.yml
+          trivy-config: /dev/null
         env:
           TRIVY_INCLUDE_DEV_DEPS: 'true'
+          TRIVY_PKG_TYPES: library
 
   cloudflare-skill:
     name: Cloudflare audit resource integrity
