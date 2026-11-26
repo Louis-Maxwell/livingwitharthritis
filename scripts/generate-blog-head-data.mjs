@@ -29,6 +29,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { readPublishedBlogPosts } from './lib/blog-posts.mjs';
 import { resolveInternalHref } from './lib/internal-href.mjs';
+import { relatedBlogPosts } from '../src/lib/relatedBlogPosts.mjs';
 import { stripTags } from './lib/strip-tags.mjs';
 import { htmlToPlainText } from '../src/lib/plainText.mjs';
 import { resolve } from 'node:path';
@@ -254,6 +255,7 @@ async function main() {
   );
 
 
+  const peerCatalog = rows.filter(p => !redirectSlugs.has(p.slug) && resolveInternalHref(`/blog/${p.slug}`) === `/blog/${p.slug}`);
   const data = {};
   const journey = JSON.parse(readFileSync(new URL('../src/data/readerJourneyLinks.json', import.meta.url), 'utf8'));
   for (const row of rows) {
@@ -264,16 +266,14 @@ async function main() {
       // All destinations come from the same published inventory, never guessed slugs.
       // An unmapped category must not match every other unmapped category.
       const topic = categoryKey(row.category);
-      const terms = new Set(`${row.title} ${row.keywords || ''}`.toLowerCase().match(/[a-z]{4,}/g) || []);
-      const peers = topic ? rows.filter((p) => p.slug !== row.slug && !redirectSlugs.has(p.slug) && categoryKey(p.category) === topic)
-        .map((p) => ({ post: p, score: (p.title.toLowerCase().match(/[a-z]{4,}/g) || []).filter((t) => terms.has(t)).length }))
-        .sort((a, b) => b.score - a.score || a.post.slug.localeCompare(b.post.slug)).slice(0, 3) : [];
+      const peers = relatedBlogPosts(row, peerCatalog);
       const intent = journey[`/blog/${row.slug}`];
       entry.relatedLinks = Array.isArray(intent) && intent.length
         ? intent.filter((link) => link.href && link.title).map((link) => ({ path: link.href, title: link.title }))
         : [{ path: '/blog/archive', title: 'Browse all arthritis guides' },
-        ...(topic ? [{ path: `/blog/category/${topic}`, title: `${row.category} guides` }] : []),
-        ...peers.map(({ post }) => ({ path: `/blog/${post.slug}`, title: post.title }))];
+        ...(topic ? [{ path: `/blog/category/${topic}`, title: `${row.category} guides` }] : [])];
+      // Curated journeys keep their useful hub/tool links and gain article peers.
+      entry.relatedLinks.push(...peers.map(post => ({ path: `/blog/${post.slug}`, title: post.title }))); 
       const seenPaths = new Set();
       entry.relatedLinks = entry.relatedLinks
         .map((link) => ({ ...link, path: resolveInternalHref(link.path) }))

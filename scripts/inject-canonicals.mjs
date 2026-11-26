@@ -492,6 +492,12 @@ function withLinkedSummaries(route, data) {
   return { ...data, bodyHtml: `${data.bodyHtml || ''}<h2>Where to go next</h2><ul>${items.join('')}</ul>` };
 }
 export { withRenderedBody };
+const BLOG_PEER_HEADS = readJson(BLOG_DATA_PATH);
+function withBlogPeers(route, data) {
+  if (!data || !route.startsWith('/blog/')) return data;
+  const generated = BLOG_PEER_HEADS[route]?.relatedLinks || [];
+  return { ...data, relatedLinks: [...new Map([...(data.relatedLinks || []), ...generated].map(link => [link.path, link])).values()] };
+}
 function headDataFor(route, override) {
   let data = withReviewRecord(route, headDataForInner(route, override));
   const priority = PRIORITY_ANSWERS[route];
@@ -510,19 +516,19 @@ function headDataFor(route, override) {
   const pendingGuide = CHILD_HEAD_DATA[route] || (route.startsWith("/conditions/juvenile-arthritis/") ? CONDITION_HEAD_DATA[route] : undefined) || HUB_GUIDE_DATA[route];
   if (pendingGuide?.reviewStatus === "pending" && data) {
     const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
-    return { ...editorial, ...pendingGuide };
+    return withBlogPeers(route, { ...editorial, ...pendingGuide });
   }
   const approved = readJson(resolve("scripts/clinical-head-overrides.json"))[route];
   if (readJson(resolve("src/data/approvedClinicalRewrites.json"))[route] && approved?.bodyHtml && data) {
     const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
-    return { ...editorial, ...approved };
+    return withBlogPeers(route, { ...editorial, ...approved });
   }
   const safety = NICE_SAFETY[route];
   if (safety && data) {
     const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
-    return { ...editorial, ...safety };
+    return withBlogPeers(route, { ...editorial, ...safety });
   }
-  return data;
+  return withBlogPeers(route, data);
 }
 function headDataForInner(route, override) {
   const data = withRenderedBody(route, baseHeadDataFor(route, override));
