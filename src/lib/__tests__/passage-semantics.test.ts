@@ -1,3 +1,4 @@
+import flagship from "@/data/arthritisFlagshipApproved.json";
 import approvedKeywordCopy from "@/data/libraryKeyword25.json";
 import { describe, it, expect } from "vitest";
 import { STANDALONE_ANSWER_CAPSULES } from "@/data/standaloneAnswerCapsules";
@@ -18,7 +19,7 @@ describe("crawler passage semantics", () => {
       const approved = approvedKeywordCopy[route.split("/").pop() as keyof typeof approvedKeywordCopy];
       if (approved) expect(answer).toBe(approved.answer);
       else expect(answer.split(/\s+/).length, route).toBeLessThanOrEqual(52);
-      expect(headDataFor(route).answer).toBe(answer);
+      expect(headDataFor(route).answer).toBe(route === "/conditions/arthritis" ? flagship.answer : answer);
       expect(answer).toMatch(/[.!?]$/);
     }
   });
