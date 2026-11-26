@@ -111,7 +111,7 @@ const Section = ({
 const Osteoarthritis = () => (
   <>
     <Helmet>
-      <title>Osteoarthritis: Symptoms, Treatment &amp; Exercises (UK)</title>
+      <title>Osteoarthritis: Symptoms, Treatment {'&'} Exercises (UK)</title>
       <meta
         name="description"
         content="UK osteoarthritis guide: what to do now, red flags, NICE NG226 diagnosis and core treatments, safe pain relief, exercise, aids, flares and when to see your GP."
