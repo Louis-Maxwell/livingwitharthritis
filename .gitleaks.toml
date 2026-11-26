@@ -27,6 +27,8 @@ paths = [
 # Stripe `pk_*` keys are publishable by design.
 # Google Analytics measurement IDs are public by design.
 regexes = [
+  # Exact SHA-256 of the pinned MIT Cloudflare audit guide, not an API key.
+  '^4f3066dffa23c5635859187be9b96c32f2aff29a688186b91ff0c63e47d62b5c$',
   # IndexNow verification token: intentionally public at /<token>.txt.
   # Exact-value exception only; other API keys remain scanned.
   # See public/c98cc1e7f04d43b213d256e243f9ddd6.txt.
@@ -37,4 +39,3 @@ regexes = [
 
 # Specific commits or stop-words can be added here if false positives appear:
 # stopwords = ["example", "dummy"]
-

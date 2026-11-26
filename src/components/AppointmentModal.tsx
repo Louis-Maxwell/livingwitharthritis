@@ -194,7 +194,7 @@ export function AppointmentModal({ trigger }: AppointmentModalProps) {
                   </Select>
                 </div>
                 <Button type="button" onClick={handleNext} className="w-full h-12 rounded-xl text-sm font-bold">
-                  Continue to Date & Time →
+                  Continue to Date &amp; Time →
                 </Button>
               </motion.div>
             ) : (

@@ -143,7 +143,7 @@ const ResourceLibraryDrawer = memo(({ open, onOpenChange }: ResourceLibraryDrawe
             Resource Library
           </SheetTitle>
           <p className="text-sm text-muted-foreground mt-1">
-            UK arthritis resources — the public health service, benefits, exercises, nutrition & more.
+            UK arthritis resources — the public health service, benefits, exercises, nutrition &amp; more.
           </p>
           {/* Search */}
           <div className="relative mt-3">
