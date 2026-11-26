@@ -1,0 +1,436 @@
+{
+  "/guides/shoulder-pain-relief": {
+    "path": "/guides/shoulder-pain-relief",
+    "title": "Shoulder pain: safe self-care and when to get help",
+    "change": "Replace the guide and FAQ copy. Remove the universal 4/10 exercise rule, fixed medicine frequency, recovery promises and six-week wait for GP review.",
+    "sections": [
+      {
+        "heading": "Quick answer",
+        "paragraphs": [
+          "Keep a painful shoulder moving gently, but avoid movements that aggravate it. A pharmacist can advise on suitable pain relief. Arrange GP review if pain is worsening or has not started improving after two weeks. Sudden severe pain, inability to move the arm, injury, marked swelling, persistent pins and needles or feeling feverish need urgent assessment."
+        ]
+      },
+      {
+        "heading": "When to get urgent help",
+        "paragraphs": [
+          "Ask for an urgent GP appointment or contact NHS 111 if pain is sudden or very severe, you cannot move the arm, the shoulder changes shape or becomes badly swollen, pins and needles do not settle, sensation is lost, the arm feels unusually hot or cold, symptoms follow an injury, both shoulders become severely painful, or you feel feverish or unwell. Do not treat these as an ordinary exercise flare."
+        ]
+      },
+      {
+        "heading": "What you can try",
+        "paragraphs": [
+          "Use comfortable, gentle shoulder movements rather than stopping all movement. Support the arm on a cushion when sitting if that helps. You can try a wrapped warm or cold pack for comfort, following NHS guidance and protecting the skin. Avoid activities that make symptoms worse, heavy gym equipment and a strenuous routine you have devised yourself."
+        ]
+      },
+      {
+        "heading": "Pain relief is individual",
+        "paragraphs": [
+          "Ask a pharmacist which pain relief is suitable for you, particularly if you take other medicines or have another health condition. Products differ, so follow the label and professional advice rather than a universal application schedule. This guide does not prescribe a medicine or dose."
+        ]
+      },
+      {
+        "heading": "Exercise and recovery",
+        "paragraphs": [
+          "There is no single routine or pain score suitable for every shoulder problem. Start with gentle movement and ask a physiotherapist for an appropriate programme if needed. Recovery varies and can take months. Do not force through severe pain or use a promised recovery deadline to decide whether assessment is needed."
+        ]
+      },
+      {
+        "heading": "Arrange a review",
+        "paragraphs": [
+          "See a GP if symptoms worsen, do not start improving after two weeks, or movement is very difficult. In many areas you may be able to refer yourself to an NHS musculoskeletal service. Availability and referral routes vary locally."
+        ]
+      },
+      {
+        "heading": "Frequently asked questions",
+        "paragraphs": [
+          "Should I rest completely? Usually not. Keep comfortable movement, but do not persist with activities that worsen symptoms. Urgent symptoms need assessment rather than self-management.",
+          "Is a pain score of 4/10 always safe? No universal threshold is given here. Your symptoms, diagnosis and agreed rehabilitation plan matter.",
+          "Do I need to wait six weeks before seeing a GP? No. NHS advice is to seek review if worsening or not improving after two weeks, with earlier urgent help for the symptoms above."
+        ]
+      }
+    ],
+    "sources": [
+      [
+        "https://www.nhs.uk/conditions/shoulder-pain/",
+        "NHS: Shoulder pain"
+      ]
+    ]
+  },
+  "/blog/signs-rheumatoid-arthritis-early-stages": {
+    "path": "/blog/signs-rheumatoid-arthritis-early-stages",
+    "title": "Early rheumatoid arthritis: signs and getting assessed",
+    "change": "Replace article body, direct answer, excerpt and FAQ. Re-source referral timing to NICE QS33/NG100, not CKS.",
+    "sections": [
+      {
+        "heading": "Quick answer",
+        "paragraphs": [
+          "Rheumatoid arthritis can begin with painful, swollen joints, stiffness after rest and tiredness. Small joints in the hands and feet are often affected, but symptoms differ. Persistent unexplained joint swelling needs prompt assessment. A GP can arrange tests and refer to rheumatology; blood tests should not hold up an urgent referral."
+        ]
+      },
+      {
+        "heading": "What to notice",
+        "paragraphs": [
+          "Joint pain, swelling and stiffness may develop over weeks, although symptoms sometimes begin more quickly. Both sides of the body can be affected, but a perfectly symmetrical pattern is not required. Fatigue and feeling generally unwell can accompany joint symptoms. These signs do not establish a diagnosis by themselves."
+        ]
+      },
+      {
+        "heading": "What to tell the GP",
+        "paragraphs": [
+          "Explain which joints are swollen, when symptoms began, how mornings and daily tasks are affected, and whether symptoms come and go. Mention symptoms even if pain is manageable or you have had a normal blood test. NICE recommends urgent specialist referral for persistent synovitis when small hand or foot joints, or more than one joint, are affected; delay in seeking help is another reason for urgency."
+        ]
+      },
+      {
+        "heading": "What three working days means",
+        "paragraphs": [
+          "NICE quality standard QS33 sets a target for referral within three working days of presentation in primary care for suspected persistent synovitis affecting multiple joints or the small joints of the hands and feet. That is the referral target, not a guarantee that the specialist appointment will take place within three days. Do not wait six weeks before reporting persistent swelling."
+        ]
+      },
+      {
+        "heading": "While assessment is arranged",
+        "paragraphs": [
+          "Ask your GP what pain relief and activity are suitable and how to seek help if symptoms change. Keep a short symptom record if useful. Do not start or stop prescription treatment based on this page. A suddenly very painful, hot or swollen joint, especially with illness or shivering, needs urgent GP or NHS 111 assessment rather than waiting for a routine appointment."
+        ]
+      }
+    ],
+    "sources": [
+      [
+        "https://www.nhs.uk/conditions/rheumatoid-arthritis/symptoms/",
+        "NHS: RA symptoms"
+      ],
+      [
+        "https://www.nice.org.uk/guidance/ng100/chapter/Recommendations",
+        "NICE NG100, recommendations 1.1.1-1.1.2"
+      ],
+      [
+        "https://www.nice.org.uk/guidance/qs33/chapter/Quality-statement-1-Referral",
+        "NICE QS33, referral"
+      ],
+      [
+        "https://www.nhs.uk/conditions/arthritis/",
+        "NHS: Arthritis"
+      ]
+    ]
+  },
+  "/guides/dmards-vs-biologics": {
+    "path": "/guides/dmards-vs-biologics",
+    "title": "Conventional DMARDs, biologics and JAK inhibitors",
+    "change": "Replace guide, FAQ and clinical prerender override together. No medicine-switching instructions.",
+    "sections": [
+      {
+        "heading": "Quick answer",
+        "paragraphs": [
+          "Biologics are one group of disease-modifying anti-rheumatic drugs, or DMARDs. Conventional DMARDs, biological DMARDs and targeted synthetic DMARDs work in different ways. Treatment depends on the diagnosis, disease activity, previous treatment and safety checks. A rheumatology team decides which approach is appropriate with you."
+        ]
+      },
+      {
+        "heading": "Conventional DMARDs",
+        "paragraphs": [
+          "For rheumatoid arthritis, medicines such as methotrexate, sulfasalazine, leflunomide and hydroxychloroquine can reduce the inflammatory disease process. They are different from painkillers. The choice and monitoring plan are individual; some people need more than one medicine."
+        ]
+      },
+      {
+        "heading": "Biological DMARDs",
+        "paragraphs": [
+          "Examples include adalimumab and etanercept. Biological treatment may be considered when conventional treatment has not controlled rheumatoid arthritis adequately, subject to the relevant NICE criteria. These medicines are given by injection or infusion, depending on the product. They may be used alongside another DMARD."
+        ]
+      },
+      {
+        "heading": "Where JAK inhibitors fit",
+        "paragraphs": [
+          "JAK inhibitors are targeted synthetic DMARDs, not biological DMARDs. They are another specialist treatment option for some people with rheumatoid arthritis when other treatment is unsuitable or has not worked well enough. Eligibility and risks need an individual discussion."
+        ]
+      },
+      {
+        "heading": "Why the diagnosis matters",
+        "paragraphs": [
+          "Treatment for rheumatoid arthritis cannot simply be copied to axial spondyloarthritis. NHS guidance says conventional DMARDs may help inflammation in joints outside the spine but do not treat spinal symptoms. Axial disease has its own exercise, physiotherapy and medicine pathway under NICE NG65."
+        ]
+      },
+      {
+        "heading": "Questions for your team",
+        "paragraphs": [
+          "Ask what the treatment is intended to change, how response will be measured, which tests and vaccinations are needed, and who to contact about possible infection or side effects. Do not change doses or pause treatment using a general comparison article. Follow your own team and product information."
+        ]
+      }
+    ],
+    "sources": [
+      [
+        "https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/",
+        "NHS: RA treatment"
+      ],
+      [
+        "https://www.nhs.uk/conditions/ankylosing-spondylitis/treatment/",
+        "NHS: AS treatment"
+      ],
+      [
+        "https://www.nice.org.uk/guidance/ng100/chapter/Recommendations",
+        "NICE NG100"
+      ],
+      [
+        "https://www.nice.org.uk/guidance/ng65/chapter/Recommendations",
+        "NICE NG65"
+      ]
+    ]
+  },
+  "/blog/giant-cell-arteritis-headache-warning-signs": {
+    "path": "/blog/giant-cell-arteritis-headache-warning-signs",
+    "title": "Giant cell arteritis: urgent symptoms and assessment",
+    "change": "Replace article and urgent-care block. Distinguish sudden inability to see from other visual changes using current NHS sources.",
+    "sections": [
+      {
+        "heading": "Get help promptly",
+        "paragraphs": [
+          "Giant cell arteritis, also called temporal arteritis, is inflammation of arteries that can threaten sight. If you think you may have it, ask for an urgent GP appointment or contact NHS 111. Do not wait for a routine headache appointment. If you suddenly cannot see from one or both eyes, or have sudden severe eye pain, go to A&E or call 999. Do not drive yourself."
+        ]
+      },
+      {
+        "heading": "Symptoms to explain",
+        "paragraphs": [
+          "Tell the clinician about a new or severe headache, tenderness at the temples or scalp, jaw pain when chewing or talking, and any change in vision. Tiredness, weight loss and flu-like symptoms can also occur. Symptoms overlap with other conditions, so this page cannot diagnose the cause."
+        ]
+      },
+      {
+        "heading": "Vision changes need urgent attention",
+        "paragraphs": [
+          "Blurred or double vision, a dark shadow or other new visual changes need urgent GP or NHS 111 assessment. Tell them if these occur with headache, scalp tenderness or jaw pain. NHS temporal-arteritis guidance says people with vision problems should have a same-day hospital eye-specialist appointment. Sudden inability to see or sudden severe eye pain uses the emergency route above."
+        ]
+      },
+      {
+        "heading": "What assessment may involve",
+        "paragraphs": [
+          "A clinician may examine you, arrange blood tests and refer you for specialist assessment. Ultrasound of the temporal arteries or a biopsy may be used. Because delayed treatment can risk sight, clinicians may begin steroid treatment before the diagnosis is fully confirmed."
+        ]
+      },
+      {
+        "heading": "Treatment and follow-up",
+        "paragraphs": [
+          "Treatment commonly involves prednisolone with a plan to reduce it under supervision. Follow-up checks both the disease and treatment side effects. Do not suddenly stop prescribed steroids. Ask your team whom to contact if symptoms return or new vision symptoms appear."
+        ]
+      }
+    ],
+    "sources": [
+      [
+        "https://www.nhs.uk/conditions/giant-cell-arteritis/",
+        "NHS: Temporal arteritis"
+      ],
+      [
+        "https://www.nhs.uk/conditions/vision-loss/",
+        "NHS: Vision loss"
+      ]
+    ]
+  },
+  "/blog/septic-arthritis-hot-swollen-joint-emergency": {
+    "path": "/blog/septic-arthritis-hot-swollen-joint-emergency",
+    "title": "A suddenly painful, swollen joint: urgent help",
+    "change": "Replace article and urgent-care block; base it on NHS infection and sepsis guidance.",
+    "sections": [
+      {
+        "heading": "Get urgent help",
+        "paragraphs": [
+          "Ask for an urgent GP appointment or contact NHS 111 for a suddenly very painful joint, swelling, skin colour change, difficulty moving it, or joint pain with feeling unwell, fever or shivering. Septic arthritis is a joint infection needing prompt treatment. Fever is not always present, so do not wait for it."
+        ]
+      },
+      {
+        "heading": "When to call 999",
+        "paragraphs": [
+          "Call 999 or go to A&E if you think someone has sepsis with signs such as confusion or slurred speech, severe breathlessness or very fast breathing, or blue, grey, pale or blotchy skin. A rash that does not fade under a glass is another emergency sign. Do not wait for every symptom, and do not drive yourself to A&E."
+        ]
+      },
+      {
+        "heading": "Why prompt assessment matters",
+        "paragraphs": [
+          "Symptoms can develop quickly. Gout, injury and other illnesses may also cause a hot or swollen joint, but you cannot reliably distinguish them at home. Explain when symptoms started and whether you have a joint replacement, recent surgery, diabetes, rheumatoid arthritis or medicines that affect immunity."
+        ]
+      },
+      {
+        "heading": "What treatment may involve",
+        "paragraphs": [
+          "People with septic arthritis are usually treated in hospital. Treatment may include antibiotics into a vein and drainage of fluid from the joint, followed by antibiotic tablets. The team decides which tests and procedures are needed. Finish prescribed antibiotics for the duration you are told, even if symptoms improve."
+        ]
+      },
+      {
+        "heading": "After hospital treatment",
+        "paragraphs": [
+          "Follow the discharge and follow-up plan. Physiotherapy may help movement return as recovery allows. A joint replacement infection can need a different surgical plan. Seek advice promptly if you worsen or symptoms return rather than relying on an expected recovery timetable."
+        ]
+      }
+    ],
+    "sources": [
+      [
+        "https://www.nhs.uk/conditions/septic-arthritis/",
+        "NHS: Septic arthritis"
+      ],
+      [
+        "https://www.nhs.uk/conditions/sepsis/",
+        "NHS: Sepsis"
+      ]
+    ]
+  },
+  "/blog/best-plantar-fasciitis-shoes-women-uk": {
+    "path": "/blog/best-plantar-fasciitis-shoes-women-uk",
+    "title": "Shoes for plantar fasciitis: a practical fit guide",
+    "change": "Replace article body and metadata. Remove CKS-scope discussion and unsupported product-ranking implications; retain women-focused search route without gender-specific efficacy claims.",
+    "sections": [
+      {
+        "heading": "Quick answer",
+        "paragraphs": [
+          "For plantar-fasciitis heel or arch pain, NHS advice favours cushioned heels and good arch support. A shoe should fit comfortably rather than squeeze the toes or rub the heel. There is no verified best brand in this guide. A pharmacist or podiatrist can help if you need advice about insoles, pads or suitable footwear."
+        ]
+      },
+      {
+        "heading": "What to look for",
+        "paragraphs": [
+          "Use cushioning and arch support as starting points, then check how the shoe feels on your own foot. NHS guidance advises against high heels, tight pointed shoes, flip-flops and backless slippers. Avoid walking barefoot on hard surfaces if it worsens symptoms. A higher price or a medical-looking label is not proof that a shoe suits you."
+        ]
+      },
+      {
+        "heading": "A practical try-on",
+        "paragraphs": [
+          "Try the shoes with the socks or prescribed insoles you intend to wear. Check for pressure, rubbing and heel slippage during a short indoor walk. This is a practical shopping check, not a validated medical test or a promise of pain relief. Check the retailer return terms before wearing shoes outdoors."
+        ]
+      },
+      {
+        "heading": "Shoes are only part of care",
+        "paragraphs": [
+          "NHS self-care also includes reducing prolonged standing or walking, gentle foot and heel stretches, and activities that place less pressure on the feet, such as swimming. A pharmacist can advise about suitable pain relief and pads. Do not use footwear changes as a reason to ignore persistent symptoms."
+        ]
+      },
+      {
+        "heading": "When to seek help",
+        "paragraphs": [
+          "See a GP if pain is severe, limits normal activities, worsens or keeps returning, or has not improved after two weeks of self-care. Tingling, loss of feeling, or foot pain when you have diabetes also warrant medical advice. Physiotherapy or podiatry may be considered when symptoms persist; local access and waiting times vary."
+        ]
+      },
+      {
+        "heading": "About women-specific claims",
+        "paragraphs": [
+          "This page does not claim that a particular women-branded shoe treats plantar fasciitis better. Choose by comfort, fit, cushioning and support, with individual advice when needed. No current stock, prices or product endorsements are asserted."
+        ]
+      }
+    ],
+    "sources": [
+      [
+        "https://www.nhs.uk/conditions/plantar-fasciitis/",
+        "NHS: Plantar fasciitis"
+      ]
+    ]
+  },
+  "/conditions/osteoarthritis": {
+    "path": "/conditions/osteoarthritis",
+    "title": "Osteoarthritis: symptoms, assessment and treatment",
+    "change": "Replace page clinical copy and FAQ. Remove the old secondary prevalence number; preserve navigation and existing useful tools.",
+    "sections": [
+      {
+        "heading": "Quick answer",
+        "paragraphs": [
+          "Osteoarthritis affects the tissues of a joint and can cause pain, stiffness and difficulty with movement. It commonly affects knees, hips and hands. Treatment is tailored to your needs; exercise and, where relevant, weight management are central parts of care. Medicines, aids or surgery may be considered when appropriate."
+        ]
+      },
+      {
+        "heading": "Recognising symptoms",
+        "paragraphs": [
+          "Pain and stiffness vary from person to person. Symptoms may affect activity, work or everyday tasks, but pain alone does not confirm osteoarthritis. Ask a GP about persistent or worrying joint symptoms. A sudden very painful, hot or swollen joint needs urgent assessment rather than assuming it is your usual arthritis."
+        ]
+      },
+      {
+        "heading": "How it is assessed",
+        "paragraphs": [
+          "NICE says osteoarthritis can usually be diagnosed clinically in people aged 45 or over who have activity-related joint pain and either no morning stiffness or stiffness lasting no more than 30 minutes. Imaging is not routinely needed for diagnosis unless there are atypical features or another diagnosis is suspected. Your clinician decides what applies to you."
+        ]
+      },
+      {
+        "heading": "Treatment starts with an individual plan",
+        "paragraphs": [
+          "NICE recommends tailored therapeutic exercise, including local muscle strengthening and general aerobic fitness. Some discomfort can occur when starting, but an appropriate regular programme can improve pain, function and quality of life over time. Ask for help adapting activity if you are unsure. If living with overweight or obesity, supported weight management can help symptoms and function."
+        ]
+      },
+      {
+        "heading": "Medicines and other options",
+        "paragraphs": [
+          "If medicine is needed, the choice depends on the joint, other health conditions and other medicines. NICE recommends a topical NSAID for knee osteoarthritis and considers it for other joints. Oral NSAIDs require an individual risk assessment. Do not select a medicine or dose from this summary; ask a pharmacist or clinician. Aids, physiotherapy and, in some cases, joint-replacement assessment may be discussed."
+        ]
+      },
+      {
+        "heading": "Where to go next",
+        "paragraphs": [
+          "Use the arthritis overview to understand different diagnoses, the daily-living guide for practical adjustments, and the UK care guide to plan an appointment. This page does not use an older treatment-seeking estimate as a current count of everyone with osteoarthritis."
+        ]
+      }
+    ],
+    "sources": [
+      [
+        "https://www.nhs.uk/conditions/osteoarthritis/",
+        "NHS: Osteoarthritis"
+      ],
+      [
+        "https://www.nhs.uk/conditions/osteoarthritis/treatment/",
+        "NHS: OA treatment"
+      ],
+      [
+        "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations",
+        "NICE NG226"
+      ],
+      [
+        "https://www.nhs.uk/conditions/arthritis/",
+        "NHS: Arthritis"
+      ]
+    ]
+  },
+  "/guides/uk-arthritis": {
+    "path": "/guides/uk-arthritis",
+    "title": "Arthritis care in the UK: your next steps",
+    "change": "Replace the generic encyclopaedic guide with a care-navigation guide. Remove secondary CKS prevalence figures and duplicate type-by-type treatment summaries.",
+    "sections": [
+      {
+        "heading": "Quick answer",
+        "paragraphs": [
+          "Start with a GP assessment for unexplained joint pain, swelling or stiffness that does not settle. Sudden severe symptoms may need urgent help. The next step depends on the suspected condition: some people need rheumatology, others may benefit from physiotherapy or occupational therapy. Referral routes and services vary across the UK."
+        ]
+      },
+      {
+        "heading": "Choose the right route",
+        "paragraphs": [
+          "For a suddenly very painful, swollen or hot joint, or joint symptoms with fever, shivering or feeling unwell, ask for urgent GP help or contact NHS 111. Otherwise, arrange GP review for unexplained pain, swelling or stiffness that persists beyond a few days. This guide is for navigation, not diagnosis."
+        ]
+      },
+      {
+        "heading": "Prepare for the appointment",
+        "paragraphs": [
+          "Note which joints are affected, when symptoms began, whether swelling comes and goes, how long stiffness lasts and which tasks are harder. Bring a current medicine list and explain your main concern. Ask what the likely diagnosis is, whether tests are needed, and what to do if symptoms worsen."
+        ]
+      },
+      {
+        "heading": "Understand a referral",
+        "paragraphs": [
+          "NICE recommends urgent rheumatology referral for suspected persistent synovitis with specified features, including small hand or foot joints or more than one joint. QS33 sets a three-working-day referral target for these groups; it is not a guaranteed appointment within three days. Blood tests should not delay an urgent referral."
+        ]
+      },
+      {
+        "heading": "Rehabilitation and daily tasks",
+        "paragraphs": [
+          "In many areas you can approach an NHS musculoskeletal service without a GP referral, but check local arrangements. Physiotherapy can support movement and strength; occupational therapy can help with everyday activities and equipment. Ask your team which service fits your needs rather than assuming every area offers the same route."
+        ]
+      },
+      {
+        "heading": "Leave with a plan",
+        "paragraphs": [
+          "Before the appointment ends, ask who will arrange tests or referrals, how results will reach you, when review is due and whom to contact if you deteriorate. For medicine questions, ask your pharmacist or prescribing team. For an explanation of arthritis types use the overview; for adapting daily life use the daily-living guide."
+        ]
+      }
+    ],
+    "sources": [
+      [
+        "https://www.nhs.uk/conditions/arthritis/",
+        "NHS: Arthritis"
+      ],
+      [
+        "https://www.nice.org.uk/guidance/ng100/chapter/Recommendations",
+        "NICE NG100"
+      ],
+      [
+        "https://www.nice.org.uk/guidance/qs33/chapter/Quality-statement-1-Referral",
+        "NICE QS33"
+      ]
+    ]
+  }
+}
