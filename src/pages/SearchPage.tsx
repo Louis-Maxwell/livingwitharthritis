@@ -71,7 +71,7 @@ const SearchPage = () => {
     <>
       <Helmet>
         <meta name="robots" content="noindex,follow" />
-        <title>Search Arthritis Guides &amp; Articles | Living With Arthritis</title>
+        <title>Search Arthritis Guides {'&'} Articles | Living With Arthritis</title>
         <meta
           name="description"
           content="Search Living With Arthritis guides and blog articles. Filter by topic and word count to find answers without endless scrolling."
