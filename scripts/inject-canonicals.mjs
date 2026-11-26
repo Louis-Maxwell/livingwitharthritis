@@ -518,6 +518,12 @@ function headDataFor(route, override) {
     const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
     return withBlogPeers(route, { ...editorial, ...pendingGuide });
   }
+  if (route === "/conditions/arthritis" && data) {
+    const flagship = readJson(resolve("src/data/arthritisFlagshipApproved.json"));
+    const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
+    const paragraphs = (items) => items.map(p => p.startsWith("- ") ? `<ul>${p.split("\n").map(item => `<li>${escText(item.slice(2))}</li>`).join("")}</ul>` : `<p>${escText(p)}</p>`).join("");
+    return { ...editorial, title: flagship.title, description: flagship.description, question: flagship.h1, answer: flagship.answer, summaryReviewNote: flagship.note, bodyHtml: flagship.sections.map(s => `<section><h2>${escText(s.heading)}</h2>${paragraphs(s.paragraphs)}</section>`).join(""), faqs: flagship.faqs, sources: flagship.sources, updatedAt: "2026-11-26", relatedLinks: flagship.links };
+  }
   const approved = readJson(resolve("scripts/clinical-head-overrides.json"))[route];
   if (readJson(resolve("src/data/approvedClinicalRewrites.json"))[route] && approved?.bodyHtml && data) {
     const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
