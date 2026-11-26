@@ -126,13 +126,14 @@ function readLocalBlogArticles() {
       reviewed_by: a.reviewed_by,
       reviewer_credentials: a.reviewer_credentials,
       last_reviewed: a.last_reviewed,
+      editorial_review_note: a.editorial_review_note,
       citations: a.citations,
       key_takeaways: a.key_takeaways,
     }));
 }
 
 
-function buildBlogSections(rows) {
+export function buildBlogSections(rows) {
   // Exclude legacy slugs that redirect to a newer canonical slug — same
   // rule generate-sitemap.ts applies, so this file doesn't cite a URL
   // that immediately redirects elsewhere.
@@ -149,9 +150,10 @@ function buildBlogSections(rows) {
       const lines = [
         `## ${r.title ?? r.slug}`,
         `URL: ${BASE}/blog/${r.slug}`,
-        `Last updated: ${(r.updated_at || r.date || "2026-07-01").slice(0, 10)}`,
+        ...((r.updated_at || r.date) ? [`Last updated: ${(r.updated_at || r.date).slice(0, 10)}`] : []),
         ...(r.author ? [`Author: ${r.author}${r.author_credentials ? ` (${r.author_credentials})` : ''}`] : []),
-        ...(r.reviewed_by ? [`Reviewer: ${r.reviewed_by}${r.reviewer_credentials ? ` (${r.reviewer_credentials})` : ''}`,
+        ...(r.editorial_review_note ? [`Review note: ${r.editorial_review_note}`] : []),
+        ...(r.reviewed_by ? [`${r.reviewed_by === r.author ? 'Author self-review' : 'Reviewer'}: ${r.reviewed_by}${r.reviewer_credentials ? ` (${r.reviewer_credentials})` : ''}`,
               ...(r.last_reviewed ? [`Last clinically reviewed: ${r.last_reviewed}`] : [])] : ['Clinical review: no named reviewer recorded.']),
         `Q: ${r.title ?? r.slug}`,
         `A: ${answer}`,
