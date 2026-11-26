@@ -512,6 +512,11 @@ function headDataFor(route, override) {
     const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
     return { ...editorial, ...pendingGuide };
   }
+  const approved = readJson(resolve("scripts/clinical-head-overrides.json"))[route];
+  if (readJson(resolve("src/data/approvedClinicalRewrites.json"))[route] && approved?.bodyHtml && data) {
+    const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
+    return { ...editorial, ...approved };
+  }
   const safety = NICE_SAFETY[route];
   if (safety && data) {
     const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
@@ -1129,4 +1134,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-                }
+}

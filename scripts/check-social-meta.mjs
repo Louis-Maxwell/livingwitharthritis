@@ -36,6 +36,7 @@ for (const file of walk(ROOT)) {
     (src.includes('from "@/components/seo/SupplementSafetyGuide"') &&
       readFileSync("src/components/seo/SupplementSafetyGuide.tsx", "utf8").includes('property="og:title"')) ||
     src.includes("ConditionPageTemplate") ||
+    (src.includes('from "@/components/ApprovedClinicalArticle"') && readFileSync("src/components/ApprovedClinicalArticle.tsx", "utf8").includes("<SeoHead")) ||
     src.includes("StubPage") || // StubPage itself emits og:title internally
     src.includes("GovernancePolicyPage") || // wraps SeoHead
     src.includes("ClusterLandingPage") || // wraps SeoHead

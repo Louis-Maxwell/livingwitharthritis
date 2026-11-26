@@ -68,11 +68,11 @@ describe("GSC Champions 47–48 (28 Sep): early M3 pillar deepen (pain / OA / ex
   );
 
   it("OA pillar has review 2026-09-28 and customer-job cross-links", () => {
-    expect(oa).toMatch(/EducationalDisclaimerBox lastReviewed="2026-(09-28|11-05)"/);
+    expect(oa).toContain('ApprovedClinicalArticle path="/conditions/osteoarthritis"');
     for (const href of OA_LINKS) {
       expect(oa.includes(`"${href}"`) || oa.includes(`'${href}'`) || oa.includes(`to="${href}"`), `OA missing ${href}`).toBe(true);
     }
-    expect(oa).toMatch(/NICE|nhs\.uk/i);
+    expect(readFileSync("src/data/approvedClinicalRewrites.json","utf8")).toContain("NICE NG226");
     expect(oa).not.toMatch(/Oswestry/i);
     expect(oa).not.toMatch(/800-1,200\/mo/i);
     expect(getClusterForPath("/conditions/osteoarthritis")?.id).toBe("osteoarthritis");

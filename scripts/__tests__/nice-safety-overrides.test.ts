@@ -23,6 +23,6 @@ describe('source-checked NICE safety corrections', () => {
     expect(frailty).not.toContain("injectJsonLd('frailty-hub-faq'");
   });
   it('keeps unrelated clinical overrides' , () => {
-    expect(headDataFor('/guides/dmards-vs-biologics').answer).toContain('JAK inhibitors');
+    expect(headDataFor('/guides/dmards-vs-biologics').bodyHtml).toContain('JAK inhibitors');
   });
 });

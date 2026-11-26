@@ -4,6 +4,9 @@ import { trackStartHereCard } from "@/lib/ga-events";
 // Keep these links in the initial render so visitors and crawlers do not
 // need to scroll or expand a control to discover the existing guides.
 const TOPIC_GROUPS = [
+  {title: "Understand arthritis", description: "Start with types, symptoms and getting assessed.", links: [{label: "Understand arthritis", href: "/conditions/arthritis"}]},
+  {title: "Live well day to day", description: "Practical help for daily life with arthritis.", links: [{label: "Live well day to day", href: "/living-with-arthritis"}]},
+  {title: "Find your next care step", description: "Prepare for an appointment and understand referrals.", links: [{label: "Find your next care step", href: "/guides/uk-arthritis"}]},
   {
     title: "Arthritis exercises",
     description: "Explore joint-specific movement and strengthening routines, with guidance on choosing a suitable starting point.",

@@ -18,6 +18,47 @@ export interface GlossaryEntry {
 }
 
 export const GLOSSARY_CONTENT: Record<string, GlossaryEntry> = {
+  "etanercept": {
+  "label": "Etanercept",
+  "short": "A biological medicine used by specialists to treat inflammatory conditions including rheumatoid arthritis.",
+  "body": "Etanercept is a biological disease-modifying anti-rheumatic drug (DMARD). For rheumatoid arthritis it may be offered when other treatment has not controlled the disease adequately. It acts on the immune system to reduce inflammation and is given by injection. Like other biological treatments, it can increase the risk of infection, so specialist screening and follow-up are important. Your rheumatology team will explain whether it is suitable and what to do if you become unwell. Follow your own prescription and team advice rather than changing treatment from this definition.",
+  "related": [
+    "dmard",
+    "biologic",
+    "adalimumab"
+  ],
+  "sources": [
+    {
+      "name": "NHS: Rheumatoid arthritis treatment",
+      "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/"
+    }
+  ],
+  "editorialUpdatedAt": "2026-11-26",
+  "reviewNote": "Editorial draft checked against the linked NHS sources. Pending Maxwell’s final clinical review; no independent clinical review is claimed."
+},
+  "adalimumab": {
+  "label": "Adalimumab",
+  "short": "A biological medicine that reduces inflammation in conditions such as rheumatoid and psoriatic arthritis.",
+  "body": "Adalimumab is a biological disease-modifying anti-rheumatic drug (DMARD) prescribed by a specialist. It acts on the immune system to reduce inflammation in conditions including rheumatoid arthritis. It is given by injection under the skin. It can increase the risk of infection. Your specialist will arrange safety checks and explain monitoring and what to do if you become unwell. Different brands are available; follow the instructions for your prescribed product and do not change treatment from this definition.",
+  "related": [
+    "dmard",
+    "biologic",
+    "etanercept"
+  ],
+  "sources": [
+    {
+      "name": "NHS: Adalimumab",
+      "url": "https://www.nhs.uk/medicines/adalimumab/"
+    },
+    {
+      "name": "NHS: Rheumatoid arthritis treatment",
+      "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/"
+    }
+  ],
+  "editorialUpdatedAt": "2026-11-26",
+  "reviewNote": "Editorial draft checked against the linked NHS sources. Pending Maxwell\u2019s final clinical review; no independent clinical review is claimed."
+},
+
   "facet-joint-injection": {
     "label": "Facet joint injection",
     "short": "An injection into the small joints linking the bones of the spine, sometimes used to reduce pain temporarily.",
@@ -501,4 +542,4 @@ export const GLOSSARY_CONTENT: Record<string, GlossaryEntry> = {
 
 export function getGlossaryEntry(slug: string): GlossaryEntry | undefined {
   return GLOSSARY_CONTENT[slug];
-    }
+}

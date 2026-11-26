@@ -1,3 +1,4 @@
+import ApprovedClinicalArticle from "@/components/ApprovedClinicalArticle";
 import SupplementSafetyGuide from "@/components/seo/SupplementSafetyGuide";
 import { Helmet } from "react-helmet-async";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
@@ -263,6 +264,7 @@ function StandardComparisonPage() {
 
 export default function ComparisonPage() {
   const { pathname } = useLocation();
+  if (pathname === "/guides/dmards-vs-biologics") return <ApprovedClinicalArticle path="/guides/dmards-vs-biologics" />;
   if (pathname === "/guides/collagen-vs-glucosamine") return <SupplementSafetyGuide slug="collagen-vs-glucosamine" />;
   if (pathname === "/guides/glucosamine-vs-turmeric-arthritis") return <SupplementSafetyGuide slug="glucosamine-vs-turmeric-arthritis" />;
   return <StandardComparisonPage />;
