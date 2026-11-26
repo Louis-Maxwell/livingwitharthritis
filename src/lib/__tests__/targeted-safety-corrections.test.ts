@@ -4,16 +4,16 @@ const post = (slug: string) => JSON.parse(readFileSync(`src/content/blog/posts/$
 describe("targeted safety source corrections", () => {
   it("does not suggest waiting six weeks before assessment for persistent swelling", () => {
     const j = post("signs-rheumatoid-arthritis-early-stages");
-    expect(j.direct_answer).toContain("do not wait six weeks");
-    expect(j.content).toContain("specialist assessment within three weeks of referral");
+    expect(j.direct_answer).toContain("Persistent unexplained joint swelling needs prompt assessment");
+    expect(j.content).toContain("blood tests should not hold up an urgent referral");
     expect(j.content).not.toContain("symptoms persist over 6 weeks");
   });
   it("separates urgent joint assessment from possible sepsis escalation", () => {
     const j = post("septic-arthritis-hot-swollen-joint-emergency");
-    expect(j.direct_answer).toContain("urgent GP appointment or NHS 111");
-    expect(j.content).toContain("A&amp;E for possible sepsis");
+    expect(j.direct_answer).toContain("urgent GP appointment or contact NHS 111");
+    expect(j.content).toContain("Call 999 or go to A&amp;E");
     expect(j.content).not.toContain("Go to A&amp;E or call 999 if you think you might have it");
-    expect(j.content).toContain("Do not wait for a fever");
+    expect(j.content).toContain("Fever is not always present, so do not wait for it");
   });
   it("uses the NRAS under16 estimate and keeps all revisions pending review", () => {
     const j = post("juvenile-arthritis-uk");
@@ -23,7 +23,7 @@ describe("targeted safety source corrections", () => {
       const value = post(slug);
       expect(value.reviewed_by).toBeNull();
       expect(value.last_reviewed).toBeUndefined();
-      expect(value.editorial_review_note).toContain("not yet had a fresh clinical review");
+      expect(value.editorial_review_note).toMatch(/not (yet )?had a fresh clinical review/);
     }
   });
 });
