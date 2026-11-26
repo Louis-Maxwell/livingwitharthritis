@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 // @ts-expect-error Node build helper is plain JavaScript.
 import { buildDiscovery } from '../../../scripts/generate-ai-discovery.mjs';
 // @ts-expect-error Node build helper is plain JavaScript.
-import { buildBlogSections } from '../../../scripts/generate-llms-full.mjs';
+import { buildBlogSections, buildHeadDataSections } from '../../../scripts/generate-llms-full.mjs';
 
 const read = (path: string) => readFileSync(path, 'utf8');
 
@@ -51,6 +51,16 @@ describe('source-aligned AI discovery', () => {
     expect(digest).not.toContain('Restricted-source');
     expect(digest).not.toContain('cks.nice.org.uk');
     expect(digest).toContain('Navigation only.');
+  });
+
+  it('keeps known non-blog CKS dependencies navigation-only too', () => {
+    const digest = buildHeadDataSections({ '/conditions/osteoarthritis': {
+      title: 'Example', question: 'Question?', answer: 'Unreviewed dependency answer.',
+      sources: [{ url: 'https://cks.nice.org.uk/topics/example/' }],
+    } }).join('\n');
+    expect(digest).toContain('URL: https://livingwitharthritis.org.uk/conditions/osteoarthritis');
+    expect(digest).not.toContain('Unreviewed dependency answer.');
+    expect(digest).not.toContain('cks.nice.org.uk');
   });
 
   it('does not duplicate a redirect source or assert MedicalOrganization status', () => {
