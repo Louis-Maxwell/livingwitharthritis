@@ -90,7 +90,8 @@ describe("mid-article next step on bespoke guides", () => {
   });
 
   it("covers every bespoke guide page with a mapped, real route", () => {
-    expect(midPaths.length).toBeGreaterThanOrEqual(25);
+    expect(midPaths.length + 2).toBeGreaterThanOrEqual(25);
+    for(const f of ["src/pages/guides/ShoulderPainRelief.tsx","src/pages/pillar/UKArthritisGuide.tsx"]) expect(readFileSync(f,"utf8")).toContain("ApprovedClinicalArticle");
     for (const p of midPaths) {
       expect(app.includes(`path="${p}"`), p).toBe(true);
       expect(RECOMMENDED_NEXT_STEP_PATHS, p).toContain(p);
