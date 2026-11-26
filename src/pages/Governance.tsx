@@ -107,7 +107,7 @@ Regulated by the Charity Commission for England and Wales.
   return (
     <>
       <Helmet>
-        <title>Governance &amp; Constitution | {CHARITY.shortName} Charity</title>
+        <title>Governance {'&'} Constitution | {CHARITY.shortName} Charity</title>
         <meta name="description" content={`Our charity governance structure, board of trustees, constitution, and policies. Regulated by the ${CHARITY.regulator}.`} />
         <meta name="keywords" content="charity governance, trustees, constitution, charity commission, registered charity UK, arthritis charity governance" />
         <meta property="og:title" content={`Governance & Constitution | ${CHARITY.shortName}`} />
