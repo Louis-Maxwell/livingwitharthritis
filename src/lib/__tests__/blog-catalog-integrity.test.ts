@@ -219,14 +219,13 @@ describe("generated surfaces agree with the catalog", () => {
 describe("champion guides", () => {
   it("keeps high-intent champion posts cited with UK sources in body + citations", () => {
     const needHosts = ["nice.org.uk", "nhs.uk"];
-    // Versus Arthritis rebranded to Arthritis UK. Either live host counts.
-    const charityHosts = ["versusarthritis.org", "arthritis-uk.org"];
+    // Independently rewritten footwear advice uses primary NHS/NICE sources.
     for (const slug of ["best-walking-shoes-arthritis-uk", "turmeric-for-arthritis"]) {
       const row = BLOG_POSTS_BY_SLUG.get(slug);
       expect(row, slug).toBeTruthy();
       const body = String(row?.content ?? "").toLowerCase();
       for (const host of needHosts) expect(body, `${slug} missing ${host}`).toContain(host);
-      const evidenceHosts = slug === "turmeric-for-arthritis" ? ["cochrane.org"] : charityHosts;
+      const evidenceHosts = slug === "turmeric-for-arthritis" ? ["cochrane.org"] : ["nice.org.uk"];
       expect(evidenceHosts.some((host) => body.includes(host)), `${slug} missing supporting evidence host`).toBe(true);
       const cites = row?.citations ?? [];
       expect(cites.length, `${slug} citations`).toBeGreaterThanOrEqual(3);
