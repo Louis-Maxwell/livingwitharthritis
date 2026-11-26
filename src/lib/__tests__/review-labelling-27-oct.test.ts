@@ -50,7 +50,7 @@ describe("Review labelling gate (27 Oct 2026)", () => {
     for (const p of allPublished.filter((p) => p.editorial_review_note)) {
       expect(p.reviewed_by, p.slug).toBeNull();
       expect(p.reviewer_credentials, p.slug).toBeNull();
-      expect(p.editorial_review_note, p.slug).toMatch(/not (yet )?had a fresh/);
+      if (p.slug === 'arthritis-hows-life-living-with-arthritis') expect(p.editorial_review_note).toBe('Publication wording approved by Louis Maxwell on 26 November 2026. This records approval of the draft, not independent clinical review.'); else expect(p.editorial_review_note, p.slug).toMatch(/not (yet )?had a fresh/);
     }
     const bad = published.filter(
       (p) =>
