@@ -39,6 +39,12 @@ export function currentFeedEntries(paths = Object.keys(routeInventory)) {
     })
     .filter(([, entry]) => entry?.answer));
 }
+// Known non-blog CKS dependencies found in the live/source audit. Keep
+// navigation but do not duplicate their summaries during permission review.
+const SOURCE_PERMISSION_REVIEW_ROUTES = new Set([
+  '/conditions/osteoarthritis', '/guides/uk-arthritis',
+  '/guides/shoulder-pain-relief', '/guides/dmards-vs-biologics',
+]);
 const headData = currentFeedEntries();
 
 // City doorway pages (/arthritis-support/{city} and city x condition grids)
@@ -55,6 +61,11 @@ export function buildHeadDataSections(data = headData) {
   const routes = Object.keys(data).filter((r) => !isExcludedRoute(r)).sort();
   return routes.map((route) => {
     const entry = data[route];
+    if (SOURCE_PERMISSION_REVIEW_ROUTES.has(route)) return [
+      `## ${entry.title ?? entry.about ?? route}`,
+      `URL: ${BASE}${route}`,
+      'Navigation only. Article summary and references are withheld from this discovery digest pending a source-permissions review.',
+    ].join('\n');
     const lines = [
       `## ${entry.title ?? entry.about ?? route}`,
       `URL: ${BASE}${route}`,
