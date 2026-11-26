@@ -407,6 +407,10 @@ function withRenderedBody(route, data) {
   if (snap && !(textWords(data.bodyHtml) + textWords(data.answer) >= 300 && textWords(data.bodyHtml) >= textWords(snap))) {
     out = { ...data, bodyHtml: unwrapUnknownLinks(snap) };
   }
+  if (route === "/blog/vitamin-d-arthritis-uk") {
+    const article = readJson(resolve("src/content/blog/posts/vitamin-d-arthritis-uk.json"));
+    out = { ...out, title: article.meta_title || article.title, description: article.meta_description, answer: article.direct_answer, bodyHtml: article.content, dateModified: article.updated_at };
+  }
   if (route === "/guides/knee-exercises-for-osteoarthritis") {
     const supplement = readJson(resolve("src/data/kneeEditorialEnhancement.json"));
     out = { ...out, bodyHtml: `${out.bodyHtml || ""}<section id="knee-editorial-supplement"><h2>${escText(supplement.title)}</h2><p>${escText(supplement.note)}</p>${supplement.html || ""}</section>` };
@@ -1125,4 +1129,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-}
+                }
