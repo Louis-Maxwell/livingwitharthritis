@@ -13,7 +13,7 @@
   "publisher": {
     "@id": "https://livingwitharthritis.org.uk/#organization"
   },
-  "dateModified": "2026-11-04",
+  "dateModified": "2026-11-26",
   "isAccessibleForFree": true,
   "keywords": [
     "arthritis charity UK",
@@ -150,7 +150,6 @@
   ],
   "mainEntity": {
     "@type": [
-      "MedicalOrganization",
       "NGO",
       "Organization"
     ],
@@ -177,7 +176,7 @@
       "https://livingwitharthritis.org.uk/guides/benefits-pip",
       "https://livingwitharthritis.org.uk/arthritis-waiting-list-help",
       "https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis",
-      "https://livingwitharthritis.org.uk/diet",
+      "https://livingwitharthritis.org.uk/guides/diet",
       "https://livingwitharthritis.org.uk/conditions/osteoarthritis",
       "https://livingwitharthritis.org.uk/conditions/rheumatoid-arthritis",
       "https://livingwitharthritis.org.uk/editorial-standards",
@@ -187,6 +186,7 @@
   "usageGuidance": {
     "preferredAttribution": "Living With Arthritis (charity 1218461)",
     "citationInstruction": "Cite the most specific page URL and preserve the medical disclaimer when summarising health information.",
-    "medicalDisclaimer": "General UK health information only. Not a substitute for NHS or NICE guidance or personal clinical advice. Urgent symptoms: GP, NHS 111 or 999."
+    "medicalDisclaimer": "General UK health information only. Not a substitute for NHS or NICE guidance or personal clinical advice. Urgent symptoms: GP, NHS 111 or 999.",
+    "reviewStatus": "Review status is page-specific. Updated editorial summaries may await a separate clinical review. Author self-review is not independent peer review; check the source page."
   }
 }
