@@ -41,6 +41,18 @@ describe('source-aligned AI discovery', () => {
     expect(digest).not.toContain('2026-07-01');
   });
 
+  it('keeps CKS-dependent articles as navigation only while source permissions are reviewed', () => {
+    const digest = buildBlogSections([{
+      slug: 'example-source-review', title: 'Example', direct_answer: 'Restricted-source summary.',
+      key_takeaways: ['Restricted-source takeaway.'],
+      citations: [{ url: 'https://cks.nice.org.uk/topics/example/', name: 'CKS' }],
+    }]).join('\n');
+    expect(digest).toContain('https://livingwitharthritis.org.uk/blog/example-source-review');
+    expect(digest).not.toContain('Restricted-source');
+    expect(digest).not.toContain('cks.nice.org.uk');
+    expect(digest).toContain('Navigation only.');
+  });
+
   it('does not duplicate a redirect source or assert MedicalOrganization status', () => {
     const text = read('public/llms.txt');
     expect(text).not.toContain('URL: https://livingwitharthritis.org.uk/blog/knee-exercises-for-osteoarthritis\n');
