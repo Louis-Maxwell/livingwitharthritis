@@ -72,7 +72,7 @@ const CommunityHub = () => {
   return (
     <>
       <Helmet>
-        <title>Arthritis Community & Support UK | Living With Arthritis</title>
+        <title>Arthritis Community &amp; Support UK | Living With Arthritis</title>
         <meta name="description" content="Free UK arthritis guides, printable resources and general information tools for everyday self-management of arthritis at home." />
         <meta name="keywords" content="arthritis information UK, newly diagnosed arthritis, arthritis self-management, arthritis exercise guides, arthritis printable resources" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/community" />
