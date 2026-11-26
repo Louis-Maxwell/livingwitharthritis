@@ -107,7 +107,7 @@ Regulated by the Charity Commission for England and Wales.
   return (
     <>
       <Helmet>
-        <title>Governance & Constitution | {CHARITY.shortName} Charity</title>
+        <title>Governance &amp; Constitution | {CHARITY.shortName} Charity</title>
         <meta name="description" content={`Our charity governance structure, board of trustees, constitution, and policies. Regulated by the ${CHARITY.regulator}.`} />
         <meta name="keywords" content="charity governance, trustees, constitution, charity commission, registered charity UK, arthritis charity governance" />
         <meta property="og:title" content={`Governance & Constitution | ${CHARITY.shortName}`} />
@@ -155,7 +155,7 @@ Regulated by the Charity Commission for England and Wales.
             </Badge>
           </div>
         }
-        title={<>Our <span className="text-primary">Governance</span> & Constitution</>}
+        title={<>Our <span className="text-primary">Governance</span> &amp; Constitution</>}
         subtitle="Full transparency on how Living With Arthritis is governed, our board of trustees, and our founding constitution. Regulated by the Charity Commission for England and Wales."
       />
       <div className="container mx-auto px-6 md:px-10 max-w-5xl -mt-4 mb-6">
@@ -378,7 +378,7 @@ Regulated by the Charity Commission for England and Wales.
             <div className="flex flex-wrap gap-3 justify-center">
               <Link to="/trust">
                 <Button variant="outline" className="rounded-full px-6 h-10 text-sm font-medium">
-                  <Shield className="w-4 h-4 mr-2" /> Trust & Credibility
+                  <Shield className="w-4 h-4 mr-2" /> Trust &amp; Credibility
                 </Button>
               </Link>
               <Link to="/impact">
