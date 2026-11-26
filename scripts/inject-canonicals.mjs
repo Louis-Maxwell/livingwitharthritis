@@ -383,6 +383,11 @@ const RENDERED_BODIES = {
   ...(existsSync(resolve('scripts/data/rendered-bodies.overrides.json'))
     ? JSON.parse(readFileSync(resolve('scripts/data/rendered-bodies.overrides.json'), 'utf8')) : {}),
 };
+// These independently rewritten articles must use their current authored bodies,
+// never the longer historical rendered snapshot.
+for (const slug of ["best-walking-shoes-arthritis-uk", "ginger-root-natural-anti-inflammatory", "arthritis-and-diet-myths-uk", "gut-health-arthritis-connection", "arthritis-and-omega-3-fish-oil", "arthritis-and-weight-loss-uk", "turmeric-curcumin-arthritis-evidence"]) {
+  delete RENDERED_BODIES[`/blog/${slug}`];
+}
 // Same counting rule as scripts/lib/route-words.mjs (the word gate).
 const textWords = (html) => String(html || '').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ').split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
 function withRenderedBody(route, data) {
@@ -1120,4 +1125,4 @@ function writeRouteFiles() {
 
 if (isDirectRun()) {
   writeRouteFiles();
-    }
+}

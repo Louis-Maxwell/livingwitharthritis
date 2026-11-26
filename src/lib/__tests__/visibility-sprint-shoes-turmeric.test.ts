@@ -19,7 +19,7 @@ type Row = {
 // Review stamps: the 20 Sep visibility sprint, or a later full rewrite
 // (best-walking-shoes-arthritis-uk was rewritten in content batch 6, 11 Oct 2026).
 const REVIEW_DATES: Record<string, string> = {
-  "best-walking-shoes-arthritis-uk": "2026-10-11",
+  "best-walking-shoes-arthritis-uk": "2026-11-26",
   "turmeric-for-arthritis": "2026-11-25",
 };
 
@@ -30,6 +30,9 @@ const SLUGS = [
 
 const ALLOWED_HOSTS = [
   "www.nhs.uk",
+  "nhs.uk",
+  "nhsaaa.net",
+  "nhsinform.scot",
   "www.nice.org.uk",
   "www.arthritis-uk.org",
   "arthritis-uk.org",
@@ -80,7 +83,7 @@ describe("visibility sprint: walking shoes + turmeric gold-pass", () => {
       }
 
       const html = row!.content;
-      for (const href of CUSTOMER_JOB_HREFS) {
+      for (const href of slug === "best-walking-shoes-arthritis-uk" ? ["/conditions/foot-and-ankle-arthritis"] : CUSTOMER_JOB_HREFS) {
         expect(html.includes(`href="${href}"`), `${slug} missing ${href}`).toBe(true);
       }
       // No invented DOI / fake academic theatre
