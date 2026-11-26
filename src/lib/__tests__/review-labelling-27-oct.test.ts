@@ -22,6 +22,9 @@ const walk = (dir: string, out: string[] = []): string[] => {
   return out;
 };
 
+const approved26Nov = new Set(["manage-arthritis-pain-flare-ups-night", "cold-weather-arthritis-uk-winter", "arthritis-flare-early-warning-signs", "heat-or-ice-for-arthritis", "expert-qa-exercising-through-a-flare-up", "glucosamine-vs-collagen"]);
+const note26Nov = (slug: string) => slug === "glucosamine-vs-collagen" ? "Editorial source update, 26 November 2026. This revised article is awaiting Louis Maxwell's final clinical review. No independent clinical review is claimed." : "Editorial source update, 26 November 2026. No new independent clinical review is claimed.";
+
 type Post = { slug: string; is_published?: boolean; reviewed_by?: string | null; reviewer_credentials?: string | null; reviewStatus?: string; review_status?: string; editorial_review_note?: string };
 
 const postsDir = resolve(root, "src/content/blog/posts");
@@ -50,7 +53,7 @@ describe("Review labelling gate (27 Oct 2026)", () => {
     for (const p of allPublished.filter((p) => p.editorial_review_note)) {
       expect(p.reviewed_by, p.slug).toBeNull();
       expect(p.reviewer_credentials, p.slug).toBeNull();
-      if (p.slug === 'arthritis-hows-life-living-with-arthritis') expect(p.editorial_review_note).toBe('Publication wording approved by Louis Maxwell on 26 November 2026. This records approval of the draft, not independent clinical review.'); else expect(p.editorial_review_note, p.slug).toMatch(/not (yet )?had a fresh/);
+      if (p.slug === 'arthritis-hows-life-living-with-arthritis') expect(p.editorial_review_note).toBe('Publication wording approved by Louis Maxwell on 26 November 2026. This records approval of the draft, not independent clinical review.'); else if (approved26Nov.has(p.slug)) expect(p.editorial_review_note).toBe(note26Nov(p.slug)); else expect(p.editorial_review_note, p.slug).toMatch(/not (yet )?had a fresh/);
     }
     const bad = published.filter(
       (p) =>
