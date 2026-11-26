@@ -28,5 +28,30 @@
     { "href": "/blog/ask-the-physio-arthritis", "title": "Ask the Physio: Your Arthritis Exercise and Physiotherapy Questions" },
     { "href": "/blog/arthritis-physiotherapy-nhs-waiting-list", "title": "How to Get Arthritis Physiotherapy on the NHS Waiting List" },
     { "href": "/blog/community-physio-wait-frail-arthritis-uk", "title": "Waiting for community physio with arthritis: what to do while you wait (UK guide)" }
+  ],
+  "/blog/best-walking-shoes-arthritis-uk": [
+    {"href": "/blog/bunions-arthritis-frailty-shoes-uk", "title": "Bunions, arthritis and frailty: shoes that still fit (UK)"},
+    {"href": "/blog/best-plantar-fasciitis-shoes-women-uk", "title": "Shoes for plantar fasciitis: a practical fit guide"}
+  ],
+  "/blog/orthotics-insoles-arthritis-frailty-uk": [
+    {"href": "/blog/foot-ankle-osteoarthritis-frailty-indoor-walking-uk", "title": "Foot and ankle osteoarthritis and frailty: safer indoor walking (UK)"},
+    {"href": "/blog/podiatry-footcare-arthritis-frailty-uk", "title": "Podiatry and foot care with arthritis and frailty (UK)"},
+    {"href": "/blog/community-strength-classes-frail-oa-uk", "title": "Community strength classes for frailty and osteoarthritis (UK)"},
+    {"href": "/blog/best-plantar-fasciitis-shoes-women-uk", "title": "Shoes for plantar fasciitis: a practical fit guide"}
+  ],
+  "/blog/podiatry-footcare-arthritis-frailty-uk": [
+    {"href": "/blog/advance-care-planning-arthritis-frailty-uk", "title": "Advance care planning when you live with arthritis and frailty (UK)"},
+    {"href": "/blog/care-home-life-arthritis-pain-frailty-uk", "title": "Life in a care home with arthritis, pain and frailty (UK)"},
+    {"href": "/blog/dental-care-arthritis-frailty-hands-uk", "title": "Dental care when arthritis, frailty and sore hands collide (UK)"},
+    {"href": "/blog/best-plantar-fasciitis-shoes-women-uk", "title": "Shoes for plantar fasciitis: a practical fit guide"}
+  ],
+  "/blog/arthritis-pain-management-day-by-day": [
+    {"href": "/blog/flare-management-pain-spikes", "title": "How to Identify a True Arthritis Flare-Up (vs a Bad Day)"},
+    {"href": "/blog/arthritis-flare-up-what-to-do", "title": "Arthritis Flare-Up: What to Do When Symptoms Get Worse"},
+    {"href": "/blog/best-foods-to-eat-for-arthritis", "title": "Foods Supported by Research for Arthritis: What the Evidence Actually Shows (UK Guide)"},
+    {"href": "/blog/tens-machines-arthritis-uk", "title": "TENS for arthritis: evidence and safety"}
+  ],
+  "/blog/arthritis-pain-management": [
+    {"href": "/blog/tens-machines-arthritis-uk", "title": "TENS for arthritis: evidence and safety"}
   ]
 }
