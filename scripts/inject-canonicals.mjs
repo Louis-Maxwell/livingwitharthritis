@@ -513,7 +513,7 @@ function headDataFor(route, override) {
     return { ...editorial, ...pendingGuide };
   }
   const approved = readJson(resolve("scripts/clinical-head-overrides.json"))[route];
-  if (approved?.summaryReviewNote && approved?.bodyHtml && data) {
+  if (readJson(resolve("src/data/approvedClinicalRewrites.json"))[route] && approved?.bodyHtml && data) {
     const { reviewedBy: _reviewer, reviewerCredentials: _credentials, lastReviewed: _reviewed, reviewLine: _line, ...editorial } = data;
     return { ...editorial, ...approved };
   }
