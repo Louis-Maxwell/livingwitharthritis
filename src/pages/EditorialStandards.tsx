@@ -50,7 +50,7 @@ export default function EditorialStandards() {
   return (
     <>
       <Helmet>
-        <title>Editorial &amp; Medical Review Standards | Living With Arthritis</title>
+        <title>Editorial {'&'} Medical Review Standards | Living With Arthritis</title>
         <meta
           name="description"
           content="How Living With Arthritis reviews health content: HCPC-registered clinicians, NICE-aligned sourcing and clear editorial standards."
