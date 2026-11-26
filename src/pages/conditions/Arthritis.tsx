@@ -53,7 +53,7 @@ export default function Arthritis() {
   useEffect(() => {
     const article = {
       '@context': 'https://schema.org', '@type': 'MedicalWebPage',
-      headline: 'Arthritis: Understanding Joint Pain and Treatment Options',
+      headline: 'Arthritis: types, symptoms and getting assessed',
       description: 'Comprehensive UK guide to arthritis — symptoms, diagnosis, treatment options, and what patients commonly look for at each stage of their journey.',
       author: LOUIS_MAXWELL_REF,
       publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis' },
@@ -91,7 +91,7 @@ export default function Arthritis() {
         <Link to="/" className="hover:text-primary">Home</Link> / <span>Arthritis</span>
       </nav>
 
-      <h1 className="text-4xl md:text-5xl font-bold mb-6">Arthritis: Understanding Joint Pain and Treatment Options</h1>
+      <h1 className="text-4xl md:text-5xl font-bold mb-6">Arthritis: types, symptoms and getting assessed</h1>
       <LastReviewed date={LAST_REVIEWED_ISO} className="mb-6 -mt-4" />
 
       <AnswerBox question="What is arthritis and how is it treated?" reviewed="2026-06-22">
@@ -100,6 +100,7 @@ export default function Arthritis() {
 
       <MedicalReviewBadge reviewer="Louis Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
 
+      <section className="mb-12"><p>Arthritis can cause joint pain, swelling and stiffness. Different types need different care, so symptoms alone do not establish a diagnosis. Use this overview to understand the main groups and when to seek assessment. For practical daily-life help, visit our living-with-arthritis guide.</p><p><Link to="/living-with-arthritis" className="underline">Practical help for daily life with arthritis</Link>. <Link to="/guides/uk-arthritis" className="underline">How to prepare for UK arthritis care</Link>.</p></section>
       <section id="overview" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">What is arthritis?</h2>
         <p className="mb-4 leading-relaxed">Arthritis is not a single disease — it is a broad term covering more than 100 joint conditions. The two most common are <Link to="/conditions/osteoarthritis" className="text-primary underline">osteoarthritis</Link>, where joint cartilage gradually wears down, and <Link to="/conditions/rheumatoid-arthritis" className="text-primary underline">rheumatoid arthritis</Link>, an autoimmune condition where the immune system attacks the joint lining.</p>
@@ -135,39 +136,11 @@ export default function Arthritis() {
         <p className="mt-3 leading-relaxed">If you have persistent joint swelling, ask whether you need a rheumatology referral. NICE advises urgent referral for suspected inflammatory arthritis such as rheumatoid arthritis.</p>
       </section>
 
-      <section id="patients-look-for" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">What do arthritis patients commonly look for?</h2>
-        <p className="mb-4 leading-relaxed">People newly diagnosed — and those managing arthritis long-term — typically search for help in four areas:</p>
-        <ul className="list-disc pl-6 space-y-2">
-          <li><strong>Pain relief options:</strong> topical and oral anti-inflammatories, heat and cold therapy, compression supports, splints and pain-relief gels.</li>
-          <li><strong>Diagnostics:</strong> faster access to imaging and rheumatology assessment, sometimes via private clinics.</li>
-          <li><strong>Specialist care:</strong> physiotherapy, rheumatology, podiatry and occupational therapy.</li>
-          <li><strong>Supplements & nutrition:</strong> glucosamine, chondroitin, collagen, omega-3, turmeric and an anti-inflammatory eating pattern.</li>
-        </ul>
-        <p className="mt-4 text-sm text-muted-foreground italic">This is educational information only — we don&apos;t endorse specific brands or products. Always speak to a clinician before starting a new treatment, supplement or device.</p>
-      </section>
 
-      <section id="treatments" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">What are the evidence-based treatment options for arthritis?</h2>
-        <ul className="list-disc pl-6 space-y-2">
-          <li><strong>Exercise:</strong> progressive strength, mobility and aerobic training reduce pain and improve function — see our <Link to="/guides/exercise" className="text-primary underline">exercise guide</Link>.</li>
-          <li><strong>Weight management:</strong> if you are overweight, NICE says any weight loss is likely to help people with osteoarthritis, and losing 10% of body weight is likely to be better than 5%.</li>
-          <li><strong>Anti-inflammatory diet:</strong> Mediterranean-style eating — see our <Link to="/guides/diet" className="text-primary underline">diet guide</Link> and <Link to="/diet/foods-to-avoid-with-arthritis" className="text-primary underline">foods to avoid</Link>.</li>
-          <li><strong>Medication:</strong> for knee osteoarthritis NICE recommends a topical NSAID first, with oral NSAIDs considered if needed. Inflammatory arthritis is usually treated with DMARDs and sometimes biologics, prescribed by a rheumatology team. See our <Link to="/guides/arthritis-pain-relief" className="text-primary underline">pain relief guide</Link>.</li>
-          <li><strong>Injections and surgery:</strong> corticosteroid injections can give short-term relief for some people. NICE advises against hyaluronic acid injections for osteoarthritis. Joint replacement may be discussed when symptoms seriously affect your life despite other treatment.</li>
-          <li><strong>Mental health support:</strong> chronic pain affects mood — see our <Link to="/arthritis-mental-health" className="text-primary underline">mental health guide</Link>.</li>
-        </ul>
-      </section>
 
-      <section id="exercise" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">Exercise and staying active with arthritis</h2>
-        <p className="mb-3 leading-relaxed">Movement is one of the most helpful things you can do. NICE recommends therapeutic exercise, such as muscle strengthening and general aerobic fitness, as a core treatment for osteoarthritis, and the NHS encourages people with arthritis to stay active. Start gently, build up slowly, and it is normal to feel some extra aching at first.</p>
-        <ul className="list-disc pl-6 space-y-2">
-          <li><Link to="/exercises" className="text-primary underline">Exercise library</Link>: step-by-step routines by joint.</li>
-          <li><Link to="/guides/exercise" className="text-primary underline">Best exercises for arthritis</Link>: low-impact strength, mobility and walking plans.</li>
-          <li>Ask your GP about NHS physiotherapy. In many areas you can refer yourself.</li>
-        </ul>
-      </section>
+
+
+
 
       <section id="types" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">Types of arthritis: find your condition guide</h2>
@@ -251,4 +224,4 @@ export default function Arthritis() {
       <TopicClusterNav path="/conditions/arthritis" />
     </article>
   );
-          }
+}
