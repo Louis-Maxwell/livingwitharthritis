@@ -385,7 +385,7 @@ const RENDERED_BODIES = {
 };
 // These independently rewritten articles must use their current authored bodies,
 // never the longer historical rendered snapshot.
-for (const slug of ["best-walking-shoes-arthritis-uk", "ginger-root-natural-anti-inflammatory", "arthritis-and-diet-myths-uk", "gut-health-arthritis-connection", "arthritis-and-omega-3-fish-oil", "arthritis-and-weight-loss-uk", "turmeric-curcumin-arthritis-evidence"]) {
+for (const slug of ["best-walking-shoes-arthritis-uk", "ginger-root-natural-anti-inflammatory", "arthritis-and-diet-myths-uk", "gut-health-arthritis-connection", "arthritis-and-omega-3-fish-oil", "arthritis-and-weight-loss-uk", "turmeric-curcumin-arthritis-evidence", "vitamin-d-arthritis-uk"]) {
   delete RENDERED_BODIES[`/blog/${slug}`];
 }
 // Same counting rule as scripts/lib/route-words.mjs (the word gate).
