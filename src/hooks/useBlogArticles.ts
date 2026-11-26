@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getClustersForArticle, scoreCandidate } from "@/lib/relatedClusters";
+import { relatedBlogPosts } from "@/lib/relatedBlogPosts.mjs";
 import type { BlogPost } from "@/lib/blog/schema";
 
 export { readEmbeddedBlogArticle } from "@/lib/embeddedBlogArticle";
@@ -77,56 +77,11 @@ export function useRelatedArticles(currentSlug: string, options: RelatedArticles
     ],
     queryFn: async () => {
       const { getListedBlogCatalog, getBlogMeta } = await import("@/lib/blog/catalog");
-      let sourceClusters: string[] = seedClusters ?? [];
-      let sourceCategory: string | null = seedCategory ?? null;
-
-      const current = getBlogMeta(currentSlug) ?? null;
-      if (current && (sourceClusters.length === 0 || !sourceCategory)) {
-        sourceCategory = sourceCategory ?? current.category ?? null;
-        if (sourceClusters.length === 0) sourceClusters = getClustersForArticle(current);
-      }
-      if (sourceClusters.length === 0) {
-        sourceClusters = getClustersForArticle({
-          title: seedTitle,
-          excerpt: seedExcerpt,
-          category: sourceCategory,
-          keywords: seedKeywords,
-        });
-      }
-
-      const candidates: RelatedArticle[] = getListedBlogCatalog()
-        .filter((a) => a.slug !== currentSlug)
-        .map((a) => ({
-          slug: a.slug,
-          title: a.title,
-          excerpt: a.excerpt,
-          date: a.date,
-          category: a.category,
-          keywords: a.keywords,
-        }));
-
-      const scored = candidates
-        .map((article) => ({ article, score: scoreCandidate(article, sourceClusters, sourceCategory) }))
-        .sort((a, b) => {
-          if (b.score !== a.score) return b.score - a.score;
-          return (b.article.date ?? "").localeCompare(a.article.date ?? "");
-        });
-
-      const top = scored.filter((s) => s.score > 0).slice(0, 3);
-      if (top.length >= 3) return top.map((s) => s.article);
-
-      const picked = new Set(top.map((t) => t.article.slug));
-      const rest = candidates.filter((c) => !picked.has(c.slug));
-      const sameCategory = sourceCategory
-        ? rest.filter((c) => c.category === sourceCategory)
-        : [];
-      const byDate = [...rest].sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
-      const filler: RelatedArticle[] = [];
-      for (const article of [...sameCategory, ...byDate]) {
-        if (filler.length >= 3 - top.length) break;
-        if (!filler.some((item) => item.slug === article.slug)) filler.push(article);
-      }
-      return [...top.map((s) => s.article), ...filler];
+      const current = getBlogMeta(currentSlug) ?? {
+        slug: currentSlug, title: seedTitle || '', excerpt: seedExcerpt || '',
+        category: seedCategory || '', keywords: seedKeywords || '',
+      };
+      return relatedBlogPosts(current, getListedBlogCatalog());
     },
   });
 }
