@@ -22,7 +22,9 @@
         "name": "NICE NG65",
         "url": "https://www.nice.org.uk/guidance/ng65/chapter/Recommendations"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-26",
+    "summaryReviewNote": "Editorial source update, 26 November 2026. No independent clinical review is claimed."
   },
   "/resources/flare-action-plan": {
     "answer": "An arthritis flare-up action plan is a written plan you make while you are well, so you know what to do when a flare starts: your usual and flare signs, gentle self-care steps, medicines your own clinicians have agreed, who to contact, and the red flag signs that mean you need urgent help. Print the free plan below and fill it in.",
@@ -107,7 +109,9 @@
         "name": "NHS: Shoulder pain",
         "url": "https://www.nhs.uk/conditions/shoulder-pain/"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-26",
+    "summaryReviewNote": "Editorial source update, 26 November 2026. No independent clinical review is claimed."
   },
   "/blog/signs-rheumatoid-arthritis-early-stages": {
     "title": "Early rheumatoid arthritis: signs and getting assessed",
@@ -132,7 +136,9 @@
         "name": "NHS: Arthritis",
         "url": "https://www.nhs.uk/conditions/arthritis/"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-26",
+    "summaryReviewNote": "Editorial source update, 26 November 2026. No independent clinical review is claimed."
   },
   "/blog/giant-cell-arteritis-headache-warning-signs": {
     "title": "Giant cell arteritis: urgent symptoms and assessment",
@@ -149,7 +155,9 @@
         "name": "NHS: Vision loss",
         "url": "https://www.nhs.uk/conditions/vision-loss/"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-26",
+    "summaryReviewNote": "Editorial source update, 26 November 2026. No independent clinical review is claimed."
   },
   "/blog/septic-arthritis-hot-swollen-joint-emergency": {
     "title": "A suddenly painful, swollen joint: urgent help",
@@ -166,7 +174,9 @@
         "name": "NHS: Sepsis",
         "url": "https://www.nhs.uk/conditions/sepsis/"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-26",
+    "summaryReviewNote": "Editorial source update, 26 November 2026. No independent clinical review is claimed."
   },
   "/blog/best-plantar-fasciitis-shoes-women-uk": {
     "title": "Shoes for plantar fasciitis: a practical fit guide",
@@ -179,7 +189,9 @@
         "name": "NHS: Plantar fasciitis",
         "url": "https://www.nhs.uk/conditions/plantar-fasciitis/"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-26",
+    "summaryReviewNote": "Editorial source update, 26 November 2026. No independent clinical review is claimed."
   },
   "/conditions/osteoarthritis": {
     "title": "Osteoarthritis: symptoms, assessment and treatment",
@@ -204,7 +216,9 @@
         "name": "NHS: Arthritis",
         "url": "https://www.nhs.uk/conditions/arthritis/"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-26",
+    "summaryReviewNote": "Editorial source update, 26 November 2026. No independent clinical review is claimed."
   },
   "/guides/uk-arthritis": {
     "title": "Arthritis care in the UK: your next steps",
@@ -225,6 +239,8 @@
         "name": "NICE QS33",
         "url": "https://www.nice.org.uk/guidance/qs33/chapter/Quality-statement-1-Referral"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-26",
+    "summaryReviewNote": "Editorial source update, 26 November 2026. No independent clinical review is claimed."
   }
 }
