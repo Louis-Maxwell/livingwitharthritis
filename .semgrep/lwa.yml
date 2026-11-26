@@ -1,0 +1,41 @@
+rules:
+  - id: lwa-no-eval
+    languages: [javascript, typescript]
+    message: Do not execute strings as JavaScript. Use explicit data parsing or functions.
+    severity: ERROR
+    pattern-either:
+      - pattern: eval(...)
+      - pattern: new Function(...)
+  - id: lwa-no-string-timers
+    languages: [javascript, typescript]
+    message: Pass a function to a timer, never a string of JavaScript.
+    severity: ERROR
+    pattern-either:
+      - pattern: setTimeout("...", ...)
+      - pattern: setInterval("...", ...)
+  - id: lwa-no-disabled-tls
+    languages: [javascript, typescript]
+    message: Do not disable TLS certificate verification.
+    severity: ERROR
+    pattern-either:
+      - pattern: process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
+      - pattern: '{rejectUnauthorized: false, ...}'
+  - id: lwa-no-wildcard-postmessage
+    languages: [javascript, typescript]
+    message: Use an explicit trusted target origin for postMessage.
+    severity: ERROR
+    pattern: $TARGET.postMessage($DATA, "*")
+  - id: lwa-no-document-write
+    languages: [javascript, typescript]
+    message: Use safe DOM methods, not document.write or document.writeln.
+    severity: ERROR
+    pattern-either:
+      - pattern: document.write(...)
+      - pattern: document.writeln(...)
+  - id: lwa-no-shell-interpolation
+    languages: [javascript, typescript]
+    message: Use execFile with separate arguments instead of interpolating shell commands.
+    severity: ERROR
+    pattern-either:
+      - pattern: exec(`...${$INPUT}...`, ...)
+      - pattern: execSync(`...${$INPUT}...`, ...)
