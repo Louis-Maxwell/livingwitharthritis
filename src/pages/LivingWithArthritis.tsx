@@ -14,7 +14,7 @@ export default function LivingWithArthritis() {
     const article = {
       '@context': 'https://schema.org',
       '@type': 'Article',
-      headline: 'Living With Arthritis: A Complete Guide',
+      headline: 'Living with arthritis: practical help for daily life',
       description:
         'Evidence-based guide to living with arthritis in the UK. Symptoms, types, management, exercises, diet, mental health, work and benefits.',
       author: {
@@ -90,20 +90,15 @@ export default function LivingWithArthritis() {
       />
 
       <h1 className="text-4xl md:text-5xl font-bold mb-6">
-        Living With Arthritis: A Complete Guide
+        Living with arthritis: practical help for daily life
       </h1>
 
-      <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
-        Arthritis affects 10 million people in the UK. Experiences vary by condition and person, but many people continue meaningful activities with the right treatment, movement, pacing and practical support. This evidence-based guide covers what arthritis is, how symptoms may affect daily life, and questions to discuss with a healthcare professional.
-      </p>
+      <p className="text-xl text-muted-foreground mb-6 leading-relaxed">Find practical help with movement, pacing, everyday tasks and adapting life around arthritis. Your needs may change, so use this guide alongside advice from your healthcare team. For an explanation of arthritis types, start with our arthritis overview. For appointment and referral questions, use our UK care guide.</p>
 
 
       <nav aria-label="Table of contents" className="bg-muted p-6 rounded-lg mb-10 border-l-4 border-primary">
         <h2 className="font-bold text-lg mb-4">In this guide</h2>
         <ul className="space-y-2 md:columns-2">
-          <li><a href="#what-is" className="text-primary hover:underline">What is arthritis?</a></li>
-          <li><a href="#types" className="text-primary hover:underline">Types of arthritis</a></li>
-          <li><a href="#symptoms" className="text-primary hover:underline">Symptoms & diagnosis</a></li>
           <li><a href="#management" className="text-primary hover:underline">Management strategies</a></li>
           <li><a href="#exercises" className="text-primary hover:underline">Exercise & movement</a></li>
           <li><a href="#diet" className="text-primary hover:underline">Diet & nutrition</a></li>
@@ -114,96 +109,7 @@ export default function LivingWithArthritis() {
         </ul>
       </nav>
 
-      <section id="what-is" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">What is arthritis?</h2>
-        <p className="mb-4 leading-relaxed">
-          Arthritis is inflammation of one or more joints. It affects the cartilage
-          (the smooth tissue that covers the ends of bones), causing pain, stiffness
-          and reduced mobility. More than 100 types exist, but osteoarthritis and
-          rheumatoid arthritis are the most common.
-        </p>
-        <p className="mb-3 font-semibold">Key facts:</p>
-        <ul className="list-disc list-inside space-y-2 mb-4 ml-4">
-          <li>10 million people in the UK have arthritis</li>
-          <li>It can affect people at any age, not just older adults</li>
-          <li>Early management can slow progression and reduce symptoms</li>
-          <li>Many people live well with arthritis using the right strategies</li>
-          <li>Arthritis is not a single disease but a group of conditions</li>
-        </ul>
-      </section>
-
-      <section id="types" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">Types of arthritis</h2>
-
-        <h3 className="text-xl font-bold mb-2 mt-6">
-          <Link to="/conditions/osteoarthritis" className="text-primary hover:underline">Osteoarthritis (OA)</Link>
-        </h3>
-        <p className="leading-relaxed mb-4">
-          The most common type, affecting around 8 million people in the UK.
-          In osteoarthritis the protective cartilage on the ends of the bones breaks down,
-          causing pain, swelling and problems moving the joint (NHS). It typically
-          affects the knees, hips, hands and spine. Symptoms develop gradually and
-          worsen with activity.{' '}
-          <Link to="/conditions/osteoarthritis" className="text-primary hover:underline font-semibold">
-            Read our osteoarthritis guide
-          </Link>.
-        </p>
-
-        <h3 className="text-xl font-bold mb-2 mt-6">
-          <Link to="/conditions/rheumatoid-arthritis" className="text-primary hover:underline">Rheumatoid Arthritis (RA)</Link>
-        </h3>
-        <p className="leading-relaxed mb-4">
-          An autoimmune condition where the body's own immune system mistakenly attacks
-          the joints. This causes swelling, pain and often fatigue. RA can develop
-          rapidly and may affect your whole body, not just the joints.{' '}
-          <Link to="/conditions/rheumatoid-arthritis" className="text-primary hover:underline font-semibold">
-            Read our rheumatoid arthritis guide
-          </Link>.
-        </p>
-
-        <h3 className="text-xl font-bold mb-2 mt-6">
-          <Link to="/conditions/juvenile-arthritis" className="text-primary hover:underline">Juvenile Arthritis (JA)</Link>
-        </h3>
-        <p className="leading-relaxed mb-4">
-          Arthritis affecting children under 16. Despite the name, juvenile arthritis
-          can persist into adulthood. Early diagnosis and treatment are crucial.{' '}
-          <Link to="/conditions/juvenile-arthritis" className="text-primary hover:underline font-semibold">
-            Read our juvenile arthritis guide
-          </Link>.
-        </p>
-
-        <h3 className="text-xl font-bold mb-2 mt-6">Other types</h3>
-        <p className="leading-relaxed">
-          <Link to="/conditions/psoriatic-arthritis" className="text-primary hover:underline">Psoriatic arthritis</Link>,{' '}
-          <Link to="/conditions/ankylosing-spondylitis" className="text-primary hover:underline">ankylosing spondylitis</Link>,{' '}
-          <Link to="/conditions/gout" className="text-primary hover:underline">gout</Link>,{' '}
-          <Link to="/conditions/lupus" className="text-primary hover:underline">lupus</Link>, and many others.
-          Each type requires tailored management. If you think you have arthritis, see
-          your GP for diagnosis.
-        </p>
-      </section>
-
-      <section id="symptoms" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">Symptoms & diagnosis</h2>
-        <p className="mb-4 leading-relaxed">
-          Arthritis symptoms vary depending on the type and which joints are affected.
-          However, some symptoms are common across most types:
-        </p>
-        <ul className="list-disc list-inside space-y-2 mb-4 ml-4">
-          <li>Joint pain and stiffness (especially in the morning)</li>
-          <li>Swelling, redness and warmth around affected joints</li>
-          <li>Reduced range of motion and difficulty moving</li>
-          <li>Fatigue and general tiredness</li>
-          <li>Low mood and anxiety (often from chronic pain)</li>
-          <li>Sleep disturbance</li>
-        </ul>
-        <p className="leading-relaxed">
-          <strong>When to see your GP:</strong> If you have joint pain, stiffness or
-          swelling lasting more than 2 weeks, contact your GP. Early diagnosis is
-          crucial for effective management and preventing joint damage.
-        </p>
-      </section>
-
+      <section className="mb-12"><h2 className="text-2xl font-bold mb-4">Find the right guide</h2><p><Link to="/conditions/arthritis" className="underline">Understand the different types of arthritis</Link>, or <Link to="/guides/uk-arthritis" className="underline">plan your next NHS appointment</Link>.</p></section>
       <section id="management" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">Management strategies</h2>
         <p className="mb-4 leading-relaxed">
