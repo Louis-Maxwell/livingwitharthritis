@@ -1,0 +1,10 @@
+import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import SeoHead from "@/components/SeoHead";
+import { Helmet } from "react-helmet-async";
+import drafts from "@/data/approvedClinicalRewrites.json";
+export default function ApprovedClinicalArticle({path}:{path:keyof typeof drafts}) {
+ const draft=drafts[path];
+ return <><SeoHead title={draft.title} description={draft.sections[0].paragraphs[0]} path={path} type="article"/><Helmet><script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"MedicalWebPage",name:draft.title,url:`https://livingwitharthritis.org.uk${path}`,inLanguage:"en-GB",dateModified:"2026-11-26",publisher:{"@type":"Organization",name:"Living With Arthritis"}})}</script></Helmet><Header/><main id="main-content"><article className="max-w-4xl mx-auto px-4 py-12"><h1 className="text-3xl md:text-5xl font-bold mb-6">{draft.title}</h1><p className="text-sm text-muted-foreground mb-8">Editorial update: 26 November 2026. General information, not a diagnosis or personal treatment plan.</p>{draft.sections.map(s=><section key={s.heading} className="mb-8"><h2 className="text-2xl font-bold mb-4">{s.heading}</h2>{s.paragraphs.map(text=><p key={text} className="mb-4 leading-relaxed">{text}</p>)}</section>)}<section className="mb-8"><h2 className="text-2xl font-bold mb-4">Sources</h2><ul className="list-disc pl-6">{draft.sources.map(([url,label])=><li key={url}><a href={url} className="underline">{label}</a></li>)}</ul></section><nav aria-label="Related arthritis guides" className="flex flex-col gap-3"><Link to="/conditions/arthritis" className="underline">Arthritis types and symptoms</Link><Link to="/living-with-arthritis" className="underline">Practical help for daily life with arthritis</Link><Link to="/guides/uk-arthritis" className="underline">Plan your next NHS appointment</Link><Link to="/library" className="underline">Browse all guides</Link></nav></article></main><Footer/></>;
+}
