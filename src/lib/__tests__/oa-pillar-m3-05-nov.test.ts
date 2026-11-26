@@ -9,33 +9,12 @@ const scope = readFileSync(resolve(__dirname, "../../../docs/M3-LINKABLE-ASSET-P
 const tracker = readFileSync(resolve(__dirname, "../../../docs/GROWTH-5-MONTH-EXECUTION-TRACKER.md"), "utf8");
 
 describe("Month 3 OA pillar (5 Nov)", () => {
-  it("is reviewed and dated 2026-11-05", () => {
-    expect(oa).toContain('credential="HCPC PH128483"');
-    expect(oa).toContain('"dateModified": "2026-11-05"');
-    expect(oa).toContain('"lastReviewed": "2026-11-05"');
-    expect(oa).toContain('<LastReviewed date="2026-11-05" />');
-    expect(oa).toContain('date="November 2026"');
-    expect(oa).toContain('EducationalDisclaimerBox lastReviewed="2026-11-05"');
-    expect(oa).toContain("LOUIS_MAXWELL_REF");
-    expect(oa).toContain('<UrgentHelpAndSources path="/conditions/osteoarthritis"');
-  });
-
-  it("has the customer-first blocks", () => {
-    for (const s of [
-      "OA right now: start here",
-      "Red flags: get help now",
-      "What osteoarthritis is (plain English)",
-      "Diagnosis: GP first, imaging not always first",
-      "Core treatments: exercise, weight, information",
-      "Pain relief aligned with NICE NG226",
-      "Treatments NICE does not recommend for OA",
-      "When to see your GP",
-      "NHS 111",
-      "999",
-      "NG226",
-    ]) {
-      expect(oa).toContain(s);
-    }
+  it("uses the approved sourced revision without inherited sign-off", () => {
+    expect(oa).toContain('ApprovedClinicalArticle path="/conditions/osteoarthritis"');
+    const source=JSON.parse(readFileSync("src/data/approvedClinicalRewrites.json","utf8"))["/conditions/osteoarthritis"];
+    expect(source.sources.some((r:string[])=>r[0].includes("ng226"))).toBe(true);
+    expect(JSON.stringify(source)).toContain("30 minutes");
+    expect(oa).not.toContain("MedicalReviewBadge");
   });
 
   it("links to gold-pass spokes and hubs", () => {
