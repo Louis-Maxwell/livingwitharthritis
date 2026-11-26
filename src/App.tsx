@@ -559,6 +559,25 @@ function AppWithSync() {
       <RootOrganizationSchema />
       <CrawlableResourceLinks />
       <AnimatedRoutes />
+      {/* Mount optional in-flow controls only after this route tree commits.
+          A loaded window is not proof that a lazy route has finished loading. */}
+      <DeferredMount timeout={1200}>
+        <ErrorBoundary>
+          <Suspense fallback={null}>
+            <EngagementTracker />
+            <CookieBanner />
+            <MobileBottomNav />
+            <MobileNextStepBar />
+          </Suspense>
+        </ErrorBoundary>
+      </DeferredMount>
+      <DeferredMount timeout={4000}>
+        <ErrorBoundary>
+          <Suspense fallback={null}>
+            <ChatBotWidget />
+          </Suspense>
+        </ErrorBoundary>
+      </DeferredMount>
     </>
   );
 }
@@ -579,23 +598,6 @@ const App = () => {
               <Suspense fallback={null}>
                 <AppWithSync />
               </Suspense>
-              <DeferredMount timeout={1200}>
-                <ErrorBoundary>
-                  <Suspense fallback={null}>
-                    <EngagementTracker />
-                    <CookieBanner />
-                    <MobileBottomNav />
-                    <MobileNextStepBar />
-                  </Suspense>
-                </ErrorBoundary>
-              </DeferredMount>
-              <DeferredMount timeout={4000}>
-                <ErrorBoundary>
-                  <Suspense fallback={null}>
-                    <ChatBotWidget />
-                  </Suspense>
-                </ErrorBoundary>
-              </DeferredMount>
             </BrowserRouter>
         </QueryClientProvider>
       </ThemeProvider>
