@@ -19,6 +19,11 @@ Crawler access is set by https://livingwitharthritis.org.uk/robots.txt. These di
 - Editorial standards and review process: https://livingwitharthritis.org.uk/editorial-standards
 - Start here: https://livingwitharthritis.org.uk/living-with-arthritis
 
+### Welfare and benefits pathways
+
+- PIP and benefits: https://livingwitharthritis.org.uk/guides/benefits-pip
+- Printable evidence diary: https://livingwitharthritis.org.uk/resources/pip-evidence-diary
+
 ## Source-based priority answers
 
 ### What helps knee osteoarthritis?
