@@ -33,9 +33,10 @@ describe("priority pages: NHS + NICE sources and urgent-help red flags", () => {
   });
 
   it("every component is wired into its page", () => {
+    expect(readFileSync("src/pages/conditions/Osteoarthritis.tsx","utf8")).toContain("ApprovedClinicalArticle");
     for (const f of ["src/pages/BlogPost.tsx", "src/components/conditions/ConditionPageTemplate.tsx", "src/pages/ArthritisFlareUps.tsx"])
       expect(readFileSync(f, "utf8")).toContain("<UrgentHelpAndSources");
-    for (const f of ["Arthritis", "Osteoarthritis", "RheumatoidArthritis", "PsoriaticArthritis", "KneeArthritis", "HipArthritis", "HandArthritis"])
+    for (const f of ["Arthritis", "RheumatoidArthritis", "PsoriaticArthritis", "KneeArthritis", "HipArthritis", "HandArthritis"])
       expect(readFileSync(`src/pages/conditions/${f}.tsx`, "utf8")).toContain("<UrgentHelpAndSources");
   });
 });
