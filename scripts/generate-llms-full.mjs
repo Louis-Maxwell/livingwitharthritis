@@ -145,6 +145,16 @@ export function buildBlogSections(rows) {
   return rows
     .filter((r) => r.slug && !REDIRECT_SLUGS.has(r.slug))
     .map((r) => {
+      // Do not republish summaries or source references for CKS-dependent
+      // articles while their licensing/provenance review is open. Keep the
+      // canonical article discoverable without changing its published wording.
+      const cksDependent = (r.citations || []).some((source) =>
+        /(?:cks\.nice\.org\.uk|clinical knowledge summar)/i.test(JSON.stringify(source)));
+      if (cksDependent) return [
+        `## ${r.title ?? r.slug}`,
+        `URL: ${BASE}/blog/${r.slug}`,
+        'Navigation only. Article summary and references are withheld from this discovery digest pending a source-permissions review.',
+      ].join('\n');
       const answer = r.direct_answer || r.excerpt;
       if (!answer) return null;
       const lines = [
