@@ -11,6 +11,9 @@ import { describe, expect, it } from "vitest";
 const postsDir = resolve(process.cwd(), "src/content/blog/posts");
 const UNNAMED_PANEL = /Clinical (Review|Advisory) (Board|Panel)/i;
 
+const approved26Nov = new Set(["manage-arthritis-pain-flare-ups-night", "cold-weather-arthritis-uk-winter", "arthritis-flare-early-warning-signs", "heat-or-ice-for-arthritis", "expert-qa-exercising-through-a-flare-up", "glucosamine-vs-collagen"]);
+const note26Nov = (slug: string) => slug === "glucosamine-vs-collagen" ? "Editorial source update, 26 November 2026. This revised article is awaiting Louis Maxwell's final clinical review. No independent clinical review is claimed." : "Editorial source update, 26 November 2026. No new independent clinical review is claimed.";
+
 type Post = { slug: string; reviewStatus?: string; content: string };
 
 describe("M2 trust sweep — unnamed reviewer labels", () => {
@@ -29,7 +32,7 @@ describe("M2 trust sweep — unnamed reviewer labels", () => {
       expect(p.reviewStatus, p.slug).toBeUndefined();
       expect(p.content, p.slug).not.toMatch(/pending clinical review/i);
       if (p.is_published) {
-        if (p.editorial_review_note) { expect(p.reviewed_by, p.slug).toBeNull(); if (p.slug === 'arthritis-hows-life-living-with-arthritis') expect(p.editorial_review_note).toBe('Publication wording approved by Louis Maxwell on 26 November 2026. This records approval of the draft, not independent clinical review.'); else expect(p.editorial_review_note).toMatch(/not (?:yet )?had a fresh (?:independent benefits or legal |clinical |specialist welfare-rights or qualified clinical )review/); expect(p.reviewer_credentials, p.slug).toBeNull(); expect(p.last_reviewed, p.slug).toBeUndefined(); }
+        if (p.editorial_review_note) { expect(p.reviewed_by, p.slug).toBeNull(); if (p.slug === 'arthritis-hows-life-living-with-arthritis') expect(p.editorial_review_note).toBe('Publication wording approved by Louis Maxwell on 26 November 2026. This records approval of the draft, not independent clinical review.'); else if (approved26Nov.has(p.slug)) expect(p.editorial_review_note).toBe(note26Nov(p.slug)); else expect(p.editorial_review_note).toMatch(/not (?:yet )?had a fresh (?:independent benefits or legal |clinical |specialist welfare-rights or qualified clinical )review/); expect(p.reviewer_credentials, p.slug).toBeNull(); expect(p.last_reviewed, p.slug).toBeUndefined(); }
         else expect(p.reviewed_by, p.slug).toBe("Louis Maxwell");
       }
     }
