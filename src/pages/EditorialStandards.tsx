@@ -50,7 +50,7 @@ export default function EditorialStandards() {
   return (
     <>
       <Helmet>
-        <title>Editorial & Medical Review Standards | Living With Arthritis</title>
+        <title>Editorial &amp; Medical Review Standards | Living With Arthritis</title>
         <meta
           name="description"
           content="How Living With Arthritis reviews health content: HCPC-registered clinicians, NICE-aligned sourcing and clear editorial standards."
@@ -75,7 +75,7 @@ export default function EditorialStandards() {
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
           <header className="mb-10">
             <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
-              <ShieldCheck className="w-3 h-3" /> Trust & Transparency
+              <ShieldCheck className="w-3 h-3" /> Trust &amp; Transparency
             </span>
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-4 leading-tight">
               Our editorial standards
