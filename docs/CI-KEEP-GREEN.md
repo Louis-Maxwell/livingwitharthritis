@@ -35,7 +35,7 @@ On push/PR to `main`, Node **20**, `npm ci` only:
 1. **Lockfile guard** — `scripts/check-lockfile-ci.mjs` fails if `package-lock.json` is missing. CI truth is `npm ci`. `bun.lock` may exist for local/Lovable but must not replace the npm lock as CI source of truth.
 2. **Typecheck** — `tsc --noEmit` (included while the tree stays clean enough; if it becomes too noisy, skip in the workflow and note here).
 3. **Integrity Vitest slices** (must fail the job):
-   - `no-removed-backends` — no supabase / vercel / wrangler / `@supabase` resurrection
+   - `no-removed-backends` — no supabase / wrangler / `@supabase` resurrection. A redirects-only `vercel.json` is allowed; functions, rewrites and a `.vercel/` directory are not
    - `blog-catalog-integrity`
    - soft-404 / redirect safety (`seo-build-safety`, `host-redirects`, `seo-redirects`)
    - `seo-identity`

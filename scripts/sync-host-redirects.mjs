@@ -10,8 +10,10 @@ import { readFileSync, existsSync } from "node:fs";
 import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
 import { resolve } from "node:path";
 import { exactRedirects } from "./seo-redirect-map.mjs";
+import { buildVercelConfig, serializeVercelConfig } from "./lib/host-routing.mjs";
 
 const REDIRECTS_PATH = resolve("public/_redirects");
+const VERCEL_PATH = resolve("vercel.json");
 
 function missingExactLines(body) {
   const missing = [];
@@ -20,6 +22,18 @@ function missingExactLines(body) {
     if (!body.includes(line)) missing.push(line);
   }
   return missing;
+}
+
+export function vercelRedirectsDrift(redirectsBody) {
+  if (!existsSync(VERCEL_PATH)) {
+    return ["vercel.json is missing — run node scripts/sync-host-redirects.mjs"];
+  }
+  const expected = serializeVercelConfig(buildVercelConfig(redirectsBody));
+  const actual = readFileSync(VERCEL_PATH, "utf8");
+  if (actual !== expected) {
+    return ["vercel.json has drifted from public/_redirects — run node scripts/sync-host-redirects.mjs"];
+  }
+  return [];
 }
 
 export function hostRedirectsDrift() {
@@ -35,6 +49,7 @@ export function hostRedirectsDrift() {
       `public/_redirects missing exact rule: ${from} → ${to} — run node scripts/sync-host-redirects.mjs`,
     );
   }
+  failures.push(...vercelRedirectsDrift(body));
   return failures;
 }
 
@@ -60,6 +75,17 @@ export function writeHostRedirects() {
   console.log(`[host-redirects] appended ${missing.length} exact rules to public/_redirects`);
 }
 
+export function writeVercelRedirects() {
+  const body = readFileSync(REDIRECTS_PATH, "utf8");
+  const next = serializeVercelConfig(buildVercelConfig(body));
+  if (existsSync(VERCEL_PATH) && readFileSync(VERCEL_PATH, "utf8") === next) {
+    console.log("[host-redirects] vercel.json already matches public/_redirects");
+    return;
+  }
+  writeFileAtomicSync(VERCEL_PATH, next);
+  console.log("[host-redirects] wrote vercel.json from public/_redirects");
+}
+
 const isCheck = process.argv.includes("--check");
 if (isCheck) {
   const failures = hostRedirectsDrift();
@@ -70,4 +96,5 @@ if (isCheck) {
   console.log("✓ public/_redirects contains exact redirects from the map");
 } else if (process.argv[1]?.includes("sync-host-redirects")) {
   writeHostRedirects();
+  writeVercelRedirects();
 }

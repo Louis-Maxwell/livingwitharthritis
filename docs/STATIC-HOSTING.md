@@ -13,11 +13,30 @@ unknown paths (HTTP 200). Mitigations in this repo:
 1. `scripts/generate-404.mjs` — emits `dist/404.html` (noindex, unique title).
 2. `scripts/write-redirect-html.mjs` — static noindex + canonical + refresh stubs.
 3. `public/_redirects` — Netlify/static-compatible 301 + 404 rules when supported.
-4. `scripts/sync-host-redirects.mjs` — keeps `public/_redirects` in sync with the redirect map.
+4. `scripts/sync-host-redirects.mjs` — keeps `public/_redirects` and the redirects-only `vercel.json` in sync with the redirect map.
 5. `SeoRedirectGate` — client Navigate + refresh when `_redirects` are ignored.
+
+`/404.html` is already published on the Lovable origin (noindex, title
+“Page not found”). Lovable still serves `index.html` with HTTP 200 for an
+unknown path, so the file is not used as the error document. That status
+code is a host setting. Do not claim `_redirects` or `vercel.json` change
+the live `.org.uk` responses.
 
 Cloudflare Workers / `wrangler.jsonc` / `not_found_handling: "404-page"` were
 **removed**. Do not treat Cloudflare as the required deploy path.
+
+## Vercel preview
+
+`vercel.json` is redirects only (`statusCode` 301, `trailingSlash: false`).
+It must not rewrite unknown URLs to `index.html`. Vercel applies those
+redirects before files, then serves `dist/404.html` with HTTP 404.
+
+Locale splats (`/es/*`, `/fr/*`, `/de/*`, `/pt/*`) stay in `public/_redirects`
+only. Copying them into `vercel.json` would 301 real translated pages such
+as `/es/conditions/osteoarthritis`.
+
+`/shop` is not a page. The shop placeholder was removed; the URL 301s to
+`/supplements`. A preview that still shows a Shop page is an older deploy.
 
 App-only shells (`/admin`, `/auth`, …) keep a 200 via explicit rewrite rules in
 `public/_redirects` (copied to `dist/_redirects`). Alias 301s such as
