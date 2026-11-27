@@ -202,6 +202,10 @@ const DailyTipDetail = () => {
                   <img
                     src={dailyLivingIntro.overviewImage}
                     alt="Health tips mind map"
+                    width={1280}
+                    height={853}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-auto max-h-96 object-contain bg-muted/30"
                   />
                 </div>
