@@ -3,7 +3,7 @@ import type { HubGuide } from "./types";
 export const surgeryOptions: HubGuide = {
   slug: "treatments/surgery-options",
   title: "Arthritis surgery options: from keyhole to joint replacement",
-  metaTitle: "Arthritis Surgery Options: Keyhole to Joint Replacement",
+  metaTitle: "Arthritis Surgery Options",
   description:
     "An overview of arthritis operations in the UK, from arthroscopy and fusion to joint replacement: who they help, recovery times and what to ask your surgeon.",
   answer:
