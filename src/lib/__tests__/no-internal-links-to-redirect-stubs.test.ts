@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { EXACT_SEO_REDIRECTS, BLOG_SLUG_REDIRECTS } from "../../../scripts/seo-redirect-map.mjs";
 
 /**
- * Legacy URLs are served as noindex meta-refresh stubs (Lovable ignores _redirects),
+ * Legacy URLs are served as noindex + canonical stubs (not meta-refresh stubs; Lovable ignores _redirects),
  * so every internal link to one costs crawlers an extra hop and shows up as a
  * soft-404 / "page could not be crawled". Link straight to the destination instead.
  */
