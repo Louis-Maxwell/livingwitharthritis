@@ -1963,3 +1963,8 @@ details[open] > :not(summary) {
 .blog-prose a.activity-diary-source-link {
   color: inherit;
 }
+
+/* Keep only newly revised clinical source links in the body text palette. */
+.blog-prose a.evidence-27nov-source-link {
+  color: inherit;
+}
