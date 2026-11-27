@@ -8,13 +8,14 @@ import EducationalDisclaimerBox from '@/components/seo/EducationalDisclaimerBox'
 import TopicClusterNav from '@/components/seo/TopicClusterNav';
 import copy from '@/data/supplementSafety24.json';
 import nextStep from '@/data/niceNextStep24.json';
+import { enforceTitle } from '@/lib/seoMeta';
 
 export default function SupplementSafetyGuide({ slug }: { slug: keyof typeof copy }) {
   const page = copy[slug];
   const path = slug.includes("-vs-") ? `/guides/${slug}` : `/supplements/${slug}`;
   const url = `https://livingwitharthritis.org.uk${path}`;
   return <><Helmet>
-    <title>{page.title} | Living With Arthritis</title>
+    <title>{enforceTitle(page.title, { route: path })}</title>
     <meta name="description" content={page.description} />
     <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "MedicalWebPage", name: page.title, url, about: { "@type": "MedicalEntity", name: page.title } })}</script>
     <link rel="canonical" href={url} />
