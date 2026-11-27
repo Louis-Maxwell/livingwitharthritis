@@ -26,7 +26,7 @@ function loadResolver(): Promise<Resolver> {
  * Client-side redirect for hosts that serve the SPA shell for every path
  * (HTTP 200). Paired with:
  *   - public/_redirects          — Netlify / static-host 301s
- *   - dist/<path>/index.html     — static noindex+canonical+refresh stubs
+ *   - dist/<path>/index.html     — static noindex+canonical stubs (no meta-refresh)
  *     written by scripts/write-redirect-html.mjs for Lovable's SPA host,
  *     which ignores _redirects and otherwise returns the homepage shell.
  */
@@ -76,8 +76,7 @@ export default function SeoRedirectGate({ children }: { children: ReactNode }) {
       <Helmet>
         <link rel="canonical" href={`${SITE}${dest}`} />
         <meta name="robots" content="noindex,follow" />
-        <meta httpEquiv="refresh" content={`0;url=${href}`} />
-      </Helmet>
+              </Helmet>
       <Navigate to={href} replace />
     </>
   );
