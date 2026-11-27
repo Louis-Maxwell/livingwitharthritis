@@ -53,7 +53,7 @@ describe("Review labelling gate (27 Oct 2026)", () => {
     for (const p of allPublished.filter((p) => p.editorial_review_note)) {
       expect(p.reviewed_by, p.slug).toBeNull();
       expect(p.reviewer_credentials, p.slug).toBeNull();
-      if (p.slug === 'arthritis-hows-life-living-with-arthritis') expect(p.editorial_review_note).toBe('Publication wording approved by Louis Maxwell on 26 November 2026. This records approval of the draft, not independent clinical review.'); else if (new Set(['arthritis-fatigue-explained', 'menopause-hrt-and-joint-pain']).has(p.slug)) expect(p.editorial_review_note).toBe("Editorial source update. This revised article awaits Louis Maxwell's clinical review. No independent clinical review is claimed."); else if (approved26Nov.has(p.slug)) expect(p.editorial_review_note).toBe(note26Nov(p.slug)); else expect(p.editorial_review_note, p.slug).toMatch(/not (yet )?had a fresh/);
+      if (p.slug === 'arthritis-hows-life-living-with-arthritis') expect(p.editorial_review_note).toBe('Publication wording approved by Louis Maxwell on 26 November 2026. This records approval of the draft, not independent clinical review.'); else if (new Set(['arthritis-fatigue-explained', 'menopause-hrt-and-joint-pain', 'swimming-for-arthritis', 'arthritis-and-work-uk', 'cold-weather-arthritis-uk-winter']).has(p.slug)) expect(p.editorial_review_note).toBe("Editorial source update. This revised article awaits Louis Maxwell's clinical review. No independent clinical review is claimed."); else if (approved26Nov.has(p.slug)) expect(p.editorial_review_note).toBe(note26Nov(p.slug)); else expect(p.editorial_review_note, p.slug).toMatch(/not (yet )?had a fresh/);
     }
     const bad = published.filter(
       (p) =>

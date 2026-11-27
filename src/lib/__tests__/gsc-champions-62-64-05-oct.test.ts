@@ -108,7 +108,7 @@ describe("GSC Champions 62–64 (5 Oct): sleep + mental health + cold weather", 
         expect(json.last_reviewed).toBeUndefined();
         expect(json.reviewed_by).toBeNull();
         expect(json.reviewer_credentials).toBeNull();
-        expect(json.editorial_review_note).toBe("Editorial source update, 26 November 2026. No new independent clinical review is claimed.");
+        expect(json.editorial_review_note).toBe("Editorial source update. This revised article awaits Louis Maxwell's clinical review. No independent clinical review is claimed.");
       } else {
         expect(json.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
         expect(json.reviewed_by).toMatch(/Louis Maxwell/);
