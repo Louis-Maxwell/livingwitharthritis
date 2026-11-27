@@ -28,16 +28,8 @@ const PACING_LINKS = [
   "/guides/benefits-pip",
 ];
 
-const WORK_LINKS = [
-  "/blog/access-to-work-scheme-arthritis-guide",
-  "/blog/sick-pay-fit-notes-time-off-work-arthritis",
-  "/guides/work-with-arthritis",
-  "/blog/energy-management-and-pacing-arthritis",
-  "/guides/benefits-pip",
-  "/faq/arthritis-disability-benefits-uk",
-  "/guides/newly-diagnosed",
-  "/guides/arthritis-pain-relief",
-];
+// Exact approved replacement keeps the benefits hub; older related-link block was replaced.
+const WORK_LINKS = ["/guides/benefits-pip"];
 
 describe("GSC Champions 56–58 (1 Oct): carers-assessment + pacing + work", () => {
   const carers = readFileSync(
@@ -80,7 +72,9 @@ describe("GSC Champions 56–58 (1 Oct): carers-assessment + pacing + work", () 
   const workJson = JSON.parse(work) as {
     last_reviewed?: string;
     reviewStatus?: string;
-    reviewed_by?: string;
+    reviewed_by?: string | null;
+    reviewer_credentials?: string | null;
+    editorial_review_note?: string;
     meta_title?: string;
     citations?: Array<{ url: string }>;
     content: string;
@@ -131,10 +125,12 @@ describe("GSC Champions 56–58 (1 Oct): carers-assessment + pacing + work", () 
     expect(pacing).not.toMatch(/Oswestry/i);
   });
 
-  it("Arthritis at work blog is clinically reviewed 2026-10-01 with CTR meta, GOV.UK cites and customer-job links", () => {
-    expect(workJson.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+  it("Approved revised work guide retains source and link guards without inherited clinical sign-off", () => {
+    expect(workJson.last_reviewed).toBeUndefined();
     expect(workJson.reviewStatus).toBeUndefined();
-    expect(workJson.reviewed_by).toBe("Louis Maxwell");
+    expect(workJson.reviewed_by).toBeNull();
+    expect(workJson.reviewer_credentials).toBeNull();
+    expect(workJson.editorial_review_note).toBe("Editorial source update. This revised article awaits Louis Maxwell's clinical review. No independent clinical review is claimed.");
     expect(workJson.meta_title).toMatch(/Arthritis at Work UK: Rights, Adjustments/i);
     const urls = (workJson.citations || []).map((c) => c.url);
     expect(urls).toEqual(
@@ -148,7 +144,9 @@ describe("GSC Champions 56–58 (1 Oct): carers-assessment + pacing + work", () 
     for (const href of WORK_LINKS) {
       expect(workJson.content.includes(`href="${href}"`), `Work missing ${href}`).toBe(true);
     }
-    expect(workJson.content).toMatch(/1218461/);
+    expect(workJson.content).toContain("not personal legal, benefits or medical advice");
+    expect(workJson.content).toContain("first full day of sickness absence");
+    expect(workJson.content).toContain("Northern Ireland has a different legal framework");
     expect(work).not.toMatch(/Oswestry/i);
   });
 
