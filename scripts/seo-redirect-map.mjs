@@ -7,7 +7,7 @@
  * Pattern / splat rules (locale prefixes, city×condition) stay in
  * public/_redirects + SeoRedirectGate. This module only lists finite
  * exact URLs we can drop as real files so a host that ignores _redirects
- * still serves a canonical+instant-refresh document instead of the
+ * still serves a noindex canonical document instead of the
  * homepage SPA shell.
  */
 import { readFileSync } from "node:fs";
@@ -157,7 +157,7 @@ export function buildRedirectHtml(from, to, social = null) {
   const escapeHtml = (value) => String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   const title = social?.title || `Moved permanently to ${abs} | Living With Arthritis`;
   const description = social?.description || `This URL (${fromPath}) has permanently moved to ${abs}. Use the destination page on Living With Arthritis.`;
-  // Social crawlers may not follow meta-refresh. Describe the canonical article,
+  // Social crawlers may not run the JS redirect. Describe the canonical article,
   // while keeping this document a redirect, not a second article page.
   const socialTags = social ? `
     <meta property="og:title" content="${escapeHtml(title)}" />
@@ -174,8 +174,8 @@ export function buildRedirectHtml(from, to, social = null) {
     <meta name="twitter:image" content="${escapeHtml(social.ogImage)}" />` : ""}` : "";
   // Lovable CDN ignores HTTP 301 files. These stubs must:
   // 1) never look like empty homepage soft-404s
-  // 2) permit crawling and destination discovery without a conflicting noindex
-  // 3) point Google at the live destination via canonical + refresh
+  // 2) stay out of the index (noindex) while pointing crawlers at the destination via canonical
+  // 3) no meta-refresh is emitted; the real 301 lives in public/_redirects
   return `<!DOCTYPE html>
 <html lang="en-GB">
   <head>
@@ -183,9 +183,8 @@ export function buildRedirectHtml(from, to, social = null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(title)}</title>
     <meta name="description" content="${escapeHtml(description)}" />${socialTags}
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="noindex, follow" />
     <link rel="canonical" href="${abs}" />
-    <meta http-equiv="refresh" content="0;url=${safeDest}" />
     <script>location.replace(${jsDest}+location.search+location.hash);</script>
   </head>
   <body>
