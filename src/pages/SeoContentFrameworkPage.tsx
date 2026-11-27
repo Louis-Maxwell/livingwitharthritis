@@ -17,6 +17,7 @@ export default function SeoContentFrameworkPage() {
     <>
       <Helmet>
         <title>How we write SEO content | Living With Arthritis</title>
+        <meta name="robots" content="noindex, follow" />
         <meta
           name="description"
           content="Louis Maxwell's 8-step SEO content framework: search intent, keyword, strong title, H2/H3 outline, helpful content, on-page SEO, internal links and readability."
