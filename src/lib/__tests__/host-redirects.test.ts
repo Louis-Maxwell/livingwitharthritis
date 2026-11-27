@@ -46,20 +46,17 @@ describe("host + client SEO redirects", () => {
     }
   });
 
-  it("writes crawlable redirect HTML with canonical, instant refresh and no article body", () => {
+  it("writes crawlable redirect HTML with canonical, noindex and a JS redirect (no meta-refresh)", () => {
     const html = buildRedirectHtml(
       "/blog/mindfulness-meditation-chronic-pain",
       "/blog/mindfulness-chronic-pain-arthritis-guide",
     );
-    expect(html).toContain('name="robots" content="index, follow"');
-    expect(html).not.toContain("noindex");
-    expect(html).not.toContain("nofollow");
+    expect(html).toContain('name="robots" content="noindex, follow"');
+        expect(html).not.toContain("nofollow");
     expect(html).toContain(
       'rel="canonical" href="https://livingwitharthritis.org.uk/blog/mindfulness-chronic-pain-arthritis-guide"',
     );
-    expect(html).toContain(
-      'http-equiv="refresh" content="0;url=/blog/mindfulness-chronic-pain-arthritis-guide"',
-    );
+  expect(html).not.toContain('http-equiv="refresh");
     expect(html).toContain("location.replace");
     expect(html).toContain("This URL has permanently moved");
     expect(html).not.toContain('id="static-article"');

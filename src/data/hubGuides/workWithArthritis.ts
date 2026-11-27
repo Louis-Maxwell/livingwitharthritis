@@ -5,7 +5,7 @@ import type { HubGuide } from "./types";
 export const workWithArthritis: HubGuide = {
   "slug": "guides/work-with-arthritis",
   "title": "Working with arthritis toolkit: your rights, adjustments and support (UK)",
-  "metaTitle": "Working With Arthritis: UK Toolkit for Rights and Support",
+  "metaTitle": "Working with Arthritis: Your Rights",
   "description": "UK toolkit for working with arthritis: your rights, telling your employer, reasonable adjustments, Access to Work, flexible working, sick pay and flares.",
   "answer": "Many people with arthritis keep working, often with changes to how, when or where they do their job. If your arthritis has a substantial, long-term effect on daily life, UK law usually treats it as a disability, so your employer must make reasonable adjustments and must not treat you unfairly. Access to Work can help pay for equipment, travel and support.",
   "breadcrumbs": [

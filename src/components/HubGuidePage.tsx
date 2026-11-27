@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { MEDICAL_DISCLAIMER_PATH, MEDICAL_DISCLAIMER_SHORT } from "@/lib/medicalDisclaimer";
 import { HUB_GUIDE_REVIEWER, type HubGuide } from "@/data/hubGuides";
+import { enforceTitle } from "@/lib/seoMeta";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -61,7 +62,7 @@ export default function HubGuidePage({ guide }: { guide: HubGuide }) {
   return (
     <>
       <Helmet>
-        <title>{`${guide.metaTitle} | Living With Arthritis`}</title>
+        <title>{enforceTitle(guide.metaTitle, { route: `/${guide.slug}` })}</title>
         <meta name="description" content={guide.description} />
         <meta property="og:title" content={guide.metaTitle} />
         <meta property="og:description" content={guide.description} />

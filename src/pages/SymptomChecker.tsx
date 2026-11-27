@@ -20,9 +20,10 @@ import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox"
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_SYMPTOM_CHECKER } from "@/data/clinical/ukCitations";
+import { enforceTitle } from "@/lib/seoMeta";
 
 const PAGE_URL = "https://livingwitharthritis.org.uk/symptom-checker";
-const TITLE = "Arthritis Symptom Checker (UK) — Educational Guide Finder";
+const TITLE = "Arthritis Symptom Checker";
 const DESCRIPTION =
   "Free UK arthritis symptom checker: urgent red-flag screen, joint areas, duration and severity. Get educational links to condition hubs, exercise, diet and PIP — not a diagnosis.";
 
@@ -72,17 +73,17 @@ export default function SymptomChecker() {
   return (
     <>
       <Helmet>
-        <title>{TITLE} | Living With Arthritis</title>
+        <title>{enforceTitle(TITLE, { route: "/symptom-checker" })}</title>
         <meta name="description" content={DESCRIPTION} />
         <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-        <meta property="og:title" content={`${TITLE} | Living With Arthritis`} />
+        <meta property="og:title" content={enforceTitle(TITLE, { route: "/symptom-checker" })} />
         <meta property="og:description" content={DESCRIPTION} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={PAGE_URL} />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${TITLE} | Living With Arthritis`} />
+        <meta name="twitter:title" content={enforceTitle(TITLE, { route: "/symptom-checker" })} />
         <meta name="twitter:description" content={DESCRIPTION} />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <script type="application/ld+json">{JSON.stringify(webPageJsonLd)}</script>

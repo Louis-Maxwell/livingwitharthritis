@@ -93,6 +93,7 @@ function MagazineCover({ issue, featured = false }: { issue: MagazineIssue; feat
         className="h-full w-full object-cover"
         width={featured ? 480 : 320}
         height={featured ? 640 : 427}
+        loading={featured ? "eager" : "lazy"}
       />
     );
   }

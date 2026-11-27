@@ -38,11 +38,11 @@ describe("Google soft-404 glossary repairs", () => {
       for (const source of GLOSSARY_CONTENT[slug].sources || []) expect(html).toContain(source.url);
     }
   });
-  it("keeps every redirect destination and immediate refresh without noindex", () => {
+  it("keeps every redirect destination and JS redirect with noindex and no meta-refresh", () => {
     for (const { from, to } of exactRedirects()) {
       const html = buildRedirectHtml(from, to);
-      expect(html).not.toContain("noindex");
-      expect(html).toContain(`http-equiv="refresh" content="0;url=${to}"`);
+      expect(html).toContain('name="robots" content="noindex, follow"');
+      expect(html).not.toContain('http-equiv="refresh"');
       expect(html).toContain(`rel="canonical" href="https://livingwitharthritis.org.uk${to}"`);
     }
     expect(fs.readFileSync("public/_redirects", "utf8")).toContain(" 301");
