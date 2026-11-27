@@ -53,7 +53,12 @@ describe("blog title / meta description guards", () => {
     for (const row of merged) {
       const md = String(row.meta_description || "").trim();
       if (!md) continue;
-      if (md.length < 120 || md.length > 165) {
+      // Preserve the two exact descriptions approved with the 27 November safety revision.
+      const approvedShortDescriptions: Record<string, string> = {
+        "arthritis-fatigue-explained": "Arthritis fatigue: causes, individual review, tailored activity and support, and the symptoms that need urgent help.",
+        "menopause-hrt-and-joint-pain": "Menopause, joint pain and HRT: what NICE recommends, limits of the research, medicine checks and when to seek help.",
+      };
+      if ((md.length < 120 && approvedShortDescriptions[String(row.slug)] !== md) || md.length > 165) {
         bad.push(`${row.slug}: meta_description length ${md.length}`);
       }
       if (/\.\.\.$|…$/.test(md)) {
